@@ -1,0 +1,662 @@
+﻿<XtraSerializer version="1.0" application="AccordionControl">
+  <property name="#LayoutVersion" />
+  <property name="ItemHeight">0</property>
+  <property name="GroupHeight">0</property>
+  <property name="ExpandElementMode">SingleItem</property>
+  <property name="AnimationType">None</property>
+  <property name="Elements" iskey="true" value="1">
+    <property name="Item1" isnull="true" iskey="true">
+      <property name="#LayoutVersion" />
+      <property name="Style">Group</property>
+      <property name="ControlFooterAlignment">Near</property>
+      <property name="VisibleInFooter">false</property>
+      <property name="HeaderIndent">-1</property>
+      <property name="HeaderVisible">false</property>
+      <property name="Expanded">true</property>
+      <property name="Visible">true</property>
+      <property name="Text" />
+      <property name="Name">accordionControlElement1</property>
+      <property name="Height">0</property>
+      <property name="HeaderTemplate" iskey="true" value="4">
+        <property name="Item1" isnull="true" iskey="true" />
+        <property name="Item2" isnull="true" iskey="true" />
+        <property name="Item3" isnull="true" iskey="true" />
+        <property name="Item4" isnull="true" iskey="true" />
+      </property>
+      <property name="Elements" iskey="true" value="10">
+        <property name="Item1" isnull="true" iskey="true">
+          <property name="#LayoutVersion" />
+          <property name="Style">Item</property>
+          <property name="ControlFooterAlignment">Near</property>
+          <property name="VisibleInFooter">true</property>
+          <property name="HeaderIndent">-1</property>
+          <property name="HeaderVisible">true</property>
+          <property name="Expanded">false</property>
+          <property name="Visible">true</property>
+          <property name="Text">Panel</property>
+          <property name="Name">bPanel</property>
+          <property name="Height">0</property>
+          <property name="HeaderTemplate" iskey="true" value="4">
+            <property name="Item1" isnull="true" iskey="true" />
+            <property name="Item2" isnull="true" iskey="true" />
+            <property name="Item3" isnull="true" iskey="true" />
+            <property name="Item4" isnull="true" iskey="true" />
+          </property>
+          <property name="Elements" iskey="true" value="0" />
+        </property>
+        <property name="Item2" isnull="true" iskey="true">
+          <property name="#LayoutVersion" />
+          <property name="Style">Item</property>
+          <property name="ControlFooterAlignment">Near</property>
+          <property name="VisibleInFooter">true</property>
+          <property name="HeaderIndent">-1</property>
+          <property name="HeaderVisible">true</property>
+          <property name="Expanded">false</property>
+          <property name="Visible">true</property>
+          <property name="Text">Şirkətim</property>
+          <property name="Name">bCompanyGroup</property>
+          <property name="Height">0</property>
+          <property name="HeaderTemplate" iskey="true" value="4">
+            <property name="Item1" isnull="true" iskey="true" />
+            <property name="Item2" isnull="true" iskey="true" />
+            <property name="Item3" isnull="true" iskey="true" />
+            <property name="Item4" isnull="true" iskey="true" />
+          </property>
+          <property name="Elements" iskey="true" value="0" />
+        </property>
+        <property name="Item3" isnull="true" iskey="true">
+          <property name="#LayoutVersion" />
+          <property name="Style">Group</property>
+          <property name="ControlFooterAlignment">Near</property>
+          <property name="VisibleInFooter">true</property>
+          <property name="HeaderIndent">-1</property>
+          <property name="HeaderVisible">true</property>
+          <property name="Expanded">false</property>
+          <property name="Visible">true</property>
+          <property name="Text">Məhsullar</property>
+          <property name="Name">bCategoryProduct</property>
+          <property name="Height">0</property>
+          <property name="HeaderTemplate" iskey="true" value="4">
+            <property name="Item1" isnull="true" iskey="true" />
+            <property name="Item2" isnull="true" iskey="true" />
+            <property name="Item3" isnull="true" iskey="true" />
+            <property name="Item4" isnull="true" iskey="true" />
+          </property>
+          <property name="Elements" iskey="true" value="7">
+            <property name="Item1" isnull="true" iskey="true">
+              <property name="#LayoutVersion" />
+              <property name="Style">Item</property>
+              <property name="ControlFooterAlignment">Near</property>
+              <property name="VisibleInFooter">true</property>
+              <property name="HeaderIndent">-1</property>
+              <property name="HeaderVisible">true</property>
+              <property name="Expanded">false</property>
+              <property name="Visible">true</property>
+              <property name="Text">Məhsullar</property>
+              <property name="Name">bProductList</property>
+              <property name="Height">0</property>
+              <property name="HeaderTemplate" iskey="true" value="4">
+                <property name="Item1" isnull="true" iskey="true" />
+                <property name="Item2" isnull="true" iskey="true" />
+                <property name="Item3" isnull="true" iskey="true" />
+                <property name="Item4" isnull="true" iskey="true" />
+              </property>
+              <property name="Elements" iskey="true" value="0" />
+            </property>
+            <property name="Item2" isnull="true" iskey="true">
+              <property name="#LayoutVersion" />
+              <property name="Style">Item</property>
+              <property name="ControlFooterAlignment">Near</property>
+              <property name="VisibleInFooter">true</property>
+              <property name="HeaderIndent">-1</property>
+              <property name="HeaderVisible">true</property>
+              <property name="Expanded">false</property>
+              <property name="Visible">true</property>
+              <property name="Text">Kateqoriyalar</property>
+              <property name="Name">bCategory</property>
+              <property name="Height">0</property>
+              <property name="HeaderTemplate" iskey="true" value="4">
+                <property name="Item1" isnull="true" iskey="true" />
+                <property name="Item2" isnull="true" iskey="true" />
+                <property name="Item3" isnull="true" iskey="true" />
+                <property name="Item4" isnull="true" iskey="true" />
+              </property>
+              <property name="Elements" iskey="true" value="0" />
+            </property>
+            <property name="Item3" isnull="true" iskey="true">
+              <property name="#LayoutVersion" />
+              <property name="Style">Item</property>
+              <property name="ControlFooterAlignment">Near</property>
+              <property name="VisibleInFooter">true</property>
+              <property name="HeaderIndent">-1</property>
+              <property name="HeaderVisible">true</property>
+              <property name="Expanded">false</property>
+              <property name="Visible">true</property>
+              <property name="Text">Təchizatçılar</property>
+              <property name="Name">bSupplier</property>
+              <property name="Height">0</property>
+              <property name="HeaderTemplate" iskey="true" value="4">
+                <property name="Item1" isnull="true" iskey="true" />
+                <property name="Item2" isnull="true" iskey="true" />
+                <property name="Item3" isnull="true" iskey="true" />
+                <property name="Item4" isnull="true" iskey="true" />
+              </property>
+              <property name="Elements" iskey="true" value="0" />
+            </property>
+            <property name="Item4" isnull="true" iskey="true">
+              <property name="#LayoutVersion" />
+              <property name="Style">Item</property>
+              <property name="ControlFooterAlignment">Near</property>
+              <property name="VisibleInFooter">true</property>
+              <property name="HeaderIndent">-1</property>
+              <property name="HeaderVisible">true</property>
+              <property name="Expanded">false</property>
+              <property name="Visible">true</property>
+              <property name="Text">Transfer</property>
+              <property name="Name">bProductTransfer</property>
+              <property name="Height">0</property>
+              <property name="HeaderTemplate" iskey="true" value="4">
+                <property name="Item1" isnull="true" iskey="true" />
+                <property name="Item2" isnull="true" iskey="true" />
+                <property name="Item3" isnull="true" iskey="true" />
+                <property name="Item4" isnull="true" iskey="true" />
+              </property>
+              <property name="Elements" iskey="true" value="0" />
+            </property>
+            <property name="Item5" isnull="true" iskey="true">
+              <property name="#LayoutVersion" />
+              <property name="Style">Item</property>
+              <property name="ControlFooterAlignment">Near</property>
+              <property name="VisibleInFooter">true</property>
+              <property name="HeaderIndent">-1</property>
+              <property name="HeaderVisible">true</property>
+              <property name="Expanded">false</property>
+              <property name="Visible">true</property>
+              <property name="Text">Məhsul alışı</property>
+              <property name="Name">bMehsulAlis</property>
+              <property name="Height">0</property>
+              <property name="HeaderTemplate" iskey="true" value="4">
+                <property name="Item1" isnull="true" iskey="true" />
+                <property name="Item2" isnull="true" iskey="true" />
+                <property name="Item3" isnull="true" iskey="true" />
+                <property name="Item4" isnull="true" iskey="true" />
+              </property>
+              <property name="Elements" iskey="true" value="0" />
+            </property>
+            <property name="Item6" isnull="true" iskey="true">
+              <property name="#LayoutVersion" />
+              <property name="Style">Item</property>
+              <property name="ControlFooterAlignment">Near</property>
+              <property name="VisibleInFooter">true</property>
+              <property name="HeaderIndent">-1</property>
+              <property name="HeaderVisible">true</property>
+              <property name="Expanded">false</property>
+              <property name="Visible">true</property>
+              <property name="Text">Məhsul qaytarma</property>
+              <property name="Name">bRetunProduct</property>
+              <property name="Height">0</property>
+              <property name="HeaderTemplate" iskey="true" value="4">
+                <property name="Item1" isnull="true" iskey="true" />
+                <property name="Item2" isnull="true" iskey="true" />
+                <property name="Item3" isnull="true" iskey="true" />
+                <property name="Item4" isnull="true" iskey="true" />
+              </property>
+              <property name="Elements" iskey="true" value="0" />
+            </property>
+            <property name="Item7" isnull="true" iskey="true">
+              <property name="#LayoutVersion" />
+              <property name="Style">Item</property>
+              <property name="ControlFooterAlignment">Near</property>
+              <property name="VisibleInFooter">true</property>
+              <property name="HeaderIndent">-1</property>
+              <property name="HeaderVisible">true</property>
+              <property name="Expanded">false</property>
+              <property name="Visible">true</property>
+              <property name="Text">Stok izləmə</property>
+              <property name="Name">bStockView</property>
+              <property name="Height">0</property>
+              <property name="HeaderTemplate" iskey="true" value="4">
+                <property name="Item1" isnull="true" iskey="true" />
+                <property name="Item2" isnull="true" iskey="true" />
+                <property name="Item3" isnull="true" iskey="true" />
+                <property name="Item4" isnull="true" iskey="true" />
+              </property>
+              <property name="Elements" iskey="true" value="0" />
+            </property>
+          </property>
+        </property>
+        <property name="Item4" isnull="true" iskey="true">
+          <property name="#LayoutVersion" />
+          <property name="Style">Group</property>
+          <property name="ControlFooterAlignment">Near</property>
+          <property name="VisibleInFooter">true</property>
+          <property name="HeaderIndent">-1</property>
+          <property name="HeaderVisible">true</property>
+          <property name="Expanded">false</property>
+          <property name="Visible">true</property>
+          <property name="Text">Hesabatlar</property>
+          <property name="Name">bReports</property>
+          <property name="Height">0</property>
+          <property name="HeaderTemplate" iskey="true" value="4">
+            <property name="Item1" isnull="true" iskey="true" />
+            <property name="Item2" isnull="true" iskey="true" />
+            <property name="Item3" isnull="true" iskey="true" />
+            <property name="Item4" isnull="true" iskey="true" />
+          </property>
+          <property name="Elements" iskey="true" value="8">
+            <property name="Item1" isnull="true" iskey="true">
+              <property name="#LayoutVersion" />
+              <property name="Style">Item</property>
+              <property name="ControlFooterAlignment">Near</property>
+              <property name="VisibleInFooter">true</property>
+              <property name="HeaderIndent">-1</property>
+              <property name="HeaderVisible">true</property>
+              <property name="Expanded">false</property>
+              <property name="Visible">true</property>
+              <property name="Text">Məhsul alış hesabatı</property>
+              <property name="Name">bAlisHesabatList</property>
+              <property name="Height">0</property>
+              <property name="HeaderTemplate" iskey="true" value="4">
+                <property name="Item1" isnull="true" iskey="true" />
+                <property name="Item2" isnull="true" iskey="true" />
+                <property name="Item3" isnull="true" iskey="true" />
+                <property name="Item4" isnull="true" iskey="true" />
+              </property>
+              <property name="Elements" iskey="true" value="0" />
+            </property>
+            <property name="Item2" isnull="true" iskey="true">
+              <property name="#LayoutVersion" />
+              <property name="Style">Item</property>
+              <property name="ControlFooterAlignment">Near</property>
+              <property name="VisibleInFooter">true</property>
+              <property name="HeaderIndent">-1</property>
+              <property name="HeaderVisible">true</property>
+              <property name="Expanded">false</property>
+              <property name="Visible">true</property>
+              <property name="Text">Mənfəət hesabatı</property>
+              <property name="Name">bMenfeetHesabatList</property>
+              <property name="Height">0</property>
+              <property name="HeaderTemplate" iskey="true" value="4">
+                <property name="Item1" isnull="true" iskey="true" />
+                <property name="Item2" isnull="true" iskey="true" />
+                <property name="Item3" isnull="true" iskey="true" />
+                <property name="Item4" isnull="true" iskey="true" />
+              </property>
+              <property name="Elements" iskey="true" value="0" />
+            </property>
+            <property name="Item3" isnull="true" iskey="true">
+              <property name="#LayoutVersion" />
+              <property name="Style">Item</property>
+              <property name="ControlFooterAlignment">Near</property>
+              <property name="VisibleInFooter">true</property>
+              <property name="HeaderIndent">-1</property>
+              <property name="HeaderVisible">true</property>
+              <property name="Expanded">false</property>
+              <property name="Visible">true</property>
+              <property name="Text">Obyekt və Kassir üzrə hesabat</property>
+              <property name="Name">bObyektHesabatList</property>
+              <property name="Height">0</property>
+              <property name="HeaderTemplate" iskey="true" value="4">
+                <property name="Item1" isnull="true" iskey="true" />
+                <property name="Item2" isnull="true" iskey="true" />
+                <property name="Item3" isnull="true" iskey="true" />
+                <property name="Item4" isnull="true" iskey="true" />
+              </property>
+              <property name="Elements" iskey="true" value="0" />
+            </property>
+            <property name="Item4" isnull="true" iskey="true">
+              <property name="#LayoutVersion" />
+              <property name="Style">Item</property>
+              <property name="ControlFooterAlignment">Near</property>
+              <property name="VisibleInFooter">true</property>
+              <property name="HeaderIndent">-1</property>
+              <property name="HeaderVisible">true</property>
+              <property name="Expanded">false</property>
+              <property name="Visible">false</property>
+              <property name="Text">Kassir üzrə hesabat</property>
+              <property name="Name">bKassirHesabatList</property>
+              <property name="Height">0</property>
+              <property name="HeaderTemplate" iskey="true" value="4">
+                <property name="Item1" isnull="true" iskey="true" />
+                <property name="Item2" isnull="true" iskey="true" />
+                <property name="Item3" isnull="true" iskey="true" />
+                <property name="Item4" isnull="true" iskey="true" />
+              </property>
+              <property name="Elements" iskey="true" value="0" />
+            </property>
+            <property name="Item5" isnull="true" iskey="true">
+              <property name="#LayoutVersion" />
+              <property name="Style">Item</property>
+              <property name="ControlFooterAlignment">Near</property>
+              <property name="VisibleInFooter">true</property>
+              <property name="HeaderIndent">-1</property>
+              <property name="HeaderVisible">true</property>
+              <property name="Expanded">false</property>
+              <property name="Visible">true</property>
+              <property name="Text">Ümumi satış hesabatı</property>
+              <property name="Name">bUmumiHesabatList</property>
+              <property name="Height">0</property>
+              <property name="HeaderTemplate" iskey="true" value="4">
+                <property name="Item1" isnull="true" iskey="true" />
+                <property name="Item2" isnull="true" iskey="true" />
+                <property name="Item3" isnull="true" iskey="true" />
+                <property name="Item4" isnull="true" iskey="true" />
+              </property>
+              <property name="Elements" iskey="true" value="0" />
+            </property>
+            <property name="Item6" isnull="true" iskey="true">
+              <property name="#LayoutVersion" />
+              <property name="Style">Item</property>
+              <property name="ControlFooterAlignment">Near</property>
+              <property name="VisibleInFooter">true</property>
+              <property name="HeaderIndent">-1</property>
+              <property name="HeaderVisible">true</property>
+              <property name="Expanded">false</property>
+              <property name="Visible">true</property>
+              <property name="Text">Satış növ hesabatı</property>
+              <property name="Name">bSatisNovHesabatList</property>
+              <property name="Height">0</property>
+              <property name="HeaderTemplate" iskey="true" value="4">
+                <property name="Item1" isnull="true" iskey="true" />
+                <property name="Item2" isnull="true" iskey="true" />
+                <property name="Item3" isnull="true" iskey="true" />
+                <property name="Item4" isnull="true" iskey="true" />
+              </property>
+              <property name="Elements" iskey="true" value="0" />
+            </property>
+            <property name="Item7" isnull="true" iskey="true">
+              <property name="#LayoutVersion" />
+              <property name="Style">Item</property>
+              <property name="ControlFooterAlignment">Near</property>
+              <property name="VisibleInFooter">true</property>
+              <property name="HeaderIndent">-1</property>
+              <property name="HeaderVisible">true</property>
+              <property name="Expanded">false</property>
+              <property name="Visible">true</property>
+              <property name="Text">Satılan məhsullar</property>
+              <property name="Name">bSatilanMehsullarHesabatList</property>
+              <property name="Height">0</property>
+              <property name="HeaderTemplate" iskey="true" value="4">
+                <property name="Item1" isnull="true" iskey="true" />
+                <property name="Item2" isnull="true" iskey="true" />
+                <property name="Item3" isnull="true" iskey="true" />
+                <property name="Item4" isnull="true" iskey="true" />
+              </property>
+              <property name="Elements" iskey="true" value="0" />
+            </property>
+            <property name="Item8" isnull="true" iskey="true">
+              <property name="#LayoutVersion" />
+              <property name="Style">Item</property>
+              <property name="ControlFooterAlignment">Near</property>
+              <property name="VisibleInFooter">true</property>
+              <property name="HeaderIndent">-1</property>
+              <property name="HeaderVisible">true</property>
+              <property name="Expanded">false</property>
+              <property name="Visible">true</property>
+              <property name="Text">Qaytarılan məhsullar</property>
+              <property name="Name">bQaytarilanMehsullarHesabatList</property>
+              <property name="Height">0</property>
+              <property name="HeaderTemplate" iskey="true" value="4">
+                <property name="Item1" isnull="true" iskey="true" />
+                <property name="Item2" isnull="true" iskey="true" />
+                <property name="Item3" isnull="true" iskey="true" />
+                <property name="Item4" isnull="true" iskey="true" />
+              </property>
+              <property name="Elements" iskey="true" value="0" />
+            </property>
+          </property>
+        </property>
+        <property name="Item5" isnull="true" iskey="true">
+          <property name="#LayoutVersion" />
+          <property name="Style">Group</property>
+          <property name="ControlFooterAlignment">Near</property>
+          <property name="VisibleInFooter">true</property>
+          <property name="HeaderIndent">-1</property>
+          <property name="HeaderVisible">true</property>
+          <property name="Expanded">false</property>
+          <property name="Visible">false</property>
+          <property name="Text">Bank satış</property>
+          <property name="Name">bBankSalesGroup</property>
+          <property name="Height">0</property>
+          <property name="HeaderTemplate" iskey="true" value="4">
+            <property name="Item1" isnull="true" iskey="true" />
+            <property name="Item2" isnull="true" iskey="true" />
+            <property name="Item3" isnull="true" iskey="true" />
+            <property name="Item4" isnull="true" iskey="true" />
+          </property>
+          <property name="Elements" iskey="true" value="2">
+            <property name="Item1" isnull="true" iskey="true">
+              <property name="#LayoutVersion" />
+              <property name="Style">Item</property>
+              <property name="ControlFooterAlignment">Near</property>
+              <property name="VisibleInFooter">true</property>
+              <property name="HeaderIndent">-1</property>
+              <property name="HeaderVisible">true</property>
+              <property name="Expanded">false</property>
+              <property name="Visible">true</property>
+              <property name="Text">Satış</property>
+              <property name="Name">bBankSales</property>
+              <property name="Height">0</property>
+              <property name="HeaderTemplate" iskey="true" value="4">
+                <property name="Item1" isnull="true" iskey="true" />
+                <property name="Item2" isnull="true" iskey="true" />
+                <property name="Item3" isnull="true" iskey="true" />
+                <property name="Item4" isnull="true" iskey="true" />
+              </property>
+              <property name="Elements" iskey="true" value="0" />
+            </property>
+            <property name="Item2" isnull="true" iskey="true">
+              <property name="#LayoutVersion" />
+              <property name="Style">Item</property>
+              <property name="ControlFooterAlignment">Near</property>
+              <property name="VisibleInFooter">true</property>
+              <property name="HeaderIndent">-1</property>
+              <property name="HeaderVisible">true</property>
+              <property name="Expanded">false</property>
+              <property name="Visible">true</property>
+              <property name="Text">Satışı geri qaytarma</property>
+              <property name="Name">bBankReturn</property>
+              <property name="Height">0</property>
+              <property name="HeaderTemplate" iskey="true" value="4">
+                <property name="Item1" isnull="true" iskey="true" />
+                <property name="Item2" isnull="true" iskey="true" />
+                <property name="Item3" isnull="true" iskey="true" />
+                <property name="Item4" isnull="true" iskey="true" />
+              </property>
+              <property name="Elements" iskey="true" value="0" />
+            </property>
+          </property>
+        </property>
+        <property name="Item6" isnull="true" iskey="true">
+          <property name="#LayoutVersion" />
+          <property name="Style">Group</property>
+          <property name="ControlFooterAlignment">Near</property>
+          <property name="VisibleInFooter">true</property>
+          <property name="HeaderIndent">-1</property>
+          <property name="HeaderVisible">true</property>
+          <property name="Expanded">false</property>
+          <property name="Visible">true</property>
+          <property name="Text">Sazlamalar</property>
+          <property name="Name">bSettins</property>
+          <property name="Height">0</property>
+          <property name="HeaderTemplate" iskey="true" value="4">
+            <property name="Item1" isnull="true" iskey="true" />
+            <property name="Item2" isnull="true" iskey="true" />
+            <property name="Item3" isnull="true" iskey="true" />
+            <property name="Item4" isnull="true" iskey="true" />
+          </property>
+          <property name="Elements" iskey="true" value="5">
+            <property name="Item1" isnull="true" iskey="true">
+              <property name="#LayoutVersion" />
+              <property name="Style">Item</property>
+              <property name="ControlFooterAlignment">Near</property>
+              <property name="VisibleInFooter">true</property>
+              <property name="HeaderIndent">-1</property>
+              <property name="HeaderVisible">true</property>
+              <property name="Expanded">false</property>
+              <property name="Visible">true</property>
+              <property name="Text">Ümumi</property>
+              <property name="Name">bAllSettings</property>
+              <property name="Height">0</property>
+              <property name="HeaderTemplate" iskey="true" value="4">
+                <property name="Item1" isnull="true" iskey="true" />
+                <property name="Item2" isnull="true" iskey="true" />
+                <property name="Item3" isnull="true" iskey="true" />
+                <property name="Item4" isnull="true" iskey="true" />
+              </property>
+              <property name="Elements" iskey="true" value="0" />
+            </property>
+            <property name="Item2" isnull="true" iskey="true">
+              <property name="#LayoutVersion" />
+              <property name="Style">Item</property>
+              <property name="ControlFooterAlignment">Near</property>
+              <property name="VisibleInFooter">true</property>
+              <property name="HeaderIndent">-1</property>
+              <property name="HeaderVisible">true</property>
+              <property name="Expanded">false</property>
+              <property name="Visible">true</property>
+              <property name="Text">Kassalar</property>
+              <property name="Name">bKassalar</property>
+              <property name="Height">0</property>
+              <property name="HeaderTemplate" iskey="true" value="4">
+                <property name="Item1" isnull="true" iskey="true" />
+                <property name="Item2" isnull="true" iskey="true" />
+                <property name="Item3" isnull="true" iskey="true" />
+                <property name="Item4" isnull="true" iskey="true" />
+              </property>
+              <property name="Elements" iskey="true" value="0" />
+            </property>
+            <property name="Item3" isnull="true" iskey="true">
+              <property name="#LayoutVersion" />
+              <property name="Style">Item</property>
+              <property name="ControlFooterAlignment">Near</property>
+              <property name="VisibleInFooter">true</property>
+              <property name="HeaderIndent">-1</property>
+              <property name="HeaderVisible">true</property>
+              <property name="Expanded">false</property>
+              <property name="Visible">true</property>
+              <property name="Text">Backup</property>
+              <property name="Name">bBackup</property>
+              <property name="Height">0</property>
+              <property name="HeaderTemplate" iskey="true" value="4">
+                <property name="Item1" isnull="true" iskey="true" />
+                <property name="Item2" isnull="true" iskey="true" />
+                <property name="Item3" isnull="true" iskey="true" />
+                <property name="Item4" isnull="true" iskey="true" />
+              </property>
+              <property name="Elements" iskey="true" value="0" />
+            </property>
+            <property name="Item4" isnull="true" iskey="true">
+              <property name="#LayoutVersion" />
+              <property name="Style">Item</property>
+              <property name="ControlFooterAlignment">Near</property>
+              <property name="VisibleInFooter">true</property>
+              <property name="HeaderIndent">-1</property>
+              <property name="HeaderVisible">true</property>
+              <property name="Expanded">false</property>
+              <property name="Visible">true</property>
+              <property name="Text">Arxiv</property>
+              <property name="Name">bLog</property>
+              <property name="Height">0</property>
+              <property name="HeaderTemplate" iskey="true" value="4">
+                <property name="Item1" isnull="true" iskey="true" />
+                <property name="Item2" isnull="true" iskey="true" />
+                <property name="Item3" isnull="true" iskey="true" />
+                <property name="Item4" isnull="true" iskey="true" />
+              </property>
+              <property name="Elements" iskey="true" value="0" />
+            </property>
+            <property name="Item5" isnull="true" iskey="true">
+              <property name="#LayoutVersion" />
+              <property name="Style">Item</property>
+              <property name="ControlFooterAlignment">Near</property>
+              <property name="VisibleInFooter">true</property>
+              <property name="HeaderIndent">-1</property>
+              <property name="HeaderVisible">true</property>
+              <property name="Expanded">false</property>
+              <property name="Visible">true</property>
+              <property name="Text">Excel import</property>
+              <property name="Name">bExcel</property>
+              <property name="Height">0</property>
+              <property name="HeaderTemplate" iskey="true" value="4">
+                <property name="Item1" isnull="true" iskey="true" />
+                <property name="Item2" isnull="true" iskey="true" />
+                <property name="Item3" isnull="true" iskey="true" />
+                <property name="Item4" isnull="true" iskey="true" />
+              </property>
+              <property name="Elements" iskey="true" value="0" />
+            </property>
+          </property>
+        </property>
+        <property name="Item7" isnull="true" iskey="true">
+          <property name="#LayoutVersion" />
+          <property name="Style">Item</property>
+          <property name="ControlFooterAlignment">Near</property>
+          <property name="VisibleInFooter">true</property>
+          <property name="HeaderIndent">-1</property>
+          <property name="HeaderVisible">true</property>
+          <property name="Expanded">true</property>
+          <property name="Visible">true</property>
+          <property name="Text">İstifadəçilər</property>
+          <property name="Name">bUsers</property>
+          <property name="Height">0</property>
+          <property name="HeaderTemplate" iskey="true" value="4">
+            <property name="Item1" isnull="true" iskey="true" />
+            <property name="Item2" isnull="true" iskey="true" />
+            <property name="Item3" isnull="true" iskey="true" />
+            <property name="Item4" isnull="true" iskey="true" />
+          </property>
+          <property name="Elements" iskey="true" value="0" />
+        </property>
+        <property name="Item8" isnull="true" iskey="true">
+          <property name="#LayoutVersion" />
+          <property name="VisibleInFooter">true</property>
+          <property name="Visible">true</property>
+          <property name="Name">accordionControlSeparator1</property>
+          <property name="Height">0</property>
+          <property name="Elements" iskey="true" value="0" />
+        </property>
+        <property name="Item9" isnull="true" iskey="true">
+          <property name="#LayoutVersion" />
+          <property name="Style">Item</property>
+          <property name="ControlFooterAlignment">Near</property>
+          <property name="VisibleInFooter">true</property>
+          <property name="HeaderIndent">-1</property>
+          <property name="HeaderVisible">true</property>
+          <property name="Expanded">false</property>
+          <property name="Visible">true</property>
+          <property name="Text">Yeniləmələr</property>
+          <property name="Name">bUpdate</property>
+          <property name="Height">0</property>
+          <property name="HeaderTemplate" iskey="true" value="4">
+            <property name="Item1" isnull="true" iskey="true" />
+            <property name="Item2" isnull="true" iskey="true" />
+            <property name="Item3" isnull="true" iskey="true" />
+            <property name="Item4" isnull="true" iskey="true" />
+          </property>
+          <property name="Elements" iskey="true" value="0" />
+        </property>
+        <property name="Item10" isnull="true" iskey="true">
+          <property name="#LayoutVersion" />
+          <property name="Style">Item</property>
+          <property name="ControlFooterAlignment">Near</property>
+          <property name="VisibleInFooter">true</property>
+          <property name="HeaderIndent">-1</property>
+          <property name="HeaderVisible">true</property>
+          <property name="Expanded">false</property>
+          <property name="Visible">true</property>
+          <property name="Text">Haqqımızda</property>
+          <property name="Name">bAbout</property>
+          <property name="Height">0</property>
+          <property name="HeaderTemplate" iskey="true" value="4">
+            <property name="Item1" isnull="true" iskey="true" />
+            <property name="Item2" isnull="true" iskey="true" />
+            <property name="Item3" isnull="true" iskey="true" />
+            <property name="Item4" isnull="true" iskey="true" />
+          </property>
+          <property name="Elements" iskey="true" value="0" />
+        </property>
+      </property>
+    </property>
+  </property>
+</XtraSerializer>

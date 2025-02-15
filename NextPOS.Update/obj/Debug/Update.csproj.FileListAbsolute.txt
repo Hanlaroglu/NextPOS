@@ -1,0 +1,107 @@
+D:\Hasan\PROJECTS\Barkod-Satis\Barcode Sales 10\KOPYA (BARKODLUDAN)\NextPOS.Update\obj\Debug\NextPOS.Update.fUpdate.resources
+D:\Hasan\PROJECTS\Barkod-Satis\Barcode Sales 10\KOPYA (BARKODLUDAN)\NextPOS.Update\obj\Debug\NextPOS.Update.Properties.Resources.resources
+D:\Hasan\PROJECTS\Barkod-Satis\Barcode Sales 10\KOPYA (BARKODLUDAN)\NextPOS.Update\obj\Debug\Update.csproj.GenerateResource.cache
+D:\Hasan\PROJECTS\Barkod-Satis\Barcode Sales 10\KOPYA (BARKODLUDAN)\NextPOS.Update\obj\Debug\Update.csproj.CoreCompileInputs.cache
+D:\Hasan\PROJECTS\Barkod-Satis\Barcode Sales 10\KOPYA (BARKODLUDAN)\NextPOS.Update\bin\Debug\Update.exe.config
+D:\Hasan\PROJECTS\Barkod-Satis\Barcode Sales 10\KOPYA (BARKODLUDAN)\NextPOS.Update\bin\Debug\Update.exe
+D:\Hasan\PROJECTS\Barkod-Satis\Barcode Sales 10\KOPYA (BARKODLUDAN)\NextPOS.Update\bin\Debug\Update.pdb
+D:\Hasan\PROJECTS\Barkod-Satis\Barcode Sales 10\KOPYA (BARKODLUDAN)\NextPOS.Update\obj\Debug\Update.exe
+D:\Hasan\PROJECTS\Barkod-Satis\Barcode Sales 10\KOPYA (BARKODLUDAN)\NextPOS.Update\obj\Debug\Update.pdb
+D:\Hasan\PROJECTS\Barkod-Satis\Barcode Sales 10\KOPYA (BARKODLUDAN)\NextPOS.Update\obj\Debug\Update.exe.licenses
+D:\Hasan\PROJECTS\Barkod-Satis\Barcode Sales 10\KOPYA (BARKODLUDAN)\NextPOS.Update\obj\Debug\Update.csproj.AssemblyReference.cache
+D:\Hasan\PROJECTS\NextPOS.Barcode\NextPOS.Update\bin\Debug\NGT.Update.exe.config
+D:\Hasan\PROJECTS\NextPOS.Barcode\NextPOS.Update\bin\Debug\NGT.Update.exe
+D:\Hasan\PROJECTS\NextPOS.Barcode\NextPOS.Update\bin\Debug\NGT.Update.pdb
+D:\Hasan\PROJECTS\NextPOS.Barcode\NextPOS.Update\bin\Debug\DevExpress.Data.Desktop.v20.1.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\NextPOS.Update\bin\Debug\DevExpress.Data.v20.1.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\NextPOS.Update\bin\Debug\DevExpress.Printing.v20.1.Core.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\NextPOS.Update\bin\Debug\DevExpress.Sparkline.v20.1.Core.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\NextPOS.Update\bin\Debug\DevExpress.Utils.v20.1.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\NextPOS.Update\bin\Debug\DevExpress.XtraBars.v20.1.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\NextPOS.Update\bin\Debug\DevExpress.XtraEditors.v20.1.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\NextPOS.Update\bin\Debug\NextPOS.UserControls.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\NextPOS.Update\bin\Debug\DevExpress.Pdf.v20.1.Core.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\NextPOS.Update\bin\Debug\DevExpress.Pdf.v20.1.Drawing.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\NextPOS.Update\bin\Debug\NextPOS.UserControls.pdb
+D:\Hasan\PROJECTS\NextPOS.Barcode\NextPOS.Update\bin\Debug\NextPOS.UserControls.dll.config
+D:\Hasan\PROJECTS\NextPOS.Barcode\NextPOS.Update\bin\Debug\DevExpress.Data.Desktop.v20.1.xml
+D:\Hasan\PROJECTS\NextPOS.Barcode\NextPOS.Update\bin\Debug\DevExpress.Data.v20.1.xml
+D:\Hasan\PROJECTS\NextPOS.Barcode\NextPOS.Update\bin\Debug\DevExpress.Printing.v20.1.Core.xml
+D:\Hasan\PROJECTS\NextPOS.Barcode\NextPOS.Update\bin\Debug\DevExpress.Sparkline.v20.1.Core.xml
+D:\Hasan\PROJECTS\NextPOS.Barcode\NextPOS.Update\bin\Debug\DevExpress.Utils.v20.1.xml
+D:\Hasan\PROJECTS\NextPOS.Barcode\NextPOS.Update\bin\Debug\DevExpress.XtraBars.v20.1.xml
+D:\Hasan\PROJECTS\NextPOS.Barcode\NextPOS.Update\bin\Debug\DevExpress.XtraEditors.v20.1.xml
+D:\Hasan\PROJECTS\NextPOS.Barcode\NextPOS.Update\bin\Debug\DevExpress.Pdf.v20.1.Core.xml
+D:\Hasan\PROJECTS\NextPOS.Barcode\NextPOS.Update\bin\Debug\DevExpress.Pdf.v20.1.Drawing.xml
+D:\Hasan\PROJECTS\NextPOS.Barcode\NextPOS.Update\bin\Debug\de\DevExpress.Data.v20.1.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\NextPOS.Update\bin\Debug\es\DevExpress.Data.v20.1.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\NextPOS.Update\bin\Debug\ja\DevExpress.Data.v20.1.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\NextPOS.Update\bin\Debug\ru\DevExpress.Data.v20.1.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\NextPOS.Update\bin\Debug\de\DevExpress.Printing.v20.1.Core.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\NextPOS.Update\bin\Debug\es\DevExpress.Printing.v20.1.Core.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\NextPOS.Update\bin\Debug\ja\DevExpress.Printing.v20.1.Core.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\NextPOS.Update\bin\Debug\ru\DevExpress.Printing.v20.1.Core.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\NextPOS.Update\bin\Debug\de\DevExpress.Sparkline.v20.1.Core.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\NextPOS.Update\bin\Debug\es\DevExpress.Sparkline.v20.1.Core.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\NextPOS.Update\bin\Debug\ja\DevExpress.Sparkline.v20.1.Core.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\NextPOS.Update\bin\Debug\ru\DevExpress.Sparkline.v20.1.Core.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\NextPOS.Update\bin\Debug\de\DevExpress.Utils.v20.1.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\NextPOS.Update\bin\Debug\es\DevExpress.Utils.v20.1.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\NextPOS.Update\bin\Debug\ja\DevExpress.Utils.v20.1.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\NextPOS.Update\bin\Debug\ru\DevExpress.Utils.v20.1.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\NextPOS.Update\bin\Debug\de\DevExpress.XtraBars.v20.1.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\NextPOS.Update\bin\Debug\es\DevExpress.XtraBars.v20.1.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\NextPOS.Update\bin\Debug\ja\DevExpress.XtraBars.v20.1.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\NextPOS.Update\bin\Debug\ru\DevExpress.XtraBars.v20.1.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\NextPOS.Update\bin\Debug\de\DevExpress.XtraEditors.v20.1.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\NextPOS.Update\bin\Debug\es\DevExpress.XtraEditors.v20.1.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\NextPOS.Update\bin\Debug\ja\DevExpress.XtraEditors.v20.1.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\NextPOS.Update\bin\Debug\ru\DevExpress.XtraEditors.v20.1.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\NextPOS.Update\bin\Debug\de\DevExpress.Pdf.v20.1.Core.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\NextPOS.Update\bin\Debug\es\DevExpress.Pdf.v20.1.Core.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\NextPOS.Update\bin\Debug\ja\DevExpress.Pdf.v20.1.Core.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\NextPOS.Update\bin\Debug\ru\DevExpress.Pdf.v20.1.Core.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\NextPOS.Update\obj\Debug\Update.csproj.AssemblyReference.cache
+D:\Hasan\PROJECTS\NextPOS.Barcode\NextPOS.Update\obj\Debug\NextPOS.Update.fUpdate.resources
+D:\Hasan\PROJECTS\NextPOS.Barcode\NextPOS.Update\obj\Debug\NextPOS.Update.Properties.Resources.resources
+D:\Hasan\PROJECTS\NextPOS.Barcode\NextPOS.Update\obj\Debug\Update.csproj.GenerateResource.cache
+D:\Hasan\PROJECTS\NextPOS.Barcode\NextPOS.Update\obj\Debug\NGT.Update.exe.licenses
+D:\Hasan\PROJECTS\NextPOS.Barcode\NextPOS.Update\obj\Debug\Update.csproj.CoreCompileInputs.cache
+D:\Hasan\PROJECTS\NextPOS.Barcode\NextPOS.Update\obj\Debug\Update.csproj.CopyComplete
+D:\Hasan\PROJECTS\NextPOS.Barcode\NextPOS.Update\obj\Debug\NGT.Update.exe
+D:\Hasan\PROJECTS\NextPOS.Barcode\NextPOS.Update\obj\Debug\NGT.Update.pdb
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\NextPOS.Update\bin\Debug\NGT.Update.exe.config
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\NextPOS.Update\bin\Debug\NGT.Update.exe
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\NextPOS.Update\bin\Debug\NGT.Update.pdb
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\NextPOS.Update\bin\Debug\DevExpress.Data.Desktop.v24.1.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\NextPOS.Update\bin\Debug\DevExpress.Data.v24.1.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\NextPOS.Update\bin\Debug\DevExpress.Drawing.v24.1.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\NextPOS.Update\bin\Debug\DevExpress.Printing.v24.1.Core.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\NextPOS.Update\bin\Debug\DevExpress.Sparkline.v24.1.Core.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\NextPOS.Update\bin\Debug\DevExpress.Utils.v24.1.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\NextPOS.Update\bin\Debug\DevExpress.XtraBars.v24.1.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\NextPOS.Update\bin\Debug\DevExpress.XtraEditors.v24.1.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\NextPOS.Update\bin\Debug\NextPOS.UserControls.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\NextPOS.Update\bin\Debug\DevExpress.Pdf.v24.1.Core.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\NextPOS.Update\bin\Debug\DevExpress.Pdf.v24.1.Drawing.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\NextPOS.Update\bin\Debug\NextPOS.UserControls.pdb
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\NextPOS.Update\bin\Debug\NextPOS.UserControls.dll.config
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\NextPOS.Update\bin\Debug\DevExpress.Data.Desktop.v24.1.xml
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\NextPOS.Update\bin\Debug\DevExpress.Drawing.v24.1.xml
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\NextPOS.Update\bin\Debug\DevExpress.Data.v24.1.xml
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\NextPOS.Update\bin\Debug\DevExpress.Printing.v24.1.Core.xml
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\NextPOS.Update\bin\Debug\DevExpress.Sparkline.v24.1.Core.xml
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\NextPOS.Update\bin\Debug\DevExpress.Utils.v24.1.xml
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\NextPOS.Update\bin\Debug\DevExpress.XtraBars.v24.1.xml
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\NextPOS.Update\bin\Debug\DevExpress.XtraEditors.v24.1.xml
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\NextPOS.Update\bin\Debug\DevExpress.Pdf.v24.1.Core.xml
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\NextPOS.Update\bin\Debug\DevExpress.Pdf.v24.1.Drawing.xml
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\NextPOS.Update\obj\Debug\Update.csproj.AssemblyReference.cache
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\NextPOS.Update\obj\Debug\NextPOS.Update.fUpdate.resources
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\NextPOS.Update\obj\Debug\NextPOS.Update.Properties.Resources.resources
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\NextPOS.Update\obj\Debug\Update.csproj.GenerateResource.cache
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\NextPOS.Update\obj\Debug\NGT.Update.exe.licenses
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\NextPOS.Update\obj\Debug\Update.csproj.CoreCompileInputs.cache
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\NextPOS.Update\obj\Debug\Update.csproj.Up2Date
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\NextPOS.Update\obj\Debug\NGT.Update.exe
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\NextPOS.Update\obj\Debug\NGT.Update.pdb

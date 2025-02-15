@@ -1,0 +1,709 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="NextposDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Categories">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CategoryName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="Boolean" />
+    <Property Name="IsDeleted" Type="Int32" />
+    <NavigationProperty Name="Products" Relationship="NextposDBModel.FK_Products_Category" FromRole="Categories" ToRole="Products" />
+    <NavigationProperty Name="AqtaProducts" Relationship="NextposDBModel.FK_AqtaProducts_Category" FromRole="Categories" ToRole="AqtaProducts" />
+  </EntityType>
+  <EntityType Name="Colors">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ColorName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IsDeleted" Type="Int32" />
+    <NavigationProperty Name="Products" Relationship="NextposDBModel.FK_Products_Color" FromRole="Colors" ToRole="Products" />
+  </EntityType>
+  <EntityType Name="Logs">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserID" Type="Int32" />
+    <Property Name="Operation" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Date" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Users" Relationship="NextposDBModel.FK__Logs__UserID__6477ECF3" FromRole="Logs" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="Sizes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SizeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IsDeleted" Type="Int32" />
+    <NavigationProperty Name="Products" Relationship="NextposDBModel.FK_Products_Size" FromRole="Sizes" ToRole="Products" />
+  </EntityType>
+  <EntityType Name="Stores">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="WarehouseID" Type="Int32" />
+    <Property Name="StoreName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="Boolean" />
+    <Property Name="IsDeleted" Type="Int32" />
+    <NavigationProperty Name="Products" Relationship="NextposDBModel.FK_Products_Store" FromRole="Stores" ToRole="Products" />
+    <NavigationProperty Name="AqtaProducts" Relationship="NextposDBModel.FK_AqtaProducts_Store" FromRole="Stores" ToRole="AqtaProducts" />
+    <NavigationProperty Name="Terminals" Relationship="NextposDBModel.FK__Terminals__Store__5DCAEF64" FromRole="Stores" ToRole="Terminals" />
+    <NavigationProperty Name="Users" Relationship="NextposDBModel.FK__Users__StoreID__60A75C0F" FromRole="Stores" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="Warehouses">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IsDeleted" Type="Int32" />
+    <NavigationProperty Name="Products" Relationship="NextposDBModel.FK_Products_Warehouse" FromRole="Warehouses" ToRole="Products" />
+    <NavigationProperty Name="InvoiceInfo" Relationship="NextposDBModel.FK_Table_Warehouses" FromRole="Warehouses" ToRole="InvoiceInfo" />
+    <NavigationProperty Name="AqtaProducts" Relationship="NextposDBModel.FK_AqtaProducts_Warehouse" FromRole="Warehouses" ToRole="AqtaProducts" />
+  </EntityType>
+  <EntityContainer Name="NextposDBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Categories" EntityType="Self.Categories" />
+    <EntitySet Name="Colors" EntityType="Self.Colors" />
+    <EntitySet Name="Logs" EntityType="Self.Logs" />
+    <EntitySet Name="Sizes" EntityType="Self.Sizes" />
+    <EntitySet Name="Stores" EntityType="Self.Stores" />
+    <EntitySet Name="Warehouses" EntityType="Self.Warehouses" />
+    <EntitySet Name="Suppliers" EntityType="NextposDBModel.Suppliers" />
+    <EntitySet Name="Products" EntityType="NextposDBModel.Products" />
+    <AssociationSet Name="FK_Products_Category" Association="NextposDBModel.FK_Products_Category">
+      <End Role="Categories" EntitySet="Categories" />
+      <End Role="Products" EntitySet="Products" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Products_Color" Association="NextposDBModel.FK_Products_Color">
+      <End Role="Colors" EntitySet="Colors" />
+      <End Role="Products" EntitySet="Products" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Products_Size" Association="NextposDBModel.FK_Products_Size">
+      <End Role="Sizes" EntitySet="Sizes" />
+      <End Role="Products" EntitySet="Products" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Products_Store" Association="NextposDBModel.FK_Products_Store">
+      <End Role="Stores" EntitySet="Stores" />
+      <End Role="Products" EntitySet="Products" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Products_Warehouse" Association="NextposDBModel.FK_Products_Warehouse">
+      <End Role="Warehouses" EntitySet="Warehouses" />
+      <End Role="Products" EntitySet="Products" />
+    </AssociationSet>
+    <EntitySet Name="Roles" EntityType="NextposDBModel.Roles" />
+    <EntitySet Name="InvoiceInfo" EntityType="NextposDBModel.InvoiceInfo" />
+    <EntitySet Name="InvoiceProducts" EntityType="NextposDBModel.InvoiceProducts" />
+    <AssociationSet Name="FK_Table_InvoiceInfo" Association="NextposDBModel.FK_Table_InvoiceInfo">
+      <End Role="InvoiceInfo" EntitySet="InvoiceInfo" />
+      <End Role="InvoiceProducts" EntitySet="InvoiceProducts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Table_Suppliers" Association="NextposDBModel.FK_Table_Suppliers">
+      <End Role="Suppliers" EntitySet="Suppliers" />
+      <End Role="InvoiceInfo" EntitySet="InvoiceInfo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Table_Warehouses" Association="NextposDBModel.FK_Table_Warehouses">
+      <End Role="Warehouses" EntitySet="Warehouses" />
+      <End Role="InvoiceInfo" EntitySet="InvoiceInfo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Table_Product" Association="NextposDBModel.FK_Table_Product">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="InvoiceProducts" EntitySet="InvoiceProducts" />
+    </AssociationSet>
+    <EntitySet Name="Company" EntityType="NextposDBModel.Company" />
+    <EntitySet Name="AqtaProducts" EntityType="NextposDBModel.AqtaProducts" />
+    <AssociationSet Name="FK_AqtaProducts_Category" Association="NextposDBModel.FK_AqtaProducts_Category">
+      <End Role="Categories" EntitySet="Categories" />
+      <End Role="AqtaProducts" EntitySet="AqtaProducts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AqtaProducts_Store" Association="NextposDBModel.FK_AqtaProducts_Store">
+      <End Role="Stores" EntitySet="Stores" />
+      <End Role="AqtaProducts" EntitySet="AqtaProducts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AqtaProducts_Warehouse" Association="NextposDBModel.FK_AqtaProducts_Warehouse">
+      <End Role="Warehouses" EntitySet="Warehouses" />
+      <End Role="AqtaProducts" EntitySet="AqtaProducts" />
+    </AssociationSet>
+    <EntitySet Name="Terminals" EntityType="NextposDBModel.Terminals" />
+    <EntitySet Name="Users" EntityType="NextposDBModel.Users" />
+    <AssociationSet Name="FK_Table_Users" Association="NextposDBModel.FK_Table_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="InvoiceInfo" EntitySet="InvoiceInfo" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Logs__UserID__6477ECF3" Association="NextposDBModel.FK__Logs__UserID__6477ECF3">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Logs" EntitySet="Logs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Users_RoleID" Association="NextposDBModel.FK_Users_RoleID">
+      <End Role="Roles" EntitySet="Roles" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Terminals__Store__5DCAEF64" Association="NextposDBModel.FK__Terminals__Store__5DCAEF64">
+      <End Role="Stores" EntitySet="Stores" />
+      <End Role="Terminals" EntitySet="Terminals" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Users__StoreID__60A75C0F" Association="NextposDBModel.FK__Users__StoreID__60A75C0F">
+      <End Role="Stores" EntitySet="Stores" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Terminals_To_User" Association="NextposDBModel.FK_Terminals_To_User">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Terminals" EntitySet="Terminals" />
+    </AssociationSet>
+    <EntitySet Name="SupplierPayments" EntityType="NextposDBModel.SupplierPayment" />
+    <EntitySet Name="SuppliersDebts" EntityType="NextposDBModel.SuppliersDebt" />
+    <AssociationSet Name="FK_SupplierPayments_SuppliersDebts" Association="NextposDBModel.FK_SupplierPayments_SuppliersDebts">
+      <End Role="SuppliersDebt" EntitySet="SuppliersDebts" />
+      <End Role="SupplierPayment" EntitySet="SupplierPayments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SupplierDebts_Supplier" Association="NextposDBModel.FK_SupplierDebts_Supplier">
+      <End Role="Suppliers" EntitySet="Suppliers" />
+      <End Role="SuppliersDebt" EntitySet="SuppliersDebts" />
+    </AssociationSet>
+    <EntitySet Name="Customers" EntityType="NextposDBModel.Customers" />
+    <EntitySet Name="CustomerPayments" EntityType="NextposDBModel.CustomerPayment" />
+    <EntitySet Name="CustomersDebts" EntityType="NextposDBModel.CustomersDebt" />
+    <AssociationSet Name="FK_CustomerPayments_CustomersDebts" Association="NextposDBModel.FK_CustomerPayments_CustomersDebts">
+      <End Role="CustomersDebt" EntitySet="CustomersDebts" />
+      <End Role="CustomerPayment" EntitySet="CustomerPayments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CustomerDebts_Customer" Association="NextposDBModel.FK_CustomerDebts_Customer">
+      <End Role="Customers" EntitySet="Customers" />
+      <End Role="CustomersDebt" EntitySet="CustomersDebts" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Suppliers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SupplierName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Voen" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Debt" Type="Double" />
+    <Property Name="Status" Type="Boolean" />
+    <Property Name="IsDeleted" Type="Int32" />
+    <NavigationProperty Name="InvoiceInfo" Relationship="NextposDBModel.FK_Table_Suppliers" FromRole="Suppliers" ToRole="InvoiceInfo" />
+    <Property Name="BankName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="BankVoen" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BankAccountNumber" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="BankKOD" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BankSwift" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="SuppliersDebts" Relationship="NextposDBModel.FK_SupplierDebts_Supplier" FromRole="Suppliers" ToRole="SuppliersDebt" />
+  </EntityType>
+  <EntityType Name="Products">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Type" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="WarehousesID" Type="Int32" />
+    <Property Name="StoreID" Type="Int32" />
+    <Property Name="CategoryID" Type="Int32" />
+    <Property Name="ProductName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ProductCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Barcode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Amount" Type="Double" />
+    <Property Name="PurchasePrice" Type="Double" />
+    <Property Name="SalePrice" Type="Double" />
+    <Property Name="Unit" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Tax" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ColorID" Type="Int32" />
+    <Property Name="SizeID" Type="Int32" />
+    <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreateDate" Type="DateTime" Precision="0" />
+    <Property Name="FinisDate" Type="DateTime" Precision="0" />
+    <Property Name="Image" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="ShowPosScreen" Type="Boolean" />
+    <Property Name="AmountNotification" Type="Boolean" />
+    <Property Name="EndDateNotification" Type="Boolean" />
+    <Property Name="Status" Type="Boolean" />
+    <Property Name="IsDeleted" Type="Int32" />
+    <NavigationProperty Name="Categories" Relationship="NextposDBModel.FK_Products_Category" FromRole="Products" ToRole="Categories" />
+    <NavigationProperty Name="Colors" Relationship="NextposDBModel.FK_Products_Color" FromRole="Products" ToRole="Colors" />
+    <NavigationProperty Name="Sizes" Relationship="NextposDBModel.FK_Products_Size" FromRole="Products" ToRole="Sizes" />
+    <NavigationProperty Name="Stores" Relationship="NextposDBModel.FK_Products_Store" FromRole="Products" ToRole="Stores" />
+    <NavigationProperty Name="Warehouses" Relationship="NextposDBModel.FK_Products_Warehouse" FromRole="Products" ToRole="Warehouses" />
+    <NavigationProperty Name="InvoiceProducts" Relationship="NextposDBModel.FK_Table_Product" FromRole="Products" ToRole="InvoiceProducts" />
+  </EntityType>
+  <Association Name="FK_Products_Category">
+    <End Type="NextposDBModel.Categories" Role="Categories" Multiplicity="0..1" />
+    <End Type="NextposDBModel.Products" Role="Products" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categories">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Products">
+        <PropertyRef Name="CategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Products_Color">
+    <End Type="NextposDBModel.Colors" Role="Colors" Multiplicity="0..1" />
+    <End Type="NextposDBModel.Products" Role="Products" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Colors">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Products">
+        <PropertyRef Name="ColorID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Products_Size">
+    <End Type="NextposDBModel.Sizes" Role="Sizes" Multiplicity="0..1" />
+    <End Type="NextposDBModel.Products" Role="Products" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sizes">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Products">
+        <PropertyRef Name="SizeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Products_Store">
+    <End Type="NextposDBModel.Stores" Role="Stores" Multiplicity="0..1" />
+    <End Type="NextposDBModel.Products" Role="Products" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Stores">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Products">
+        <PropertyRef Name="StoreID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Products_Warehouse">
+    <End Type="NextposDBModel.Warehouses" Role="Warehouses" Multiplicity="0..1" />
+    <End Type="NextposDBModel.Products" Role="Products" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Warehouses">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Products">
+        <PropertyRef Name="WarehousesID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Roles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IsDeleted" Type="Int32" />
+    <Property Name="RoleName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PosSales" Type="Boolean" />
+    <Property Name="PosReturn" Type="Boolean" />
+    <Property Name="Bank" Type="Boolean" />
+    <Property Name="Reports" Type="Boolean" />
+    <Property Name="Settings" Type="Boolean" />
+    <Property Name="User" Type="Boolean" />
+    <Property Name="Credit" Type="Boolean" />
+    <Property Name="MoneyBox" Type="Boolean" />
+    <Property Name="Admin" Type="Boolean" />
+    <Property Name="Cashier" Type="Boolean" />
+    <NavigationProperty Name="Users" Relationship="NextposDBModel.FK_Users_RoleID" FromRole="Roles" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="InvoiceInfo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="InvoiceNo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="InvoiceDate" Type="DateTime" Precision="0" />
+    <Property Name="SupplierId" Type="Int32" Nullable="false" />
+    <Property Name="WarehouseId" Type="Int32" Nullable="false" />
+    <Property Name="TotalPurchasePrice" Type="Double" />
+    <Property Name="PayType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Comment" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="InvoiceProducts" Relationship="NextposDBModel.FK_Table_InvoiceInfo" FromRole="InvoiceInfo" ToRole="InvoiceProducts" />
+    <NavigationProperty Name="Suppliers" Relationship="NextposDBModel.FK_Table_Suppliers" FromRole="InvoiceInfo" ToRole="Suppliers" />
+    <NavigationProperty Name="Warehouses" Relationship="NextposDBModel.FK_Table_Warehouses" FromRole="InvoiceInfo" ToRole="Warehouses" />
+    <NavigationProperty Name="Users" Relationship="NextposDBModel.FK_Table_Users" FromRole="InvoiceInfo" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="InvoiceProducts">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="InvoiceInfoId" Type="Int32" />
+    <Property Name="ProductId" Type="Int32" />
+    <Property Name="Amount" Type="Double" />
+    <Property Name="PurchasePrice" Type="Double" />
+    <Property Name="Discount" Type="Double" />
+    <Property Name="TotalPurchasePrice" Type="Double" />
+    <NavigationProperty Name="InvoiceInfo" Relationship="NextposDBModel.FK_Table_InvoiceInfo" FromRole="InvoiceProducts" ToRole="InvoiceInfo" />
+    <NavigationProperty Name="Products" Relationship="NextposDBModel.FK_Table_Product" FromRole="InvoiceProducts" ToRole="Products" />
+  </EntityType>
+  <Association Name="FK_Table_InvoiceInfo">
+    <End Type="NextposDBModel.InvoiceInfo" Role="InvoiceInfo" Multiplicity="0..1" />
+    <End Type="NextposDBModel.InvoiceProducts" Role="InvoiceProducts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="InvoiceInfo">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="InvoiceProducts">
+        <PropertyRef Name="InvoiceInfoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Table_Suppliers">
+    <End Type="NextposDBModel.Suppliers" Role="Suppliers" Multiplicity="1" />
+    <End Type="NextposDBModel.InvoiceInfo" Role="InvoiceInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Suppliers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="InvoiceInfo">
+        <PropertyRef Name="SupplierId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Table_Warehouses">
+    <End Type="NextposDBModel.Warehouses" Role="Warehouses" Multiplicity="1" />
+    <End Type="NextposDBModel.InvoiceInfo" Role="InvoiceInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Warehouses">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="InvoiceInfo">
+        <PropertyRef Name="WarehouseId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Table_Product">
+    <End Type="NextposDBModel.Products" Role="Products" Multiplicity="0..1" />
+    <End Type="NextposDBModel.InvoiceProducts" Role="InvoiceProducts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="InvoiceProducts">
+        <PropertyRef Name="ProductId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Company">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CompanyName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Voen" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+    <Property Name="CompanyCode" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Phone" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="RegistrationDate" Type="DateTime" Precision="0" />
+    <Property Name="Logo" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="AqtaProducts">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="WarehousesID" Type="Int32" />
+    <Property Name="StoreID" Type="Int32" />
+    <Property Name="CategoryID" Type="Int32" />
+    <Property Name="ProductName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Barcode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PurchasePrice" Type="Double" />
+    <Property Name="SalePrice" Type="Double" />
+    <Property Name="Unit" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Tax" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Ingredients" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ReleaseDate" Type="DateTime" Precision="0" />
+    <Property Name="RetentionPeriod" Type="Int32" />
+    <Property Name="StorageConditions" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="CreateDate" Type="DateTime" Precision="0" />
+    <Property Name="ShowPosScreen" Type="Boolean" />
+    <Property Name="AmountNotification" Type="Boolean" />
+    <Property Name="EndDateNotification" Type="Boolean" />
+    <Property Name="Status" Type="Boolean" />
+    <Property Name="IsDeleted" Type="Int32" />
+    <NavigationProperty Name="Categories" Relationship="NextposDBModel.FK_AqtaProducts_Category" FromRole="AqtaProducts" ToRole="Categories" />
+    <NavigationProperty Name="Stores" Relationship="NextposDBModel.FK_AqtaProducts_Store" FromRole="AqtaProducts" ToRole="Stores" />
+    <NavigationProperty Name="Warehouses" Relationship="NextposDBModel.FK_AqtaProducts_Warehouse" FromRole="AqtaProducts" ToRole="Warehouses" />
+  </EntityType>
+  <Association Name="FK_AqtaProducts_Category">
+    <End Type="NextposDBModel.Categories" Role="Categories" Multiplicity="0..1" />
+    <End Type="NextposDBModel.AqtaProducts" Role="AqtaProducts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categories">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AqtaProducts">
+        <PropertyRef Name="CategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AqtaProducts_Store">
+    <End Type="NextposDBModel.Stores" Role="Stores" Multiplicity="0..1" />
+    <End Type="NextposDBModel.AqtaProducts" Role="AqtaProducts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Stores">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AqtaProducts">
+        <PropertyRef Name="StoreID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AqtaProducts_Warehouse">
+    <End Type="NextposDBModel.Warehouses" Role="Warehouses" Multiplicity="0..1" />
+    <End Type="NextposDBModel.AqtaProducts" Role="AqtaProducts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Warehouses">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AqtaProducts">
+        <PropertyRef Name="WarehousesID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Terminals">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IpAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MerchantId" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="StoreID" Type="Int32" />
+    <Property Name="Status" Type="Boolean" />
+    <Property Name="IsDeleted" Type="Int32" />
+    <Property Name="UserId" Type="Int32" />
+    <NavigationProperty Name="Stores" Relationship="NextposDBModel.FK__Terminals__Store__5DCAEF64" FromRole="Terminals" ToRole="Stores" />
+    <NavigationProperty Name="Users" Relationship="NextposDBModel.FK_Terminals_To_User" FromRole="Terminals" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StoreID" Type="Int32" />
+    <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NameSurname" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="TerminalID" Type="Int32" />
+    <Property Name="Status" Type="Boolean" />
+    <Property Name="RoleID" Type="Int32" />
+    <Property Name="IsDeleted" Type="Int32" />
+    <NavigationProperty Name="InvoiceInfo" Relationship="NextposDBModel.FK_Table_Users" FromRole="Users" ToRole="InvoiceInfo" />
+    <NavigationProperty Name="Logs" Relationship="NextposDBModel.FK__Logs__UserID__6477ECF3" FromRole="Users" ToRole="Logs" />
+    <NavigationProperty Name="Roles" Relationship="NextposDBModel.FK_Users_RoleID" FromRole="Users" ToRole="Roles" />
+    <NavigationProperty Name="Stores" Relationship="NextposDBModel.FK__Users__StoreID__60A75C0F" FromRole="Users" ToRole="Stores" />
+    <NavigationProperty Name="Terminals" Relationship="NextposDBModel.FK_Terminals_To_User" FromRole="Users" ToRole="Terminals" />
+  </EntityType>
+  <Association Name="FK_Table_Users">
+    <End Type="NextposDBModel.Users" Role="Users" Multiplicity="1" />
+    <End Type="NextposDBModel.InvoiceInfo" Role="InvoiceInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="InvoiceInfo">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Logs__UserID__6477ECF3">
+    <End Type="NextposDBModel.Users" Role="Users" Multiplicity="0..1" />
+    <End Type="NextposDBModel.Logs" Role="Logs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Logs">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Users_RoleID">
+    <End Type="NextposDBModel.Roles" Role="Roles" Multiplicity="0..1" />
+    <End Type="NextposDBModel.Users" Role="Users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Roles">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Users">
+        <PropertyRef Name="RoleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Terminals__Store__5DCAEF64">
+    <End Type="NextposDBModel.Stores" Role="Stores" Multiplicity="0..1" />
+    <End Type="NextposDBModel.Terminals" Role="Terminals" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Stores">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Terminals">
+        <PropertyRef Name="StoreID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Users__StoreID__60A75C0F">
+    <End Type="NextposDBModel.Stores" Role="Stores" Multiplicity="0..1" />
+    <End Type="NextposDBModel.Users" Role="Users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Stores">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Users">
+        <PropertyRef Name="StoreID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Terminals_To_User">
+    <End Type="NextposDBModel.Users" Role="Users" Multiplicity="0..1" />
+    <End Type="NextposDBModel.Terminals" Role="Terminals" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Terminals">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="SupplierPayment">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SupplierDebtId" Type="Int32" />
+    <Property Name="DebtPaid" Type="Double" />
+    <Property Name="TaxPaid" Type="Double" />
+    <Property Name="IsDeleted" Type="Int32" />
+    <Property Name="Comment" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="SuppliersDebt" Relationship="NextposDBModel.FK_SupplierPayments_SuppliersDebts" FromRole="SupplierPayment" ToRole="SuppliersDebt" />
+    <Property Name="PaymentType" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="PayDate" Type="DateTime" Precision="0" />
+    <Property Name="LogDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="SuppliersDebt">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="SupplierId" Type="Int32" />
+    <Property Name="Debt" Type="Double" />
+    <Property Name="TaxDebt" Type="Double" />
+    <Property Name="Comment" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="IsDeleted" Type="Int32" />
+    <NavigationProperty Name="SupplierPayments" Relationship="NextposDBModel.FK_SupplierPayments_SuppliersDebts" FromRole="SuppliersDebt" ToRole="SupplierPayment" />
+    <NavigationProperty Name="Supplier" Relationship="NextposDBModel.FK_SupplierDebts_Supplier" FromRole="SuppliersDebt" ToRole="Suppliers" />
+    <Property Name="DebtDate" Type="DateTime" Precision="0" />
+  </EntityType>
+  <Association Name="FK_SupplierPayments_SuppliersDebts">
+    <End Type="NextposDBModel.SuppliersDebt" Role="SuppliersDebt" Multiplicity="0..1" />
+    <End Type="NextposDBModel.SupplierPayment" Role="SupplierPayment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SuppliersDebt">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SupplierPayment">
+        <PropertyRef Name="SupplierDebtId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SupplierDebts_Supplier">
+    <End Type="NextposDBModel.Suppliers" Role="Suppliers" Multiplicity="0..1" />
+    <End Type="NextposDBModel.SuppliersDebt" Role="SuppliersDebt" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Suppliers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SuppliersDebt">
+        <PropertyRef Name="SupplierId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Customers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IsDeleted" Type="Int32" />
+    <Property Name="NameSurname" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="CompanyName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="DateBirth" Type="DateTime" Precision="0" />
+    <Property Name="Gender" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
+    <Property Name="Phone" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Voen" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Debt" Type="Double" />
+    <Property Name="Balance" Type="Double" />
+    <Property Name="BankName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="BankVoen" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BankAccountNumber" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="BankKOD" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BankSwift" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="Boolean" />
+    <NavigationProperty Name="CustomersDebts" Relationship="NextposDBModel.FK_CustomerDebts_Customer" FromRole="Customers" ToRole="CustomersDebt" />
+  </EntityType>
+  <EntityType Name="CustomerPayment">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CustomerDebtId" Type="Int32" />
+    <Property Name="PaymentType" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Paid" Type="Double" />
+    <Property Name="PayDate" Type="DateTime" Precision="0" />
+    <Property Name="Comment" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="IsDeleted" Type="Int32" />
+    <Property Name="LogDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="CustomersDebt" Relationship="NextposDBModel.FK_CustomerPayments_CustomersDebts" FromRole="CustomerPayment" ToRole="CustomersDebt" />
+  </EntityType>
+  <EntityType Name="CustomersDebt">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CustomerId" Type="Int32" />
+    <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Debt" Type="Double" />
+    <Property Name="DebtDate" Type="DateTime" Precision="0" />
+    <Property Name="Comment" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="IsDeleted" Type="Int32" />
+    <NavigationProperty Name="CustomerPayments" Relationship="NextposDBModel.FK_CustomerPayments_CustomersDebts" FromRole="CustomersDebt" ToRole="CustomerPayment" />
+    <NavigationProperty Name="Customer" Relationship="NextposDBModel.FK_CustomerDebts_Customer" FromRole="CustomersDebt" ToRole="Customers" />
+  </EntityType>
+  <Association Name="FK_CustomerPayments_CustomersDebts">
+    <End Type="NextposDBModel.CustomersDebt" Role="CustomersDebt" Multiplicity="0..1" />
+    <End Type="NextposDBModel.CustomerPayment" Role="CustomerPayment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CustomersDebt">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CustomerPayment">
+        <PropertyRef Name="CustomerDebtId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CustomerDebts_Customer">
+    <End Type="NextposDBModel.Customers" Role="Customers" Multiplicity="0..1" />
+    <End Type="NextposDBModel.CustomersDebt" Role="CustomersDebt" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CustomersDebt">
+        <PropertyRef Name="CustomerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

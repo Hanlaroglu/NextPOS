@@ -1,0 +1,784 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="KassadbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Branchs">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FlialAdi" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Status" Type="bit" />
+  </EntityType>
+  <EntityType Name="Company">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Printer" Type="bit" />
+    <Property Name="CompanyName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Voen" Type="nvarchar" MaxLength="11" />
+    <Property Name="Adress" Type="nvarchar" MaxLength="500" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="50" />
+    <Property Name="Personel" Type="nchar" MaxLength="50" />
+    <Property Name="RegisterDate" Type="datetime" />
+    <Property Name="CompanyLogo" Type="varbinary(max)" />
+    <Property Name="Type" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="Invoice_Product">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="InvoiceNo" Type="varchar" MaxLength="20" />
+    <Property Name="Date" Type="datetime" />
+    <Property Name="Branch_ID" Type="int" />
+    <Property Name="Product_ID" Type="int" />
+    <Property Name="Amount" Type="float" />
+    <Property Name="Price" Type="float" />
+    <Property Name="Total" Type="float" />
+    <Property Name="User_ID" Type="int" />
+    <Property Name="SupplierID" Type="uniqueidentifier" />
+    <Property Name="FakturaNo" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="IslemOzet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProccesNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="OdemeSekli" Type="nvarchar" MaxLength="50" />
+    <Property Name="Cash" Type="float" />
+    <Property Name="Card" Type="float" />
+    <Property Name="AlisFiyatToplam" Type="float" />
+    <Property Name="Odenen" Type="float" />
+    <Property Name="Total" Type="float" />
+    <Property Name="Qaliq" Type="float" />
+    <Property Name="Tarix" Type="datetime" />
+    <Property Name="UserID" Type="int" />
+    <Property Name="BranchID" Type="int" />
+    <Property Name="ProcessType" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="Posterminal">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TerminalNameID" Type="int" />
+    <Property Name="IpAddress" Type="nvarchar" MaxLength="50" />
+    <Property Name="Merchant_Id" Type="nvarchar" MaxLength="80" />
+    <Property Name="BranchID" Type="int" />
+    <Property Name="Status" Type="bit" />
+  </EntityType>
+  <EntityType Name="Posterminal_Name">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TerminalName" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Products">
+    <Key>
+      <PropertyRef Name="Mehsulid" />
+    </Key>
+    <Property Name="Mehsulid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Supplier_ID" Type="uniqueidentifier" />
+    <Property Name="Barkod" Type="nvarchar" MaxLength="50" />
+    <Property Name="ProductCode" Type="nvarchar" MaxLength="50" />
+    <Property Name="CategoryID" Type="int" />
+    <Property Name="MehsulAdi" Type="nvarchar" MaxLength="50" />
+    <Property Name="Amount" Type="float" />
+    <Property Name="AlisQiymet" Type="float" />
+    <Property Name="SatisQiymet" Type="float" />
+    <Property Name="UnitID" Type="int" />
+    <Property Name="TaxID" Type="int" />
+    <Property Name="Date" Type="datetime" />
+    <Property Name="UserID" Type="int" />
+    <Property Name="Aciqlama" Type="nvarchar" MaxLength="200" />
+    <Property Name="Status" Type="bit" />
+    <Property Name="Color" Type="nvarchar" MaxLength="20" />
+    <Property Name="Size" Type="nvarchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="Return_Invoice">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ProccesNo" Type="nvarchar" MaxLength="15" />
+    <Property Name="Date" Type="datetime" />
+    <Property Name="Branch_ID" Type="int" />
+    <Property Name="Product_ID" Type="int" />
+    <Property Name="Amount" Type="float" />
+    <Property Name="Price" Type="float" />
+    <Property Name="Total" Type="float" />
+    <Property Name="User_ID" Type="int" />
+    <Property Name="Supplier_ID" Type="uniqueidentifier" />
+    <Property Name="FakturaNo" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Return_Product">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="BranchID" Type="int" />
+    <Property Name="ProccesNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="Sales_ProductID" Type="uniqueidentifier" />
+    <Property Name="Date" Type="datetime" />
+    <Property Name="UserID" Type="int" />
+  </EntityType>
+  <EntityType Name="Return_Sales">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BranchID" Type="int" />
+    <Property Name="ProccesNo" Type="nvarchar" MaxLength="30" />
+    <Property Name="ProductID" Type="int" />
+    <Property Name="Amount" Type="float" />
+    <Property Name="PaymentType" Type="nvarchar" MaxLength="15" />
+    <Property Name="Cash" Type="float" />
+    <Property Name="Card" Type="float" />
+    <Property Name="Total" Type="float" />
+    <Property Name="UserID" Type="int" />
+    <Property Name="Date" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Sales_Product">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProccesNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="ProductID" Type="int" />
+    <Property Name="Amount" Type="float" />
+    <Property Name="PaymentType" Type="nvarchar" MaxLength="20" />
+    <Property Name="SalePrice" Type="float" />
+    <Property Name="Total" Type="float" />
+    <Property Name="UserID" Type="int" />
+    <Property Name="Date" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Satis">
+    <Key>
+      <PropertyRef Name="Satisid" />
+    </Key>
+    <Property Name="Satisid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BranchID" Type="int" />
+    <Property Name="Barkod" Type="nvarchar" MaxLength="50" />
+    <Property Name="ProccesNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="MehsulAd" Type="nvarchar" MaxLength="255" />
+    <Property Name="Category" Type="nvarchar" MaxLength="255" />
+    <Property Name="Miqdar" Type="float" />
+    <Property Name="AlisQiymet" Type="float" />
+    <Property Name="SatisQiymet" Type="float" />
+    <Property Name="PaymentTypeID" Type="int" />
+    <Property Name="Toplam" Type="float" />
+    <Property Name="UnitTypeID" Type="int" />
+    <Property Name="TaxTypeID" Type="int" />
+    <Property Name="TaxPrice" Type="float" />
+    <Property Name="Tarix" Type="datetime" />
+    <Property Name="UserID" Type="int" />
+    <Property Name="Vahid" Type="nvarchar" MaxLength="50" />
+    <Property Name="PaymentType" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="StokHareket">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Barkod" Type="nvarchar" MaxLength="50" />
+    <Property Name="UrunAd" Type="nvarchar" MaxLength="50" />
+    <Property Name="Birim" Type="nvarchar" MaxLength="50" />
+    <Property Name="Miktar" Type="float" />
+    <Property Name="UrunGrup" Type="nvarchar" MaxLength="50" />
+    <Property Name="Kullanici" Type="nvarchar" MaxLength="50" />
+    <Property Name="Tarih" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Supplier">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="SupplierName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Voen" Type="nvarchar" MaxLength="20" />
+    <Property Name="Address" Type="nvarchar" MaxLength="200" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="20" />
+    <Property Name="Status" Type="bit" />
+    <Property Name="TNo" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="TaxType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EDV_Name" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Terazi">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TeraziOnEk" Type="int" />
+  </EntityType>
+  <EntityType Name="Transaction_Report">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ProccesNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="ProccesType" Type="nvarchar" MaxLength="15" />
+    <Property Name="Branch_ID" Type="int" />
+    <Property Name="TicketNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="Fiscall_id" Type="nvarchar" MaxLength="250" />
+    <Property Name="Amount" Type="float" />
+    <Property Name="Cash" Type="float" />
+    <Property Name="Card" Type="float" />
+    <Property Name="Total" Type="float" />
+    <Property Name="Date" Type="datetime" />
+    <Property Name="PaymentType" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="UnitType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Unit_Name" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Username" Type="nvarchar" MaxLength="50" />
+    <Property Name="NameSurname" Type="nvarchar" MaxLength="100" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="50" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="Password" Type="nvarchar" MaxLength="50" />
+    <Property Name="Status" Type="bit" />
+    <Property Name="Type" Type="bit" />
+    <Property Name="Balance" Type="float" />
+    <Property Name="BranchID" Type="int" />
+    <Property Name="TerminalID" Type="int" />
+  </EntityType>
+  <Association Name="FK_Invoice_Product_Branchs">
+    <End Role="Branchs" Type="Self.Branchs" Multiplicity="0..1" />
+    <End Role="Invoice_Product" Type="Self.Invoice_Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Branchs">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Invoice_Product">
+        <PropertyRef Name="Branch_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Invoice_Product_Products">
+    <End Role="Products" Type="Self.Products" Multiplicity="0..1" />
+    <End Role="Invoice_Product" Type="Self.Invoice_Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="Mehsulid" />
+      </Principal>
+      <Dependent Role="Invoice_Product">
+        <PropertyRef Name="Product_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Invoice_Product_Supplier">
+    <End Role="Supplier" Type="Self.Supplier" Multiplicity="0..1" />
+    <End Role="Invoice_Product" Type="Self.Invoice_Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Supplier">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Invoice_Product">
+        <PropertyRef Name="SupplierID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Invoice_Product_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="Invoice_Product" Type="Self.Invoice_Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Invoice_Product">
+        <PropertyRef Name="User_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_IslemOzet_Branchs">
+    <End Role="Branchs" Type="Self.Branchs" Multiplicity="0..1" />
+    <End Role="IslemOzet" Type="Self.IslemOzet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Branchs">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="IslemOzet">
+        <PropertyRef Name="BranchID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_IslemOzet_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="IslemOzet" Type="Self.IslemOzet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="IslemOzet">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Mehsul_Category">
+    <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
+    <End Role="Products" Type="Self.Products" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Products">
+        <PropertyRef Name="CategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Mehsul_Tax">
+    <End Role="TaxType" Type="Self.TaxType" Multiplicity="0..1" />
+    <End Role="Products" Type="Self.Products" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TaxType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Products">
+        <PropertyRef Name="TaxID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Mehsul_Unit">
+    <End Role="UnitType" Type="Self.UnitType" Multiplicity="0..1" />
+    <End Role="Products" Type="Self.Products" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UnitType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Products">
+        <PropertyRef Name="UnitID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Posterminal_Branchs">
+    <End Role="Branchs" Type="Self.Branchs" Multiplicity="0..1" />
+    <End Role="Posterminal" Type="Self.Posterminal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Branchs">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Posterminal">
+        <PropertyRef Name="BranchID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Posterminal_TerminalName">
+    <End Role="Posterminal_Name" Type="Self.Posterminal_Name" Multiplicity="0..1" />
+    <End Role="Posterminal" Type="Self.Posterminal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Posterminal_Name">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Posterminal">
+        <PropertyRef Name="TerminalNameID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Product_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="Products" Type="Self.Products" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Products">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Products_Supplier">
+    <End Role="Supplier" Type="Self.Supplier" Multiplicity="0..1" />
+    <End Role="Products" Type="Self.Products" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Supplier">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Products">
+        <PropertyRef Name="Supplier_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Return_Invoice_Branchs">
+    <End Role="Branchs" Type="Self.Branchs" Multiplicity="0..1" />
+    <End Role="Return_Invoice" Type="Self.Return_Invoice" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Branchs">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Return_Invoice">
+        <PropertyRef Name="Branch_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Return_Invoice_Products">
+    <End Role="Products" Type="Self.Products" Multiplicity="0..1" />
+    <End Role="Return_Invoice" Type="Self.Return_Invoice" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="Mehsulid" />
+      </Principal>
+      <Dependent Role="Return_Invoice">
+        <PropertyRef Name="Product_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Return_Invoice_Supplier">
+    <End Role="Supplier" Type="Self.Supplier" Multiplicity="0..1" />
+    <End Role="Return_Invoice" Type="Self.Return_Invoice" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Supplier">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Return_Invoice">
+        <PropertyRef Name="Supplier_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Return_Invoice_User">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="Return_Invoice" Type="Self.Return_Invoice" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Return_Invoice">
+        <PropertyRef Name="User_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Return_Product_Branchs">
+    <End Role="Branchs" Type="Self.Branchs" Multiplicity="0..1" />
+    <End Role="Return_Product" Type="Self.Return_Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Branchs">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Return_Product">
+        <PropertyRef Name="BranchID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Return_Product_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="Return_Product" Type="Self.Return_Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Return_Product">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Return_Sales_Branchs">
+    <End Role="Branchs" Type="Self.Branchs" Multiplicity="0..1" />
+    <End Role="Return_Sales" Type="Self.Return_Sales" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Branchs">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Return_Sales">
+        <PropertyRef Name="BranchID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Return_Sales_Products">
+    <End Role="Products" Type="Self.Products" Multiplicity="0..1" />
+    <End Role="Return_Sales" Type="Self.Return_Sales" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="Mehsulid" />
+      </Principal>
+      <Dependent Role="Return_Sales">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Return_Sales_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="Return_Sales" Type="Self.Return_Sales" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Return_Sales">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sales_Product_Products">
+    <End Role="Products" Type="Self.Products" Multiplicity="0..1" />
+    <End Role="Sales_Product" Type="Self.Sales_Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="Mehsulid" />
+      </Principal>
+      <Dependent Role="Sales_Product">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sales_Product_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="Sales_Product" Type="Self.Sales_Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Sales_Product">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Satis_Branch">
+    <End Role="Branchs" Type="Self.Branchs" Multiplicity="0..1" />
+    <End Role="Satis" Type="Self.Satis" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Branchs">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Satis">
+        <PropertyRef Name="BranchID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Satis_TaxType">
+    <End Role="TaxType" Type="Self.TaxType" Multiplicity="0..1" />
+    <End Role="Satis" Type="Self.Satis" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TaxType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Satis">
+        <PropertyRef Name="TaxTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Satis_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="Satis" Type="Self.Satis" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Satis">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Transaction_Report_Branch">
+    <End Role="Branchs" Type="Self.Branchs" Multiplicity="0..1" />
+    <End Role="Transaction_Report" Type="Self.Transaction_Report" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Branchs">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Transaction_Report">
+        <PropertyRef Name="Branch_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Users_Branchs">
+    <End Role="Branchs" Type="Self.Branchs" Multiplicity="0..1" />
+    <End Role="Users" Type="Self.Users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Branchs">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Users">
+        <PropertyRef Name="BranchID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Users_Terminal">
+    <End Role="Posterminal" Type="Self.Posterminal" Multiplicity="0..1" />
+    <End Role="Users" Type="Self.Users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Posterminal">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Users">
+        <PropertyRef Name="TerminalID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="Invoice_ProccesNo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="ReturnInvoice_ProccesNo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="ReturnProccesNo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SalesProccessNo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Supplier_ProccesNo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <EntityContainer Name="KassadbModelStoreContainer">
+    <EntitySet Name="Branchs" EntityType="Self.Branchs" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Company" EntityType="Self.Company" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Invoice_Product" EntityType="Self.Invoice_Product" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="IslemOzet" EntityType="Self.IslemOzet" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Posterminal" EntityType="Self.Posterminal" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Posterminal_Name" EntityType="Self.Posterminal_Name" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Products" EntityType="Self.Products" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Return_Invoice" EntityType="Self.Return_Invoice" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Return_Product" EntityType="Self.Return_Product" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Return_Sales" EntityType="Self.Return_Sales" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Sales_Product" EntityType="Self.Sales_Product" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Satis" EntityType="Self.Satis" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="StokHareket" EntityType="Self.StokHareket" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Supplier" EntityType="Self.Supplier" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TaxType" EntityType="Self.TaxType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Terazi" EntityType="Self.Terazi" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Transaction_Report" EntityType="Self.Transaction_Report" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UnitType" EntityType="Self.UnitType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Invoice_Product_Branchs" Association="Self.FK_Invoice_Product_Branchs">
+      <End Role="Branchs" EntitySet="Branchs" />
+      <End Role="Invoice_Product" EntitySet="Invoice_Product" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Invoice_Product_Products" Association="Self.FK_Invoice_Product_Products">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="Invoice_Product" EntitySet="Invoice_Product" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Invoice_Product_Supplier" Association="Self.FK_Invoice_Product_Supplier">
+      <End Role="Supplier" EntitySet="Supplier" />
+      <End Role="Invoice_Product" EntitySet="Invoice_Product" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Invoice_Product_Users" Association="Self.FK_Invoice_Product_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Invoice_Product" EntitySet="Invoice_Product" />
+    </AssociationSet>
+    <AssociationSet Name="FK_IslemOzet_Branchs" Association="Self.FK_IslemOzet_Branchs">
+      <End Role="Branchs" EntitySet="Branchs" />
+      <End Role="IslemOzet" EntitySet="IslemOzet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_IslemOzet_Users" Association="Self.FK_IslemOzet_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="IslemOzet" EntitySet="IslemOzet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Mehsul_Category" Association="Self.FK_Mehsul_Category">
+      <End Role="Category" EntitySet="Category" />
+      <End Role="Products" EntitySet="Products" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Mehsul_Tax" Association="Self.FK_Mehsul_Tax">
+      <End Role="TaxType" EntitySet="TaxType" />
+      <End Role="Products" EntitySet="Products" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Mehsul_Unit" Association="Self.FK_Mehsul_Unit">
+      <End Role="UnitType" EntitySet="UnitType" />
+      <End Role="Products" EntitySet="Products" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Posterminal_Branchs" Association="Self.FK_Posterminal_Branchs">
+      <End Role="Branchs" EntitySet="Branchs" />
+      <End Role="Posterminal" EntitySet="Posterminal" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Posterminal_TerminalName" Association="Self.FK_Posterminal_TerminalName">
+      <End Role="Posterminal_Name" EntitySet="Posterminal_Name" />
+      <End Role="Posterminal" EntitySet="Posterminal" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Product_Users" Association="Self.FK_Product_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Products" EntitySet="Products" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Products_Supplier" Association="Self.FK_Products_Supplier">
+      <End Role="Supplier" EntitySet="Supplier" />
+      <End Role="Products" EntitySet="Products" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Return_Invoice_Branchs" Association="Self.FK_Return_Invoice_Branchs">
+      <End Role="Branchs" EntitySet="Branchs" />
+      <End Role="Return_Invoice" EntitySet="Return_Invoice" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Return_Invoice_Products" Association="Self.FK_Return_Invoice_Products">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="Return_Invoice" EntitySet="Return_Invoice" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Return_Invoice_Supplier" Association="Self.FK_Return_Invoice_Supplier">
+      <End Role="Supplier" EntitySet="Supplier" />
+      <End Role="Return_Invoice" EntitySet="Return_Invoice" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Return_Invoice_User" Association="Self.FK_Return_Invoice_User">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Return_Invoice" EntitySet="Return_Invoice" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Return_Product_Branchs" Association="Self.FK_Return_Product_Branchs">
+      <End Role="Branchs" EntitySet="Branchs" />
+      <End Role="Return_Product" EntitySet="Return_Product" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Return_Product_Users" Association="Self.FK_Return_Product_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Return_Product" EntitySet="Return_Product" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Return_Sales_Branchs" Association="Self.FK_Return_Sales_Branchs">
+      <End Role="Branchs" EntitySet="Branchs" />
+      <End Role="Return_Sales" EntitySet="Return_Sales" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Return_Sales_Products" Association="Self.FK_Return_Sales_Products">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="Return_Sales" EntitySet="Return_Sales" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Return_Sales_Users" Association="Self.FK_Return_Sales_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Return_Sales" EntitySet="Return_Sales" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sales_Product_Products" Association="Self.FK_Sales_Product_Products">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="Sales_Product" EntitySet="Sales_Product" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sales_Product_Users" Association="Self.FK_Sales_Product_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Sales_Product" EntitySet="Sales_Product" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Satis_Branch" Association="Self.FK_Satis_Branch">
+      <End Role="Branchs" EntitySet="Branchs" />
+      <End Role="Satis" EntitySet="Satis" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Satis_TaxType" Association="Self.FK_Satis_TaxType">
+      <End Role="TaxType" EntitySet="TaxType" />
+      <End Role="Satis" EntitySet="Satis" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Satis_Users" Association="Self.FK_Satis_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Satis" EntitySet="Satis" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Transaction_Report_Branch" Association="Self.FK_Transaction_Report_Branch">
+      <End Role="Branchs" EntitySet="Branchs" />
+      <End Role="Transaction_Report" EntitySet="Transaction_Report" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Users_Branchs" Association="Self.FK_Users_Branchs">
+      <End Role="Branchs" EntitySet="Branchs" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Users_Terminal" Association="Self.FK_Users_Terminal">
+      <End Role="Posterminal" EntitySet="Posterminal" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

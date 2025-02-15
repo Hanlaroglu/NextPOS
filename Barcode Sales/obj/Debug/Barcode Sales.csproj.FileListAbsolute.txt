@@ -1,0 +1,741 @@
+D:\Hasan\PROJECTS\TEST\Barcode Sales\obj\Debug\Barcode Sales.csproj.AssemblyReference.cache
+D:\Hasan\PROJECTS\TEST\Barcode Sales\obj\Debug\Barcode_Sales.fAyarlar.resources
+D:\Hasan\PROJECTS\TEST\Barcode Sales\obj\Debug\Barcode_Sales.fButtonParametr.resources
+D:\Hasan\PROJECTS\TEST\Barcode Sales\obj\Debug\Barcode_Sales.fCashAndCard.resources
+D:\Hasan\PROJECTS\TEST\Barcode Sales\obj\Debug\Barcode_Sales.fCreateCategory.resources
+D:\Hasan\PROJECTS\TEST\Barcode Sales\obj\Debug\Barcode_Sales.fCreateProduct.resources
+D:\Hasan\PROJECTS\TEST\Barcode Sales\obj\Debug\Barcode_Sales.fCreateUser.resources
+D:\Hasan\PROJECTS\TEST\Barcode Sales\obj\Debug\Barcode_Sales.fDashboard.resources
+D:\Hasan\PROJECTS\TEST\Barcode Sales\obj\Debug\Barcode_Sales.fDetails.resources
+D:\Hasan\PROJECTS\TEST\Barcode Sales\obj\Debug\Barcode_Sales.fFirstScreen.resources
+D:\Hasan\PROJECTS\TEST\Barcode Sales\obj\Debug\Barcode_Sales.fHizliButonUrunEkle.resources
+D:\Hasan\PROJECTS\TEST\Barcode Sales\obj\Debug\Barcode_Sales.fInfo.resources
+D:\Hasan\PROJECTS\TEST\Barcode Sales\obj\Debug\Barcode_Sales.fLicence.resources
+D:\Hasan\PROJECTS\TEST\Barcode Sales\obj\Debug\Barcode_Sales.fLogin.resources
+D:\Hasan\PROJECTS\TEST\Barcode Sales\obj\Debug\Barcode_Sales.fMain.resources
+D:\Hasan\PROJECTS\TEST\Barcode Sales\obj\Debug\Barcode_Sales.fRestoreSifre.resources
+D:\Hasan\PROJECTS\TEST\Barcode Sales\obj\Debug\Barcode_Sales.fSatis.resources
+D:\Hasan\PROJECTS\TEST\Barcode Sales\obj\Debug\Barcode_Sales.fSelectSaller.resources
+D:\Hasan\PROJECTS\TEST\Barcode Sales\obj\Debug\Barcode_Sales.fSettings.resources
+D:\Hasan\PROJECTS\TEST\Barcode Sales\obj\Debug\Barcode_Sales.Properties.Resources.resources
+D:\Hasan\PROJECTS\TEST\Barcode Sales\obj\Debug\Barcode_Sales.Tools.fMessage.resources
+D:\Hasan\PROJECTS\TEST\Barcode Sales\obj\Debug\Barcode Sales.csproj.GenerateResource.cache
+D:\Hasan\PROJECTS\TEST\Barcode Sales\obj\Debug\Barcode Sales.exe.licenses
+D:\Hasan\PROJECTS\TEST\Barcode Sales\obj\Debug\RdlCompile.cache
+D:\Hasan\PROJECTS\TEST\Barcode Sales\obj\Debug\RdlCompile.compiled
+D:\Hasan\PROJECTS\TEST\Barcode Sales\obj\Debug\Barcode Sales.csproj.CoreCompileInputs.cache
+D:\Hasan\PROJECTS\TEST\Barcode Sales\bin\Debug\bin\Debug\Kassadb.mdf
+D:\Hasan\PROJECTS\TEST\Barcode Sales\bin\Debug\SqlServerTypes\x64\msvcr120.dll
+D:\Hasan\PROJECTS\TEST\Barcode Sales\bin\Debug\SqlServerTypes\x64\SqlServerSpatial140.dll
+D:\Hasan\PROJECTS\TEST\Barcode Sales\bin\Debug\SqlServerTypes\x86\msvcr120.dll
+D:\Hasan\PROJECTS\TEST\Barcode Sales\bin\Debug\SqlServerTypes\x86\SqlServerSpatial140.dll
+D:\Hasan\PROJECTS\TEST\Barcode Sales\bin\Debug\Licence.dll
+D:\Hasan\PROJECTS\TEST\Barcode Sales\bin\Debug\Microsoft.ReportViewer.Common.dll
+D:\Hasan\PROJECTS\TEST\Barcode Sales\bin\Debug\Microsoft.ReportViewer.DataVisualization.dll
+D:\Hasan\PROJECTS\TEST\Barcode Sales\bin\Debug\Microsoft.ReportViewer.Design.dll
+D:\Hasan\PROJECTS\TEST\Barcode Sales\bin\Debug\Microsoft.ReportViewer.ProcessingObjectModel.dll
+D:\Hasan\PROJECTS\TEST\Barcode Sales\bin\Debug\Microsoft.ReportViewer.WinForms.dll
+D:\Hasan\PROJECTS\TEST\Barcode Sales\bin\Debug\Microsoft.SqlServer.Types.dll
+D:\Hasan\PROJECTS\TEST\Barcode Sales\bin\Debug\EnvDTE.dll
+D:\Hasan\PROJECTS\TEST\Barcode Sales\bin\Debug\Microsoft.VisualStudio.Shell.Interop.dll
+D:\Hasan\PROJECTS\TEST\Barcode Sales\bin\Debug\Microsoft.VisualStudio.Shell.Interop.8.0.dll
+D:\Hasan\PROJECTS\TEST\Barcode Sales\bin\Debug\stdole.dll
+D:\Hasan\PROJECTS\TEST\Barcode Sales\bin\Debug\Microsoft.VisualStudio.OLE.Interop.dll
+D:\Hasan\PROJECTS\TEST\Barcode Sales\bin\Debug\Microsoft.VisualStudio.TextManager.Interop.dll
+D:\Hasan\PROJECTS\TEST\Barcode Sales\bin\Debug\Microsoft.VisualStudio.TextManager.Interop.8.0.dll
+D:\Hasan\PROJECTS\TEST\Barcode Sales\bin\Debug\Microsoft.MSXML.dll
+D:\Hasan\PROJECTS\TEST\Barcode Sales\bin\Debug\Licence.pdb
+D:\Hasan\PROJECTS\TEST\Barcode Sales\bin\Debug\Licence.dll.config
+D:\Hasan\PROJECTS\TEST\Barcode Sales\bin\Debug\de\Microsoft.ReportViewer.Common.resources.dll
+D:\Hasan\PROJECTS\TEST\Barcode Sales\bin\Debug\es\Microsoft.ReportViewer.Common.resources.dll
+D:\Hasan\PROJECTS\TEST\Barcode Sales\bin\Debug\fr\Microsoft.ReportViewer.Common.resources.dll
+D:\Hasan\PROJECTS\TEST\Barcode Sales\bin\Debug\it\Microsoft.ReportViewer.Common.resources.dll
+D:\Hasan\PROJECTS\TEST\Barcode Sales\bin\Debug\ja\Microsoft.ReportViewer.Common.resources.dll
+D:\Hasan\PROJECTS\TEST\Barcode Sales\bin\Debug\ko\Microsoft.ReportViewer.Common.resources.dll
+D:\Hasan\PROJECTS\TEST\Barcode Sales\bin\Debug\pt\Microsoft.ReportViewer.Common.resources.dll
+D:\Hasan\PROJECTS\TEST\Barcode Sales\bin\Debug\ru\Microsoft.ReportViewer.Common.resources.dll
+D:\Hasan\PROJECTS\TEST\Barcode Sales\bin\Debug\zh-CHS\Microsoft.ReportViewer.Common.resources.dll
+D:\Hasan\PROJECTS\TEST\Barcode Sales\bin\Debug\zh-CHT\Microsoft.ReportViewer.Common.resources.dll
+D:\Hasan\PROJECTS\TEST\Barcode Sales\bin\Debug\de\Microsoft.ReportViewer.DataVisualization.resources.dll
+D:\Hasan\PROJECTS\TEST\Barcode Sales\bin\Debug\es\Microsoft.ReportViewer.DataVisualization.resources.dll
+D:\Hasan\PROJECTS\TEST\Barcode Sales\bin\Debug\fr\Microsoft.ReportViewer.DataVisualization.resources.dll
+D:\Hasan\PROJECTS\TEST\Barcode Sales\bin\Debug\it\Microsoft.ReportViewer.DataVisualization.resources.dll
+D:\Hasan\PROJECTS\TEST\Barcode Sales\bin\Debug\ja\Microsoft.ReportViewer.DataVisualization.resources.dll
+D:\Hasan\PROJECTS\TEST\Barcode Sales\bin\Debug\ko\Microsoft.ReportViewer.DataVisualization.resources.dll
+D:\Hasan\PROJECTS\TEST\Barcode Sales\bin\Debug\pt\Microsoft.ReportViewer.DataVisualization.resources.dll
+D:\Hasan\PROJECTS\TEST\Barcode Sales\bin\Debug\ru\Microsoft.ReportViewer.DataVisualization.resources.dll
+D:\Hasan\PROJECTS\TEST\Barcode Sales\bin\Debug\zh-CHS\Microsoft.ReportViewer.DataVisualization.resources.dll
+D:\Hasan\PROJECTS\TEST\Barcode Sales\bin\Debug\zh-CHT\Microsoft.ReportViewer.DataVisualization.resources.dll
+D:\Hasan\PROJECTS\TEST\Barcode Sales\bin\Debug\de\Microsoft.ReportViewer.Design.resources.dll
+D:\Hasan\PROJECTS\TEST\Barcode Sales\bin\Debug\es\Microsoft.ReportViewer.Design.resources.dll
+D:\Hasan\PROJECTS\TEST\Barcode Sales\bin\Debug\fr\Microsoft.ReportViewer.Design.resources.dll
+D:\Hasan\PROJECTS\TEST\Barcode Sales\bin\Debug\it\Microsoft.ReportViewer.Design.resources.dll
+D:\Hasan\PROJECTS\TEST\Barcode Sales\bin\Debug\ja\Microsoft.ReportViewer.Design.resources.dll
+D:\Hasan\PROJECTS\TEST\Barcode Sales\bin\Debug\ko\Microsoft.ReportViewer.Design.resources.dll
+D:\Hasan\PROJECTS\TEST\Barcode Sales\bin\Debug\pt\Microsoft.ReportViewer.Design.resources.dll
+D:\Hasan\PROJECTS\TEST\Barcode Sales\bin\Debug\ru\Microsoft.ReportViewer.Design.resources.dll
+D:\Hasan\PROJECTS\TEST\Barcode Sales\bin\Debug\zh-CHS\Microsoft.ReportViewer.Design.resources.dll
+D:\Hasan\PROJECTS\TEST\Barcode Sales\bin\Debug\zh-CHT\Microsoft.ReportViewer.Design.resources.dll
+D:\Hasan\PROJECTS\TEST\Barcode Sales\bin\Debug\de\Microsoft.ReportViewer.WinForms.resources.dll
+D:\Hasan\PROJECTS\TEST\Barcode Sales\bin\Debug\es\Microsoft.ReportViewer.WinForms.resources.dll
+D:\Hasan\PROJECTS\TEST\Barcode Sales\bin\Debug\fr\Microsoft.ReportViewer.WinForms.resources.dll
+D:\Hasan\PROJECTS\TEST\Barcode Sales\bin\Debug\it\Microsoft.ReportViewer.WinForms.resources.dll
+D:\Hasan\PROJECTS\TEST\Barcode Sales\bin\Debug\ja\Microsoft.ReportViewer.WinForms.resources.dll
+D:\Hasan\PROJECTS\TEST\Barcode Sales\bin\Debug\ko\Microsoft.ReportViewer.WinForms.resources.dll
+D:\Hasan\PROJECTS\TEST\Barcode Sales\bin\Debug\pt\Microsoft.ReportViewer.WinForms.resources.dll
+D:\Hasan\PROJECTS\TEST\Barcode Sales\bin\Debug\ru\Microsoft.ReportViewer.WinForms.resources.dll
+D:\Hasan\PROJECTS\TEST\Barcode Sales\bin\Debug\zh-CHS\Microsoft.ReportViewer.WinForms.resources.dll
+D:\Hasan\PROJECTS\TEST\Barcode Sales\bin\Debug\zh-CHT\Microsoft.ReportViewer.WinForms.resources.dll
+D:\Hasan\PROJECTS\TEST\Barcode Sales\obj\Debug\Barcode Sales.csproj.CopyComplete
+D:\Hasan\PROJECTS\TEST\Barcode Sales\obj\Debug\Barcode Sales.exe
+D:\Hasan\PROJECTS\TEST\Barcode Sales\obj\Debug\Barcode Sales.pdb
+D:\Hasan\PROJECTS\TEST\Barcode Sales\bin\Debug\rpGenelRapor.rdlc
+D:\Hasan\PROJECTS\TEST\Barcode Sales\bin\Debug\rpStokIzleme.rdlc
+D:\Hasan\PROJECTS\TEST\Barcode Sales\bin\Debug\rpStokUrun.rdlc
+D:\Hasan\PROJECTS\TEST\Barcode Sales\bin\Debug\Barcode Sales.exe.config
+D:\Hasan\PROJECTS\TEST\Barcode Sales\bin\Debug\Barcode Sales.exe
+D:\Hasan\PROJECTS\TEST\Barcode Sales\bin\Debug\Barcode Sales.pdb
+D:\Hasan\PROJECTS\TEST\Barcode Sales\bin\Debug\bin\Debug\Kassadb_log.ldf
+D:\Hasan\PROJECTS\Barkod-Satis\Barcode Sales 10\KOPYA (BARKODLUDAN)\Barcode Sales\bin\Debug\bin\Debug\Kassadb.mdf
+D:\Hasan\PROJECTS\Barkod-Satis\Barcode Sales 10\KOPYA (BARKODLUDAN)\Barcode Sales\bin\Debug\SqlServerTypes\x64\msvcr120.dll
+D:\Hasan\PROJECTS\Barkod-Satis\Barcode Sales 10\KOPYA (BARKODLUDAN)\Barcode Sales\bin\Debug\SqlServerTypes\x64\SqlServerSpatial140.dll
+D:\Hasan\PROJECTS\Barkod-Satis\Barcode Sales 10\KOPYA (BARKODLUDAN)\Barcode Sales\bin\Debug\SqlServerTypes\x86\msvcr120.dll
+D:\Hasan\PROJECTS\Barkod-Satis\Barcode Sales 10\KOPYA (BARKODLUDAN)\Barcode Sales\bin\Debug\SqlServerTypes\x86\SqlServerSpatial140.dll
+D:\Hasan\PROJECTS\Barkod-Satis\Barcode Sales 10\KOPYA (BARKODLUDAN)\Barcode Sales\bin\Debug\bin\Debug\Kassadb_log.ldf
+D:\Hasan\PROJECTS\Barkod-Satis\Barcode Sales 10\KOPYA (BARKODLUDAN)\Barcode Sales\bin\Debug\rpGenelRapor.rdlc
+D:\Hasan\PROJECTS\Barkod-Satis\Barcode Sales 10\KOPYA (BARKODLUDAN)\Barcode Sales\bin\Debug\rpStokIzleme.rdlc
+D:\Hasan\PROJECTS\Barkod-Satis\Barcode Sales 10\KOPYA (BARKODLUDAN)\Barcode Sales\bin\Debug\rpStokUrun.rdlc
+D:\Hasan\PROJECTS\Barkod-Satis\Barcode Sales 10\KOPYA (BARKODLUDAN)\Barcode Sales\bin\Debug\Licence.dll
+D:\Hasan\PROJECTS\Barkod-Satis\Barcode Sales 10\KOPYA (BARKODLUDAN)\Barcode Sales\bin\Debug\Microsoft.ReportViewer.Common.dll
+D:\Hasan\PROJECTS\Barkod-Satis\Barcode Sales 10\KOPYA (BARKODLUDAN)\Barcode Sales\bin\Debug\Microsoft.ReportViewer.DataVisualization.dll
+D:\Hasan\PROJECTS\Barkod-Satis\Barcode Sales 10\KOPYA (BARKODLUDAN)\Barcode Sales\bin\Debug\Microsoft.ReportViewer.Design.dll
+D:\Hasan\PROJECTS\Barkod-Satis\Barcode Sales 10\KOPYA (BARKODLUDAN)\Barcode Sales\bin\Debug\Microsoft.ReportViewer.ProcessingObjectModel.dll
+D:\Hasan\PROJECTS\Barkod-Satis\Barcode Sales 10\KOPYA (BARKODLUDAN)\Barcode Sales\bin\Debug\Microsoft.ReportViewer.WinForms.dll
+D:\Hasan\PROJECTS\Barkod-Satis\Barcode Sales 10\KOPYA (BARKODLUDAN)\Barcode Sales\bin\Debug\Microsoft.SqlServer.Types.dll
+D:\Hasan\PROJECTS\Barkod-Satis\Barcode Sales 10\KOPYA (BARKODLUDAN)\Barcode Sales\bin\Debug\EnvDTE.dll
+D:\Hasan\PROJECTS\Barkod-Satis\Barcode Sales 10\KOPYA (BARKODLUDAN)\Barcode Sales\bin\Debug\Microsoft.VisualStudio.Shell.Interop.dll
+D:\Hasan\PROJECTS\Barkod-Satis\Barcode Sales 10\KOPYA (BARKODLUDAN)\Barcode Sales\bin\Debug\Microsoft.VisualStudio.Shell.Interop.8.0.dll
+D:\Hasan\PROJECTS\Barkod-Satis\Barcode Sales 10\KOPYA (BARKODLUDAN)\Barcode Sales\bin\Debug\stdole.dll
+D:\Hasan\PROJECTS\Barkod-Satis\Barcode Sales 10\KOPYA (BARKODLUDAN)\Barcode Sales\bin\Debug\Microsoft.VisualStudio.OLE.Interop.dll
+D:\Hasan\PROJECTS\Barkod-Satis\Barcode Sales 10\KOPYA (BARKODLUDAN)\Barcode Sales\bin\Debug\Microsoft.VisualStudio.TextManager.Interop.dll
+D:\Hasan\PROJECTS\Barkod-Satis\Barcode Sales 10\KOPYA (BARKODLUDAN)\Barcode Sales\bin\Debug\Microsoft.VisualStudio.TextManager.Interop.8.0.dll
+D:\Hasan\PROJECTS\Barkod-Satis\Barcode Sales 10\KOPYA (BARKODLUDAN)\Barcode Sales\bin\Debug\Microsoft.MSXML.dll
+D:\Hasan\PROJECTS\Barkod-Satis\Barcode Sales 10\KOPYA (BARKODLUDAN)\Barcode Sales\bin\Debug\Licence.pdb
+D:\Hasan\PROJECTS\Barkod-Satis\Barcode Sales 10\KOPYA (BARKODLUDAN)\Barcode Sales\bin\Debug\Licence.dll.config
+D:\Hasan\PROJECTS\Barkod-Satis\Barcode Sales 10\KOPYA (BARKODLUDAN)\Barcode Sales\bin\Debug\de\Microsoft.ReportViewer.Common.resources.dll
+D:\Hasan\PROJECTS\Barkod-Satis\Barcode Sales 10\KOPYA (BARKODLUDAN)\Barcode Sales\bin\Debug\es\Microsoft.ReportViewer.Common.resources.dll
+D:\Hasan\PROJECTS\Barkod-Satis\Barcode Sales 10\KOPYA (BARKODLUDAN)\Barcode Sales\bin\Debug\fr\Microsoft.ReportViewer.Common.resources.dll
+D:\Hasan\PROJECTS\Barkod-Satis\Barcode Sales 10\KOPYA (BARKODLUDAN)\Barcode Sales\bin\Debug\it\Microsoft.ReportViewer.Common.resources.dll
+D:\Hasan\PROJECTS\Barkod-Satis\Barcode Sales 10\KOPYA (BARKODLUDAN)\Barcode Sales\bin\Debug\ja\Microsoft.ReportViewer.Common.resources.dll
+D:\Hasan\PROJECTS\Barkod-Satis\Barcode Sales 10\KOPYA (BARKODLUDAN)\Barcode Sales\bin\Debug\ko\Microsoft.ReportViewer.Common.resources.dll
+D:\Hasan\PROJECTS\Barkod-Satis\Barcode Sales 10\KOPYA (BARKODLUDAN)\Barcode Sales\bin\Debug\pt\Microsoft.ReportViewer.Common.resources.dll
+D:\Hasan\PROJECTS\Barkod-Satis\Barcode Sales 10\KOPYA (BARKODLUDAN)\Barcode Sales\bin\Debug\ru\Microsoft.ReportViewer.Common.resources.dll
+D:\Hasan\PROJECTS\Barkod-Satis\Barcode Sales 10\KOPYA (BARKODLUDAN)\Barcode Sales\bin\Debug\zh-CHS\Microsoft.ReportViewer.Common.resources.dll
+D:\Hasan\PROJECTS\Barkod-Satis\Barcode Sales 10\KOPYA (BARKODLUDAN)\Barcode Sales\bin\Debug\zh-CHT\Microsoft.ReportViewer.Common.resources.dll
+D:\Hasan\PROJECTS\Barkod-Satis\Barcode Sales 10\KOPYA (BARKODLUDAN)\Barcode Sales\bin\Debug\de\Microsoft.ReportViewer.DataVisualization.resources.dll
+D:\Hasan\PROJECTS\Barkod-Satis\Barcode Sales 10\KOPYA (BARKODLUDAN)\Barcode Sales\bin\Debug\es\Microsoft.ReportViewer.DataVisualization.resources.dll
+D:\Hasan\PROJECTS\Barkod-Satis\Barcode Sales 10\KOPYA (BARKODLUDAN)\Barcode Sales\bin\Debug\fr\Microsoft.ReportViewer.DataVisualization.resources.dll
+D:\Hasan\PROJECTS\Barkod-Satis\Barcode Sales 10\KOPYA (BARKODLUDAN)\Barcode Sales\bin\Debug\it\Microsoft.ReportViewer.DataVisualization.resources.dll
+D:\Hasan\PROJECTS\Barkod-Satis\Barcode Sales 10\KOPYA (BARKODLUDAN)\Barcode Sales\bin\Debug\ja\Microsoft.ReportViewer.DataVisualization.resources.dll
+D:\Hasan\PROJECTS\Barkod-Satis\Barcode Sales 10\KOPYA (BARKODLUDAN)\Barcode Sales\bin\Debug\ko\Microsoft.ReportViewer.DataVisualization.resources.dll
+D:\Hasan\PROJECTS\Barkod-Satis\Barcode Sales 10\KOPYA (BARKODLUDAN)\Barcode Sales\bin\Debug\pt\Microsoft.ReportViewer.DataVisualization.resources.dll
+D:\Hasan\PROJECTS\Barkod-Satis\Barcode Sales 10\KOPYA (BARKODLUDAN)\Barcode Sales\bin\Debug\ru\Microsoft.ReportViewer.DataVisualization.resources.dll
+D:\Hasan\PROJECTS\Barkod-Satis\Barcode Sales 10\KOPYA (BARKODLUDAN)\Barcode Sales\bin\Debug\zh-CHS\Microsoft.ReportViewer.DataVisualization.resources.dll
+D:\Hasan\PROJECTS\Barkod-Satis\Barcode Sales 10\KOPYA (BARKODLUDAN)\Barcode Sales\bin\Debug\zh-CHT\Microsoft.ReportViewer.DataVisualization.resources.dll
+D:\Hasan\PROJECTS\Barkod-Satis\Barcode Sales 10\KOPYA (BARKODLUDAN)\Barcode Sales\bin\Debug\de\Microsoft.ReportViewer.Design.resources.dll
+D:\Hasan\PROJECTS\Barkod-Satis\Barcode Sales 10\KOPYA (BARKODLUDAN)\Barcode Sales\bin\Debug\es\Microsoft.ReportViewer.Design.resources.dll
+D:\Hasan\PROJECTS\Barkod-Satis\Barcode Sales 10\KOPYA (BARKODLUDAN)\Barcode Sales\bin\Debug\fr\Microsoft.ReportViewer.Design.resources.dll
+D:\Hasan\PROJECTS\Barkod-Satis\Barcode Sales 10\KOPYA (BARKODLUDAN)\Barcode Sales\bin\Debug\it\Microsoft.ReportViewer.Design.resources.dll
+D:\Hasan\PROJECTS\Barkod-Satis\Barcode Sales 10\KOPYA (BARKODLUDAN)\Barcode Sales\bin\Debug\ja\Microsoft.ReportViewer.Design.resources.dll
+D:\Hasan\PROJECTS\Barkod-Satis\Barcode Sales 10\KOPYA (BARKODLUDAN)\Barcode Sales\bin\Debug\ko\Microsoft.ReportViewer.Design.resources.dll
+D:\Hasan\PROJECTS\Barkod-Satis\Barcode Sales 10\KOPYA (BARKODLUDAN)\Barcode Sales\bin\Debug\pt\Microsoft.ReportViewer.Design.resources.dll
+D:\Hasan\PROJECTS\Barkod-Satis\Barcode Sales 10\KOPYA (BARKODLUDAN)\Barcode Sales\bin\Debug\ru\Microsoft.ReportViewer.Design.resources.dll
+D:\Hasan\PROJECTS\Barkod-Satis\Barcode Sales 10\KOPYA (BARKODLUDAN)\Barcode Sales\bin\Debug\zh-CHS\Microsoft.ReportViewer.Design.resources.dll
+D:\Hasan\PROJECTS\Barkod-Satis\Barcode Sales 10\KOPYA (BARKODLUDAN)\Barcode Sales\bin\Debug\zh-CHT\Microsoft.ReportViewer.Design.resources.dll
+D:\Hasan\PROJECTS\Barkod-Satis\Barcode Sales 10\KOPYA (BARKODLUDAN)\Barcode Sales\bin\Debug\de\Microsoft.ReportViewer.WinForms.resources.dll
+D:\Hasan\PROJECTS\Barkod-Satis\Barcode Sales 10\KOPYA (BARKODLUDAN)\Barcode Sales\bin\Debug\es\Microsoft.ReportViewer.WinForms.resources.dll
+D:\Hasan\PROJECTS\Barkod-Satis\Barcode Sales 10\KOPYA (BARKODLUDAN)\Barcode Sales\bin\Debug\fr\Microsoft.ReportViewer.WinForms.resources.dll
+D:\Hasan\PROJECTS\Barkod-Satis\Barcode Sales 10\KOPYA (BARKODLUDAN)\Barcode Sales\bin\Debug\it\Microsoft.ReportViewer.WinForms.resources.dll
+D:\Hasan\PROJECTS\Barkod-Satis\Barcode Sales 10\KOPYA (BARKODLUDAN)\Barcode Sales\bin\Debug\ja\Microsoft.ReportViewer.WinForms.resources.dll
+D:\Hasan\PROJECTS\Barkod-Satis\Barcode Sales 10\KOPYA (BARKODLUDAN)\Barcode Sales\bin\Debug\ko\Microsoft.ReportViewer.WinForms.resources.dll
+D:\Hasan\PROJECTS\Barkod-Satis\Barcode Sales 10\KOPYA (BARKODLUDAN)\Barcode Sales\bin\Debug\pt\Microsoft.ReportViewer.WinForms.resources.dll
+D:\Hasan\PROJECTS\Barkod-Satis\Barcode Sales 10\KOPYA (BARKODLUDAN)\Barcode Sales\bin\Debug\ru\Microsoft.ReportViewer.WinForms.resources.dll
+D:\Hasan\PROJECTS\Barkod-Satis\Barcode Sales 10\KOPYA (BARKODLUDAN)\Barcode Sales\bin\Debug\zh-CHS\Microsoft.ReportViewer.WinForms.resources.dll
+D:\Hasan\PROJECTS\Barkod-Satis\Barcode Sales 10\KOPYA (BARKODLUDAN)\Barcode Sales\bin\Debug\zh-CHT\Microsoft.ReportViewer.WinForms.resources.dll
+D:\Hasan\PROJECTS\Barkod-Satis\Barcode Sales 10\KOPYA (BARKODLUDAN)\Barcode Sales\obj\Debug\Barcode_Sales.fCashAndCard.resources
+D:\Hasan\PROJECTS\Barkod-Satis\Barcode Sales 10\KOPYA (BARKODLUDAN)\Barcode Sales\obj\Debug\Barcode_Sales.fCreateCategory.resources
+D:\Hasan\PROJECTS\Barkod-Satis\Barcode Sales 10\KOPYA (BARKODLUDAN)\Barcode Sales\obj\Debug\Barcode_Sales.fCreateProduct.resources
+D:\Hasan\PROJECTS\Barkod-Satis\Barcode Sales 10\KOPYA (BARKODLUDAN)\Barcode Sales\obj\Debug\Barcode_Sales.fCreateUser.resources
+D:\Hasan\PROJECTS\Barkod-Satis\Barcode Sales 10\KOPYA (BARKODLUDAN)\Barcode Sales\obj\Debug\Barcode_Sales.fDashboard.resources
+D:\Hasan\PROJECTS\Barkod-Satis\Barcode Sales 10\KOPYA (BARKODLUDAN)\Barcode Sales\obj\Debug\Barcode_Sales.fDetails.resources
+D:\Hasan\PROJECTS\Barkod-Satis\Barcode Sales 10\KOPYA (BARKODLUDAN)\Barcode Sales\obj\Debug\Barcode_Sales.fFirstScreen.resources
+D:\Hasan\PROJECTS\Barkod-Satis\Barcode Sales 10\KOPYA (BARKODLUDAN)\Barcode Sales\obj\Debug\Barcode_Sales.fHizliButonUrunEkle.resources
+D:\Hasan\PROJECTS\Barkod-Satis\Barcode Sales 10\KOPYA (BARKODLUDAN)\Barcode Sales\obj\Debug\Barcode_Sales.fInfo.resources
+D:\Hasan\PROJECTS\Barkod-Satis\Barcode Sales 10\KOPYA (BARKODLUDAN)\Barcode Sales\obj\Debug\Barcode_Sales.fLicence.resources
+D:\Hasan\PROJECTS\Barkod-Satis\Barcode Sales 10\KOPYA (BARKODLUDAN)\Barcode Sales\obj\Debug\Barcode_Sales.fLogin.resources
+D:\Hasan\PROJECTS\Barkod-Satis\Barcode Sales 10\KOPYA (BARKODLUDAN)\Barcode Sales\obj\Debug\Barcode_Sales.fMain.resources
+D:\Hasan\PROJECTS\Barkod-Satis\Barcode Sales 10\KOPYA (BARKODLUDAN)\Barcode Sales\obj\Debug\Barcode_Sales.fSelectSaller.resources
+D:\Hasan\PROJECTS\Barkod-Satis\Barcode Sales 10\KOPYA (BARKODLUDAN)\Barcode Sales\obj\Debug\Barcode_Sales.fSettings.resources
+D:\Hasan\PROJECTS\Barkod-Satis\Barcode Sales 10\KOPYA (BARKODLUDAN)\Barcode Sales\obj\Debug\Barcode_Sales.Properties.Resources.resources
+D:\Hasan\PROJECTS\Barkod-Satis\Barcode Sales 10\KOPYA (BARKODLUDAN)\Barcode Sales\obj\Debug\Barcode Sales.csproj.GenerateResource.cache
+D:\Hasan\PROJECTS\Barkod-Satis\Barcode Sales 10\KOPYA (BARKODLUDAN)\Barcode Sales\obj\Debug\RdlCompile.cache
+D:\Hasan\PROJECTS\Barkod-Satis\Barcode Sales 10\KOPYA (BARKODLUDAN)\Barcode Sales\obj\Debug\RdlCompile.compiled
+D:\Hasan\PROJECTS\Barkod-Satis\Barcode Sales 10\KOPYA (BARKODLUDAN)\Barcode Sales\obj\Debug\Barcode Sales.csproj.CoreCompileInputs.cache
+D:\Hasan\PROJECTS\Barkod-Satis\Barcode Sales 10\KOPYA (BARKODLUDAN)\Barcode Sales\obj\Debug\Barcode Sales.csproj.CopyComplete
+D:\Hasan\PROJECTS\Barkod-Satis\Barcode Sales 10\KOPYA (BARKODLUDAN)\Barcode Sales\bin\Debug\NextPOS.exe.config
+D:\Hasan\PROJECTS\Barkod-Satis\Barcode Sales 10\KOPYA (BARKODLUDAN)\Barcode Sales\bin\Debug\NextPOS.exe
+D:\Hasan\PROJECTS\Barkod-Satis\Barcode Sales 10\KOPYA (BARKODLUDAN)\Barcode Sales\bin\Debug\NextPOS.pdb
+D:\Hasan\PROJECTS\Barkod-Satis\Barcode Sales 10\KOPYA (BARKODLUDAN)\Barcode Sales\obj\Debug\NextPOS.exe.licenses
+D:\Hasan\PROJECTS\Barkod-Satis\Barcode Sales 10\KOPYA (BARKODLUDAN)\Barcode Sales\obj\Debug\NextPOS.exe
+D:\Hasan\PROJECTS\Barkod-Satis\Barcode Sales 10\KOPYA (BARKODLUDAN)\Barcode Sales\obj\Debug\NextPOS.pdb
+D:\Hasan\PROJECTS\Barkod-Satis\Barcode Sales 10\KOPYA (BARKODLUDAN)\Barcode Sales\obj\Debug\Barcode_Sales.UserControls.controlProductsButton.resources
+D:\Hasan\PROJECTS\Barkod-Satis\Barcode Sales 10\KOPYA (BARKODLUDAN)\Barcode Sales\bin\Debug\MessageBoxManager.dll
+D:\Hasan\PROJECTS\Barkod-Satis\Barcode Sales 10\KOPYA (BARKODLUDAN)\Barcode Sales\bin\Debug\MessageBoxManager.pdb
+D:\Hasan\PROJECTS\Barkod-Satis\Barcode Sales 10\KOPYA (BARKODLUDAN)\Barcode Sales\obj\Debug\Barcode_Sales.fNotification.resources
+D:\Hasan\PROJECTS\Barkod-Satis\Barcode Sales 10\KOPYA (BARKODLUDAN)\Barcode Sales\obj\Debug\Barcode Sales.csproj.AssemblyReference.cache
+D:\Hasan\PROJECTS\Barkod-Satis\Barcode Sales 10\KOPYA (BARKODLUDAN)\Barcode Sales\bin\Debug\Update.exe
+D:\Hasan\PROJECTS\Barkod-Satis\Barcode Sales 10\KOPYA (BARKODLUDAN)\Barcode Sales\bin\Debug\Update.pdb
+D:\Hasan\PROJECTS\Barkod-Satis\Barcode Sales 10\KOPYA (BARKODLUDAN)\Barcode Sales\bin\Debug\Update.exe.config
+D:\Hasan\PROJECTS\Barkod-Satis\Barcode Sales 10\KOPYA (BARKODLUDAN)\Barcode Sales\obj\Debug\Barcode_Sales.fCreateMasa.resources
+D:\Hasan\PROJECTS\Barkod-Satis\Barcode Sales 10\KOPYA (BARKODLUDAN)\Barcode Sales\obj\Debug\Barcode_Sales.fDefinition.resources
+D:\Hasan\PROJECTS\Barkod-Satis\Barcode Sales 10\KOPYA (BARKODLUDAN)\Barcode Sales\obj\Debug\Barcode_Sales.XtraForm1.resources
+D:\Hasan\PROJECTS\Barkod-Satis\Barcode Sales 10\KOPYA (BARKODLUDAN)\Barcode Sales\obj\Debug\Barcode_Sales.UserControls.UpdatesLog.resources
+D:\Hasan\PROJECTS\Barkod-Satis\Barcode Sales 10\KOPYA (BARKODLUDAN)\Barcode Sales\obj\Debug\Barcode_Sales.UserControls.fFullScreenMessagebox.resources
+D:\Hasan\PROJECTS\Barkod-Satis\Barcode Sales 10\KOPYA (BARKODLUDAN)\Barcode Sales\obj\Debug\Barcode_Sales.UserControls.fMasaLog.resources
+D:\Hasan\PROJECTS\Barkod-Satis\Barcode Sales 10\KOPYA (BARKODLUDAN)\Barcode Sales\obj\Debug\Barcode_Sales.UserControls.fMessage.resources
+D:\Hasan\PROJECTS\Barkod-Satis\Barcode Sales 10\KOPYA (BARKODLUDAN)\Barcode Sales\obj\Debug\Barcode_Sales.UserControls.fShutdown.resources
+D:\Hasan\PROJECTS\Barkod-Satis\Barcode Sales 10\KOPYA (BARKODLUDAN)\Barcode Sales\obj\Debug\Barcode_Sales.UserControls.RadiusTextbox.resources
+D:\Hasan\PROJECTS\Barkod-Satis\Barcode Sales 10\KOPYA (BARKODLUDAN)\Barcode Sales\bin\Debug\ExcelDataReader.DataSet.dll
+D:\Hasan\PROJECTS\Barkod-Satis\Barcode Sales 10\KOPYA (BARKODLUDAN)\Barcode Sales\bin\Debug\ExcelDataReader.dll
+D:\Hasan\PROJECTS\Barkod-Satis\Barcode Sales 10\KOPYA (BARKODLUDAN)\Barcode Sales\bin\Debug\ExcelDataReader.pdb
+D:\Hasan\PROJECTS\Barkod-Satis\Barcode Sales 10\KOPYA (BARKODLUDAN)\Barcode Sales\bin\Debug\ExcelDataReader.xml
+D:\Hasan\PROJECTS\Barkod-Satis\Barcode Sales 10\KOPYA (BARKODLUDAN)\Barcode Sales\bin\Debug\ExcelDataReader.DataSet.pdb
+D:\Hasan\PROJECTS\Barkod-Satis\Barcode Sales 10\KOPYA (BARKODLUDAN)\Barcode Sales\bin\Debug\ExcelDataReader.DataSet.xml
+D:\Hasan\PROJECTS\Barkod-Satis\Barcode Sales 10\KOPYA (BARKODLUDAN)\Barcode Sales\bin\Debug\Z.Dapper.Plus.dll
+D:\Hasan\PROJECTS\Barkod-Satis\Barcode Sales 10\KOPYA (BARKODLUDAN)\Barcode Sales\bin\Debug\Z.Dapper.Plus.xml
+D:\Hasan\PROJECTS\Barkod-Satis\Barcode Sales 10\KOPYA (BARKODLUDAN)\Barcode Sales\obj\Debug\Barcode_Sales.Barcode.Sales.UI.fBarcodeSalesUI.resources
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\bin\Debug\Kassadb.mdf
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\SqlServerTypes\x64\msvcr120.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\SqlServerTypes\x64\SqlServerSpatial140.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\SqlServerTypes\x86\msvcr120.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\SqlServerTypes\x86\SqlServerSpatial140.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\bin\Debug\Kassadb_log.ldf
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\rpGenelRapor.rdlc
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\rpStokIzleme.rdlc
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\rpStokUrun.rdlc
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\Next Market.exe.config
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\Next Market.exe
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\Next Market.pdb
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\DevExpress.BonusSkins.v20.1.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\DevExpress.Charts.v20.1.Core.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\DevExpress.Data.Desktop.v20.1.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\DevExpress.Data.v20.1.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\DevExpress.Printing.v20.1.Core.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\DevExpress.Sparkline.v20.1.Core.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\DevExpress.SpellChecker.v20.1.Core.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\DevExpress.Utils.v20.1.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\DevExpress.Utils.v20.1.UI.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\DevExpress.XtraBars.v20.1.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\DevExpress.XtraCharts.v20.1.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\DevExpress.XtraCharts.v20.1.UI.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\DevExpress.XtraCharts.v20.1.Wizard.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\DevExpress.XtraEditors.v20.1.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\DevExpress.XtraGrid.v20.1.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\DevExpress.XtraLayout.v20.1.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\DevExpress.XtraPrinting.v20.1.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\DevExpress.XtraScheduler.v20.1.Core.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\DevExpress.XtraScheduler.v20.1.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\DevExpress.XtraSpellChecker.v20.1.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\DevExpress.XtraTreeList.v20.1.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\DevExpress.XtraWizard.v20.1.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\ExcelDataReader.DataSet.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\ExcelDataReader.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\FluentValidation.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\Licence.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\Microsoft.ReportViewer.Common.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\Microsoft.ReportViewer.DataVisualization.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\Microsoft.ReportViewer.Design.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\Microsoft.ReportViewer.ProcessingObjectModel.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\Microsoft.ReportViewer.WinForms.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\Microsoft.SqlServer.Types.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\Newtonsoft.Json.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\NextDBSetup.exe
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\NextPOS.UserControls.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\NGT.Update.exe
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\RestSharp.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\System.Buffers.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\System.Memory.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\System.Numerics.Vectors.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\System.Text.Encodings.Web.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\System.Text.Json.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\System.Threading.Tasks.Extensions.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\System.ValueTuple.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\Z.Dapper.Plus.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\DevExpress.Pdf.v20.1.Core.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\DevExpress.Pdf.v20.1.Drawing.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\DevExpress.XtraRichEdit.v20.1.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\DevExpress.XtraVerticalGrid.v20.1.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\DevExpress.DataAccess.v20.1.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\DevExpress.XtraNavBar.v20.1.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\DevExpress.RichEdit.v20.1.Core.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\DevExpress.Images.v20.1.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\EnvDTE.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\Microsoft.VisualStudio.Shell.Interop.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\Microsoft.VisualStudio.Shell.Interop.8.0.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\DevExpress.Office.v20.1.Core.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\DevExpress.Xpo.v20.1.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\DevExpress.CodeParser.v20.1.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\stdole.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\Microsoft.VisualStudio.OLE.Interop.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\Microsoft.VisualStudio.TextManager.Interop.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\Microsoft.VisualStudio.TextManager.Interop.8.0.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\Microsoft.MSXML.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\Licence.pdb
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\Licence.dll.config
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\NextDBSetup.pdb
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\NextDBSetup.exe.config
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\NGT.Update.pdb
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\NGT.Update.exe.config
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\NextPOS.UserControls.pdb
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\NextPOS.UserControls.dll.config
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\DevExpress.Data.Desktop.v20.1.xml
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\DevExpress.Data.v20.1.xml
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\DevExpress.Printing.v20.1.Core.xml
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\DevExpress.Sparkline.v20.1.Core.xml
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\DevExpress.SpellChecker.v20.1.Core.xml
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\DevExpress.Utils.v20.1.xml
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\DevExpress.Utils.v20.1.UI.xml
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\DevExpress.XtraBars.v20.1.xml
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\DevExpress.XtraCharts.v20.1.xml
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\DevExpress.XtraCharts.v20.1.UI.xml
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\DevExpress.XtraCharts.v20.1.Wizard.xml
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\DevExpress.XtraEditors.v20.1.xml
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\DevExpress.XtraGrid.v20.1.xml
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\DevExpress.XtraLayout.v20.1.xml
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\DevExpress.XtraPrinting.v20.1.xml
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\DevExpress.XtraScheduler.v20.1.xml
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\DevExpress.XtraScheduler.v20.1.Core.xml
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\DevExpress.XtraSpellChecker.v20.1.xml
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\DevExpress.XtraTreeList.v20.1.xml
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\DevExpress.XtraWizard.v20.1.xml
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\ExcelDataReader.pdb
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\ExcelDataReader.xml
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\ExcelDataReader.DataSet.pdb
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\ExcelDataReader.DataSet.xml
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\FluentValidation.xml
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\Newtonsoft.Json.xml
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\RestSharp.xml
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\System.Buffers.xml
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\System.Memory.xml
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\System.Numerics.Vectors.xml
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\System.Text.Encodings.Web.xml
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\System.Text.Json.xml
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\System.Threading.Tasks.Extensions.xml
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\System.ValueTuple.xml
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\Z.Dapper.Plus.xml
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\DevExpress.Pdf.v20.1.Core.xml
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\DevExpress.Pdf.v20.1.Drawing.xml
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\DevExpress.XtraRichEdit.v20.1.xml
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\DevExpress.XtraVerticalGrid.v20.1.xml
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\DevExpress.DataAccess.v20.1.xml
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\DevExpress.XtraNavBar.v20.1.xml
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\DevExpress.RichEdit.v20.1.Core.xml
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\DevExpress.Office.v20.1.Core.xml
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\DevExpress.Xpo.v20.1.xml
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\de\DevExpress.Data.v20.1.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\es\DevExpress.Data.v20.1.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\ja\DevExpress.Data.v20.1.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\ru\DevExpress.Data.v20.1.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\de\DevExpress.Printing.v20.1.Core.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\es\DevExpress.Printing.v20.1.Core.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\ja\DevExpress.Printing.v20.1.Core.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\ru\DevExpress.Printing.v20.1.Core.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\de\DevExpress.Sparkline.v20.1.Core.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\es\DevExpress.Sparkline.v20.1.Core.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\ja\DevExpress.Sparkline.v20.1.Core.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\ru\DevExpress.Sparkline.v20.1.Core.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\de\DevExpress.Utils.v20.1.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\es\DevExpress.Utils.v20.1.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\ja\DevExpress.Utils.v20.1.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\ru\DevExpress.Utils.v20.1.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\de\DevExpress.Utils.v20.1.UI.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\es\DevExpress.Utils.v20.1.UI.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\ja\DevExpress.Utils.v20.1.UI.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\ru\DevExpress.Utils.v20.1.UI.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\de\DevExpress.XtraBars.v20.1.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\es\DevExpress.XtraBars.v20.1.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\ja\DevExpress.XtraBars.v20.1.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\ru\DevExpress.XtraBars.v20.1.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\de\DevExpress.XtraCharts.v20.1.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\es\DevExpress.XtraCharts.v20.1.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\ja\DevExpress.XtraCharts.v20.1.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\ru\DevExpress.XtraCharts.v20.1.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\de\DevExpress.XtraCharts.v20.1.Wizard.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\es\DevExpress.XtraCharts.v20.1.Wizard.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\ja\DevExpress.XtraCharts.v20.1.Wizard.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\ru\DevExpress.XtraCharts.v20.1.Wizard.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\de\DevExpress.XtraEditors.v20.1.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\es\DevExpress.XtraEditors.v20.1.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\ja\DevExpress.XtraEditors.v20.1.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\ru\DevExpress.XtraEditors.v20.1.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\de\DevExpress.XtraGrid.v20.1.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\es\DevExpress.XtraGrid.v20.1.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\ja\DevExpress.XtraGrid.v20.1.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\ru\DevExpress.XtraGrid.v20.1.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\de\DevExpress.XtraLayout.v20.1.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\es\DevExpress.XtraLayout.v20.1.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\ja\DevExpress.XtraLayout.v20.1.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\ru\DevExpress.XtraLayout.v20.1.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\de\DevExpress.XtraPrinting.v20.1.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\es\DevExpress.XtraPrinting.v20.1.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\ja\DevExpress.XtraPrinting.v20.1.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\ru\DevExpress.XtraPrinting.v20.1.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\de\DevExpress.XtraScheduler.v20.1.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\es\DevExpress.XtraScheduler.v20.1.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\ja\DevExpress.XtraScheduler.v20.1.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\ru\DevExpress.XtraScheduler.v20.1.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\de\DevExpress.XtraScheduler.v20.1.Core.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\es\DevExpress.XtraScheduler.v20.1.Core.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\ja\DevExpress.XtraScheduler.v20.1.Core.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\ru\DevExpress.XtraScheduler.v20.1.Core.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\de\DevExpress.XtraSpellChecker.v20.1.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\es\DevExpress.XtraSpellChecker.v20.1.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\ja\DevExpress.XtraSpellChecker.v20.1.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\ru\DevExpress.XtraSpellChecker.v20.1.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\de\DevExpress.XtraTreeList.v20.1.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\es\DevExpress.XtraTreeList.v20.1.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\ja\DevExpress.XtraTreeList.v20.1.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\ru\DevExpress.XtraTreeList.v20.1.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\de\DevExpress.XtraWizard.v20.1.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\es\DevExpress.XtraWizard.v20.1.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\ja\DevExpress.XtraWizard.v20.1.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\ru\DevExpress.XtraWizard.v20.1.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\de\Microsoft.ReportViewer.Common.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\es\Microsoft.ReportViewer.Common.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\fr\Microsoft.ReportViewer.Common.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\it\Microsoft.ReportViewer.Common.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\ja\Microsoft.ReportViewer.Common.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\ko\Microsoft.ReportViewer.Common.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\pt\Microsoft.ReportViewer.Common.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\ru\Microsoft.ReportViewer.Common.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\zh-CHS\Microsoft.ReportViewer.Common.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\zh-CHT\Microsoft.ReportViewer.Common.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\de\Microsoft.ReportViewer.DataVisualization.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\es\Microsoft.ReportViewer.DataVisualization.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\fr\Microsoft.ReportViewer.DataVisualization.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\it\Microsoft.ReportViewer.DataVisualization.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\ja\Microsoft.ReportViewer.DataVisualization.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\ko\Microsoft.ReportViewer.DataVisualization.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\pt\Microsoft.ReportViewer.DataVisualization.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\ru\Microsoft.ReportViewer.DataVisualization.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\zh-CHS\Microsoft.ReportViewer.DataVisualization.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\zh-CHT\Microsoft.ReportViewer.DataVisualization.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\de\Microsoft.ReportViewer.Design.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\es\Microsoft.ReportViewer.Design.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\fr\Microsoft.ReportViewer.Design.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\it\Microsoft.ReportViewer.Design.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\ja\Microsoft.ReportViewer.Design.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\ko\Microsoft.ReportViewer.Design.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\pt\Microsoft.ReportViewer.Design.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\ru\Microsoft.ReportViewer.Design.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\zh-CHS\Microsoft.ReportViewer.Design.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\zh-CHT\Microsoft.ReportViewer.Design.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\de\Microsoft.ReportViewer.WinForms.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\es\Microsoft.ReportViewer.WinForms.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\fr\Microsoft.ReportViewer.WinForms.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\it\Microsoft.ReportViewer.WinForms.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\ja\Microsoft.ReportViewer.WinForms.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\ko\Microsoft.ReportViewer.WinForms.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\pt\Microsoft.ReportViewer.WinForms.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\ru\Microsoft.ReportViewer.WinForms.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\zh-CHS\Microsoft.ReportViewer.WinForms.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\zh-CHT\Microsoft.ReportViewer.WinForms.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\de\DevExpress.Pdf.v20.1.Core.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\es\DevExpress.Pdf.v20.1.Core.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\ja\DevExpress.Pdf.v20.1.Core.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\ru\DevExpress.Pdf.v20.1.Core.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\de\DevExpress.XtraRichEdit.v20.1.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\es\DevExpress.XtraRichEdit.v20.1.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\ja\DevExpress.XtraRichEdit.v20.1.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\ru\DevExpress.XtraRichEdit.v20.1.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\de\DevExpress.XtraVerticalGrid.v20.1.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\es\DevExpress.XtraVerticalGrid.v20.1.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\ja\DevExpress.XtraVerticalGrid.v20.1.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\ru\DevExpress.XtraVerticalGrid.v20.1.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\de\DevExpress.DataAccess.v20.1.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\es\DevExpress.DataAccess.v20.1.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\ja\DevExpress.DataAccess.v20.1.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\ru\DevExpress.DataAccess.v20.1.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\de\DevExpress.XtraNavBar.v20.1.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\es\DevExpress.XtraNavBar.v20.1.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\ja\DevExpress.XtraNavBar.v20.1.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\ru\DevExpress.XtraNavBar.v20.1.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\de\DevExpress.RichEdit.v20.1.Core.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\es\DevExpress.RichEdit.v20.1.Core.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\ja\DevExpress.RichEdit.v20.1.Core.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\ru\DevExpress.RichEdit.v20.1.Core.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\de\DevExpress.Office.v20.1.Core.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\es\DevExpress.Office.v20.1.Core.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\ja\DevExpress.Office.v20.1.Core.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\ru\DevExpress.Office.v20.1.Core.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\de\DevExpress.Xpo.v20.1.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\es\DevExpress.Xpo.v20.1.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\ja\DevExpress.Xpo.v20.1.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\bin\Debug\ru\DevExpress.Xpo.v20.1.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\obj\Debug\Barcode Sales.csproj.AssemblyReference.cache
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\obj\Debug\Barcode_Sales.Barcode.Sales.UI.fBarcodeSalesUI.resources
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\obj\Debug\Barcode_Sales.Barcode.Sales.UI.fRelacementPage.resources
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\obj\Debug\Barcode_Sales.Barcode.Sales.UI.fSearch.resources
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\obj\Debug\Barcode_Sales.Barcode.Sales.UI.Kassa.fPOS.resources
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\obj\Debug\Barcode_Sales.Barcode.Sales.Admin.fDashboard.resources
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\obj\Debug\Barcode_Sales.fInfo.resources
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\obj\Debug\Barcode_Sales.Forms.fAdding.resources
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\obj\Debug\Barcode_Sales.Forms.fAddProduct.resources
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\obj\Debug\Barcode_Sales.Forms.fAqtaAddProfuct.resources
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\obj\Debug\Barcode_Sales.Forms.fAqtaReport.resources
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\obj\Debug\Barcode_Sales.Forms.fInvoiceProduct.resources
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\obj\Debug\Barcode_Sales.Forms.fKassalar.resources
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\obj\Debug\Barcode_Sales.Forms.fLogin.resources
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\obj\Debug\Barcode_Sales.Forms.fNewCustomer.resources
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\obj\Debug\Barcode_Sales.Forms.fNisyeSales.resources
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\obj\Debug\Barcode_Sales.Forms.fProductPurchase.resources
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\obj\Debug\Barcode_Sales.Forms.fRegistration.resources
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\obj\Debug\Barcode_Sales.Forms.fRole.resources
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\obj\Debug\Barcode_Sales.Forms.fSearchData.resources
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\obj\Debug\Barcode_Sales.Forms.fSelected.resources
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\obj\Debug\Barcode_Sales.Forms.fSelectedProduct.resources
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\obj\Debug\Barcode_Sales.Forms.fSupplier.resources
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\obj\Debug\Barcode_Sales.Forms.fTest.resources
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\obj\Debug\Barcode_Sales.Forms.fUsers.resources
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\obj\Debug\Barcode_Sales.Product.fSelectProduct.resources
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\obj\Debug\Barcode_Sales.Forms.ReportTest.resources
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\obj\Debug\Barcode_Sales.Properties.Resources.resources
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\obj\Debug\Barcode_Sales.TestForm.resources
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\obj\Debug\Barcode_Sales.UserControls.fShutdown.resources
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\obj\Debug\Barcode_Sales.UserControls.RadiusTextbox.resources
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\obj\Debug\Barcode Sales.csproj.GenerateResource.cache
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\obj\Debug\Next Market.exe.licenses
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\obj\Debug\Barcode Sales.csproj.CoreCompileInputs.cache
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\obj\Debug\Barcode Sales.csproj.CopyComplete
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\obj\Debug\Next Market.exe
+D:\Hasan\PROJECTS\NextPOS.Barcode\Barcode Sales\obj\Debug\Next Market.pdb
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\obj\Debug\Barcode Sales.csproj.AssemblyReference.cache
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\obj\Debug\Barcode Sales.csproj.SuggestedBindingRedirects.cache
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\obj\Debug\Next Market.exe.config
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\obj\Debug\Barcode_Sales.Barcode.Sales.UI.fBarcodeSalesUI.resources
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\obj\Debug\Barcode_Sales.Barcode.Sales.UI.fRelacementPage.resources
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\obj\Debug\Barcode_Sales.Barcode.Sales.UI.fSearch.resources
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\obj\Debug\Barcode_Sales.Barcode.Sales.UI.Kassa.fPOS.resources
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\obj\Debug\Barcode_Sales.Barcode.Sales.Admin.fDashboard.resources
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\obj\Debug\Barcode_Sales.fInfo.resources
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\obj\Debug\Barcode_Sales.Forms.Components.controlFooterButton.resources
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\obj\Debug\Barcode_Sales.Forms.fAdding.resources
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\obj\Debug\Barcode_Sales.Forms.fAddProduct.resources
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\obj\Debug\Barcode_Sales.Forms.fAddSupplierDebt.resources
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\obj\Debug\Barcode_Sales.Forms.fAqtaAddProfuct.resources
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\obj\Debug\Barcode_Sales.Forms.fAqtaReport.resources
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\obj\Debug\Barcode_Sales.Forms.fInvoiceProduct.resources
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\obj\Debug\Barcode_Sales.Forms.fKassalar.resources
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\obj\Debug\Barcode_Sales.Forms.fLogin.resources
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\obj\Debug\Barcode_Sales.Forms.fNBAPrint.resources
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\obj\Debug\Barcode_Sales.Forms.fNewCustomer.resources
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\obj\Debug\Barcode_Sales.Forms.fNisyeSales.resources
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\obj\Debug\Barcode_Sales.Forms.fProductPurchase.resources
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\obj\Debug\Barcode_Sales.Forms.fRegistration.resources
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\obj\Debug\Barcode_Sales.Forms.fRole.resources
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\obj\Debug\Barcode_Sales.Forms.fSearchData.resources
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\obj\Debug\Barcode_Sales.Forms.fSelected.resources
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\obj\Debug\Barcode_Sales.Forms.fSelectedProduct.resources
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\obj\Debug\Barcode_Sales.Forms.fSupplier.resources
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\obj\Debug\Barcode_Sales.Forms.fSupplierPaidData.resources
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\obj\Debug\Barcode_Sales.Forms.fSupplierPay.resources
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\obj\Debug\Barcode_Sales.Forms.fUsers.resources
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\obj\Debug\Barcode_Sales.Product.fSelectProduct.resources
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\obj\Debug\Barcode_Sales.Forms.ReportTest.resources
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\obj\Debug\Barcode_Sales.Properties.Resources.resources
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\obj\Debug\Barcode_Sales.UserControls.fShutdown.resources
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\obj\Debug\Barcode_Sales.UserControls.RadiusTextbox.resources
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\obj\Debug\Barcode Sales.csproj.GenerateResource.cache
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\obj\Debug\Next Market.exe.licenses
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\obj\Debug\Barcode Sales.csproj.CoreCompileInputs.cache
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\SqlServerTypes\x64\msvcr120.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\SqlServerTypes\x64\SqlServerSpatial140.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\SqlServerTypes\x86\msvcr120.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\SqlServerTypes\x86\SqlServerSpatial140.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\Next Market.exe.config
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\Next Market.exe
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\Next Market.pdb
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\DevExpress.BonusSkins.v24.1.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\DevExpress.Charts.v24.1.Core.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\DevExpress.Data.Desktop.v24.1.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\DevExpress.Data.v24.1.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\DevExpress.Drawing.v24.1.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\DevExpress.Printing.v24.1.Core.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\DevExpress.Utils.v24.1.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\DevExpress.Utils.v24.1.UI.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\DevExpress.XtraBars.v24.1.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\DevExpress.XtraCharts.v24.1.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\DevExpress.XtraCharts.v24.1.UI.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\DevExpress.XtraCharts.v24.1.Wizard.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\DevExpress.XtraEditors.v24.1.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\DevExpress.XtraGrid.v24.1.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\DevExpress.XtraLayout.v24.1.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\DevExpress.XtraNavBar.v24.1.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\DevExpress.XtraPrinting.v24.1.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\DevExpress.XtraScheduler.v24.1.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\DevExpress.XtraSpellChecker.v24.1.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\DevExpress.XtraWizard.v24.1.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\ExcelDataReader.DataSet.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\ExcelDataReader.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\FluentValidation.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\Licence.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\Microsoft.ReportViewer.Common.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\Microsoft.ReportViewer.DataVisualization.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\Microsoft.ReportViewer.Design.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\Microsoft.ReportViewer.ProcessingObjectModel.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\Microsoft.ReportViewer.WinForms.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\Microsoft.SqlServer.Types.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\Newtonsoft.Json.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\NextDBSetup.exe
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\NextPOS.UserControls.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\NGT.Update.exe
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\RestSharp.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\System.Buffers.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\System.Memory.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\System.Numerics.Vectors.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\System.Text.Encodings.Web.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\System.Text.Json.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\System.Threading.Tasks.Extensions.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\System.ValueTuple.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\Z.Dapper.Plus.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\DevExpress.Pdf.v24.1.Core.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\DevExpress.Pdf.v24.1.Drawing.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\DevExpress.XtraTreeList.v24.1.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\DevExpress.XtraRichEdit.v24.1.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\DevExpress.XtraVerticalGrid.v24.1.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\DevExpress.RichEdit.v24.1.Core.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\DevExpress.DataAccess.v24.1.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\DevExpress.DataVisualization.v24.1.Core.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\DevExpress.Sparkline.v24.1.Core.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\DevExpress.XtraScheduler.v24.1.Core.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\DevExpress.XtraScheduler.v24.1.Core.Desktop.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\DevExpress.SpellChecker.v24.1.Core.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\EnvDTE.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\DevExpress.Office.v24.1.Core.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\DevExpress.Images.v24.1.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\DevExpress.Xpo.v24.1.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\DevExpress.CodeParser.v24.1.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\stdole.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\Microsoft.MSXML.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\Licence.pdb
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\Licence.dll.config
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\NextDBSetup.pdb
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\NextDBSetup.exe.config
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\NGT.Update.pdb
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\NGT.Update.exe.config
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\NextPOS.UserControls.pdb
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\NextPOS.UserControls.dll.config
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\DevExpress.Charts.v24.1.Core.xml
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\DevExpress.Data.Desktop.v24.1.xml
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\DevExpress.Drawing.v24.1.xml
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\DevExpress.Data.v24.1.xml
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\DevExpress.Printing.v24.1.Core.xml
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\DevExpress.Utils.v24.1.xml
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\DevExpress.Utils.v24.1.UI.xml
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\DevExpress.XtraBars.v24.1.xml
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\DevExpress.XtraCharts.v24.1.xml
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\DevExpress.XtraCharts.v24.1.UI.xml
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\DevExpress.XtraCharts.v24.1.Wizard.xml
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\DevExpress.XtraEditors.v24.1.xml
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\DevExpress.XtraGrid.v24.1.xml
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\DevExpress.XtraLayout.v24.1.xml
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\DevExpress.XtraNavBar.v24.1.xml
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\DevExpress.XtraPrinting.v24.1.xml
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\DevExpress.XtraScheduler.v24.1.xml
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\DevExpress.XtraSpellChecker.v24.1.xml
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\DevExpress.XtraWizard.v24.1.xml
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\ExcelDataReader.pdb
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\ExcelDataReader.xml
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\ExcelDataReader.DataSet.pdb
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\ExcelDataReader.DataSet.xml
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\FluentValidation.xml
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\Newtonsoft.Json.xml
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\RestSharp.xml
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\System.Buffers.xml
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\System.Memory.xml
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\System.Numerics.Vectors.xml
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\System.Text.Encodings.Web.xml
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\System.Text.Json.xml
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\System.Threading.Tasks.Extensions.xml
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\System.ValueTuple.xml
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\Z.Dapper.Plus.xml
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\DevExpress.Pdf.v24.1.Core.xml
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\DevExpress.Pdf.v24.1.Drawing.xml
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\DevExpress.XtraTreeList.v24.1.xml
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\DevExpress.XtraRichEdit.v24.1.xml
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\DevExpress.XtraVerticalGrid.v24.1.xml
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\DevExpress.RichEdit.v24.1.Core.xml
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\DevExpress.DataAccess.v24.1.xml
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\DevExpress.Sparkline.v24.1.Core.xml
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\DevExpress.XtraScheduler.v24.1.Core.xml
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\DevExpress.XtraScheduler.v24.1.Core.Desktop.xml
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\DevExpress.SpellChecker.v24.1.Core.xml
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\DevExpress.Office.v24.1.Core.xml
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\DevExpress.Xpo.v24.1.xml
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\de\Microsoft.ReportViewer.Common.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\es\Microsoft.ReportViewer.Common.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\fr\Microsoft.ReportViewer.Common.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\it\Microsoft.ReportViewer.Common.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\ja\Microsoft.ReportViewer.Common.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\ko\Microsoft.ReportViewer.Common.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\pt\Microsoft.ReportViewer.Common.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\ru\Microsoft.ReportViewer.Common.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\zh-CHS\Microsoft.ReportViewer.Common.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\zh-CHT\Microsoft.ReportViewer.Common.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\de\Microsoft.ReportViewer.DataVisualization.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\es\Microsoft.ReportViewer.DataVisualization.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\fr\Microsoft.ReportViewer.DataVisualization.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\it\Microsoft.ReportViewer.DataVisualization.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\ja\Microsoft.ReportViewer.DataVisualization.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\ko\Microsoft.ReportViewer.DataVisualization.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\pt\Microsoft.ReportViewer.DataVisualization.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\ru\Microsoft.ReportViewer.DataVisualization.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\zh-CHS\Microsoft.ReportViewer.DataVisualization.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\zh-CHT\Microsoft.ReportViewer.DataVisualization.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\de\Microsoft.ReportViewer.Design.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\es\Microsoft.ReportViewer.Design.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\fr\Microsoft.ReportViewer.Design.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\it\Microsoft.ReportViewer.Design.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\ja\Microsoft.ReportViewer.Design.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\ko\Microsoft.ReportViewer.Design.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\pt\Microsoft.ReportViewer.Design.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\ru\Microsoft.ReportViewer.Design.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\zh-CHS\Microsoft.ReportViewer.Design.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\zh-CHT\Microsoft.ReportViewer.Design.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\de\Microsoft.ReportViewer.WinForms.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\es\Microsoft.ReportViewer.WinForms.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\fr\Microsoft.ReportViewer.WinForms.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\it\Microsoft.ReportViewer.WinForms.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\ja\Microsoft.ReportViewer.WinForms.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\ko\Microsoft.ReportViewer.WinForms.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\pt\Microsoft.ReportViewer.WinForms.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\ru\Microsoft.ReportViewer.WinForms.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\zh-CHS\Microsoft.ReportViewer.WinForms.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\zh-CHT\Microsoft.ReportViewer.WinForms.resources.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\obj\Debug\Barcode .28D80BE3.Up2Date
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\obj\Debug\Next Market.exe
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\obj\Debug\Next Market.pdb
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\obj\Debug\Barcode_Sales.fTest.resources
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\obj\Debug\Barcode_Sales.Forms.fAddCustomer.resources
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\obj\Debug\Barcode_Sales.Forms.fAddService.resources
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\obj\Debug\Barcode_Sales.Forms.fPosSales.resources
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\obj\Debug\Barcode_Sales.Forms.fPosSalesControlPanel.resources
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\obj\Debug\Barcode_Sales.Forms.ftest.resources

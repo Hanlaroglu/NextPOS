@@ -1,0 +1,844 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="KassadbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="KassadbEntities" annotation:LazyLoadingEnabled="true">
+    <FunctionImport Name="SalesProccessNo" ReturnType="Collection(String)" />
+    <FunctionImport Name="ReturnProccesNo" ReturnType="Collection(String)" />
+    <FunctionImport Name="Invoice_ProccesNo" ReturnType="Collection(String)" />
+    <FunctionImport Name="Supplier_ProccesNo" ReturnType="Collection(String)" />
+    <EntitySet Name="Branchs" EntityType="KassadbModel.Branchs" />
+    <EntitySet Name="Category" EntityType="KassadbModel.Category" />
+    <EntitySet Name="Company" EntityType="KassadbModel.Company" />
+    <EntitySet Name="Invoice_Product" EntityType="KassadbModel.Invoice_Product" />
+    <EntitySet Name="Posterminal" EntityType="KassadbModel.Posterminal" />
+    <EntitySet Name="Posterminal_Name" EntityType="KassadbModel.Posterminal_Name" />
+    <EntitySet Name="Products" EntityType="KassadbModel.Products" />
+    <EntitySet Name="Return_Product" EntityType="KassadbModel.Return_Product" />
+    <EntitySet Name="StokHareket" EntityType="KassadbModel.StokHareket" />
+    <EntitySet Name="Supplier" EntityType="KassadbModel.Supplier" />
+    <EntitySet Name="sysdiagrams" EntityType="KassadbModel.sysdiagrams" />
+    <EntitySet Name="TaxType" EntityType="KassadbModel.TaxType" />
+    <EntitySet Name="UnitType" EntityType="KassadbModel.UnitType" />
+    <EntitySet Name="Users" EntityType="KassadbModel.Users" />
+    <AssociationSet Name="FK_Invoice_Product_Branchs" Association="KassadbModel.FK_Invoice_Product_Branchs">
+      <End Role="Branchs" EntitySet="Branchs" />
+      <End Role="Invoice_Product" EntitySet="Invoice_Product" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Posterminal_Branchs" Association="KassadbModel.FK_Posterminal_Branchs">
+      <End Role="Branchs" EntitySet="Branchs" />
+      <End Role="Posterminal" EntitySet="Posterminal" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Return_Product_Branchs" Association="KassadbModel.FK_Return_Product_Branchs">
+      <End Role="Branchs" EntitySet="Branchs" />
+      <End Role="Return_Product" EntitySet="Return_Product" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Users_Branchs" Association="KassadbModel.FK_Users_Branchs">
+      <End Role="Branchs" EntitySet="Branchs" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Mehsul_Category" Association="KassadbModel.FK_Mehsul_Category">
+      <End Role="Category" EntitySet="Category" />
+      <End Role="Products" EntitySet="Products" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Invoice_Product_Products" Association="KassadbModel.FK_Invoice_Product_Products">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="Invoice_Product" EntitySet="Invoice_Product" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Invoice_Product_Supplier" Association="KassadbModel.FK_Invoice_Product_Supplier">
+      <End Role="Supplier" EntitySet="Supplier" />
+      <End Role="Invoice_Product" EntitySet="Invoice_Product" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Invoice_Product_Users" Association="KassadbModel.FK_Invoice_Product_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Invoice_Product" EntitySet="Invoice_Product" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Posterminal_TerminalName" Association="KassadbModel.FK_Posterminal_TerminalName">
+      <End Role="Posterminal_Name" EntitySet="Posterminal_Name" />
+      <End Role="Posterminal" EntitySet="Posterminal" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Users_Terminal" Association="KassadbModel.FK_Users_Terminal">
+      <End Role="Posterminal" EntitySet="Posterminal" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Mehsul_Tax" Association="KassadbModel.FK_Mehsul_Tax">
+      <End Role="TaxType" EntitySet="TaxType" />
+      <End Role="Products" EntitySet="Products" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Mehsul_Unit" Association="KassadbModel.FK_Mehsul_Unit">
+      <End Role="UnitType" EntitySet="UnitType" />
+      <End Role="Products" EntitySet="Products" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Product_Users" Association="KassadbModel.FK_Product_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Products" EntitySet="Products" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Return_Product_Users" Association="KassadbModel.FK_Return_Product_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Return_Product" EntitySet="Return_Product" />
+    </AssociationSet>
+    <EntitySet Name="IslemOzet" EntityType="KassadbModel.IslemOzet" />
+    <EntitySet Name="Satis" EntityType="KassadbModel.Satis" />
+    <EntitySet Name="Terazi" EntityType="KassadbModel.Terazi" />
+    <AssociationSet Name="FK_IslemOzet_Branchs" Association="KassadbModel.FK_IslemOzet_Branchs">
+      <End Role="Branchs" EntitySet="Branchs" />
+      <End Role="IslemOzet" EntitySet="IslemOzet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Satis_Branch" Association="KassadbModel.FK_Satis_Branch">
+      <End Role="Branchs" EntitySet="Branchs" />
+      <End Role="Satis" EntitySet="Satis" />
+    </AssociationSet>
+    <AssociationSet Name="FK_IslemOzet_Users" Association="KassadbModel.FK_IslemOzet_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="IslemOzet" EntitySet="IslemOzet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Satis_TaxType" Association="KassadbModel.FK_Satis_TaxType">
+      <End Role="TaxType" EntitySet="TaxType" />
+      <End Role="Satis" EntitySet="Satis" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Satis_Users" Association="KassadbModel.FK_Satis_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Satis" EntitySet="Satis" />
+    </AssociationSet>
+    <EntitySet Name="Return_Sales" EntityType="KassadbModel.Return_Sales" />
+    <AssociationSet Name="FK_Return_Sales_Branchs" Association="KassadbModel.FK_Return_Sales_Branchs">
+      <End Role="Branchs" EntitySet="Branchs" />
+      <End Role="Return_Sales" EntitySet="Return_Sales" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Return_Sales_Products" Association="KassadbModel.FK_Return_Sales_Products">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="Return_Sales" EntitySet="Return_Sales" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Return_Sales_Users" Association="KassadbModel.FK_Return_Sales_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Return_Sales" EntitySet="Return_Sales" />
+    </AssociationSet>
+    <EntitySet Name="Transaction_Report" EntityType="KassadbModel.Transaction_Report" />
+    <EntitySet Name="Return_Invoice" EntityType="KassadbModel.Return_Invoice" />
+    <AssociationSet Name="FK_Return_Invoice_Branchs" Association="KassadbModel.FK_Return_Invoice_Branchs">
+      <End Role="Branchs" EntitySet="Branchs" />
+      <End Role="Return_Invoice" EntitySet="Return_Invoice" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Return_Invoice_Products" Association="KassadbModel.FK_Return_Invoice_Products">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="Return_Invoice" EntitySet="Return_Invoice" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Return_Invoice_Supplier" Association="KassadbModel.FK_Return_Invoice_Supplier">
+      <End Role="Supplier" EntitySet="Supplier" />
+      <End Role="Return_Invoice" EntitySet="Return_Invoice" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Return_Invoice_User" Association="KassadbModel.FK_Return_Invoice_User">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Return_Invoice" EntitySet="Return_Invoice" />
+    </AssociationSet>
+    <FunctionImport Name="ReturnInvoice_ProccesNo" ReturnType="Collection(String)" />
+    <AssociationSet Name="FK_Products_Supplier" Association="KassadbModel.FK_Products_Supplier">
+      <End Role="Supplier" EntitySet="Supplier" />
+      <End Role="Products" EntitySet="Products" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Transaction_Report_Branch" Association="KassadbModel.FK_Transaction_Report_Branch">
+      <End Role="Branchs" EntitySet="Branchs" />
+      <End Role="Transaction_Report" EntitySet="Transaction_Report" />
+    </AssociationSet>
+    <EntitySet Name="Sales_Product" EntityType="KassadbModel.Sales_Product" />
+    <AssociationSet Name="FK_Sales_Product_Products" Association="KassadbModel.FK_Sales_Product_Products">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="Sales_Product" EntitySet="Sales_Product" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sales_Product_Users" Association="KassadbModel.FK_Sales_Product_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Sales_Product" EntitySet="Sales_Product" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Branchs">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FlialAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Invoice_Product" Relationship="KassadbModel.FK_Invoice_Product_Branchs" FromRole="Branchs" ToRole="Invoice_Product" />
+    <NavigationProperty Name="Posterminal" Relationship="KassadbModel.FK_Posterminal_Branchs" FromRole="Branchs" ToRole="Posterminal" />
+    <NavigationProperty Name="Return_Product" Relationship="KassadbModel.FK_Return_Product_Branchs" FromRole="Branchs" ToRole="Return_Product" />
+    <NavigationProperty Name="Users" Relationship="KassadbModel.FK_Users_Branchs" FromRole="Branchs" ToRole="Users" />
+    <NavigationProperty Name="IslemOzet" Relationship="KassadbModel.FK_IslemOzet_Branchs" FromRole="Branchs" ToRole="IslemOzet" />
+    <NavigationProperty Name="Satis" Relationship="KassadbModel.FK_Satis_Branch" FromRole="Branchs" ToRole="Satis" />
+    <NavigationProperty Name="Return_Sales" Relationship="KassadbModel.FK_Return_Sales_Branchs" FromRole="Branchs" ToRole="Return_Sales" />
+    <NavigationProperty Name="Return_Invoice" Relationship="KassadbModel.FK_Return_Invoice_Branchs" FromRole="Branchs" ToRole="Return_Invoice" />
+    <NavigationProperty Name="Transaction_Report" Relationship="KassadbModel.FK_Transaction_Report_Branch" FromRole="Branchs" ToRole="Transaction_Report" />
+  </EntityType>
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="Boolean" />
+    <NavigationProperty Name="Products" Relationship="KassadbModel.FK_Mehsul_Category" FromRole="Category" ToRole="Products" />
+  </EntityType>
+  <EntityType Name="Company">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Printer" Type="Boolean" />
+    <Property Name="CompanyName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Voen" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+    <Property Name="Adress" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Personel" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+    <Property Name="RegisterDate" Type="DateTime" Precision="3" />
+    <Property Name="CompanyLogo" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="Type" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Invoice_Product">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="InvoiceNo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Date" Type="DateTime" Precision="3" />
+    <Property Name="Branch_ID" Type="Int32" />
+    <Property Name="Product_ID" Type="Int32" />
+    <Property Name="Amount" Type="Double" />
+    <Property Name="Price" Type="Double" />
+    <Property Name="Total" Type="Double" />
+    <Property Name="User_ID" Type="Int32" />
+    <Property Name="SupplierID" Type="Guid" />
+    <Property Name="FakturaNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Branchs" Relationship="KassadbModel.FK_Invoice_Product_Branchs" FromRole="Invoice_Product" ToRole="Branchs" />
+    <NavigationProperty Name="Products" Relationship="KassadbModel.FK_Invoice_Product_Products" FromRole="Invoice_Product" ToRole="Products" />
+    <NavigationProperty Name="Supplier" Relationship="KassadbModel.FK_Invoice_Product_Supplier" FromRole="Invoice_Product" ToRole="Supplier" />
+    <NavigationProperty Name="Users" Relationship="KassadbModel.FK_Invoice_Product_Users" FromRole="Invoice_Product" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="Posterminal">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TerminalNameID" Type="Int32" />
+    <Property Name="IpAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Merchant_Id" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="BranchID" Type="Int32" />
+    <Property Name="Status" Type="Boolean" />
+    <NavigationProperty Name="Branchs" Relationship="KassadbModel.FK_Posterminal_Branchs" FromRole="Posterminal" ToRole="Branchs" />
+    <NavigationProperty Name="Posterminal_Name" Relationship="KassadbModel.FK_Posterminal_TerminalName" FromRole="Posterminal" ToRole="Posterminal_Name" />
+    <NavigationProperty Name="Users" Relationship="KassadbModel.FK_Users_Terminal" FromRole="Posterminal" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="Posterminal_Name">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TerminalName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Posterminal" Relationship="KassadbModel.FK_Posterminal_TerminalName" FromRole="Posterminal_Name" ToRole="Posterminal" />
+  </EntityType>
+  <EntityType Name="Products">
+    <Key>
+      <PropertyRef Name="Mehsulid" />
+    </Key>
+    <Property Name="Mehsulid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Barkod" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ProductCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CategoryID" Type="Int32" />
+    <Property Name="MehsulAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Amount" Type="Double" />
+    <Property Name="AlisQiymet" Type="Double" />
+    <Property Name="SatisQiymet" Type="Double" />
+    <Property Name="UnitID" Type="Int32" />
+    <Property Name="TaxID" Type="Int32" />
+    <Property Name="Date" Type="DateTime" Precision="3" />
+    <Property Name="UserID" Type="Int32" />
+    <Property Name="Aciqlama" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="Boolean" />
+    <Property Name="Color" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Size" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Category" Relationship="KassadbModel.FK_Mehsul_Category" FromRole="Products" ToRole="Category" />
+    <NavigationProperty Name="Invoice_Product" Relationship="KassadbModel.FK_Invoice_Product_Products" FromRole="Products" ToRole="Invoice_Product" />
+    <NavigationProperty Name="TaxType" Relationship="KassadbModel.FK_Mehsul_Tax" FromRole="Products" ToRole="TaxType" />
+    <NavigationProperty Name="UnitType" Relationship="KassadbModel.FK_Mehsul_Unit" FromRole="Products" ToRole="UnitType" />
+    <NavigationProperty Name="Users" Relationship="KassadbModel.FK_Product_Users" FromRole="Products" ToRole="Users" />
+    <NavigationProperty Name="Return_Sales" Relationship="KassadbModel.FK_Return_Sales_Products" FromRole="Products" ToRole="Return_Sales" />
+    <NavigationProperty Name="Return_Invoice" Relationship="KassadbModel.FK_Return_Invoice_Products" FromRole="Products" ToRole="Return_Invoice" />
+    <Property Name="Supplier_ID" Type="Guid" />
+    <NavigationProperty Name="Supplier" Relationship="KassadbModel.FK_Products_Supplier" FromRole="Products" ToRole="Supplier" />
+    <NavigationProperty Name="Sales_Product" Relationship="KassadbModel.FK_Sales_Product_Products" FromRole="Products" ToRole="Sales_Product" />
+  </EntityType>
+  <EntityType Name="Return_Product">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="BranchID" Type="Int32" />
+    <Property Name="ProccesNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Sales_ProductID" Type="Guid" />
+    <Property Name="Date" Type="DateTime" Precision="3" />
+    <Property Name="UserID" Type="Int32" />
+    <NavigationProperty Name="Branchs" Relationship="KassadbModel.FK_Return_Product_Branchs" FromRole="Return_Product" ToRole="Branchs" />
+    <NavigationProperty Name="Users" Relationship="KassadbModel.FK_Return_Product_Users" FromRole="Return_Product" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="StokHareket">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Barkod" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UrunAd" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Birim" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Miktar" Type="Double" />
+    <Property Name="UrunGrup" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Kullanici" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Tarih" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Supplier">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="SupplierName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Voen" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="Boolean" />
+    <Property Name="TNo" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Invoice_Product" Relationship="KassadbModel.FK_Invoice_Product_Supplier" FromRole="Supplier" ToRole="Invoice_Product" />
+    <NavigationProperty Name="Return_Invoice" Relationship="KassadbModel.FK_Return_Invoice_Supplier" FromRole="Supplier" ToRole="Return_Invoice" />
+    <NavigationProperty Name="Products" Relationship="KassadbModel.FK_Products_Supplier" FromRole="Supplier" ToRole="Products" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="TaxType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EDV_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Products" Relationship="KassadbModel.FK_Mehsul_Tax" FromRole="TaxType" ToRole="Products" />
+    <NavigationProperty Name="Satis" Relationship="KassadbModel.FK_Satis_TaxType" FromRole="TaxType" ToRole="Satis" />
+  </EntityType>
+  <EntityType Name="UnitType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Unit_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Products" Relationship="KassadbModel.FK_Mehsul_Unit" FromRole="UnitType" ToRole="Products" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NameSurname" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="Boolean" />
+    <Property Name="Type" Type="Boolean" />
+    <Property Name="Balance" Type="Double" />
+    <Property Name="BranchID" Type="Int32" />
+    <Property Name="TerminalID" Type="Int32" />
+    <NavigationProperty Name="Branchs" Relationship="KassadbModel.FK_Users_Branchs" FromRole="Users" ToRole="Branchs" />
+    <NavigationProperty Name="Invoice_Product" Relationship="KassadbModel.FK_Invoice_Product_Users" FromRole="Users" ToRole="Invoice_Product" />
+    <NavigationProperty Name="Posterminal" Relationship="KassadbModel.FK_Users_Terminal" FromRole="Users" ToRole="Posterminal" />
+    <NavigationProperty Name="Products" Relationship="KassadbModel.FK_Product_Users" FromRole="Users" ToRole="Products" />
+    <NavigationProperty Name="Return_Product" Relationship="KassadbModel.FK_Return_Product_Users" FromRole="Users" ToRole="Return_Product" />
+    <NavigationProperty Name="IslemOzet" Relationship="KassadbModel.FK_IslemOzet_Users" FromRole="Users" ToRole="IslemOzet" />
+    <NavigationProperty Name="Satis" Relationship="KassadbModel.FK_Satis_Users" FromRole="Users" ToRole="Satis" />
+    <NavigationProperty Name="Return_Sales" Relationship="KassadbModel.FK_Return_Sales_Users" FromRole="Users" ToRole="Return_Sales" />
+    <NavigationProperty Name="Return_Invoice" Relationship="KassadbModel.FK_Return_Invoice_User" FromRole="Users" ToRole="Return_Invoice" />
+    <NavigationProperty Name="Sales_Product" Relationship="KassadbModel.FK_Sales_Product_Users" FromRole="Users" ToRole="Sales_Product" />
+  </EntityType>
+  <Association Name="FK_Invoice_Product_Branchs">
+    <End Type="KassadbModel.Branchs" Role="Branchs" Multiplicity="0..1" />
+    <End Type="KassadbModel.Invoice_Product" Role="Invoice_Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Branchs">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Invoice_Product">
+        <PropertyRef Name="Branch_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Posterminal_Branchs">
+    <End Type="KassadbModel.Branchs" Role="Branchs" Multiplicity="0..1" />
+    <End Type="KassadbModel.Posterminal" Role="Posterminal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Branchs">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Posterminal">
+        <PropertyRef Name="BranchID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Return_Product_Branchs">
+    <End Type="KassadbModel.Branchs" Role="Branchs" Multiplicity="0..1" />
+    <End Type="KassadbModel.Return_Product" Role="Return_Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Branchs">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Return_Product">
+        <PropertyRef Name="BranchID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Users_Branchs">
+    <End Type="KassadbModel.Branchs" Role="Branchs" Multiplicity="0..1" />
+    <End Type="KassadbModel.Users" Role="Users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Branchs">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Users">
+        <PropertyRef Name="BranchID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Mehsul_Category">
+    <End Type="KassadbModel.Category" Role="Category" Multiplicity="0..1" />
+    <End Type="KassadbModel.Products" Role="Products" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Products">
+        <PropertyRef Name="CategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Invoice_Product_Products">
+    <End Type="KassadbModel.Products" Role="Products" Multiplicity="0..1" />
+    <End Type="KassadbModel.Invoice_Product" Role="Invoice_Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="Mehsulid" />
+      </Principal>
+      <Dependent Role="Invoice_Product">
+        <PropertyRef Name="Product_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Invoice_Product_Supplier">
+    <End Type="KassadbModel.Supplier" Role="Supplier" Multiplicity="0..1" />
+    <End Type="KassadbModel.Invoice_Product" Role="Invoice_Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Supplier">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Invoice_Product">
+        <PropertyRef Name="SupplierID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Invoice_Product_Users">
+    <End Type="KassadbModel.Users" Role="Users" Multiplicity="0..1" />
+    <End Type="KassadbModel.Invoice_Product" Role="Invoice_Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Invoice_Product">
+        <PropertyRef Name="User_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Posterminal_TerminalName">
+    <End Type="KassadbModel.Posterminal_Name" Role="Posterminal_Name" Multiplicity="0..1" />
+    <End Type="KassadbModel.Posterminal" Role="Posterminal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Posterminal_Name">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Posterminal">
+        <PropertyRef Name="TerminalNameID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Users_Terminal">
+    <End Type="KassadbModel.Posterminal" Role="Posterminal" Multiplicity="0..1" />
+    <End Type="KassadbModel.Users" Role="Users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Posterminal">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Users">
+        <PropertyRef Name="TerminalID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Mehsul_Tax">
+    <End Type="KassadbModel.TaxType" Role="TaxType" Multiplicity="0..1" />
+    <End Type="KassadbModel.Products" Role="Products" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TaxType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Products">
+        <PropertyRef Name="TaxID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Mehsul_Unit">
+    <End Type="KassadbModel.UnitType" Role="UnitType" Multiplicity="0..1" />
+    <End Type="KassadbModel.Products" Role="Products" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UnitType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Products">
+        <PropertyRef Name="UnitID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Product_Users">
+    <End Type="KassadbModel.Users" Role="Users" Multiplicity="0..1" />
+    <End Type="KassadbModel.Products" Role="Products" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Products">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Return_Product_Users">
+    <End Type="KassadbModel.Users" Role="Users" Multiplicity="0..1" />
+    <End Type="KassadbModel.Return_Product" Role="Return_Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Return_Product">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="IslemOzet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProccesNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="OdemeSekli" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Cash" Type="Double" />
+    <Property Name="Card" Type="Double" />
+    <Property Name="AlisFiyatToplam" Type="Double" />
+    <Property Name="Odenen" Type="Double" />
+    <Property Name="Total" Type="Double" />
+    <Property Name="Qaliq" Type="Double" />
+    <Property Name="Tarix" Type="DateTime" Precision="3" />
+    <Property Name="UserID" Type="Int32" />
+    <Property Name="BranchID" Type="Int32" />
+    <Property Name="ProcessType" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Branchs" Relationship="KassadbModel.FK_IslemOzet_Branchs" FromRole="IslemOzet" ToRole="Branchs" />
+    <NavigationProperty Name="Users" Relationship="KassadbModel.FK_IslemOzet_Users" FromRole="IslemOzet" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="Satis">
+    <Key>
+      <PropertyRef Name="Satisid" />
+    </Key>
+    <Property Name="Satisid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BranchID" Type="Int32" />
+    <Property Name="Barkod" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ProccesNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MehsulAd" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Category" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Miqdar" Type="Double" />
+    <Property Name="AlisQiymet" Type="Double" />
+    <Property Name="SatisQiymet" Type="Double" />
+    <Property Name="PaymentTypeID" Type="Int32" />
+    <Property Name="Toplam" Type="Double" />
+    <Property Name="UnitTypeID" Type="Int32" />
+    <Property Name="TaxTypeID" Type="Int32" />
+    <Property Name="TaxPrice" Type="Double" />
+    <Property Name="Tarix" Type="DateTime" Precision="3" />
+    <Property Name="UserID" Type="Int32" />
+    <Property Name="Vahid" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PaymentType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Branchs" Relationship="KassadbModel.FK_Satis_Branch" FromRole="Satis" ToRole="Branchs" />
+    <NavigationProperty Name="TaxType" Relationship="KassadbModel.FK_Satis_TaxType" FromRole="Satis" ToRole="TaxType" />
+    <NavigationProperty Name="Users" Relationship="KassadbModel.FK_Satis_Users" FromRole="Satis" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="Terazi">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TeraziOnEk" Type="Int32" />
+  </EntityType>
+  <Association Name="FK_IslemOzet_Branchs">
+    <End Type="KassadbModel.Branchs" Role="Branchs" Multiplicity="0..1" />
+    <End Type="KassadbModel.IslemOzet" Role="IslemOzet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Branchs">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="IslemOzet">
+        <PropertyRef Name="BranchID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Satis_Branch">
+    <End Type="KassadbModel.Branchs" Role="Branchs" Multiplicity="0..1" />
+    <End Type="KassadbModel.Satis" Role="Satis" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Branchs">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Satis">
+        <PropertyRef Name="BranchID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_IslemOzet_Users">
+    <End Type="KassadbModel.Users" Role="Users" Multiplicity="0..1" />
+    <End Type="KassadbModel.IslemOzet" Role="IslemOzet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="IslemOzet">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Satis_TaxType">
+    <End Type="KassadbModel.TaxType" Role="TaxType" Multiplicity="0..1" />
+    <End Type="KassadbModel.Satis" Role="Satis" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TaxType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Satis">
+        <PropertyRef Name="TaxTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Satis_Users">
+    <End Type="KassadbModel.Users" Role="Users" Multiplicity="0..1" />
+    <End Type="KassadbModel.Satis" Role="Satis" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Satis">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Return_Sales">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BranchID" Type="Int32" />
+    <Property Name="ProccesNo" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="ProductID" Type="Int32" />
+    <Property Name="Amount" Type="Double" />
+    <Property Name="PaymentType" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="Cash" Type="Double" />
+    <Property Name="Card" Type="Double" />
+    <Property Name="Total" Type="Double" />
+    <Property Name="UserID" Type="Int32" />
+    <Property Name="Date" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Branchs" Relationship="KassadbModel.FK_Return_Sales_Branchs" FromRole="Return_Sales" ToRole="Branchs" />
+    <NavigationProperty Name="Products" Relationship="KassadbModel.FK_Return_Sales_Products" FromRole="Return_Sales" ToRole="Products" />
+    <NavigationProperty Name="Users" Relationship="KassadbModel.FK_Return_Sales_Users" FromRole="Return_Sales" ToRole="Users" />
+  </EntityType>
+  <Association Name="FK_Return_Sales_Branchs">
+    <End Type="KassadbModel.Branchs" Role="Branchs" Multiplicity="0..1" />
+    <End Type="KassadbModel.Return_Sales" Role="Return_Sales" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Branchs">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Return_Sales">
+        <PropertyRef Name="BranchID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Return_Sales_Products">
+    <End Type="KassadbModel.Products" Role="Products" Multiplicity="0..1" />
+    <End Type="KassadbModel.Return_Sales" Role="Return_Sales" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="Mehsulid" />
+      </Principal>
+      <Dependent Role="Return_Sales">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Return_Sales_Users">
+    <End Type="KassadbModel.Users" Role="Users" Multiplicity="0..1" />
+    <End Type="KassadbModel.Return_Sales" Role="Return_Sales" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Return_Sales">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Transaction_Report">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="ProccesNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ProccesType" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="Fiscall_id" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Amount" Type="Double" />
+    <Property Name="Cash" Type="Double" />
+    <Property Name="Card" Type="Double" />
+    <Property Name="Total" Type="Double" />
+    <Property Name="Date" Type="DateTime" Precision="3" />
+    <Property Name="PaymentType" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Branch_ID" Type="Int32" />
+    <Property Name="TicketNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Branchs" Relationship="KassadbModel.FK_Transaction_Report_Branch" FromRole="Transaction_Report" ToRole="Branchs" />
+  </EntityType>
+  <EntityType Name="Return_Invoice">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="ProccesNo" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="Date" Type="DateTime" Precision="3" />
+    <Property Name="Branch_ID" Type="Int32" />
+    <Property Name="Product_ID" Type="Int32" />
+    <Property Name="Amount" Type="Double" />
+    <Property Name="Price" Type="Double" />
+    <Property Name="Total" Type="Double" />
+    <Property Name="User_ID" Type="Int32" />
+    <Property Name="Supplier_ID" Type="Guid" />
+    <Property Name="FakturaNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Branchs" Relationship="KassadbModel.FK_Return_Invoice_Branchs" FromRole="Return_Invoice" ToRole="Branchs" />
+    <NavigationProperty Name="Products" Relationship="KassadbModel.FK_Return_Invoice_Products" FromRole="Return_Invoice" ToRole="Products" />
+    <NavigationProperty Name="Supplier" Relationship="KassadbModel.FK_Return_Invoice_Supplier" FromRole="Return_Invoice" ToRole="Supplier" />
+    <NavigationProperty Name="Users" Relationship="KassadbModel.FK_Return_Invoice_User" FromRole="Return_Invoice" ToRole="Users" />
+  </EntityType>
+  <Association Name="FK_Return_Invoice_Branchs">
+    <End Type="KassadbModel.Branchs" Role="Branchs" Multiplicity="0..1" />
+    <End Type="KassadbModel.Return_Invoice" Role="Return_Invoice" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Branchs">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Return_Invoice">
+        <PropertyRef Name="Branch_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Return_Invoice_Products">
+    <End Type="KassadbModel.Products" Role="Products" Multiplicity="0..1" />
+    <End Type="KassadbModel.Return_Invoice" Role="Return_Invoice" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="Mehsulid" />
+      </Principal>
+      <Dependent Role="Return_Invoice">
+        <PropertyRef Name="Product_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Return_Invoice_Supplier">
+    <End Type="KassadbModel.Supplier" Role="Supplier" Multiplicity="0..1" />
+    <End Type="KassadbModel.Return_Invoice" Role="Return_Invoice" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Supplier">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Return_Invoice">
+        <PropertyRef Name="Supplier_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Return_Invoice_User">
+    <End Type="KassadbModel.Users" Role="Users" Multiplicity="0..1" />
+    <End Type="KassadbModel.Return_Invoice" Role="Return_Invoice" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Return_Invoice">
+        <PropertyRef Name="User_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Products_Supplier">
+    <End Type="KassadbModel.Supplier" Role="Supplier" Multiplicity="0..1" />
+    <End Type="KassadbModel.Products" Role="Products" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Supplier">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Products">
+        <PropertyRef Name="Supplier_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Transaction_Report_Branch">
+    <End Type="KassadbModel.Branchs" Role="Branchs" Multiplicity="0..1" />
+    <End Type="KassadbModel.Transaction_Report" Role="Transaction_Report" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Branchs">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Transaction_Report">
+        <PropertyRef Name="Branch_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Sales_Product">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProccesNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ProductID" Type="Int32" />
+    <Property Name="Amount" Type="Double" />
+    <Property Name="PaymentType" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="SalePrice" Type="Double" />
+    <Property Name="Total" Type="Double" />
+    <Property Name="UserID" Type="Int32" />
+    <Property Name="Date" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Products" Relationship="KassadbModel.FK_Sales_Product_Products" FromRole="Sales_Product" ToRole="Products" />
+    <NavigationProperty Name="Users" Relationship="KassadbModel.FK_Sales_Product_Users" FromRole="Sales_Product" ToRole="Users" />
+  </EntityType>
+  <Association Name="FK_Sales_Product_Products">
+    <End Type="KassadbModel.Products" Role="Products" Multiplicity="0..1" />
+    <End Type="KassadbModel.Sales_Product" Role="Sales_Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="Mehsulid" />
+      </Principal>
+      <Dependent Role="Sales_Product">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sales_Product_Users">
+    <End Type="KassadbModel.Users" Role="Users" Multiplicity="0..1" />
+    <End Type="KassadbModel.Sales_Product" Role="Sales_Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Sales_Product">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
