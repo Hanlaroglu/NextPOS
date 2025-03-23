@@ -47,6 +47,8 @@
         <EntityTypeShape EntityType="NextposDBModel.CustomersDebt" Width="1.5" PointX="12.625" PointY="15.75" />
         <AssociationConnector Association="NextposDBModel.FK_CustomerPayments_CustomersDebts" />
         <AssociationConnector Association="NextposDBModel.FK_CustomerDebts_Customer" />
+        <EntityTypeShape EntityType="NextposDBModel.SalesData" Width="1.5" PointX="13.375" PointY="0.75" />
+        <EntityTypeShape EntityType="NextposDBModel.SalesDataDetail" Width="1.5" PointX="5.375" PointY="4.75" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

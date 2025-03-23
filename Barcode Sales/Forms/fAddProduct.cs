@@ -154,7 +154,6 @@ namespace Barcode_Sales.Forms
                     return;
                 }
 
-
                 DateTime? ProductCreatedDate = ParseHelpers.StringConvertDatetime(tCreatedDate.EditValue.ToString());
                 DateTime? ProductEndDate = ParseHelpers.StringConvertDatetime(tEndDate.EditValue.ToString());
 
@@ -195,7 +194,6 @@ namespace Barcode_Sales.Forms
                 grid.AmountNotification = chAmountNotification.Checked;
                 grid.EndDateNotification = chProductEndDateNotification.Checked;
                 grid.Imagebyte = imageBytes;
-
 
 
                 Products validateProduct = GridDataToProductsMapper(grid);

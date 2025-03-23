@@ -192,6 +192,36 @@
           <Property Name="Admin" Type="bit" />
           <Property Name="Cashier" Type="bit" />
         </EntityType>
+        <EntityType Name="SalesData">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="ReceiptNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="LongFiscalId" Type="nvarchar" MaxLength="200" />
+          <Property Name="ShortFiscalId" Type="nvarchar" MaxLength="50" />
+          <Property Name="Rrn" Type="nvarchar" MaxLength="50" />
+          <Property Name="SaleDate" Type="date" />
+          <Property Name="SaleDatetime" Type="datetime" />
+          <Property Name="Total" Type="float" />
+          <Property Name="Cash" Type="float" />
+          <Property Name="Card" Type="float" />
+          <Property Name="IncomingSum" Type="float" />
+          <Property Name="CustomerId" Type="int" />
+          <Property Name="Note" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="SalesDataDetail">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SaleDataId" Type="int" />
+          <Property Name="ProductId" Type="int" />
+          <Property Name="Quantity" Type="float" />
+          <Property Name="SalePrice" Type="float" />
+          <Property Name="Discount" Type="float" />
+        </EntityType>
         <EntityType Name="Sizes">
           <Key>
             <PropertyRef Name="Id" />
@@ -570,6 +600,8 @@
           <EntitySet Name="Logs" EntityType="Self.Logs" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Products" EntityType="Self.Products" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SalesData" EntityType="Self.SalesData" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SalesDataDetail" EntityType="Self.SalesDataDetail" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Sizes" EntityType="Self.Sizes" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Stores" EntityType="Self.Stores" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SupplierPayments" EntityType="Self.SupplierPayments" Schema="dbo" store:Type="Tables" />
@@ -844,6 +876,8 @@
             <End Role="Customers" EntitySet="Customers" />
             <End Role="CustomersDebt" EntitySet="CustomersDebts" />
           </AssociationSet>
+          <EntitySet Name="SalesDatas" EntityType="NextposDBModel.SalesData" />
+          <EntitySet Name="SalesDataDetails" EntityType="NextposDBModel.SalesDataDetail" />
           </EntityContainer>
         <EntityType Name="Suppliers">
           <Key>
@@ -1377,6 +1411,36 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="SalesData">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int32" />
+          <Property Name="ReceiptNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LongFiscalId" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="ShortFiscalId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Rrn" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SaleDate" Type="DateTime" Precision="0" />
+          <Property Name="SaleDatetime" Type="DateTime" Precision="3" />
+          <Property Name="Total" Type="Double" />
+          <Property Name="Cash" Type="Double" />
+          <Property Name="Card" Type="Double" />
+          <Property Name="IncomingSum" Type="Double" />
+          <Property Name="CustomerId" Type="Int32" />
+          <Property Name="Note" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="SalesDataDetail">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SaleDataId" Type="Int32" />
+          <Property Name="ProductId" Type="Int32" />
+          <Property Name="Quantity" Type="Double" />
+          <Property Name="SalePrice" Type="Double" />
+          <Property Name="Discount" Type="Double" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1687,6 +1751,38 @@
                 <ScalarProperty Name="Debt" ColumnName="Debt" />
                 <ScalarProperty Name="Type" ColumnName="Type" />
                 <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SalesDatas">
+            <EntityTypeMapping TypeName="NextposDBModel.SalesData">
+              <MappingFragment StoreEntitySet="SalesData">
+                <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+                <ScalarProperty Name="IncomingSum" ColumnName="IncomingSum" />
+                <ScalarProperty Name="Card" ColumnName="Card" />
+                <ScalarProperty Name="Cash" ColumnName="Cash" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="SaleDatetime" ColumnName="SaleDatetime" />
+                <ScalarProperty Name="SaleDate" ColumnName="SaleDate" />
+                <ScalarProperty Name="Rrn" ColumnName="Rrn" />
+                <ScalarProperty Name="ShortFiscalId" ColumnName="ShortFiscalId" />
+                <ScalarProperty Name="LongFiscalId" ColumnName="LongFiscalId" />
+                <ScalarProperty Name="ReceiptNo" ColumnName="ReceiptNo" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SalesDataDetails">
+            <EntityTypeMapping TypeName="NextposDBModel.SalesDataDetail">
+              <MappingFragment StoreEntitySet="SalesDataDetail">
+                <ScalarProperty Name="Discount" ColumnName="Discount" />
+                <ScalarProperty Name="SalePrice" ColumnName="SalePrice" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="SaleDataId" ColumnName="SaleDataId" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

@@ -29,439 +29,372 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ftest));
-            this.svgImageCollection1 = new DevExpress.Utils.SvgImageCollection(this.components);
-            this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
-            this.separatorControl4 = new DevExpress.XtraEditors.SeparatorControl();
-            this.separatorControl2 = new DevExpress.XtraEditors.SeparatorControl();
-            this.bNotification = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
-            this.bControlPanel = new DevExpress.XtraEditors.LabelControl();
-            this.tablePanel2 = new DevExpress.Utils.Layout.TablePanel();
-            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
-            this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
-            this.separatorControl1 = new DevExpress.XtraEditors.SeparatorControl();
-            this.picConnection = new DevExpress.XtraEditors.PictureEdit();
-            this.lUser = new DevExpress.XtraEditors.LabelControl();
-            this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
-            this.tablePanel3 = new DevExpress.Utils.Layout.TablePanel();
-            this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
-            this.separatorControl3 = new DevExpress.XtraEditors.SeparatorControl();
-            this.tablePanel1 = new DevExpress.Utils.Layout.TablePanel();
-            ((System.ComponentModel.ISupportInitialize)(this.svgImageCollection1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.separatorControl4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.separatorControl2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tablePanel2)).BeginInit();
-            this.tablePanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
-            this.panelControl3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.separatorControl1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picConnection.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
-            this.panelControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tablePanel3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
-            this.panelControl2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.separatorControl3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tablePanel1)).BeginInit();
-            this.tablePanel1.SuspendLayout();
+            this.behaviorManager1 = new DevExpress.Utils.Behaviors.BehaviorManager(this.components);
+            this.tSearch = new DevExpress.XtraEditors.SearchLookUpEdit();
+            this.searchView = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridControlBasket = new DevExpress.XtraGrid.GridControl();
+            this.gridProducts = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colBarkod = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colPName = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colMiqdar = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colUnit = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colSPrice = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colTotals = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.chCustomerStatus = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
+            this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tSearch.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControlBasket)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridProducts)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chCustomerStatus)).BeginInit();
             this.SuspendLayout();
             // 
-            // svgImageCollection1
+            // tSearch
             // 
-            this.svgImageCollection1.ImageSize = new System.Drawing.Size(24, 24);
-            this.svgImageCollection1.Add("true-connection", ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("svgImageCollection1.true-connection"))));
-            this.svgImageCollection1.Add("false-connection", ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("svgImageCollection1.false-connection"))));
+            this.tSearch.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tSearch.Location = new System.Drawing.Point(10, 10);
+            this.tSearch.Margin = new System.Windows.Forms.Padding(1);
+            this.tSearch.Name = "tSearch";
+            this.tSearch.Properties.AllowButtonNavigation = DevExpress.Utils.DefaultBoolean.False;
+            this.tSearch.Properties.AllowFocused = false;
+            this.tSearch.Properties.Appearance.Font = new System.Drawing.Font("Nunito", 10F);
+            this.tSearch.Properties.Appearance.Options.UseFont = true;
+            this.tSearch.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.tSearch.Properties.LookAndFeel.SkinName = "WXI";
+            this.tSearch.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.tSearch.Properties.NullText = "";
+            this.tSearch.Properties.PopupBorderStyle = DevExpress.XtraEditors.Controls.PopupBorderStyles.NoBorder;
+            this.tSearch.Properties.PopupFindMode = DevExpress.XtraEditors.FindMode.Always;
+            this.tSearch.Properties.PopupView = this.searchView;
+            this.tSearch.Properties.ShowClearButton = false;
+            this.tSearch.Properties.ShowFooter = false;
+            this.tSearch.Size = new System.Drawing.Size(1266, 32);
+            this.tSearch.TabIndex = 18;
+            this.tSearch.EditValueChanged += new System.EventHandler(this.tSearch_EditValueChanged);
             // 
-            // labelControl5
+            // searchView
             // 
-            this.labelControl5.Appearance.Font = new System.Drawing.Font("Nunito", 9F);
-            this.labelControl5.Appearance.ForeColor = System.Drawing.Color.White;
-            this.labelControl5.Appearance.Options.UseFont = true;
-            this.labelControl5.Appearance.Options.UseForeColor = true;
-            this.labelControl5.Appearance.Options.UseTextOptions = true;
-            this.labelControl5.Appearance.TextOptions.Trimming = DevExpress.Utils.Trimming.EllipsisCharacter;
-            this.labelControl5.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.tablePanel2.SetColumn(this.labelControl5, 0);
-            this.labelControl5.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.labelControl5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelControl5.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("labelControl5.ImageOptions.SvgImage")));
-            this.labelControl5.Location = new System.Drawing.Point(0, 0);
-            this.labelControl5.Name = "labelControl5";
-            this.tablePanel2.SetRow(this.labelControl5, 4);
-            this.labelControl5.Size = new System.Drawing.Size(0, 0);
-            this.labelControl5.TabIndex = 4;
+            this.searchView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumn1,
+            this.gridColumn2,
+            this.gridColumn3,
+            this.gridColumn4});
+            this.searchView.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.searchView.Name = "searchView";
+            this.searchView.OptionsMenu.EnableColumnMenu = false;
+            this.searchView.OptionsMenu.EnableFooterMenu = false;
+            this.searchView.OptionsMenu.EnableGroupPanelMenu = false;
+            this.searchView.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.searchView.OptionsView.ShowGroupPanel = false;
+            this.searchView.OptionsView.ShowIndicator = false;
             // 
-            // labelControl1
+            // gridColumn1
             // 
-            this.labelControl1.Appearance.BorderColor = System.Drawing.Color.White;
-            this.labelControl1.Appearance.Font = new System.Drawing.Font("Nunito", 9F);
-            this.labelControl1.Appearance.ForeColor = System.Drawing.Color.White;
-            this.labelControl1.Appearance.Options.UseBorderColor = true;
-            this.labelControl1.Appearance.Options.UseFont = true;
-            this.labelControl1.Appearance.Options.UseForeColor = true;
-            this.labelControl1.Appearance.Options.UseTextOptions = true;
-            this.labelControl1.Appearance.TextOptions.Trimming = DevExpress.Utils.Trimming.EllipsisCharacter;
-            this.labelControl1.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.tablePanel2.SetColumn(this.labelControl1, 0);
-            this.labelControl1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.labelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelControl1.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("labelControl1.ImageOptions.SvgImage")));
-            this.labelControl1.Location = new System.Drawing.Point(1, 1);
-            this.labelControl1.Margin = new System.Windows.Forms.Padding(0);
-            this.labelControl1.Name = "labelControl1";
-            this.tablePanel2.SetRow(this.labelControl1, 0);
-            this.labelControl1.Size = new System.Drawing.Size(47, 60);
-            this.labelControl1.TabIndex = 3;
+            this.gridColumn1.Caption = "Id";
+            this.gridColumn1.FieldName = "Id";
+            this.gridColumn1.MaxWidth = 25;
+            this.gridColumn1.MinWidth = 25;
+            this.gridColumn1.Name = "gridColumn1";
+            this.gridColumn1.OptionsColumn.AllowEdit = false;
+            this.gridColumn1.Width = 25;
             // 
-            // labelControl2
+            // gridColumn2
             // 
-            this.labelControl2.Appearance.Font = new System.Drawing.Font("Nunito", 9F);
-            this.labelControl2.Appearance.ForeColor = System.Drawing.Color.White;
-            this.labelControl2.Appearance.Options.UseFont = true;
-            this.labelControl2.Appearance.Options.UseForeColor = true;
-            this.labelControl2.Appearance.Options.UseTextOptions = true;
-            this.labelControl2.Appearance.TextOptions.Trimming = DevExpress.Utils.Trimming.EllipsisCharacter;
-            this.labelControl2.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.tablePanel2.SetColumn(this.labelControl2, 0);
-            this.labelControl2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.labelControl2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelControl2.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("labelControl2.ImageOptions.SvgImage")));
-            this.labelControl2.Location = new System.Drawing.Point(4, 64);
-            this.labelControl2.Name = "labelControl2";
-            this.tablePanel2.SetRow(this.labelControl2, 1);
-            this.labelControl2.Size = new System.Drawing.Size(41, 54);
-            this.labelControl2.TabIndex = 3;
+            this.gridColumn2.Caption = "Təchizatçı";
+            this.gridColumn2.FieldName = "SupplierName";
+            this.gridColumn2.Name = "gridColumn2";
+            this.gridColumn2.OptionsColumn.AllowEdit = false;
             // 
-            // separatorControl4
+            // gridColumn3
             // 
-            this.separatorControl4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.separatorControl4.AutoSizeMode = true;
-            this.separatorControl4.LineAlignment = DevExpress.XtraEditors.Alignment.Center;
-            this.separatorControl4.LineOrientation = System.Windows.Forms.Orientation.Vertical;
-            this.separatorControl4.Location = new System.Drawing.Point(1139, 5);
-            this.separatorControl4.Name = "separatorControl4";
-            this.separatorControl4.Padding = new System.Windows.Forms.Padding(3);
-            this.separatorControl4.Size = new System.Drawing.Size(7, 41);
-            this.separatorControl4.TabIndex = 1;
+            this.gridColumn3.Caption = "Məhsul adı";
+            this.gridColumn3.FieldName = "ProductName";
+            this.gridColumn3.Name = "gridColumn3";
+            this.gridColumn3.OptionsColumn.AllowEdit = false;
+            this.gridColumn3.Visible = true;
+            this.gridColumn3.VisibleIndex = 0;
+            this.gridColumn3.Width = 50;
             // 
-            // separatorControl2
+            // gridColumn4
             // 
-            this.separatorControl2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.separatorControl2.AutoSizeMode = true;
-            this.separatorControl2.LineAlignment = DevExpress.XtraEditors.Alignment.Center;
-            this.separatorControl2.LineOrientation = System.Windows.Forms.Orientation.Vertical;
-            this.separatorControl2.Location = new System.Drawing.Point(935, 5);
-            this.separatorControl2.Name = "separatorControl2";
-            this.separatorControl2.Padding = new System.Windows.Forms.Padding(3);
-            this.separatorControl2.Size = new System.Drawing.Size(7, 41);
-            this.separatorControl2.TabIndex = 1;
+            this.gridColumn4.AppearanceCell.Options.UseTextOptions = true;
+            this.gridColumn4.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.gridColumn4.AppearanceCell.TextOptions.Trimming = DevExpress.Utils.Trimming.EllipsisCharacter;
+            this.gridColumn4.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.gridColumn4.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn4.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.gridColumn4.AppearanceHeader.TextOptions.Trimming = DevExpress.Utils.Trimming.EllipsisCharacter;
+            this.gridColumn4.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.gridColumn4.Caption = "Satış qiyməti";
+            this.gridColumn4.DisplayFormat.FormatString = "C2";
+            this.gridColumn4.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.gridColumn4.FieldName = "SalePrice";
+            this.gridColumn4.MaxWidth = 130;
+            this.gridColumn4.MinWidth = 130;
+            this.gridColumn4.Name = "gridColumn4";
+            this.gridColumn4.OptionsColumn.AllowEdit = false;
+            this.gridColumn4.Visible = true;
+            this.gridColumn4.VisibleIndex = 1;
+            this.gridColumn4.Width = 130;
             // 
-            // bNotification
+            // gridControlBasket
             // 
-            this.bNotification.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.bNotification.Appearance.Font = new System.Drawing.Font("Nunito", 9F);
-            this.bNotification.Appearance.ForeColor = System.Drawing.Color.White;
-            this.bNotification.Appearance.Options.UseFont = true;
-            this.bNotification.Appearance.Options.UseForeColor = true;
-            this.bNotification.Appearance.Options.UseTextOptions = true;
-            this.bNotification.Appearance.TextOptions.Trimming = DevExpress.Utils.Trimming.EllipsisCharacter;
-            this.bNotification.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.bNotification.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bNotification.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.bNotification.ImageOptions.Alignment = System.Drawing.ContentAlignment.MiddleLeft;
-            this.bNotification.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bNotification.ImageOptions.SvgImage")));
-            this.bNotification.Location = new System.Drawing.Point(1152, 8);
-            this.bNotification.Name = "bNotification";
-            this.bNotification.Size = new System.Drawing.Size(37, 36);
-            this.bNotification.TabIndex = 3;
+            this.gridControlBasket.AllowRestoreSelectionAndFocusedRow = DevExpress.Utils.DefaultBoolean.False;
+            this.gridControlBasket.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.gridControlBasket.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4);
+            this.gridControlBasket.Location = new System.Drawing.Point(10, 222);
+            this.gridControlBasket.LookAndFeel.SkinName = "WXI";
+            this.gridControlBasket.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.gridControlBasket.MainView = this.gridProducts;
+            this.gridControlBasket.Margin = new System.Windows.Forms.Padding(1);
+            this.gridControlBasket.Name = "gridControlBasket";
+            this.gridControlBasket.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.chCustomerStatus});
+            this.gridControlBasket.Size = new System.Drawing.Size(1266, 530);
+            this.gridControlBasket.TabIndex = 19;
+            this.gridControlBasket.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridProducts});
             // 
-            // labelControl4
+            // gridProducts
             // 
-            this.labelControl4.Appearance.Font = new System.Drawing.Font("Nunito", 9F);
-            this.labelControl4.Appearance.ForeColor = System.Drawing.Color.White;
-            this.labelControl4.Appearance.Options.UseFont = true;
-            this.labelControl4.Appearance.Options.UseForeColor = true;
-            this.labelControl4.Appearance.Options.UseTextOptions = true;
-            this.labelControl4.Appearance.TextOptions.Trimming = DevExpress.Utils.Trimming.EllipsisCharacter;
-            this.labelControl4.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.labelControl4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.labelControl4.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.labelControl4.ImageOptions.Alignment = System.Drawing.ContentAlignment.MiddleLeft;
-            this.labelControl4.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("labelControl4.ImageOptions.SvgImage")));
-            this.labelControl4.Location = new System.Drawing.Point(6, 8);
-            this.labelControl4.Name = "labelControl4";
-            this.labelControl4.Size = new System.Drawing.Size(37, 36);
-            this.labelControl4.TabIndex = 3;
+            this.gridProducts.Appearance.FocusedRow.Font = new System.Drawing.Font("Nunito", 12F, System.Drawing.FontStyle.Bold);
+            this.gridProducts.Appearance.FocusedRow.Options.UseFont = true;
+            this.gridProducts.Appearance.GroupPanel.Font = new System.Drawing.Font("Nunito", 10F);
+            this.gridProducts.Appearance.GroupPanel.Options.UseFont = true;
+            this.gridProducts.Appearance.GroupRow.Font = new System.Drawing.Font("Nunito", 12F);
+            this.gridProducts.Appearance.GroupRow.Options.UseFont = true;
+            this.gridProducts.Appearance.HeaderPanel.Font = new System.Drawing.Font("Nunito", 12F, System.Drawing.FontStyle.Bold);
+            this.gridProducts.Appearance.HeaderPanel.Options.UseFont = true;
+            this.gridProducts.Appearance.Row.Font = new System.Drawing.Font("Nunito", 12F);
+            this.gridProducts.Appearance.Row.Options.UseFont = true;
+            this.gridProducts.ColumnPanelRowHeight = 48;
+            this.gridProducts.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumn6,
+            this.gridColumn5,
+            this.colBarkod,
+            this.colPName,
+            this.colMiqdar,
+            this.colUnit,
+            this.colSPrice,
+            this.colTotals});
+            this.gridProducts.DetailHeight = 485;
+            this.gridProducts.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFullFocus;
+            this.gridProducts.GridControl = this.gridControlBasket;
+            this.gridProducts.Name = "gridProducts";
+            this.gridProducts.OptionsEditForm.PopupEditFormWidth = 1067;
+            this.gridProducts.OptionsMenu.EnableColumnMenu = false;
+            this.gridProducts.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.gridProducts.OptionsView.ColumnHeaderAutoHeight = DevExpress.Utils.DefaultBoolean.True;
+            this.gridProducts.OptionsView.ShowGroupPanel = false;
+            this.gridProducts.OptionsView.ShowIndicator = false;
+            this.gridProducts.RowHeight = 48;
             // 
-            // bControlPanel
+            // gridColumn5
             // 
-            this.bControlPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.bControlPanel.Appearance.Font = new System.Drawing.Font("Nunito", 9F);
-            this.bControlPanel.Appearance.ForeColor = System.Drawing.Color.White;
-            this.bControlPanel.Appearance.Options.UseFont = true;
-            this.bControlPanel.Appearance.Options.UseForeColor = true;
-            this.bControlPanel.Appearance.Options.UseTextOptions = true;
-            this.bControlPanel.Appearance.TextOptions.Trimming = DevExpress.Utils.Trimming.EllipsisCharacter;
-            this.bControlPanel.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.bControlPanel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bControlPanel.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.bControlPanel.ImageOptions.Alignment = System.Drawing.ContentAlignment.MiddleLeft;
-            this.bControlPanel.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bControlPanel.ImageOptions.SvgImage")));
-            this.bControlPanel.Location = new System.Drawing.Point(892, 8);
-            this.bControlPanel.Name = "bControlPanel";
-            this.bControlPanel.Size = new System.Drawing.Size(37, 36);
-            this.bControlPanel.TabIndex = 3;
+            this.gridColumn5.Caption = "Id";
+            this.gridColumn5.FieldName = "Id";
+            this.gridColumn5.Name = "gridColumn5";
+            this.gridColumn5.OptionsColumn.AllowEdit = false;
             // 
-            // tablePanel2
+            // colBarkod
             // 
-            this.tablePanel2.Columns.AddRange(new DevExpress.Utils.Layout.TablePanelColumn[] {
-            new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 55F)});
-            this.tablePanel2.Controls.Add(this.labelControl5);
-            this.tablePanel2.Controls.Add(this.labelControl1);
-            this.tablePanel2.Controls.Add(this.labelControl2);
-            this.tablePanel2.Controls.Add(this.labelControl3);
-            this.tablePanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tablePanel2.Location = new System.Drawing.Point(0, 0);
-            this.tablePanel2.Name = "tablePanel2";
-            this.tablePanel2.Padding = new System.Windows.Forms.Padding(1);
-            this.tablePanel2.Rows.AddRange(new DevExpress.Utils.Layout.TablePanelRow[] {
-            new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 60F),
-            new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 60F),
-            new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 60F),
-            new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 753F),
-            new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 26F)});
-            this.tablePanel2.Size = new System.Drawing.Size(49, 727);
-            this.tablePanel2.TabIndex = 0;
-            this.tablePanel2.UseSkinIndents = true;
+            this.colBarkod.AppearanceCell.Font = new System.Drawing.Font("Comfortaa", 10F);
+            this.colBarkod.AppearanceCell.Options.UseFont = true;
+            this.colBarkod.AppearanceHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.colBarkod.AppearanceHeader.Font = new System.Drawing.Font("Comfortaa SemiBold", 10F, System.Drawing.FontStyle.Bold);
+            this.colBarkod.AppearanceHeader.Options.UseBackColor = true;
+            this.colBarkod.AppearanceHeader.Options.UseFont = true;
+            this.colBarkod.AppearanceHeader.Options.UseTextOptions = true;
+            this.colBarkod.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colBarkod.Caption = "Barkod";
+            this.colBarkod.FieldName = "Barcode";
+            this.colBarkod.MinWidth = 27;
+            this.colBarkod.Name = "colBarkod";
+            this.colBarkod.OptionsColumn.AllowEdit = false;
+            this.colBarkod.Visible = true;
+            this.colBarkod.VisibleIndex = 1;
+            this.colBarkod.Width = 244;
             // 
-            // labelControl3
+            // colPName
             // 
-            this.labelControl3.Appearance.Font = new System.Drawing.Font("Nunito", 9F);
-            this.labelControl3.Appearance.ForeColor = System.Drawing.Color.White;
-            this.labelControl3.Appearance.Options.UseFont = true;
-            this.labelControl3.Appearance.Options.UseForeColor = true;
-            this.labelControl3.Appearance.Options.UseTextOptions = true;
-            this.labelControl3.Appearance.TextOptions.Trimming = DevExpress.Utils.Trimming.EllipsisCharacter;
-            this.labelControl3.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.tablePanel2.SetColumn(this.labelControl3, 0);
-            this.labelControl3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.labelControl3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelControl3.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("labelControl3.ImageOptions.SvgImage")));
-            this.labelControl3.Location = new System.Drawing.Point(4, 124);
-            this.labelControl3.Name = "labelControl3";
-            this.tablePanel2.SetRow(this.labelControl3, 2);
-            this.labelControl3.Size = new System.Drawing.Size(41, 54);
-            this.labelControl3.TabIndex = 3;
+            this.colPName.AppearanceCell.Font = new System.Drawing.Font("Comfortaa", 10F);
+            this.colPName.AppearanceCell.Options.UseFont = true;
+            this.colPName.AppearanceHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.colPName.AppearanceHeader.Font = new System.Drawing.Font("Comfortaa SemiBold", 10F, System.Drawing.FontStyle.Bold);
+            this.colPName.AppearanceHeader.Options.UseBackColor = true;
+            this.colPName.AppearanceHeader.Options.UseFont = true;
+            this.colPName.AppearanceHeader.Options.UseTextOptions = true;
+            this.colPName.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colPName.AppearanceHeader.TextOptions.Trimming = DevExpress.Utils.Trimming.EllipsisCharacter;
+            this.colPName.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.colPName.Caption = "Məhsul adı";
+            this.colPName.FieldName = "ProductName";
+            this.colPName.MinWidth = 27;
+            this.colPName.Name = "colPName";
+            this.colPName.OptionsColumn.AllowEdit = false;
+            this.colPName.Visible = true;
+            this.colPName.VisibleIndex = 2;
+            this.colPName.Width = 663;
             // 
-            // panelControl3
+            // colMiqdar
             // 
-            this.panelControl3.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.panelControl3.Appearance.Options.UseBackColor = true;
-            this.panelControl3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.panelControl3.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.tablePanel1.SetColumn(this.panelControl3, 0);
-            this.panelControl3.Controls.Add(this.tablePanel2);
-            this.panelControl3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl3.Location = new System.Drawing.Point(2, 51);
-            this.panelControl3.Margin = new System.Windows.Forms.Padding(1, 0, 1, 1);
-            this.panelControl3.Name = "panelControl3";
-            this.tablePanel1.SetRow(this.panelControl3, 1);
-            this.panelControl3.Size = new System.Drawing.Size(49, 727);
-            this.panelControl3.TabIndex = 0;
+            this.colMiqdar.AppearanceCell.Font = new System.Drawing.Font("Comfortaa", 10F);
+            this.colMiqdar.AppearanceCell.Options.UseFont = true;
+            this.colMiqdar.AppearanceCell.Options.UseTextOptions = true;
+            this.colMiqdar.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colMiqdar.AppearanceHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.colMiqdar.AppearanceHeader.Font = new System.Drawing.Font("Comfortaa SemiBold", 10F, System.Drawing.FontStyle.Bold);
+            this.colMiqdar.AppearanceHeader.Options.UseBackColor = true;
+            this.colMiqdar.AppearanceHeader.Options.UseFont = true;
+            this.colMiqdar.AppearanceHeader.Options.UseTextOptions = true;
+            this.colMiqdar.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colMiqdar.AppearanceHeader.TextOptions.Trimming = DevExpress.Utils.Trimming.EllipsisCharacter;
+            this.colMiqdar.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.colMiqdar.Caption = "Miqdar";
+            this.colMiqdar.FieldName = "Amount";
+            this.colMiqdar.MinWidth = 27;
+            this.colMiqdar.Name = "colMiqdar";
+            this.colMiqdar.OptionsColumn.AllowEdit = false;
+            this.colMiqdar.Visible = true;
+            this.colMiqdar.VisibleIndex = 3;
+            this.colMiqdar.Width = 128;
             // 
-            // separatorControl1
+            // colUnit
             // 
-            this.separatorControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.separatorControl1.AutoSizeMode = true;
-            this.separatorControl1.LineAlignment = DevExpress.XtraEditors.Alignment.Center;
-            this.separatorControl1.LineOrientation = System.Windows.Forms.Orientation.Vertical;
-            this.separatorControl1.Location = new System.Drawing.Point(1195, 5);
-            this.separatorControl1.Name = "separatorControl1";
-            this.separatorControl1.Padding = new System.Windows.Forms.Padding(3);
-            this.separatorControl1.Size = new System.Drawing.Size(7, 41);
-            this.separatorControl1.TabIndex = 1;
+            this.colUnit.AppearanceCell.Font = new System.Drawing.Font("Comfortaa", 10F);
+            this.colUnit.AppearanceCell.Options.UseFont = true;
+            this.colUnit.AppearanceCell.Options.UseTextOptions = true;
+            this.colUnit.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colUnit.AppearanceHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.colUnit.AppearanceHeader.Font = new System.Drawing.Font("Comfortaa SemiBold", 10F, System.Drawing.FontStyle.Bold);
+            this.colUnit.AppearanceHeader.Options.UseBackColor = true;
+            this.colUnit.AppearanceHeader.Options.UseFont = true;
+            this.colUnit.AppearanceHeader.Options.UseTextOptions = true;
+            this.colUnit.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colUnit.AppearanceHeader.TextOptions.Trimming = DevExpress.Utils.Trimming.EllipsisCharacter;
+            this.colUnit.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.colUnit.Caption = "Vahid";
+            this.colUnit.FieldName = "Unit";
+            this.colUnit.MinWidth = 27;
+            this.colUnit.Name = "colUnit";
+            this.colUnit.OptionsColumn.AllowEdit = false;
+            this.colUnit.Visible = true;
+            this.colUnit.VisibleIndex = 4;
+            this.colUnit.Width = 141;
             // 
-            // picConnection
+            // colSPrice
             // 
-            this.picConnection.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.picConnection.EditValue = ((object)(resources.GetObject("picConnection.EditValue")));
-            this.picConnection.Location = new System.Drawing.Point(1207, 4);
-            this.picConnection.Margin = new System.Windows.Forms.Padding(2);
-            this.picConnection.MaximumSize = new System.Drawing.Size(68, 43);
-            this.picConnection.MinimumSize = new System.Drawing.Size(68, 43);
-            this.picConnection.Name = "picConnection";
-            this.picConnection.Properties.AllowFocused = false;
-            this.picConnection.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
-            this.picConnection.Properties.Appearance.Options.UseBackColor = true;
-            this.picConnection.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.picConnection.Properties.NullText = " ";
-            this.picConnection.Properties.Padding = new System.Windows.Forms.Padding(5);
-            this.picConnection.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
-            this.picConnection.Properties.ShowMenu = false;
-            this.picConnection.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Zoom;
-            this.picConnection.Properties.SvgImageSize = new System.Drawing.Size(24, 24);
-            this.picConnection.Size = new System.Drawing.Size(68, 43);
-            this.picConnection.TabIndex = 2;
+            this.colSPrice.AppearanceCell.Font = new System.Drawing.Font("Comfortaa", 10F);
+            this.colSPrice.AppearanceCell.Options.UseFont = true;
+            this.colSPrice.AppearanceCell.Options.UseTextOptions = true;
+            this.colSPrice.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.colSPrice.AppearanceHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.colSPrice.AppearanceHeader.Font = new System.Drawing.Font("Comfortaa SemiBold", 10F, System.Drawing.FontStyle.Bold);
+            this.colSPrice.AppearanceHeader.Options.UseBackColor = true;
+            this.colSPrice.AppearanceHeader.Options.UseFont = true;
+            this.colSPrice.AppearanceHeader.Options.UseTextOptions = true;
+            this.colSPrice.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colSPrice.AppearanceHeader.TextOptions.Trimming = DevExpress.Utils.Trimming.EllipsisCharacter;
+            this.colSPrice.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.colSPrice.Caption = "Satış qiyməti";
+            this.colSPrice.DisplayFormat.FormatString = "C2";
+            this.colSPrice.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.colSPrice.FieldName = "SalePrice";
+            this.colSPrice.MinWidth = 27;
+            this.colSPrice.Name = "colSPrice";
+            this.colSPrice.OptionsColumn.AllowEdit = false;
+            this.colSPrice.Visible = true;
+            this.colSPrice.VisibleIndex = 5;
+            this.colSPrice.Width = 169;
             // 
-            // lUser
+            // colTotals
             // 
-            this.lUser.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lUser.Appearance.Font = new System.Drawing.Font("Nunito", 12F, System.Drawing.FontStyle.Bold);
-            this.lUser.Appearance.ForeColor = System.Drawing.Color.White;
-            this.lUser.Appearance.Options.UseFont = true;
-            this.lUser.Appearance.Options.UseForeColor = true;
-            this.lUser.Appearance.Options.UseTextOptions = true;
-            this.lUser.Appearance.TextOptions.Trimming = DevExpress.Utils.Trimming.EllipsisCharacter;
-            this.lUser.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.lUser.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Vertical;
-            this.lUser.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.lUser.ImageOptions.Alignment = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lUser.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("lUser.ImageOptions.SvgImage")));
-            this.lUser.IndentBetweenImageAndText = 8;
-            this.lUser.Location = new System.Drawing.Point(948, 2);
-            this.lUser.Name = "lUser";
-            this.lUser.Size = new System.Drawing.Size(185, 44);
-            this.lUser.TabIndex = 3;
-            this.lUser.Text = "Həsən\r\nHüseynli";
+            this.colTotals.AppearanceCell.Font = new System.Drawing.Font("Comfortaa", 10F);
+            this.colTotals.AppearanceCell.Options.UseFont = true;
+            this.colTotals.AppearanceCell.Options.UseTextOptions = true;
+            this.colTotals.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.colTotals.AppearanceHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.colTotals.AppearanceHeader.Font = new System.Drawing.Font("Comfortaa SemiBold", 10F, System.Drawing.FontStyle.Bold);
+            this.colTotals.AppearanceHeader.Options.UseBackColor = true;
+            this.colTotals.AppearanceHeader.Options.UseFont = true;
+            this.colTotals.AppearanceHeader.Options.UseTextOptions = true;
+            this.colTotals.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colTotals.Caption = "Toplam";
+            this.colTotals.DisplayFormat.FormatString = "C2";
+            this.colTotals.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.colTotals.FieldName = "Total";
+            this.colTotals.MinWidth = 27;
+            this.colTotals.Name = "colTotals";
+            this.colTotals.OptionsColumn.AllowEdit = false;
+            this.colTotals.Visible = true;
+            this.colTotals.VisibleIndex = 6;
+            this.colTotals.Width = 188;
             // 
-            // panelControl1
+            // chCustomerStatus
             // 
-            this.tablePanel1.SetColumn(this.panelControl1, 1);
-            this.panelControl1.Controls.Add(this.tablePanel3);
-            this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl1.Location = new System.Drawing.Point(55, 54);
-            this.panelControl1.Name = "panelControl1";
-            this.tablePanel1.SetRow(this.panelControl1, 1);
-            this.panelControl1.Size = new System.Drawing.Size(1229, 722);
-            this.panelControl1.TabIndex = 5;
+            this.chCustomerStatus.AutoHeight = false;
+            this.chCustomerStatus.CheckBoxOptions.Style = DevExpress.XtraEditors.Controls.CheckBoxStyle.SvgToggle1;
+            this.chCustomerStatus.CheckBoxOptions.SvgImageSize = new System.Drawing.Size(32, 32);
+            this.chCustomerStatus.Name = "chCustomerStatus";
             // 
-            // tablePanel3
+            // gridColumn6
             // 
-            this.tablePanel3.Columns.AddRange(new DevExpress.Utils.Layout.TablePanelColumn[] {
-            new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 43.16F),
-            new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 16.84F)});
-            this.tablePanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tablePanel3.Location = new System.Drawing.Point(2, 2);
-            this.tablePanel3.Name = "tablePanel3";
-            this.tablePanel3.Padding = new System.Windows.Forms.Padding(1);
-            this.tablePanel3.Rows.AddRange(new DevExpress.Utils.Layout.TablePanelRow[] {
-            new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 804F),
-            new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 26F)});
-            this.tablePanel3.Size = new System.Drawing.Size(1225, 718);
-            this.tablePanel3.TabIndex = 1;
-            this.tablePanel3.UseSkinIndents = true;
-            // 
-            // panelControl2
-            // 
-            this.panelControl2.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.panelControl2.Appearance.Options.UseBackColor = true;
-            this.panelControl2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.panelControl2.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.tablePanel1.SetColumn(this.panelControl2, 0);
-            this.tablePanel1.SetColumnSpan(this.panelControl2, 2);
-            this.panelControl2.Controls.Add(this.separatorControl4);
-            this.panelControl2.Controls.Add(this.separatorControl2);
-            this.panelControl2.Controls.Add(this.bNotification);
-            this.panelControl2.Controls.Add(this.labelControl4);
-            this.panelControl2.Controls.Add(this.bControlPanel);
-            this.panelControl2.Controls.Add(this.separatorControl1);
-            this.panelControl2.Controls.Add(this.picConnection);
-            this.panelControl2.Controls.Add(this.separatorControl3);
-            this.panelControl2.Controls.Add(this.lUser);
-            this.panelControl2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl2.Location = new System.Drawing.Point(2, 2);
-            this.panelControl2.Margin = new System.Windows.Forms.Padding(1, 1, 1, 0);
-            this.panelControl2.Name = "panelControl2";
-            this.tablePanel1.SetRow(this.panelControl2, 0);
-            this.panelControl2.Size = new System.Drawing.Size(1284, 49);
-            this.panelControl2.TabIndex = 0;
-            // 
-            // separatorControl3
-            // 
-            this.separatorControl3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.separatorControl3.AutoSizeMode = true;
-            this.separatorControl3.LineAlignment = DevExpress.XtraEditors.Alignment.Center;
-            this.separatorControl3.LineOrientation = System.Windows.Forms.Orientation.Vertical;
-            this.separatorControl3.Location = new System.Drawing.Point(879, 5);
-            this.separatorControl3.Name = "separatorControl3";
-            this.separatorControl3.Padding = new System.Windows.Forms.Padding(3);
-            this.separatorControl3.Size = new System.Drawing.Size(7, 43);
-            this.separatorControl3.TabIndex = 1;
-            // 
-            // tablePanel1
-            // 
-            this.tablePanel1.Columns.AddRange(new DevExpress.Utils.Layout.TablePanelColumn[] {
-            new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 51F),
-            new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 57.4F)});
-            this.tablePanel1.Controls.Add(this.panelControl1);
-            this.tablePanel1.Controls.Add(this.panelControl2);
-            this.tablePanel1.Controls.Add(this.panelControl3);
-            this.tablePanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tablePanel1.Location = new System.Drawing.Point(0, 0);
-            this.tablePanel1.Name = "tablePanel1";
-            this.tablePanel1.Padding = new System.Windows.Forms.Padding(1);
-            this.tablePanel1.Rows.AddRange(new DevExpress.Utils.Layout.TablePanelRow[] {
-            new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 50F),
-            new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 26F)});
-            this.tablePanel1.Size = new System.Drawing.Size(1288, 780);
-            this.tablePanel1.TabIndex = 2;
-            this.tablePanel1.UseSkinIndents = true;
+            this.gridColumn6.AppearanceHeader.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Question;
+            this.gridColumn6.AppearanceHeader.Options.UseBackColor = true;
+            this.gridColumn6.Caption = "№";
+            this.gridColumn6.FieldName = "RowNo";
+            this.gridColumn6.Name = "gridColumn6";
+            this.gridColumn6.OptionsColumn.AllowEdit = false;
+            this.gridColumn6.Visible = true;
+            this.gridColumn6.VisibleIndex = 0;
             // 
             // ftest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1288, 780);
-            this.Controls.Add(this.tablePanel1);
+            this.Controls.Add(this.gridControlBasket);
+            this.Controls.Add(this.tSearch);
             this.Name = "ftest";
             this.Text = "ftest";
-            ((System.ComponentModel.ISupportInitialize)(this.svgImageCollection1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.separatorControl4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.separatorControl2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tablePanel2)).EndInit();
-            this.tablePanel2.ResumeLayout(false);
-            this.tablePanel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
-            this.panelControl3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.separatorControl1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picConnection.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
-            this.panelControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.tablePanel3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
-            this.panelControl2.ResumeLayout(false);
-            this.panelControl2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.separatorControl3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tablePanel1)).EndInit();
-            this.tablePanel1.ResumeLayout(false);
+            this.Load += new System.EventHandler(this.ftest_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tSearch.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControlBasket)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridProducts)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chCustomerStatus)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private DevExpress.Utils.SvgImageCollection svgImageCollection1;
-        private DevExpress.XtraEditors.LabelControl labelControl5;
-        private DevExpress.Utils.Layout.TablePanel tablePanel2;
-        private DevExpress.XtraEditors.LabelControl labelControl1;
-        private DevExpress.XtraEditors.LabelControl labelControl2;
-        private DevExpress.XtraEditors.LabelControl labelControl3;
-        private DevExpress.XtraEditors.SeparatorControl separatorControl4;
-        private DevExpress.XtraEditors.SeparatorControl separatorControl2;
-        private DevExpress.XtraEditors.LabelControl bNotification;
-        private DevExpress.XtraEditors.LabelControl labelControl4;
-        private DevExpress.XtraEditors.LabelControl bControlPanel;
-        private DevExpress.XtraEditors.PanelControl panelControl3;
-        private DevExpress.Utils.Layout.TablePanel tablePanel1;
-        private DevExpress.XtraEditors.PanelControl panelControl1;
-        private DevExpress.Utils.Layout.TablePanel tablePanel3;
-        private DevExpress.XtraEditors.PanelControl panelControl2;
-        private DevExpress.XtraEditors.SeparatorControl separatorControl1;
-        private DevExpress.XtraEditors.PictureEdit picConnection;
-        private DevExpress.XtraEditors.SeparatorControl separatorControl3;
-        private DevExpress.XtraEditors.LabelControl lUser;
+        private DevExpress.Utils.Behaviors.BehaviorManager behaviorManager1;
+        private DevExpress.XtraEditors.SearchLookUpEdit tSearch;
+        private DevExpress.XtraGrid.Views.Grid.GridView searchView;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn4;
+        private DevExpress.XtraGrid.GridControl gridControlBasket;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridProducts;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn5;
+        private DevExpress.XtraGrid.Columns.GridColumn colBarkod;
+        private DevExpress.XtraGrid.Columns.GridColumn colPName;
+        private DevExpress.XtraGrid.Columns.GridColumn colMiqdar;
+        private DevExpress.XtraGrid.Columns.GridColumn colUnit;
+        private DevExpress.XtraGrid.Columns.GridColumn colSPrice;
+        private DevExpress.XtraGrid.Columns.GridColumn colTotals;
+        private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit chCustomerStatus;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn6;
     }
 }

@@ -30,6 +30,22 @@ namespace Barcode_Sales.Helpers
             TradeSupplement = 2_18,
         }
 
+        public enum NkaTaxType
+        {
+            [Description("18% ƏDV")]
+            Vat18 = 1,
+            [Description("TİCARƏT ƏLAVƏSİ - 18%")]
+            TradeSupplement = 2,
+            [Description("0% - ( ƏDV-DƏN AZAD )")]
+            VatFree = 3,
+            [Description("0% - ( ƏDV-DƏN AZAD )")]
+            Vat0 = 5,
+            [Description("2% ƏDV")]
+            Sv2 = 6,
+            [Description("8% ƏDV")]
+            Sv8 = 7,
+        }
+
         public enum UnitTypes
         {
             [Description("Ədəd")]
@@ -111,7 +127,26 @@ namespace Barcode_Sales.Helpers
             NBA,
             TIANYU,
             DATAPAY,
+            ONECLİCK,
             XPRINTER
+        }
+
+        public enum BankTerminal
+        {
+            [Description("KAPİTAL BANK")]
+            KapitalBank,
+            [Description("PAŞA BANK")]
+            PashaBank,
+            [Description("ABB BANK")]
+            AbbBank, 
+            [Description("UNİBANK")]
+            UniBank,
+        }
+
+        public enum PriceChangeOperation
+        {
+            PriceChange,
+            Discount
         }
     }
 }

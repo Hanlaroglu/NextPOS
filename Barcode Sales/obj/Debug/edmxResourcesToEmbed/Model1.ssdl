@@ -187,6 +187,36 @@
     <Property Name="Admin" Type="bit" />
     <Property Name="Cashier" Type="bit" />
   </EntityType>
+  <EntityType Name="SalesData">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="int" />
+    <Property Name="ReceiptNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="LongFiscalId" Type="nvarchar" MaxLength="200" />
+    <Property Name="ShortFiscalId" Type="nvarchar" MaxLength="50" />
+    <Property Name="Rrn" Type="nvarchar" MaxLength="50" />
+    <Property Name="SaleDate" Type="date" />
+    <Property Name="SaleDatetime" Type="datetime" />
+    <Property Name="Total" Type="float" />
+    <Property Name="Cash" Type="float" />
+    <Property Name="Card" Type="float" />
+    <Property Name="IncomingSum" Type="float" />
+    <Property Name="CustomerId" Type="int" />
+    <Property Name="Note" Type="nvarchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="SalesDataDetail">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SaleDataId" Type="int" />
+    <Property Name="ProductId" Type="int" />
+    <Property Name="Quantity" Type="float" />
+    <Property Name="SalePrice" Type="float" />
+    <Property Name="Discount" Type="float" />
+  </EntityType>
   <EntityType Name="Sizes">
     <Key>
       <PropertyRef Name="Id" />
@@ -565,6 +595,8 @@
     <EntitySet Name="Logs" EntityType="Self.Logs" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Products" EntityType="Self.Products" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SalesData" EntityType="Self.SalesData" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SalesDataDetail" EntityType="Self.SalesDataDetail" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Sizes" EntityType="Self.Sizes" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Stores" EntityType="Self.Stores" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="SupplierPayments" EntityType="Self.SupplierPayments" Schema="dbo" store:Type="Tables" />

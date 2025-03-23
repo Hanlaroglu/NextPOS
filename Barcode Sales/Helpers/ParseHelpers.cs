@@ -36,5 +36,14 @@ namespace Barcode_Sales.Helpers
             }
             return result;
         }
+
+        public static float ConvertStringToFloat(string value)
+        {
+            if (string.IsNullOrWhiteSpace(value))
+            {
+                return 0;
+            }
+            return float.Parse(value);
+        }
     }
 }

@@ -173,6 +173,8 @@
       <End Role="Customers" EntitySet="Customers" />
       <End Role="CustomersDebt" EntitySet="CustomersDebts" />
     </AssociationSet>
+    <EntitySet Name="SalesDatas" EntityType="NextposDBModel.SalesData" />
+    <EntitySet Name="SalesDataDetails" EntityType="NextposDBModel.SalesDataDetail" />
   </EntityContainer>
   <EntityType Name="Suppliers">
     <Key>
@@ -706,4 +708,34 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <EntityType Name="SalesData">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="Int32" />
+    <Property Name="ReceiptNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LongFiscalId" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="ShortFiscalId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Rrn" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SaleDate" Type="DateTime" Precision="0" />
+    <Property Name="SaleDatetime" Type="DateTime" Precision="3" />
+    <Property Name="Total" Type="Double" />
+    <Property Name="Cash" Type="Double" />
+    <Property Name="Card" Type="Double" />
+    <Property Name="IncomingSum" Type="Double" />
+    <Property Name="CustomerId" Type="Int32" />
+    <Property Name="Note" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="SalesDataDetail">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SaleDataId" Type="Int32" />
+    <Property Name="ProductId" Type="Int32" />
+    <Property Name="Quantity" Type="Double" />
+    <Property Name="SalePrice" Type="Double" />
+    <Property Name="Discount" Type="Double" />
+  </EntityType>
 </Schema>

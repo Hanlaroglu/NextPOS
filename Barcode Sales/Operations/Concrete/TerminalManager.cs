@@ -103,27 +103,32 @@ namespace Barcode_Sales.Operations.Concrete
         {
             var terminal = Where(x => x.UserId == CommonData.USER_ID).FirstOrDefault();
 
-
-            KassaOperator kassa = (KassaOperator)Enum.Parse(typeof(KassaOperator), terminal.Name);
-
-            switch (kassa)
+            if (terminal != null)
             {
-                case KassaOperator.SUNMI:
-                    return $"http://{terminal.IpAddress}";
-                case KassaOperator.OMNITECH:
-                    return $"http://{terminal.IpAddress}/v2";
-                case KassaOperator.AZSMART:
-                    return $"http://{terminal.IpAddress}";
-                case KassaOperator.NBA:
-                    return $"http://{terminal.IpAddress}/api/v1";
-                case KassaOperator.TIANYU:
-                    return $"http://{terminal.IpAddress}";
-                case KassaOperator.DATAPAY:
-                    return $"http://{terminal.IpAddress}";
-                default:
-                    return $"Yoxdur";
-            }
+                KassaOperator kassa = (KassaOperator)Enum.Parse(typeof(KassaOperator), terminal.Name);
 
+                switch (kassa)
+                {
+                    case KassaOperator.SUNMI:
+                        return $"http://{terminal.IpAddress}";
+                    case KassaOperator.OMNITECH:
+                        return $"http://{terminal.IpAddress}/v2";
+                    case KassaOperator.AZSMART:
+                        return $"http://{terminal.IpAddress}";
+                    case KassaOperator.NBA:
+                        return $"http://{terminal.IpAddress}/api/v1";
+                    case KassaOperator.TIANYU:
+                        return $"http://{terminal.IpAddress}";
+                    case KassaOperator.DATAPAY:
+                        return $"http://{terminal.IpAddress}";
+                    case KassaOperator.ONECLİCK:
+                        return $"http://{terminal.IpAddress}";
+                    default:
+                        return $"Yoxdur";
+                }
+            }
+            else
+                return null;
         }
     }
 }

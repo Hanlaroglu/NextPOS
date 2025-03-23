@@ -6,6 +6,8 @@ using DevExpress.XtraGrid;
 using DevExpress.XtraGrid.Columns;
 using DevExpress.XtraGrid.Localization;
 using DevExpress.XtraGrid.Views.Grid;
+using Newtonsoft.Json;
+using RestSharp;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -171,6 +173,37 @@ namespace Barcode_Sales.Helpers
             //    }
             //    finally { Cursor.Current = Cursors.Default; }
             //}
+        }
+
+        public static string ConvertClassToJson(object item)
+        {
+            string json = JsonConvert.SerializeObject(item, new JsonSerializerSettings
+            {
+                NullValueHandling = NullValueHandling.Ignore
+            });
+
+            return json;
+        }
+
+        public static RestResponse PostRequestJson(string ipAddress, string json)
+        {
+            try
+            {
+                Cursor.Current = Cursors.WaitCursor;
+                using (RestClient client = new RestClient())
+                {
+                    RestRequest request = new RestRequest(ipAddress, Method.Post);
+                    request.AddHeader("Content-Type", "application/json;charset=utf-8");
+                    request.AddStringBody(json, DataFormat.Json);
+                    RestResponse response = client.Execute(request);
+                    return response;
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally { Cursor.Current = Cursors.Default; }
         }
     }
 }

@@ -23,8 +23,8 @@ namespace Barcode_Sales.Operations.Concrete
                 return true;
             }
             catch (Exception)
-            {
-return false;
+            { 
+                return false;
             }
         }
 
@@ -98,6 +98,11 @@ return false;
         {
             //Məhsulun status dəyərini dəyişdirmək üçün
             throw new NotImplementedException();
+        }
+
+        public async Task<Products> GetByBarcodeAsync(string barcode)
+        {
+            return await db.Products.AsNoTracking().FirstOrDefaultAsync(x => x.Barcode == barcode.Trim());
         }
     }
 }

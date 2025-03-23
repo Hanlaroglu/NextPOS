@@ -739,3 +739,6 @@ D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\obj\Deb
 D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\obj\Debug\Barcode_Sales.Forms.fPosSales.resources
 D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\obj\Debug\Barcode_Sales.Forms.fPosSalesControlPanel.resources
 D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\obj\Debug\Barcode_Sales.Forms.ftest.resources
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\obj\Debug\Barcode_Sales.Barcode.Sales.UI.fTesttt.resources
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\obj\Debug\Barcode_Sales.Forms.fPosPay.resources
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\obj\Debug\Barcode_Sales.Forms.fPriceChange.resources
