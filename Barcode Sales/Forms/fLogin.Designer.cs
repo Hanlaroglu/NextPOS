@@ -110,7 +110,7 @@ namespace Barcode_Sales.Forms
             // pictureEdit1
             // 
             this.pictureEdit1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.pictureEdit1.EditValue = global::Barcode_Sales.Properties.Resources.Logo_1024;
+            this.pictureEdit1.EditValue = ((object)(resources.GetObject("pictureEdit1.EditValue")));
             this.pictureEdit1.Location = new System.Drawing.Point(128, 29);
             this.pictureEdit1.Name = "pictureEdit1";
             this.pictureEdit1.Properties.AllowFocused = false;

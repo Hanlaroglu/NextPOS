@@ -28,18 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions3 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject9 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject10 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject11 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject12 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions4 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject13 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject14 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject15 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject16 = new DevExpress.Utils.SerializableAppearanceObject();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fPriceChange));
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
             this.tablePanel1 = new DevExpress.Utils.Layout.TablePanel();
+            this.tTotal = new DevExpress.XtraEditors.ButtonEdit();
             this.navigationFrame1 = new DevExpress.XtraBars.Navigation.NavigationFrame();
             this.pagePriceChange = new DevExpress.XtraBars.Navigation.NavigationPage();
             this.chPriceChangeHeader = new DevExpress.XtraEditors.CheckButton();
@@ -47,6 +48,8 @@
             this.tablePanel3 = new DevExpress.Utils.Layout.TablePanel();
             this.chDiscountCash = new DevExpress.XtraEditors.CheckButton();
             this.chDiscountPercent = new DevExpress.XtraEditors.CheckButton();
+            this.pageQuantity = new DevExpress.XtraBars.Navigation.NavigationPage();
+            this.chQuantity = new DevExpress.XtraEditors.CheckButton();
             this.tablePanel2 = new DevExpress.Utils.Layout.TablePanel();
             this.b1 = new DevExpress.XtraEditors.SimpleButton();
             this.b2 = new DevExpress.XtraEditors.SimpleButton();
@@ -61,18 +64,24 @@
             this.bVergul = new DevExpress.XtraEditors.SimpleButton();
             this.bEnter = new DevExpress.XtraEditors.SimpleButton();
             this.bBackspace = new DevExpress.XtraEditors.SimpleButton();
-            this.tTotal = new DevExpress.XtraEditors.ButtonEdit();
+            this.pageDeposit = new DevExpress.XtraBars.Navigation.NavigationPage();
+            this.pageWithdraw = new DevExpress.XtraBars.Navigation.NavigationPage();
+            this.chDeposit = new DevExpress.XtraEditors.CheckButton();
+            this.chWithdraw = new DevExpress.XtraEditors.CheckButton();
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel1)).BeginInit();
             this.tablePanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tTotal.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.navigationFrame1)).BeginInit();
             this.navigationFrame1.SuspendLayout();
             this.pagePriceChange.SuspendLayout();
             this.pageDiscount.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel3)).BeginInit();
             this.tablePanel3.SuspendLayout();
+            this.pageQuantity.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel2)).BeginInit();
             this.tablePanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tTotal.Properties)).BeginInit();
+            this.pageDeposit.SuspendLayout();
+            this.pageWithdraw.SuspendLayout();
             this.SuspendLayout();
             // 
             // tablePanel1
@@ -94,19 +103,61 @@
             this.tablePanel1.TabIndex = 0;
             this.tablePanel1.UseSkinIndents = true;
             // 
+            // tTotal
+            // 
+            this.tablePanel1.SetColumn(this.tTotal, 0);
+            this.tTotal.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tTotal.EditValue = "0,00";
+            this.tTotal.Location = new System.Drawing.Point(4, 61);
+            this.tTotal.Name = "tTotal";
+            this.tTotal.Properties.Appearance.BackColor = System.Drawing.Color.White;
+            this.tTotal.Properties.Appearance.Font = new System.Drawing.Font("Nunito", 20F);
+            this.tTotal.Properties.Appearance.Options.UseBackColor = true;
+            this.tTotal.Properties.Appearance.Options.UseFont = true;
+            this.tTotal.Properties.Appearance.Options.UseTextOptions = true;
+            this.tTotal.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.tTotal.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+            serializableAppearanceObject9.Font = new System.Drawing.Font("Nunito", 16F, System.Drawing.FontStyle.Bold);
+            serializableAppearanceObject9.Options.UseFont = true;
+            serializableAppearanceObject12.Font = new System.Drawing.Font("Nunito", 16F, System.Drawing.FontStyle.Bold);
+            serializableAppearanceObject12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(12)))), ((int)(((byte)(41)))));
+            serializableAppearanceObject12.Options.UseFont = true;
+            serializableAppearanceObject12.Options.UseForeColor = true;
+            serializableAppearanceObject13.Font = new System.Drawing.Font("Nunito", 16F, System.Drawing.FontStyle.Bold);
+            serializableAppearanceObject13.Options.UseFont = true;
+            serializableAppearanceObject16.Font = new System.Drawing.Font("Nunito", 16F, System.Drawing.FontStyle.Bold);
+            serializableAppearanceObject16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(12)))), ((int)(((byte)(41)))));
+            serializableAppearanceObject16.Options.UseFont = true;
+            serializableAppearanceObject16.Options.UseForeColor = true;
+            this.tTotal.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "₼", -1, false, true, false, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "", null, null, DevExpress.Utils.ToolTipAnchor.Default),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "%", -1, false, false, false, editorButtonImageOptions4, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject13, serializableAppearanceObject14, serializableAppearanceObject15, serializableAppearanceObject16, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            this.tTotal.Properties.Mask.UseMaskAsDisplayFormat = true;
+            this.tTotal.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
+            this.tTotal.Properties.MaskSettings.Set("mask", "N2");
+            this.tablePanel1.SetRow(this.tTotal, 1);
+            this.tTotal.Size = new System.Drawing.Size(470, 52);
+            this.tTotal.TabIndex = 0;
+            // 
             // navigationFrame1
             // 
             this.navigationFrame1.AllowTransitionAnimation = DevExpress.Utils.DefaultBoolean.False;
             this.tablePanel1.SetColumn(this.navigationFrame1, 0);
             this.navigationFrame1.Controls.Add(this.pagePriceChange);
             this.navigationFrame1.Controls.Add(this.pageDiscount);
+            this.navigationFrame1.Controls.Add(this.pageQuantity);
+            this.navigationFrame1.Controls.Add(this.pageDeposit);
+            this.navigationFrame1.Controls.Add(this.pageWithdraw);
             this.navigationFrame1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.navigationFrame1.Location = new System.Drawing.Point(2, 2);
             this.navigationFrame1.Margin = new System.Windows.Forms.Padding(1);
             this.navigationFrame1.Name = "navigationFrame1";
             this.navigationFrame1.Pages.AddRange(new DevExpress.XtraBars.Navigation.NavigationPageBase[] {
             this.pagePriceChange,
-            this.pageDiscount});
+            this.pageDiscount,
+            this.pageQuantity,
+            this.pageDeposit,
+            this.pageWithdraw});
             this.tablePanel1.SetRow(this.navigationFrame1, 0);
             this.navigationFrame1.SelectedPage = this.pagePriceChange;
             this.navigationFrame1.Size = new System.Drawing.Size(474, 55);
@@ -194,6 +245,28 @@
             this.chDiscountPercent.TabStop = false;
             this.chDiscountPercent.Text = "Endirim %";
             this.chDiscountPercent.CheckedChanged += new System.EventHandler(this.chDiscountPercent_CheckedChanged);
+            // 
+            // pageQuantity
+            // 
+            this.pageQuantity.Caption = "pageQuantity";
+            this.pageQuantity.Controls.Add(this.chQuantity);
+            this.pageQuantity.Name = "pageQuantity";
+            this.pageQuantity.Size = new System.Drawing.Size(474, 55);
+            // 
+            // chQuantity
+            // 
+            this.chQuantity.AllowFocus = false;
+            this.chQuantity.Appearance.Font = new System.Drawing.Font("Nunito", 18F, System.Drawing.FontStyle.Bold);
+            this.chQuantity.Appearance.Options.UseFont = true;
+            this.chQuantity.Checked = true;
+            this.chQuantity.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.chQuantity.Location = new System.Drawing.Point(0, 0);
+            this.chQuantity.Name = "chQuantity";
+            this.chQuantity.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
+            this.chQuantity.Size = new System.Drawing.Size(474, 55);
+            this.chQuantity.TabIndex = 1;
+            this.chQuantity.TabStop = false;
+            this.chQuantity.Text = "Miqdar dəyişikliyi";
             // 
             // tablePanel2
             // 
@@ -461,41 +534,47 @@
             this.bBackspace.TabIndex = 3;
             this.bBackspace.Click += new System.EventHandler(this.bBackspace_Click);
             // 
-            // tTotal
+            // pageDeposit
             // 
-            this.tablePanel1.SetColumn(this.tTotal, 0);
-            this.tTotal.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tTotal.EditValue = "0,00";
-            this.tTotal.Location = new System.Drawing.Point(4, 61);
-            this.tTotal.Name = "tTotal";
-            this.tTotal.Properties.Appearance.BackColor = System.Drawing.Color.White;
-            this.tTotal.Properties.Appearance.Font = new System.Drawing.Font("Nunito", 20F);
-            this.tTotal.Properties.Appearance.Options.UseBackColor = true;
-            this.tTotal.Properties.Appearance.Options.UseFont = true;
-            this.tTotal.Properties.Appearance.Options.UseTextOptions = true;
-            this.tTotal.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-            this.tTotal.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-            serializableAppearanceObject1.Font = new System.Drawing.Font("Nunito", 16F, System.Drawing.FontStyle.Bold);
-            serializableAppearanceObject1.Options.UseFont = true;
-            serializableAppearanceObject4.Font = new System.Drawing.Font("Nunito", 16F, System.Drawing.FontStyle.Bold);
-            serializableAppearanceObject4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(12)))), ((int)(((byte)(41)))));
-            serializableAppearanceObject4.Options.UseFont = true;
-            serializableAppearanceObject4.Options.UseForeColor = true;
-            serializableAppearanceObject5.Font = new System.Drawing.Font("Nunito", 16F, System.Drawing.FontStyle.Bold);
-            serializableAppearanceObject5.Options.UseFont = true;
-            serializableAppearanceObject8.Font = new System.Drawing.Font("Nunito", 16F, System.Drawing.FontStyle.Bold);
-            serializableAppearanceObject8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(12)))), ((int)(((byte)(41)))));
-            serializableAppearanceObject8.Options.UseFont = true;
-            serializableAppearanceObject8.Options.UseForeColor = true;
-            this.tTotal.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "₼", -1, false, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "%", -1, false, false, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
-            this.tTotal.Properties.Mask.UseMaskAsDisplayFormat = true;
-            this.tTotal.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
-            this.tTotal.Properties.MaskSettings.Set("mask", "N2");
-            this.tablePanel1.SetRow(this.tTotal, 1);
-            this.tTotal.Size = new System.Drawing.Size(470, 52);
-            this.tTotal.TabIndex = 0;
+            this.pageDeposit.Controls.Add(this.chDeposit);
+            this.pageDeposit.Name = "pageDeposit";
+            this.pageDeposit.Size = new System.Drawing.Size(474, 55);
+            // 
+            // pageWithdraw
+            // 
+            this.pageWithdraw.Controls.Add(this.chWithdraw);
+            this.pageWithdraw.Name = "pageWithdraw";
+            this.pageWithdraw.Size = new System.Drawing.Size(474, 55);
+            // 
+            // chDeposit
+            // 
+            this.chDeposit.AllowFocus = false;
+            this.chDeposit.Appearance.Font = new System.Drawing.Font("Nunito", 18F, System.Drawing.FontStyle.Bold);
+            this.chDeposit.Appearance.Options.UseFont = true;
+            this.chDeposit.Checked = true;
+            this.chDeposit.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.chDeposit.Location = new System.Drawing.Point(0, 0);
+            this.chDeposit.Name = "chDeposit";
+            this.chDeposit.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
+            this.chDeposit.Size = new System.Drawing.Size(474, 55);
+            this.chDeposit.TabIndex = 1;
+            this.chDeposit.TabStop = false;
+            this.chDeposit.Text = "Mədaxil məbləği";
+            // 
+            // chWithdraw
+            // 
+            this.chWithdraw.AllowFocus = false;
+            this.chWithdraw.Appearance.Font = new System.Drawing.Font("Nunito", 18F, System.Drawing.FontStyle.Bold);
+            this.chWithdraw.Appearance.Options.UseFont = true;
+            this.chWithdraw.Checked = true;
+            this.chWithdraw.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.chWithdraw.Location = new System.Drawing.Point(0, 0);
+            this.chWithdraw.Name = "chWithdraw";
+            this.chWithdraw.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
+            this.chWithdraw.Size = new System.Drawing.Size(474, 55);
+            this.chWithdraw.TabIndex = 2;
+            this.chWithdraw.TabStop = false;
+            this.chWithdraw.Text = "Məxaric məbləği";
             // 
             // fPriceChange
             // 
@@ -511,15 +590,18 @@
             this.Load += new System.EventHandler(this.fPriceChange_Load);
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel1)).EndInit();
             this.tablePanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.tTotal.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.navigationFrame1)).EndInit();
             this.navigationFrame1.ResumeLayout(false);
             this.pagePriceChange.ResumeLayout(false);
             this.pageDiscount.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel3)).EndInit();
             this.tablePanel3.ResumeLayout(false);
+            this.pageQuantity.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel2)).EndInit();
             this.tablePanel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.tTotal.Properties)).EndInit();
+            this.pageDeposit.ResumeLayout(false);
+            this.pageWithdraw.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -549,5 +631,11 @@
         private DevExpress.XtraEditors.CheckButton chDiscountCash;
         private DevExpress.XtraEditors.CheckButton chDiscountPercent;
         private DevExpress.XtraEditors.ButtonEdit tTotal;
+        private DevExpress.XtraBars.Navigation.NavigationPage pageQuantity;
+        private DevExpress.XtraEditors.CheckButton chQuantity;
+        private DevExpress.XtraBars.Navigation.NavigationPage pageDeposit;
+        private DevExpress.XtraBars.Navigation.NavigationPage pageWithdraw;
+        private DevExpress.XtraEditors.CheckButton chDeposit;
+        private DevExpress.XtraEditors.CheckButton chWithdraw;
     }
 }

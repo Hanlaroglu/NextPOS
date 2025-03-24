@@ -81,6 +81,7 @@
             this.bDevices.Size = new System.Drawing.Size(175, 65);
             this.bDevices.TabIndex = 0;
             this.bDevices.Text = "Cihazlar";
+            this.bDevices.Click += new System.EventHandler(this.bDevices_Click);
             // 
             // bCustomer
             // 
@@ -97,6 +98,7 @@
             this.bCustomer.Size = new System.Drawing.Size(175, 65);
             this.bCustomer.TabIndex = 0;
             this.bCustomer.Text = "Müştərilər";
+            this.bCustomer.Click += new System.EventHandler(this.bCustomer_Click);
             // 
             // bCloseShift
             // 
@@ -146,6 +148,7 @@
             this.bSupport.Size = new System.Drawing.Size(175, 65);
             this.bSupport.TabIndex = 0;
             this.bSupport.Text = "Dəstək";
+            this.bSupport.Click += new System.EventHandler(this.bSupport_Click);
             // 
             // bCashDrawerOpen
             // 
@@ -163,6 +166,7 @@
             this.bCashDrawerOpen.Size = new System.Drawing.Size(175, 65);
             this.bCashDrawerOpen.TabIndex = 0;
             this.bCashDrawerOpen.Text = "Kassanı aç";
+            this.bCashDrawerOpen.Click += new System.EventHandler(this.bCashDrawerOpen_Click);
             // 
             // bKassaEmeliyyatlari
             // 
@@ -179,6 +183,7 @@
             this.bKassaEmeliyyatlari.Size = new System.Drawing.Size(175, 65);
             this.bKassaEmeliyyatlari.TabIndex = 0;
             this.bKassaEmeliyyatlari.Text = "Kassa \r\nəməliyyatı";
+            this.bKassaEmeliyyatlari.Click += new System.EventHandler(this.bKassaEmeliyyatlari_Click);
             // 
             // bReport
             // 
@@ -195,6 +200,7 @@
             this.bReport.Size = new System.Drawing.Size(175, 65);
             this.bReport.TabIndex = 0;
             this.bReport.Text = "Hesabat yarat";
+            this.bReport.Click += new System.EventHandler(this.bReport_Click);
             // 
             // bWithdraw
             // 
@@ -204,13 +210,14 @@
             this.bWithdraw.Appearance.Options.UseBackColor = true;
             this.bWithdraw.Appearance.Options.UseFont = true;
             this.bWithdraw.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
-            this.bWithdraw.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton2.ImageOptions.SvgImage")));
+            this.bWithdraw.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bWithdraw.ImageOptions.SvgImage")));
             this.bWithdraw.Location = new System.Drawing.Point(372, 10);
             this.bWithdraw.Name = "bWithdraw";
             this.bWithdraw.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
             this.bWithdraw.Size = new System.Drawing.Size(175, 65);
             this.bWithdraw.TabIndex = 0;
             this.bWithdraw.Text = "Məxaric";
+            this.bWithdraw.Click += new System.EventHandler(this.bWithdraw_Click);
             // 
             // bDeposit
             // 
@@ -220,13 +227,14 @@
             this.bDeposit.Appearance.Options.UseBackColor = true;
             this.bDeposit.Appearance.Options.UseFont = true;
             this.bDeposit.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
-            this.bDeposit.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton1.ImageOptions.SvgImage")));
+            this.bDeposit.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bDeposit.ImageOptions.SvgImage")));
             this.bDeposit.Location = new System.Drawing.Point(191, 10);
             this.bDeposit.Name = "bDeposit";
             this.bDeposit.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
             this.bDeposit.Size = new System.Drawing.Size(175, 65);
             this.bDeposit.TabIndex = 0;
             this.bDeposit.Text = "Mədaxil";
+            this.bDeposit.Click += new System.EventHandler(this.bDeposit_Click);
             // 
             // bRefund
             // 
@@ -243,6 +251,7 @@
             this.bRefund.Size = new System.Drawing.Size(175, 65);
             this.bRefund.TabIndex = 0;
             this.bRefund.Text = "Geri \r\nqaytarma";
+            this.bRefund.Click += new System.EventHandler(this.bRefund_Click);
             // 
             // fPosSalesControlPanel
             // 

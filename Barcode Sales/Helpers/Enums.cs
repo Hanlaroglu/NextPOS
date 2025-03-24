@@ -143,10 +143,13 @@ namespace Barcode_Sales.Helpers
             UniBank,
         }
 
-        public enum PriceChangeOperation
+        public enum PosChangeType
         {
             PriceChange,
-            Discount
+            Discount,
+            Quantity,
+            Deposit,
+            Withdraw
         }
     }
 }

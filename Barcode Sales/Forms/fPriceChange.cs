@@ -1,4 +1,5 @@
 ﻿using Barcode_Sales.Helpers;
+using Barcode_Sales.Helpers.Classes;
 using DevExpress.XtraEditors;
 using System;
 using System.Collections.Generic;
@@ -14,24 +15,45 @@ namespace Barcode_Sales.Forms
 {
     public partial class fPriceChange : DevExpress.XtraEditors.XtraForm
     {
-        private readonly Enums.PriceChangeOperation _operation;
-        public fPriceChange(Enums.PriceChangeOperation operation)
+        private readonly SaleClasses.PosChangeType _posChangeType;
+
+        public double Amount { get; set; }
+        //public double SalePrice { get; set; }
+        //public double DiscountPrice { get; set; }
+        //public double Quantity { get; set; }
+        public fPriceChange(SaleClasses.PosChangeType changeType)
         {
             InitializeComponent();
-            _operation = operation;
+            _posChangeType = changeType;
         }
 
         private void fPriceChange_Load(object sender, EventArgs e)
         {
-            switch (_operation)
+            this.Text = string.IsNullOrWhiteSpace(_posChangeType.ProductName) ? Enums.GetEnumDescription(_posChangeType.ChangeType) : _posChangeType.ProductName;
+            switch (_posChangeType.ChangeType)
             {
-                case Enums.PriceChangeOperation.PriceChange:
+                case Enums.PosChangeType.PriceChange:
                     navigationFrame1.SelectedPage = pagePriceChange;
                     chPriceChangeHeader.Checked = true;
                     break;
-                case Enums.PriceChangeOperation.Discount:
+                case Enums.PosChangeType.Discount:
                     navigationFrame1.SelectedPage = pageDiscount;
                     chDiscountCash.Checked = true;
+                    break;
+                case Enums.PosChangeType.Quantity:
+                    navigationFrame1.SelectedPage = pageQuantity;
+                    tTotal.Properties.Buttons.FirstOrDefault(x => x.Caption == "₼").Visible = false;
+                    tTotal.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
+                    tTotal.Properties.MaskSettings.Set("mask", "N3");
+                    chQuantity.Checked = true;
+                    break;
+                case Enums.PosChangeType.Deposit:
+                    navigationFrame1.SelectedPage = pageDeposit;
+                    chDeposit.Checked = true;
+                    break;
+                case Enums.PosChangeType.Withdraw:
+                    navigationFrame1.SelectedPage = pageWithdraw;
+                    chWithdraw.Checked = true;
                     break;
             }
         }
@@ -69,7 +91,26 @@ namespace Barcode_Sales.Forms
 
         private void bEnter_Click(object sender, EventArgs e)
         {
-
+            switch (_posChangeType.ChangeType)
+            {
+                case Enums.PosChangeType.Discount:
+                    if (chDiscountPercent.Checked)
+                    {
+                        double price = (_posChangeType.Amount * Double.Parse(tTotal.Text)) / 100;
+                        Amount = price;
+                        DialogResult = DialogResult.OK;
+                    }
+                    else if (chDiscountCash.Checked)
+                    {
+                        Amount = Double.Parse(tTotal.Text);
+                        DialogResult = DialogResult.OK;
+                    }
+                    break;
+                default:
+                    Amount = Double.Parse(tTotal.Text);
+                    DialogResult = DialogResult.OK;
+                    break;
+            }
         }
 
         private void chDiscountPercent_CheckedChanged(object sender, EventArgs e)

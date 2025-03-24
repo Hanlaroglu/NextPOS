@@ -286,6 +286,17 @@
           <Property Name="IsDeleted" Type="int" />
           <Property Name="DebtDate" Type="date" />
         </EntityType>
+        <EntityType Name="TerminalIncomesAndExpenses">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OperationType" Type="tinyint" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="Amount" Type="float" />
+          <Property Name="Date" Type="date" />
+          <Property Name="Time" Type="time" Precision="7" />
+        </EntityType>
         <EntityType Name="Terminals">
           <Key>
             <PropertyRef Name="Id" />
@@ -607,6 +618,7 @@
           <EntitySet Name="SupplierPayments" EntityType="Self.SupplierPayments" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Suppliers" EntityType="Self.Suppliers" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SuppliersDebts" EntityType="Self.SuppliersDebts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TerminalIncomesAndExpenses" EntityType="Self.TerminalIncomesAndExpenses" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Terminals" EntityType="Self.Terminals" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Warehouses" EntityType="Self.Warehouses" Schema="dbo" store:Type="Tables" />
@@ -878,6 +890,7 @@
           </AssociationSet>
           <EntitySet Name="SalesDatas" EntityType="NextposDBModel.SalesData" />
           <EntitySet Name="SalesDataDetails" EntityType="NextposDBModel.SalesDataDetail" />
+          <EntitySet Name="TerminalIncomesAndExpenses" EntityType="NextposDBModel.TerminalIncomesAndExpens" />
           </EntityContainer>
         <EntityType Name="Suppliers">
           <Key>
@@ -1441,6 +1454,17 @@
           <Property Name="SalePrice" Type="Double" />
           <Property Name="Discount" Type="Double" />
         </EntityType>
+        <EntityType Name="TerminalIncomesAndExpens">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OperationType" Type="Byte" />
+          <Property Name="UserId" Type="Int32" />
+          <Property Name="Amount" Type="Double" />
+          <Property Name="Date" Type="DateTime" Precision="0" />
+          <Property Name="Time" Type="Time" Precision="7" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1783,6 +1807,18 @@
                 <ScalarProperty Name="Quantity" ColumnName="Quantity" />
                 <ScalarProperty Name="ProductId" ColumnName="ProductId" />
                 <ScalarProperty Name="SaleDataId" ColumnName="SaleDataId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TerminalIncomesAndExpenses">
+            <EntityTypeMapping TypeName="NextposDBModel.TerminalIncomesAndExpens">
+              <MappingFragment StoreEntitySet="TerminalIncomesAndExpenses">
+                <ScalarProperty Name="Time" ColumnName="Time" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="OperationType" ColumnName="OperationType" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

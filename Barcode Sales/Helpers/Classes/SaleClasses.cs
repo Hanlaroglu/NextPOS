@@ -27,7 +27,7 @@ namespace Barcode_Sales.Helpers.Classes
             {
                 get
                 {
-                   return EnumsCache.quantityType.TryGetValue(Unit, out int value) ? value : (int)Enums.UnitTypes.Quantity;
+                    return EnumsCache.quantityType.TryGetValue(Unit, out int value) ? value : (int)Enums.UnitTypes.Quantity;
                 }
             }
 
@@ -56,6 +56,13 @@ namespace Barcode_Sales.Helpers.Classes
             public Customers Customer { get; set; }
             public string Note { get; set; } = null;
             public BindingList<SaleDataItem> Items { get; set; } = new BindingList<SaleDataItem>();
+        }
+
+        public class PosChangeType
+        {
+            public string ProductName { get; set; }
+            public double Amount { get; set; }
+            public Enums.PosChangeType ChangeType { get; set; }
         }
     }
 }

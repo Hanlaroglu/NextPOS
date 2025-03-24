@@ -156,12 +156,46 @@ namespace Barcode_Sales.NKA
             }
         }
 
-        public bool Deposit()
+        public static bool Deposit(NkaDto.DepositDto item)
         {
-            throw new NotImplementedException();
+            DepositRequest depositRequest = new DepositRequest
+            {
+                cashierName = item.Cashier,
+                sum = item.Amount
+            };
+
+            SunmiBaseRequest<DepositRequest> request = new NKA.SunmiBaseRequest<DepositRequest>
+            {
+                data = depositRequest,
+                operation = "deposit"
+            };
+
+            string json = FormHelpers.ConvertClassToJson(request);
+
+            var response = FormHelpers.PostRequestJson(_IpAddress, json);
+
+            if (response.IsSuccessful)
+            {
+                DepositResponse responseData = System.Text.Json.JsonSerializer.Deserialize<DepositResponse>(response.Content);
+                if (responseData.message == "Success operation" || responseData.message == "Successful operation" || responseData.message == "Successoperation")
+                {
+                    NoticationHelpers.Messages.SuccessMessage(_form, $"Kassaya {item.Amount.ToString("C2")} mədaxil edildi");
+                    return true;
+                }
+                else
+                {
+                    NoticationHelpers.Messages.ErrorMessage(_form, responseData.message);
+                    return false;
+                }
+            }
+            else
+            {
+                NoticationHelpers.Messages.ErrorMessage(_form, response.ErrorMessage);
+                return false;
+            }
         }
 
-        public bool Withdraw()
+        public static bool Withdraw()
         {
             throw new NotImplementedException();
         }
@@ -327,6 +361,14 @@ namespace Barcode_Sales.NKA
         public Data data { get; set; }
     }
 
+    public class DepositRequest
+    {
+        public string documentUUID { get; set; } = Guid.NewGuid().ToString();
+        public double sum { get; set; }
+        public string cashierName { get; set; }
+        public string currency { get; set; } = "AZN";
+    }
+
     public class SaleRequest
     {
         public string documentUUID { get; set; } = Guid.NewGuid().ToString();
@@ -400,6 +442,19 @@ namespace Barcode_Sales.NKA
             public DateTime shift_open_time { get; set; }
         }
         public Data data { get; set; }
+    }
+
+    public class DepositResponse : SunmiBaseResponse
+    {
+        public Data data { get; set; }
+        public class Data
+        {
+            public string document_id { get; set; }
+            public string document_number { get; set; }
+            public string shift_document_number { get; set; }
+            public string short_document_id { get; set; }
+            //public double totalSum { get; set; }
+        }
     }
 
     public class SaleResponse : SunmiBaseResponse

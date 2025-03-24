@@ -4,6 +4,7 @@ using Barcode_Sales.Operations.Abstract;
 using Barcode_Sales.Operations.Concrete;
 using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Localization;
+using DevExpress.XtraGrid.Views.Grid.ViewInfo;
 using DevExpress.XtraPrinting.Native.Navigation;
 using System;
 using System.Collections.Generic;
@@ -18,6 +19,7 @@ using System.Web.UI.WebControls;
 using System.Windows.Forms;
 using System.Windows.Input;
 using static Barcode_Sales.Helpers.Classes.SaleClasses;
+using static Barcode_Sales.Helpers.Enums;
 using static Barcode_Sales.Helpers.FormHelpers;
 
 namespace Barcode_Sales.Forms
@@ -40,11 +42,13 @@ namespace Barcode_Sales.Forms
         {
             public int Id { get; set; }
             public string ProductName { get; set; }
+            public double PurchasePrice { get; set; }
             public double SalePrice { get; set; } = 0;
             public double Discount { get; set; } = 0;
             public string Barcode { get; set; }
             public string Unit { get; set; }
             public string Tax { get; set; }
+            public double Amount { get; set; }
         }
 
         private void fPosSales_Load(object sender, EventArgs e)
@@ -158,8 +162,7 @@ namespace Barcode_Sales.Forms
             }
             finally
             {
-                tProductCount.Text = dataList.Count.ToString();
-                tTotal.Text = dataList.Sum(x => x.Total).ToString("N2");
+                TotalAmountCalculation();
                 tSearch.EditValueChanged += tSearch_EditValueChanged;
             }
         }
@@ -203,26 +206,43 @@ namespace Barcode_Sales.Forms
                 }
                 finally
                 {
-                    tProductCount.Text = dataList.Count.ToString();
-                    tTotal.Text = dataList.Sum(x => x.Total).ToString("N2");
+                    TotalAmountCalculation();
                     tSearch.EditValueChanged += tSearch_EditValueChanged;
                 }
             }
         }
 
-        private void bProductDelete_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        private void TotalAmountCalculation()
         {
-            gridBasket.DeleteRow(gridBasket.FocusedRowHandle);
+            gridBasket.RefreshData();
             tProductCount.Text = dataList.Count.ToString();
             tTotal.Text = dataList.Sum(x => x.Total).ToString("N2");
         }
 
+        private void bProductDelete_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            gridBasket.DeleteRow(gridBasket.FocusedRowHandle);
+            TotalAmountCalculation();
+        }
+
         private void bDiscount_Click(object sender, EventArgs e)
         {
-            fPriceChange f = new fPriceChange(Helpers.Enums.PriceChangeOperation.Discount);
-            if (f.ShowDialog() is DialogResult.OK)
+            if (gridBasket.GetFocusedRow() != null)
             {
+                int focusedRow = Int32.Parse(gridBasket.GetFocusedRowCellValue(colId).ToString());
 
+                var selectedProduct = dataList.FirstOrDefault(x => x.Id == focusedRow);
+                fPriceChange f = new fPriceChange(new  Helpers.Classes.SaleClasses.PosChangeType
+                {
+                    ChangeType = Enums.PosChangeType.Discount,
+                    Amount = selectedProduct.SalePrice,
+                    ProductName = selectedProduct.ProductName,
+                });
+                if (f.ShowDialog() is DialogResult.OK)
+                {
+                    selectedProduct.Discount = f.Amount;
+                    TotalAmountCalculation();
+                }
             }
         }
 
@@ -230,6 +250,68 @@ namespace Barcode_Sales.Forms
         {
             fPosSalesControlPanel f = new fPosSalesControlPanel();
             f.ShowDialog();
+        }
+
+        private void gridBasket_DoubleClick(object sender, EventArgs e)
+        {
+            Point pt = gridBasket.GridControl.PointToClient(Control.MousePosition);
+            GridHitInfo info = gridBasket.CalcHitInfo(pt);
+            int focusedRow = Int32.Parse(gridBasket.GetFocusedRowCellValue(colId).ToString());
+
+            var selectedProduct = dataList.FirstOrDefault(x => x.Id == focusedRow);
+            if (info.InRowCell)
+            {
+
+                switch (info.Column.FieldName)
+                {
+                    case "Amount":
+                        fPriceChange amount = new fPriceChange(new Helpers.Classes.SaleClasses.PosChangeType
+                        {
+                            ChangeType = Enums.PosChangeType.Quantity,
+                            ProductName = selectedProduct.ProductName,
+                        });
+                        if (amount.ShowDialog() is DialogResult.OK)
+                        {
+                            selectedProduct.Amount = amount.Amount;
+                            TotalAmountCalculation();
+                        }
+                        break;
+                    case "SalePrice":
+                        fPriceChange price = new fPriceChange(new Helpers.Classes.SaleClasses.PosChangeType
+                        {
+                            ChangeType = Enums.PosChangeType.PriceChange,
+                            Amount = selectedProduct.SalePrice,
+                            ProductName = selectedProduct.ProductName,
+                        });
+                        if (price.ShowDialog() is DialogResult.OK)
+                        {
+                            focusedRow = Int32.Parse(gridBasket.GetFocusedRowCellValue(colId).ToString());
+
+                            selectedProduct = dataList.FirstOrDefault(x => x.Id == focusedRow);
+                            selectedProduct.SalePrice = price.Amount;
+                            TotalAmountCalculation();
+                        }
+                        break;
+                    case "Discount":
+                        focusedRow = Int32.Parse(gridBasket.GetFocusedRowCellValue(colId).ToString());
+
+                        selectedProduct = dataList.FirstOrDefault(x => x.Id == focusedRow);
+
+                        fPriceChange discount = new fPriceChange(new Helpers.Classes.SaleClasses.PosChangeType
+                        {
+                            ChangeType = Enums.PosChangeType.Discount,
+                            Amount = selectedProduct.SalePrice,
+                            ProductName = selectedProduct.ProductName,
+                        });
+                        if (discount.ShowDialog() is DialogResult.OK)
+                        {
+
+                            selectedProduct.Discount = discount.Amount;
+                            TotalAmountCalculation();
+                        }
+                        break;
+                }
+            }
         }
     }
 }
