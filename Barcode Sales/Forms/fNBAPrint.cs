@@ -56,7 +56,8 @@ namespace Barcode_Sales.Forms
         public fNBAPrint()
         {
             InitializeComponent();
-            IpAddress = terminalOperation.GetIpAddress();
+            //IpAddress = terminalOperation.GetIpAddress();
+            IpAddress = "";
             CommonData.RegeditControl();
         }
 

@@ -91,7 +91,7 @@ namespace Barcode_Sales.Operations.Concrete
 
         public async Task<List<Users>> WhereAsync(Expression<Func<Users, bool>> expression)
         {
-            return await db.Users.Where(x=> x.IsDeleted == CommonData.DEFAULT_INT).Where(expression).ToListAsync();
+            return await db.Users.Where(x=> x.IsDeleted == 0).Where(expression).ToListAsync();
         }
     }
 }

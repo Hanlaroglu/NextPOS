@@ -67,7 +67,7 @@ namespace Barcode_Sales.Forms
         void ColorDataLoad()
         {
             var data = db.Colors.AsNoTracking()
-                                .Where(x => x.IsDeleted == CommonData.DEFAULT_INT)
+                                .Where(x => x.IsDeleted == 0)
                                 .Select(x => new
                                 {
                                     x.ColorName
@@ -82,7 +82,7 @@ namespace Barcode_Sales.Forms
             {
 
                 var data = db.Warehouses.AsNoTracking()
-                                        .Where(x => x.IsDeleted == CommonData.DEFAULT_INT)
+                                        .Where(x => x.IsDeleted == 0)
                                         .Select(x => new
                                         {
                                             x.Name
@@ -98,7 +98,7 @@ namespace Barcode_Sales.Forms
         void SizeDataLoad()
         {
             var data = db.Sizes.AsNoTracking()
-                                .Where(x => x.IsDeleted == CommonData.DEFAULT_INT)
+                                .Where(x => x.IsDeleted == 0)
                                 .Select(x => new
                                 {
                                     x.SizeName
@@ -218,7 +218,7 @@ namespace Barcode_Sales.Forms
         bool GetExistsBarcode(string barcode)
         {
             return db.Products.AsNoTracking()
-                              .Where(x => x.IsDeleted == CommonData.DEFAULT_INT)
+                              .Where(x => x.IsDeleted == 0)
                               .Any(x=> x.Barcode == barcode);
         }
 

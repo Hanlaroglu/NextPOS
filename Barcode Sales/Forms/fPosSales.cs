@@ -53,6 +53,8 @@ namespace Barcode_Sales.Forms
 
         private void fPosSales_Load(object sender, EventArgs e)
         {
+            tToday.Properties.Buttons[1].Caption = CommonData.TODAY_DATE;
+            tCashier.Properties.Buttons[1].Caption= CommonData.CURRENT_USER.NameSurname;
             SearchProductList();
         }
 
@@ -81,16 +83,19 @@ namespace Barcode_Sales.Forms
 
         private void bPay_Click(object sender, EventArgs e)
         {
-            fPosPay f = new fPosPay(new SaleData
+            if (tProductCount.Text != CommonData.DEFAULT_INT_TOSTRING)
             {
-                Cashier = tCashier.Properties.Buttons[1].Caption,
-                Items = dataList,
-                CustomerName = tCustomer.Text,
-                Note = tComment.Text
-            });
-            if (f.ShowDialog() is DialogResult.OK)
-            {
-                Clear();
+                fPosPay f = new fPosPay(new SaleData
+                {
+                    Cashier = tCashier.Properties.Buttons[1].Caption,
+                    Items = dataList,
+                    CustomerName = tCustomer.Text,
+                    Note = tComment.Text
+                });
+                if (f.ShowDialog() is DialogResult.OK)
+                {
+                    Clear();
+                }
             }
         }
 
@@ -312,6 +317,11 @@ namespace Barcode_Sales.Forms
                         break;
                 }
             }
+        }
+
+        private void fPosSales_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

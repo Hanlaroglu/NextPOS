@@ -1,4 +1,5 @@
-﻿using Barcode_Sales.Helpers;
+﻿using Barcode_Sales.Forms;
+using Barcode_Sales.Helpers;
 using Barcode_Sales.Helpers.Messages;
 using Barcode_Sales.Operations.Abstract;
 using System;
@@ -7,6 +8,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using static Barcode_Sales.Helpers.Enums;
 
 namespace Barcode_Sales.Operations.Concrete
@@ -91,7 +93,7 @@ namespace Barcode_Sales.Operations.Concrete
 
         public async Task<List<Terminals>> WhereAsync(Expression<Func<Terminals, bool>> expression = null)
         {
-            expression = expression ?? (x => x.IsDeleted == CommonData.DEFAULT_INT);
+            expression = expression ?? (x => x.IsDeleted == 0);
 
             return await db.Terminals.AsNoTracking()
                                      .Where(expression)
@@ -99,9 +101,21 @@ namespace Barcode_Sales.Operations.Concrete
                                      .ConfigureAwait(false);
         }
 
-        public string GetIpAddress()
+        public Terminals GetIpAddress()
         {
-            var terminal = Where(x => x.UserId == CommonData.USER_ID).FirstOrDefault();
+            var terminal = Where(x => x.UserId.Value == CommonData.CURRENT_USER.Id).FirstOrDefault();
+            fPosSales _form = Application.OpenForms.OfType<fPosSales>().FirstOrDefault();
+
+            if (terminal.IsDeleted != 0)
+            {
+                NoticationHelpers.Messages.WarningMessage(_form, "İstifadəçiyə kassa təyin edilməmiştir");
+                return null;
+            }
+            else if (terminal.Status is false)
+            {
+                NoticationHelpers.Messages.WarningMessage(_form, "İstifadəçinin kassa statusu aktiv deyil");
+                return null;
+            }
 
             if (terminal != null)
             {
@@ -110,25 +124,32 @@ namespace Barcode_Sales.Operations.Concrete
                 switch (kassa)
                 {
                     case KassaOperator.SUNMI:
-                        return $"http://{terminal.IpAddress}";
+                        terminal.IpAddress = $"http://{terminal.IpAddress}";
+                        break;
                     case KassaOperator.OMNITECH:
-                        return $"http://{terminal.IpAddress}/v2";
+                        terminal.IpAddress = $"http://{terminal.IpAddress}/v2";
+                        break;
                     case KassaOperator.AZSMART:
-                        return $"http://{terminal.IpAddress}";
+                        terminal.IpAddress = $"http://{terminal.IpAddress}";
+                        break;
                     case KassaOperator.NBA:
-                        return $"http://{terminal.IpAddress}/api/v1";
+                        terminal.IpAddress = $"http://{terminal.IpAddress}/api/v1";
+                        break;
                     case KassaOperator.TIANYU:
-                        return $"http://{terminal.IpAddress}";
+                        terminal.IpAddress = $"http://{terminal.IpAddress}";
+                        break;
                     case KassaOperator.DATAPAY:
-                        return $"http://{terminal.IpAddress}";
-                    case KassaOperator.ONECLİCK:
-                        return $"http://{terminal.IpAddress}";
-                    default:
-                        return $"Yoxdur";
+                        terminal.IpAddress = $"http://{terminal.IpAddress}";
+                        break;
+                    case KassaOperator.ONECLICK:
+                        terminal.IpAddress = $"http://{terminal.IpAddress}";
+                        break;
                 }
+                return terminal;
             }
             else
                 return null;
+
         }
     }
 }

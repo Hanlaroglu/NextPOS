@@ -21,7 +21,7 @@ namespace Barcode_Sales.Forms
 
         void CustomerLoadData()
         {
-            List<Customers> customersList = customerOperation.WhereAsync(x => x.IsDeleted == CommonData.DEFAULT_INT).Result;
+            List<Customers> customersList = customerOperation.WhereAsync(x => x.IsDeleted == 0).Result;
             FormHelpers.ControlLoad(customersList, gridControlSelected);
         }
 

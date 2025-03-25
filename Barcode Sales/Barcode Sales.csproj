@@ -484,6 +484,7 @@
     <Compile Include="Operations\Abstract\ISupplierDebtOperation.cs" />
     <Compile Include="Operations\Abstract\ISupplierOperation.cs" />
     <Compile Include="Operations\Abstract\ISupplierPaymentOperation.cs" />
+    <Compile Include="Operations\Abstract\ITerminalIncomeAndExpenseOperation.cs" />
     <Compile Include="Operations\Abstract\ITerminalOperation.cs" />
     <Compile Include="Operations\Abstract\IUserOperation.cs" />
     <Compile Include="Operations\Concrete\AqtaProductsManager.cs" />
@@ -491,6 +492,7 @@
     <Compile Include="Operations\Concrete\CompanyManager.cs" />
     <Compile Include="Operations\Concrete\CustomerDebtManager.cs" />
     <Compile Include="Operations\Concrete\CustomerManager.cs" />
+    <Compile Include="Operations\Concrete\IncomeAndExpenseManager.cs" />
     <Compile Include="Operations\Concrete\ProductManager.cs" />
     <Compile Include="Forms\fSelectProduct.cs">
       <SubType>Form</SubType>
@@ -548,6 +550,9 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="SuppliersDebt.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TerminalIncomesAndExpens.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Terminals.cs">

@@ -50,7 +50,7 @@ namespace Barcode_Sales.Forms
             User.Email = tEmail.Text;
             User.Phone = tPhone.Text;
             User.RoleID = GetByIdRole(lookRole.Text);
-            User.IsDeleted = CommonData.DEFAULT_INT;
+            User.IsDeleted = 0;
             User.Status = true;
 
             bool uniqueData = userOperation.Where(x=> x.Username == tUsername.Text.Trim()).Any();
@@ -151,7 +151,7 @@ namespace Barcode_Sales.Forms
         void StoreDataLoad()
         {
             var data = db.Stores.AsNoTracking()
-                               .Where(x => x.IsDeleted == CommonData.DEFAULT_INT)
+                               .Where(x => x.IsDeleted == 0)
                                .Select(x => new
                                {
                                    x.StoreName
@@ -164,7 +164,7 @@ namespace Barcode_Sales.Forms
         void RoleDataLoad()
         {
             var data = db.Roles.AsNoTracking()
-                               .Where(x => x.IsDeleted == CommonData.DEFAULT_INT)
+                               .Where(x => x.IsDeleted == 0)
                                .Select(x => new
                                {
                                    x.RoleName

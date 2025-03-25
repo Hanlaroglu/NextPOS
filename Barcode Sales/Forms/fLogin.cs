@@ -24,18 +24,20 @@ namespace Barcode_Sales.Forms
 
         void Login()
         {
-            var control = UserValidation.AuthenticationControl(tUsername.Text.Trim(), tPassword.Text.Trim());
+            var control = UserValidation.AuthenticationControl(tUsername.Text.Trim(), tPassword.Text.Trim(),chSaveMe.Checked);
             if (control.Item1)
             {
-                Users user = control.Item2;
-                if (UserValidation.AuthorizationControl(user, role => role.Admin))
+                CommonData.CURRENT_USER = control.Item2;
+                if (UserValidation.AuthorizationControl(CommonData.CURRENT_USER, role => role.Admin))
                 {
-                    FormHelpers.OpenForm<fDashboard>(user);
+                    FormHelpers.OpenForm<fDashboard>(CommonData.CURRENT_USER);
                     this.Hide();
                 }
-                if (UserValidation.AuthorizationControl(user, role => role.Cashier))
+                else if (UserValidation.AuthorizationControl(CommonData.CURRENT_USER, role => role.Cashier))
                 {
-                    FormHelpers.OpenForm<fBarcodeSalesUI>(user);
+                    //FormHelpers.OpenForm<fBarcodeSalesUI>(CommonData.CURRENT_USER);
+                    
+                    FormHelpers.OpenForm<fPosSales>();
                     this.Hide();
                 }
             }
@@ -59,6 +61,12 @@ namespace Barcode_Sales.Forms
                 tUsername.Text = Properties.Settings.Default.Username;
                 tPassword.Text = Properties.Settings.Default.Password;
             }
+            else
+            {
+                chSaveMe.Checked = false;
+                tUsername.Text = null;
+                tPassword.Text = null;
+            }
         }
 
         private void KeyboardPress(object sender, KeyEventArgs e)
@@ -72,6 +80,15 @@ namespace Barcode_Sales.Forms
                     Application.Exit();
                     break;
             }
+        }
+
+        private void chSaveMe_CheckedChanged(object sender, EventArgs e)
+        {
+            //if (chSaveMe.Checked)
+            //    Properties.Settings.Default.SaveMe = true;
+            //else
+            //    Properties.Settings.Default.SaveMe = false;
+            //Properties.Settings.Default.Save();
         }
     }
 }

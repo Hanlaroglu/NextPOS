@@ -26,7 +26,7 @@ namespace Barcode_Sales.Forms
 
         void SuppliersDataLoad()
         {
-            var data = supplierOperation.Where(x => x.IsDeleted == CommonData.DEFAULT_INT)
+            var data = supplierOperation.Where(x => x.IsDeleted == 0)
                                         .Select(x => new
                                         {
                                             x.SupplierName,

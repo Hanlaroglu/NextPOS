@@ -243,7 +243,7 @@ namespace Barcode_Sales.Barcode.Sales.UI
             }
             else
             {
-                tTotal.EditValue = CommonData.DEFAULT_INT;
+                tTotal.EditValue = 0;
             }
             tAmount.Text = 1.ToString();
             tBarcode.Text = null;
@@ -601,7 +601,7 @@ namespace Barcode_Sales.Barcode.Sales.UI
         {
             FormHelpers.HasPermission(() =>
             {
-                if (gridProducts.RowCount != CommonData.DEFAULT_INT)
+                if (gridProducts.RowCount != 0)
                 {
                     navigationFrameRight.SelectedPage = pageRightPayments;
                 }
@@ -673,7 +673,7 @@ namespace Barcode_Sales.Barcode.Sales.UI
         {
             FormHelpers.HasPermission(() =>
             {
-                if (gridProducts.RowCount != CommonData.DEFAULT_INT)
+                if (gridProducts.RowCount != 0)
                 {
                     navigationFrameRight.SelectedPage = pageRightPayments;
                 }

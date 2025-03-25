@@ -36,7 +36,7 @@ namespace Barcode_Sales
             CultureInfo.CurrentCulture.NumberFormat.CurrencySymbol = "AZN"; //₼
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new fPosSales());
+            Application.Run(new fLogin());
 
 
 

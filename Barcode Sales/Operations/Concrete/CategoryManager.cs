@@ -49,7 +49,7 @@ namespace Barcode_Sales.Operations.Concrete
         {
             productOperation = new ProductManager();
 
-            var product = productOperation.Where(x => x.IsDeleted == CommonData.DEFAULT_INT && x.CategoryID == item.Id).ToList();
+            var product = productOperation.Where(x => x.IsDeleted == 0 && x.CategoryID == item.Id).ToList();
 
             bool message = false;
 
@@ -83,7 +83,7 @@ namespace Barcode_Sales.Operations.Concrete
         {
             productOperation = new ProductManager();
 
-            var product = productOperation.WhereAsync(x => x.IsDeleted == CommonData.DEFAULT_INT && x.CategoryID == item.Id);
+            var product = productOperation.WhereAsync(x => x.IsDeleted == 0 && x.CategoryID == item.Id);
 
             bool message = false;
 
@@ -147,7 +147,7 @@ namespace Barcode_Sales.Operations.Concrete
         {
             productOperation = new ProductManager();
 
-            var product = productOperation.Where(x => x.IsDeleted == CommonData.DEFAULT_INT && x.CategoryID == item.Id).ToList();
+            var product = productOperation.Where(x => x.IsDeleted == 0 && x.CategoryID == item.Id).ToList();
 
             string boolMessage = (bool)item.Status ? "aktiv" : "deaktiv";
 

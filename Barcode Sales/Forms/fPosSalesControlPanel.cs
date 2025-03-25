@@ -12,13 +12,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static Barcode_Sales.Helpers.Enums;
 
 namespace Barcode_Sales.Forms
 {
     public partial class fPosSalesControlPanel : DevExpress.XtraEditors.XtraForm
     {
         static ITerminalOperation terminalOperation = new TerminalManager();
-        public static readonly string _IpAddress = terminalOperation.GetIpAddress();
+        public static readonly Terminals _terminals = terminalOperation.GetIpAddress();
         public fPosSalesControlPanel()
         {
             InitializeComponent();
@@ -26,39 +27,137 @@ namespace Barcode_Sales.Forms
 
         private void bRefund_Click(object sender, EventArgs e)
         {
-            Sunmi.
-            fPriceChange f = new fPriceChange(new Helpers.Classes.SaleClasses.PosChangeType
-            {
-                ChangeType = Enums.PosChangeType.Discount,
-                Amount = selectedProduct.SalePrice,
-                ProductName = selectedProduct.ProductName,
-            });
-            if (f.ShowDialog() is DialogResult.OK)
-            {
-                selectedProduct.Discount = f.Amount;
-            }
 
-            NKA.Sunmi.Deposit();
         }
 
         private void bDeposit_Click(object sender, EventArgs e)
         {
+            if (_terminals != null)
+            {
+                fPriceChange f = new fPriceChange(new Helpers.Classes.SaleClasses.PosChangeType
+                {
+                    ChangeType = Enums.PosChangeType.Deposit,
+                });
+                if (f.ShowDialog() is DialogResult.OK)
+                {
+                    double _amount = f.Amount;
 
+                    KassaOperator kassa = (KassaOperator)Enum.Parse(typeof(KassaOperator), _terminals.Name);
+                    switch (kassa)
+                    {
+                        case KassaOperator.SUNMI:
+                        case KassaOperator.TIANYU:
+                            NKA.Sunmi.Deposit(new NKA.DTOs.NkaDto.DepositDto
+                            {
+                                IpAddress = _terminals.IpAddress,
+                                Amount = _amount,
+                                Cashier = CommonData.CURRENT_USER?.NameSurname,
+                            });
+                            break;
+                        case KassaOperator.OMNITECH:
+                            break;
+                        case KassaOperator.AZSMART:
+                            break;
+                        case KassaOperator.NBA:
+                            break;
+                        case KassaOperator.DATAPAY:
+                            break;
+                        case KassaOperator.ONECLICK:
+                            break;
+                    }
+                }
+            }
         }
 
         private void bWithdraw_Click(object sender, EventArgs e)
         {
+            if (_terminals != null)
+            {
+                fPriceChange f = new fPriceChange(new Helpers.Classes.SaleClasses.PosChangeType
+                {
+                    ChangeType = Enums.PosChangeType.Withdraw,
+                });
+                if (f.ShowDialog() is DialogResult.OK)
+                {
+                    double _amount = f.Amount;
 
+                    KassaOperator kassa = (KassaOperator)Enum.Parse(typeof(KassaOperator), _terminals.Name);
+                    switch (kassa)
+                    {
+                        case KassaOperator.SUNMI:
+                        case KassaOperator.TIANYU:
+                            NKA.Sunmi.Withdraw(new NKA.DTOs.NkaDto.DepositDto
+                            {
+                                IpAddress = _terminals.IpAddress,
+                                Amount = _amount,
+                                Cashier = CommonData.CURRENT_USER?.NameSurname,
+                            });
+                            break;
+                        case KassaOperator.OMNITECH:
+                            break;
+                        case KassaOperator.AZSMART:
+                            break;
+                        case KassaOperator.NBA:
+                            break;
+                        case KassaOperator.DATAPAY:
+                            break;
+                        case KassaOperator.ONECLICK:
+                            break;
+                        case KassaOperator.XPRINTER:
+                            break;
+                    }
+                }
+            }
         }
 
         private void bShift_Click(object sender, EventArgs e)
         {
-            Sunmi.ShiftStatus(_IpAddress);
+            if (_terminals != null)
+            {
+                KassaOperator kassa = (KassaOperator)Enum.Parse(typeof(KassaOperator), _terminals.Name);
+                switch (kassa)
+                {
+                    case KassaOperator.SUNMI:
+                    case KassaOperator.TIANYU:
+                        Sunmi.ShiftStatus(_terminals.IpAddress);
+                        break;
+                    case KassaOperator.OMNITECH:
+                        break;
+                    case KassaOperator.AZSMART:
+                        break;
+                    case KassaOperator.NBA:
+                        break;
+                    case KassaOperator.DATAPAY:
+                        break;
+                    case KassaOperator.ONECLICK:
+                        break;
+                }
+            }
         }
 
         private void bCloseShift_Click(object sender, EventArgs e)
         {
-            Sunmi.CloseShift(_IpAddress);
+            if (_terminals != null)
+            {
+                KassaOperator kassa = (KassaOperator)Enum.Parse(typeof(KassaOperator), _terminals.Name);
+                switch (kassa)
+                {
+                    case KassaOperator.SUNMI:
+                    case KassaOperator.TIANYU:
+                        Sunmi.CloseShift(_terminals.IpAddress);
+                        break;
+                    case KassaOperator.OMNITECH:
+                        break;
+                    case KassaOperator.AZSMART:
+                        break;
+                    case KassaOperator.NBA:
+                        break;
+                    case KassaOperator.DATAPAY:
+                        break;
+                    case KassaOperator.ONECLICK:
+                        break;
+                }
+            }
         }
 
         private void bReport_Click(object sender, EventArgs e)

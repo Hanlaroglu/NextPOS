@@ -53,9 +53,8 @@ D:\Hasan\PROJECTS\NextPOS.Barcode\Licence\obj\Debug\Licence.csproj.CoreCompileIn
 D:\Hasan\PROJECTS\NextPOS.Barcode\Licence\obj\Debug\Licence.csproj.CopyComplete
 D:\Hasan\PROJECTS\NextPOS.Barcode\Licence\obj\Debug\Licence.dll
 D:\Hasan\PROJECTS\NextPOS.Barcode\Licence\obj\Debug\Licence.pdb
-D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Licence\bin\Debug\Licence.dll.config
 D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Licence\bin\Debug\Licence.dll
-D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Licence\bin\Debug\Licence.pdb
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Licence\bin\Debug\Licence.dll.config
 D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Licence\bin\Debug\DevExpress.Data.Desktop.v24.1.dll
 D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Licence\bin\Debug\DevExpress.Data.v24.1.dll
 D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Licence\bin\Debug\DevExpress.Drawing.v24.1.dll
@@ -86,3 +85,4 @@ D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Licence\obj\Debug\Lic
 D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Licence\obj\Debug\Licence.csproj.Up2Date
 D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Licence\obj\Debug\Licence.dll
 D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Licence\obj\Debug\Licence.pdb
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Licence\bin\Debug\Licence.pdb

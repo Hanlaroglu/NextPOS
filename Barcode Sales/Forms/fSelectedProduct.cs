@@ -35,12 +35,12 @@ namespace Barcode_Sales.Forms
         {
             if (_parentForm.Name == "fAqtaReport")
             {
-                gridControlProducts.DataSource = aqtaProductsOperation.WhereAsync(x => x.IsDeleted == CommonData.DEFAULT_INT).Result;
+                gridControlProducts.DataSource = aqtaProductsOperation.WhereAsync(x => x.IsDeleted == 0).Result;
                 gridProducts.Columns["ProductCode"].Visible = false;
             }
             else
             {
-                gridControlProducts.DataSource = productOperation.WhereAsync(x=> x.IsDeleted == CommonData.DEFAULT_INT).Result;
+                gridControlProducts.DataSource = productOperation.WhereAsync(x=> x.IsDeleted == 0).Result;
             }
         }
 

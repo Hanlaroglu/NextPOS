@@ -68,7 +68,7 @@ namespace Barcode_Sales.Forms
             {
 
                 var data = db.Warehouses.AsNoTracking()
-                                        .Where(x => x.IsDeleted == CommonData.DEFAULT_INT)
+                                        .Where(x => x.IsDeleted == 0)
                                         .Select(x => new
                                         {
                                             x.Name
@@ -126,7 +126,7 @@ namespace Barcode_Sales.Forms
         bool GetExistsBarcode(string barcode)
         {
             return db.AqtaProducts.AsNoTracking()
-                              .Where(x => x.IsDeleted == CommonData.DEFAULT_INT)
+                              .Where(x => x.IsDeleted == 0)
                               .Any(x => x.Barcode == barcode);
         }
 

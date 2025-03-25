@@ -27,7 +27,7 @@ namespace Barcode_Sales.Product
 
         private void ProductDataLoad()
         {
-            var data = productOperation.WhereAsync(x => x.IsDeleted == CommonData.DEFAULT_INT).Result;
+            var data = productOperation.WhereAsync(x => x.IsDeleted == 0).Result;
             gridControlProducts.DataSource = data.ToList();
         }
 

@@ -235,7 +235,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
         {
             if (db.AqtaProducts.AsNoTracking().Any())
             {
-                var data = aqtaProductsOperation.WhereAsync(x => x.IsDeleted == CommonData.DEFAULT_INT).Result;
+                var data = aqtaProductsOperation.WhereAsync(x => x.IsDeleted == 0).Result;
 
                 FormHelpers.ControlLoad(data, gridControlProducts);
 
@@ -247,12 +247,12 @@ namespace Barcode_Sales.Barcode.Sales.Admin
 
         private async void ProductFill()
         {
-            var data = await productOperation.WhereAsync(x => x.IsDeleted == CommonData.DEFAULT_INT);
+            var data = await productOperation.WhereAsync(x => x.IsDeleted == 0);
             FormHelpers.ControlLoad(data, gridControlProducts);
             gridProducts.RefreshData();
-            lPlusProduct_Count.Text = data.Count(x => x.Amount > CommonData.DEFAULT_INT).ToString();
-            lNegativeProduct_Count.Text = data.Count(x => x.Amount < CommonData.DEFAULT_INT).ToString();
-            lZeroProduct_Count.Text = data.Count(x => x.Amount == CommonData.DEFAULT_INT).ToString();
+            lPlusProduct_Count.Text = data.Count(x => x.Amount > 0).ToString();
+            lNegativeProduct_Count.Text = data.Count(x => x.Amount < 0).ToString();
+            lZeroProduct_Count.Text = data.Count(x => x.Amount == 0).ToString();
             FormHelpers.GridCustomRowNumber(gridProducts);
         }
 
@@ -355,7 +355,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
 
         private async void CategoryFill()
         {
-            var data = await categoryOperation.WhereAsync(x => x.IsDeleted == CommonData.DEFAULT_INT);
+            var data = await categoryOperation.WhereAsync(x => x.IsDeleted == 0);
             FormHelpers.ControlLoad(data, gridControlCategory);
             gridCategory.GroupPanelText = $"Kateqoriya sayı: {data.Count()}";
             gridCategory.RefreshData();
@@ -488,7 +488,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
 
         private async void SupplierDataLoad()
         {
-            var data = await supplierOperation.WhereAsync(x => x.IsDeleted == CommonData.DEFAULT_INT);
+            var data = await supplierOperation.WhereAsync(x => x.IsDeleted == 0);
             FormHelpers.ControlLoad(data, gridControlSupplier);
             gridSupplier.GroupPanelText = $"Təchizatçı sayı: {gridSupplier.RowCount}";
             gridSupplier.RefreshData();
@@ -847,7 +847,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
 
         private async void CustomerLoadData()
         {
-            var data = await customerOperation.WhereAsync(x => x.IsDeleted == CommonData.DEFAULT_INT);
+            var data = await customerOperation.WhereAsync(x => x.IsDeleted == 0);
             ControlLoad(data, gridControlCustomers);
             gridCustomers.GroupPanelText = $"Müştəri sayı : {data.Count()}";
             GridCustomRowNumber(gridCustomers);
@@ -1034,7 +1034,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
 
         private async void CustomerDebtLoadData()
         {
-            var data = await customerDebtOperation.WhereAsync(x => x.IsDeleted == CommonData.DEFAULT_INT);
+            var data = await customerDebtOperation.WhereAsync(x => x.IsDeleted == 0);
             ControlLoad(data, gridControlCustomerDebts);
             gridCustomerDebts.GroupPanelText = $"Borclu müştəri sayı : {data.Count()}";
             GridCustomRowNumber(gridCustomers);
@@ -1148,7 +1148,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
         {
             if (db.Roles.AsNoTracking().Any())
             {
-                var data = roleOperation.WhereAsync(x => x.IsDeleted == CommonData.DEFAULT_INT).Result;
+                var data = roleOperation.WhereAsync(x => x.IsDeleted == 0).Result;
                 FormHelpers.ControlLoad(data, gridControlRole);
                 GridCustomRowNumber(gridRole);
             }

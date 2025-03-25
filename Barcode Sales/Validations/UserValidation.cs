@@ -47,6 +47,12 @@ namespace Barcode_Sales.Validations
                     Properties.Settings.Default.Password = password;
                     Properties.Settings.Default.SaveMe = true;
                 }
+                else
+                {
+                    Properties.Settings.Default.Username = null;
+                    Properties.Settings.Default.Password = null;
+                    Properties.Settings.Default.SaveMe = false;
+                }
 
                 Properties.Settings.Default.UserID = control.Id;
                 Properties.Settings.Default.Save();

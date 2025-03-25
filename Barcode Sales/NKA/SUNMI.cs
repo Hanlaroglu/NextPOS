@@ -18,10 +18,11 @@ namespace Barcode_Sales.NKA
 {
     public class Sunmi
     {
-        static ITerminalOperation terminalOperation = new TerminalManager();
+        private static ITerminalOperation _terminalOperation = new TerminalManager();
         static ISaleDataOperation _saleDataOperation = new SalesDataManager();
         static ISalesDataDetailOperation _salesDataDetailOperation = new SalesDataDetailManager();
-        public static readonly string _IpAddress = terminalOperation.GetIpAddress();
+        static ITerminalIncomeAndExpenseOperation incomeAndExpenseOperation = new IncomeAndExpenseManager();
+        public static readonly Terminals _terminals = _terminalOperation.GetIpAddress();
         static fPosSales _form = Application.OpenForms.OfType<fPosSales>().FirstOrDefault();
 
 
@@ -49,7 +50,7 @@ namespace Barcode_Sales.NKA
 
             string json = FormHelpers.ConvertClassToJson(request);
 
-            var response = FormHelpers.PostRequestJson(_IpAddress, json);
+            var response = FormHelpers.PostRequestJson(_terminals.IpAddress, json);
             if (response.IsSuccessful)
             {
                 OpenShiftResponse responseData = System.Text.Json.JsonSerializer.Deserialize<OpenShiftResponse>(response.Content);
@@ -86,7 +87,7 @@ namespace Barcode_Sales.NKA
 
             string json = FormHelpers.ConvertClassToJson(request);
 
-            var response = FormHelpers.PostRequestJson(_IpAddress, json);
+            var response = FormHelpers.PostRequestJson(_terminals.IpAddress, json);
             if (response.IsSuccessful)
             {
                 ShiftStatusResponse responseData = System.Text.Json.JsonSerializer.Deserialize<ShiftStatusResponse>(response.Content);
@@ -133,7 +134,7 @@ namespace Barcode_Sales.NKA
 
             string json = FormHelpers.ConvertClassToJson(request);
 
-            var response = FormHelpers.PostRequestJson(_IpAddress, json);
+            var response = FormHelpers.PostRequestJson(_terminals.IpAddress, json);
 
             if (response.IsSuccessful)
             {
@@ -172,13 +173,22 @@ namespace Barcode_Sales.NKA
 
             string json = FormHelpers.ConvertClassToJson(request);
 
-            var response = FormHelpers.PostRequestJson(_IpAddress, json);
+            var response = FormHelpers.PostRequestJson(_terminals.IpAddress, json);
 
             if (response.IsSuccessful)
             {
                 DepositResponse responseData = System.Text.Json.JsonSerializer.Deserialize<DepositResponse>(response.Content);
                 if (responseData.message == "Success operation" || responseData.message == "Successful operation" || responseData.message == "Successoperation")
                 {
+                    incomeAndExpenseOperation.Add(new TerminalIncomesAndExpens
+                    {
+                        Amount = item.Amount,
+                        Date = DateTime.Now,
+                        Time = DateTime.Now.TimeOfDay,
+                        UserId = CommonData.CURRENT_USER.Id,
+                        OperationType = (byte)Enums.PosChangeType.Deposit,
+                    });
+
                     NoticationHelpers.Messages.SuccessMessage(_form, $"Kassaya {item.Amount.ToString("C2")} mədaxil edildi");
                     return true;
                 }
@@ -195,9 +205,51 @@ namespace Barcode_Sales.NKA
             }
         }
 
-        public static bool Withdraw()
+        public static bool Withdraw(NkaDto.DepositDto item)
         {
-            throw new NotImplementedException();
+            WithdrawRequest depositRequest = new WithdrawRequest
+            {
+                cashierName = item.Cashier,
+                sum = item.Amount
+            };
+
+            SunmiBaseRequest<WithdrawRequest> request = new NKA.SunmiBaseRequest<WithdrawRequest>
+            {
+                data = depositRequest,
+                operation = "withDraw"
+            };
+
+            string json = FormHelpers.ConvertClassToJson(request);
+
+            var response = FormHelpers.PostRequestJson(_terminals.IpAddress, json);
+
+            if (response.IsSuccessful)
+            {
+                WithdrawResponse responseData = System.Text.Json.JsonSerializer.Deserialize<WithdrawResponse>(response.Content);
+                if (responseData.message == "Success operation" || responseData.message == "Successful operation" || responseData.message == "Successoperation")
+                {
+                    incomeAndExpenseOperation.Add(new TerminalIncomesAndExpens
+                    {
+                        Amount = item.Amount,
+                        Date = DateTime.Now,
+                        Time = DateTime.Now.TimeOfDay,
+                        UserId = CommonData.CURRENT_USER.Id,
+                        OperationType = (byte)Enums.PosChangeType.Withdraw,
+                    });
+                    NoticationHelpers.Messages.SuccessMessage(_form, $"Kassadan {item.Amount.ToString("C2")} məbləği məxaric edildi");
+                    return true;
+                }
+                else
+                {
+                    NoticationHelpers.Messages.ErrorMessage(_form, responseData.message);
+                    return false;
+                }
+            }
+            else
+            {
+                NoticationHelpers.Messages.ErrorMessage(_form, response.ErrorMessage);
+                return false;
+            }
         }
 
         public static bool Sale(SaleClasses.SaleData data)
@@ -243,7 +295,7 @@ namespace Barcode_Sales.NKA
 
             string json = FormHelpers.ConvertClassToJson(request);
 
-            var response = FormHelpers.PostRequestJson(_IpAddress, json);
+            var response = FormHelpers.PostRequestJson(_terminals.IpAddress, json);
 
             if (response.IsSuccessful)
             {
@@ -369,6 +421,14 @@ namespace Barcode_Sales.NKA
         public string currency { get; set; } = "AZN";
     }
 
+    public class WithdrawRequest
+    {
+        public string documentUUID { get; set; } = Guid.NewGuid().ToString();
+        public double sum { get; set; }
+        public string cashierName { get; set; }
+        public string currency { get; set; } = "AZN";
+    }
+
     public class SaleRequest
     {
         public string documentUUID { get; set; } = Guid.NewGuid().ToString();
@@ -445,6 +505,19 @@ namespace Barcode_Sales.NKA
     }
 
     public class DepositResponse : SunmiBaseResponse
+    {
+        public Data data { get; set; }
+        public class Data
+        {
+            public string document_id { get; set; }
+            public string document_number { get; set; }
+            public string shift_document_number { get; set; }
+            public string short_document_id { get; set; }
+            //public double totalSum { get; set; }
+        }
+    }
+
+    public class WithdrawResponse : SunmiBaseResponse
     {
         public Data data { get; set; }
         public class Data

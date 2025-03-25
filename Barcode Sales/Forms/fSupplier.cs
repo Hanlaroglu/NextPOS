@@ -88,7 +88,7 @@ namespace Barcode_Sales.Forms
                 BankVoen = tBankVoen.Text,
                 BankSwift = tBankSwift.Text,
                 Status = true,
-                IsDeleted = CommonData.DEFAULT_INT
+                IsDeleted = 0
             };
             
             var validateResult = ValidationHelpers.ValidateMessage(Supplier, new SupplierValidation(), this);

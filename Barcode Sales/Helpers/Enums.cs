@@ -127,7 +127,7 @@ namespace Barcode_Sales.Helpers
             NBA,
             TIANYU,
             DATAPAY,
-            ONECLİCK,
+            ONECLICK,
             XPRINTER
         }
 

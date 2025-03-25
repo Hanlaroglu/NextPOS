@@ -175,6 +175,7 @@
     </AssociationSet>
     <EntitySet Name="SalesDatas" EntityType="NextposDBModel.SalesData" />
     <EntitySet Name="SalesDataDetails" EntityType="NextposDBModel.SalesDataDetail" />
+    <EntitySet Name="TerminalIncomesAndExpenses" EntityType="NextposDBModel.TerminalIncomesAndExpens" />
   </EntityContainer>
   <EntityType Name="Suppliers">
     <Key>
@@ -737,5 +738,16 @@
     <Property Name="Quantity" Type="Double" />
     <Property Name="SalePrice" Type="Double" />
     <Property Name="Discount" Type="Double" />
+  </EntityType>
+  <EntityType Name="TerminalIncomesAndExpens">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OperationType" Type="Byte" />
+    <Property Name="UserId" Type="Int32" />
+    <Property Name="Amount" Type="Double" />
+    <Property Name="Date" Type="DateTime" Precision="0" />
+    <Property Name="Time" Type="Time" Precision="7" />
   </EntityType>
 </Schema>

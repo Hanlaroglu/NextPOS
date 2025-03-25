@@ -187,6 +187,7 @@ namespace Barcode_Sales.Forms
             this.chSaveMe.Size = new System.Drawing.Size(123, 23);
             this.chSaveMe.TabIndex = 2;
             this.chSaveMe.TabStop = false;
+            this.chSaveMe.CheckedChanged += new System.EventHandler(this.chSaveMe_CheckedChanged);
             // 
             // bExit
             // 
