@@ -27,7 +27,8 @@ namespace Barcode_Sales.Forms
 
         private void bRefund_Click(object sender, EventArgs e)
         {
-
+            fPosRollback f = new fPosRollback();
+            f.ShowDialog();
         }
 
         private void bDeposit_Click(object sender, EventArgs e)
@@ -119,9 +120,17 @@ namespace Barcode_Sales.Forms
                 {
                     case KassaOperator.SUNMI:
                     case KassaOperator.TIANYU:
-                        Sunmi.ShiftStatus(_terminals.IpAddress);
+                        NKA.Sunmi.GetShiftStatus(new NKA.DTOs.NkaDto.ShiftDto
+                        {
+                            IpAddress = _terminals.IpAddress,
+                            Cashier = CommonData.CURRENT_USER.NameSurname
+                        });
                         break;
                     case KassaOperator.OMNITECH:
+                        NKA.Omnitech.GetShiftStatus(new NKA.DTOs.NkaDto.ShiftDto
+                        {
+                            IpAddress = _terminals.IpAddress
+                        });
                         break;
                     case KassaOperator.AZSMART:
                         break;
@@ -144,9 +153,17 @@ namespace Barcode_Sales.Forms
                 {
                     case KassaOperator.SUNMI:
                     case KassaOperator.TIANYU:
-                        Sunmi.CloseShift(_terminals.IpAddress);
+                        NKA.Sunmi.CloseShift(new NKA.DTOs.NkaDto.ShiftDto
+                        {
+                            IpAddress = _terminals.IpAddress
+                        });
                         break;
                     case KassaOperator.OMNITECH:
+                        NKA.Omnitech.CloseShift(new NKA.DTOs.NkaDto.ShiftDto
+                        {
+                            IpAddress = _terminals.IpAddress,
+                            
+                        });
                         break;
                     case KassaOperator.AZSMART:
                         break;

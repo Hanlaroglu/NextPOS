@@ -34,6 +34,17 @@
     <Property Name="Status" Type="bit" />
     <Property Name="IsDeleted" Type="int" />
   </EntityType>
+  <EntityType Name="CloseShiftReports">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OpenShiftDate" Type="datetime" />
+    <Property Name="CloseShiftDate" Type="datetime" />
+    <Property Name="FiskalID" Type="nvarchar" MaxLength="100" />
+    <Property Name="JsonResponse" Type="nvarchar(max)" />
+    <Property Name="UserId" Type="int" />
+  </EntityType>
   <EntityType Name="Colors">
     <Key>
       <PropertyRef Name="Id" />
@@ -168,6 +179,38 @@
     <Property Name="EndDateNotification" Type="bit" />
     <Property Name="Status" Type="bit" />
     <Property Name="IsDeleted" Type="int" />
+  </EntityType>
+  <EntityType Name="ReturnPos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SaleDataId" Type="int" />
+    <Property Name="UserId" Type="int" />
+    <Property Name="ReceiptNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="LongFiscalId" Type="nvarchar" MaxLength="200" />
+    <Property Name="ShortFiscalId" Type="nvarchar" MaxLength="50" />
+    <Property Name="Rrn" Type="nvarchar" MaxLength="50" />
+    <Property Name="ReturnDate" Type="date" />
+    <Property Name="ReturnDatetime" Type="datetime" />
+    <Property Name="Total" Type="float" />
+    <Property Name="Cash" Type="float" />
+    <Property Name="Card" Type="float" />
+    <Property Name="IncomingSum" Type="float" />
+    <Property Name="CustomerId" Type="int" />
+    <Property Name="Note" Type="nvarchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="ReturnPosDetails">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ReturnDataId" Type="int" />
+    <Property Name="SalesDataDetailId" Type="int" />
+    <Property Name="ProductId" Type="int" />
+    <Property Name="Quantity" Type="float" />
+    <Property Name="SalePrice" Type="float" />
+    <Property Name="Discount" Type="float" />
   </EntityType>
   <EntityType Name="Roles">
     <Key>
@@ -485,6 +528,30 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_SalesData_ToCustomer">
+    <End Role="Customers" Type="Self.Customers" Multiplicity="0..1" />
+    <End Role="SalesData" Type="Self.SalesData" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SalesData">
+        <PropertyRef Name="CustomerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SalesData_ToUser">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="SalesData" Type="Self.SalesData" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SalesData">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_SupplierDebts_Supplier">
     <End Role="Suppliers" Type="Self.Suppliers" Multiplicity="0..1" />
     <End Role="SuppliersDebts" Type="Self.SuppliersDebts" Multiplicity="*" />
@@ -596,6 +663,7 @@
   <EntityContainer Name="NextposDBModelStoreContainer">
     <EntitySet Name="AqtaProducts" EntityType="Self.AqtaProducts" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Categories" EntityType="Self.Categories" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CloseShiftReports" EntityType="Self.CloseShiftReports" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Colors" EntityType="Self.Colors" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Company" EntityType="Self.Company" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="CustomerPayments" EntityType="Self.CustomerPayments" Schema="dbo" store:Type="Tables" />
@@ -605,6 +673,8 @@
     <EntitySet Name="InvoiceProducts" EntityType="Self.InvoiceProducts" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Logs" EntityType="Self.Logs" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Products" EntityType="Self.Products" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ReturnPos" EntityType="Self.ReturnPos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ReturnPosDetails" EntityType="Self.ReturnPosDetails" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="SalesData" EntityType="Self.SalesData" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="SalesDataDetail" EntityType="Self.SalesDataDetail" Schema="dbo" store:Type="Tables" />
@@ -668,6 +738,14 @@
     <AssociationSet Name="FK_Products_Warehouse" Association="Self.FK_Products_Warehouse">
       <End Role="Warehouses" EntitySet="Warehouses" />
       <End Role="Products" EntitySet="Products" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SalesData_ToCustomer" Association="Self.FK_SalesData_ToCustomer">
+      <End Role="Customers" EntitySet="Customers" />
+      <End Role="SalesData" EntitySet="SalesData" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SalesData_ToUser" Association="Self.FK_SalesData_ToUser">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="SalesData" EntitySet="SalesData" />
     </AssociationSet>
     <AssociationSet Name="FK_SupplierDebts_Supplier" Association="Self.FK_SupplierDebts_Supplier">
       <End Role="Suppliers" EntitySet="Suppliers" />

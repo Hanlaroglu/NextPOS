@@ -353,5 +353,51 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="CloseShiftReports">
+      <EntityTypeMapping TypeName="NextposDBModel.CloseShiftReport">
+        <MappingFragment StoreEntitySet="CloseShiftReports">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="JsonResponse" ColumnName="JsonResponse" />
+          <ScalarProperty Name="FiskalID" ColumnName="FiskalID" />
+          <ScalarProperty Name="CloseShiftDate" ColumnName="CloseShiftDate" />
+          <ScalarProperty Name="OpenShiftDate" ColumnName="OpenShiftDate" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ReturnPos">
+      <EntityTypeMapping TypeName="NextposDBModel.ReturnPos">
+        <MappingFragment StoreEntitySet="ReturnPos">
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="IncomingSum" ColumnName="IncomingSum" />
+          <ScalarProperty Name="Card" ColumnName="Card" />
+          <ScalarProperty Name="Cash" ColumnName="Cash" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+          <ScalarProperty Name="ReturnDatetime" ColumnName="ReturnDatetime" />
+          <ScalarProperty Name="ReturnDate" ColumnName="ReturnDate" />
+          <ScalarProperty Name="Rrn" ColumnName="Rrn" />
+          <ScalarProperty Name="ShortFiscalId" ColumnName="ShortFiscalId" />
+          <ScalarProperty Name="LongFiscalId" ColumnName="LongFiscalId" />
+          <ScalarProperty Name="ReceiptNo" ColumnName="ReceiptNo" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="SaleDataId" ColumnName="SaleDataId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ReturnPosDetails">
+      <EntityTypeMapping TypeName="NextposDBModel.ReturnPosDetail">
+        <MappingFragment StoreEntitySet="ReturnPosDetails">
+          <ScalarProperty Name="Discount" ColumnName="Discount" />
+          <ScalarProperty Name="SalePrice" ColumnName="SalePrice" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <ScalarProperty Name="SalesDataDetailId" ColumnName="SalesDataDetailId" />
+          <ScalarProperty Name="ReturnDataId" ColumnName="ReturnDataId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

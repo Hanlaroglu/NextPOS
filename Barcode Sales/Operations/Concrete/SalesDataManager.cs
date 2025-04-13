@@ -1,8 +1,10 @@
 ﻿using Barcode_Sales.Operations.Abstract;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -67,12 +69,12 @@ namespace Barcode_Sales.Operations.Concrete
 
         public IQueryable<SalesData> Where(Expression<Func<SalesData, bool>> expression)
         {
-            throw new NotImplementedException();
+            return db.SalesDatas.Where(expression);
         }
 
-        public Task<List<SalesData>> WhereAsync(Expression<Func<SalesData, bool>> expression = null)
+        public async Task<List<SalesData>> WhereAsync(Expression<Func<SalesData, bool>> expression = null)
         {
-            throw new NotImplementedException();
+            return await db.SalesDatas.Where(expression).ToListAsync();
         }
     }
 }

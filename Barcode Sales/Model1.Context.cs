@@ -48,5 +48,8 @@ namespace Barcode_Sales
         public virtual DbSet<SalesData> SalesDatas { get; set; }
         public virtual DbSet<SalesDataDetail> SalesDataDetails { get; set; }
         public virtual DbSet<TerminalIncomesAndExpens> TerminalIncomesAndExpenses { get; set; }
+        public virtual DbSet<CloseShiftReport> CloseShiftReports { get; set; }
+        public virtual DbSet<ReturnPos> ReturnPos { get; set; }
+        public virtual DbSet<ReturnPosDetail> ReturnPosDetails { get; set; }
     }
 }

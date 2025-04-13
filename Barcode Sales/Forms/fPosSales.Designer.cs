@@ -111,6 +111,7 @@
             this.colName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colAmount = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colUnit = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colPurchasePrice = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colSalePrice = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDiscount = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTotal = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -437,6 +438,7 @@
             this.colName,
             this.colAmount,
             this.colUnit,
+            this.colPurchasePrice,
             this.colSalePrice,
             this.colDiscount,
             this.colTotal,
@@ -553,6 +555,13 @@
             this.colUnit.Visible = true;
             this.colUnit.VisibleIndex = 3;
             this.colUnit.Width = 73;
+            // 
+            // colPurchasePrice
+            // 
+            this.colPurchasePrice.Caption = "Alış qiyməti";
+            this.colPurchasePrice.FieldName = "PurchasePrice";
+            this.colPurchasePrice.Name = "colPurchasePrice";
+            this.colPurchasePrice.OptionsColumn.AllowEdit = false;
             // 
             // colSalePrice
             // 
@@ -1237,5 +1246,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colDelete;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit bProductDelete;
         private DevExpress.XtraGrid.Columns.GridColumn colDiscount;
+        private DevExpress.XtraGrid.Columns.GridColumn colPurchasePrice;
     }
 }

@@ -1,15 +1,18 @@
 ﻿using Barcode_Sales.Cache;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Barcode_Sales.Helpers.Classes
 {
     public static class SaleClasses
     {
+        public abstract class BaseSaleData
+        {
+            public string IpAddress { get; set; }
+            public string AccessToken { get; set; }
+        }
+
         public class SaleDataItem
         {
             public short RowNo { get; set; }
@@ -17,12 +20,16 @@ namespace Barcode_Sales.Helpers.Classes
             public string ProductName { get; set; }
             public double SalePrice { get; set; }
             public double Discount { get; set; } = 0;
-            public double Total { get { return (SalePrice * Amount) - Discount; } }
+            public double Total
+            {
+                get => Math.Floor((SalePrice * Amount - Discount) * 100) / 100;
+            }
+            public double? PurchasePrice { get; set; }
+            public double? PurchaseSum { get => PurchasePrice * Amount; }
             public double Amount { get; set; } = 1;
             public string Unit { get; set; }
             public string Tax { get; set; }
             public string Barcode { get; set; }
-
             public int QuantityType
             {
                 get
@@ -30,18 +37,22 @@ namespace Barcode_Sales.Helpers.Classes
                     return EnumsCache.quantityType.TryGetValue(Unit, out int value) ? value : (int)Enums.UnitTypes.Quantity;
                 }
             }
-
             public int TaxType
             {
                 get
                 {
-                    return EnumsCache.taxType.TryGetValue(Tax, out int value) ? value : (int)Enums.NkaTaxType.Vat18;
+                    var taxType = Enum.GetValues(typeof(Enums.NkaTaxType))
+                       .Cast<Enums.NkaTaxType>()
+                       .FirstOrDefault(x => Enums.GetEnumDescription(x) == Tax);
+
+                    return (int)taxType;
+
                 }
+                set { }
             }
         }
 
-
-        public class SaleData
+        public class SaleData : BaseSaleData
         {
             public double Total => Items?.Sum(x => x.Total) ?? 0;
             public double Cash { get; set; }

@@ -1,14 +1,19 @@
 ﻿using Barcode_Sales.Helpers;
+using Barcode_Sales.Operations.Abstract;
+using Barcode_Sales.Operations.Concrete;
 using DevExpress.XtraBars.Navigation;
 using System;
 using System.Windows.Forms;
 using static Barcode_Sales.Helpers.Classes.SaleClasses;
+using static Barcode_Sales.Helpers.Enums;
 
 namespace Barcode_Sales.Forms
 {
     public partial class fPosPay : DevExpress.XtraEditors.XtraForm
     {
         private SaleData _data;
+        static ITerminalOperation terminalOperation = new TerminalManager();
+        public static readonly Terminals _terminals = terminalOperation.GetIpAddress();
         public fPosPay(SaleData data)
         {
             InitializeComponent();
@@ -81,6 +86,8 @@ namespace Barcode_Sales.Forms
 
         private void CashPaid()
         {
+            _data.IpAddress = _terminals.IpAddress;
+            _data.Cash = _data.Total;
             _data.IncomingSum = double.Parse(tCash_Paid.Text);
 
             if (_data.IncomingSum < _data.Total)
@@ -89,26 +96,74 @@ namespace Barcode_Sales.Forms
                 return;
             }
 
-            if (NKA.Sunmi.Sale(_data))
+            if (_terminals != null)
             {
-                DialogResult = System.Windows.Forms.DialogResult.OK;
+                KassaOperator kassa = (KassaOperator)Enum.Parse(typeof(KassaOperator), _terminals.Name);
+                switch (kassa)
+                {
+                    case KassaOperator.SUNMI:
+                    case KassaOperator.TIANYU:
+                        if (NKA.Sunmi.Sale(_data))
+                        {
+                            DialogResult = DialogResult.OK;
+                        }
+                        break;
+                    case KassaOperator.OMNITECH:
+                        if (NKA.Omnitech.Sale(_data))
+                        {
+                            DialogResult = DialogResult.OK;
+                        }
+                        break;
+                    case KassaOperator.AZSMART:
+                        break;
+                    case KassaOperator.NBA:
+                        break;
+                    case KassaOperator.DATAPAY:
+                        break;
+                    case KassaOperator.ONECLICK:
+                        break;
+                }
             }
         }
 
         private void CardPaid()
         {
+            _data.IpAddress = _terminals.IpAddress;
             _data.Card = double.Parse(tTotal.Text);
 
-
-            if (NKA.Sunmi.Sale(_data))
+            if (_terminals != null)
             {
-                DialogResult = System.Windows.Forms.DialogResult.OK;
+                KassaOperator kassa = (KassaOperator)Enum.Parse(typeof(KassaOperator), _terminals.Name);
+                switch (kassa)
+                {
+                    case KassaOperator.SUNMI:
+                    case KassaOperator.TIANYU:
+                        if (NKA.Sunmi.Sale(_data))
+                        {
+                            DialogResult = DialogResult.OK;
+                        }
+                        break;
+                    case KassaOperator.OMNITECH:
+                        if (NKA.Omnitech.Sale(_data))
+                        {
+                            DialogResult = DialogResult.OK;
+                        }
+                        break;
+                    case KassaOperator.AZSMART:
+                        break;
+                    case KassaOperator.NBA:
+                        break;
+                    case KassaOperator.DATAPAY:
+                        break;
+                    case KassaOperator.ONECLICK:
+                        break;
+                }
             }
         }
 
         private void CashCardPaid()
         {
-
+            _data.IpAddress = _terminals.IpAddress;
             _data.Card = double.Parse(tCashCard_Card.Text);
             _data.Cash = _data.Total - _data.Card;
             _data.IncomingSum = double.Parse(tCashCard_Cash.Text);
@@ -134,13 +189,33 @@ namespace Barcode_Sales.Forms
                 return;
             }
 
-            if (NKA.Sunmi.Sale(_data))
+            if (_terminals != null)
             {
-                DialogResult = System.Windows.Forms.DialogResult.OK;
-            }
-            else
-            {
-                return;
+                KassaOperator kassa = (KassaOperator)Enum.Parse(typeof(KassaOperator), _terminals.Name);
+                switch (kassa)
+                {
+                    case KassaOperator.SUNMI:
+                    case KassaOperator.TIANYU:
+                        if (NKA.Sunmi.Sale(_data))
+                        {
+                            DialogResult = DialogResult.OK;
+                        }
+                        break;
+                    case KassaOperator.OMNITECH:
+                        if (NKA.Omnitech.Sale(_data))
+                        {
+                            DialogResult = DialogResult.OK;
+                        }
+                        break;
+                    case KassaOperator.AZSMART:
+                        break;
+                    case KassaOperator.NBA:
+                        break;
+                    case KassaOperator.DATAPAY:
+                        break;
+                    case KassaOperator.ONECLICK:
+                        break;
+                }
             }
         }
 
@@ -173,7 +248,7 @@ namespace Barcode_Sales.Forms
             double cash = double.Parse(tCashCard_Cash.Text);
 
             double cashTotal = total - card;
-            if (cashTotal <0)
+            if (cashTotal < 0)
             {
                 NoticationHelpers.Messages.WarningMessage(this, "Kart məbləği yekun məbləğdən böyük olabilməz !", nameof(Enums.MessageTitle.Xəbərdarlıq));
                 return;

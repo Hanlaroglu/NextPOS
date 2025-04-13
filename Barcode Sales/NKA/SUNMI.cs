@@ -26,12 +26,12 @@ namespace Barcode_Sales.NKA
         static fPosSales _form = Application.OpenForms.OfType<fPosSales>().FirstOrDefault();
 
 
-        public string Login(NkaDto.LoginDto item)
+        public static string Login(NkaDto.LoginDto item)
         {
             throw new NotImplementedException();
         }
 
-        public bool OpenShift(NkaDto.ShiftDto item)
+        private static void OpenShift(NkaDto.ShiftDto item)
         {
             OpenShiftRequest requestData = new OpenShiftRequest
             {
@@ -42,7 +42,7 @@ namespace Barcode_Sales.NKA
                 }
             };
 
-            SunmiBaseRequest<OpenShiftRequest> request = new SunmiBaseRequest<OpenShiftRequest>
+            BaseRequest<OpenShiftRequest> request = new BaseRequest<OpenShiftRequest>
             {
                 data = requestData,
                 operation = "openShift"
@@ -58,29 +58,25 @@ namespace Barcode_Sales.NKA
                 if ($"{responseData.message}" == "Success operation" || $"{responseData.message}" == "Successful operation")
                 {
                     NoticationHelpers.Messages.SuccessMessage(_form, $"Növbə uğurla açıldı");
-                    return true;
                 }
                 else if (responseData.message is "Növbə artıq açıqdır")
                 {
                     NoticationHelpers.Messages.InfoMessage(_form, responseData.message);
-                    return false;
                 }
                 else
                 {
                     NoticationHelpers.Messages.ErrorMessage(_form, responseData.message);
-                    return false;
                 }
             }
             else
             {
                 NoticationHelpers.Messages.ErrorMessage(_form, response.ErrorMessage);
-                return false;
             }
         }
 
-        public void GetShiftStatus(NkaDto.ShiftDto item)
+        public static void GetShiftStatus(NkaDto.ShiftDto item)
         {
-            var request = new SunmiBaseRequest<object>
+            var request = new BaseRequest<object>
             {
                 operation = "getShiftStatus"
             };
@@ -115,7 +111,12 @@ namespace Barcode_Sales.NKA
             }
         }
 
-        public bool CloseShift(NkaDto.ShiftDto item)
+        public static void XReport()
+        {
+
+        }
+
+        public static bool CloseShift(NkaDto.ShiftDto item)
         {
             CloseShiftRequest data = new CloseShiftRequest
             {
@@ -126,7 +127,7 @@ namespace Barcode_Sales.NKA
                 }
             };
 
-            SunmiBaseRequest<CloseShiftRequest> request = new SunmiBaseRequest<CloseShiftRequest>
+            BaseRequest<CloseShiftRequest> request = new BaseRequest<CloseShiftRequest>
             {
                 data = data,
                 operation = "closeShift"
@@ -165,7 +166,7 @@ namespace Barcode_Sales.NKA
                 sum = item.Amount
             };
 
-            SunmiBaseRequest<DepositRequest> request = new NKA.SunmiBaseRequest<DepositRequest>
+            BaseRequest<DepositRequest> request = new BaseRequest<DepositRequest>
             {
                 data = depositRequest,
                 operation = "deposit"
@@ -213,7 +214,7 @@ namespace Barcode_Sales.NKA
                 sum = item.Amount
             };
 
-            SunmiBaseRequest<WithdrawRequest> request = new NKA.SunmiBaseRequest<WithdrawRequest>
+            BaseRequest<WithdrawRequest> request = new BaseRequest<WithdrawRequest>
             {
                 data = depositRequest,
                 operation = "withDraw"
@@ -266,7 +267,8 @@ namespace Barcode_Sales.NKA
                     discountAmount = _item.Discount,
                     quantity = _item.Amount,
                     quantityType = _item.QuantityType,
-                    vatType = _item.TaxType
+                    vatType = _item.TaxType,
+                    purchasePrice = _item.PurchasePrice,
                 };
                 items.Add(item);
             }
@@ -287,7 +289,7 @@ namespace Barcode_Sales.NKA
                 rrn = data.RRN,
             };
 
-            SunmiBaseRequest<SaleRequest> request = new SunmiBaseRequest<SaleRequest>
+            BaseRequest<SaleRequest> request = new BaseRequest<SaleRequest>
             {
                 data = saledata,
                 operation = "sale"
@@ -351,202 +353,204 @@ namespace Barcode_Sales.NKA
             }
         }
 
-        public bool Rollback()
+        public static bool Rollback()
         {
             throw new NotImplementedException();
         }
 
-        public bool Refund()
+        public static bool Refund()
         {
             throw new NotImplementedException();
         }
 
-        public bool CreditSale()
+        public static bool CreditSale()
         {
             throw new NotImplementedException();
         }
 
-        public bool CreditPay()
+        public static bool CreditPay()
         {
             throw new NotImplementedException();
         }
 
-        public bool PrepaymentPay()
+        public static bool PrepaymentPay()
         {
             throw new NotImplementedException();
         }
 
-        public bool PrepaymentSale()
+        public static bool PrepaymentSale()
         {
             throw new NotImplementedException();
         }
-    }
 
 
-    #region [.. Request Classess..]
 
-    public class SunmiBaseRequest<T> where T : class
-    {
-        public T data { get; set; } = null;
-        public string operation { get; set; }
-        public string username { get; set; } = "username";
-        public string password { get; set; } = "password";
-    }
+        #region [.. Request Classess..]
 
-    public class OpenShiftRequest
-    {
-        public class Data
+        public class BaseRequest<T> where T : class
         {
-            public double sum { get; set; } = 0;
+            public T data { get; set; } = null;
+            public string operation { get; set; }
+            public string username { get; set; } = "username";
+            public string password { get; set; } = "password";
         }
-        public Data data { get; set; }
-        public string cashierName { get; set; }
-    }
 
-    public class CloseShiftRequest
-    {
-        public class Data
+        public class OpenShiftRequest
         {
-            public string documentUUID { get; set; }
+            public class Data
+            {
+                public double sum { get; set; } = 0;
+            }
+            public Data data { get; set; }
             public string cashierName { get; set; }
         }
-        public Data data { get; set; }
-    }
 
-    public class DepositRequest
-    {
-        public string documentUUID { get; set; } = Guid.NewGuid().ToString();
-        public double sum { get; set; }
-        public string cashierName { get; set; }
-        public string currency { get; set; } = "AZN";
-    }
-
-    public class WithdrawRequest
-    {
-        public string documentUUID { get; set; } = Guid.NewGuid().ToString();
-        public double sum { get; set; }
-        public string cashierName { get; set; }
-        public string currency { get; set; } = "AZN";
-    }
-
-    public class SaleRequest
-    {
-        public string documentUUID { get; set; } = Guid.NewGuid().ToString();
-        public double cashPayment { get; set; }
-        public double creditPayment { get; set; }
-        public double depositPayment { get; set; }
-        public double cardPayment { get; set; }
-        public double bonusPayment { get; set; }
-        public List<Item> items { get; set; }
-        public string clientName { get; set; }
-        public double clientTotalBonus { get; set; }
-        public double clientEarnedBonus { get; set; }
-        public string clientBonusCardNumber { get; set; }
-        public string cashierName { get; set; }
-        public string note { get; set; } = null;
-        public string rrn { get; set; } = null;
-        public string currency { get; set; } = "AZN";
-        public class Item
+        public class CloseShiftRequest
         {
-            public string name { get; set; }
+            public class Data
+            {
+                public string documentUUID { get; set; }
+                public string cashierName { get; set; }
+            }
+            public Data data { get; set; }
+        }
+
+        public class DepositRequest
+        {
+            public string documentUUID { get; set; } = Guid.NewGuid().ToString();
+            public double sum { get; set; }
+            public string cashierName { get; set; }
+            public string currency { get; set; } = "AZN";
+        }
+
+        public class WithdrawRequest
+        {
+            public string documentUUID { get; set; } = Guid.NewGuid().ToString();
+            public double sum { get; set; }
+            public string cashierName { get; set; }
+            public string currency { get; set; } = "AZN";
+        }
+
+        public class SaleRequest
+        {
+            public string documentUUID { get; set; } = Guid.NewGuid().ToString();
+            public double cashPayment { get; set; }
+            public double creditPayment { get; set; }
+            public double depositPayment { get; set; }
+            public double cardPayment { get; set; }
+            public double bonusPayment { get; set; }
+            public List<Item> items { get; set; }
+            public string clientName { get; set; }
+            public double clientTotalBonus { get; set; }
+            public double clientEarnedBonus { get; set; }
+            public string clientBonusCardNumber { get; set; }
+            public string cashierName { get; set; }
+            public string note { get; set; } = null;
+            public string rrn { get; set; } = null;
+            public string currency { get; set; } = "AZN";
+            public class Item
+            {
+                public string name { get; set; }
+                public string code { get; set; }
+                public double quantity { get; set; }
+                public double salePrice { get; set; }
+                public double? purchasePrice { get; set; }
+                public int codeType { get; set; }
+                public int quantityType { get; set; }
+                public int vatType { get; set; }
+                public string itemUuid { get; set; }
+                public double discountAmount { get; set; }
+                public List<string> markingCodes { get; set; }
+            }
+        }
+
+
+        #endregion [.. Request Classess..]
+
+
+
+        #region [.. Response Classess..]
+
+        public abstract class SunmiBaseResponse
+        {
             public string code { get; set; }
-            public double quantity { get; set; }
-            public double salePrice { get; set; }
-            public double purchasePrice { get; set; }
-            public int codeType { get; set; }
-            public int quantityType { get; set; }
-            public int vatType { get; set; }
-            public string itemUuid { get; set; }
-            public double discountAmount { get; set; }
-            public List<string> markingCodes { get; set; }
+            public string message { get; set; }
         }
-    }
 
-
-    #endregion [.. Request Classess..]
-
-
-    #region [.. Response Classess..]
-
-    public abstract class SunmiBaseResponse
-    {
-        public string code { get; set; }
-        public string message { get; set; }
-    }
-
-    public class LoginResponse : SunmiBaseResponse
-    {
-        public class Data
+        public class LoginResponse : SunmiBaseResponse
         {
-            public string access_token { get; set; }
+            public class Data
+            {
+                public string access_token { get; set; }
+            }
+
+            public Data data { get; set; }
         }
 
-        public Data data { get; set; }
-    }
-
-    public class LogoutResponse : SunmiBaseResponse
-    {
-
-    }
-
-    public class OpenShiftResponse : SunmiBaseResponse
-    {
-
-    }
-
-    public class ShiftStatusResponse : SunmiBaseResponse
-    {
-        public class Data
+        public class LogoutResponse : SunmiBaseResponse
         {
-            public bool shift_open { get; set; }
-            public DateTime shift_open_time { get; set; }
-        }
-        public Data data { get; set; }
-    }
 
-    public class DepositResponse : SunmiBaseResponse
-    {
-        public Data data { get; set; }
-        public class Data
+        }
+
+        public class OpenShiftResponse : SunmiBaseResponse
         {
-            public string document_id { get; set; }
-            public string document_number { get; set; }
-            public string shift_document_number { get; set; }
-            public string short_document_id { get; set; }
-            //public double totalSum { get; set; }
-        }
-    }
 
-    public class WithdrawResponse : SunmiBaseResponse
-    {
-        public Data data { get; set; }
-        public class Data
+        }
+
+        public class ShiftStatusResponse : SunmiBaseResponse
         {
-            public string document_id { get; set; }
-            public string document_number { get; set; }
-            public string shift_document_number { get; set; }
-            public string short_document_id { get; set; }
-            //public double totalSum { get; set; }
+            public class Data
+            {
+                public bool shift_open { get; set; }
+                public DateTime shift_open_time { get; set; }
+            }
+            public Data data { get; set; }
         }
-    }
 
-    public class SaleResponse : SunmiBaseResponse
-    {
-        public Data data { get; set; }
-        public class Data
+        public class DepositResponse : SunmiBaseResponse
         {
-            public string approval_code { get; set; }
-            public string document_id { get; set; }
-            public int document_number { get; set; }
-            public string number { get; set; }
-            public string rrn { get; set; }
-            public int shift_document_number { get; set; }
-            public string short_document_id { get; set; }
-            public double totalSum { get; set; }
-            public string transaction_id { get; set; }
-            public string transaction_number { get; set; }
+            public Data data { get; set; }
+            public class Data
+            {
+                public string document_id { get; set; }
+                public string document_number { get; set; }
+                public string shift_document_number { get; set; }
+                public string short_document_id { get; set; }
+                //public double totalSum { get; set; }
+            }
         }
-    }
 
-    #endregion [.. Response Classess..]
+        public class WithdrawResponse : SunmiBaseResponse
+        {
+            public Data data { get; set; }
+            public class Data
+            {
+                public string document_id { get; set; }
+                public string document_number { get; set; }
+                public string shift_document_number { get; set; }
+                public string short_document_id { get; set; }
+                //public double totalSum { get; set; }
+            }
+        }
+
+        public class SaleResponse : SunmiBaseResponse
+        {
+            public Data data { get; set; }
+            public class Data
+            {
+                public string approval_code { get; set; }
+                public string document_id { get; set; }
+                public int document_number { get; set; }
+                public string number { get; set; }
+                public string rrn { get; set; }
+                public int shift_document_number { get; set; }
+                public string short_document_id { get; set; }
+                public double totalSum { get; set; }
+                public string transaction_id { get; set; }
+                public string transaction_number { get; set; }
+            }
+        }
+
+        #endregion [.. Response Classess..]
+    }
 }

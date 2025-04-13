@@ -28,32 +28,32 @@ namespace Barcode_Sales.Barcode.Sales.UI.Kassa
 
         private void bOpenPOS_Click(object sender, EventArgs e)
         {
-            Sunmi.OpenShift(Sunmi.TerminalIPAdress());
+            //Sunmi.OpenShift(Sunmi.TerminalIPAdress());
         }
 
         private void simpleButton2_Click(object sender, EventArgs e)
         {
-            Sunmi.CloseShift(Sunmi.TerminalIPAdress());
+         //   Sunmi.CloseShift(Sunmi.TerminalIPAdress());
         }
 
         private void simpleButton1_Click(object sender, EventArgs e)
         {
-            Sunmi.PrintLast(Sunmi.TerminalIPAdress());
+           // Sunmi.PrintLast(Sunmi.TerminalIPAdress());
         }
 
         private void simpleButton3_Click(object sender, EventArgs e)
         {
-            Sunmi.ShiftStatus(Sunmi.TerminalIPAdress());
+           // Sunmi.ShiftStatus(Sunmi.TerminalIPAdress());
         }
 
         private void simpleButton4_Click(object sender, EventArgs e)
         {
-            Sunmi.PeriodicReport(Sunmi.TerminalIPAdress());
+//Sunmi.PeriodicReport(Sunmi.TerminalIPAdress());
         }
 
         private void simpleButton5_Click(object sender, EventArgs e)
         {
-            Sunmi.XReport(Sunmi.TerminalIPAdress());
+          //  Sunmi.XReport(Sunmi.TerminalIPAdress());
         }
     }
 }

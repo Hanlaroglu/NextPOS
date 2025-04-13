@@ -103,7 +103,7 @@ namespace Barcode_Sales.Operations.Concrete
 
         public Terminals GetIpAddress()
         {
-            var terminal = Where(x => x.UserId.Value == CommonData.CURRENT_USER.Id).FirstOrDefault();
+            var terminal = Where(x => x.UserId == CommonData.CURRENT_USER.Id && x.IsDeleted == 0).FirstOrDefault();
             fPosSales _form = Application.OpenForms.OfType<fPosSales>().FirstOrDefault();
 
             if (terminal.IsDeleted != 0)

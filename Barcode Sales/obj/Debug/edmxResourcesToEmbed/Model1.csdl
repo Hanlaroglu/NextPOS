@@ -176,6 +176,17 @@
     <EntitySet Name="SalesDatas" EntityType="NextposDBModel.SalesData" />
     <EntitySet Name="SalesDataDetails" EntityType="NextposDBModel.SalesDataDetail" />
     <EntitySet Name="TerminalIncomesAndExpenses" EntityType="NextposDBModel.TerminalIncomesAndExpens" />
+    <EntitySet Name="CloseShiftReports" EntityType="NextposDBModel.CloseShiftReport" />
+    <EntitySet Name="ReturnPos" EntityType="NextposDBModel.ReturnPos" />
+    <EntitySet Name="ReturnPosDetails" EntityType="NextposDBModel.ReturnPosDetail" />
+    <AssociationSet Name="FK_SalesData_ToCustomer" Association="NextposDBModel.FK_SalesData_ToCustomer">
+      <End Role="Customers" EntitySet="Customers" />
+      <End Role="SalesData" EntitySet="SalesDatas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SalesData_ToUser" Association="NextposDBModel.FK_SalesData_ToUser">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="SalesData" EntitySet="SalesDatas" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="Suppliers">
     <Key>
@@ -505,6 +516,7 @@
     <NavigationProperty Name="Roles" Relationship="NextposDBModel.FK_Users_RoleID" FromRole="Users" ToRole="Roles" />
     <NavigationProperty Name="Stores" Relationship="NextposDBModel.FK__Users__StoreID__60A75C0F" FromRole="Users" ToRole="Stores" />
     <NavigationProperty Name="Terminals" Relationship="NextposDBModel.FK_Terminals_To_User" FromRole="Users" ToRole="Terminals" />
+    <NavigationProperty Name="SalesDatas" Relationship="NextposDBModel.FK_SalesData_ToUser" FromRole="Users" ToRole="SalesData" />
   </EntityType>
   <Association Name="FK_Table_Users">
     <End Type="NextposDBModel.Users" Role="Users" Multiplicity="1" />
@@ -656,6 +668,7 @@
     <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="Status" Type="Boolean" />
     <NavigationProperty Name="CustomersDebts" Relationship="NextposDBModel.FK_CustomerDebts_Customer" FromRole="Customers" ToRole="CustomersDebt" />
+    <NavigationProperty Name="SalesDatas" Relationship="NextposDBModel.FK_SalesData_ToCustomer" FromRole="Customers" ToRole="SalesData" />
   </EntityType>
   <EntityType Name="CustomerPayment">
     <Key>
@@ -727,6 +740,8 @@
     <Property Name="IncomingSum" Type="Double" />
     <Property Name="CustomerId" Type="Int32" />
     <Property Name="Note" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Customer" Relationship="NextposDBModel.FK_SalesData_ToCustomer" FromRole="SalesData" ToRole="Customers" />
+    <NavigationProperty Name="User" Relationship="NextposDBModel.FK_SalesData_ToUser" FromRole="SalesData" ToRole="Users" />
   </EntityType>
   <EntityType Name="SalesDataDetail">
     <Key>
@@ -750,4 +765,71 @@
     <Property Name="Date" Type="DateTime" Precision="0" />
     <Property Name="Time" Type="Time" Precision="7" />
   </EntityType>
+  <EntityType Name="CloseShiftReport">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OpenShiftDate" Type="DateTime" Precision="3" />
+    <Property Name="CloseShiftDate" Type="DateTime" Precision="3" />
+    <Property Name="FiskalID" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="JsonResponse" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="UserId" Type="Int32" />
+  </EntityType>
+  <EntityType Name="ReturnPos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SaleDataId" Type="Int32" />
+    <Property Name="UserId" Type="Int32" />
+    <Property Name="ReceiptNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LongFiscalId" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="ShortFiscalId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Rrn" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ReturnDate" Type="DateTime" Precision="0" />
+    <Property Name="ReturnDatetime" Type="DateTime" Precision="3" />
+    <Property Name="Total" Type="Double" />
+    <Property Name="Cash" Type="Double" />
+    <Property Name="Card" Type="Double" />
+    <Property Name="IncomingSum" Type="Double" />
+    <Property Name="CustomerId" Type="Int32" />
+    <Property Name="Note" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="ReturnPosDetail">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ReturnDataId" Type="Int32" />
+    <Property Name="SalesDataDetailId" Type="Int32" />
+    <Property Name="ProductId" Type="Int32" />
+    <Property Name="Quantity" Type="Double" />
+    <Property Name="SalePrice" Type="Double" />
+    <Property Name="Discount" Type="Double" />
+  </EntityType>
+  <Association Name="FK_SalesData_ToCustomer">
+    <End Type="NextposDBModel.Customers" Role="Customers" Multiplicity="0..1" />
+    <End Type="NextposDBModel.SalesData" Role="SalesData" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SalesData">
+        <PropertyRef Name="CustomerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SalesData_ToUser">
+    <End Type="NextposDBModel.Users" Role="Users" Multiplicity="0..1" />
+    <End Type="NextposDBModel.SalesData" Role="SalesData" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SalesData">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

@@ -42,7 +42,7 @@ namespace Barcode_Sales.Forms
         {
             public int Id { get; set; }
             public string ProductName { get; set; }
-            public double PurchasePrice { get; set; }
+            public double? PurchasePrice { get; set; }
             public double SalePrice { get; set; } = 0;
             public double Discount { get; set; } = 0;
             public string Barcode { get; set; }
@@ -66,6 +66,7 @@ namespace Barcode_Sales.Forms
                 Id = x.Id,
                 ProductName = x.ProductName,
                 SalePrice = (double)x.SalePrice,
+                PurchasePrice = (double)x.PurchasePrice,
                 Barcode = x.Barcode,
                 Unit = x.Unit,
                 Tax = x.Tax
@@ -83,7 +84,7 @@ namespace Barcode_Sales.Forms
 
         private void bPay_Click(object sender, EventArgs e)
         {
-            if (tProductCount.Text != CommonData.DEFAULT_INT_TOSTRING)
+            if (dataList.Count > 0)
             {
                 fPosPay f = new fPosPay(new SaleData
                 {
@@ -102,10 +103,10 @@ namespace Barcode_Sales.Forms
         private void Clear()
         {
             dataList.Clear();
-            tTotal.Clear();
+            tTotal.Text = 0.ToString("0.00");
             tCustomer.Clear();
             tComment.Clear();
-            tProductCount.Clear();
+            tProductCount.Text = CommonData.DEFAULT_INT_TOSTRING;
             // todo Növbə ərzindəki çek sayını artır
         }
 
@@ -149,6 +150,7 @@ namespace Barcode_Sales.Forms
                     SaleDataItem grid = new SaleDataItem
                     {
                         ProductName = selectedRow.ProductName,
+                        PurchasePrice = selectedRow.PurchasePrice,
                         SalePrice = selectedRow.SalePrice,
                         Discount = selectedRow.Discount,
                         Id = selectedRow.Id,
@@ -220,8 +222,10 @@ namespace Barcode_Sales.Forms
         private void TotalAmountCalculation()
         {
             gridBasket.RefreshData();
-            tProductCount.Text = dataList.Count.ToString();
-            tTotal.Text = dataList.Sum(x => x.Total).ToString("N2");
+            //tProductCount.Text = dataList.Count.ToString();
+            tProductCount.Text = dataList == null ? CommonData.DEFAULT_INT_TOSTRING : dataList.Count.ToString();
+            //tTotal.Text = dataList.Sum(x => x.Total).ToString("0.00");
+            tTotal.Text = dataList == null ? 0.ToString("N2") : dataList.Sum(x => x.Total).ToString("0.00");
         }
 
         private void bProductDelete_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)

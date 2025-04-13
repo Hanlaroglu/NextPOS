@@ -50,6 +50,11 @@
         <EntityTypeShape EntityType="NextposDBModel.SalesData" Width="1.5" PointX="13.375" PointY="0.75" />
         <EntityTypeShape EntityType="NextposDBModel.SalesDataDetail" Width="1.5" PointX="5.375" PointY="4.75" />
         <EntityTypeShape EntityType="NextposDBModel.TerminalIncomesAndExpens" Width="1.5" PointX="15.375" PointY="0.75" />
+        <EntityTypeShape EntityType="NextposDBModel.CloseShiftReport" Width="1.5" PointX="15.375" PointY="3.75" />
+        <EntityTypeShape EntityType="NextposDBModel.ReturnPos" Width="1.5" PointX="15.375" PointY="9.5" />
+        <EntityTypeShape EntityType="NextposDBModel.ReturnPosDetail" Width="1.5" PointX="15.375" PointY="6.75" />
+        <AssociationConnector Association="NextposDBModel.FK_SalesData_ToCustomer" />
+        <AssociationConnector Association="NextposDBModel.FK_SalesData_ToUser" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

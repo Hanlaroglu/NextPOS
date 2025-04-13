@@ -34,7 +34,7 @@ namespace Barcode_Sales.Helpers
         {
             [Description("18% ƏDV")]
             Vat18 = 1,
-            [Description("TİCARƏT ƏLAVƏSİ - 18%")]
+            [Description("TİCARƏT ƏLAVƏSİ")]
             TradeSupplement = 2,
             [Description("0% - ( ƏDV-DƏN AZAD )")]
             VatFree = 3,

@@ -250,7 +250,7 @@
             this.bRefund.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
             this.bRefund.Size = new System.Drawing.Size(175, 65);
             this.bRefund.TabIndex = 0;
-            this.bRefund.Text = "Geri \r\nqaytarma";
+            this.bRefund.Text = "Qaytarma";
             this.bRefund.Click += new System.EventHandler(this.bRefund_Click);
             // 
             // fPosSalesControlPanel
