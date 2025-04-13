@@ -122,15 +122,19 @@
     <value>
         AAEAAAD/////AQAAAAAAAAAMAgAAAFlEZXZFeHByZXNzLkRhdGEudjI0LjEsIFZlcnNpb249MjQuMS4z
         LjAsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49Yjg4ZDE3NTRkNzAwZTQ5YQUBAAAAHURl
-        dkV4cHJlc3MuVXRpbHMuU3ZnLlN2Z0ltYWdlAQAAAAREYXRhBwICAAAACQMAAAAPAwAAALQBAAAC77u/
+        dkV4cHJlc3MuVXRpbHMuU3ZnLlN2Z0ltYWdlAQAAAAREYXRhBwICAAAACQMAAAAPAwAAADUBAAAC77u/
         PD94bWwgdmVyc2lvbj0nMS4wJyBlbmNvZGluZz0nVVRGLTgnPz4NCjxzdmcgd2lkdGg9IjMycHgiIGhl
         aWdodD0iMzJweCIgdmlld0JveD0iMCAwIDI1NiAyNTYiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8y
-        MDAwL3N2ZyIgZmlsbD0iIzBmMGMyOSI+DQogIDxwYXRoIGQ9Ik0xMjgsOThhMzAsMzAsMCwxLDAsMzAs
-        MzBBMzAsMzAsMCwwLDAsMTI4LDk4Wm0wLDQ4YTE4LDE4LDAsMSwxLDE4LTE4QTE4LDE4LDAsMCwxLDEy
-        OCwxNDZaTTQ4LDk4YTMwLDMwLDAsMSwwLDMwLDMwQTMwLDMwLDAsMCwwLDQ4LDk4Wm0wLDQ4YTE4LDE4
-        LDAsMSwxLDE4LTE4QTE4LDE4LDAsMCwxLDQ4LDE0NlpNMjA4LDk4YTMwLDMwLDAsMSwwLDMwLDMwQTMw
-        LDMwLDAsMCwwLDIwOCw5OFptMCw0OGExOCwxOCwwLDEsMSwxOC0xOEExOCwxOCwwLDAsMSwyMDgsMTQ2
-        WiIgLz4NCjwvc3ZnPgs=
+        MDAwL3N2ZyIgZmlsbD0iIzBmMGMyOSI+DQogIDxwYXRoIGQ9Ik0xNTYsMTI4YTI4LDI4LDAsMSwxLTI4
+        LTI4QTI4LDI4LDAsMCwxLDE1NiwxMjhaTTQ4LDEwMGEyOCwyOCwwLDEsMCwyOCwyOEEyOCwyOCwwLDAs
+        MCw0OCwxMDBabTE2MCwwYTI4LDI4LDAsMSwwLDI4LDI4QTI4LDI4LDAsMCwwLDIwOCwxMDBaIiAvPg0K
+        PC9zdmc+Cw==
 </value>
   </data>
+  <metadata name="barManager1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <metadata name="popupMenu1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>141, 17</value>
+  </metadata>
 </root>

@@ -1,5 +1,7 @@
-﻿using Barcode_Sales.Operations.Abstract;
+﻿using Barcode_Sales.Helpers.Messages;
+using Barcode_Sales.Operations.Abstract;
 using Barcode_Sales.Operations.Concrete;
+using Barcode_Sales.Tools;
 using DevExpress.XtraEditors;
 using System;
 using System.Collections.Generic;
@@ -60,7 +62,7 @@ namespace Barcode_Sales.Forms
             switch (navigationFrame1.SelectedPage)
             {
                 case var page when page == pageDate:
-                   data = saleDataOperation.Where(x=> x.SaleDate > dateStart.DateTime && x.SaleDate <= dateFinish.DateTime).ToList();
+                    data = saleDataOperation.Where(x => x.SaleDate > dateStart.DateTime && x.SaleDate <= dateFinish.DateTime).ToList();
                     break;
                 case var page when page == pageReceiptNo:
                     data = saleDataOperation.Where(x => x.ReceiptNo == tReceiptNo.Text.Trim()).ToList();
@@ -74,7 +76,7 @@ namespace Barcode_Sales.Forms
 
         private void tReceiptNo_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter) 
+            if (e.KeyCode == Keys.Enter)
                 bSearch_Click(null, null);
         }
 
@@ -86,7 +88,42 @@ namespace Barcode_Sales.Forms
 
         private void bReturnSale_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
+            Point mousePosition = Control.MousePosition; // Fare konumunu al
+            popupMenu1.ShowPopup(mousePosition); // Popup menüyü o noktada göster
+        }
 
+        private void barBtnCancel_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if (gridSalesData.GetFocusedRow() == null)
+            {
+                OperationsControl.Message(CommonMessages.NOT_SELECTİON, NextPOS.UserControls.fMessage.enmType.Warning);
+                return;
+            }
+            else
+            {
+                int Id = Convert.ToInt32(gridSalesData.GetFocusedRowCellValue("Id").ToString());
+                var data = saleDataOperation.GetById(Id);
+                fPosRollbackProduct f = new fPosRollbackProduct(Helpers.Enums.PosReturnType.Rollback,data);
+                f.Show();
+            }
+            
+        }
+
+        private void barBtnReturn_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if (gridSalesData.GetFocusedRow() == null)
+            {
+                OperationsControl.Message(CommonMessages.NOT_SELECTİON, NextPOS.UserControls.fMessage.enmType.Warning);
+                return;
+            }
+            else
+            {
+                int Id = Convert.ToInt32(gridSalesData.GetFocusedRowCellValue("Id").ToString());
+                var data = saleDataOperation.GetById(Id);
+                fPosRollbackProduct f = new fPosRollbackProduct(Helpers.Enums.PosReturnType.MoneyBack,data);
+                f.Show();
+            }
+           
         }
     }
 }

@@ -552,6 +552,30 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_SalesDataDetail_ToProducts">
+    <End Role="Products" Type="Self.Products" Multiplicity="0..1" />
+    <End Role="SalesDataDetail" Type="Self.SalesDataDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SalesDataDetail">
+        <PropertyRef Name="ProductId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SalesDataDetail_ToSalesData">
+    <End Role="SalesData" Type="Self.SalesData" Multiplicity="0..1" />
+    <End Role="SalesDataDetail" Type="Self.SalesDataDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SalesData">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SalesDataDetail">
+        <PropertyRef Name="SaleDataId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_SupplierDebts_Supplier">
     <End Role="Suppliers" Type="Self.Suppliers" Multiplicity="0..1" />
     <End Role="SuppliersDebts" Type="Self.SuppliersDebts" Multiplicity="*" />
@@ -746,6 +770,14 @@
     <AssociationSet Name="FK_SalesData_ToUser" Association="Self.FK_SalesData_ToUser">
       <End Role="Users" EntitySet="Users" />
       <End Role="SalesData" EntitySet="SalesData" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SalesDataDetail_ToProducts" Association="Self.FK_SalesDataDetail_ToProducts">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="SalesDataDetail" EntitySet="SalesDataDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SalesDataDetail_ToSalesData" Association="Self.FK_SalesDataDetail_ToSalesData">
+      <End Role="SalesData" EntitySet="SalesData" />
+      <End Role="SalesDataDetail" EntitySet="SalesDataDetail" />
     </AssociationSet>
     <AssociationSet Name="FK_SupplierDebts_Supplier" Association="Self.FK_SupplierDebts_Supplier">
       <End Role="Suppliers" EntitySet="Suppliers" />

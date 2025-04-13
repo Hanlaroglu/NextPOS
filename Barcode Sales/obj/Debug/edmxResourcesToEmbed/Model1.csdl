@@ -187,6 +187,14 @@
       <End Role="Users" EntitySet="Users" />
       <End Role="SalesData" EntitySet="SalesDatas" />
     </AssociationSet>
+    <AssociationSet Name="FK_SalesDataDetail_ToProducts" Association="NextposDBModel.FK_SalesDataDetail_ToProducts">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="SalesDataDetail" EntitySet="SalesDataDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SalesDataDetail_ToSalesData" Association="NextposDBModel.FK_SalesDataDetail_ToSalesData">
+      <End Role="SalesData" EntitySet="SalesDatas" />
+      <End Role="SalesDataDetail" EntitySet="SalesDataDetails" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="Suppliers">
     <Key>
@@ -243,6 +251,7 @@
     <NavigationProperty Name="Stores" Relationship="NextposDBModel.FK_Products_Store" FromRole="Products" ToRole="Stores" />
     <NavigationProperty Name="Warehouses" Relationship="NextposDBModel.FK_Products_Warehouse" FromRole="Products" ToRole="Warehouses" />
     <NavigationProperty Name="InvoiceProducts" Relationship="NextposDBModel.FK_Table_Product" FromRole="Products" ToRole="InvoiceProducts" />
+    <NavigationProperty Name="SalesDataDetails" Relationship="NextposDBModel.FK_SalesDataDetail_ToProducts" FromRole="Products" ToRole="SalesDataDetail" />
   </EntityType>
   <Association Name="FK_Products_Category">
     <End Type="NextposDBModel.Categories" Role="Categories" Multiplicity="0..1" />
@@ -742,6 +751,7 @@
     <Property Name="Note" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="Customer" Relationship="NextposDBModel.FK_SalesData_ToCustomer" FromRole="SalesData" ToRole="Customers" />
     <NavigationProperty Name="User" Relationship="NextposDBModel.FK_SalesData_ToUser" FromRole="SalesData" ToRole="Users" />
+    <NavigationProperty Name="SalesDataDetails" Relationship="NextposDBModel.FK_SalesDataDetail_ToSalesData" FromRole="SalesData" ToRole="SalesDataDetail" />
   </EntityType>
   <EntityType Name="SalesDataDetail">
     <Key>
@@ -753,6 +763,8 @@
     <Property Name="Quantity" Type="Double" />
     <Property Name="SalePrice" Type="Double" />
     <Property Name="Discount" Type="Double" />
+    <NavigationProperty Name="Product" Relationship="NextposDBModel.FK_SalesDataDetail_ToProducts" FromRole="SalesDataDetail" ToRole="Products" />
+    <NavigationProperty Name="SalesData" Relationship="NextposDBModel.FK_SalesDataDetail_ToSalesData" FromRole="SalesDataDetail" ToRole="SalesData" />
   </EntityType>
   <EntityType Name="TerminalIncomesAndExpens">
     <Key>
@@ -829,6 +841,30 @@
       </Principal>
       <Dependent Role="SalesData">
         <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SalesDataDetail_ToProducts">
+    <End Type="NextposDBModel.Products" Role="Products" Multiplicity="0..1" />
+    <End Type="NextposDBModel.SalesDataDetail" Role="SalesDataDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SalesDataDetail">
+        <PropertyRef Name="ProductId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SalesDataDetail_ToSalesData">
+    <End Type="NextposDBModel.SalesData" Role="SalesData" Multiplicity="0..1" />
+    <End Type="NextposDBModel.SalesDataDetail" Role="SalesDataDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SalesData">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SalesDataDetail">
+        <PropertyRef Name="SaleDataId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

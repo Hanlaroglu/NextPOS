@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fPosRollback));
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
@@ -64,6 +65,14 @@
             this.chDate = new DevExpress.XtraEditors.CheckEdit();
             this.bSearch = new DevExpress.XtraEditors.SimpleButton();
             this.separatorControl1 = new DevExpress.XtraEditors.SeparatorControl();
+            this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
+            this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
+            this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
+            this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
+            this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
+            this.barBtnReturn = new DevExpress.XtraBars.BarButtonItem();
+            this.barBtnCancel = new DevExpress.XtraBars.BarButtonItem();
+            this.popupMenu1 = new DevExpress.XtraBars.PopupMenu(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.gridControlSalesData)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridSalesData)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bReturnSale)).BeginInit();
@@ -86,6 +95,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.chReceiptNo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chDate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.separatorControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.popupMenu1)).BeginInit();
             this.SuspendLayout();
             // 
             // gridControlSalesData
@@ -149,7 +160,7 @@
             this.gridColumn1.AppearanceCell.Font = new System.Drawing.Font("Nunito", 11F);
             this.gridColumn1.AppearanceCell.Options.UseFont = true;
             this.gridColumn1.Caption = "Satış tarixi";
-            this.gridColumn1.DisplayFormat.FormatString = "dd.MM.yyyy HH:mm:ss";
+            this.gridColumn1.DisplayFormat.FormatString = "dd.MM.yyyy - HH:mm:ss";
             this.gridColumn1.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.gridColumn1.FieldName = "SaleDatetime";
             this.gridColumn1.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.MiddleLeft;
@@ -163,7 +174,7 @@
             // 
             this.gridColumn5.AppearanceCell.Font = new System.Drawing.Font("Nunito", 11F);
             this.gridColumn5.AppearanceCell.Options.UseFont = true;
-            this.gridColumn5.Caption = "İstifadəçi";
+            this.gridColumn5.Caption = "Kassir";
             this.gridColumn5.FieldName = "User.NameSurname";
             this.gridColumn5.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.MiddleLeft;
             this.gridColumn5.Name = "gridColumn5";
@@ -230,10 +241,10 @@
             // 
             // gridColumn7
             // 
-            this.gridColumn7.Caption = "Geri qaytar";
             this.gridColumn7.ColumnEdit = this.bReturnSale;
             this.gridColumn7.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.MiddleLeft;
             this.gridColumn7.Name = "gridColumn7";
+            this.gridColumn7.OptionsColumn.ShowCaption = false;
             this.gridColumn7.OptionsFilter.AllowAutoFilter = false;
             this.gridColumn7.OptionsFilter.AllowFilter = false;
             this.gridColumn7.Visible = true;
@@ -362,7 +373,6 @@
             // 
             // pageFıscal
             // 
-            this.pageFıscal.Caption = "pageFıscal";
             this.pageFıscal.Controls.Add(this.tFiscalId);
             this.pageFıscal.Controls.Add(this.labelControl3);
             this.pageFıscal.Name = "pageFıscal";
@@ -393,7 +403,6 @@
             // 
             // pageReceiptNo
             // 
-            this.pageReceiptNo.Caption = "pageReceiptNo";
             this.pageReceiptNo.Controls.Add(this.tReceiptNo);
             this.pageReceiptNo.Controls.Add(this.labelControl4);
             this.pageReceiptNo.Name = "pageReceiptNo";
@@ -503,12 +512,86 @@
             this.separatorControl1.Size = new System.Drawing.Size(19, 155);
             this.separatorControl1.TabIndex = 2;
             // 
+            // barManager1
+            // 
+            this.barManager1.DockControls.Add(this.barDockControlTop);
+            this.barManager1.DockControls.Add(this.barDockControlBottom);
+            this.barManager1.DockControls.Add(this.barDockControlLeft);
+            this.barManager1.DockControls.Add(this.barDockControlRight);
+            this.barManager1.Form = this;
+            this.barManager1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
+            this.barBtnReturn,
+            this.barBtnCancel});
+            this.barManager1.MaxItemId = 2;
+            // 
+            // barDockControlTop
+            // 
+            this.barDockControlTop.CausesValidation = false;
+            this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
+            this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
+            this.barDockControlTop.Manager = this.barManager1;
+            this.barDockControlTop.Size = new System.Drawing.Size(1366, 0);
+            // 
+            // barDockControlBottom
+            // 
+            this.barDockControlBottom.CausesValidation = false;
+            this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 819);
+            this.barDockControlBottom.Manager = this.barManager1;
+            this.barDockControlBottom.Size = new System.Drawing.Size(1366, 0);
+            // 
+            // barDockControlLeft
+            // 
+            this.barDockControlLeft.CausesValidation = false;
+            this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
+            this.barDockControlLeft.Location = new System.Drawing.Point(0, 0);
+            this.barDockControlLeft.Manager = this.barManager1;
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 819);
+            // 
+            // barDockControlRight
+            // 
+            this.barDockControlRight.CausesValidation = false;
+            this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
+            this.barDockControlRight.Location = new System.Drawing.Point(1366, 0);
+            this.barDockControlRight.Manager = this.barManager1;
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 819);
+            // 
+            // barBtnReturn
+            // 
+            this.barBtnReturn.Caption = "Qaytar";
+            this.barBtnReturn.Id = 0;
+            this.barBtnReturn.Name = "barBtnReturn";
+            this.barBtnReturn.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+            this.barBtnReturn.Size = new System.Drawing.Size(100, 50);
+            this.barBtnReturn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnReturn_ItemClick);
+            // 
+            // barBtnCancel
+            // 
+            this.barBtnCancel.Caption = "Ləğv et";
+            this.barBtnCancel.Id = 1;
+            this.barBtnCancel.Name = "barBtnCancel";
+            this.barBtnCancel.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionInMenu;
+            this.barBtnCancel.Size = new System.Drawing.Size(100, 50);
+            this.barBtnCancel.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnCancel_ItemClick);
+            // 
+            // popupMenu1
+            // 
+            this.popupMenu1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(this.barBtnReturn),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barBtnCancel)});
+            this.popupMenu1.Manager = this.barManager1;
+            this.popupMenu1.Name = "popupMenu1";
+            // 
             // fPosRollback
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(1366, 819);
             this.Controls.Add(this.tablePanel1);
+            this.Controls.Add(this.barDockControlLeft);
+            this.Controls.Add(this.barDockControlRight);
+            this.Controls.Add(this.barDockControlBottom);
+            this.Controls.Add(this.barDockControlTop);
             this.Name = "fPosRollback";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Qaytarma";
@@ -539,7 +622,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.chReceiptNo.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chDate.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.separatorControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.popupMenu1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -575,5 +661,13 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn4;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn7;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit bReturnSale;
+        private DevExpress.XtraBars.BarManager barManager1;
+        private DevExpress.XtraBars.BarDockControl barDockControlTop;
+        private DevExpress.XtraBars.BarDockControl barDockControlBottom;
+        private DevExpress.XtraBars.BarDockControl barDockControlLeft;
+        private DevExpress.XtraBars.BarDockControl barDockControlRight;
+        private DevExpress.XtraBars.BarButtonItem barBtnReturn;
+        private DevExpress.XtraBars.BarButtonItem barBtnCancel;
+        private DevExpress.XtraBars.PopupMenu popupMenu1;
     }
 }

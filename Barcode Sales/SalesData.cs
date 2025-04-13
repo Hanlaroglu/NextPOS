@@ -14,6 +14,12 @@ namespace Barcode_Sales
     
     public partial class SalesData
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public SalesData()
+        {
+            this.SalesDataDetails = new HashSet<SalesDataDetail>();
+        }
+    
         public int Id { get; set; }
         public Nullable<int> UserId { get; set; }
         public string ReceiptNo { get; set; }
@@ -34,11 +40,13 @@ namespace Barcode_Sales
             {
                 if (Cash == 0 && Card > 0) return "KART";
                 if (Cash > 0 && Card == 0) return "NAĞD";
-                if (Cash > 0 && Card > 0) return "NAĞD - KART";
+                if (Cash > 0 && Card > 0) return "NAĞD-KART";
                 return null;
             }
         }
         public virtual Customers Customer { get; set; }
         public virtual Users User { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<SalesDataDetail> SalesDataDetails { get; set; }
     }
 }

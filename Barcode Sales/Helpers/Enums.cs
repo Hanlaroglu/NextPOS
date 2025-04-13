@@ -151,5 +151,11 @@ namespace Barcode_Sales.Helpers
             Deposit,
             Withdraw
         }
+
+        public enum PosReturnType
+        {
+            MoneyBack, //Qaytarma
+            Rollback //Ləğv etmə
+        }
     }
 }

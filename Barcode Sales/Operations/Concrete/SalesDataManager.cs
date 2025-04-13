@@ -39,7 +39,7 @@ namespace Barcode_Sales.Operations.Concrete
 
         public SalesData GetById(int id)
         {
-            throw new NotImplementedException();
+         return  db.SalesDatas.AsNoTracking().FirstOrDefault(x=> x.Id == id);
         }
 
         public Task<SalesData> GetByIdAsync(int id)

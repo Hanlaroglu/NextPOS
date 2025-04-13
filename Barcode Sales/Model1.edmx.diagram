@@ -55,6 +55,8 @@
         <EntityTypeShape EntityType="NextposDBModel.ReturnPosDetail" Width="1.5" PointX="15.375" PointY="6.75" />
         <AssociationConnector Association="NextposDBModel.FK_SalesData_ToCustomer" />
         <AssociationConnector Association="NextposDBModel.FK_SalesData_ToUser" />
+        <AssociationConnector Association="NextposDBModel.FK_SalesDataDetail_ToProducts" />
+        <AssociationConnector Association="NextposDBModel.FK_SalesDataDetail_ToSalesData" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
