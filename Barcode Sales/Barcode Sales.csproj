@@ -438,6 +438,7 @@
     <Compile Include="fTest.Designer.cs">
       <DependentUpon>fTest.cs</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\Classes\RefundClassess.cs" />
     <Compile Include="Helpers\Classes\SaleClasses.cs" />
     <Compile Include="Helpers\CommonData.cs" />
     <Compile Include="Helpers\Enums.cs" />

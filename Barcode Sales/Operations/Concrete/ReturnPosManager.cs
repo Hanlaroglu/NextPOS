@@ -30,6 +30,19 @@ namespace Barcode_Sales.Operations.Concrete
             throw new NotImplementedException();
         }
 
+        public int InsertReturnData(ReturnPos item)
+        {
+            try
+            {
+                db.ReturnPos.Add(item);
+                db.SaveChanges();
+                return item.Id;
+            }
+            catch (Exception)
+            {
+                return -1;
+            }
+        }
         public ReturnPos GetById(int id)
         {
             throw new NotImplementedException();

@@ -88,6 +88,7 @@ namespace Barcode_Sales.Forms
         {
             _data.IpAddress = _terminals.IpAddress;
             _data.Cash = _data.Total;
+            _data.Card = 0;
             _data.IncomingSum = double.Parse(tCash_Paid.Text);
 
             if (_data.IncomingSum < _data.Total)
@@ -130,6 +131,7 @@ namespace Barcode_Sales.Forms
         {
             _data.IpAddress = _terminals.IpAddress;
             _data.Card = double.Parse(tTotal.Text);
+            _data.Cash = 0;
 
             if (_terminals != null)
             {

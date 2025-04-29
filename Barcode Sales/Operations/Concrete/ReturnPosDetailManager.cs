@@ -31,6 +31,12 @@ namespace Barcode_Sales.Operations.Concrete
             throw new NotImplementedException();
         }
 
+        public void InsertRangeReturnDataDetail(List<ReturnPosDetail> items)
+        {
+            db.ReturnPosDetails.AddRange(items);
+            db.SaveChanges();
+        }
+
         public ReturnPosDetail GetById(int id)
         {
             throw new NotImplementedException();

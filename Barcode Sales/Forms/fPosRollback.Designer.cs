@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fPosRollback));
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
             this.gridControlSalesData = new DevExpress.XtraGrid.GridControl();
             this.gridSalesData = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colId = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -144,6 +144,7 @@
             this.gridSalesData.OptionsEditForm.PopupEditFormWidth = 1067;
             this.gridSalesData.OptionsMenu.EnableColumnMenu = false;
             this.gridSalesData.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.gridSalesData.OptionsView.BestFitMode = DevExpress.XtraGrid.Views.Grid.GridBestFitMode.Full;
             this.gridSalesData.OptionsView.ColumnHeaderAutoHeight = DevExpress.Utils.DefaultBoolean.True;
             this.gridSalesData.OptionsView.ShowGroupPanel = false;
             this.gridSalesData.OptionsView.ShowIndicator = false;
@@ -163,7 +164,6 @@
             this.gridColumn1.DisplayFormat.FormatString = "dd.MM.yyyy - HH:mm:ss";
             this.gridColumn1.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.gridColumn1.FieldName = "SaleDatetime";
-            this.gridColumn1.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.MiddleLeft;
             this.gridColumn1.Name = "gridColumn1";
             this.gridColumn1.OptionsColumn.AllowEdit = false;
             this.gridColumn1.Visible = true;
@@ -176,7 +176,6 @@
             this.gridColumn5.AppearanceCell.Options.UseFont = true;
             this.gridColumn5.Caption = "Kassir";
             this.gridColumn5.FieldName = "User.NameSurname";
-            this.gridColumn5.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.MiddleLeft;
             this.gridColumn5.Name = "gridColumn5";
             this.gridColumn5.OptionsColumn.AllowEdit = false;
             this.gridColumn5.Visible = true;
@@ -189,7 +188,6 @@
             this.gridColumn6.AppearanceCell.Options.UseFont = true;
             this.gridColumn6.Caption = "Müştəri";
             this.gridColumn6.FieldName = "Customer.NameSurname";
-            this.gridColumn6.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.MiddleLeft;
             this.gridColumn6.Name = "gridColumn6";
             this.gridColumn6.OptionsColumn.AllowEdit = false;
             this.gridColumn6.Visible = true;
@@ -202,7 +200,6 @@
             this.gridColumn2.AppearanceCell.Options.UseFont = true;
             this.gridColumn2.Caption = "Çek nömrəsi";
             this.gridColumn2.FieldName = "ReceiptNo";
-            this.gridColumn2.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.MiddleLeft;
             this.gridColumn2.Name = "gridColumn2";
             this.gridColumn2.OptionsColumn.AllowEdit = false;
             this.gridColumn2.Visible = true;
@@ -215,7 +212,6 @@
             this.gridColumn3.AppearanceCell.Options.UseFont = true;
             this.gridColumn3.Caption = "Ödəniş növü";
             this.gridColumn3.FieldName = "PaymentType";
-            this.gridColumn3.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.MiddleLeft;
             this.gridColumn3.Name = "gridColumn3";
             this.gridColumn3.OptionsColumn.AllowEdit = false;
             this.gridColumn3.Visible = true;
@@ -232,7 +228,6 @@
             this.gridColumn4.DisplayFormat.FormatString = "C2";
             this.gridColumn4.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.gridColumn4.FieldName = "Total";
-            this.gridColumn4.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.MiddleLeft;
             this.gridColumn4.Name = "gridColumn4";
             this.gridColumn4.OptionsColumn.AllowEdit = false;
             this.gridColumn4.Visible = true;
@@ -242,7 +237,6 @@
             // gridColumn7
             // 
             this.gridColumn7.ColumnEdit = this.bReturnSale;
-            this.gridColumn7.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.MiddleLeft;
             this.gridColumn7.Name = "gridColumn7";
             this.gridColumn7.OptionsColumn.ShowCaption = false;
             this.gridColumn7.OptionsFilter.AllowAutoFilter = false;
@@ -254,14 +248,14 @@
             // bReturnSale
             // 
             this.bReturnSale.AutoHeight = false;
-            editorButtonImageOptions1.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("editorButtonImageOptions1.SvgImage")));
-            editorButtonImageOptions1.SvgImageSize = new System.Drawing.Size(24, 24);
-            serializableAppearanceObject1.Font = new System.Drawing.Font("Nunito", 11F, System.Drawing.FontStyle.Bold);
-            serializableAppearanceObject1.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.Critical;
-            serializableAppearanceObject1.Options.UseFont = true;
-            serializableAppearanceObject1.Options.UseForeColor = true;
+            editorButtonImageOptions2.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("editorButtonImageOptions2.SvgImage")));
+            editorButtonImageOptions2.SvgImageSize = new System.Drawing.Size(24, 24);
+            serializableAppearanceObject5.Font = new System.Drawing.Font("Nunito", 11F, System.Drawing.FontStyle.Bold);
+            serializableAppearanceObject5.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.Critical;
+            serializableAppearanceObject5.Options.UseFont = true;
+            serializableAppearanceObject5.Options.UseForeColor = true;
             this.bReturnSale.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.bReturnSale.Name = "bReturnSale";
             this.bReturnSale.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.bReturnSale.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.bReturnSale_ButtonClick);

@@ -4,6 +4,7 @@ using Barcode_Sales.Helpers.Classes;
 using Barcode_Sales.NKA.DTOs;
 using Barcode_Sales.Operations.Abstract;
 using Barcode_Sales.Operations.Concrete;
+using DevExpress.XtraPrinting.Shape.Native;
 using Microsoft.Reporting.Map.WebForms.BingMaps;
 using Newtonsoft.Json;
 using System;
@@ -18,9 +19,12 @@ namespace Barcode_Sales.NKA
     {
         static ISaleDataOperation _saleDataOperation = new SalesDataManager();
         static ISalesDataDetailOperation _salesDataDetailOperation = new SalesDataDetailManager();
+        static IReturnPosOperation _returnPosOperation = new ReturnPosManager();
+        static IReturnPosDetailOperation _returnPosDetailOperation = new ReturnPosDetailManager();
         static ITerminalIncomeAndExpenseOperation incomeAndExpenseOperation = new IncomeAndExpenseManager();
         static ICloseShiftOperation closeShiftOperation = new CloseShiftManager();
         static fPosSales _form = Application.OpenForms.OfType<fPosSales>().FirstOrDefault();
+        static fPosRollbackProduct _rollbackForm = Application.OpenForms.OfType<fPosRollbackProduct>().FirstOrDefault();
 
         public static string Login(string IpAddress)
         {
@@ -166,7 +170,7 @@ namespace Barcode_Sales.NKA
                         FiskalID = responseData.data.document_id,
                         JsonResponse = response.Content,
                         UserId = CommonData.CURRENT_USER.Id,
-                        OpenShiftDate =responseData.data.shiftOpenAtUtc,
+                        OpenShiftDate = responseData.data.shiftOpenAtUtc,
                         CloseShiftDate = responseData.data.createdAtUtc
                     };
                     closeShiftOperation.Add(closeShift);
@@ -197,7 +201,13 @@ namespace Barcode_Sales.NKA
 
         public static bool Sale(SaleClasses.SaleData _data)
         {
-            _data.AccessToken = Login(_data.IpAddress);
+            if (string.IsNullOrWhiteSpace(_data.AccessToken))
+            {
+                _data.AccessToken = Login(_data.IpAddress);
+                if (string.IsNullOrWhiteSpace(_data.AccessToken))
+                    return false;
+            }
+
             List<SaleRequest.Item> items = new List<SaleRequest.Item>();
             foreach (var _item in _data.Items)
             {
@@ -326,9 +336,144 @@ namespace Barcode_Sales.NKA
             throw new NotImplementedException();
         }
 
-        public static bool Refund()
+        public static bool Refund(RefundClassess.Data _data)
         {
-            throw new NotImplementedException();
+            if (string.IsNullOrWhiteSpace(_data.AccessToken))
+            {
+                _data.AccessToken = Login(_data.IpAddress);
+                if (string.IsNullOrWhiteSpace(_data.AccessToken))
+                    return false;
+            }
+
+            List<RefundRequest.Item> items = new List<RefundRequest.Item>();
+            foreach (var _item in _data.Items)
+            {
+                int taxType = ConvertTaxType(_item.Tax);
+                int quantityType = ConvertQuantityType(_item.Unit);
+                RefundRequest.Item item = new RefundRequest.Item
+                {
+                    itemName = _item.ProductName,
+                    itemPrice = _item.SalePrice,
+                    itemSum = _item.Total,
+                    itemCode = _item.Barcode,
+                    itemCodeType = 0,
+                    discount = _item.Discount,
+                    itemQuantity = _item.Amount,
+                    itemQuantityType = quantityType,
+                    itemVatPercent = taxType,
+                    itemMarginPrice = _item.PurchasePrice,
+                    itemMarginSum = _item.PurchaseSum,
+                };
+
+                if (_item.TaxType != 18)
+                {
+                    item.itemMarginPrice = null;
+                    item.itemMarginSum = null;
+                }
+                items.Add(item);
+            }
+
+            List<RefundRequest.VatAmount> vatAmounts = items.GroupBy(x => x.itemVatPercent)
+                .Select(c => new RefundRequest.VatAmount
+                {
+                    vatPercent = c.Key,
+                    vatSum = c.Sum(x => x.itemSum)
+                }).ToList();
+
+            RefundRequest.Data data = new RefundRequest.Data
+            {
+                sum = _data.Total,
+                cashier = _data.Cashier,
+                items = items,
+                vatAmounts = vatAmounts,
+                refund_document_number = _data.document_number,
+                parentDocument = _data.LongFiskalId,
+                refund_short_document_id = _data.ShortFiskalId,
+            };
+
+            if (_data.Cash > 0 && _data.Card is 0)
+            {
+                data.cashSum = _data.Total;
+            }
+            else if (_data.Cash is 0 && _data.Card > 0)
+            {
+                data.cashlessSum = _data.Total;
+            }
+            else
+            {
+                data.cashSum = _data.Total;
+            }
+
+            RefundRequest.Parameters parameters = new RefundRequest.Parameters
+            {
+                data = data,
+            };
+
+            RefundRequest.TokenData tokenData = new RefundRequest.TokenData
+            {
+                parameters = parameters
+            };
+
+            RefundRequest refund = new RefundRequest
+            {
+                access_token = _data.AccessToken,
+                tokenData = tokenData
+            };
+
+            BaseRequest<RefundRequest> request = new BaseRequest<RefundRequest>
+            {
+                requestData = refund
+            };
+
+            string json = FormHelpers.ConvertClassToJson(request);
+
+            var result = FormHelpers.PostRequestJson(_data.IpAddress, json);
+
+            if (result != null)
+            {
+                RefundResponse response = JsonConvert.DeserializeObject<RefundResponse>(result.Content);
+                if (response.message is "Successful operation" || response.code is 0)
+                {
+                    NoticationHelpers.Messages.SuccessMessage(_form, $"{response.document_number} №-li çek uğurla geri qaytarıldı");
+
+                    int refundId = _returnPosOperation.InsertReturnData(new ReturnPos
+                    {
+                        SaleDataId = _data.SaleDataId,
+                        LongFiscalId = response.long_id,
+                        ShortFiscalId = response.short_id,
+                        ReceiptNo = response.document_number.ToString(),
+                        Note = _data.Note,
+                        ReturnDate = DateTime.Now, //Udemydəki kimi et clasddan current alsın
+                        ReturnDatetime = DateTime.Now,
+                        UserId = CommonData.CURRENT_USER.Id,
+                        CustomerId = _data.Customer?.Id,
+                        Cash = data.cashSum,
+                        Card = data.cashlessSum,
+                        Total = data.sum
+                    });
+
+
+                    if (refundId != -1)
+                    {
+                        List<ReturnPosDetail> dataDetails = new List<ReturnPosDetail>();
+
+                        dataDetails.AddRange(_data.Items.Select(x => new ReturnPosDetail
+                        {
+                            ProductId = x.Id,
+                            Quantity = x.Amount,
+                            SalePrice = x.SalePrice,
+                            Discount = x.Discount,
+                            ReturnDataId = refundId,
+                        }));
+                        _returnPosDetailOperation.InsertRangeReturnDataDetail(dataDetails);
+                        return true;
+                    }
+                    else
+                        return false;
+                }
+            }
+
+            return false;
         }
 
         public static bool CreditSale()
@@ -496,6 +641,60 @@ namespace Barcode_Sales.NKA
             }
             public string access_token { get; set; }
         }
+
+        private class RefundRequest
+        {
+            public string access_token { get; set; }
+            public TokenData tokenData { get; set; }
+            public CheckData checkData { get; set; } = new CheckData { check_type = 100 };
+            public class Item
+            {
+                public string itemName { get; set; }
+                public int itemCodeType { get; set; }
+                public string itemCode { get; set; }
+                public int itemQuantityType { get; set; }
+                public double itemQuantity { get; set; }
+                public double itemPrice { get; set; }
+                public double itemSum { get; set; }
+                public double itemVatPercent { get; set; }
+                public double discount { get; set; }
+                public double? itemMarginPrice { get; set; } = null;
+                public double? itemMarginSum { get; set; } = null;
+            }
+            public class Data
+            {
+                public string cashier { get; set; }
+                public string currency { get; set; } = "AZN";
+                public List<Item> items { get; set; }
+                public double sum { get; set; }
+                public double cashSum { get; set; }
+                public double cashlessSum { get; set; }
+                public double prepaymentSum { get; set; }
+                public string parentDocument { get; set; }
+                public string refund_document_number { get; set; }
+                public string refund_short_document_id { get; set; }
+                public double creditSum { get; set; }
+                public double bonusSum { get; set; }
+                public List<VatAmount> vatAmounts { get; set; }
+            }
+            public class Parameters
+            {
+                public string doc_type { get; set; } = "money_back";
+                public Data data { get; set; }
+            }
+            public class TokenData
+            {
+                public Parameters parameters { get; set; }
+                public string operationId { get; set; } = "createDocument";
+                public int version { get; set; } = 1;
+            }
+            public class VatAmount
+            {
+                public double vatSum { get; set; }
+                public double vatPercent { get; set; }
+            }
+        }
+
         #endregion [.. Request Classess..]
 
 
@@ -544,6 +743,15 @@ namespace Barcode_Sales.NKA
 
         }
 
+        private class RefundResponse
+        {
+            public int code { get; set; }
+            public int document_number { get; set; }
+            public string long_id { get; set; }
+            public string message { get; set; }
+            public int shift_document_number { get; set; }
+            public string short_id { get; set; }
+        }
         #endregion [.. Response Classess..]
     }
 }

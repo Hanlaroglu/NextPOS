@@ -6,6 +6,7 @@ using DevExpress.XtraGrid;
 using DevExpress.XtraGrid.Columns;
 using DevExpress.XtraGrid.Localization;
 using DevExpress.XtraGrid.Views.Grid;
+using Microsoft.Reporting.Map.WebForms.BingMaps;
 using Newtonsoft.Json;
 using RestSharp;
 using System;
@@ -15,6 +16,7 @@ using System.Net.NetworkInformation;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static DevExpress.Utils.Drawing.Helpers.NativeMethods;
 
 namespace Barcode_Sales.Helpers
 {
@@ -131,7 +133,7 @@ namespace Barcode_Sales.Helpers
             }
             else
             {
-                CommonMessageBox.Message("İcazəniz yoxdur !",NextPOS.UserControls.fMessage.enmType.Warning);
+                CommonMessageBox.Message("İcazəniz yoxdur !", NextPOS.UserControls.fMessage.enmType.Warning);
             }
         }
 
@@ -190,6 +192,11 @@ namespace Barcode_Sales.Helpers
             try
             {
                 Cursor.Current = Cursors.WaitCursor;
+                if (string.IsNullOrWhiteSpace(ipAddress))
+                {
+                    XtraMessageBox.Show("Kassa ip adresi daxil edilməmiştir", "Xəta", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return null;
+                }
                 using (RestClient client = new RestClient())
                 {
                     RestRequest request = new RestRequest(ipAddress, Method.Post);

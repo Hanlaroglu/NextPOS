@@ -1,19 +1,24 @@
 ﻿using Barcode_Sales.Cache;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using static Barcode_Sales.Helpers.Classes.SaleClasses;
 
 namespace Barcode_Sales.Helpers.Classes
 {
-    public static class SaleClasses
+    public static class RefundClassess
     {
-        public abstract class BaseSaleData
+        public abstract class BaseData
         {
             public string IpAddress { get; set; }
             public string AccessToken { get; set; }
+            public int SaleDataId { get; set; }
         }
 
-        public class SaleDataItem
+        public class DataItem
         {
             public short RowNo { get; set; }
             public int Id { get; set; }
@@ -48,11 +53,10 @@ namespace Barcode_Sales.Helpers.Classes
                     return (int)taxType;
 
                 }
-                set { }
             }
         }
 
-        public class SaleData : BaseSaleData
+        public class Data : BaseData
         {
             public double Total => Items?.Sum(x => x.Total) ?? 0;
             public double Cash { get; set; }
@@ -63,17 +67,13 @@ namespace Barcode_Sales.Helpers.Classes
             public double Bonus { get; set; } = 0;
             public string Cashier { get; set; }
             public string RRN { get; set; } = null;
-            public string CustomerName { get; set; } = null; //Test üçün istifadə olunur. Digər hallarda Customer classsindan istifadə olunacaq
+            public string CustomerName { get; set; } = null;
             public Customers Customer { get; set; }
             public string Note { get; set; } = null;
-            public BindingList<SaleDataItem> Items { get; set; } = new BindingList<SaleDataItem>();
-        }
-
-        public class PosChangeType
-        {
-            public string ProductName { get; set; }
-            public double Amount { get; set; }
-            public Enums.PosChangeType ChangeType { get; set; }
+            public string LongFiskalId { get; set; }
+            public string document_number { get; set; }
+            public string ShortFiskalId { get; set; }
+            public BindingList<DataItem> Items { get; set; } = new BindingList<DataItem>();
         }
     }
 }

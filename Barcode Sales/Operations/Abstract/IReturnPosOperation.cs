@@ -2,6 +2,6 @@
 {
     public interface IReturnPosOperation:IBaseOperation<ReturnPos>
     {
-
+        int InsertReturnData(ReturnPos item);
     }
 }
