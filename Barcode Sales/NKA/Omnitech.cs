@@ -331,9 +331,98 @@ namespace Barcode_Sales.NKA
             }
         }
 
-        public static bool Rollback()
+        public static bool Rollback(RefundClassess.Data _data)
         {
-            throw new NotImplementedException();
+            if (string.IsNullOrWhiteSpace(_data.AccessToken))
+            {
+                _data.AccessToken = Login(_data.IpAddress);
+                if (string.IsNullOrWhiteSpace(_data.AccessToken))
+                    return false;
+            }
+
+            RollbackRequest rollback = new RollbackRequest
+            {
+                AccessToken = _data.AccessToken,
+                fiscalId = _data.LongFiskalId
+            };
+
+            BaseRequest<RollbackRequest> request = new BaseRequest<RollbackRequest>
+            {
+                requestData = rollback
+            };
+
+            if (_data.Cash > 0 && _data.Card is 0)
+            {
+                _data.Cash = _data.Total;
+            }
+            else if (_data.Cash is 0 && _data.Card > 0)
+            {
+                _data.Card = _data.Total;
+            }
+            else
+            {
+                _data.Cash = _data.Total;
+            }
+
+            string json = FormHelpers.ConvertClassToJson(request);
+
+            var result = FormHelpers.PostRequestJson(_data.IpAddress, json);
+
+            if (result != null)
+            {
+                RefundResponse response = JsonConvert.DeserializeObject<RefundResponse>(result.Content);
+                if (response.message is "Successful operation" || response.code is 0)
+                {
+                    NoticationHelpers.Messages.SuccessMessage(_form, $"{response.document_number} №-li çek ləğv edildi");
+
+                    int refundId = _returnPosOperation.InsertReturnData(new ReturnPos
+                    {
+                        SaleDataId = _data.SaleDataId,
+                        LongFiscalId = response.long_id,
+                        ShortFiscalId = response.short_id,
+                        ReceiptNo = response.document_number.ToString(),
+                        Note = _data.Note,
+                        ReturnDate = DateTime.Now,
+                        ReturnDatetime = DateTime.Now,
+                        UserId = CommonData.CURRENT_USER.Id,
+                        CustomerId = _data.Customer?.Id,
+                        Cash = _data.Cash,
+                        Card = _data.Card,
+                        Total = _data.Total
+                    });
+
+
+                    if (refundId != -1)
+                    {
+                        List<ReturnPosDetail> dataDetails = new List<ReturnPosDetail>();
+
+                        dataDetails.AddRange(_data.Items.Select(x => new ReturnPosDetail
+                        {
+                            ProductId = x.Id,
+                            Quantity = x.Amount,
+                            SalePrice = x.SalePrice,
+                            Discount = x.Discount,
+                            ReturnDataId = refundId,
+                        }));
+                        _returnPosDetailOperation.InsertRangeReturnDataDetail(dataDetails);
+                        return true;
+                    }
+                    else
+                        return false;
+                }
+                else
+                {
+                    NoticationHelpers.Messages.ErrorMessage(_form, response.message);
+                    return false;
+                }
+            }
+            else
+            {
+                NoticationHelpers.Messages.ErrorMessage(_form, result.ErrorMessage);
+                return false;
+            }
+
+           
         }
 
         public static bool Refund(RefundClassess.Data _data)
@@ -693,6 +782,13 @@ namespace Barcode_Sales.NKA
                 public double vatSum { get; set; }
                 public double vatPercent { get; set; }
             }
+        }
+
+        private class RollbackRequest
+        {
+            public string AccessToken { get; set; }
+            public CheckData checkData { get; set; } = new CheckData { check_type = 10 };
+            public string fiscalId { get; set; }
         }
 
         #endregion [.. Request Classess..]

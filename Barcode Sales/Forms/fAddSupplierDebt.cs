@@ -20,6 +20,7 @@ namespace Barcode_Sales.Forms
     {
         ISupplierDebtOperation supplierDebtOperation = new SupplierDebtManager();
         ISupplierOperation supplierOperation = new SupplierManager();
+        ITaxTypeOperation taxTypeOperation = new TaxTypeManager();
         private Enums.Operation _operation;
         private SuppliersDebt _supplierDebt;
         public fAddSupplierDebt(Enums.Operation operation, SuppliersDebt supplierDebt = null)
@@ -151,14 +152,11 @@ namespace Barcode_Sales.Forms
             FormHelpers.ControlLoad(data, lookSupplier, "SupplierName", "Id");
         }
 
-        private void TaxTypeLoad()
+        private async void TaxTypeLoad()
         {
-            var taxTypes = Enum.GetValues(typeof(Enums.TaxTypes))
-                               .Cast<Enums.TaxTypes>()
-                               .Where(x => x != Enums.TaxTypes.TradeSupplement)
-                               .ToDictionary(x => x, x => Enums.GetEnumDescription(x));
+            var data = await taxTypeOperation.WhereAsync(null);
 
-            FormHelpers.ControlLoad(new BindingSource(taxTypes, null), lookTaxType, "Value", "Key");
+            FormHelpers.ControlLoad(data, lookTaxType);
         }
 
         private void Clear()
@@ -197,21 +195,26 @@ namespace Barcode_Sales.Forms
         {
             if (lookTaxType.EditValue != null)
             {
+                int TaxId = (int)lookTaxType.EditValue;
                 var price = Double.Parse(tPrice.Text);
                 var taxPrice = Double.Parse(tTaxPrice.Text);
 
-                switch ((Enums.TaxTypes)lookTaxType.EditValue)
+                switch ((int)lookTaxType.EditValue)
                 {
-                    case Enums.TaxTypes.EighteenPercent:
+                    case 1:
                         taxPrice = (price * 18) / 118;
                         break;
-                    case Enums.TaxTypes.TwoPercent:
+                        case 2:
+                        //Ticarət əlavəsi olanının hesablamasını da apar
+                        break;
+                    case 4:
+                    case 6:
                         taxPrice = price * 0.02;
                         break;
-                    case Enums.TaxTypes.EightPercent:
+                    case 5:
                         taxPrice = price * 0.08;
                         break;
-                    case Enums.TaxTypes.ZeroPercent:
+                    case 3:
                         taxPrice = 0;
                         break;
                 }

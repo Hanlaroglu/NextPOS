@@ -31,12 +31,12 @@ namespace Barcode_Sales.Barcode.Sales.Admin
         {
             this.components = new System.ComponentModel.Container();
             DevExpress.XtraGrid.GridLevelNode gridLevelNode1 = new DevExpress.XtraGrid.GridLevelNode();
+            DevExpress.XtraCharts.SimpleDiagram3D simpleDiagram3D1 = new DevExpress.XtraCharts.SimpleDiagram3D();
             DevExpress.XtraCharts.Series series1 = new DevExpress.XtraCharts.Series();
-            DevExpress.XtraCharts.PieSeriesView pieSeriesView1 = new DevExpress.XtraCharts.PieSeriesView();
-            DevExpress.XtraCharts.Series series2 = new DevExpress.XtraCharts.Series();
-            DevExpress.XtraCharts.PieSeriesView pieSeriesView2 = new DevExpress.XtraCharts.PieSeriesView();
-            DevExpress.XtraCharts.Series series3 = new DevExpress.XtraCharts.Series();
-            DevExpress.XtraCharts.DoughnutSeriesView doughnutSeriesView1 = new DevExpress.XtraCharts.DoughnutSeriesView();
+            DevExpress.XtraCharts.Pie3DSeriesLabel pie3DSeriesLabel1 = new DevExpress.XtraCharts.Pie3DSeriesLabel();
+            DevExpress.XtraCharts.Pie3DSeriesView pie3DSeriesView1 = new DevExpress.XtraCharts.Pie3DSeriesView();
+            DevExpress.XtraCharts.Pie3DSeriesView pie3DSeriesView2 = new DevExpress.XtraCharts.Pie3DSeriesView();
+            DevExpress.XtraCharts.ChartTitle chartTitle1 = new DevExpress.XtraCharts.ChartTitle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fDashboard));
             DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
@@ -375,38 +375,53 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.bLoad_ReturnProduct = new DevExpress.XtraEditors.SimpleButton();
             this.dateStart_ReturnProduct = new DevExpress.XtraEditors.DateEdit();
             this.pageMain = new DevExpress.XtraBars.Navigation.NavigationPage();
-            this.tablePanelDashboard = new DevExpress.Utils.Layout.TablePanel();
-            this.groupControl8 = new DevExpress.XtraEditors.GroupControl();
-            this.chartControl3 = new DevExpress.XtraCharts.ChartControl();
-            this.groupControl7 = new DevExpress.XtraEditors.GroupControl();
-            this.chartControl2 = new DevExpress.XtraCharts.ChartControl();
-            this.groupControl6 = new DevExpress.XtraEditors.GroupControl();
-            this.chartControl1 = new DevExpress.XtraCharts.ChartControl();
-            this.groupControl5 = new DevExpress.XtraEditors.GroupControl();
-            this.gridControlStock = new DevExpress.XtraGrid.GridControl();
-            this.gridStock = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.gridColumn35 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn34 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colAmount = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colId = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.groupControlGunluk = new DevExpress.XtraEditors.GroupControl();
             this.tablePanel24 = new DevExpress.Utils.Layout.TablePanel();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.tabPane2 = new DevExpress.XtraBars.Navigation.TabPane();
+            this.tabNavigationPage1 = new DevExpress.XtraBars.Navigation.TabNavigationPage();
+            this.chartControl1 = new DevExpress.XtraCharts.ChartControl();
+            this.panelControl21 = new DevExpress.XtraEditors.PanelControl();
             this.tablePanel25 = new DevExpress.Utils.Layout.TablePanel();
-            this.lReturnCount = new DevExpress.XtraEditors.LabelControl();
-            this.lReturnPrice = new DevExpress.XtraEditors.LabelControl();
+            this.lCashAmount = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
+            this.lCardAmount = new DevExpress.XtraEditors.LabelControl();
+            this.panelControl22 = new DevExpress.XtraEditors.PanelControl();
             this.tablePanel26 = new DevExpress.Utils.Layout.TablePanel();
-            this.lSaleCount = new DevExpress.XtraEditors.LabelControl();
-            this.lSalesPrice = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
+            this.lRollbackAmount = new DevExpress.XtraEditors.LabelControl();
             this.labelControl19 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl24 = new DevExpress.XtraEditors.LabelControl();
-            this.panel3 = new System.Windows.Forms.Panel();
+            this.labelControl23 = new DevExpress.XtraEditors.LabelControl();
+            this.lRollbackCount = new DevExpress.XtraEditors.LabelControl();
+            this.panelControl23 = new DevExpress.XtraEditors.PanelControl();
             this.tablePanel27 = new DevExpress.Utils.Layout.TablePanel();
-            this.lTotalPrice = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl24 = new DevExpress.XtraEditors.LabelControl();
+            this.lSalesAmount = new DevExpress.XtraEditors.LabelControl();
             this.labelControl25 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl30 = new DevExpress.XtraEditors.LabelControl();
+            this.lSalesCount = new DevExpress.XtraEditors.LabelControl();
+            this.tabPane1 = new DevExpress.XtraBars.Navigation.TabPane();
+            this.pageStock = new DevExpress.XtraBars.Navigation.TabNavigationPage();
+            this.gridControlDashboardStock = new DevExpress.XtraGrid.GridControl();
+            this.gridStock = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumn34 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn35 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn78 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn79 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn82 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryItemCheckEdit9 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
+            this.tabNavigationPage2 = new DevExpress.XtraBars.Navigation.TabNavigationPage();
+            this.gridControlDashboardCustomers = new DevExpress.XtraGrid.GridControl();
+            this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumn83 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn84 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn85 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn86 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn87 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryItemButtonEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+            this.repositoryItemCheckEdit10 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
+            this.pageBestSeller = new DevExpress.XtraBars.Navigation.TabNavigationPage();
+            this.panelControl24 = new DevExpress.XtraEditors.PanelControl();
             this.pageCompany = new DevExpress.XtraBars.Navigation.NavigationPage();
             this.xtraTabControl1 = new DevExpress.XtraTab.XtraTabControl();
             this.tabCompany = new DevExpress.XtraTab.XtraTabPage();
@@ -540,9 +555,6 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.simpleButton4 = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
-            this.toolsBorderRadius1 = new NextPOS.UserControls.ToolsBorderRadius();
-            this.toolsBorderRadius2 = new NextPOS.UserControls.ToolsBorderRadius();
-            this.toolsBorderRadius3 = new NextPOS.UserControls.ToolsBorderRadius();
             ((System.ComponentModel.ISupportInitialize)(this.gridKgProducts)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bStatusProduct)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlProducts)).BeginInit();
@@ -720,40 +732,41 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             ((System.ComponentModel.ISupportInitialize)(this.dateStart_ReturnProduct.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateStart_ReturnProduct.Properties.CalendarTimeProperties)).BeginInit();
             this.pageMain.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tablePanelDashboard)).BeginInit();
-            this.tablePanelDashboard.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl8)).BeginInit();
-            this.groupControl8.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chartControl3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(series1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(pieSeriesView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl7)).BeginInit();
-            this.groupControl7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chartControl2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(series2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(pieSeriesView2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl6)).BeginInit();
-            this.groupControl6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chartControl1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(series3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(doughnutSeriesView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl5)).BeginInit();
-            this.groupControl5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControlStock)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridStock)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControlGunluk)).BeginInit();
-            this.groupControlGunluk.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel24)).BeginInit();
             this.tablePanel24.SuspendLayout();
-            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tabPane2)).BeginInit();
+            this.tabPane2.SuspendLayout();
+            this.tabNavigationPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chartControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(simpleDiagram3D1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(pie3DSeriesLabel1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(pie3DSeriesView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(pie3DSeriesView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl21)).BeginInit();
+            this.panelControl21.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel25)).BeginInit();
             this.tablePanel25.SuspendLayout();
-            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl22)).BeginInit();
+            this.panelControl22.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel26)).BeginInit();
             this.tablePanel26.SuspendLayout();
-            this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl23)).BeginInit();
+            this.panelControl23.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel27)).BeginInit();
             this.tablePanel27.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tabPane1)).BeginInit();
+            this.tabPane1.SuspendLayout();
+            this.pageStock.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControlDashboardStock)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridStock)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit9)).BeginInit();
+            this.tabNavigationPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControlDashboardCustomers)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit10)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl24)).BeginInit();
             this.pageCompany.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
             this.xtraTabControl1.SuspendLayout();
@@ -1057,7 +1070,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.gridControlProducts.Name = "gridControlProducts";
             this.gridControlProducts.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.bStatusProduct});
-            this.gridControlProducts.Size = new System.Drawing.Size(1558, 723);
+            this.gridControlProducts.Size = new System.Drawing.Size(1538, 725);
             this.gridControlProducts.TabIndex = 4;
             this.gridControlProducts.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridProducts,
@@ -1367,9 +1380,9 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             // fluentDesignFormContainer1
             // 
             this.fluentDesignFormContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.fluentDesignFormContainer1.Location = new System.Drawing.Point(0, 33);
+            this.fluentDesignFormContainer1.Location = new System.Drawing.Point(0, 31);
             this.fluentDesignFormContainer1.Name = "fluentDesignFormContainer1";
-            this.fluentDesignFormContainer1.Size = new System.Drawing.Size(1798, 766);
+            this.fluentDesignFormContainer1.Size = new System.Drawing.Size(1798, 768);
             this.fluentDesignFormContainer1.TabIndex = 0;
             // 
             // fluentDesignFormControl1
@@ -1380,7 +1393,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.HeaderStaticText});
             this.fluentDesignFormControl1.Location = new System.Drawing.Point(0, 0);
             this.fluentDesignFormControl1.Name = "fluentDesignFormControl1";
-            this.fluentDesignFormControl1.Size = new System.Drawing.Size(1798, 33);
+            this.fluentDesignFormControl1.Size = new System.Drawing.Size(1798, 31);
             this.fluentDesignFormControl1.TabIndex = 2;
             this.fluentDesignFormControl1.TabStop = false;
             this.fluentDesignFormControl1.TitleItemLinks.Add(this.HeaderStaticText);
@@ -1462,6 +1475,11 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             // 
             // accordionControlElement7
             // 
+            this.accordionControlElement7.HeaderTemplate.AddRange(new DevExpress.XtraBars.Navigation.HeaderElementInfo[] {
+            new DevExpress.XtraBars.Navigation.HeaderElementInfo(DevExpress.XtraBars.Navigation.HeaderElementType.Text),
+            new DevExpress.XtraBars.Navigation.HeaderElementInfo(DevExpress.XtraBars.Navigation.HeaderElementType.Image),
+            new DevExpress.XtraBars.Navigation.HeaderElementInfo(DevExpress.XtraBars.Navigation.HeaderElementType.HeaderControl),
+            new DevExpress.XtraBars.Navigation.HeaderElementInfo(DevExpress.XtraBars.Navigation.HeaderElementType.ContextButtons)});
             this.accordionControlElement7.Name = "accordionControlElement7";
             this.accordionControlElement7.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.accordionControlElement7.Text = "Şirkət Haqqında";
@@ -1503,6 +1521,11 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.accordionControlElement8.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
             this.bSupplier,
             this.bSupplierDebt});
+            this.accordionControlElement8.HeaderTemplate.AddRange(new DevExpress.XtraBars.Navigation.HeaderElementInfo[] {
+            new DevExpress.XtraBars.Navigation.HeaderElementInfo(DevExpress.XtraBars.Navigation.HeaderElementType.Text),
+            new DevExpress.XtraBars.Navigation.HeaderElementInfo(DevExpress.XtraBars.Navigation.HeaderElementType.Image),
+            new DevExpress.XtraBars.Navigation.HeaderElementInfo(DevExpress.XtraBars.Navigation.HeaderElementType.HeaderControl),
+            new DevExpress.XtraBars.Navigation.HeaderElementInfo(DevExpress.XtraBars.Navigation.HeaderElementType.ContextButtons)});
             this.accordionControlElement8.ImageOptions.SvgImageSize = new System.Drawing.Size(32, 32);
             this.accordionControlElement8.Name = "accordionControlElement8";
             this.accordionControlElement8.Text = "Təchizatçılar";
@@ -2141,6 +2164,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.accordionControlElement19.Name = "accordionControlElement19";
             this.accordionControlElement19.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.accordionControlElement19.Text = "KASSA SATIŞ";
+            this.accordionControlElement19.Visible = false;
             // 
             // accordionControlSeparator1
             // 
@@ -2181,69 +2205,53 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.bAbout.ImageOptions.SvgImageSize = new System.Drawing.Size(32, 32);
             this.bAbout.Name = "bAbout";
             this.bAbout.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.bAbout.Text = "Haqqımızda";
+            this.bAbout.Text = "Dəstək";
             this.bAbout.Click += new System.EventHandler(this.bAbout_Click);
             // 
             // accordionControl1
             // 
-            this.accordionControl1.AnimationType = DevExpress.XtraBars.Navigation.AnimationType.None;
-            this.accordionControl1.Appearance.AccordionControl.Font = new System.Drawing.Font("Nunito", 12F);
-            this.accordionControl1.Appearance.AccordionControl.ForeColor = System.Drawing.Color.White;
-            this.accordionControl1.Appearance.AccordionControl.Options.UseFont = true;
-            this.accordionControl1.Appearance.AccordionControl.Options.UseForeColor = true;
-            this.accordionControl1.Appearance.Group.Disabled.Font = new System.Drawing.Font("Nunito", 12F);
+            this.accordionControl1.AllowItemSelection = true;
+            this.accordionControl1.Appearance.Group.Default.Options.UseFont = true;
             this.accordionControl1.Appearance.Group.Disabled.Options.UseFont = true;
-            this.accordionControl1.Appearance.Group.Hovered.Font = new System.Drawing.Font("Nunito", 12F);
+            this.accordionControl1.Appearance.Group.Disabled.Options.UseTextOptions = true;
             this.accordionControl1.Appearance.Group.Hovered.Options.UseFont = true;
-            this.accordionControl1.Appearance.Group.Normal.Font = new System.Drawing.Font("Nunito", 12F);
+            this.accordionControl1.Appearance.Group.Hovered.Options.UseTextOptions = true;
             this.accordionControl1.Appearance.Group.Normal.Options.UseFont = true;
-            this.accordionControl1.Appearance.Group.Pressed.Font = new System.Drawing.Font("Nunito", 12F);
+            this.accordionControl1.Appearance.Group.Normal.Options.UseTextOptions = true;
             this.accordionControl1.Appearance.Group.Pressed.Options.UseFont = true;
-            this.accordionControl1.Appearance.Item.Disabled.Font = new System.Drawing.Font("Nunito", 12F);
+            this.accordionControl1.Appearance.Group.Pressed.Options.UseTextOptions = true;
+            this.accordionControl1.Appearance.Hint.Options.UseFont = true;
+            this.accordionControl1.Appearance.Item.Default.Options.UseFont = true;
             this.accordionControl1.Appearance.Item.Disabled.Options.UseFont = true;
             this.accordionControl1.Appearance.Item.Disabled.Options.UseTextOptions = true;
-            this.accordionControl1.Appearance.Item.Disabled.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
-            this.accordionControl1.Appearance.Item.Disabled.TextOptions.Trimming = DevExpress.Utils.Trimming.EllipsisCharacter;
-            this.accordionControl1.Appearance.Item.Disabled.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.accordionControl1.Appearance.Item.Hovered.Font = new System.Drawing.Font("Nunito", 12F);
             this.accordionControl1.Appearance.Item.Hovered.Options.UseFont = true;
             this.accordionControl1.Appearance.Item.Hovered.Options.UseTextOptions = true;
-            this.accordionControl1.Appearance.Item.Hovered.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
-            this.accordionControl1.Appearance.Item.Hovered.TextOptions.Trimming = DevExpress.Utils.Trimming.EllipsisCharacter;
-            this.accordionControl1.Appearance.Item.Hovered.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.accordionControl1.Appearance.Item.Normal.Font = new System.Drawing.Font("Nunito", 12F);
             this.accordionControl1.Appearance.Item.Normal.Options.UseFont = true;
-            this.accordionControl1.Appearance.Item.Normal.Options.UseTextOptions = true;
-            this.accordionControl1.Appearance.Item.Normal.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
-            this.accordionControl1.Appearance.Item.Normal.TextOptions.Trimming = DevExpress.Utils.Trimming.EllipsisCharacter;
-            this.accordionControl1.Appearance.Item.Normal.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.accordionControl1.Appearance.Item.Pressed.Font = new System.Drawing.Font("Nunito", 12F);
             this.accordionControl1.Appearance.Item.Pressed.Options.UseFont = true;
             this.accordionControl1.Appearance.Item.Pressed.Options.UseTextOptions = true;
-            this.accordionControl1.Appearance.Item.Pressed.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
-            this.accordionControl1.Appearance.Item.Pressed.TextOptions.Trimming = DevExpress.Utils.Trimming.EllipsisCharacter;
-            this.accordionControl1.Appearance.Item.Pressed.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.accordionControl1.Appearance.ItemWithContainer.Disabled.Font = new System.Drawing.Font("Nunito", 20F);
+            this.accordionControl1.Appearance.ItemWithContainer.Default.Options.UseFont = true;
+            this.accordionControl1.Appearance.ItemWithContainer.Default.Options.UseTextOptions = true;
             this.accordionControl1.Appearance.ItemWithContainer.Disabled.Options.UseFont = true;
-            this.accordionControl1.Appearance.ItemWithContainer.Hovered.Font = new System.Drawing.Font("Nunito", 20F);
+            this.accordionControl1.Appearance.ItemWithContainer.Disabled.Options.UseTextOptions = true;
             this.accordionControl1.Appearance.ItemWithContainer.Hovered.Options.UseFont = true;
-            this.accordionControl1.Appearance.ItemWithContainer.Normal.Font = new System.Drawing.Font("Nunito", 12F);
+            this.accordionControl1.Appearance.ItemWithContainer.Hovered.Options.UseTextOptions = true;
             this.accordionControl1.Appearance.ItemWithContainer.Normal.Options.UseFont = true;
-            this.accordionControl1.Appearance.ItemWithContainer.Pressed.Font = new System.Drawing.Font("Nunito", 20F);
+            this.accordionControl1.Appearance.ItemWithContainer.Normal.Options.UseTextOptions = true;
             this.accordionControl1.Appearance.ItemWithContainer.Pressed.Options.UseFont = true;
+            this.accordionControl1.Appearance.ItemWithContainer.Pressed.Options.UseTextOptions = true;
+            this.accordionControl1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.accordionControl1.ContextButtonsOptions.AnimationType = DevExpress.Utils.ContextAnimationType.OpacityAnimation;
             this.accordionControl1.Dock = System.Windows.Forms.DockStyle.Left;
             this.accordionControl1.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
             this.accordionControlElement1});
-            this.accordionControl1.Location = new System.Drawing.Point(0, 33);
-            this.accordionControl1.LookAndFeel.SkinName = "Office 2019 White";
-            this.accordionControl1.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.accordionControl1.Location = new System.Drawing.Point(0, 31);
             this.accordionControl1.MaximumSize = new System.Drawing.Size(260, 0);
-            this.accordionControl1.MinimumSize = new System.Drawing.Size(240, 0);
             this.accordionControl1.Name = "accordionControl1";
-            this.accordionControl1.OptionsMinimizing.AllowMinimizeMode = DevExpress.Utils.DefaultBoolean.False;
+            this.accordionControl1.OptionsMinimizing.AllowMinimizeMode = DevExpress.Utils.DefaultBoolean.True;
             this.accordionControl1.ScrollBarMode = DevExpress.XtraBars.Navigation.ScrollBarMode.Fluent;
-            this.accordionControl1.Size = new System.Drawing.Size(240, 766);
+            this.accordionControl1.Size = new System.Drawing.Size(260, 768);
             this.accordionControl1.TabIndex = 1;
+            this.accordionControl1.ViewType = DevExpress.XtraBars.Navigation.AccordionControlViewType.HamburgerMenu;
             // 
             // navigationMenu
             // 
@@ -2265,7 +2273,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.navigationMenu.Controls.Add(this.pageSupplierDebt);
             this.navigationMenu.Controls.Add(this.pageCustomerDebt);
             this.navigationMenu.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.navigationMenu.Location = new System.Drawing.Point(240, 33);
+            this.navigationMenu.Location = new System.Drawing.Point(260, 31);
             this.navigationMenu.Margin = new System.Windows.Forms.Padding(0);
             this.navigationMenu.Name = "navigationMenu";
             this.navigationMenu.Pages.AddRange(new DevExpress.XtraBars.Navigation.NavigationPageBase[] {
@@ -2284,7 +2292,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.pageAbout,
             this.pageUpdate});
             this.navigationMenu.SelectedPage = this.pageMain;
-            this.navigationMenu.Size = new System.Drawing.Size(1558, 766);
+            this.navigationMenu.Size = new System.Drawing.Size(1538, 768);
             this.navigationMenu.TabIndex = 3;
             // 
             // pageProduct
@@ -2292,7 +2300,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.pageProduct.Controls.Add(this.gridControlProducts);
             this.pageProduct.Controls.Add(this.panelControl1);
             this.pageProduct.Name = "pageProduct";
-            this.pageProduct.Size = new System.Drawing.Size(1558, 766);
+            this.pageProduct.Size = new System.Drawing.Size(1538, 768);
             // 
             // panelControl1
             // 
@@ -2304,7 +2312,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.panelControl1.LookAndFeel.SkinName = "Office 2019 White";
             this.panelControl1.LookAndFeel.UseDefaultLookAndFeel = false;
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(1558, 43);
+            this.panelControl1.Size = new System.Drawing.Size(1538, 43);
             this.panelControl1.TabIndex = 5;
             // 
             // tablePanel1
@@ -2333,7 +2341,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.tablePanel1.Name = "tablePanel1";
             this.tablePanel1.Rows.AddRange(new DevExpress.Utils.Layout.TablePanelRow[] {
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 26F)});
-            this.tablePanel1.Size = new System.Drawing.Size(1554, 39);
+            this.tablePanel1.Size = new System.Drawing.Size(1534, 39);
             this.tablePanel1.TabIndex = 6;
             // 
             // bExportProduct
@@ -2401,11 +2409,11 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.tablePanel1.SetColumn(this.panelControl2, 8);
             this.panelControl2.Controls.Add(this.tablePanelProductCount);
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl2.Location = new System.Drawing.Point(1275, 0);
+            this.panelControl2.Location = new System.Drawing.Point(1259, 0);
             this.panelControl2.Margin = new System.Windows.Forms.Padding(0);
             this.panelControl2.Name = "panelControl2";
             this.tablePanel1.SetRow(this.panelControl2, 0);
-            this.panelControl2.Size = new System.Drawing.Size(279, 39);
+            this.panelControl2.Size = new System.Drawing.Size(275, 39);
             this.panelControl2.TabIndex = 8;
             // 
             // tablePanelProductCount
@@ -2425,7 +2433,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.tablePanelProductCount.Name = "tablePanelProductCount";
             this.tablePanelProductCount.Rows.AddRange(new DevExpress.Utils.Layout.TablePanelRow[] {
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 100F)});
-            this.tablePanelProductCount.Size = new System.Drawing.Size(279, 39);
+            this.tablePanelProductCount.Size = new System.Drawing.Size(275, 39);
             this.tablePanelProductCount.TabIndex = 0;
             // 
             // lPlusProduct_Count
@@ -2443,11 +2451,11 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.lPlusProduct_Count.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
             this.tablePanelProductCount.SetColumn(this.lPlusProduct_Count, 2);
             this.lPlusProduct_Count.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lPlusProduct_Count.Location = new System.Drawing.Point(188, 0);
+            this.lPlusProduct_Count.Location = new System.Drawing.Point(185, 0);
             this.lPlusProduct_Count.Margin = new System.Windows.Forms.Padding(2, 0, 0, 0);
             this.lPlusProduct_Count.Name = "lPlusProduct_Count";
             this.tablePanelProductCount.SetRow(this.lPlusProduct_Count, 0);
-            this.lPlusProduct_Count.Size = new System.Drawing.Size(91, 39);
+            this.lPlusProduct_Count.Size = new System.Drawing.Size(90, 39);
             this.lPlusProduct_Count.TabIndex = 6;
             this.lPlusProduct_Count.Text = "0";
             this.lPlusProduct_Count.ToolTip = "Stokdakı müsbət məhsulların sayı";
@@ -2481,7 +2489,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.lNegativeProduct_Count.Margin = new System.Windows.Forms.Padding(2, 0, 0, 0);
             this.lNegativeProduct_Count.Name = "lNegativeProduct_Count";
             this.tablePanelProductCount.SetRow(this.lNegativeProduct_Count, 0);
-            this.lNegativeProduct_Count.Size = new System.Drawing.Size(91, 39);
+            this.lNegativeProduct_Count.Size = new System.Drawing.Size(90, 39);
             this.lNegativeProduct_Count.TabIndex = 1;
             this.lNegativeProduct_Count.Text = "0";
             this.lNegativeProduct_Count.ToolTip = "Stokdakı mənfi məhsulların sayı";
@@ -2502,11 +2510,11 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.lZeroProduct_Count.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
             this.tablePanelProductCount.SetColumn(this.lZeroProduct_Count, 1);
             this.lZeroProduct_Count.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lZeroProduct_Count.Location = new System.Drawing.Point(95, 0);
+            this.lZeroProduct_Count.Location = new System.Drawing.Point(94, 0);
             this.lZeroProduct_Count.Margin = new System.Windows.Forms.Padding(2, 0, 0, 0);
             this.lZeroProduct_Count.Name = "lZeroProduct_Count";
             this.tablePanelProductCount.SetRow(this.lZeroProduct_Count, 0);
-            this.lZeroProduct_Count.Size = new System.Drawing.Size(91, 39);
+            this.lZeroProduct_Count.Size = new System.Drawing.Size(90, 39);
             this.lZeroProduct_Count.TabIndex = 7;
             this.lZeroProduct_Count.Text = "0";
             this.lZeroProduct_Count.ToolTip = "Stokdakı sıfır miqdarlı məhsul sayı";
@@ -2604,7 +2612,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.pageCategory.Controls.Add(this.gridControlCategory);
             this.pageCategory.Controls.Add(this.panelControl3);
             this.pageCategory.Name = "pageCategory";
-            this.pageCategory.Size = new System.Drawing.Size(1558, 766);
+            this.pageCategory.Size = new System.Drawing.Size(1538, 768);
             // 
             // gridControlCategory
             // 
@@ -2615,7 +2623,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.gridControlCategory.Name = "gridControlCategory";
             this.gridControlCategory.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.bCategoryStatus});
-            this.gridControlCategory.Size = new System.Drawing.Size(1558, 723);
+            this.gridControlCategory.Size = new System.Drawing.Size(1538, 725);
             this.gridControlCategory.TabIndex = 6;
             this.gridControlCategory.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridCategory});
@@ -2716,7 +2724,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.panelControl3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl3.Location = new System.Drawing.Point(0, 0);
             this.panelControl3.Name = "panelControl3";
-            this.panelControl3.Size = new System.Drawing.Size(1558, 43);
+            this.panelControl3.Size = new System.Drawing.Size(1538, 43);
             this.panelControl3.TabIndex = 7;
             // 
             // tablePanel2
@@ -2739,7 +2747,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.tablePanel2.Name = "tablePanel2";
             this.tablePanel2.Rows.AddRange(new DevExpress.Utils.Layout.TablePanelRow[] {
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 26F)});
-            this.tablePanel2.Size = new System.Drawing.Size(1554, 39);
+            this.tablePanel2.Size = new System.Drawing.Size(1534, 39);
             this.tablePanel2.TabIndex = 6;
             // 
             // chCategorySelected
@@ -2876,7 +2884,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.pageUsers.Controls.Add(this.gridControlUsers);
             this.pageUsers.Controls.Add(this.panelControl5);
             this.pageUsers.Name = "pageUsers";
-            this.pageUsers.Size = new System.Drawing.Size(1558, 766);
+            this.pageUsers.Size = new System.Drawing.Size(1538, 768);
             // 
             // gridControlUsers
             // 
@@ -2888,7 +2896,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.gridControlUsers.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.chUserStatus,
             this.tUserType});
-            this.gridControlUsers.Size = new System.Drawing.Size(1558, 723);
+            this.gridControlUsers.Size = new System.Drawing.Size(1538, 725);
             this.gridControlUsers.TabIndex = 6;
             this.gridControlUsers.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridUsers});
@@ -3074,7 +3082,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.panelControl5.LookAndFeel.SkinName = "Office 2019 White";
             this.panelControl5.LookAndFeel.UseDefaultLookAndFeel = false;
             this.panelControl5.Name = "panelControl5";
-            this.panelControl5.Size = new System.Drawing.Size(1558, 43);
+            this.panelControl5.Size = new System.Drawing.Size(1538, 43);
             this.panelControl5.TabIndex = 7;
             // 
             // tablePanel4
@@ -3101,7 +3109,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.tablePanel4.Name = "tablePanel4";
             this.tablePanel4.Rows.AddRange(new DevExpress.Utils.Layout.TablePanelRow[] {
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 26F)});
-            this.tablePanel4.Size = new System.Drawing.Size(1554, 39);
+            this.tablePanel4.Size = new System.Drawing.Size(1534, 39);
             this.tablePanel4.TabIndex = 7;
             // 
             // lUserCount
@@ -3117,7 +3125,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.lUserCount.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Horizontal;
             this.tablePanel4.SetColumn(this.lUserCount, 6);
             this.lUserCount.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lUserCount.Location = new System.Drawing.Point(1534, 0);
+            this.lUserCount.Location = new System.Drawing.Point(1514, 0);
             this.lUserCount.Margin = new System.Windows.Forms.Padding(0);
             this.lUserCount.Name = "lUserCount";
             this.lUserCount.Padding = new System.Windows.Forms.Padding(0, 0, 5, 0);
@@ -3276,7 +3284,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             // 
             this.pageSettings.Controls.Add(this.TabControlSettings);
             this.pageSettings.Name = "pageSettings";
-            this.pageSettings.Size = new System.Drawing.Size(1558, 766);
+            this.pageSettings.Size = new System.Drawing.Size(1538, 768);
             // 
             // TabControlSettings
             // 
@@ -3297,7 +3305,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.TabControlSettings.Margin = new System.Windows.Forms.Padding(0);
             this.TabControlSettings.Name = "TabControlSettings";
             this.TabControlSettings.SelectedTabPage = this.tabPageSettings;
-            this.TabControlSettings.Size = new System.Drawing.Size(1558, 766);
+            this.TabControlSettings.Size = new System.Drawing.Size(1538, 768);
             this.TabControlSettings.TabIndex = 1;
             this.TabControlSettings.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.tabPageSettings,
@@ -3321,7 +3329,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.tabPageSettings.Controls.Add(this.tablePanel28);
             this.tabPageSettings.ImageOptions.SvgImageSize = new System.Drawing.Size(24, 24);
             this.tabPageSettings.Name = "tabPageSettings";
-            this.tabPageSettings.Size = new System.Drawing.Size(1556, 732);
+            this.tabPageSettings.Size = new System.Drawing.Size(1536, 734);
             this.tabPageSettings.Text = "Ümumi sazlamalar";
             this.tabPageSettings.Tooltip = "Paneldə göstəriləcək məhsularının minimum miqdarı qeyd edilməlidir";
             // 
@@ -3356,7 +3364,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.toggleProductMinus.Properties.OnText = "Bəli";
             this.toggleProductMinus.Properties.ShowText = false;
             this.tablePanel28.SetRow(this.toggleProductMinus, 2);
-            this.toggleProductMinus.Size = new System.Drawing.Size(67, 24);
+            this.toggleProductMinus.Size = new System.Drawing.Size(67, 23);
             this.toggleProductMinus.TabIndex = 12;
             this.toggleProductMinus.Visible = false;
             // 
@@ -3452,20 +3460,20 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.tabPageKassalar.Controls.Add(this.KassalarFooter);
             this.tabPageKassalar.Controls.Add(this.groupControl3);
             this.tabPageKassalar.Name = "tabPageKassalar";
-            this.tabPageKassalar.Size = new System.Drawing.Size(1556, 732);
+            this.tabPageKassalar.Size = new System.Drawing.Size(1536, 734);
             this.tabPageKassalar.Text = "Kassalar";
             // 
             // KassalarFooter
             // 
             this.KassalarFooter.CancelVisible = true;
             this.KassalarFooter.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.KassalarFooter.Location = new System.Drawing.Point(0, 679);
+            this.KassalarFooter.Location = new System.Drawing.Point(0, 681);
             this.KassalarFooter.LookAndFeel.SkinName = "Office 2019 White";
             this.KassalarFooter.LookAndFeel.UseDefaultLookAndFeel = false;
             this.KassalarFooter.Name = "KassalarFooter";
             this.KassalarFooter.SaveButtonImage = null;
             this.KassalarFooter.SaveButtonText = "Yadda Saxla";
-            this.KassalarFooter.Size = new System.Drawing.Size(1556, 53);
+            this.KassalarFooter.Size = new System.Drawing.Size(1536, 53);
             this.KassalarFooter.TabIndex = 10;
             this.KassalarFooter.Visible = false;
             // 
@@ -3485,7 +3493,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.groupControl3.LookAndFeel.SkinName = "Office 2019 White";
             this.groupControl3.LookAndFeel.UseDefaultLookAndFeel = false;
             this.groupControl3.Name = "groupControl3";
-            this.groupControl3.Size = new System.Drawing.Size(1505, 81);
+            this.groupControl3.Size = new System.Drawing.Size(1485, 81);
             this.groupControl3.TabIndex = 9;
             this.groupControl3.Text = "X Printer";
             // 
@@ -3511,27 +3519,27 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             // tabPageBackup
             // 
             this.tabPageBackup.Name = "tabPageBackup";
-            this.tabPageBackup.Size = new System.Drawing.Size(1556, 732);
+            this.tabPageBackup.Size = new System.Drawing.Size(1536, 734);
             this.tabPageBackup.Text = "Backup";
             // 
             // tabPageArchive
             // 
             this.tabPageArchive.ImageOptions.SvgImageSize = new System.Drawing.Size(24, 24);
             this.tabPageArchive.Name = "tabPageArchive";
-            this.tabPageArchive.Size = new System.Drawing.Size(1556, 732);
+            this.tabPageArchive.Size = new System.Drawing.Size(1536, 734);
             this.tabPageArchive.Text = "Arxiv";
             // 
             // tabExcel
             // 
             this.tabExcel.Name = "tabExcel";
-            this.tabExcel.Size = new System.Drawing.Size(1556, 732);
+            this.tabExcel.Size = new System.Drawing.Size(1536, 734);
             this.tabExcel.Text = "Excel import (admin)";
             // 
             // pageReport
             // 
             this.pageReport.Controls.Add(this.TabControlReport);
             this.pageReport.Name = "pageReport";
-            this.pageReport.Size = new System.Drawing.Size(1558, 766);
+            this.pageReport.Size = new System.Drawing.Size(1538, 768);
             // 
             // TabControlReport
             // 
@@ -3550,7 +3558,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.TabControlReport.Margin = new System.Windows.Forms.Padding(0);
             this.TabControlReport.Name = "TabControlReport";
             this.TabControlReport.SelectedTabPage = this.tableMehsulAlis;
-            this.TabControlReport.Size = new System.Drawing.Size(1558, 766);
+            this.TabControlReport.Size = new System.Drawing.Size(1538, 768);
             this.TabControlReport.TabIndex = 2;
             this.TabControlReport.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.tableMehsulAlis,
@@ -3569,7 +3577,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.tableMehsulAlis.ImageOptions.SvgImageSize = new System.Drawing.Size(32, 32);
             this.tableMehsulAlis.Name = "tableMehsulAlis";
             this.tableMehsulAlis.ShowCloseButton = DevExpress.Utils.DefaultBoolean.False;
-            this.tableMehsulAlis.Size = new System.Drawing.Size(1556, 732);
+            this.tableMehsulAlis.Size = new System.Drawing.Size(1536, 734);
             this.tableMehsulAlis.Text = "Məhsul alış hesabatı";
             // 
             // gridControlMehsulAlis
@@ -3581,7 +3589,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.gridControlMehsulAlis.Name = "gridControlMehsulAlis";
             this.gridControlMehsulAlis.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemCheckEdit1});
-            this.gridControlMehsulAlis.Size = new System.Drawing.Size(1556, 648);
+            this.gridControlMehsulAlis.Size = new System.Drawing.Size(1536, 650);
             this.gridControlMehsulAlis.TabIndex = 6;
             this.gridControlMehsulAlis.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridMehsulAlis});
@@ -3843,11 +3851,11 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.panelAlisFooter.Appearance.Options.UseBackColor = true;
             this.panelAlisFooter.Controls.Add(this.tablePanelAlisFooter);
             this.panelAlisFooter.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelAlisFooter.Location = new System.Drawing.Point(0, 690);
+            this.panelAlisFooter.Location = new System.Drawing.Point(0, 692);
             this.panelAlisFooter.LookAndFeel.SkinName = "Office 2019 White";
             this.panelAlisFooter.LookAndFeel.UseDefaultLookAndFeel = false;
             this.panelAlisFooter.Name = "panelAlisFooter";
-            this.panelAlisFooter.Size = new System.Drawing.Size(1556, 42);
+            this.panelAlisFooter.Size = new System.Drawing.Size(1536, 42);
             this.panelAlisFooter.TabIndex = 11;
             // 
             // tablePanelAlisFooter
@@ -3865,7 +3873,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.tablePanelAlisFooter.Name = "tablePanelAlisFooter";
             this.tablePanelAlisFooter.Rows.AddRange(new DevExpress.Utils.Layout.TablePanelRow[] {
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 26F)});
-            this.tablePanelAlisFooter.Size = new System.Drawing.Size(1552, 38);
+            this.tablePanelAlisFooter.Size = new System.Drawing.Size(1532, 38);
             this.tablePanelAlisFooter.TabIndex = 6;
             // 
             // panelControl8
@@ -3873,11 +3881,11 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.tablePanelAlisFooter.SetColumn(this.panelControl8, 1);
             this.panelControl8.Controls.Add(this.tablePanel7);
             this.panelControl8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl8.Location = new System.Drawing.Point(776, 0);
+            this.panelControl8.Location = new System.Drawing.Point(766, 0);
             this.panelControl8.Margin = new System.Windows.Forms.Padding(0);
             this.panelControl8.Name = "panelControl8";
             this.tablePanelAlisFooter.SetRow(this.panelControl8, 0);
-            this.panelControl8.Size = new System.Drawing.Size(776, 38);
+            this.panelControl8.Size = new System.Drawing.Size(766, 38);
             this.panelControl8.TabIndex = 9;
             // 
             // tablePanel7
@@ -3895,7 +3903,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.tablePanel7.Name = "tablePanel7";
             this.tablePanel7.Rows.AddRange(new DevExpress.Utils.Layout.TablePanelRow[] {
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 100F)});
-            this.tablePanel7.Size = new System.Drawing.Size(772, 34);
+            this.tablePanel7.Size = new System.Drawing.Size(762, 34);
             this.tablePanel7.TabIndex = 0;
             // 
             // lAlisMeblegi_Total
@@ -3913,12 +3921,12 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.lAlisMeblegi_Total.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
             this.tablePanel7.SetColumn(this.lAlisMeblegi_Total, 1);
             this.lAlisMeblegi_Total.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lAlisMeblegi_Total.Location = new System.Drawing.Point(364, 0);
+            this.lAlisMeblegi_Total.Location = new System.Drawing.Point(360, 0);
             this.lAlisMeblegi_Total.Margin = new System.Windows.Forms.Padding(0);
             this.lAlisMeblegi_Total.Name = "lAlisMeblegi_Total";
             this.lAlisMeblegi_Total.Padding = new System.Windows.Forms.Padding(0, 0, 5, 0);
             this.tablePanel7.SetRow(this.lAlisMeblegi_Total, 0);
-            this.lAlisMeblegi_Total.Size = new System.Drawing.Size(408, 34);
+            this.lAlisMeblegi_Total.Size = new System.Drawing.Size(402, 34);
             this.lAlisMeblegi_Total.TabIndex = 8;
             this.lAlisMeblegi_Total.Text = "0";
             // 
@@ -3936,7 +3944,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.labelControl4.Name = "labelControl4";
             this.labelControl4.Padding = new System.Windows.Forms.Padding(0, 0, 5, 0);
             this.tablePanel7.SetRow(this.labelControl4, 0);
-            this.labelControl4.Size = new System.Drawing.Size(361, 34);
+            this.labelControl4.Size = new System.Drawing.Size(357, 34);
             this.labelControl4.TabIndex = 7;
             this.labelControl4.Text = "Toplam alış məbləği :";
             // 
@@ -3949,7 +3957,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.panelControl9.Margin = new System.Windows.Forms.Padding(0);
             this.panelControl9.Name = "panelControl9";
             this.tablePanelAlisFooter.SetRow(this.panelControl9, 0);
-            this.panelControl9.Size = new System.Drawing.Size(776, 38);
+            this.panelControl9.Size = new System.Drawing.Size(766, 38);
             this.panelControl9.TabIndex = 10;
             // 
             // tablePanel8
@@ -3967,7 +3975,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.tablePanel8.Name = "tablePanel8";
             this.tablePanel8.Rows.AddRange(new DevExpress.Utils.Layout.TablePanelRow[] {
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 100F)});
-            this.tablePanel8.Size = new System.Drawing.Size(772, 34);
+            this.tablePanel8.Size = new System.Drawing.Size(762, 34);
             this.tablePanel8.TabIndex = 0;
             // 
             // lAmount_Total
@@ -3985,12 +3993,12 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.lAmount_Total.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
             this.tablePanel8.SetColumn(this.lAmount_Total, 1);
             this.lAmount_Total.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lAmount_Total.Location = new System.Drawing.Point(364, 0);
+            this.lAmount_Total.Location = new System.Drawing.Point(360, 0);
             this.lAmount_Total.Margin = new System.Windows.Forms.Padding(0);
             this.lAmount_Total.Name = "lAmount_Total";
             this.lAmount_Total.Padding = new System.Windows.Forms.Padding(0, 0, 5, 0);
             this.tablePanel8.SetRow(this.lAmount_Total, 0);
-            this.lAmount_Total.Size = new System.Drawing.Size(408, 34);
+            this.lAmount_Total.Size = new System.Drawing.Size(402, 34);
             this.lAmount_Total.TabIndex = 8;
             this.lAmount_Total.Text = "0";
             // 
@@ -4008,7 +4016,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.labelControl8.Name = "labelControl8";
             this.labelControl8.Padding = new System.Windows.Forms.Padding(0, 0, 5, 0);
             this.tablePanel8.SetRow(this.labelControl8, 0);
-            this.labelControl8.Size = new System.Drawing.Size(361, 34);
+            this.labelControl8.Size = new System.Drawing.Size(357, 34);
             this.labelControl8.TabIndex = 7;
             this.labelControl8.Text = "Alınan toplam məhsul sayı :";
             // 
@@ -4022,7 +4030,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.panelAlisHeader.LookAndFeel.SkinName = "Office 2019 White";
             this.panelAlisHeader.LookAndFeel.UseDefaultLookAndFeel = false;
             this.panelAlisHeader.Name = "panelAlisHeader";
-            this.panelAlisHeader.Size = new System.Drawing.Size(1556, 42);
+            this.panelAlisHeader.Size = new System.Drawing.Size(1536, 42);
             this.panelAlisHeader.TabIndex = 7;
             // 
             // tablePanelAlisHeader
@@ -4047,7 +4055,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.tablePanelAlisHeader.Name = "tablePanelAlisHeader";
             this.tablePanelAlisHeader.Rows.AddRange(new DevExpress.Utils.Layout.TablePanelRow[] {
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 26F)});
-            this.tablePanelAlisHeader.Size = new System.Drawing.Size(1552, 38);
+            this.tablePanelAlisHeader.Size = new System.Drawing.Size(1532, 38);
             this.tablePanelAlisHeader.TabIndex = 6;
             // 
             // bAlisPrint
@@ -4072,7 +4080,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.bAlisPrint.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
             this.tablePanelAlisHeader.SetRow(this.bAlisPrint, 0);
             this.bAlisPrint.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
-            this.bAlisPrint.Size = new System.Drawing.Size(133, 38);
+            this.bAlisPrint.Size = new System.Drawing.Size(113, 38);
             this.bAlisPrint.TabIndex = 7;
             this.bAlisPrint.TabStop = false;
             this.bAlisPrint.Text = "Çap et";
@@ -4164,7 +4172,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.tableMenfeet.Controls.Add(this.gridControlMenfeet);
             this.tableMenfeet.Controls.Add(this.panelControl7);
             this.tableMenfeet.Name = "tableMenfeet";
-            this.tableMenfeet.Size = new System.Drawing.Size(1556, 732);
+            this.tableMenfeet.Size = new System.Drawing.Size(1536, 734);
             this.tableMenfeet.Text = "Mənfəət hesabatı";
             // 
             // gridControlMenfeet
@@ -4178,7 +4186,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.gridControlMenfeet.Name = "gridControlMenfeet";
             this.gridControlMenfeet.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemCheckEdit2});
-            this.gridControlMenfeet.Size = new System.Drawing.Size(1556, 690);
+            this.gridControlMenfeet.Size = new System.Drawing.Size(1536, 692);
             this.gridControlMenfeet.TabIndex = 8;
             this.gridControlMenfeet.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridMenfeet});
@@ -4219,7 +4227,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.panelControl7.LookAndFeel.SkinName = "Office 2019 White";
             this.panelControl7.LookAndFeel.UseDefaultLookAndFeel = false;
             this.panelControl7.Name = "panelControl7";
-            this.panelControl7.Size = new System.Drawing.Size(1556, 42);
+            this.panelControl7.Size = new System.Drawing.Size(1536, 42);
             this.panelControl7.TabIndex = 9;
             // 
             // tablePanel6
@@ -4244,7 +4252,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.tablePanel6.Name = "tablePanel6";
             this.tablePanel6.Rows.AddRange(new DevExpress.Utils.Layout.TablePanelRow[] {
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 26F)});
-            this.tablePanel6.Size = new System.Drawing.Size(1552, 38);
+            this.tablePanel6.Size = new System.Drawing.Size(1532, 38);
             this.tablePanel6.TabIndex = 6;
             // 
             // cmbObyektMenfeet
@@ -4258,7 +4266,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.cmbObyektMenfeet.Margin = new System.Windows.Forms.Padding(3, 4, 3, 3);
             this.cmbObyektMenfeet.Name = "cmbObyektMenfeet";
             this.tablePanel6.SetRow(this.cmbObyektMenfeet, 0);
-            this.cmbObyektMenfeet.Size = new System.Drawing.Size(242, 28);
+            this.cmbObyektMenfeet.Size = new System.Drawing.Size(238, 28);
             this.cmbObyektMenfeet.TabIndex = 15;
             this.cmbObyektMenfeet.TabStop = false;
             // 
@@ -4277,14 +4285,14 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.tablePanel6.SetColumn(this.bPrintMenfeet, 5);
             this.bPrintMenfeet.Dock = System.Windows.Forms.DockStyle.Fill;
             this.bPrintMenfeet.ImageOptions.SvgImageSize = new System.Drawing.Size(32, 32);
-            this.bPrintMenfeet.Location = new System.Drawing.Point(1437, 0);
+            this.bPrintMenfeet.Location = new System.Drawing.Point(1419, 0);
             this.bPrintMenfeet.Margin = new System.Windows.Forms.Padding(0);
             this.bPrintMenfeet.Name = "bPrintMenfeet";
             this.bPrintMenfeet.Padding = new System.Windows.Forms.Padding(3);
             this.bPrintMenfeet.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
             this.tablePanel6.SetRow(this.bPrintMenfeet, 0);
             this.bPrintMenfeet.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
-            this.bPrintMenfeet.Size = new System.Drawing.Size(115, 38);
+            this.bPrintMenfeet.Size = new System.Drawing.Size(113, 38);
             this.bPrintMenfeet.TabIndex = 7;
             this.bPrintMenfeet.TabStop = false;
             this.bPrintMenfeet.Text = "Çap et";
@@ -4375,7 +4383,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.tableObyekt.Controls.Add(this.gridControlObyekt);
             this.tableObyekt.Controls.Add(this.panelHeaderObyekt);
             this.tableObyekt.Name = "tableObyekt";
-            this.tableObyekt.Size = new System.Drawing.Size(1556, 732);
+            this.tableObyekt.Size = new System.Drawing.Size(1536, 734);
             this.tableObyekt.Text = "Obyekt üzrə hesabat";
             // 
             // gridControlObyekt
@@ -4389,7 +4397,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.gridControlObyekt.Name = "gridControlObyekt";
             this.gridControlObyekt.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemCheckEdit3});
-            this.gridControlObyekt.Size = new System.Drawing.Size(1556, 690);
+            this.gridControlObyekt.Size = new System.Drawing.Size(1536, 692);
             this.gridControlObyekt.TabIndex = 8;
             this.gridControlObyekt.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridObyekt});
@@ -4430,7 +4438,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.panelHeaderObyekt.LookAndFeel.SkinName = "Office 2019 White";
             this.panelHeaderObyekt.LookAndFeel.UseDefaultLookAndFeel = false;
             this.panelHeaderObyekt.Name = "panelHeaderObyekt";
-            this.panelHeaderObyekt.Size = new System.Drawing.Size(1556, 42);
+            this.panelHeaderObyekt.Size = new System.Drawing.Size(1536, 42);
             this.panelHeaderObyekt.TabIndex = 9;
             // 
             // tablePanel9
@@ -4457,7 +4465,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.tablePanel9.Name = "tablePanel9";
             this.tablePanel9.Rows.AddRange(new DevExpress.Utils.Layout.TablePanelRow[] {
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 26F)});
-            this.tablePanel9.Size = new System.Drawing.Size(1552, 38);
+            this.tablePanel9.Size = new System.Drawing.Size(1532, 38);
             this.tablePanel9.TabIndex = 6;
             // 
             // cmbKassirObyekt
@@ -4467,11 +4475,11 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.cmbKassirObyekt.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbKassirObyekt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.cmbKassirObyekt.FormattingEnabled = true;
-            this.cmbKassirObyekt.Location = new System.Drawing.Point(629, 4);
+            this.cmbKassirObyekt.Location = new System.Drawing.Point(625, 4);
             this.cmbKassirObyekt.Margin = new System.Windows.Forms.Padding(6, 4, 3, 3);
             this.cmbKassirObyekt.Name = "cmbKassirObyekt";
             this.tablePanel9.SetRow(this.cmbKassirObyekt, 0);
-            this.cmbKassirObyekt.Size = new System.Drawing.Size(227, 28);
+            this.cmbKassirObyekt.Size = new System.Drawing.Size(223, 28);
             this.cmbKassirObyekt.TabIndex = 16;
             this.cmbKassirObyekt.TabStop = false;
             // 
@@ -4486,7 +4494,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.cmbFlialObyekt.Margin = new System.Windows.Forms.Padding(3, 4, 3, 3);
             this.cmbFlialObyekt.Name = "cmbFlialObyekt";
             this.tablePanel9.SetRow(this.cmbFlialObyekt, 0);
-            this.cmbFlialObyekt.Size = new System.Drawing.Size(202, 28);
+            this.cmbFlialObyekt.Size = new System.Drawing.Size(199, 28);
             this.cmbFlialObyekt.TabIndex = 16;
             this.cmbFlialObyekt.TabStop = false;
             // 
@@ -4505,14 +4513,14 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.tablePanel9.SetColumn(this.bPrintObyekt, 6);
             this.bPrintObyekt.Dock = System.Windows.Forms.DockStyle.Fill;
             this.bPrintObyekt.ImageOptions.SvgImageSize = new System.Drawing.Size(32, 32);
-            this.bPrintObyekt.Location = new System.Drawing.Point(1443, 0);
+            this.bPrintObyekt.Location = new System.Drawing.Point(1425, 0);
             this.bPrintObyekt.Margin = new System.Windows.Forms.Padding(0);
             this.bPrintObyekt.Name = "bPrintObyekt";
             this.bPrintObyekt.Padding = new System.Windows.Forms.Padding(3);
             this.bPrintObyekt.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
             this.tablePanel9.SetRow(this.bPrintObyekt, 0);
             this.bPrintObyekt.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
-            this.bPrintObyekt.Size = new System.Drawing.Size(109, 38);
+            this.bPrintObyekt.Size = new System.Drawing.Size(107, 38);
             this.bPrintObyekt.TabIndex = 7;
             this.bPrintObyekt.TabStop = false;
             this.bPrintObyekt.Text = "Çap et";
@@ -4603,7 +4611,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.tableUmumiSatis.Controls.Add(this.gridControlTotalSales);
             this.tableUmumiSatis.Controls.Add(this.panelControl17);
             this.tableUmumiSatis.Name = "tableUmumiSatis";
-            this.tableUmumiSatis.Size = new System.Drawing.Size(1556, 732);
+            this.tableUmumiSatis.Size = new System.Drawing.Size(1536, 734);
             this.tableUmumiSatis.Text = "Ümumi satış hesabatı";
             // 
             // gridControlTotalSales
@@ -4617,7 +4625,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.gridControlTotalSales.Name = "gridControlTotalSales";
             this.gridControlTotalSales.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemCheckEdit7});
-            this.gridControlTotalSales.Size = new System.Drawing.Size(1556, 690);
+            this.gridControlTotalSales.Size = new System.Drawing.Size(1536, 692);
             this.gridControlTotalSales.TabIndex = 15;
             this.gridControlTotalSales.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -4851,7 +4859,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.panelControl17.LookAndFeel.SkinName = "Office 2019 White";
             this.panelControl17.LookAndFeel.UseDefaultLookAndFeel = false;
             this.panelControl17.Name = "panelControl17";
-            this.panelControl17.Size = new System.Drawing.Size(1556, 42);
+            this.panelControl17.Size = new System.Drawing.Size(1536, 42);
             this.panelControl17.TabIndex = 14;
             // 
             // tablePanel21
@@ -4878,7 +4886,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.tablePanel21.Name = "tablePanel21";
             this.tablePanel21.Rows.AddRange(new DevExpress.Utils.Layout.TablePanelRow[] {
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 26F)});
-            this.tablePanel21.Size = new System.Drawing.Size(1552, 38);
+            this.tablePanel21.Size = new System.Drawing.Size(1532, 38);
             this.tablePanel21.TabIndex = 6;
             // 
             // cmbCashier_TotalSales
@@ -4888,11 +4896,11 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.cmbCashier_TotalSales.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCashier_TotalSales.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.cmbCashier_TotalSales.FormattingEnabled = true;
-            this.cmbCashier_TotalSales.Location = new System.Drawing.Point(637, 4);
+            this.cmbCashier_TotalSales.Location = new System.Drawing.Point(633, 4);
             this.cmbCashier_TotalSales.Margin = new System.Windows.Forms.Padding(6, 4, 3, 3);
             this.cmbCashier_TotalSales.Name = "cmbCashier_TotalSales";
             this.tablePanel21.SetRow(this.cmbCashier_TotalSales, 0);
-            this.cmbCashier_TotalSales.Size = new System.Drawing.Size(211, 28);
+            this.cmbCashier_TotalSales.Size = new System.Drawing.Size(207, 28);
             this.cmbCashier_TotalSales.TabIndex = 16;
             this.cmbCashier_TotalSales.TabStop = false;
             this.cmbCashier_TotalSales.Visible = false;
@@ -4908,7 +4916,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.cmbBranch_TotalSales.Margin = new System.Windows.Forms.Padding(3, 4, 3, 3);
             this.cmbBranch_TotalSales.Name = "cmbBranch_TotalSales";
             this.tablePanel21.SetRow(this.cmbBranch_TotalSales, 0);
-            this.cmbBranch_TotalSales.Size = new System.Drawing.Size(211, 28);
+            this.cmbBranch_TotalSales.Size = new System.Drawing.Size(207, 28);
             this.cmbBranch_TotalSales.TabIndex = 16;
             this.cmbBranch_TotalSales.TabStop = false;
             // 
@@ -4929,14 +4937,14 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.simpleButton1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.simpleButton1.Enabled = false;
             this.simpleButton1.ImageOptions.SvgImageSize = new System.Drawing.Size(32, 32);
-            this.simpleButton1.Location = new System.Drawing.Point(1443, 0);
+            this.simpleButton1.Location = new System.Drawing.Point(1425, 0);
             this.simpleButton1.Margin = new System.Windows.Forms.Padding(0);
             this.simpleButton1.Name = "simpleButton1";
             this.simpleButton1.Padding = new System.Windows.Forms.Padding(3);
             this.simpleButton1.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
             this.tablePanel21.SetRow(this.simpleButton1, 0);
             this.simpleButton1.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
-            this.simpleButton1.Size = new System.Drawing.Size(109, 38);
+            this.simpleButton1.Size = new System.Drawing.Size(107, 38);
             this.simpleButton1.TabIndex = 7;
             this.simpleButton1.TabStop = false;
             this.simpleButton1.Text = "Çap et";
@@ -5029,7 +5037,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.tableSatisNovHesabat.Controls.Add(this.panelControl12);
             this.tableSatisNovHesabat.ImageOptions.SvgImageSize = new System.Drawing.Size(32, 32);
             this.tableSatisNovHesabat.Name = "tableSatisNovHesabat";
-            this.tableSatisNovHesabat.Size = new System.Drawing.Size(1556, 732);
+            this.tableSatisNovHesabat.Size = new System.Drawing.Size(1536, 734);
             this.tableSatisNovHesabat.Text = "Satış növ hesabatı";
             // 
             // panelFooter_SalesType
@@ -5038,11 +5046,11 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.panelFooter_SalesType.Appearance.Options.UseBackColor = true;
             this.panelFooter_SalesType.Controls.Add(this.tablePanel17);
             this.panelFooter_SalesType.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelFooter_SalesType.Location = new System.Drawing.Point(0, 690);
+            this.panelFooter_SalesType.Location = new System.Drawing.Point(0, 692);
             this.panelFooter_SalesType.LookAndFeel.SkinName = "Office 2019 White";
             this.panelFooter_SalesType.LookAndFeel.UseDefaultLookAndFeel = false;
             this.panelFooter_SalesType.Name = "panelFooter_SalesType";
-            this.panelFooter_SalesType.Size = new System.Drawing.Size(1556, 42);
+            this.panelFooter_SalesType.Size = new System.Drawing.Size(1536, 42);
             this.panelFooter_SalesType.TabIndex = 14;
             // 
             // tablePanel17
@@ -5060,7 +5068,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.tablePanel17.Name = "tablePanel17";
             this.tablePanel17.Rows.AddRange(new DevExpress.Utils.Layout.TablePanelRow[] {
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 26F)});
-            this.tablePanel17.Size = new System.Drawing.Size(1552, 38);
+            this.tablePanel17.Size = new System.Drawing.Size(1532, 38);
             this.tablePanel17.TabIndex = 6;
             // 
             // panelControl15
@@ -5068,11 +5076,11 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.tablePanel17.SetColumn(this.panelControl15, 1);
             this.panelControl15.Controls.Add(this.tablePanel18);
             this.panelControl15.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl15.Location = new System.Drawing.Point(776, 0);
+            this.panelControl15.Location = new System.Drawing.Point(766, 0);
             this.panelControl15.Margin = new System.Windows.Forms.Padding(0);
             this.panelControl15.Name = "panelControl15";
             this.tablePanel17.SetRow(this.panelControl15, 0);
-            this.panelControl15.Size = new System.Drawing.Size(776, 38);
+            this.panelControl15.Size = new System.Drawing.Size(766, 38);
             this.panelControl15.TabIndex = 9;
             // 
             // tablePanel18
@@ -5090,7 +5098,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.tablePanel18.Name = "tablePanel18";
             this.tablePanel18.Rows.AddRange(new DevExpress.Utils.Layout.TablePanelRow[] {
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 100F)});
-            this.tablePanel18.Size = new System.Drawing.Size(772, 34);
+            this.tablePanel18.Size = new System.Drawing.Size(762, 34);
             this.tablePanel18.TabIndex = 0;
             // 
             // lCard_SalesType
@@ -5108,12 +5116,12 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.lCard_SalesType.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
             this.tablePanel18.SetColumn(this.lCard_SalesType, 1);
             this.lCard_SalesType.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lCard_SalesType.Location = new System.Drawing.Point(364, 0);
+            this.lCard_SalesType.Location = new System.Drawing.Point(360, 0);
             this.lCard_SalesType.Margin = new System.Windows.Forms.Padding(0);
             this.lCard_SalesType.Name = "lCard_SalesType";
             this.lCard_SalesType.Padding = new System.Windows.Forms.Padding(0, 0, 5, 0);
             this.tablePanel18.SetRow(this.lCard_SalesType, 0);
-            this.lCard_SalesType.Size = new System.Drawing.Size(408, 34);
+            this.lCard_SalesType.Size = new System.Drawing.Size(402, 34);
             this.lCard_SalesType.TabIndex = 8;
             this.lCard_SalesType.Text = "0";
             // 
@@ -5131,7 +5139,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.labelControl12.Name = "labelControl12";
             this.labelControl12.Padding = new System.Windows.Forms.Padding(0, 0, 5, 0);
             this.tablePanel18.SetRow(this.labelControl12, 0);
-            this.labelControl12.Size = new System.Drawing.Size(361, 34);
+            this.labelControl12.Size = new System.Drawing.Size(357, 34);
             this.labelControl12.TabIndex = 7;
             this.labelControl12.Text = "KART :";
             // 
@@ -5144,7 +5152,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.panelControl13.Margin = new System.Windows.Forms.Padding(0);
             this.panelControl13.Name = "panelControl13";
             this.tablePanel17.SetRow(this.panelControl13, 0);
-            this.panelControl13.Size = new System.Drawing.Size(776, 38);
+            this.panelControl13.Size = new System.Drawing.Size(766, 38);
             this.panelControl13.TabIndex = 9;
             // 
             // tablePanel19
@@ -5162,7 +5170,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.tablePanel19.Name = "tablePanel19";
             this.tablePanel19.Rows.AddRange(new DevExpress.Utils.Layout.TablePanelRow[] {
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 100F)});
-            this.tablePanel19.Size = new System.Drawing.Size(772, 34);
+            this.tablePanel19.Size = new System.Drawing.Size(762, 34);
             this.tablePanel19.TabIndex = 0;
             // 
             // lCash_SalesType
@@ -5180,12 +5188,12 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.lCash_SalesType.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
             this.tablePanel19.SetColumn(this.lCash_SalesType, 1);
             this.lCash_SalesType.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lCash_SalesType.Location = new System.Drawing.Point(364, 0);
+            this.lCash_SalesType.Location = new System.Drawing.Point(360, 0);
             this.lCash_SalesType.Margin = new System.Windows.Forms.Padding(0);
             this.lCash_SalesType.Name = "lCash_SalesType";
             this.lCash_SalesType.Padding = new System.Windows.Forms.Padding(0, 0, 5, 0);
             this.tablePanel19.SetRow(this.lCash_SalesType, 0);
-            this.lCash_SalesType.Size = new System.Drawing.Size(408, 34);
+            this.lCash_SalesType.Size = new System.Drawing.Size(402, 34);
             this.lCash_SalesType.TabIndex = 8;
             this.lCash_SalesType.Text = "0";
             // 
@@ -5203,7 +5211,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.labelControl14.Name = "labelControl14";
             this.labelControl14.Padding = new System.Windows.Forms.Padding(0, 0, 5, 0);
             this.tablePanel19.SetRow(this.labelControl14, 0);
-            this.labelControl14.Size = new System.Drawing.Size(361, 34);
+            this.labelControl14.Size = new System.Drawing.Size(357, 34);
             this.labelControl14.TabIndex = 7;
             this.labelControl14.Text = "NƏĞD :";
             // 
@@ -5218,7 +5226,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.gridControlSalesType.Name = "gridControlSalesType";
             this.gridControlSalesType.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemCheckEdit5});
-            this.gridControlSalesType.Size = new System.Drawing.Size(1556, 690);
+            this.gridControlSalesType.Size = new System.Drawing.Size(1536, 692);
             this.gridControlSalesType.TabIndex = 12;
             this.gridControlSalesType.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridSalesType});
@@ -5359,7 +5367,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.panelControl12.LookAndFeel.SkinName = "Office 2019 White";
             this.panelControl12.LookAndFeel.UseDefaultLookAndFeel = false;
             this.panelControl12.Name = "panelControl12";
-            this.panelControl12.Size = new System.Drawing.Size(1556, 42);
+            this.panelControl12.Size = new System.Drawing.Size(1536, 42);
             this.panelControl12.TabIndex = 13;
             // 
             // tablePanel13
@@ -5386,7 +5394,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.tablePanel13.Name = "tablePanel13";
             this.tablePanel13.Rows.AddRange(new DevExpress.Utils.Layout.TablePanelRow[] {
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 26F)});
-            this.tablePanel13.Size = new System.Drawing.Size(1552, 38);
+            this.tablePanel13.Size = new System.Drawing.Size(1532, 38);
             this.tablePanel13.TabIndex = 6;
             // 
             // cmbKassir_SalesType
@@ -5396,11 +5404,11 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.cmbKassir_SalesType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbKassir_SalesType.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.cmbKassir_SalesType.FormattingEnabled = true;
-            this.cmbKassir_SalesType.Location = new System.Drawing.Point(637, 4);
+            this.cmbKassir_SalesType.Location = new System.Drawing.Point(633, 4);
             this.cmbKassir_SalesType.Margin = new System.Windows.Forms.Padding(6, 4, 3, 3);
             this.cmbKassir_SalesType.Name = "cmbKassir_SalesType";
             this.tablePanel13.SetRow(this.cmbKassir_SalesType, 0);
-            this.cmbKassir_SalesType.Size = new System.Drawing.Size(211, 28);
+            this.cmbKassir_SalesType.Size = new System.Drawing.Size(207, 28);
             this.cmbKassir_SalesType.TabIndex = 16;
             this.cmbKassir_SalesType.TabStop = false;
             this.cmbKassir_SalesType.Visible = false;
@@ -5416,7 +5424,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.cmbBranch_SalesType.Margin = new System.Windows.Forms.Padding(3, 4, 3, 3);
             this.cmbBranch_SalesType.Name = "cmbBranch_SalesType";
             this.tablePanel13.SetRow(this.cmbBranch_SalesType, 0);
-            this.cmbBranch_SalesType.Size = new System.Drawing.Size(211, 28);
+            this.cmbBranch_SalesType.Size = new System.Drawing.Size(207, 28);
             this.cmbBranch_SalesType.TabIndex = 16;
             this.cmbBranch_SalesType.TabStop = false;
             // 
@@ -5436,14 +5444,14 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.bPrint_SalesType.Cursor = System.Windows.Forms.Cursors.No;
             this.bPrint_SalesType.Dock = System.Windows.Forms.DockStyle.Fill;
             this.bPrint_SalesType.ImageOptions.SvgImageSize = new System.Drawing.Size(32, 32);
-            this.bPrint_SalesType.Location = new System.Drawing.Point(1443, 0);
+            this.bPrint_SalesType.Location = new System.Drawing.Point(1425, 0);
             this.bPrint_SalesType.Margin = new System.Windows.Forms.Padding(0);
             this.bPrint_SalesType.Name = "bPrint_SalesType";
             this.bPrint_SalesType.Padding = new System.Windows.Forms.Padding(3);
             this.bPrint_SalesType.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
             this.tablePanel13.SetRow(this.bPrint_SalesType, 0);
             this.bPrint_SalesType.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
-            this.bPrint_SalesType.Size = new System.Drawing.Size(109, 38);
+            this.bPrint_SalesType.Size = new System.Drawing.Size(107, 38);
             this.bPrint_SalesType.TabIndex = 7;
             this.bPrint_SalesType.TabStop = false;
             this.bPrint_SalesType.Text = "Çap et";
@@ -5536,7 +5544,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.tableSatilanMehsullar.Controls.Add(this.panelFooter_SalesProduct);
             this.tableSatilanMehsullar.Controls.Add(this.panelHeader_SalesProduct);
             this.tableSatilanMehsullar.Name = "tableSatilanMehsullar";
-            this.tableSatilanMehsullar.Size = new System.Drawing.Size(1556, 732);
+            this.tableSatilanMehsullar.Size = new System.Drawing.Size(1536, 734);
             this.tableSatilanMehsullar.Text = "Satılan məhsullar";
             // 
             // gridControlSalesProduct
@@ -5550,7 +5558,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.gridControlSalesProduct.Name = "gridControlSalesProduct";
             this.gridControlSalesProduct.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemCheckEdit4});
-            this.gridControlSalesProduct.Size = new System.Drawing.Size(1556, 648);
+            this.gridControlSalesProduct.Size = new System.Drawing.Size(1536, 650);
             this.gridControlSalesProduct.TabIndex = 10;
             this.gridControlSalesProduct.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridSalesProduct});
@@ -5801,11 +5809,11 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.panelFooter_SalesProduct.Appearance.Options.UseBackColor = true;
             this.panelFooter_SalesProduct.Controls.Add(this.tablePanel11);
             this.panelFooter_SalesProduct.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelFooter_SalesProduct.Location = new System.Drawing.Point(0, 690);
+            this.panelFooter_SalesProduct.Location = new System.Drawing.Point(0, 692);
             this.panelFooter_SalesProduct.LookAndFeel.SkinName = "Office 2019 White";
             this.panelFooter_SalesProduct.LookAndFeel.UseDefaultLookAndFeel = false;
             this.panelFooter_SalesProduct.Name = "panelFooter_SalesProduct";
-            this.panelFooter_SalesProduct.Size = new System.Drawing.Size(1556, 42);
+            this.panelFooter_SalesProduct.Size = new System.Drawing.Size(1536, 42);
             this.panelFooter_SalesProduct.TabIndex = 12;
             // 
             // tablePanel11
@@ -5822,7 +5830,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.tablePanel11.Name = "tablePanel11";
             this.tablePanel11.Rows.AddRange(new DevExpress.Utils.Layout.TablePanelRow[] {
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 26F)});
-            this.tablePanel11.Size = new System.Drawing.Size(1552, 38);
+            this.tablePanel11.Size = new System.Drawing.Size(1532, 38);
             this.tablePanel11.TabIndex = 6;
             // 
             // panelControl11
@@ -5830,11 +5838,11 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.tablePanel11.SetColumn(this.panelControl11, 1);
             this.panelControl11.Controls.Add(this.tablePanel12);
             this.panelControl11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl11.Location = new System.Drawing.Point(776, 0);
+            this.panelControl11.Location = new System.Drawing.Point(766, 0);
             this.panelControl11.Margin = new System.Windows.Forms.Padding(0);
             this.panelControl11.Name = "panelControl11";
             this.tablePanel11.SetRow(this.panelControl11, 0);
-            this.panelControl11.Size = new System.Drawing.Size(776, 38);
+            this.panelControl11.Size = new System.Drawing.Size(766, 38);
             this.panelControl11.TabIndex = 9;
             // 
             // tablePanel12
@@ -5852,7 +5860,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.tablePanel12.Name = "tablePanel12";
             this.tablePanel12.Rows.AddRange(new DevExpress.Utils.Layout.TablePanelRow[] {
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 100F)});
-            this.tablePanel12.Size = new System.Drawing.Size(772, 34);
+            this.tablePanel12.Size = new System.Drawing.Size(762, 34);
             this.tablePanel12.TabIndex = 0;
             // 
             // lSatilanMehsullarToplam
@@ -5870,12 +5878,12 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.lSatilanMehsullarToplam.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
             this.tablePanel12.SetColumn(this.lSatilanMehsullarToplam, 1);
             this.lSatilanMehsullarToplam.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lSatilanMehsullarToplam.Location = new System.Drawing.Point(364, 0);
+            this.lSatilanMehsullarToplam.Location = new System.Drawing.Point(360, 0);
             this.lSatilanMehsullarToplam.Margin = new System.Windows.Forms.Padding(0);
             this.lSatilanMehsullarToplam.Name = "lSatilanMehsullarToplam";
             this.lSatilanMehsullarToplam.Padding = new System.Windows.Forms.Padding(0, 0, 5, 0);
             this.tablePanel12.SetRow(this.lSatilanMehsullarToplam, 0);
-            this.lSatilanMehsullarToplam.Size = new System.Drawing.Size(408, 34);
+            this.lSatilanMehsullarToplam.Size = new System.Drawing.Size(402, 34);
             this.lSatilanMehsullarToplam.TabIndex = 8;
             this.lSatilanMehsullarToplam.Text = "0";
             // 
@@ -5893,7 +5901,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.labelControl10.Name = "labelControl10";
             this.labelControl10.Padding = new System.Windows.Forms.Padding(0, 0, 5, 0);
             this.tablePanel12.SetRow(this.labelControl10, 0);
-            this.labelControl10.Size = new System.Drawing.Size(361, 34);
+            this.labelControl10.Size = new System.Drawing.Size(357, 34);
             this.labelControl10.TabIndex = 7;
             this.labelControl10.Text = "Toplam satış məbləği :";
             // 
@@ -5907,7 +5915,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.panelHeader_SalesProduct.LookAndFeel.SkinName = "Office 2019 White";
             this.panelHeader_SalesProduct.LookAndFeel.UseDefaultLookAndFeel = false;
             this.panelHeader_SalesProduct.Name = "panelHeader_SalesProduct";
-            this.panelHeader_SalesProduct.Size = new System.Drawing.Size(1556, 42);
+            this.panelHeader_SalesProduct.Size = new System.Drawing.Size(1536, 42);
             this.panelHeader_SalesProduct.TabIndex = 11;
             // 
             // tablePanel10
@@ -5934,7 +5942,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.tablePanel10.Name = "tablePanel10";
             this.tablePanel10.Rows.AddRange(new DevExpress.Utils.Layout.TablePanelRow[] {
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 26F)});
-            this.tablePanel10.Size = new System.Drawing.Size(1552, 38);
+            this.tablePanel10.Size = new System.Drawing.Size(1532, 38);
             this.tablePanel10.TabIndex = 6;
             // 
             // cmbKassir_SalesProduct
@@ -5944,11 +5952,11 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.cmbKassir_SalesProduct.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbKassir_SalesProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.cmbKassir_SalesProduct.FormattingEnabled = true;
-            this.cmbKassir_SalesProduct.Location = new System.Drawing.Point(637, 4);
+            this.cmbKassir_SalesProduct.Location = new System.Drawing.Point(633, 4);
             this.cmbKassir_SalesProduct.Margin = new System.Windows.Forms.Padding(6, 4, 3, 3);
             this.cmbKassir_SalesProduct.Name = "cmbKassir_SalesProduct";
             this.tablePanel10.SetRow(this.cmbKassir_SalesProduct, 0);
-            this.cmbKassir_SalesProduct.Size = new System.Drawing.Size(211, 28);
+            this.cmbKassir_SalesProduct.Size = new System.Drawing.Size(207, 28);
             this.cmbKassir_SalesProduct.TabIndex = 16;
             this.cmbKassir_SalesProduct.TabStop = false;
             // 
@@ -5963,7 +5971,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.cmbBranch_SalesProduct.Margin = new System.Windows.Forms.Padding(3, 4, 3, 3);
             this.cmbBranch_SalesProduct.Name = "cmbBranch_SalesProduct";
             this.tablePanel10.SetRow(this.cmbBranch_SalesProduct, 0);
-            this.cmbBranch_SalesProduct.Size = new System.Drawing.Size(211, 28);
+            this.cmbBranch_SalesProduct.Size = new System.Drawing.Size(207, 28);
             this.cmbBranch_SalesProduct.TabIndex = 16;
             this.cmbBranch_SalesProduct.TabStop = false;
             // 
@@ -5983,14 +5991,14 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.bPrint_SalesProduct.Cursor = System.Windows.Forms.Cursors.No;
             this.bPrint_SalesProduct.Dock = System.Windows.Forms.DockStyle.Fill;
             this.bPrint_SalesProduct.ImageOptions.SvgImageSize = new System.Drawing.Size(32, 32);
-            this.bPrint_SalesProduct.Location = new System.Drawing.Point(1443, 0);
+            this.bPrint_SalesProduct.Location = new System.Drawing.Point(1425, 0);
             this.bPrint_SalesProduct.Margin = new System.Windows.Forms.Padding(0);
             this.bPrint_SalesProduct.Name = "bPrint_SalesProduct";
             this.bPrint_SalesProduct.Padding = new System.Windows.Forms.Padding(3);
             this.bPrint_SalesProduct.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
             this.tablePanel10.SetRow(this.bPrint_SalesProduct, 0);
             this.bPrint_SalesProduct.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
-            this.bPrint_SalesProduct.Size = new System.Drawing.Size(109, 38);
+            this.bPrint_SalesProduct.Size = new System.Drawing.Size(107, 38);
             this.bPrint_SalesProduct.TabIndex = 7;
             this.bPrint_SalesProduct.TabStop = false;
             this.bPrint_SalesProduct.Text = "Çap et";
@@ -6082,7 +6090,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.tableQaytarilanMehsullar.Controls.Add(this.panelFooter_ReturnProduct);
             this.tableQaytarilanMehsullar.Controls.Add(this.panelControl10);
             this.tableQaytarilanMehsullar.Name = "tableQaytarilanMehsullar";
-            this.tableQaytarilanMehsullar.Size = new System.Drawing.Size(1556, 732);
+            this.tableQaytarilanMehsullar.Size = new System.Drawing.Size(1536, 734);
             this.tableQaytarilanMehsullar.Text = "Qaytarılan məhsullar";
             // 
             // gridControlReturnProduct
@@ -6096,7 +6104,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.gridControlReturnProduct.Name = "gridControlReturnProduct";
             this.gridControlReturnProduct.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemCheckEdit6});
-            this.gridControlReturnProduct.Size = new System.Drawing.Size(1556, 648);
+            this.gridControlReturnProduct.Size = new System.Drawing.Size(1536, 650);
             this.gridControlReturnProduct.TabIndex = 12;
             this.gridControlReturnProduct.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridReturnProduct});
@@ -6357,11 +6365,11 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.panelFooter_ReturnProduct.Appearance.Options.UseBackColor = true;
             this.panelFooter_ReturnProduct.Controls.Add(this.tablePanel15);
             this.panelFooter_ReturnProduct.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelFooter_ReturnProduct.Location = new System.Drawing.Point(0, 690);
+            this.panelFooter_ReturnProduct.Location = new System.Drawing.Point(0, 692);
             this.panelFooter_ReturnProduct.LookAndFeel.SkinName = "Office 2019 White";
             this.panelFooter_ReturnProduct.LookAndFeel.UseDefaultLookAndFeel = false;
             this.panelFooter_ReturnProduct.Name = "panelFooter_ReturnProduct";
-            this.panelFooter_ReturnProduct.Size = new System.Drawing.Size(1556, 42);
+            this.panelFooter_ReturnProduct.Size = new System.Drawing.Size(1536, 42);
             this.panelFooter_ReturnProduct.TabIndex = 14;
             // 
             // tablePanel15
@@ -6378,7 +6386,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.tablePanel15.Name = "tablePanel15";
             this.tablePanel15.Rows.AddRange(new DevExpress.Utils.Layout.TablePanelRow[] {
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 26F)});
-            this.tablePanel15.Size = new System.Drawing.Size(1552, 38);
+            this.tablePanel15.Size = new System.Drawing.Size(1532, 38);
             this.tablePanel15.TabIndex = 6;
             // 
             // panelControl14
@@ -6386,11 +6394,11 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.tablePanel15.SetColumn(this.panelControl14, 1);
             this.panelControl14.Controls.Add(this.tablePanel16);
             this.panelControl14.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl14.Location = new System.Drawing.Point(776, 0);
+            this.panelControl14.Location = new System.Drawing.Point(766, 0);
             this.panelControl14.Margin = new System.Windows.Forms.Padding(0);
             this.panelControl14.Name = "panelControl14";
             this.tablePanel15.SetRow(this.panelControl14, 0);
-            this.panelControl14.Size = new System.Drawing.Size(776, 38);
+            this.panelControl14.Size = new System.Drawing.Size(766, 38);
             this.panelControl14.TabIndex = 9;
             // 
             // tablePanel16
@@ -6408,7 +6416,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.tablePanel16.Name = "tablePanel16";
             this.tablePanel16.Rows.AddRange(new DevExpress.Utils.Layout.TablePanelRow[] {
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 100F)});
-            this.tablePanel16.Size = new System.Drawing.Size(772, 34);
+            this.tablePanel16.Size = new System.Drawing.Size(762, 34);
             this.tablePanel16.TabIndex = 0;
             // 
             // lReturnProductTotal
@@ -6426,12 +6434,12 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.lReturnProductTotal.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
             this.tablePanel16.SetColumn(this.lReturnProductTotal, 1);
             this.lReturnProductTotal.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lReturnProductTotal.Location = new System.Drawing.Point(364, 0);
+            this.lReturnProductTotal.Location = new System.Drawing.Point(360, 0);
             this.lReturnProductTotal.Margin = new System.Windows.Forms.Padding(0);
             this.lReturnProductTotal.Name = "lReturnProductTotal";
             this.lReturnProductTotal.Padding = new System.Windows.Forms.Padding(0, 0, 5, 0);
             this.tablePanel16.SetRow(this.lReturnProductTotal, 0);
-            this.lReturnProductTotal.Size = new System.Drawing.Size(408, 34);
+            this.lReturnProductTotal.Size = new System.Drawing.Size(402, 34);
             this.lReturnProductTotal.TabIndex = 8;
             this.lReturnProductTotal.Text = "0";
             // 
@@ -6449,7 +6457,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.labelControl11.Name = "labelControl11";
             this.labelControl11.Padding = new System.Windows.Forms.Padding(0, 0, 5, 0);
             this.tablePanel16.SetRow(this.labelControl11, 0);
-            this.labelControl11.Size = new System.Drawing.Size(361, 34);
+            this.labelControl11.Size = new System.Drawing.Size(357, 34);
             this.labelControl11.TabIndex = 7;
             this.labelControl11.Text = "Toplam qaytarılan məbləğ :";
             // 
@@ -6463,7 +6471,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.panelControl10.LookAndFeel.SkinName = "Office 2019 White";
             this.panelControl10.LookAndFeel.UseDefaultLookAndFeel = false;
             this.panelControl10.Name = "panelControl10";
-            this.panelControl10.Size = new System.Drawing.Size(1556, 42);
+            this.panelControl10.Size = new System.Drawing.Size(1536, 42);
             this.panelControl10.TabIndex = 13;
             // 
             // tablePanel14
@@ -6490,7 +6498,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.tablePanel14.Name = "tablePanel14";
             this.tablePanel14.Rows.AddRange(new DevExpress.Utils.Layout.TablePanelRow[] {
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 26F)});
-            this.tablePanel14.Size = new System.Drawing.Size(1552, 38);
+            this.tablePanel14.Size = new System.Drawing.Size(1532, 38);
             this.tablePanel14.TabIndex = 6;
             // 
             // cmbKassir_ReturnProduct
@@ -6500,11 +6508,11 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.cmbKassir_ReturnProduct.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbKassir_ReturnProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.cmbKassir_ReturnProduct.FormattingEnabled = true;
-            this.cmbKassir_ReturnProduct.Location = new System.Drawing.Point(637, 4);
+            this.cmbKassir_ReturnProduct.Location = new System.Drawing.Point(633, 4);
             this.cmbKassir_ReturnProduct.Margin = new System.Windows.Forms.Padding(6, 4, 3, 3);
             this.cmbKassir_ReturnProduct.Name = "cmbKassir_ReturnProduct";
             this.tablePanel14.SetRow(this.cmbKassir_ReturnProduct, 0);
-            this.cmbKassir_ReturnProduct.Size = new System.Drawing.Size(211, 28);
+            this.cmbKassir_ReturnProduct.Size = new System.Drawing.Size(207, 28);
             this.cmbKassir_ReturnProduct.TabIndex = 16;
             this.cmbKassir_ReturnProduct.TabStop = false;
             // 
@@ -6519,7 +6527,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.cmbBranch_ReturnProduct.Margin = new System.Windows.Forms.Padding(3, 4, 3, 3);
             this.cmbBranch_ReturnProduct.Name = "cmbBranch_ReturnProduct";
             this.tablePanel14.SetRow(this.cmbBranch_ReturnProduct, 0);
-            this.cmbBranch_ReturnProduct.Size = new System.Drawing.Size(211, 28);
+            this.cmbBranch_ReturnProduct.Size = new System.Drawing.Size(207, 28);
             this.cmbBranch_ReturnProduct.TabIndex = 16;
             this.cmbBranch_ReturnProduct.TabStop = false;
             // 
@@ -6539,14 +6547,14 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.bPrint_ReturnProduct.Cursor = System.Windows.Forms.Cursors.No;
             this.bPrint_ReturnProduct.Dock = System.Windows.Forms.DockStyle.Fill;
             this.bPrint_ReturnProduct.ImageOptions.SvgImageSize = new System.Drawing.Size(32, 32);
-            this.bPrint_ReturnProduct.Location = new System.Drawing.Point(1443, 0);
+            this.bPrint_ReturnProduct.Location = new System.Drawing.Point(1425, 0);
             this.bPrint_ReturnProduct.Margin = new System.Windows.Forms.Padding(0);
             this.bPrint_ReturnProduct.Name = "bPrint_ReturnProduct";
             this.bPrint_ReturnProduct.Padding = new System.Windows.Forms.Padding(3);
             this.bPrint_ReturnProduct.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
             this.tablePanel14.SetRow(this.bPrint_ReturnProduct, 0);
             this.bPrint_ReturnProduct.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
-            this.bPrint_ReturnProduct.Size = new System.Drawing.Size(109, 38);
+            this.bPrint_ReturnProduct.Size = new System.Drawing.Size(107, 38);
             this.bPrint_ReturnProduct.TabIndex = 7;
             this.bPrint_ReturnProduct.TabStop = false;
             this.bPrint_ReturnProduct.Text = "Çap et";
@@ -6635,612 +6643,799 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             // pageMain
             // 
             this.pageMain.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pageMain.Controls.Add(this.tablePanelDashboard);
+            this.pageMain.Controls.Add(this.tablePanel24);
             this.pageMain.Name = "pageMain";
-            this.pageMain.Size = new System.Drawing.Size(1558, 766);
-            // 
-            // tablePanelDashboard
-            // 
-            this.tablePanelDashboard.Columns.AddRange(new DevExpress.Utils.Layout.TablePanelColumn[] {
-            new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 100F),
-            new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 100F),
-            new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 100F)});
-            this.tablePanelDashboard.Controls.Add(this.groupControl8);
-            this.tablePanelDashboard.Controls.Add(this.groupControl7);
-            this.tablePanelDashboard.Controls.Add(this.groupControl6);
-            this.tablePanelDashboard.Controls.Add(this.groupControl5);
-            this.tablePanelDashboard.Controls.Add(this.groupControlGunluk);
-            this.tablePanelDashboard.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tablePanelDashboard.Location = new System.Drawing.Point(0, 0);
-            this.tablePanelDashboard.Name = "tablePanelDashboard";
-            this.tablePanelDashboard.Rows.AddRange(new DevExpress.Utils.Layout.TablePanelRow[] {
-            new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 64F),
-            new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 61F),
-            new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 380F),
-            new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 155.01F),
-            new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 131.99F)});
-            this.tablePanelDashboard.Size = new System.Drawing.Size(1558, 766);
-            this.tablePanelDashboard.TabIndex = 2;
-            // 
-            // groupControl8
-            // 
-            this.groupControl8.AppearanceCaption.Options.UseTextOptions = true;
-            this.groupControl8.AppearanceCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.tablePanelDashboard.SetColumn(this.groupControl8, 1);
-            this.groupControl8.Controls.Add(this.chartControl3);
-            this.groupControl8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupControl8.GroupStyle = DevExpress.Utils.GroupStyle.Light;
-            this.groupControl8.Location = new System.Drawing.Point(522, 505);
-            this.groupControl8.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.groupControl8.Name = "groupControl8";
-            this.tablePanelDashboard.SetRow(this.groupControl8, 3);
-            this.tablePanelDashboard.SetRowSpan(this.groupControl8, 2);
-            this.groupControl8.Size = new System.Drawing.Size(516, 261);
-            this.groupControl8.TabIndex = 7;
-            this.groupControl8.Text = "İllik satış qrafiki";
-            // 
-            // chartControl3
-            // 
-            this.chartControl3.BorderOptions.Visibility = DevExpress.Utils.DefaultBoolean.False;
-            this.chartControl3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.chartControl3.Legend.Name = "Default Legend";
-            this.chartControl3.Legend.Visibility = DevExpress.Utils.DefaultBoolean.True;
-            this.chartControl3.Location = new System.Drawing.Point(2, 23);
-            this.chartControl3.Name = "chartControl3";
-            series1.ArgumentScaleType = DevExpress.XtraCharts.ScaleType.Numerical;
-            series1.Name = "Series 1";
-            series1.SeriesID = 0;
-            series1.View = pieSeriesView1;
-            this.chartControl3.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
-        series1};
-            this.chartControl3.Size = new System.Drawing.Size(512, 236);
-            this.chartControl3.TabIndex = 2;
-            // 
-            // groupControl7
-            // 
-            this.groupControl7.AppearanceCaption.Options.UseTextOptions = true;
-            this.groupControl7.AppearanceCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.tablePanelDashboard.SetColumn(this.groupControl7, 0);
-            this.groupControl7.Controls.Add(this.chartControl2);
-            this.groupControl7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupControl7.GroupStyle = DevExpress.Utils.GroupStyle.Light;
-            this.groupControl7.Location = new System.Drawing.Point(3, 505);
-            this.groupControl7.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.groupControl7.Name = "groupControl7";
-            this.tablePanelDashboard.SetRow(this.groupControl7, 3);
-            this.tablePanelDashboard.SetRowSpan(this.groupControl7, 2);
-            this.groupControl7.Size = new System.Drawing.Size(516, 261);
-            this.groupControl7.TabIndex = 6;
-            this.groupControl7.Text = "Aylıq satış qrafiki";
-            // 
-            // chartControl2
-            // 
-            this.chartControl2.BorderOptions.Visibility = DevExpress.Utils.DefaultBoolean.False;
-            this.chartControl2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.chartControl2.Legend.Name = "Default Legend";
-            this.chartControl2.Legend.Visibility = DevExpress.Utils.DefaultBoolean.True;
-            this.chartControl2.Location = new System.Drawing.Point(2, 23);
-            this.chartControl2.Name = "chartControl2";
-            series2.ArgumentScaleType = DevExpress.XtraCharts.ScaleType.Numerical;
-            series2.Name = "Series 1";
-            series2.SeriesID = 0;
-            series2.View = pieSeriesView2;
-            this.chartControl2.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
-        series2};
-            this.chartControl2.Size = new System.Drawing.Size(512, 236);
-            this.chartControl2.TabIndex = 2;
-            // 
-            // groupControl6
-            // 
-            this.groupControl6.AppearanceCaption.Options.UseTextOptions = true;
-            this.groupControl6.AppearanceCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.tablePanelDashboard.SetColumn(this.groupControl6, 0);
-            this.groupControl6.Controls.Add(this.chartControl1);
-            this.groupControl6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupControl6.GroupStyle = DevExpress.Utils.GroupStyle.Light;
-            this.groupControl6.Location = new System.Drawing.Point(3, 125);
-            this.groupControl6.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.groupControl6.Name = "groupControl6";
-            this.tablePanelDashboard.SetRow(this.groupControl6, 2);
-            this.groupControl6.Size = new System.Drawing.Size(516, 380);
-            this.groupControl6.TabIndex = 5;
-            this.groupControl6.Text = "Ən çox satılan məhsullar";
-            // 
-            // chartControl1
-            // 
-            this.chartControl1.BorderOptions.Visibility = DevExpress.Utils.DefaultBoolean.False;
-            this.chartControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.chartControl1.Legend.Name = "Default Legend";
-            this.chartControl1.Legend.Visibility = DevExpress.Utils.DefaultBoolean.True;
-            this.chartControl1.Location = new System.Drawing.Point(2, 23);
-            this.chartControl1.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
-            this.chartControl1.Name = "chartControl1";
-            series3.Name = "Series 1";
-            series3.SeriesID = 0;
-            series3.View = doughnutSeriesView1;
-            this.chartControl1.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
-        series3};
-            this.chartControl1.Size = new System.Drawing.Size(512, 355);
-            this.chartControl1.TabIndex = 1;
-            // 
-            // groupControl5
-            // 
-            this.groupControl5.AppearanceCaption.Options.UseTextOptions = true;
-            this.groupControl5.AppearanceCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.tablePanelDashboard.SetColumn(this.groupControl5, 1);
-            this.tablePanelDashboard.SetColumnSpan(this.groupControl5, 2);
-            this.groupControl5.Controls.Add(this.gridControlStock);
-            this.groupControl5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupControl5.GroupStyle = DevExpress.Utils.GroupStyle.Light;
-            this.groupControl5.Location = new System.Drawing.Point(522, 125);
-            this.groupControl5.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.groupControl5.Name = "groupControl5";
-            this.tablePanelDashboard.SetRow(this.groupControl5, 2);
-            this.groupControl5.Size = new System.Drawing.Size(1036, 380);
-            this.groupControl5.TabIndex = 4;
-            this.groupControl5.Text = "Anbarda miqdarı az olan məhsullar";
-            // 
-            // gridControlStock
-            // 
-            this.gridControlStock.AllowRestoreSelectionAndFocusedRow = DevExpress.Utils.DefaultBoolean.False;
-            this.gridControlStock.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControlStock.Location = new System.Drawing.Point(2, 23);
-            this.gridControlStock.LookAndFeel.UseWindowsXPTheme = true;
-            this.gridControlStock.MainView = this.gridStock;
-            this.gridControlStock.Margin = new System.Windows.Forms.Padding(1);
-            this.gridControlStock.Name = "gridControlStock";
-            this.gridControlStock.Size = new System.Drawing.Size(1032, 355);
-            this.gridControlStock.TabIndex = 7;
-            this.gridControlStock.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridStock});
-            // 
-            // gridStock
-            // 
-            this.gridStock.Appearance.FocusedRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(119)))), ((int)(((byte)(182)))));
-            this.gridStock.Appearance.FocusedRow.Font = new System.Drawing.Font("Nunito", 12F);
-            this.gridStock.Appearance.FocusedRow.Options.UseBackColor = true;
-            this.gridStock.Appearance.HeaderPanel.Font = new System.Drawing.Font("Nunito", 12F, System.Drawing.FontStyle.Bold);
-            this.gridStock.Appearance.HeaderPanel.Options.UseFont = true;
-            this.gridStock.Appearance.Row.Font = new System.Drawing.Font("Nunito", 12F);
-            this.gridStock.Appearance.Row.Options.UseFont = true;
-            this.gridStock.Appearance.SelectedRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(165)))), ((int)(((byte)(166)))));
-            this.gridStock.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.gridStock.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.gridColumn35,
-            this.gridColumn34,
-            this.colAmount,
-            this.colId});
-            this.gridStock.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFullFocus;
-            this.gridStock.GridControl = this.gridControlStock;
-            this.gridStock.Name = "gridStock";
-            this.gridStock.OptionsMenu.EnableColumnMenu = false;
-            this.gridStock.OptionsSelection.EnableAppearanceFocusedCell = false;
-            this.gridStock.OptionsView.ColumnHeaderAutoHeight = DevExpress.Utils.DefaultBoolean.True;
-            this.gridStock.OptionsView.ShowGroupPanel = false;
-            this.gridStock.OptionsView.ShowIndicator = false;
-            // 
-            // gridColumn35
-            // 
-            this.gridColumn35.AppearanceCell.Font = new System.Drawing.Font("Nunito", 10F);
-            this.gridColumn35.AppearanceCell.Options.UseFont = true;
-            this.gridColumn35.AppearanceHeader.Font = new System.Drawing.Font("Nunito", 10F, System.Drawing.FontStyle.Bold);
-            this.gridColumn35.AppearanceHeader.ForeColor = System.Drawing.Color.DimGray;
-            this.gridColumn35.AppearanceHeader.Options.UseFont = true;
-            this.gridColumn35.AppearanceHeader.Options.UseForeColor = true;
-            this.gridColumn35.AppearanceHeader.Options.UseTextOptions = true;
-            this.gridColumn35.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.gridColumn35.AppearanceHeader.TextOptions.Trimming = DevExpress.Utils.Trimming.EllipsisCharacter;
-            this.gridColumn35.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.gridColumn35.Caption = "Məhsul kodu";
-            this.gridColumn35.FieldName = "Code";
-            this.gridColumn35.Name = "gridColumn35";
-            this.gridColumn35.OptionsColumn.AllowEdit = false;
-            this.gridColumn35.Visible = true;
-            this.gridColumn35.VisibleIndex = 0;
-            this.gridColumn35.Width = 187;
-            // 
-            // gridColumn34
-            // 
-            this.gridColumn34.AppearanceCell.Font = new System.Drawing.Font("Nunito", 10F);
-            this.gridColumn34.AppearanceCell.Options.UseFont = true;
-            this.gridColumn34.AppearanceHeader.Font = new System.Drawing.Font("Nunito", 10F, System.Drawing.FontStyle.Bold);
-            this.gridColumn34.AppearanceHeader.ForeColor = System.Drawing.Color.DimGray;
-            this.gridColumn34.AppearanceHeader.Options.UseFont = true;
-            this.gridColumn34.AppearanceHeader.Options.UseForeColor = true;
-            this.gridColumn34.AppearanceHeader.Options.UseTextOptions = true;
-            this.gridColumn34.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.gridColumn34.AppearanceHeader.TextOptions.Trimming = DevExpress.Utils.Trimming.EllipsisCharacter;
-            this.gridColumn34.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.gridColumn34.Caption = "Məhsul adı";
-            this.gridColumn34.FieldName = "Name";
-            this.gridColumn34.Name = "gridColumn34";
-            this.gridColumn34.OptionsColumn.AllowEdit = false;
-            this.gridColumn34.Visible = true;
-            this.gridColumn34.VisibleIndex = 1;
-            this.gridColumn34.Width = 680;
-            // 
-            // colAmount
-            // 
-            this.colAmount.AppearanceCell.Font = new System.Drawing.Font("Nunito", 10F);
-            this.colAmount.AppearanceCell.Options.UseFont = true;
-            this.colAmount.AppearanceCell.Options.UseTextOptions = true;
-            this.colAmount.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.colAmount.AppearanceHeader.Font = new System.Drawing.Font("Nunito", 10F, System.Drawing.FontStyle.Bold);
-            this.colAmount.AppearanceHeader.ForeColor = System.Drawing.Color.DimGray;
-            this.colAmount.AppearanceHeader.Options.UseFont = true;
-            this.colAmount.AppearanceHeader.Options.UseForeColor = true;
-            this.colAmount.AppearanceHeader.Options.UseTextOptions = true;
-            this.colAmount.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.colAmount.Caption = "Miqdar";
-            this.colAmount.DisplayFormat.FormatString = "N2";
-            this.colAmount.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.colAmount.FieldName = "Amount";
-            this.colAmount.MinWidth = 100;
-            this.colAmount.Name = "colAmount";
-            this.colAmount.OptionsColumn.AllowEdit = false;
-            this.colAmount.Visible = true;
-            this.colAmount.VisibleIndex = 2;
-            this.colAmount.Width = 156;
-            // 
-            // colId
-            // 
-            this.colId.Caption = "Id";
-            this.colId.FieldName = "Id";
-            this.colId.Name = "colId";
-            this.colId.OptionsColumn.AllowEdit = false;
-            this.colId.Width = 20;
-            // 
-            // groupControlGunluk
-            // 
-            this.groupControlGunluk.AppearanceCaption.Font = new System.Drawing.Font("Nunito", 12F, System.Drawing.FontStyle.Bold);
-            this.groupControlGunluk.AppearanceCaption.Options.UseFont = true;
-            this.tablePanelDashboard.SetColumn(this.groupControlGunluk, 0);
-            this.tablePanelDashboard.SetColumnSpan(this.groupControlGunluk, 3);
-            this.groupControlGunluk.Controls.Add(this.tablePanel24);
-            this.groupControlGunluk.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupControlGunluk.Location = new System.Drawing.Point(3, 0);
-            this.groupControlGunluk.LookAndFeel.SkinName = "Office 2013";
-            this.groupControlGunluk.LookAndFeel.UseDefaultLookAndFeel = false;
-            this.groupControlGunluk.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
-            this.groupControlGunluk.Name = "groupControlGunluk";
-            this.tablePanelDashboard.SetRow(this.groupControlGunluk, 0);
-            this.tablePanelDashboard.SetRowSpan(this.groupControlGunluk, 2);
-            this.groupControlGunluk.Size = new System.Drawing.Size(1552, 125);
-            this.groupControlGunluk.TabIndex = 3;
-            this.groupControlGunluk.Text = "Cari hesabat";
+            this.pageMain.Size = new System.Drawing.Size(1538, 768);
             // 
             // tablePanel24
             // 
             this.tablePanel24.Columns.AddRange(new DevExpress.Utils.Layout.TablePanelColumn[] {
             new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 100F),
             new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 100F),
+            new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 100F),
             new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 100F)});
-            this.tablePanel24.Controls.Add(this.panel1);
-            this.tablePanel24.Controls.Add(this.panel2);
-            this.tablePanel24.Controls.Add(this.panel3);
+            this.tablePanel24.Controls.Add(this.tabPane2);
+            this.tablePanel24.Controls.Add(this.panelControl21);
+            this.tablePanel24.Controls.Add(this.panelControl22);
+            this.tablePanel24.Controls.Add(this.panelControl23);
+            this.tablePanel24.Controls.Add(this.tabPane1);
+            this.tablePanel24.Controls.Add(this.panelControl24);
             this.tablePanel24.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tablePanel24.Location = new System.Drawing.Point(2, 23);
-            this.tablePanel24.Margin = new System.Windows.Forms.Padding(0);
+            this.tablePanel24.Location = new System.Drawing.Point(0, 0);
             this.tablePanel24.Name = "tablePanel24";
+            this.tablePanel24.Padding = new System.Windows.Forms.Padding(1);
             this.tablePanel24.Rows.AddRange(new DevExpress.Utils.Layout.TablePanelRow[] {
-            new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 26F),
-            new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 26F)});
-            this.tablePanel24.Size = new System.Drawing.Size(1548, 100);
-            this.tablePanel24.TabIndex = 0;
+            new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 95F),
+            new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 389F),
+            new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 364F),
+            new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 51F)});
+            this.tablePanel24.Size = new System.Drawing.Size(1538, 768);
+            this.tablePanel24.TabIndex = 4;
+            this.tablePanel24.UseSkinIndents = true;
             // 
-            // panel1
+            // tabPane2
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(126)))), ((int)(((byte)(34)))));
-            this.tablePanel24.SetColumn(this.panel1, 0);
-            this.panel1.Controls.Add(this.tablePanel25);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(5, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(5, 0, 5, 1);
-            this.panel1.Name = "panel1";
-            this.tablePanel24.SetRow(this.panel1, 0);
-            this.tablePanel24.SetRowSpan(this.panel1, 2);
-            this.panel1.Size = new System.Drawing.Size(506, 99);
-            this.panel1.TabIndex = 0;
+            this.tabPane2.AppearanceButton.Hovered.Font = new System.Drawing.Font("Nunito", 11F, System.Drawing.FontStyle.Bold);
+            this.tabPane2.AppearanceButton.Hovered.Options.UseFont = true;
+            this.tabPane2.AppearanceButton.Normal.Font = new System.Drawing.Font("Nunito", 11F, System.Drawing.FontStyle.Bold);
+            this.tabPane2.AppearanceButton.Normal.Options.UseFont = true;
+            this.tabPane2.AppearanceButton.Pressed.Font = new System.Drawing.Font("Nunito", 11F, System.Drawing.FontStyle.Bold);
+            this.tabPane2.AppearanceButton.Pressed.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
+            this.tabPane2.AppearanceButton.Pressed.Options.UseFont = true;
+            this.tabPane2.AppearanceButton.Pressed.Options.UseForeColor = true;
+            this.tablePanel24.SetColumn(this.tabPane2, 3);
+            this.tabPane2.Controls.Add(this.tabNavigationPage1);
+            this.tabPane2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabPane2.Location = new System.Drawing.Point(1155, 98);
+            this.tabPane2.Name = "tabPane2";
+            this.tabPane2.PageProperties.AppearanceCaption.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
+            this.tabPane2.PageProperties.AppearanceCaption.Font = new System.Drawing.Font("Nunito", 12F);
+            this.tabPane2.PageProperties.AppearanceCaption.Options.UseBorderColor = true;
+            this.tabPane2.PageProperties.AppearanceCaption.Options.UseFont = true;
+            this.tabPane2.Pages.AddRange(new DevExpress.XtraBars.Navigation.NavigationPageBase[] {
+            this.tabNavigationPage1});
+            this.tabPane2.RegularSize = new System.Drawing.Size(380, 385);
+            this.tablePanel24.SetRow(this.tabPane2, 1);
+            this.tabPane2.SelectedPage = this.tabNavigationPage1;
+            this.tabPane2.Size = new System.Drawing.Size(380, 385);
+            this.tabPane2.TabAlignment = DevExpress.XtraEditors.Alignment.Center;
+            this.tabPane2.TabIndex = 5;
+            this.tabPane2.Text = "tabPane2";
+            // 
+            // tabNavigationPage1
+            // 
+            this.tabNavigationPage1.Caption = "Ödəniş növü qrafikası";
+            this.tabNavigationPage1.Controls.Add(this.chartControl1);
+            this.tabNavigationPage1.Name = "tabNavigationPage1";
+            this.tabNavigationPage1.Size = new System.Drawing.Size(380, 352);
+            // 
+            // chartControl1
+            // 
+            this.chartControl1.BorderOptions.Visibility = DevExpress.Utils.DefaultBoolean.False;
+            simpleDiagram3D1.RotationMatrixSerializable = "0.566227342711817;-0.243917201153957;0.787331566334533;0;-0.819705671750796;-0.26" +
+    "6794301413601;0.506856402181983;0;0.0864245802139022;-0.932376104216809;-0.35100" +
+    "6541563555;0;0;0;0;1";
+            simpleDiagram3D1.ZoomPercent = 70;
+            this.chartControl1.Diagram = simpleDiagram3D1;
+            this.chartControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.chartControl1.Location = new System.Drawing.Point(0, 0);
+            this.chartControl1.Name = "chartControl1";
+            this.chartControl1.PaletteName = "Palette 1";
+            this.chartControl1.PaletteRepository.Add("Palette 1", new DevExpress.XtraCharts.Palette("Palette 1", DevExpress.XtraCharts.PaletteScaleMode.Repeat, new DevExpress.XtraCharts.PaletteEntry[] {
+                new DevExpress.XtraCharts.PaletteEntry(System.Drawing.Color.Silver, System.Drawing.Color.Silver)}));
+            pie3DSeriesLabel1.Border.Visibility = DevExpress.Utils.DefaultBoolean.True;
+            pie3DSeriesLabel1.FillStyle.FillMode = DevExpress.XtraCharts.FillMode.Gradient;
+            pie3DSeriesLabel1.LineVisibility = DevExpress.Utils.DefaultBoolean.True;
+            pie3DSeriesLabel1.TextAlignment = System.Drawing.StringAlignment.Near;
+            series1.Label = pie3DSeriesLabel1;
+            series1.LabelsVisibility = DevExpress.Utils.DefaultBoolean.True;
+            series1.Name = "Series 1";
+            series1.SeriesID = 4;
+            series1.View = pie3DSeriesView1;
+            this.chartControl1.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
+        series1};
+            this.chartControl1.SeriesTemplate.View = pie3DSeriesView2;
+            this.chartControl1.Size = new System.Drawing.Size(380, 352);
+            this.chartControl1.TabIndex = 1;
+            chartTitle1.DXFont = new DevExpress.Drawing.DXFont("Nunito", 14F, DevExpress.Drawing.DXFontStyle.Bold);
+            chartTitle1.Text = "ÖDƏNİŞ NÖVLƏRİ";
+            chartTitle1.TitleID = 0;
+            chartTitle1.Visibility = DevExpress.Utils.DefaultBoolean.False;
+            chartTitle1.WordWrap = true;
+            this.chartControl1.Titles.AddRange(new DevExpress.XtraCharts.ChartTitle[] {
+            chartTitle1});
+            // 
+            // panelControl21
+            // 
+            this.panelControl21.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(189)))), ((int)(((byte)(238)))));
+            this.panelControl21.Appearance.Options.UseBackColor = true;
+            this.tablePanel24.SetColumn(this.panelControl21, 2);
+            this.panelControl21.Controls.Add(this.tablePanel25);
+            this.panelControl21.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelControl21.Location = new System.Drawing.Point(771, 3);
+            this.panelControl21.LookAndFeel.SkinName = "WXI";
+            this.panelControl21.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.panelControl21.Name = "panelControl21";
+            this.tablePanel24.SetRow(this.panelControl21, 0);
+            this.panelControl21.Size = new System.Drawing.Size(380, 91);
+            this.panelControl21.TabIndex = 4;
             // 
             // tablePanel25
             // 
-            this.tablePanel25.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(35)))), ((int)(((byte)(60)))));
-            this.tablePanel25.Appearance.Options.UseBackColor = true;
+            this.tablePanel25.AlwaysScrollActiveControlIntoView = false;
+            this.tablePanel25.AutoSize = true;
+            this.tablePanel25.AutoTabOrder = false;
             this.tablePanel25.Columns.AddRange(new DevExpress.Utils.Layout.TablePanelColumn[] {
-            new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 77.56F),
-            new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 122.44F)});
-            this.tablePanel25.Controls.Add(this.lReturnCount);
-            this.tablePanel25.Controls.Add(this.lReturnPrice);
+            new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.AutoSize, 18.16F),
+            new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 100F),
+            new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 100F)});
+            this.tablePanel25.Controls.Add(this.lCashAmount);
+            this.tablePanel25.Controls.Add(this.labelControl1);
             this.tablePanel25.Controls.Add(this.labelControl2);
-            this.tablePanel25.Controls.Add(this.labelControl7);
+            this.tablePanel25.Controls.Add(this.labelControl3);
+            this.tablePanel25.Controls.Add(this.lCardAmount);
             this.tablePanel25.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tablePanel25.Location = new System.Drawing.Point(0, 0);
+            this.tablePanel25.Location = new System.Drawing.Point(2, 2);
             this.tablePanel25.Margin = new System.Windows.Forms.Padding(0);
             this.tablePanel25.Name = "tablePanel25";
+            this.tablePanel25.Padding = new System.Windows.Forms.Padding(1);
             this.tablePanel25.Rows.AddRange(new DevExpress.Utils.Layout.TablePanelRow[] {
-            new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 134.01F),
-            new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 65.99F)});
-            this.tablePanel25.Size = new System.Drawing.Size(506, 99);
+            new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 32F),
+            new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 26F)});
+            this.tablePanel25.ShowGrid = DevExpress.Utils.DefaultBoolean.False;
+            this.tablePanel25.Size = new System.Drawing.Size(376, 87);
             this.tablePanel25.TabIndex = 0;
+            this.tablePanel25.UseSkinIndents = true;
             // 
-            // lReturnCount
+            // lCashAmount
             // 
-            this.lReturnCount.Appearance.Font = new System.Drawing.Font("Nunito", 12F, System.Drawing.FontStyle.Bold);
-            this.lReturnCount.Appearance.ForeColor = System.Drawing.Color.White;
-            this.lReturnCount.Appearance.Options.UseFont = true;
-            this.lReturnCount.Appearance.Options.UseForeColor = true;
-            this.lReturnCount.Appearance.Options.UseTextOptions = true;
-            this.lReturnCount.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-            this.lReturnCount.Appearance.TextOptions.Trimming = DevExpress.Utils.Trimming.EllipsisCharacter;
-            this.lReturnCount.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.lReturnCount.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.tablePanel25.SetColumn(this.lReturnCount, 1);
-            this.lReturnCount.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lReturnCount.Location = new System.Drawing.Point(199, 69);
-            this.lReturnCount.Margin = new System.Windows.Forms.Padding(3, 3, 10, 3);
-            this.lReturnCount.Name = "lReturnCount";
-            this.tablePanel25.SetRow(this.lReturnCount, 1);
-            this.lReturnCount.Size = new System.Drawing.Size(297, 27);
-            this.lReturnCount.TabIndex = 1;
-            this.lReturnCount.Text = "0";
+            this.lCashAmount.Appearance.Font = new System.Drawing.Font("Nunito", 18F, System.Drawing.FontStyle.Bold);
+            this.lCashAmount.Appearance.ForeColor = System.Drawing.Color.White;
+            this.lCashAmount.Appearance.Options.UseFont = true;
+            this.lCashAmount.Appearance.Options.UseForeColor = true;
+            this.lCashAmount.Appearance.Options.UseTextOptions = true;
+            this.lCashAmount.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.lCashAmount.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.tablePanel25.SetColumn(this.lCashAmount, 1);
+            this.lCashAmount.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lCashAmount.Location = new System.Drawing.Point(60, 36);
+            this.lCashAmount.Name = "lCashAmount";
+            this.tablePanel25.SetRow(this.lCashAmount, 1);
+            this.lCashAmount.Size = new System.Drawing.Size(153, 47);
+            this.lCashAmount.TabIndex = 13;
+            this.lCashAmount.Text = "0.00 ₼";
             // 
-            // lReturnPrice
+            // labelControl1
             // 
-            this.lReturnPrice.Appearance.Font = new System.Drawing.Font("Nunito", 20F, System.Drawing.FontStyle.Bold);
-            this.lReturnPrice.Appearance.ForeColor = System.Drawing.Color.White;
-            this.lReturnPrice.Appearance.Options.UseFont = true;
-            this.lReturnPrice.Appearance.Options.UseForeColor = true;
-            this.lReturnPrice.Appearance.Options.UseTextOptions = true;
-            this.lReturnPrice.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-            this.lReturnPrice.Appearance.TextOptions.Trimming = DevExpress.Utils.Trimming.EllipsisCharacter;
-            this.lReturnPrice.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.lReturnPrice.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.tablePanel25.SetColumn(this.lReturnPrice, 1);
-            this.lReturnPrice.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lReturnPrice.Location = new System.Drawing.Point(199, 3);
-            this.lReturnPrice.Margin = new System.Windows.Forms.Padding(3, 3, 10, 3);
-            this.lReturnPrice.Name = "lReturnPrice";
-            this.tablePanel25.SetRow(this.lReturnPrice, 0);
-            this.lReturnPrice.Size = new System.Drawing.Size(297, 60);
-            this.lReturnPrice.TabIndex = 1;
+            this.labelControl1.Appearance.Font = new System.Drawing.Font("Nunito", 12F, System.Drawing.FontStyle.Bold);
+            this.labelControl1.Appearance.ForeColor = System.Drawing.Color.White;
+            this.labelControl1.Appearance.Options.UseFont = true;
+            this.labelControl1.Appearance.Options.UseForeColor = true;
+            this.labelControl1.Appearance.Options.UseTextOptions = true;
+            this.labelControl1.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.labelControl1.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.tablePanel25.SetColumn(this.labelControl1, 1);
+            this.labelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labelControl1.LineLocation = DevExpress.XtraEditors.LineLocation.Bottom;
+            this.labelControl1.LineVisible = true;
+            this.labelControl1.Location = new System.Drawing.Point(60, 4);
+            this.labelControl1.Margin = new System.Windows.Forms.Padding(3, 3, 0, 0);
+            this.labelControl1.Name = "labelControl1";
+            this.tablePanel25.SetRow(this.labelControl1, 0);
+            this.labelControl1.Size = new System.Drawing.Size(156, 29);
+            this.labelControl1.TabIndex = 12;
+            this.labelControl1.Text = "Nağd satış";
             // 
             // labelControl2
             // 
-            this.labelControl2.Appearance.Font = new System.Drawing.Font("Nunito", 14F, System.Drawing.FontStyle.Bold);
-            this.labelControl2.Appearance.ForeColor = System.Drawing.Color.White;
+            this.labelControl2.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.labelControl2.Appearance.Font = new System.Drawing.Font("Nunito", 20F, System.Drawing.FontStyle.Bold);
+            this.labelControl2.Appearance.Options.UseBackColor = true;
             this.labelControl2.Appearance.Options.UseFont = true;
-            this.labelControl2.Appearance.Options.UseForeColor = true;
-            this.labelControl2.Appearance.Options.UseTextOptions = true;
-            this.labelControl2.Appearance.TextOptions.Trimming = DevExpress.Utils.Trimming.EllipsisCharacter;
-            this.labelControl2.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.labelControl2.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
             this.tablePanel25.SetColumn(this.labelControl2, 0);
             this.labelControl2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelControl2.Location = new System.Drawing.Point(10, 3);
-            this.labelControl2.Margin = new System.Windows.Forms.Padding(10, 3, 3, 3);
+            this.labelControl2.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("labelControl2.ImageOptions.SvgImage")));
+            this.labelControl2.ImageOptions.SvgImageSize = new System.Drawing.Size(48, 48);
+            this.labelControl2.Location = new System.Drawing.Point(4, 4);
             this.labelControl2.Name = "labelControl2";
             this.tablePanel25.SetRow(this.labelControl2, 0);
-            this.labelControl2.Size = new System.Drawing.Size(183, 60);
-            this.labelControl2.TabIndex = 0;
-            this.labelControl2.Text = "QAYTARMA\r\nMƏBLƏĞİ";
+            this.tablePanel25.SetRowSpan(this.labelControl2, 2);
+            this.labelControl2.Size = new System.Drawing.Size(50, 79);
+            this.labelControl2.TabIndex = 13;
             // 
-            // labelControl7
+            // labelControl3
             // 
-            this.labelControl7.Appearance.Font = new System.Drawing.Font("Nunito", 12F);
-            this.labelControl7.Appearance.ForeColor = System.Drawing.Color.White;
-            this.labelControl7.Appearance.Options.UseFont = true;
-            this.labelControl7.Appearance.Options.UseForeColor = true;
-            this.labelControl7.Appearance.Options.UseTextOptions = true;
-            this.labelControl7.Appearance.TextOptions.Trimming = DevExpress.Utils.Trimming.EllipsisCharacter;
-            this.labelControl7.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.labelControl7.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.tablePanel25.SetColumn(this.labelControl7, 0);
-            this.labelControl7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelControl7.Location = new System.Drawing.Point(10, 69);
-            this.labelControl7.Margin = new System.Windows.Forms.Padding(10, 3, 3, 3);
-            this.labelControl7.Name = "labelControl7";
-            this.tablePanel25.SetRow(this.labelControl7, 1);
-            this.labelControl7.Size = new System.Drawing.Size(183, 27);
-            this.labelControl7.TabIndex = 0;
-            this.labelControl7.Text = "Qaytarma sayı";
+            this.labelControl3.Appearance.Font = new System.Drawing.Font("Nunito", 12F, System.Drawing.FontStyle.Bold);
+            this.labelControl3.Appearance.ForeColor = System.Drawing.Color.White;
+            this.labelControl3.Appearance.Options.UseFont = true;
+            this.labelControl3.Appearance.Options.UseForeColor = true;
+            this.labelControl3.Appearance.Options.UseTextOptions = true;
+            this.labelControl3.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.labelControl3.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.tablePanel25.SetColumn(this.labelControl3, 2);
+            this.labelControl3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labelControl3.LineLocation = DevExpress.XtraEditors.LineLocation.Bottom;
+            this.labelControl3.LineVisible = true;
+            this.labelControl3.Location = new System.Drawing.Point(216, 4);
+            this.labelControl3.Margin = new System.Windows.Forms.Padding(0, 3, 3, 0);
+            this.labelControl3.Name = "labelControl3";
+            this.tablePanel25.SetRow(this.labelControl3, 0);
+            this.labelControl3.Size = new System.Drawing.Size(156, 29);
+            this.labelControl3.TabIndex = 12;
+            this.labelControl3.Text = "Kart satış";
             // 
-            // panel2
+            // lCardAmount
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
-            this.tablePanel24.SetColumn(this.panel2, 1);
-            this.panel2.Controls.Add(this.tablePanel26);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(521, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(5, 0, 5, 1);
-            this.panel2.Name = "panel2";
-            this.tablePanel24.SetRow(this.panel2, 0);
-            this.tablePanel24.SetRowSpan(this.panel2, 2);
-            this.panel2.Size = new System.Drawing.Size(506, 99);
-            this.panel2.TabIndex = 0;
+            this.lCardAmount.Appearance.Font = new System.Drawing.Font("Nunito", 18F, System.Drawing.FontStyle.Bold);
+            this.lCardAmount.Appearance.ForeColor = System.Drawing.Color.White;
+            this.lCardAmount.Appearance.Options.UseFont = true;
+            this.lCardAmount.Appearance.Options.UseForeColor = true;
+            this.lCardAmount.Appearance.Options.UseTextOptions = true;
+            this.lCardAmount.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.lCardAmount.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.tablePanel25.SetColumn(this.lCardAmount, 2);
+            this.lCardAmount.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lCardAmount.Location = new System.Drawing.Point(219, 36);
+            this.lCardAmount.Name = "lCardAmount";
+            this.tablePanel25.SetRow(this.lCardAmount, 1);
+            this.lCardAmount.Size = new System.Drawing.Size(153, 47);
+            this.lCardAmount.TabIndex = 13;
+            this.lCardAmount.Text = "0.00 ₼";
+            // 
+            // panelControl22
+            // 
+            this.panelControl22.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(118)))), ((int)(((byte)(109)))));
+            this.panelControl22.Appearance.Options.UseBackColor = true;
+            this.tablePanel24.SetColumn(this.panelControl22, 1);
+            this.panelControl22.Controls.Add(this.tablePanel26);
+            this.panelControl22.Location = new System.Drawing.Point(387, 13);
+            this.panelControl22.LookAndFeel.SkinName = "WXI";
+            this.panelControl22.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.panelControl22.Name = "panelControl22";
+            this.tablePanel24.SetRow(this.panelControl22, 0);
+            this.panelControl22.Size = new System.Drawing.Size(380, 71);
+            this.panelControl22.TabIndex = 3;
             // 
             // tablePanel26
             // 
-            this.tablePanel26.Appearance.BackColor = System.Drawing.Color.Transparent;
-            this.tablePanel26.Appearance.Options.UseBackColor = true;
+            this.tablePanel26.AlwaysScrollActiveControlIntoView = false;
+            this.tablePanel26.AutoSize = true;
+            this.tablePanel26.AutoTabOrder = false;
             this.tablePanel26.Columns.AddRange(new DevExpress.Utils.Layout.TablePanelColumn[] {
-            new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 71.4F),
-            new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 128.6F)});
-            this.tablePanel26.Controls.Add(this.lSaleCount);
-            this.tablePanel26.Controls.Add(this.lSalesPrice);
+            new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.AutoSize, 18.16F),
+            new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 73.7F),
+            new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 18.14F)});
+            this.tablePanel26.Controls.Add(this.labelControl7);
+            this.tablePanel26.Controls.Add(this.lRollbackAmount);
             this.tablePanel26.Controls.Add(this.labelControl19);
-            this.tablePanel26.Controls.Add(this.labelControl24);
+            this.tablePanel26.Controls.Add(this.labelControl23);
+            this.tablePanel26.Controls.Add(this.lRollbackCount);
             this.tablePanel26.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tablePanel26.Location = new System.Drawing.Point(0, 0);
+            this.tablePanel26.Location = new System.Drawing.Point(2, 2);
             this.tablePanel26.Margin = new System.Windows.Forms.Padding(0);
             this.tablePanel26.Name = "tablePanel26";
+            this.tablePanel26.Padding = new System.Windows.Forms.Padding(1);
             this.tablePanel26.Rows.AddRange(new DevExpress.Utils.Layout.TablePanelRow[] {
-            new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 134.01F),
-            new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 65.99F)});
-            this.tablePanel26.Size = new System.Drawing.Size(506, 99);
-            this.tablePanel26.TabIndex = 1;
+            new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 32F),
+            new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 26F)});
+            this.tablePanel26.ShowGrid = DevExpress.Utils.DefaultBoolean.False;
+            this.tablePanel26.Size = new System.Drawing.Size(376, 67);
+            this.tablePanel26.TabIndex = 0;
+            this.tablePanel26.UseSkinIndents = true;
             // 
-            // lSaleCount
+            // labelControl7
             // 
-            this.lSaleCount.Appearance.Font = new System.Drawing.Font("Nunito", 12F, System.Drawing.FontStyle.Bold);
-            this.lSaleCount.Appearance.ForeColor = System.Drawing.Color.White;
-            this.lSaleCount.Appearance.Options.UseFont = true;
-            this.lSaleCount.Appearance.Options.UseForeColor = true;
-            this.lSaleCount.Appearance.Options.UseTextOptions = true;
-            this.lSaleCount.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-            this.lSaleCount.Appearance.TextOptions.Trimming = DevExpress.Utils.Trimming.EllipsisCharacter;
-            this.lSaleCount.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.lSaleCount.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.tablePanel26.SetColumn(this.lSaleCount, 1);
-            this.lSaleCount.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lSaleCount.Location = new System.Drawing.Point(184, 69);
-            this.lSaleCount.Margin = new System.Windows.Forms.Padding(3, 3, 10, 3);
-            this.lSaleCount.Name = "lSaleCount";
-            this.tablePanel26.SetRow(this.lSaleCount, 1);
-            this.lSaleCount.Size = new System.Drawing.Size(312, 27);
-            this.lSaleCount.TabIndex = 1;
-            this.lSaleCount.Text = "0";
+            this.labelControl7.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.labelControl7.Appearance.Font = new System.Drawing.Font("Nunito", 20F, System.Drawing.FontStyle.Bold);
+            this.labelControl7.Appearance.Options.UseBackColor = true;
+            this.labelControl7.Appearance.Options.UseFont = true;
+            this.labelControl7.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.tablePanel26.SetColumn(this.labelControl7, 0);
+            this.labelControl7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labelControl7.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("labelControl7.ImageOptions.SvgImage")));
+            this.labelControl7.ImageOptions.SvgImageSize = new System.Drawing.Size(48, 48);
+            this.labelControl7.Location = new System.Drawing.Point(4, 4);
+            this.labelControl7.Name = "labelControl7";
+            this.tablePanel26.SetRow(this.labelControl7, 0);
+            this.tablePanel26.SetRowSpan(this.labelControl7, 2);
+            this.labelControl7.Size = new System.Drawing.Size(50, 59);
+            this.labelControl7.TabIndex = 13;
             // 
-            // lSalesPrice
+            // lRollbackAmount
             // 
-            this.lSalesPrice.Appearance.Font = new System.Drawing.Font("Nunito", 20F, System.Drawing.FontStyle.Bold);
-            this.lSalesPrice.Appearance.ForeColor = System.Drawing.Color.White;
-            this.lSalesPrice.Appearance.Options.UseFont = true;
-            this.lSalesPrice.Appearance.Options.UseForeColor = true;
-            this.lSalesPrice.Appearance.Options.UseTextOptions = true;
-            this.lSalesPrice.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-            this.lSalesPrice.Appearance.TextOptions.Trimming = DevExpress.Utils.Trimming.EllipsisCharacter;
-            this.lSalesPrice.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.lSalesPrice.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.tablePanel26.SetColumn(this.lSalesPrice, 1);
-            this.lSalesPrice.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lSalesPrice.Location = new System.Drawing.Point(184, 3);
-            this.lSalesPrice.Margin = new System.Windows.Forms.Padding(3, 3, 10, 3);
-            this.lSalesPrice.Name = "lSalesPrice";
-            this.tablePanel26.SetRow(this.lSalesPrice, 0);
-            this.lSalesPrice.Size = new System.Drawing.Size(312, 60);
-            this.lSalesPrice.TabIndex = 1;
+            this.lRollbackAmount.Appearance.Font = new System.Drawing.Font("Nunito", 20F, System.Drawing.FontStyle.Bold);
+            this.lRollbackAmount.Appearance.ForeColor = System.Drawing.Color.White;
+            this.lRollbackAmount.Appearance.Options.UseFont = true;
+            this.lRollbackAmount.Appearance.Options.UseForeColor = true;
+            this.lRollbackAmount.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.tablePanel26.SetColumn(this.lRollbackAmount, 1);
+            this.lRollbackAmount.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lRollbackAmount.Location = new System.Drawing.Point(60, 36);
+            this.lRollbackAmount.Name = "lRollbackAmount";
+            this.tablePanel26.SetRow(this.lRollbackAmount, 1);
+            this.lRollbackAmount.Size = new System.Drawing.Size(249, 27);
+            this.lRollbackAmount.TabIndex = 12;
+            this.lRollbackAmount.Text = "0.00 ₼";
             // 
             // labelControl19
             // 
-            this.labelControl19.Appearance.Font = new System.Drawing.Font("Nunito", 14F, System.Drawing.FontStyle.Bold);
+            this.labelControl19.Appearance.Font = new System.Drawing.Font("Nunito", 12F, System.Drawing.FontStyle.Bold);
             this.labelControl19.Appearance.ForeColor = System.Drawing.Color.White;
             this.labelControl19.Appearance.Options.UseFont = true;
             this.labelControl19.Appearance.Options.UseForeColor = true;
-            this.labelControl19.Appearance.Options.UseTextOptions = true;
-            this.labelControl19.Appearance.TextOptions.Trimming = DevExpress.Utils.Trimming.EllipsisCharacter;
-            this.labelControl19.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.labelControl19.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.tablePanel26.SetColumn(this.labelControl19, 0);
+            this.tablePanel26.SetColumn(this.labelControl19, 1);
             this.labelControl19.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelControl19.Location = new System.Drawing.Point(10, 3);
-            this.labelControl19.Margin = new System.Windows.Forms.Padding(10, 3, 3, 3);
+            this.labelControl19.LineLocation = DevExpress.XtraEditors.LineLocation.Bottom;
+            this.labelControl19.LineVisible = true;
+            this.labelControl19.Location = new System.Drawing.Point(60, 4);
+            this.labelControl19.Margin = new System.Windows.Forms.Padding(3, 3, 0, 0);
             this.labelControl19.Name = "labelControl19";
             this.tablePanel26.SetRow(this.labelControl19, 0);
-            this.labelControl19.Size = new System.Drawing.Size(168, 60);
-            this.labelControl19.TabIndex = 0;
-            this.labelControl19.Text = "SATIŞ\r\nMƏBLƏĞİ";
+            this.labelControl19.Size = new System.Drawing.Size(252, 29);
+            this.labelControl19.TabIndex = 11;
+            this.labelControl19.Text = "Qaytarma məbləği";
             // 
-            // labelControl24
+            // labelControl23
             // 
-            this.labelControl24.Appearance.Font = new System.Drawing.Font("Nunito", 12F);
-            this.labelControl24.Appearance.ForeColor = System.Drawing.Color.White;
-            this.labelControl24.Appearance.Options.UseFont = true;
-            this.labelControl24.Appearance.Options.UseForeColor = true;
-            this.labelControl24.Appearance.Options.UseTextOptions = true;
-            this.labelControl24.Appearance.TextOptions.Trimming = DevExpress.Utils.Trimming.EllipsisCharacter;
-            this.labelControl24.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.labelControl24.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.tablePanel26.SetColumn(this.labelControl24, 0);
-            this.labelControl24.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelControl24.Location = new System.Drawing.Point(10, 69);
-            this.labelControl24.Margin = new System.Windows.Forms.Padding(10, 3, 3, 3);
-            this.labelControl24.Name = "labelControl24";
-            this.tablePanel26.SetRow(this.labelControl24, 1);
-            this.labelControl24.Size = new System.Drawing.Size(168, 27);
-            this.labelControl24.TabIndex = 0;
-            this.labelControl24.Text = "Satış sayı";
+            this.labelControl23.Appearance.Font = new System.Drawing.Font("Nunito", 12F, System.Drawing.FontStyle.Bold);
+            this.labelControl23.Appearance.ForeColor = System.Drawing.Color.White;
+            this.labelControl23.Appearance.Options.UseFont = true;
+            this.labelControl23.Appearance.Options.UseForeColor = true;
+            this.labelControl23.Appearance.Options.UseTextOptions = true;
+            this.labelControl23.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.labelControl23.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.tablePanel26.SetColumn(this.labelControl23, 2);
+            this.labelControl23.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labelControl23.LineLocation = DevExpress.XtraEditors.LineLocation.Bottom;
+            this.labelControl23.LineVisible = true;
+            this.labelControl23.Location = new System.Drawing.Point(312, 4);
+            this.labelControl23.Margin = new System.Windows.Forms.Padding(0, 3, 3, 0);
+            this.labelControl23.Name = "labelControl23";
+            this.tablePanel26.SetRow(this.labelControl23, 0);
+            this.labelControl23.Size = new System.Drawing.Size(60, 29);
+            this.labelControl23.TabIndex = 11;
+            this.labelControl23.Text = "Say";
             // 
-            // panel3
+            // lRollbackCount
             // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(93)))), ((int)(((byte)(117)))));
-            this.tablePanel24.SetColumn(this.panel3, 2);
-            this.panel3.Controls.Add(this.tablePanel27);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(1037, 0);
-            this.panel3.Margin = new System.Windows.Forms.Padding(5, 0, 5, 1);
-            this.panel3.Name = "panel3";
-            this.tablePanel24.SetRow(this.panel3, 0);
-            this.tablePanel24.SetRowSpan(this.panel3, 2);
-            this.panel3.Size = new System.Drawing.Size(506, 99);
-            this.panel3.TabIndex = 0;
+            this.lRollbackCount.Appearance.Font = new System.Drawing.Font("Nunito", 16F, System.Drawing.FontStyle.Bold);
+            this.lRollbackCount.Appearance.ForeColor = System.Drawing.Color.White;
+            this.lRollbackCount.Appearance.Options.UseFont = true;
+            this.lRollbackCount.Appearance.Options.UseForeColor = true;
+            this.lRollbackCount.Appearance.Options.UseTextOptions = true;
+            this.lRollbackCount.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.lRollbackCount.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.tablePanel26.SetColumn(this.lRollbackCount, 2);
+            this.lRollbackCount.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lRollbackCount.Location = new System.Drawing.Point(315, 36);
+            this.lRollbackCount.Name = "lRollbackCount";
+            this.tablePanel26.SetRow(this.lRollbackCount, 1);
+            this.lRollbackCount.Size = new System.Drawing.Size(57, 27);
+            this.lRollbackCount.TabIndex = 11;
+            this.lRollbackCount.Text = "0";
+            // 
+            // panelControl23
+            // 
+            this.panelControl23.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(209)))), ((int)(((byte)(153)))));
+            this.panelControl23.Appearance.Options.UseBackColor = true;
+            this.tablePanel24.SetColumn(this.panelControl23, 0);
+            this.panelControl23.Controls.Add(this.tablePanel27);
+            this.panelControl23.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelControl23.Location = new System.Drawing.Point(3, 3);
+            this.panelControl23.LookAndFeel.SkinName = "WXI";
+            this.panelControl23.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.panelControl23.Name = "panelControl23";
+            this.tablePanel24.SetRow(this.panelControl23, 0);
+            this.panelControl23.Size = new System.Drawing.Size(380, 91);
+            this.panelControl23.TabIndex = 2;
             // 
             // tablePanel27
             // 
-            this.tablePanel27.Appearance.BackColor = System.Drawing.Color.Transparent;
-            this.tablePanel27.Appearance.Options.UseBackColor = true;
+            this.tablePanel27.AlwaysScrollActiveControlIntoView = false;
+            this.tablePanel27.AutoSize = true;
+            this.tablePanel27.AutoTabOrder = false;
             this.tablePanel27.Columns.AddRange(new DevExpress.Utils.Layout.TablePanelColumn[] {
-            new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 83.28F),
-            new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 116.72F)});
-            this.tablePanel27.Controls.Add(this.lTotalPrice);
+            new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 18.16F),
+            new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 73.7F),
+            new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 18.14F)});
+            this.tablePanel27.Controls.Add(this.labelControl24);
+            this.tablePanel27.Controls.Add(this.lSalesAmount);
             this.tablePanel27.Controls.Add(this.labelControl25);
+            this.tablePanel27.Controls.Add(this.labelControl30);
+            this.tablePanel27.Controls.Add(this.lSalesCount);
             this.tablePanel27.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tablePanel27.Location = new System.Drawing.Point(0, 0);
+            this.tablePanel27.Location = new System.Drawing.Point(2, 2);
             this.tablePanel27.Margin = new System.Windows.Forms.Padding(0);
             this.tablePanel27.Name = "tablePanel27";
+            this.tablePanel27.Padding = new System.Windows.Forms.Padding(1);
             this.tablePanel27.Rows.AddRange(new DevExpress.Utils.Layout.TablePanelRow[] {
-            new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 134.01F),
-            new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 65.99F)});
-            this.tablePanel27.Size = new System.Drawing.Size(506, 99);
-            this.tablePanel27.TabIndex = 1;
+            new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 32F),
+            new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 26F)});
+            this.tablePanel27.ShowGrid = DevExpress.Utils.DefaultBoolean.False;
+            this.tablePanel27.Size = new System.Drawing.Size(376, 87);
+            this.tablePanel27.TabIndex = 0;
+            this.tablePanel27.UseSkinIndents = true;
             // 
-            // lTotalPrice
+            // labelControl24
             // 
-            this.lTotalPrice.Appearance.Font = new System.Drawing.Font("Nunito", 24F, System.Drawing.FontStyle.Bold);
-            this.lTotalPrice.Appearance.ForeColor = System.Drawing.Color.White;
-            this.lTotalPrice.Appearance.Options.UseFont = true;
-            this.lTotalPrice.Appearance.Options.UseForeColor = true;
-            this.lTotalPrice.Appearance.Options.UseTextOptions = true;
-            this.lTotalPrice.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-            this.lTotalPrice.Appearance.TextOptions.Trimming = DevExpress.Utils.Trimming.EllipsisCharacter;
-            this.lTotalPrice.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.lTotalPrice.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.tablePanel27.SetColumn(this.lTotalPrice, 1);
-            this.lTotalPrice.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lTotalPrice.Location = new System.Drawing.Point(214, 3);
-            this.lTotalPrice.Margin = new System.Windows.Forms.Padding(3, 3, 10, 3);
-            this.lTotalPrice.Name = "lTotalPrice";
-            this.tablePanel27.SetRow(this.lTotalPrice, 0);
-            this.tablePanel27.SetRowSpan(this.lTotalPrice, 2);
-            this.lTotalPrice.Size = new System.Drawing.Size(282, 93);
-            this.lTotalPrice.TabIndex = 1;
+            this.labelControl24.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.labelControl24.Appearance.Font = new System.Drawing.Font("Nunito", 20F, System.Drawing.FontStyle.Bold);
+            this.labelControl24.Appearance.Options.UseBackColor = true;
+            this.labelControl24.Appearance.Options.UseFont = true;
+            this.labelControl24.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.tablePanel27.SetColumn(this.labelControl24, 0);
+            this.labelControl24.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labelControl24.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("labelControl24.ImageOptions.SvgImage")));
+            this.labelControl24.ImageOptions.SvgImageSize = new System.Drawing.Size(48, 48);
+            this.labelControl24.Location = new System.Drawing.Point(4, 4);
+            this.labelControl24.Name = "labelControl24";
+            this.tablePanel27.SetRow(this.labelControl24, 0);
+            this.tablePanel27.SetRowSpan(this.labelControl24, 2);
+            this.labelControl24.Size = new System.Drawing.Size(56, 79);
+            this.labelControl24.TabIndex = 13;
+            // 
+            // lSalesAmount
+            // 
+            this.lSalesAmount.Appearance.Font = new System.Drawing.Font("Nunito", 20F, System.Drawing.FontStyle.Bold);
+            this.lSalesAmount.Appearance.ForeColor = System.Drawing.Color.White;
+            this.lSalesAmount.Appearance.Options.UseFont = true;
+            this.lSalesAmount.Appearance.Options.UseForeColor = true;
+            this.lSalesAmount.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.tablePanel27.SetColumn(this.lSalesAmount, 1);
+            this.lSalesAmount.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lSalesAmount.Location = new System.Drawing.Point(66, 36);
+            this.lSalesAmount.Name = "lSalesAmount";
+            this.tablePanel27.SetRow(this.lSalesAmount, 1);
+            this.lSalesAmount.Size = new System.Drawing.Size(245, 47);
+            this.lSalesAmount.TabIndex = 12;
+            this.lSalesAmount.Text = "0.00 ₼";
             // 
             // labelControl25
             // 
-            this.labelControl25.Appearance.Font = new System.Drawing.Font("Nunito", 17F, System.Drawing.FontStyle.Bold);
+            this.labelControl25.Appearance.Font = new System.Drawing.Font("Nunito", 12F, System.Drawing.FontStyle.Bold);
             this.labelControl25.Appearance.ForeColor = System.Drawing.Color.White;
             this.labelControl25.Appearance.Options.UseFont = true;
             this.labelControl25.Appearance.Options.UseForeColor = true;
-            this.labelControl25.Appearance.Options.UseTextOptions = true;
-            this.labelControl25.Appearance.TextOptions.Trimming = DevExpress.Utils.Trimming.EllipsisCharacter;
-            this.labelControl25.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.labelControl25.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.labelControl25.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.tablePanel27.SetColumn(this.labelControl25, 0);
+            this.tablePanel27.SetColumn(this.labelControl25, 1);
             this.labelControl25.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelControl25.Location = new System.Drawing.Point(10, 3);
-            this.labelControl25.Margin = new System.Windows.Forms.Padding(10, 3, 3, 3);
+            this.labelControl25.LineLocation = DevExpress.XtraEditors.LineLocation.Bottom;
+            this.labelControl25.LineVisible = true;
+            this.labelControl25.Location = new System.Drawing.Point(66, 4);
+            this.labelControl25.Margin = new System.Windows.Forms.Padding(3, 3, 0, 0);
             this.labelControl25.Name = "labelControl25";
             this.tablePanel27.SetRow(this.labelControl25, 0);
-            this.tablePanel27.SetRowSpan(this.labelControl25, 2);
-            this.labelControl25.Size = new System.Drawing.Size(198, 93);
-            this.labelControl25.TabIndex = 0;
-            this.labelControl25.Text = "MƏNFƏƏT";
+            this.labelControl25.Size = new System.Drawing.Size(248, 29);
+            this.labelControl25.TabIndex = 11;
+            this.labelControl25.Text = "Satış məbləği";
+            // 
+            // labelControl30
+            // 
+            this.labelControl30.Appearance.Font = new System.Drawing.Font("Nunito", 12F, System.Drawing.FontStyle.Bold);
+            this.labelControl30.Appearance.ForeColor = System.Drawing.Color.White;
+            this.labelControl30.Appearance.Options.UseFont = true;
+            this.labelControl30.Appearance.Options.UseForeColor = true;
+            this.labelControl30.Appearance.Options.UseTextOptions = true;
+            this.labelControl30.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.labelControl30.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.tablePanel27.SetColumn(this.labelControl30, 2);
+            this.labelControl30.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labelControl30.LineLocation = DevExpress.XtraEditors.LineLocation.Bottom;
+            this.labelControl30.LineVisible = true;
+            this.labelControl30.Location = new System.Drawing.Point(313, 4);
+            this.labelControl30.Margin = new System.Windows.Forms.Padding(0, 3, 3, 0);
+            this.labelControl30.Name = "labelControl30";
+            this.tablePanel27.SetRow(this.labelControl30, 0);
+            this.labelControl30.Size = new System.Drawing.Size(59, 29);
+            this.labelControl30.TabIndex = 11;
+            this.labelControl30.Text = "Say";
+            // 
+            // lSalesCount
+            // 
+            this.lSalesCount.Appearance.Font = new System.Drawing.Font("Nunito", 16F, System.Drawing.FontStyle.Bold);
+            this.lSalesCount.Appearance.ForeColor = System.Drawing.Color.White;
+            this.lSalesCount.Appearance.Options.UseFont = true;
+            this.lSalesCount.Appearance.Options.UseForeColor = true;
+            this.lSalesCount.Appearance.Options.UseTextOptions = true;
+            this.lSalesCount.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.lSalesCount.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.tablePanel27.SetColumn(this.lSalesCount, 2);
+            this.lSalesCount.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lSalesCount.Location = new System.Drawing.Point(316, 36);
+            this.lSalesCount.Name = "lSalesCount";
+            this.tablePanel27.SetRow(this.lSalesCount, 1);
+            this.lSalesCount.Size = new System.Drawing.Size(56, 47);
+            this.lSalesCount.TabIndex = 11;
+            this.lSalesCount.Text = "0";
+            // 
+            // tabPane1
+            // 
+            this.tabPane1.AppearanceButton.Hovered.Font = new System.Drawing.Font("Nunito", 11F, System.Drawing.FontStyle.Bold);
+            this.tabPane1.AppearanceButton.Hovered.Options.UseFont = true;
+            this.tabPane1.AppearanceButton.Normal.Font = new System.Drawing.Font("Nunito", 11F, System.Drawing.FontStyle.Bold);
+            this.tabPane1.AppearanceButton.Normal.Options.UseFont = true;
+            this.tabPane1.AppearanceButton.Pressed.Font = new System.Drawing.Font("Nunito", 11F, System.Drawing.FontStyle.Bold);
+            this.tabPane1.AppearanceButton.Pressed.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
+            this.tabPane1.AppearanceButton.Pressed.Options.UseFont = true;
+            this.tabPane1.AppearanceButton.Pressed.Options.UseForeColor = true;
+            this.tablePanel24.SetColumn(this.tabPane1, 0);
+            this.tablePanel24.SetColumnSpan(this.tabPane1, 3);
+            this.tabPane1.Controls.Add(this.pageStock);
+            this.tabPane1.Controls.Add(this.tabNavigationPage2);
+            this.tabPane1.Controls.Add(this.pageBestSeller);
+            this.tabPane1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabPane1.Location = new System.Drawing.Point(3, 98);
+            this.tabPane1.LookAndFeel.SkinName = "WXI";
+            this.tabPane1.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.tabPane1.Name = "tabPane1";
+            this.tabPane1.PageProperties.AppearanceCaption.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
+            this.tabPane1.PageProperties.AppearanceCaption.Font = new System.Drawing.Font("Nunito", 12F);
+            this.tabPane1.PageProperties.AppearanceCaption.Options.UseBorderColor = true;
+            this.tabPane1.PageProperties.AppearanceCaption.Options.UseFont = true;
+            this.tabPane1.Pages.AddRange(new DevExpress.XtraBars.Navigation.NavigationPageBase[] {
+            this.pageStock,
+            this.tabNavigationPage2,
+            this.pageBestSeller});
+            this.tabPane1.RegularSize = new System.Drawing.Size(1148, 616);
+            this.tablePanel24.SetRow(this.tabPane1, 1);
+            this.tablePanel24.SetRowSpan(this.tabPane1, 2);
+            this.tabPane1.SelectedPage = this.pageStock;
+            this.tabPane1.Size = new System.Drawing.Size(1148, 616);
+            this.tabPane1.TabIndex = 0;
+            this.tabPane1.Text = "tabPane1";
+            // 
+            // pageStock
+            // 
+            this.pageStock.Caption = "Anbar qalığı";
+            this.pageStock.Controls.Add(this.gridControlDashboardStock);
+            this.pageStock.Name = "pageStock";
+            this.pageStock.Size = new System.Drawing.Size(1148, 571);
+            // 
+            // gridControlDashboardStock
+            // 
+            this.gridControlDashboardStock.AllowRestoreSelectionAndFocusedRow = DevExpress.Utils.DefaultBoolean.False;
+            this.gridControlDashboardStock.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridControlDashboardStock.Location = new System.Drawing.Point(0, 0);
+            this.gridControlDashboardStock.LookAndFeel.SkinName = "WXI";
+            this.gridControlDashboardStock.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.gridControlDashboardStock.MainView = this.gridStock;
+            this.gridControlDashboardStock.Name = "gridControlDashboardStock";
+            this.gridControlDashboardStock.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.repositoryItemCheckEdit9});
+            this.gridControlDashboardStock.Size = new System.Drawing.Size(1148, 571);
+            this.gridControlDashboardStock.TabIndex = 10;
+            this.gridControlDashboardStock.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridStock});
+            // 
+            // gridStock
+            // 
+            this.gridStock.Appearance.EvenRow.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.gridStock.Appearance.EvenRow.Options.UseBackColor = true;
+            this.gridStock.Appearance.OddRow.BackColor = System.Drawing.Color.White;
+            this.gridStock.Appearance.OddRow.Options.UseBackColor = true;
+            this.gridStock.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.gridStock.ColumnPanelRowHeight = 35;
+            this.gridStock.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumn34,
+            this.gridColumn35,
+            this.gridColumn78,
+            this.gridColumn79,
+            this.gridColumn82});
+            this.gridStock.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFullFocus;
+            this.gridStock.GridControl = this.gridControlDashboardStock;
+            this.gridStock.Name = "gridStock";
+            this.gridStock.OptionsBehavior.Editable = false;
+            this.gridStock.OptionsMenu.EnableColumnMenu = false;
+            this.gridStock.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.gridStock.OptionsView.ColumnHeaderAutoHeight = DevExpress.Utils.DefaultBoolean.True;
+            this.gridStock.OptionsView.EnableAppearanceEvenRow = true;
+            this.gridStock.OptionsView.ShowGroupPanel = false;
+            this.gridStock.OptionsView.ShowIndicator = false;
+            this.gridStock.PaintStyleName = "Skin";
+            this.gridStock.RowHeight = 35;
+            // 
+            // gridColumn34
+            // 
+            this.gridColumn34.Caption = "#";
+            this.gridColumn34.FieldName = "#";
+            this.gridColumn34.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
+            this.gridColumn34.Name = "gridColumn34";
+            this.gridColumn34.OptionsColumn.AllowEdit = false;
+            this.gridColumn34.Visible = true;
+            this.gridColumn34.VisibleIndex = 0;
+            this.gridColumn34.Width = 36;
+            // 
+            // gridColumn35
+            // 
+            this.gridColumn35.Caption = "Məhsul adı";
+            this.gridColumn35.FieldName = "ProductName";
+            this.gridColumn35.Name = "gridColumn35";
+            this.gridColumn35.Visible = true;
+            this.gridColumn35.VisibleIndex = 1;
+            this.gridColumn35.Width = 706;
+            // 
+            // gridColumn78
+            // 
+            this.gridColumn78.Caption = "Barkod";
+            this.gridColumn78.FieldName = "Barcode";
+            this.gridColumn78.Name = "gridColumn78";
+            this.gridColumn78.Visible = true;
+            this.gridColumn78.VisibleIndex = 2;
+            this.gridColumn78.Width = 259;
+            // 
+            // gridColumn79
+            // 
+            this.gridColumn79.AppearanceCell.Options.UseTextOptions = true;
+            this.gridColumn79.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.gridColumn79.Caption = "Satış qiyməti";
+            this.gridColumn79.DisplayFormat.FormatString = "C2";
+            this.gridColumn79.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.gridColumn79.FieldName = "SalePrice";
+            this.gridColumn79.Name = "gridColumn79";
+            this.gridColumn79.Visible = true;
+            this.gridColumn79.VisibleIndex = 3;
+            this.gridColumn79.Width = 150;
+            // 
+            // gridColumn82
+            // 
+            this.gridColumn82.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn82.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn82.Caption = "Anbar qalığı";
+            this.gridColumn82.FieldName = "Amount";
+            this.gridColumn82.Name = "gridColumn82";
+            this.gridColumn82.Visible = true;
+            this.gridColumn82.VisibleIndex = 4;
+            this.gridColumn82.Width = 122;
+            // 
+            // repositoryItemCheckEdit9
+            // 
+            this.repositoryItemCheckEdit9.AutoHeight = false;
+            this.repositoryItemCheckEdit9.CheckBoxOptions.Style = DevExpress.XtraEditors.Controls.CheckBoxStyle.SvgToggle1;
+            this.repositoryItemCheckEdit9.CheckBoxOptions.SvgImageSize = new System.Drawing.Size(32, 32);
+            this.repositoryItemCheckEdit9.Name = "repositoryItemCheckEdit9";
+            // 
+            // tabNavigationPage2
+            // 
+            this.tabNavigationPage2.Caption = "Müştərilər";
+            this.tabNavigationPage2.Controls.Add(this.gridControlDashboardCustomers);
+            this.tabNavigationPage2.Name = "tabNavigationPage2";
+            this.tabNavigationPage2.Size = new System.Drawing.Size(1148, 571);
+            // 
+            // gridControlDashboardCustomers
+            // 
+            this.gridControlDashboardCustomers.AllowRestoreSelectionAndFocusedRow = DevExpress.Utils.DefaultBoolean.False;
+            this.gridControlDashboardCustomers.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridControlDashboardCustomers.Location = new System.Drawing.Point(0, 0);
+            this.gridControlDashboardCustomers.MainView = this.gridView2;
+            this.gridControlDashboardCustomers.Name = "gridControlDashboardCustomers";
+            this.gridControlDashboardCustomers.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.repositoryItemCheckEdit10,
+            this.repositoryItemButtonEdit2});
+            this.gridControlDashboardCustomers.Size = new System.Drawing.Size(1148, 571);
+            this.gridControlDashboardCustomers.TabIndex = 11;
+            this.gridControlDashboardCustomers.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView2});
+            // 
+            // gridView2
+            // 
+            this.gridView2.Appearance.EvenRow.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.gridView2.Appearance.EvenRow.Options.UseBackColor = true;
+            this.gridView2.Appearance.HeaderPanel.Font = new System.Drawing.Font("Nunito", 11F, System.Drawing.FontStyle.Bold);
+            this.gridView2.Appearance.HeaderPanel.Options.UseFont = true;
+            this.gridView2.Appearance.OddRow.BackColor = System.Drawing.Color.White;
+            this.gridView2.Appearance.OddRow.Options.UseBackColor = true;
+            this.gridView2.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.gridView2.ColumnPanelRowHeight = 35;
+            this.gridView2.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumn83,
+            this.gridColumn84,
+            this.gridColumn85,
+            this.gridColumn86,
+            this.gridColumn87});
+            this.gridView2.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFullFocus;
+            this.gridView2.GridControl = this.gridControlDashboardCustomers;
+            this.gridView2.Name = "gridView2";
+            this.gridView2.OptionsMenu.EnableColumnMenu = false;
+            this.gridView2.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.gridView2.OptionsView.ColumnHeaderAutoHeight = DevExpress.Utils.DefaultBoolean.True;
+            this.gridView2.OptionsView.ShowGroupPanel = false;
+            this.gridView2.OptionsView.ShowIndicator = false;
+            this.gridView2.RowHeight = 35;
+            // 
+            // gridColumn83
+            // 
+            this.gridColumn83.Caption = "#";
+            this.gridColumn83.FieldName = "#";
+            this.gridColumn83.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
+            this.gridColumn83.Name = "gridColumn83";
+            this.gridColumn83.OptionsColumn.AllowEdit = false;
+            this.gridColumn83.Visible = true;
+            this.gridColumn83.VisibleIndex = 0;
+            this.gridColumn83.Width = 36;
+            // 
+            // gridColumn84
+            // 
+            this.gridColumn84.Caption = "Müştəri Adı";
+            this.gridColumn84.Name = "gridColumn84";
+            this.gridColumn84.Visible = true;
+            this.gridColumn84.VisibleIndex = 1;
+            this.gridColumn84.Width = 835;
+            // 
+            // gridColumn85
+            // 
+            this.gridColumn85.AppearanceCell.Options.UseTextOptions = true;
+            this.gridColumn85.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.gridColumn85.Caption = "Borc";
+            this.gridColumn85.DisplayFormat.FormatString = "C2";
+            this.gridColumn85.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.gridColumn85.Name = "gridColumn85";
+            this.gridColumn85.Visible = true;
+            this.gridColumn85.VisibleIndex = 2;
+            this.gridColumn85.Width = 167;
+            // 
+            // gridColumn86
+            // 
+            this.gridColumn86.AppearanceCell.Options.UseTextOptions = true;
+            this.gridColumn86.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.gridColumn86.Caption = "Bonus";
+            this.gridColumn86.DisplayFormat.FormatString = "C2";
+            this.gridColumn86.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.gridColumn86.Name = "gridColumn86";
+            this.gridColumn86.Visible = true;
+            this.gridColumn86.VisibleIndex = 3;
+            this.gridColumn86.Width = 158;
+            // 
+            // gridColumn87
+            // 
+            this.gridColumn87.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn87.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn87.Caption = "Anbar qalığı";
+            this.gridColumn87.ColumnEdit = this.repositoryItemButtonEdit2;
+            this.gridColumn87.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Right;
+            this.gridColumn87.Name = "gridColumn87";
+            this.gridColumn87.OptionsColumn.ShowCaption = false;
+            this.gridColumn87.OptionsFilter.AllowAutoFilter = false;
+            this.gridColumn87.OptionsFilter.AllowFilter = false;
+            this.gridColumn87.Visible = true;
+            this.gridColumn87.VisibleIndex = 4;
+            // 
+            // repositoryItemButtonEdit2
+            // 
+            this.repositoryItemButtonEdit2.AutoHeight = false;
+            this.repositoryItemButtonEdit2.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.repositoryItemButtonEdit2.Name = "repositoryItemButtonEdit2";
+            // 
+            // repositoryItemCheckEdit10
+            // 
+            this.repositoryItemCheckEdit10.AutoHeight = false;
+            this.repositoryItemCheckEdit10.CheckBoxOptions.Style = DevExpress.XtraEditors.Controls.CheckBoxStyle.SvgToggle1;
+            this.repositoryItemCheckEdit10.CheckBoxOptions.SvgImageSize = new System.Drawing.Size(32, 32);
+            this.repositoryItemCheckEdit10.Name = "repositoryItemCheckEdit10";
+            // 
+            // pageBestSeller
+            // 
+            this.pageBestSeller.Caption = "Ən çox satılanlar";
+            this.pageBestSeller.Name = "pageBestSeller";
+            this.pageBestSeller.Size = new System.Drawing.Size(1275, 701);
+            // 
+            // panelControl24
+            // 
+            this.tablePanel24.SetColumn(this.panelControl24, 3);
+            this.panelControl24.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelControl24.Location = new System.Drawing.Point(1155, 3);
+            this.panelControl24.Name = "panelControl24";
+            this.tablePanel24.SetRow(this.panelControl24, 0);
+            this.panelControl24.Size = new System.Drawing.Size(380, 91);
+            this.panelControl24.TabIndex = 3;
             // 
             // pageCompany
             // 
             this.pageCompany.Controls.Add(this.xtraTabControl1);
             this.pageCompany.Name = "pageCompany";
-            this.pageCompany.Size = new System.Drawing.Size(1558, 766);
+            this.pageCompany.Size = new System.Drawing.Size(1538, 768);
             // 
             // xtraTabControl1
             // 
@@ -7261,7 +7456,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.xtraTabControl1.Margin = new System.Windows.Forms.Padding(0);
             this.xtraTabControl1.Name = "xtraTabControl1";
             this.xtraTabControl1.SelectedTabPage = this.tabCompany;
-            this.xtraTabControl1.Size = new System.Drawing.Size(1558, 766);
+            this.xtraTabControl1.Size = new System.Drawing.Size(1538, 768);
             this.xtraTabControl1.TabIndex = 2;
             this.xtraTabControl1.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.tabCompany,
@@ -7287,7 +7482,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.tabCompany.Controls.Add(this.groupControl2);
             this.tabCompany.ImageOptions.SvgImageSize = new System.Drawing.Size(24, 24);
             this.tabCompany.Name = "tabCompany";
-            this.tabCompany.Size = new System.Drawing.Size(1556, 732);
+            this.tabCompany.Size = new System.Drawing.Size(1536, 734);
             this.tabCompany.Text = "Şirkət haqqında";
             // 
             // groupControl1
@@ -7311,7 +7506,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.groupControl1.LookAndFeel.UseDefaultLookAndFeel = false;
             this.groupControl1.Margin = new System.Windows.Forms.Padding(0);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(1538, 336);
+            this.groupControl1.Size = new System.Drawing.Size(1518, 336);
             this.groupControl1.TabIndex = 9;
             this.groupControl1.Text = "Logo";
             this.groupControl1.Visible = false;
@@ -7320,7 +7515,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             // 
             this.picLogo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.picLogo.Location = new System.Drawing.Point(1117, 16);
+            this.picLogo.Location = new System.Drawing.Point(1097, 16);
             this.picLogo.Name = "picLogo";
             this.picLogo.Properties.AllowFocused = false;
             this.picLogo.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
@@ -7365,7 +7560,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.tLogoPath.Name = "tLogoPath";
             this.tLogoPath.Properties.Appearance.Font = new System.Drawing.Font("Nunito", 14F);
             this.tLogoPath.Properties.Appearance.Options.UseFont = true;
-            this.tLogoPath.Size = new System.Drawing.Size(362, 40);
+            this.tLogoPath.Size = new System.Drawing.Size(362, 32);
             this.tLogoPath.TabIndex = 0;
             // 
             // lCompanyMessage
@@ -7375,7 +7570,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.lCompanyMessage.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(47)))), ((int)(((byte)(6)))));
             this.lCompanyMessage.Appearance.Options.UseFont = true;
             this.lCompanyMessage.Appearance.Options.UseForeColor = true;
-            this.lCompanyMessage.Location = new System.Drawing.Point(12, 695);
+            this.lCompanyMessage.Location = new System.Drawing.Point(12, 697);
             this.lCompanyMessage.Name = "lCompanyMessage";
             this.lCompanyMessage.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
             this.lCompanyMessage.Size = new System.Drawing.Size(265, 26);
@@ -7388,13 +7583,13 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             // 
             this.CompanyFooter.CancelVisible = true;
             this.CompanyFooter.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.CompanyFooter.Location = new System.Drawing.Point(0, 679);
+            this.CompanyFooter.Location = new System.Drawing.Point(0, 681);
             this.CompanyFooter.LookAndFeel.SkinName = "Office 2019 White";
             this.CompanyFooter.LookAndFeel.UseDefaultLookAndFeel = false;
             this.CompanyFooter.Name = "CompanyFooter";
             this.CompanyFooter.SaveButtonImage = null;
             this.CompanyFooter.SaveButtonText = "Yadda Saxla";
-            this.CompanyFooter.Size = new System.Drawing.Size(1556, 53);
+            this.CompanyFooter.Size = new System.Drawing.Size(1536, 53);
             this.CompanyFooter.TabIndex = 10;
             this.CompanyFooter.SaveClick += new System.EventHandler(this.CompanyFooter_SaveClick);
             // 
@@ -7425,7 +7620,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.groupControl2.LookAndFeel.SkinName = "Office 2019 White";
             this.groupControl2.LookAndFeel.UseDefaultLookAndFeel = false;
             this.groupControl2.Name = "groupControl2";
-            this.groupControl2.Size = new System.Drawing.Size(1538, 255);
+            this.groupControl2.Size = new System.Drawing.Size(1518, 255);
             this.groupControl2.TabIndex = 8;
             this.groupControl2.Text = "Şirkət məlumatları";
             // 
@@ -7451,7 +7646,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.dateRegistration.Properties.ShowToday = false;
             this.dateRegistration.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.dateRegistration.Properties.VistaDisplayMode = DevExpress.Utils.DefaultBoolean.False;
-            this.dateRegistration.Size = new System.Drawing.Size(315, 32);
+            this.dateRegistration.Size = new System.Drawing.Size(295, 32);
             this.dateRegistration.TabIndex = 5;
             this.dateRegistration.TabStop = false;
             // 
@@ -7463,7 +7658,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.tPersonel.Name = "tPersonel";
             this.tPersonel.Properties.Appearance.Font = new System.Drawing.Font("Nunito", 14F);
             this.tPersonel.Properties.Appearance.Options.UseFont = true;
-            this.tPersonel.Size = new System.Drawing.Size(315, 40);
+            this.tPersonel.Size = new System.Drawing.Size(295, 32);
             this.tPersonel.TabIndex = 4;
             // 
             // tPhone
@@ -7476,7 +7671,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.tPhone.Properties.Appearance.Options.UseFont = true;
             this.tPhone.Properties.Mask.EditMask = "(999) 000-00-00";
             this.tPhone.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Simple;
-            this.tPhone.Size = new System.Drawing.Size(315, 40);
+            this.tPhone.Size = new System.Drawing.Size(295, 32);
             this.tPhone.TabIndex = 3;
             // 
             // tAddress
@@ -7487,7 +7682,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.tAddress.Name = "tAddress";
             this.tAddress.Properties.Appearance.Font = new System.Drawing.Font("Nunito", 14F);
             this.tAddress.Properties.Appearance.Options.UseFont = true;
-            this.tAddress.Size = new System.Drawing.Size(315, 40);
+            this.tAddress.Size = new System.Drawing.Size(295, 32);
             this.tAddress.TabIndex = 2;
             // 
             // tCompanyName
@@ -7498,7 +7693,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.tCompanyName.Name = "tCompanyName";
             this.tCompanyName.Properties.Appearance.Font = new System.Drawing.Font("Nunito", 14F);
             this.tCompanyName.Properties.Appearance.Options.UseFont = true;
-            this.tCompanyName.Size = new System.Drawing.Size(315, 40);
+            this.tCompanyName.Size = new System.Drawing.Size(295, 32);
             this.tCompanyName.TabIndex = 0;
             // 
             // tVoen
@@ -7512,7 +7707,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.tVoen.Properties.Mask.EditMask = "d";
             this.tVoen.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.tVoen.Properties.MaxLength = 11;
-            this.tVoen.Size = new System.Drawing.Size(315, 40);
+            this.tVoen.Size = new System.Drawing.Size(295, 32);
             this.tVoen.TabIndex = 1;
             // 
             // labelControl18
@@ -7592,7 +7787,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.tabAnbar.ImageOptions.SvgImageSize = new System.Drawing.Size(24, 24);
             this.tabAnbar.Name = "tabAnbar";
             this.tabAnbar.PageEnabled = false;
-            this.tabAnbar.Size = new System.Drawing.Size(1556, 732);
+            this.tabAnbar.Size = new System.Drawing.Size(1536, 734);
             this.tabAnbar.Text = "Anbarlar";
             // 
             // tabShop
@@ -7600,21 +7795,21 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.tabShop.ImageOptions.SvgImageSize = new System.Drawing.Size(24, 24);
             this.tabShop.Name = "tabShop";
             this.tabShop.PageEnabled = false;
-            this.tabShop.Size = new System.Drawing.Size(1556, 732);
+            this.tabShop.Size = new System.Drawing.Size(1536, 734);
             this.tabShop.Text = "Mağazalar";
             // 
             // tabCompanyReset
             // 
             this.tabCompanyReset.Name = "tabCompanyReset";
             this.tabCompanyReset.PageEnabled = false;
-            this.tabCompanyReset.Size = new System.Drawing.Size(1556, 732);
+            this.tabCompanyReset.Size = new System.Drawing.Size(1536, 734);
             this.tabCompanyReset.Text = "Şirkət sıfırlama";
             // 
             // pageUpdate
             // 
             this.pageUpdate.Controls.Add(this.panelControl16);
             this.pageUpdate.Name = "pageUpdate";
-            this.pageUpdate.Size = new System.Drawing.Size(1558, 766);
+            this.pageUpdate.Size = new System.Drawing.Size(1538, 768);
             // 
             // panelControl16
             // 
@@ -7625,7 +7820,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.panelControl16.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl16.Location = new System.Drawing.Point(0, 0);
             this.panelControl16.Name = "panelControl16";
-            this.panelControl16.Size = new System.Drawing.Size(1558, 766);
+            this.panelControl16.Size = new System.Drawing.Size(1538, 768);
             this.panelControl16.TabIndex = 0;
             // 
             // bUpdateLog
@@ -7639,7 +7834,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.bUpdateLog.AppearanceHovered.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(131)))), ((int)(((byte)(131)))));
             this.bUpdateLog.AppearanceHovered.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(131)))), ((int)(((byte)(131)))));
             this.bUpdateLog.AppearanceHovered.Options.UseBackColor = true;
-            this.bUpdateLog.Location = new System.Drawing.Point(1309, 6);
+            this.bUpdateLog.Location = new System.Drawing.Point(1289, 6);
             this.bUpdateLog.Margin = new System.Windows.Forms.Padding(2);
             this.bUpdateLog.Name = "bUpdateLog";
             this.bUpdateLog.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
@@ -7662,7 +7857,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.bUpdateControl.AppearanceHovered.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(131)))), ((int)(((byte)(131)))));
             this.bUpdateControl.AppearanceHovered.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(131)))), ((int)(((byte)(131)))));
             this.bUpdateControl.AppearanceHovered.Options.UseBackColor = true;
-            this.bUpdateControl.Location = new System.Drawing.Point(1189, 268);
+            this.bUpdateControl.Location = new System.Drawing.Point(1169, 268);
             this.bUpdateControl.Margin = new System.Windows.Forms.Padding(2);
             this.bUpdateControl.Name = "bUpdateControl";
             this.bUpdateControl.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
@@ -7815,7 +8010,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.pageSupplier.Controls.Add(this.gridControlSupplier);
             this.pageSupplier.Controls.Add(this.panelControlSupplier);
             this.pageSupplier.Name = "pageSupplier";
-            this.pageSupplier.Size = new System.Drawing.Size(1558, 766);
+            this.pageSupplier.Size = new System.Drawing.Size(1538, 768);
             // 
             // gridControlSupplier
             // 
@@ -7826,7 +8021,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.gridControlSupplier.Name = "gridControlSupplier";
             this.gridControlSupplier.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.chSupplierStatus});
-            this.gridControlSupplier.Size = new System.Drawing.Size(1558, 723);
+            this.gridControlSupplier.Size = new System.Drawing.Size(1538, 725);
             this.gridControlSupplier.TabIndex = 6;
             this.gridControlSupplier.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridSupplier});
@@ -7987,7 +8182,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.panelControlSupplier.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControlSupplier.Location = new System.Drawing.Point(0, 0);
             this.panelControlSupplier.Name = "panelControlSupplier";
-            this.panelControlSupplier.Size = new System.Drawing.Size(1558, 43);
+            this.panelControlSupplier.Size = new System.Drawing.Size(1538, 43);
             this.panelControlSupplier.TabIndex = 7;
             // 
             // tablePanel22
@@ -8017,7 +8212,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.tablePanel22.Name = "tablePanel22";
             this.tablePanel22.Rows.AddRange(new DevExpress.Utils.Layout.TablePanelRow[] {
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 26F)});
-            this.tablePanel22.Size = new System.Drawing.Size(1554, 39);
+            this.tablePanel22.Size = new System.Drawing.Size(1534, 39);
             this.tablePanel22.TabIndex = 6;
             // 
             // bActive_Supplier
@@ -8216,14 +8411,14 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             // pageAbout
             // 
             this.pageAbout.Name = "pageAbout";
-            this.pageAbout.Size = new System.Drawing.Size(1558, 766);
+            this.pageAbout.Size = new System.Drawing.Size(1538, 768);
             // 
             // pageCustomers
             // 
             this.pageCustomers.Controls.Add(this.gridControlCustomers);
             this.pageCustomers.Controls.Add(this.panelControl19);
             this.pageCustomers.Name = "pageCustomers";
-            this.pageCustomers.Size = new System.Drawing.Size(1558, 766);
+            this.pageCustomers.Size = new System.Drawing.Size(1538, 768);
             // 
             // gridControlCustomers
             // 
@@ -8234,7 +8429,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.gridControlCustomers.Name = "gridControlCustomers";
             this.gridControlCustomers.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.chCustomerStatus});
-            this.gridControlCustomers.Size = new System.Drawing.Size(1558, 723);
+            this.gridControlCustomers.Size = new System.Drawing.Size(1538, 725);
             this.gridControlCustomers.TabIndex = 9;
             this.gridControlCustomers.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridCustomers});
@@ -8450,7 +8645,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.panelControl19.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl19.Location = new System.Drawing.Point(0, 0);
             this.panelControl19.Name = "panelControl19";
-            this.panelControl19.Size = new System.Drawing.Size(1558, 43);
+            this.panelControl19.Size = new System.Drawing.Size(1538, 43);
             this.panelControl19.TabIndex = 9;
             // 
             // tablePanel23
@@ -8480,7 +8675,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.tablePanel23.Name = "tablePanel23";
             this.tablePanel23.Rows.AddRange(new DevExpress.Utils.Layout.TablePanelRow[] {
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 26F)});
-            this.tablePanel23.Size = new System.Drawing.Size(1554, 39);
+            this.tablePanel23.Size = new System.Drawing.Size(1534, 39);
             this.tablePanel23.TabIndex = 6;
             // 
             // bCustomerActive
@@ -8671,7 +8866,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.pageRole.Controls.Add(this.gridControlRole);
             this.pageRole.Controls.Add(this.panelControl4);
             this.pageRole.Name = "pageRole";
-            this.pageRole.Size = new System.Drawing.Size(1558, 766);
+            this.pageRole.Size = new System.Drawing.Size(1538, 768);
             // 
             // gridControlRole
             // 
@@ -8683,7 +8878,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.gridControlRole.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemCheckEdit8,
             this.repositoryItemTextEdit1});
-            this.gridControlRole.Size = new System.Drawing.Size(1558, 723);
+            this.gridControlRole.Size = new System.Drawing.Size(1538, 725);
             this.gridControlRole.TabIndex = 9;
             this.gridControlRole.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridRole});
@@ -8765,7 +8960,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.panelControl4.LookAndFeel.SkinName = "Office 2019 White";
             this.panelControl4.LookAndFeel.UseDefaultLookAndFeel = false;
             this.panelControl4.Name = "panelControl4";
-            this.panelControl4.Size = new System.Drawing.Size(1558, 43);
+            this.panelControl4.Size = new System.Drawing.Size(1538, 43);
             this.panelControl4.TabIndex = 8;
             // 
             // tablePanel3
@@ -8790,7 +8985,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.tablePanel3.Name = "tablePanel3";
             this.tablePanel3.Rows.AddRange(new DevExpress.Utils.Layout.TablePanelRow[] {
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 26F)});
-            this.tablePanel3.Size = new System.Drawing.Size(1554, 39);
+            this.tablePanel3.Size = new System.Drawing.Size(1534, 39);
             this.tablePanel3.TabIndex = 7;
             // 
             // bRolePrint
@@ -8945,7 +9140,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.pageSupplierDebt.Controls.Add(this.gridControlSupplierDebt);
             this.pageSupplierDebt.Controls.Add(this.panelControl6);
             this.pageSupplierDebt.Name = "pageSupplierDebt";
-            this.pageSupplierDebt.Size = new System.Drawing.Size(1558, 766);
+            this.pageSupplierDebt.Size = new System.Drawing.Size(1538, 768);
             // 
             // gridControlSupplierDebt
             // 
@@ -8956,7 +9151,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.gridControlSupplierDebt.Name = "gridControlSupplierDebt";
             this.gridControlSupplierDebt.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.bPaySuppliersDebt});
-            this.gridControlSupplierDebt.Size = new System.Drawing.Size(1558, 723);
+            this.gridControlSupplierDebt.Size = new System.Drawing.Size(1538, 725);
             this.gridControlSupplierDebt.TabIndex = 8;
             this.gridControlSupplierDebt.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridSupplierDebt});
@@ -9167,7 +9362,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.panelControl6.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl6.Location = new System.Drawing.Point(0, 0);
             this.panelControl6.Name = "panelControl6";
-            this.panelControl6.Size = new System.Drawing.Size(1558, 43);
+            this.panelControl6.Size = new System.Drawing.Size(1538, 43);
             this.panelControl6.TabIndex = 9;
             // 
             // tablePanel5
@@ -9196,7 +9391,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.tablePanel5.Name = "tablePanel5";
             this.tablePanel5.Rows.AddRange(new DevExpress.Utils.Layout.TablePanelRow[] {
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 26F)});
-            this.tablePanel5.Size = new System.Drawing.Size(1554, 39);
+            this.tablePanel5.Size = new System.Drawing.Size(1534, 39);
             this.tablePanel5.TabIndex = 6;
             // 
             // bListPayments
@@ -9216,7 +9411,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.bListPayments.Dock = System.Windows.Forms.DockStyle.Fill;
             this.bListPayments.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bListPayments.ImageOptions.SvgImage")));
             this.bListPayments.ImageOptions.SvgImageSize = new System.Drawing.Size(24, 24);
-            this.bListPayments.Location = new System.Drawing.Point(1534, 0);
+            this.bListPayments.Location = new System.Drawing.Point(1514, 0);
             this.bListPayments.Margin = new System.Windows.Forms.Padding(0);
             this.bListPayments.Name = "bListPayments";
             this.bListPayments.Padding = new System.Windows.Forms.Padding(3);
@@ -9388,7 +9583,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.pageCustomerDebt.Controls.Add(this.gridControlCustomerDebts);
             this.pageCustomerDebt.Controls.Add(this.panelControl20);
             this.pageCustomerDebt.Name = "pageCustomerDebt";
-            this.pageCustomerDebt.Size = new System.Drawing.Size(1558, 766);
+            this.pageCustomerDebt.Size = new System.Drawing.Size(1538, 768);
             // 
             // gridControlCustomerDebts
             // 
@@ -9399,7 +9594,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.gridControlCustomerDebts.Name = "gridControlCustomerDebts";
             this.gridControlCustomerDebts.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemButtonEdit1});
-            this.gridControlCustomerDebts.Size = new System.Drawing.Size(1558, 723);
+            this.gridControlCustomerDebts.Size = new System.Drawing.Size(1538, 725);
             this.gridControlCustomerDebts.TabIndex = 13;
             this.gridControlCustomerDebts.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridCustomerDebts});
@@ -9566,7 +9761,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.panelControl20.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl20.Location = new System.Drawing.Point(0, 0);
             this.panelControl20.Name = "panelControl20";
-            this.panelControl20.Size = new System.Drawing.Size(1558, 43);
+            this.panelControl20.Size = new System.Drawing.Size(1538, 43);
             this.panelControl20.TabIndex = 12;
             // 
             // tablePanel29
@@ -9589,7 +9784,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.tablePanel29.Name = "tablePanel29";
             this.tablePanel29.Rows.AddRange(new DevExpress.Utils.Layout.TablePanelRow[] {
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 26F)});
-            this.tablePanel29.Size = new System.Drawing.Size(1554, 39);
+            this.tablePanel29.Size = new System.Drawing.Size(1534, 39);
             this.tablePanel29.TabIndex = 6;
             // 
             // simpleButton2
@@ -9609,7 +9804,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.simpleButton2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.simpleButton2.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton2.ImageOptions.SvgImage")));
             this.simpleButton2.ImageOptions.SvgImageSize = new System.Drawing.Size(24, 24);
-            this.simpleButton2.Location = new System.Drawing.Point(1534, 0);
+            this.simpleButton2.Location = new System.Drawing.Point(1514, 0);
             this.simpleButton2.Margin = new System.Windows.Forms.Padding(0);
             this.simpleButton2.Name = "simpleButton2";
             this.simpleButton2.Padding = new System.Windows.Forms.Padding(3);
@@ -9725,21 +9920,6 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.labelControl5.Size = new System.Drawing.Size(112, 34);
             this.labelControl5.TabIndex = 8;
             // 
-            // toolsBorderRadius1
-            // 
-            this.toolsBorderRadius1.CornerRadius = 15;
-            this.toolsBorderRadius1.TargetControl = this.panel1;
-            // 
-            // toolsBorderRadius2
-            // 
-            this.toolsBorderRadius2.CornerRadius = 15;
-            this.toolsBorderRadius2.TargetControl = this.panel2;
-            // 
-            // toolsBorderRadius3
-            // 
-            this.toolsBorderRadius3.CornerRadius = 15;
-            this.toolsBorderRadius3.TargetControl = this.panel3;
-            // 
             // fDashboard
             // 
             this.Appearance.BackColor = System.Drawing.Color.White;
@@ -9757,7 +9937,6 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.FluentDesignFormControl = this.fluentDesignFormControl1;
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.IconOptions.Image = ((System.Drawing.Image)(resources.GetObject("fDashboard.IconOptions.Image")));
-            this.LookAndFeel.SkinName = "WXI";
             this.LookAndFeel.UseDefaultLookAndFeel = false;
             this.Name = "fDashboard";
             this.NavigationControl = this.accordionControl1;
@@ -9955,43 +10134,47 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             ((System.ComponentModel.ISupportInitialize)(this.dateStart_ReturnProduct.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateStart_ReturnProduct.Properties)).EndInit();
             this.pageMain.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.tablePanelDashboard)).EndInit();
-            this.tablePanelDashboard.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl8)).EndInit();
-            this.groupControl8.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(pieSeriesView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(series1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chartControl3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl7)).EndInit();
-            this.groupControl7.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(pieSeriesView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(series2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chartControl2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl6)).EndInit();
-            this.groupControl6.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(doughnutSeriesView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(series3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chartControl1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl5)).EndInit();
-            this.groupControl5.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gridControlStock)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridStock)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControlGunluk)).EndInit();
-            this.groupControlGunluk.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel24)).EndInit();
             this.tablePanel24.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.tabPane2)).EndInit();
+            this.tabPane2.ResumeLayout(false);
+            this.tabNavigationPage1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(simpleDiagram3D1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(pie3DSeriesLabel1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(pie3DSeriesView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(pie3DSeriesView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl21)).EndInit();
+            this.panelControl21.ResumeLayout(false);
+            this.panelControl21.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel25)).EndInit();
             this.tablePanel25.ResumeLayout(false);
             this.tablePanel25.PerformLayout();
-            this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl22)).EndInit();
+            this.panelControl22.ResumeLayout(false);
+            this.panelControl22.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel26)).EndInit();
             this.tablePanel26.ResumeLayout(false);
             this.tablePanel26.PerformLayout();
-            this.panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl23)).EndInit();
+            this.panelControl23.ResumeLayout(false);
+            this.panelControl23.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel27)).EndInit();
             this.tablePanel27.ResumeLayout(false);
             this.tablePanel27.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tabPane1)).EndInit();
+            this.tabPane1.ResumeLayout(false);
+            this.pageStock.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gridControlDashboardStock)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridStock)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit9)).EndInit();
+            this.tabNavigationPage2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gridControlDashboardCustomers)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit10)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl24)).EndInit();
             this.pageCompany.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).EndInit();
             this.xtraTabControl1.ResumeLayout(false);
@@ -10402,32 +10585,6 @@ namespace Barcode_Sales.Barcode.Sales.Admin
         private DevExpress.XtraEditors.LabelControl lPlusProduct_Count;
         private DevExpress.XtraEditors.LabelControl lZeroProduct_Count;
         private DevExpress.Utils.ToolTipController toolTipController1;
-        private DevExpress.Utils.Layout.TablePanel tablePanelDashboard;
-        private DevExpress.XtraEditors.GroupControl groupControlGunluk;
-        private DevExpress.Utils.Layout.TablePanel tablePanel24;
-        private System.Windows.Forms.Panel panel1;
-        private DevExpress.Utils.Layout.TablePanel tablePanel25;
-        private DevExpress.XtraEditors.LabelControl lReturnCount;
-        private DevExpress.XtraEditors.LabelControl lReturnPrice;
-        private DevExpress.XtraEditors.LabelControl labelControl2;
-        private DevExpress.XtraEditors.LabelControl labelControl7;
-        private System.Windows.Forms.Panel panel2;
-        private DevExpress.Utils.Layout.TablePanel tablePanel26;
-        private DevExpress.XtraEditors.LabelControl lSaleCount;
-        private DevExpress.XtraEditors.LabelControl lSalesPrice;
-        private DevExpress.XtraEditors.LabelControl labelControl19;
-        private DevExpress.XtraEditors.LabelControl labelControl24;
-        private System.Windows.Forms.Panel panel3;
-        private DevExpress.Utils.Layout.TablePanel tablePanel27;
-        private DevExpress.XtraEditors.LabelControl lTotalPrice;
-        private DevExpress.XtraEditors.LabelControl labelControl25;
-        private DevExpress.XtraCharts.ChartControl chartControl2;
-        private DevExpress.XtraCharts.ChartControl chartControl1;
-        private NextPOS.UserControls.ToolsBorderRadius toolsBorderRadius1;
-        private NextPOS.UserControls.ToolsBorderRadius toolsBorderRadius2;
-        private NextPOS.UserControls.ToolsBorderRadius toolsBorderRadius3;
-        private DevExpress.XtraEditors.GroupControl groupControl5;
-        private DevExpress.XtraEditors.GroupControl groupControl6;
         private DevExpress.Utils.Layout.TablePanel tablePanel28;
         private DevExpress.XtraEditors.LabelControl labelControl26;
         private DevExpress.XtraEditors.LabelControl labelControl27;
@@ -10435,15 +10592,6 @@ namespace Barcode_Sales.Barcode.Sales.Admin
         private System.Windows.Forms.NumericUpDown ProductLimit_UpDown;
         private DevExpress.XtraEditors.PanelControl panelControl18;
         private DevExpress.XtraEditors.LabelControl labelControl29;
-        private DevExpress.XtraGrid.GridControl gridControlStock;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridStock;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn35;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn34;
-        private DevExpress.XtraGrid.Columns.GridColumn colAmount;
-        private DevExpress.XtraGrid.Columns.GridColumn colId;
-        private DevExpress.XtraEditors.GroupControl groupControl7;
-        private DevExpress.XtraEditors.GroupControl groupControl8;
-        private DevExpress.XtraCharts.ChartControl chartControl3;
         private DevExpress.XtraEditors.ToggleSwitch toggleProductMinus;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn36;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn37;
@@ -10570,5 +10718,52 @@ namespace Barcode_Sales.Barcode.Sales.Admin
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement18;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement19;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement20;
+        private DevExpress.Utils.Layout.TablePanel tablePanel24;
+        private DevExpress.XtraBars.Navigation.TabPane tabPane2;
+        private DevExpress.XtraBars.Navigation.TabNavigationPage tabNavigationPage1;
+        private DevExpress.XtraCharts.ChartControl chartControl1;
+        private DevExpress.XtraEditors.PanelControl panelControl21;
+        private DevExpress.Utils.Layout.TablePanel tablePanel25;
+        private DevExpress.XtraEditors.LabelControl lCashAmount;
+        private DevExpress.XtraEditors.LabelControl labelControl1;
+        private DevExpress.XtraEditors.LabelControl labelControl2;
+        private DevExpress.XtraEditors.LabelControl labelControl3;
+        private DevExpress.XtraEditors.LabelControl lCardAmount;
+        private DevExpress.XtraEditors.PanelControl panelControl22;
+        private DevExpress.Utils.Layout.TablePanel tablePanel26;
+        private DevExpress.XtraEditors.LabelControl labelControl7;
+        private DevExpress.XtraEditors.LabelControl lRollbackAmount;
+        private DevExpress.XtraEditors.LabelControl labelControl19;
+        private DevExpress.XtraEditors.LabelControl labelControl23;
+        private DevExpress.XtraEditors.LabelControl lRollbackCount;
+        private DevExpress.XtraEditors.PanelControl panelControl23;
+        private DevExpress.Utils.Layout.TablePanel tablePanel27;
+        private DevExpress.XtraEditors.LabelControl labelControl24;
+        private DevExpress.XtraEditors.LabelControl lSalesAmount;
+        private DevExpress.XtraEditors.LabelControl labelControl25;
+        private DevExpress.XtraEditors.LabelControl labelControl30;
+        private DevExpress.XtraEditors.LabelControl lSalesCount;
+        private DevExpress.XtraBars.Navigation.TabPane tabPane1;
+        private DevExpress.XtraBars.Navigation.TabNavigationPage pageStock;
+        private DevExpress.XtraGrid.GridControl gridControlDashboardStock;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridStock;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn34;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn35;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn78;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn79;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn82;
+        private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit repositoryItemCheckEdit9;
+        private DevExpress.XtraBars.Navigation.TabNavigationPage tabNavigationPage2;
+        private DevExpress.XtraGrid.GridControl gridControlDashboardCustomers;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn83;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn84;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn85;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn86;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn87;
+        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit repositoryItemButtonEdit2;
+        private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit repositoryItemCheckEdit10;
+        private DevExpress.XtraBars.Navigation.TabNavigationPage pageBestSeller;
+        private DevExpress.XtraEditors.PanelControl panelControl24;
     }
 }

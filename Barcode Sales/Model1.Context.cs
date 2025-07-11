@@ -32,7 +32,6 @@ namespace Barcode_Sales
         public virtual DbSet<Stores> Stores { get; set; }
         public virtual DbSet<Warehouses> Warehouses { get; set; }
         public virtual DbSet<Suppliers> Suppliers { get; set; }
-        public virtual DbSet<Products> Products { get; set; }
         public virtual DbSet<Roles> Roles { get; set; }
         public virtual DbSet<InvoiceInfo> InvoiceInfo { get; set; }
         public virtual DbSet<InvoiceProducts> InvoiceProducts { get; set; }
@@ -51,5 +50,7 @@ namespace Barcode_Sales
         public virtual DbSet<CloseShiftReport> CloseShiftReports { get; set; }
         public virtual DbSet<ReturnPos> ReturnPos { get; set; }
         public virtual DbSet<ReturnPosDetail> ReturnPosDetails { get; set; }
+        public virtual DbSet<TaxType> TaxTypes { get; set; }
+        public virtual DbSet<Products> Products { get; set; }
     }
 }

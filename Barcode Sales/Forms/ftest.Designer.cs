@@ -38,6 +38,7 @@
             this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridControlBasket = new DevExpress.XtraGrid.GridControl();
             this.gridProducts = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colBarkod = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colPName = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -46,7 +47,6 @@
             this.colSPrice = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTotals = new DevExpress.XtraGrid.Columns.GridColumn();
             this.chCustomerStatus = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
-            this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tSearch.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchView)).BeginInit();
@@ -151,7 +151,7 @@
             this.gridControlBasket.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gridControlBasket.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4);
-            this.gridControlBasket.Location = new System.Drawing.Point(10, 222);
+            this.gridControlBasket.Location = new System.Drawing.Point(10, 472);
             this.gridControlBasket.LookAndFeel.SkinName = "WXI";
             this.gridControlBasket.LookAndFeel.UseDefaultLookAndFeel = false;
             this.gridControlBasket.MainView = this.gridProducts;
@@ -159,7 +159,7 @@
             this.gridControlBasket.Name = "gridControlBasket";
             this.gridControlBasket.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.chCustomerStatus});
-            this.gridControlBasket.Size = new System.Drawing.Size(1266, 530);
+            this.gridControlBasket.Size = new System.Drawing.Size(1266, 280);
             this.gridControlBasket.TabIndex = 19;
             this.gridControlBasket.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridProducts});
@@ -197,6 +197,17 @@
             this.gridProducts.OptionsView.ShowGroupPanel = false;
             this.gridProducts.OptionsView.ShowIndicator = false;
             this.gridProducts.RowHeight = 48;
+            // 
+            // gridColumn6
+            // 
+            this.gridColumn6.AppearanceHeader.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Question;
+            this.gridColumn6.AppearanceHeader.Options.UseBackColor = true;
+            this.gridColumn6.Caption = "№";
+            this.gridColumn6.FieldName = "RowNo";
+            this.gridColumn6.Name = "gridColumn6";
+            this.gridColumn6.OptionsColumn.AllowEdit = false;
+            this.gridColumn6.Visible = true;
+            this.gridColumn6.VisibleIndex = 0;
             // 
             // gridColumn5
             // 
@@ -345,17 +356,6 @@
             this.chCustomerStatus.CheckBoxOptions.Style = DevExpress.XtraEditors.Controls.CheckBoxStyle.SvgToggle1;
             this.chCustomerStatus.CheckBoxOptions.SvgImageSize = new System.Drawing.Size(32, 32);
             this.chCustomerStatus.Name = "chCustomerStatus";
-            // 
-            // gridColumn6
-            // 
-            this.gridColumn6.AppearanceHeader.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Question;
-            this.gridColumn6.AppearanceHeader.Options.UseBackColor = true;
-            this.gridColumn6.Caption = "№";
-            this.gridColumn6.FieldName = "RowNo";
-            this.gridColumn6.Name = "gridColumn6";
-            this.gridColumn6.OptionsColumn.AllowEdit = false;
-            this.gridColumn6.Visible = true;
-            this.gridColumn6.VisibleIndex = 0;
             // 
             // ftest
             // 

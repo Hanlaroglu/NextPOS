@@ -156,9 +156,7 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Type" Type="nvarchar" MaxLength="10" />
     <Property Name="WarehousesID" Type="int" />
-    <Property Name="StoreID" Type="int" />
     <Property Name="CategoryID" Type="int" />
     <Property Name="ProductName" Type="nvarchar(max)" />
     <Property Name="ProductCode" Type="nvarchar(max)" />
@@ -179,6 +177,8 @@
     <Property Name="EndDateNotification" Type="bit" />
     <Property Name="Status" Type="bit" />
     <Property Name="IsDeleted" Type="int" />
+    <Property Name="TaxId" Type="int" />
+    <Property Name="Type" Type="tinyint" />
   </EntityType>
   <EntityType Name="ReturnPos">
     <Key>
@@ -324,6 +324,13 @@
     <Property Name="IsDeleted" Type="int" />
     <Property Name="DebtDate" Type="date" />
   </EntityType>
+  <EntityType Name="TaxTypes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+  </EntityType>
   <EntityType Name="TerminalIncomesAndExpenses">
     <Key>
       <PropertyRef Name="Id" />
@@ -371,6 +378,7 @@
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name" Type="nvarchar" MaxLength="50" />
     <Property Name="IsDeleted" Type="int" />
+    <Property Name="Status" Type="bit" />
   </EntityType>
   <Association Name="FK__Logs__UserID__6477ECF3">
     <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
@@ -504,15 +512,15 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Products_Store">
-    <End Role="Stores" Type="Self.Stores" Multiplicity="0..1" />
+  <Association Name="FK_Products_TaxType">
+    <End Role="TaxTypes" Type="Self.TaxTypes" Multiplicity="0..1" />
     <End Role="Products" Type="Self.Products" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Stores">
+      <Principal Role="TaxTypes">
         <PropertyRef Name="Id" />
       </Principal>
       <Dependent Role="Products">
-        <PropertyRef Name="StoreID" />
+        <PropertyRef Name="TaxId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -707,6 +715,7 @@
     <EntitySet Name="SupplierPayments" EntityType="Self.SupplierPayments" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Suppliers" EntityType="Self.Suppliers" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="SuppliersDebts" EntityType="Self.SuppliersDebts" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TaxTypes" EntityType="Self.TaxTypes" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TerminalIncomesAndExpenses" EntityType="Self.TerminalIncomesAndExpenses" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Terminals" EntityType="Self.Terminals" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
@@ -755,8 +764,8 @@
       <End Role="Sizes" EntitySet="Sizes" />
       <End Role="Products" EntitySet="Products" />
     </AssociationSet>
-    <AssociationSet Name="FK_Products_Store" Association="Self.FK_Products_Store">
-      <End Role="Stores" EntitySet="Stores" />
+    <AssociationSet Name="FK_Products_TaxType" Association="Self.FK_Products_TaxType">
+      <End Role="TaxTypes" EntitySet="TaxTypes" />
       <End Role="Products" EntitySet="Products" />
     </AssociationSet>
     <AssociationSet Name="FK_Products_Warehouse" Association="Self.FK_Products_Warehouse">

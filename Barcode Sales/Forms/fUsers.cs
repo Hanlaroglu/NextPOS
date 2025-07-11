@@ -127,6 +127,7 @@ namespace Barcode_Sales.Forms
 
         private void fUsers_Load(object sender, EventArgs e)
         {
+            TestCode();
             StoreDataLoad();
             RoleDataLoad();
             if (Operation is Enums.Operation.Edit)
@@ -135,6 +136,11 @@ namespace Barcode_Sales.Forms
                 userSaveFooter1.SaveButtonText = Enums.GetEnumDescription(Operation);
                 UserDataLoad();
             }
+        }
+
+
+        private void TestCode()
+        {
         }
 
         void UserDataLoad()

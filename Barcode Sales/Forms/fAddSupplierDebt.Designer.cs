@@ -120,9 +120,9 @@
             this.groupControl1.Controls.Add(this.labelControl3);
             this.groupControl1.Controls.Add(this.labelControl2);
             this.groupControl1.Controls.Add(this.labelControl1);
-            this.groupControl1.Location = new System.Drawing.Point(12, 12);
+            this.groupControl1.Location = new System.Drawing.Point(3, 3);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(811, 423);
+            this.groupControl1.Size = new System.Drawing.Size(828, 423);
             this.groupControl1.TabIndex = 0;
             this.groupControl1.Text = "Borc məlumatları";
             // 
@@ -146,7 +146,7 @@
             this.lookTaxType.Properties.NullValuePrompt = "Vergi dərəcəsi seçimi";
             this.lookTaxType.Properties.ShowFooter = false;
             this.lookTaxType.Properties.ShowHeader = false;
-            this.lookTaxType.Size = new System.Drawing.Size(665, 32);
+            this.lookTaxType.Size = new System.Drawing.Size(682, 32);
             this.lookTaxType.TabIndex = 3;
             this.lookTaxType.EditValueChanged += new System.EventHandler(this.lookTaxType_EditValueChanged);
             // 
@@ -173,7 +173,7 @@
             this.tDate.Properties.EditFormat.FormatString = "d";
             this.tDate.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.tDate.Properties.Mask.UseMaskAsDisplayFormat = true;
-            this.tDate.Size = new System.Drawing.Size(665, 32);
+            this.tDate.Size = new System.Drawing.Size(682, 32);
             this.tDate.TabIndex = 0;
             // 
             // tComment
@@ -186,7 +186,7 @@
             this.tComment.Properties.Appearance.Font = new System.Drawing.Font("Nunito", 10F);
             this.tComment.Properties.Appearance.Options.UseFont = true;
             this.tComment.Properties.NullValuePrompt = "Qeyd";
-            this.tComment.Size = new System.Drawing.Size(665, 116);
+            this.tComment.Size = new System.Drawing.Size(682, 116);
             this.tComment.TabIndex = 5;
             // 
             // tTaxPrice
@@ -207,7 +207,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "AZN", -1, false, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.tTaxPrice.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.tTaxPrice.Properties.ReadOnly = true;
-            this.tTaxPrice.Size = new System.Drawing.Size(665, 32);
+            this.tTaxPrice.Size = new System.Drawing.Size(682, 32);
             this.tTaxPrice.TabIndex = 6;
             this.tTaxPrice.TabStop = false;
             // 
@@ -229,7 +229,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "AZN", -1, false, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.tMainPrice.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.tMainPrice.Properties.ReadOnly = true;
-            this.tMainPrice.Size = new System.Drawing.Size(665, 32);
+            this.tMainPrice.Size = new System.Drawing.Size(682, 32);
             this.tMainPrice.TabIndex = 5;
             this.tMainPrice.TabStop = false;
             // 
@@ -249,7 +249,7 @@
             this.tPrice.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "AZN", -1, false, true, false, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.tPrice.Properties.Mask.UseMaskAsDisplayFormat = true;
-            this.tPrice.Size = new System.Drawing.Size(665, 32);
+            this.tPrice.Size = new System.Drawing.Size(682, 32);
             this.tPrice.TabIndex = 4;
             this.tPrice.EditValueChanged += new System.EventHandler(this.tPrice_EditValueChanged);
             // 
@@ -264,7 +264,7 @@
             this.tName.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.tName.Properties.MaskSettings.Set("mask", "(999) 000-00-00");
             this.tName.Properties.MaxLength = 20;
-            this.tName.Size = new System.Drawing.Size(665, 32);
+            this.tName.Size = new System.Drawing.Size(682, 32);
             this.tName.TabIndex = 2;
             // 
             // lookSupplier
@@ -287,7 +287,7 @@
             this.lookSupplier.Properties.NullValuePrompt = "Təchizatçı seçimi";
             this.lookSupplier.Properties.ShowFooter = false;
             this.lookSupplier.Properties.ShowHeader = false;
-            this.lookSupplier.Size = new System.Drawing.Size(665, 32);
+            this.lookSupplier.Size = new System.Drawing.Size(682, 32);
             this.lookSupplier.TabIndex = 1;
             this.lookSupplier.EditValueChanged += new System.EventHandler(this.lookSupplier_EditValueChanged);
             // 
@@ -371,9 +371,9 @@
             this.groupControl2.Controls.Add(this.labelControl11);
             this.groupControl2.Controls.Add(this.labelControl10);
             this.groupControl2.Controls.Add(this.labelControl9);
-            this.groupControl2.Location = new System.Drawing.Point(12, 441);
+            this.groupControl2.Location = new System.Drawing.Point(3, 432);
             this.groupControl2.Name = "groupControl2";
-            this.groupControl2.Size = new System.Drawing.Size(811, 147);
+            this.groupControl2.Size = new System.Drawing.Size(828, 151);
             this.groupControl2.TabIndex = 9;
             this.groupControl2.Text = "Təchizatçının ümumi borcu";
             // 
@@ -395,7 +395,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "AZN", -1, false, true, false, editorButtonImageOptions4, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject13, serializableAppearanceObject14, serializableAppearanceObject15, serializableAppearanceObject16, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.tTotalBalance.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.tTotalBalance.Properties.ReadOnly = true;
-            this.tTotalBalance.Size = new System.Drawing.Size(665, 32);
+            this.tTotalBalance.Size = new System.Drawing.Size(682, 32);
             this.tTotalBalance.TabIndex = 12;
             this.tTotalBalance.TabStop = false;
             // 
@@ -417,7 +417,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "AZN", -1, false, true, false, editorButtonImageOptions5, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject17, serializableAppearanceObject18, serializableAppearanceObject19, serializableAppearanceObject20, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.tBalance.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.tBalance.Properties.ReadOnly = true;
-            this.tBalance.Size = new System.Drawing.Size(665, 32);
+            this.tBalance.Size = new System.Drawing.Size(682, 32);
             this.tBalance.TabIndex = 12;
             this.tBalance.TabStop = false;
             // 
@@ -439,7 +439,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "AZN", -1, false, true, false, editorButtonImageOptions6, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject21, serializableAppearanceObject22, serializableAppearanceObject23, serializableAppearanceObject24, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.tNewDebt.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.tNewDebt.Properties.ReadOnly = true;
-            this.tNewDebt.Size = new System.Drawing.Size(665, 32);
+            this.tNewDebt.Size = new System.Drawing.Size(682, 32);
             this.tNewDebt.TabIndex = 12;
             this.tNewDebt.TabStop = false;
             // 
@@ -477,7 +477,7 @@
             // 
             this.controlFooterButton1.CancelVisible = true;
             this.controlFooterButton1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.controlFooterButton1.Location = new System.Drawing.Point(0, 605);
+            this.controlFooterButton1.Location = new System.Drawing.Point(0, 591);
             this.controlFooterButton1.Name = "controlFooterButton1";
             this.controlFooterButton1.SaveButtonImage = Barcode_Sales.Helpers.Enums.Operation.Add;
             this.controlFooterButton1.SaveButtonText = "Yadda Saxla";
@@ -490,7 +490,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(835, 650);
+            this.ClientSize = new System.Drawing.Size(835, 636);
             this.Controls.Add(this.groupControl2);
             this.Controls.Add(this.controlFooterButton1);
             this.Controls.Add(this.groupControl1);

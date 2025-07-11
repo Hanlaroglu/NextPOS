@@ -16,20 +16,6 @@ namespace Barcode_Sales.Helpers
             return attribute == null ? value.ToString() : attribute.Description;
         }
 
-        public enum TaxTypes
-        {
-            [Description("18% ƏDV")]
-            EighteenPercent = 18,
-            [Description("8% ƏDV")]
-            EightPercent = 8,
-            [Description("2% ƏDV")]
-            TwoPercent = 2,
-            [Description("0% - ( ƏDV-DƏN AZAD )")]
-            ZeroPercent = 0,
-            [Description("TİCARƏT ƏLAVƏSİ - 18%")]
-            TradeSupplement = 2_18,
-        }
-
         public enum NkaTaxType
         {
             [Description("18% ƏDV")]
@@ -156,6 +142,14 @@ namespace Barcode_Sales.Helpers
         {
             MoneyBack, //Qaytarma
             Rollback //Ləğv etmə
+        }
+
+        public enum  ProductType
+        {
+            [Description("Məhsul")]
+            Product = 1,
+            [Description("Xidmət")]
+            Service
         }
     }
 }

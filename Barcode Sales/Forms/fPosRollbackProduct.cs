@@ -1,4 +1,5 @@
-﻿using Barcode_Sales.Helpers.Classes;
+﻿using Barcode_Sales.DTOs;
+using Barcode_Sales.Helpers.Classes;
 using Barcode_Sales.Operations.Abstract;
 using Barcode_Sales.Operations.Concrete;
 using DevExpress.XtraEditors;
@@ -22,56 +23,69 @@ namespace Barcode_Sales.Forms
         static ITerminalOperation terminalOperation = new TerminalManager();
         public static readonly Terminals _terminals = terminalOperation.GetIpAddress();
         ISalesDataDetailOperation salesDataDetailOperation = new SalesDataDetailManager();
+        ICustomerOperation customerOperation = new CustomerManager();
         private readonly PosReturnType _type;
-        private readonly SalesData _salesData;
         RepositoryItemTextEdit repositoryN3;
         RepositoryItemTextEdit repositoryN0;
         private BindingList<SalesDataWrapper> dataList;
+        private readonly SalesDataSummary _salesDataSummary;
         private BindingList<RefundClassess.DataItem> RefundDataItem = new BindingList<RefundClassess.DataItem>();
         private RefundClassess.Data _refundData;
+        private Customers _customer;
 
-        public fPosRollbackProduct(PosReturnType type, SalesData salesData)
+        public fPosRollbackProduct(PosReturnType type, SalesDataSummary items)
         {
             InitializeComponent();
             _type = type;
-            _salesData = salesData;
+            _salesDataSummary = items;
+            _customer = _salesDataSummary.CustomerId is null ? null : customerOperation.GetById((int)_salesDataSummary.CustomerId);
         }
 
         private void fPosRollbackProduct_Load(object sender, EventArgs e)
         {
             GridRepoAdd();
-            if (_salesData != null)
+            SaleDataLoad();
+            if (_salesDataSummary != null)
             {
-                tSaleDatetime.Text = _salesData.SaleDatetime?.ToString("dd.MM.yyyy - HH:mm:ss");
-                tCashier.Text = _salesData.User.NameSurname;
-                tCustomer.Text = _salesData.Customer?.NameSurname;
-                tReceiptNo.Text = _salesData.ReceiptNo;
-                tTotal.EditValue = _salesData.Total;
-                tPaymentType.Text = _salesData.PaymentType;
+                tSaleDatetime.Text = _salesDataSummary.SaleDateTime?.ToString("dd.MM.yyyy - HH:mm:ss");
+                tCashier.Text = _salesDataSummary.Cashier;
+                tCustomer.Text = _salesDataSummary.CustomerName;
+                tReceiptNo.Text = _salesDataSummary.ReceiptNo;
+                tTotal.EditValue = _salesDataSummary.Total;
+                tPaymentType.Text = _salesDataSummary.PaymentType;
             }
             if (_type is PosReturnType.MoneyBack)
             {
                 bSubmit.Text = "Qaytar";
-                groupControl1.Text = $"{_salesData.ReceiptNo} Nömrəli satış çekinin geri qaytarılması";
+                groupControl1.Text = $"{_salesDataSummary.ReceiptNo} Nömrəli satış çekinin geri qaytarılması";
             }
             else
             {
                 bSubmit.Text = "Ləğv et";
-                groupControl1.Text = $"{_salesData.ReceiptNo} Nömrəli satış çekinin ləğv edilməsi";
+                groupControl1.Text = $"{_salesDataSummary.ReceiptNo} Nömrəli satış çekinin ləğv edilməsi";
+                gridSalesData.SelectAll();
+                colReturnQuantity.Visible = false;
             }
-            SaleDataLoad();
         }
 
         private void SaleDataLoad()
         {
             var data = salesDataDetailOperation
-                      .Where(x => x.SaleDataId == _salesData.Id)
+                      .Where(x => x.SaleDataId == _salesDataSummary.Id)
                       .Select(x => new SalesDataWrapper
                       {
                           Detail = x,
                           ReturnQuantity = 1
                       })
                       .ToList();
+
+            if (_type is PosReturnType.Rollback)
+            {
+                foreach (var item in data)
+                {
+                    item.ReturnQuantity = (double)item.Detail.Quantity;
+                }
+            }
 
             dataList = new BindingList<SalesDataWrapper>(data);
             gridControlSalesData.DataSource = dataList;
@@ -117,7 +131,6 @@ namespace Barcode_Sales.Forms
             repositoryN0.Mask.EditMask = "n0";
             repositoryN0.Mask.UseMaskAsDisplayFormat = true;
 
-            // Gride eklemeyi unutma
             gridControlSalesData.RepositoryItems.Add(repositoryN3);
             gridControlSalesData.RepositoryItems.Add(repositoryN0);
         }
@@ -153,14 +166,14 @@ namespace Barcode_Sales.Forms
                         RefundClassess.DataItem dataItem = new RefundClassess.DataItem()
                         {
                             Id = (int)rowData.Detail.ProductId,
-                            ProductName = rowData.Detail.Product.ProductName,
-                            Barcode = rowData.Detail.Product.Barcode,
+                            ProductName = rowData.Detail.Products.ProductName,
+                            Barcode = rowData.Detail.Products.Barcode,
                             Amount = (double)rowData.ReturnQuantity,
-                            PurchasePrice = (double)rowData.Detail.Product.PurchasePrice,
+                            PurchasePrice = (double)rowData.Detail.Products.PurchasePrice,
                             SalePrice = (double)rowData.Detail.SalePrice,
                             Discount = (double)rowData.Detail.Discount,
-                            Unit = rowData.Detail.Product.Unit,
-                            Tax = rowData.Detail.Product.Tax,
+                            Unit = rowData.Detail.Products.Unit,
+                            Tax = rowData.Detail.Products.Tax,
                         };
                         RefundDataItem.Add(dataItem);
                     }
@@ -171,24 +184,29 @@ namespace Barcode_Sales.Forms
                     IpAddress = _terminals.IpAddress,
                     Items = RefundDataItem,
                     Cashier = tCashier.Text,
-                    Cash = (double)_salesData.Cash,
-                    Card = (double)_salesData.Card,
-                    LongFiskalId = _salesData.LongFiscalId,
-                    ShortFiskalId = _salesData.ShortFiscalId,
-                    document_number = _salesData.ReceiptNo,
+                    Cash = (double)_salesDataSummary.Cash,
+                    Card = (double)_salesDataSummary.Card,
+                    LongFiskalId = _salesDataSummary.LongFiscalId,
+                    ShortFiskalId = _salesDataSummary.ShortFiscalId,
+                    document_number = _salesDataSummary.ReceiptNo,
                     Note = tComment.Text.Trim(),
-                    RRN = _salesData.Rrn,
-                    Customer = _salesData.Customer,
-                    SaleDataId = _salesData.Id,
+                    RRN = _salesDataSummary.RRN,
+                    Customer = _customer,
+                    SaleDataId = _salesDataSummary.Id,
                 };
+
                 if (_type is PosReturnType.MoneyBack)
                 {
-                    SaleRefund();
+                    Refund();
+                }
+                else
+                {
+                    Rollback();
                 }
             }
         }
 
-        private void SaleRefund()
+        private void Refund()
         {
             if (_terminals != null)
             {
@@ -219,6 +237,44 @@ namespace Barcode_Sales.Forms
                         break;
                 }
             }
+        }
+
+        private void Rollback()
+        {
+            if (_terminals != null)
+            {
+                KassaOperator kassa = (KassaOperator)Enum.Parse(typeof(KassaOperator), _terminals.Name);
+                switch (kassa)
+                {
+                    case KassaOperator.SUNMI:
+                    case KassaOperator.TIANYU:
+                        if (NKA.Sunmi.Sale(null))
+                        {
+                            DialogResult = DialogResult.OK;
+                        }
+                        break;
+                    case KassaOperator.OMNITECH:
+                        if (NKA.Omnitech.Rollback(_refundData))
+                        {
+                            RefundDataItem.Clear();
+                            DialogResult = DialogResult.OK;
+                        }
+                        break;
+                    case KassaOperator.AZSMART:
+                        break;
+                    case KassaOperator.NBA:
+                        break;
+                    case KassaOperator.DATAPAY:
+                        break;
+                    case KassaOperator.ONECLICK:
+                        break;
+                }
+            }
+        }
+
+        private void fPosRollbackProduct_FormClosed(object sender, FormClosedEventArgs e)
+        {
+
         }
     }
 }

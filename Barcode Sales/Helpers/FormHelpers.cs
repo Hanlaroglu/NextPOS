@@ -11,6 +11,7 @@ using Newtonsoft.Json;
 using RestSharp;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Net.NetworkInformation;
 using System.Text;
@@ -35,6 +36,9 @@ namespace Barcode_Sales.Helpers
             {
                 var grid = control as GridControl;
                 grid.DataSource = data;
+                var gridView = grid.MainView as DevExpress.XtraGrid.Views.Grid.GridView;
+                GridPanelText(gridView);
+                GridCustomRowNumber(gridView);
             }
             else if (control is LookUpEdit)
             {
@@ -88,7 +92,34 @@ namespace Barcode_Sales.Helpers
             };
 
             GridColumn column = gridView.Columns.ColumnByFieldName(columnName);
-            column.BestFit();
+            if (column != null)
+                column.BestFit();
+        }
+
+        /// <summary>
+        /// Gridə göndərilən sütunun foreColor-unu qırmızı yaxud yaşıl edir. 
+        /// </summary>
+        /// <param name="column">Hansı sütundakı textin rəngini dəyişəcəyiksə onu seçirik</param>
+        /// <param name="value1">Yaşıl rəngdə yazılmasını istədiyimiz dəyəri göndəririk string formatında</param>
+        /// <param name="value2">Qırmızı rəngdə yazılmasını istədiyimiz dəyəri göndəririk string formatında</param>
+        /// <param name="eventArgs">Gridin RowCellCtyle eventi göndərilir</param>
+        public static void GridViewStatusDisplayColor(GridColumn column, string value1, string value2, RowCellStyleEventArgs eventArgs)
+        {
+            if (eventArgs.Column == column)
+            {
+                if (eventArgs.CellValue != null)
+                {
+                    //eventArgs.Appearance.FontStyleDelta = FontStyle.Bold;
+                    if (eventArgs.CellValue.ToString() == value1)
+                    {
+                        eventArgs.Appearance.ForeColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Success;
+                    }
+                    else if (eventArgs.CellValue.ToString() == value2)
+                    {
+                        eventArgs.Appearance.ForeColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Danger;
+                    }
+                }
+            }
         }
 
         public static T OpenForm<T>(params object[] constructorArgs) where T : Form
@@ -141,14 +172,14 @@ namespace Barcode_Sales.Helpers
         {
             string guidString = guid.ToString("N");
             string barcodeContent = new String(guidString.Where(Char.IsDigit).ToArray());
-            barcodeContent = barcodeContent.Substring(0, Math.Min(barcodeContent.Length, 12));
+            barcodeContent = barcodeContent.Substring(0, Math.Min(barcodeContent.Length, 9));
 
             int sum = barcodeContent.Select((c, index) => int.Parse(c.ToString()) * (index % 2 == 0 ? 1 : 3)).Sum();
             int checksum = (10 - (sum % 10)) % 10;
 
             barcodeContent += checksum.ToString();
 
-            return barcodeContent;
+            return $"994{barcodeContent}";
         }
 
         public static void PingHostAsync(string host)

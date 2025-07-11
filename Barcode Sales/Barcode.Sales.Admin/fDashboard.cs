@@ -35,6 +35,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
         IUserOperation userOperation = new UserManager();
         IRoleOperation roleOperation = new RoleManager();
         ICustomerDebtOperation customerDebtOperation = new CustomerDebtManager();
+        IReturnPosOperation returnPosOperation = new ReturnPosManager();
 
         private readonly Users CurrentUser;
         public fDashboard(Users _user)
@@ -43,6 +44,12 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             CurrentUser = _user;
             GridLocalizer.Active = new MyGridLocalizer();
             AllGridPanelText();
+        }
+
+        private void fDashboard_Load(object sender, EventArgs e)
+        {
+            AuthorizationControl();
+            ProductStockLoad();
         }
 
         void AuthorizationControl()
@@ -67,8 +74,8 @@ namespace Barcode_Sales.Barcode.Sales.Admin
 
         void AllGridPanelText()
         {
-            GridPanelText(gridCustomers);
             GridPanelText(gridProducts);
+            GridPanelText(gridCustomers);
             GridPanelText(gridSalesProduct);
             GridPanelText(gridSupplier);
             GridPanelText(gridSupplierDebt);
@@ -91,141 +98,20 @@ namespace Barcode_Sales.Barcode.Sales.Admin
         }
 
 
-        #region [...Panel...]
+        #region [...Dashboard...]
 
         private void bPanel_Click(object sender, EventArgs e)
         {
             navigationMenu.SelectedPage = pageMain;
-            GunlukHesabat();
-            AylaraGoreHesapla();
-            PanelProductStock();
-            EnCoxSatilanMehsul();
         }
 
-        void GunlukHesabat()
+        private async void ProductStockLoad()
         {
-            //groupControlGunluk.Text = "Günlük hesabat - " + DateTime.Now.ToShortDateString();
-            ////var saleResult = db.Transaction_Report.Where(x => DbFunctions.TruncateTime(x.Date) == DateTime.Today && x.ProccesType == "Satış");
-            ////var returnResult = db.Transaction_Report.Where(x => DbFunctions.TruncateTime(x.Date) == DateTime.Today && x.ProccesType == "Qaytarma");
-
-            #region [...] Satış
-
-            ////Günlük satış sayı
-            //lSaleCount.Text = saleResult.Count().ToString();
-            ////Günlük satış məbləği
-            //switch (saleResult.Any())
-            //{
-            //    case true:
-            //        lSalesPrice.Text = saleResult.Sum(x => x.Total).Value.ToString("C2");
-            //        break;
-            //    case false:
-            //        lSalesPrice.Text = 0.ToString("C2");
-            //        break;
-            //}
-
-            #endregion [...] Satış
-
-
-            #region [...] Qaytarma
-
-            //Günlük qaytarma sayı
-            //lReturnCount.Text = returnResult.Count().ToString();
-            ////Günlük qaytarma məbləği
-            //switch (returnResult.Any())
-            //{
-            //    case true:
-            //        lReturnPrice.Text = returnResult.Sum(x => x.Total).Value.ToString("C2");
-            //        break;
-            //    case false:
-            //        lReturnPrice.Text = 0.ToString("C2");
-            //        break;
-            //}
-
-            #endregion [...] Qaytarma
-
-            double totalResult = Islemler.DoubleYap(lSalesPrice.Text) - Islemler.DoubleYap(lReturnPrice.Text);
-
-            lTotalPrice.Text = totalResult.ToString("C2");
+            var data =await productOperation.WhereAsync(x => x.IsDeleted == 0);
+            gridControlDashboardStock.DataSource = data;
         }
 
-        void EnCoxSatilanMehsul()
-        {
-            //var topSellingProducts = db.Satis.AsNoTracking().GroupBy(sale => sale.MehsulAd).Select(group => new
-            //{
-            //    ProductName = group.Key,
-            //    TotalSales = group.Sum(sale => sale.Miqdar)
-            //}).OrderByDescending(sale => sale.TotalSales).Take(5).ToList();
-            //chartControl1.Series[0].DataSource = topSellingProducts;
-            //chartControl1.Series[0].ArgumentDataMember = "ProductName";
-            //chartControl1.Series[0].ValueScaleType = ScaleType.Numerical;
-            //chartControl1.Series[0].ValueDataMembers.AddRange(new[] { "TotalSales" });
-            //chartControl1.Series[0].Label.TextPattern = "{A}: {VP:P}";
-        }
-
-        void AylaraGoreHesapla()
-        {
-            //var monthlySales = db.IslemOzet.AsNoTracking().GroupBy(product => product.Tarix).Select(group => new
-            //{
-            //    Month = group.Key,
-            //    TotalAmount = group.Sum(product => product.Total)
-            //}).OrderBy(item => item.Month).ToList();
-
-            //List<MonthInfo> months = new List<MonthInfo>
-            //{
-            //    new MonthInfo { MonthNumber = 1, MonthName = "Yanvar" },
-            //    new MonthInfo { MonthNumber = 2, MonthName = "Fevral" },
-            //    new MonthInfo { MonthNumber = 3, MonthName = "Mart" },
-            //    new MonthInfo { MonthNumber = 4, MonthName = "Aprel" },
-            //    new MonthInfo { MonthNumber = 5, MonthName = "May" },
-            //    new MonthInfo { MonthNumber = 6, MonthName = "İyun" },
-            //    new MonthInfo { MonthNumber = 7, MonthName = "İyul" },
-            //    new MonthInfo { MonthNumber = 8, MonthName = "Avqust" },
-            //    new MonthInfo { MonthNumber = 9, MonthName = "Sentyabr" },
-            //    new MonthInfo { MonthNumber = 10, MonthName = "Oktyabr" },
-            //    new MonthInfo { MonthNumber = 11, MonthName = "Noyabr" },
-            //    new MonthInfo { MonthNumber = 12, MonthName = "Dekabr" },
-            //};
-
-
-            //var monthlyRevenues = db.Transaction_Report.AsNoTracking().Where(sale => sale.Date.HasValue).GroupBy(sale => sale.Date.Value.Month)
-            //    .Select(group => new
-            //    {
-            //        Month = group.Key,
-            //        TotalRevenue = group.Sum(sale => sale.Total)
-            //    }).ToList();
-
-
-            //chartControl2.Series[0].DataSource = monthlyRevenues;
-            //chartControl2.Series[0].ArgumentDataMember = "Month";
-            //chartControl2.Series[0].ValueScaleType = ScaleType.Numerical;
-            //chartControl2.Series[0].ValueDataMembers.AddRange(new[] { "TotalRevenue" });
-            //chartControl2.Series[0].Label.TextPattern = "{A}: {VP:P}";
-
-        }
-
-        void PanelProductStock()
-        {
-            //var query = from product in db.Products
-            //            where product.Amount <= Properties.Settings.Default.Panel_ProductMinLimit
-            //            select new Product
-            //            {
-            //                ID = product.Mehsulid,
-            //                Code = product.ProductCode,
-            //                Name = product.MehsulAdi,
-            //                Amount = product.Amount
-            //            };
-            //gridControlStock.DataSource = query.AsNoTracking().ToList();
-        }
-
-        //public class Product
-        //{
-        //    public int ID { get; set; }
-        //    public string Code { get; set; }
-        //    public string Name { get; set; }
-        //    public double? Amount { get; set; }
-        //}
-
-        #endregion [...Panel...]
+        #endregion [...Dashboard...]
 
 
 
@@ -872,7 +758,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             fAddCustomer f = new fAddCustomer(Enums.Operation.Edit);
             if (f.ShowDialog() is DialogResult.OK)
             {
-                NoticationHelpers.Messages.SuccessMessage(this,$"{customer.NameSurname} müştərisində düzəliş edildi");
+                NoticationHelpers.Messages.SuccessMessage(this, $"{customer.NameSurname} müştərisində düzəliş edildi");
                 CustomerLoadData();
             }
         }
@@ -1700,17 +1586,6 @@ namespace Barcode_Sales.Barcode.Sales.Admin
         }
         #endregion [...Update...]
 
-
-
-        private void fDashboard_Load(object sender, EventArgs e)
-        {
-            AuthorizationControl();
-            //bCompanyGroup_Click(null, null);
-            EnCoxSatilanMehsul();
-            GunlukHesabat();
-            AylaraGoreHesapla();
-            PanelProductStock();
-        }
 
         private void bRetunProduct_Click(object sender, EventArgs e)
         {

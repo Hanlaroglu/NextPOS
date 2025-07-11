@@ -1,6 +1,7 @@
 ﻿using Barcode_Sales.Operations.Abstract;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
@@ -43,6 +44,7 @@ namespace Barcode_Sales.Operations.Concrete
                 return -1;
             }
         }
+
         public ReturnPos GetById(int id)
         {
             throw new NotImplementedException();
@@ -75,12 +77,27 @@ namespace Barcode_Sales.Operations.Concrete
 
         public IQueryable<ReturnPos> Where(Expression<Func<ReturnPos, bool>> expression)
         {
-            throw new NotImplementedException();
+           return db.ReturnPos.Where(expression);
         }
 
-        public Task<List<ReturnPos>> WhereAsync(Expression<Func<ReturnPos, bool>> expression = null)
+        public async Task<List<ReturnPos>> WhereAsync(Expression<Func<ReturnPos, bool>> expression = null)
         {
-            throw new NotImplementedException();
+            return await db.ReturnPos.AsNoTracking().Where(expression).ToListAsync();
+        }
+
+        public int CurrentCountTotal()
+        {
+            var start = DateTime.Now.Date;
+            var end = start.AddDays(1);
+            return Where(rp => rp.ReturnDate >= start && rp.ReturnDate < end).Count();
+        }
+
+        public double CurrentAmountTotal()
+        {
+            var start = DateTime.Now.Date;
+            var end = start.AddDays(1);
+            return Where(rp => rp.ReturnDate >= start && rp.ReturnDate < end)
+                    .Sum(rp => rp.Total) ??0;
         }
     }
 }

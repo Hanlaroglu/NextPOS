@@ -30,7 +30,7 @@ namespace Barcode_Sales.Forms
                 CommonData.CURRENT_USER = control.Item2;
                 if (UserValidation.AuthorizationControl(CommonData.CURRENT_USER, role => role.Admin))
                 {
-                    FormHelpers.OpenForm<fDashboard>(CommonData.CURRENT_USER);
+                    FormHelpers.OpenForm<Barcode.Sales.Admin.fDashboard>(CommonData.CURRENT_USER);
                     this.Hide();
                 }
                 else if (UserValidation.AuthorizationControl(CommonData.CURRENT_USER, role => role.Cashier))

@@ -11,7 +11,7 @@ namespace Barcode_Sales
 {
     using System;
     using System.Collections.Generic;
-
+    
     public partial class SalesDataDetail
     {
         public int Id { get; set; }
@@ -20,15 +20,8 @@ namespace Barcode_Sales
         public Nullable<double> Quantity { get; set; }
         public Nullable<double> SalePrice { get; set; }
         public Nullable<double> Discount { get; set; }
-        public double Total
-        {
-            get
-            {
-               double result = (double)(SalePrice * Quantity);
-                return result;
-            }
-        }
-        public virtual Products Product { get; set; }
+    
         public virtual SalesData SalesData { get; set; }
+        public virtual Products Products { get; set; }
     }
 }

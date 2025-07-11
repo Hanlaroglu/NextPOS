@@ -28,13 +28,18 @@ namespace Barcode_Sales.Forms
         private void bRefund_Click(object sender, EventArgs e)
         {
             fPosRollback f = new fPosRollback();
-            f.ShowDialog();
+            this.Close();
+            if (f.ShowDialog() is DialogResult.OK)
+            {
+                Close();
+            }
         }
 
         private void bDeposit_Click(object sender, EventArgs e)
         {
             if (_terminals != null)
             {
+                this.Close();
                 fPriceChange f = new fPriceChange(new Helpers.Classes.SaleClasses.PosChangeType
                 {
                     ChangeType = Enums.PosChangeType.Deposit,
@@ -74,6 +79,7 @@ namespace Barcode_Sales.Forms
         {
             if (_terminals != null)
             {
+                this.Close();
                 fPriceChange f = new fPriceChange(new Helpers.Classes.SaleClasses.PosChangeType
                 {
                     ChangeType = Enums.PosChangeType.Withdraw,

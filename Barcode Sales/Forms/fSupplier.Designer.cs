@@ -96,10 +96,9 @@ namespace Barcode_Sales.Forms
             this.groupProduct.Appearance.BackColor = System.Drawing.Color.White;
             this.groupProduct.Appearance.Options.UseBackColor = true;
             this.groupProduct.AppearanceCaption.BackColor = System.Drawing.Color.White;
-            this.groupProduct.AppearanceCaption.Font = new System.Drawing.Font("Comfortaa", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupProduct.AppearanceCaption.Font = new System.Drawing.Font("Nunito", 12F);
             this.groupProduct.AppearanceCaption.Options.UseBackColor = true;
             this.groupProduct.AppearanceCaption.Options.UseFont = true;
-            this.groupProduct.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
             this.groupProduct.Controls.Add(this.tDebt);
             this.groupProduct.Controls.Add(this.tAddress);
             this.groupProduct.Controls.Add(this.tVoen);
@@ -108,12 +107,9 @@ namespace Barcode_Sales.Forms
             this.groupProduct.Controls.Add(this.labelControl1);
             this.groupProduct.Controls.Add(this.labelControl4);
             this.groupProduct.Controls.Add(this.tName);
-            this.groupProduct.GroupStyle = DevExpress.Utils.GroupStyle.Light;
-            this.groupProduct.Location = new System.Drawing.Point(12, 3);
-            this.groupProduct.LookAndFeel.SkinName = "WXI";
-            this.groupProduct.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.groupProduct.Location = new System.Drawing.Point(3, 0);
             this.groupProduct.Name = "groupProduct";
-            this.groupProduct.Size = new System.Drawing.Size(704, 207);
+            this.groupProduct.Size = new System.Drawing.Size(722, 207);
             this.groupProduct.TabIndex = 12;
             this.groupProduct.Text = "Təchizatçı məlumatları";
             // 
@@ -124,10 +120,8 @@ namespace Barcode_Sales.Forms
             this.tDebt.EditValue = "0,0";
             this.tDebt.Location = new System.Drawing.Point(132, 158);
             this.tDebt.Name = "tDebt";
-            this.tDebt.Properties.Appearance.Font = new System.Drawing.Font("Comfortaa", 10F, System.Drawing.FontStyle.Bold);
+            this.tDebt.Properties.Appearance.Font = new System.Drawing.Font("Nunito", 12F, System.Drawing.FontStyle.Bold);
             this.tDebt.Properties.Appearance.Options.UseFont = true;
-            this.tDebt.Properties.Appearance.Options.UseTextOptions = true;
-            this.tDebt.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.tDebt.Properties.AppearanceDisabled.Font = new System.Drawing.Font("Comfortaa", 10F, System.Drawing.FontStyle.Bold);
             this.tDebt.Properties.AppearanceDisabled.Options.UseFont = true;
             this.tDebt.Properties.AppearanceDisabled.Options.UseTextOptions = true;
@@ -144,7 +138,7 @@ namespace Barcode_Sales.Forms
             this.tDebt.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.tDebt.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
             this.tDebt.Properties.MaskSettings.Set("mask", "");
-            this.tDebt.Size = new System.Drawing.Size(567, 36);
+            this.tDebt.Size = new System.Drawing.Size(585, 36);
             this.tDebt.TabIndex = 3;
             // 
             // tAddress
@@ -153,11 +147,11 @@ namespace Barcode_Sales.Forms
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tAddress.Location = new System.Drawing.Point(132, 116);
             this.tAddress.Name = "tAddress";
-            this.tAddress.Properties.Appearance.Font = new System.Drawing.Font("Comfortaa", 10F);
+            this.tAddress.Properties.Appearance.Font = new System.Drawing.Font("Nunito", 12F);
             this.tAddress.Properties.Appearance.Options.UseFont = true;
             this.tAddress.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.tAddress.Properties.MaskSettings.Set("mask", "(999) 000-00-00");
-            this.tAddress.Size = new System.Drawing.Size(567, 36);
+            this.tAddress.Size = new System.Drawing.Size(585, 36);
             this.tAddress.TabIndex = 2;
             // 
             // tVoen
@@ -166,60 +160,60 @@ namespace Barcode_Sales.Forms
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tVoen.Location = new System.Drawing.Point(132, 74);
             this.tVoen.Name = "tVoen";
-            this.tVoen.Properties.Appearance.Font = new System.Drawing.Font("Comfortaa", 10F);
+            this.tVoen.Properties.Appearance.Font = new System.Drawing.Font("Nunito", 12F);
             this.tVoen.Properties.Appearance.Options.UseFont = true;
             this.tVoen.Properties.Mask.UseMaskAsDisplayFormat = true;
-            this.tVoen.Size = new System.Drawing.Size(567, 36);
+            this.tVoen.Size = new System.Drawing.Size(585, 36);
             this.tVoen.TabIndex = 1;
             // 
             // labelControl5
             // 
-            this.labelControl5.Appearance.Font = new System.Drawing.Font("Comfortaa", 10F);
+            this.labelControl5.Appearance.Font = new System.Drawing.Font("Nunito", 12F);
             this.labelControl5.Appearance.Options.UseFont = true;
             this.labelControl5.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Horizontal;
-            this.labelControl5.Location = new System.Drawing.Point(5, 166);
+            this.labelControl5.Location = new System.Drawing.Point(5, 165);
             this.labelControl5.Name = "labelControl5";
             this.labelControl5.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
-            this.labelControl5.Size = new System.Drawing.Size(70, 21);
+            this.labelControl5.Size = new System.Drawing.Size(72, 22);
             this.labelControl5.TabIndex = 5;
             this.labelControl5.Text = "İlkin borc";
             this.labelControl5.UseMnemonic = false;
             // 
             // labelControl2
             // 
-            this.labelControl2.Appearance.Font = new System.Drawing.Font("Comfortaa", 10F);
+            this.labelControl2.Appearance.Font = new System.Drawing.Font("Nunito", 12F);
             this.labelControl2.Appearance.Options.UseFont = true;
             this.labelControl2.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Horizontal;
-            this.labelControl2.Location = new System.Drawing.Point(5, 124);
+            this.labelControl2.Location = new System.Drawing.Point(5, 123);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
-            this.labelControl2.Size = new System.Drawing.Size(51, 21);
+            this.labelControl2.Size = new System.Drawing.Size(52, 22);
             this.labelControl2.TabIndex = 5;
             this.labelControl2.Text = "Ünvan";
             this.labelControl2.UseMnemonic = false;
             // 
             // labelControl1
             // 
-            this.labelControl1.Appearance.Font = new System.Drawing.Font("Comfortaa", 10F);
+            this.labelControl1.Appearance.Font = new System.Drawing.Font("Nunito", 12F);
             this.labelControl1.Appearance.Options.UseFont = true;
             this.labelControl1.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Horizontal;
-            this.labelControl1.Location = new System.Drawing.Point(5, 82);
+            this.labelControl1.Location = new System.Drawing.Point(5, 81);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
-            this.labelControl1.Size = new System.Drawing.Size(41, 21);
+            this.labelControl1.Size = new System.Drawing.Size(44, 22);
             this.labelControl1.TabIndex = 5;
             this.labelControl1.Text = "Vöen";
             this.labelControl1.UseMnemonic = false;
             // 
             // labelControl4
             // 
-            this.labelControl4.Appearance.Font = new System.Drawing.Font("Comfortaa", 10F);
+            this.labelControl4.Appearance.Font = new System.Drawing.Font("Nunito", 12F);
             this.labelControl4.Appearance.Options.UseFont = true;
             this.labelControl4.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Horizontal;
-            this.labelControl4.Location = new System.Drawing.Point(5, 40);
+            this.labelControl4.Location = new System.Drawing.Point(5, 39);
             this.labelControl4.Name = "labelControl4";
             this.labelControl4.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
-            this.labelControl4.Size = new System.Drawing.Size(103, 21);
+            this.labelControl4.Size = new System.Drawing.Size(102, 22);
             this.labelControl4.TabIndex = 5;
             this.labelControl4.Text = "Təchizatçı adı";
             this.labelControl4.UseMnemonic = false;
@@ -230,7 +224,7 @@ namespace Barcode_Sales.Forms
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tName.Location = new System.Drawing.Point(132, 32);
             this.tName.Name = "tName";
-            this.tName.Properties.Appearance.Font = new System.Drawing.Font("Comfortaa", 10F);
+            this.tName.Properties.Appearance.Font = new System.Drawing.Font("Nunito", 12F);
             this.tName.Properties.Appearance.Options.UseFont = true;
             serializableAppearanceObject1.Font = new System.Drawing.Font("Nunito", 9.749998F, System.Drawing.FontStyle.Bold);
             serializableAppearanceObject1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(72)))), ((int)(((byte)(86)))));
@@ -241,7 +235,7 @@ namespace Barcode_Sales.Forms
             this.tName.Properties.LookAndFeel.SkinName = "WXI";
             this.tName.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
             this.tName.Properties.Mask.UseMaskAsDisplayFormat = true;
-            this.tName.Size = new System.Drawing.Size(567, 36);
+            this.tName.Size = new System.Drawing.Size(585, 36);
             this.tName.TabIndex = 0;
             // 
             // userSaveFooter1
@@ -344,20 +338,16 @@ namespace Barcode_Sales.Forms
             this.groupControl2.Appearance.BackColor = System.Drawing.Color.White;
             this.groupControl2.Appearance.Options.UseBackColor = true;
             this.groupControl2.AppearanceCaption.BackColor = System.Drawing.Color.White;
-            this.groupControl2.AppearanceCaption.Font = new System.Drawing.Font("Comfortaa", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupControl2.AppearanceCaption.Font = new System.Drawing.Font("Nunito", 12F);
             this.groupControl2.AppearanceCaption.Options.UseBackColor = true;
             this.groupControl2.AppearanceCaption.Options.UseFont = true;
-            this.groupControl2.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
             this.groupControl2.Controls.Add(this.tPhone);
             this.groupControl2.Controls.Add(this.tEmail);
             this.groupControl2.Controls.Add(this.labelControl12);
             this.groupControl2.Controls.Add(this.labelControl11);
-            this.groupControl2.GroupStyle = DevExpress.Utils.GroupStyle.Light;
-            this.groupControl2.Location = new System.Drawing.Point(12, 216);
-            this.groupControl2.LookAndFeel.SkinName = "WXI";
-            this.groupControl2.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.groupControl2.Location = new System.Drawing.Point(3, 213);
             this.groupControl2.Name = "groupControl2";
-            this.groupControl2.Size = new System.Drawing.Size(704, 122);
+            this.groupControl2.Size = new System.Drawing.Size(722, 122);
             this.groupControl2.TabIndex = 12;
             this.groupControl2.Text = "Əlaqə məlumatları";
             // 
@@ -367,12 +357,12 @@ namespace Barcode_Sales.Forms
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tPhone.Location = new System.Drawing.Point(132, 74);
             this.tPhone.Name = "tPhone";
-            this.tPhone.Properties.Appearance.Font = new System.Drawing.Font("Comfortaa", 10F);
+            this.tPhone.Properties.Appearance.Font = new System.Drawing.Font("Nunito", 12F);
             this.tPhone.Properties.Appearance.Options.UseFont = true;
             this.tPhone.Properties.LookAndFeel.SkinName = "WXI";
             this.tPhone.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
             this.tPhone.Properties.Mask.UseMaskAsDisplayFormat = true;
-            this.tPhone.Size = new System.Drawing.Size(567, 36);
+            this.tPhone.Size = new System.Drawing.Size(585, 36);
             this.tPhone.TabIndex = 1;
             // 
             // tEmail
@@ -381,36 +371,36 @@ namespace Barcode_Sales.Forms
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tEmail.Location = new System.Drawing.Point(132, 32);
             this.tEmail.Name = "tEmail";
-            this.tEmail.Properties.Appearance.Font = new System.Drawing.Font("Comfortaa", 10F);
+            this.tEmail.Properties.Appearance.Font = new System.Drawing.Font("Nunito", 12F);
             this.tEmail.Properties.Appearance.Options.UseFont = true;
             this.tEmail.Properties.LookAndFeel.SkinName = "WXI";
             this.tEmail.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
             this.tEmail.Properties.Mask.UseMaskAsDisplayFormat = true;
-            this.tEmail.Size = new System.Drawing.Size(567, 36);
+            this.tEmail.Size = new System.Drawing.Size(585, 36);
             this.tEmail.TabIndex = 0;
             // 
             // labelControl12
             // 
-            this.labelControl12.Appearance.Font = new System.Drawing.Font("Comfortaa", 10F);
+            this.labelControl12.Appearance.Font = new System.Drawing.Font("Nunito", 12F);
             this.labelControl12.Appearance.Options.UseFont = true;
             this.labelControl12.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Horizontal;
             this.labelControl12.Location = new System.Drawing.Point(5, 39);
             this.labelControl12.Name = "labelControl12";
             this.labelControl12.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
-            this.labelControl12.Size = new System.Drawing.Size(51, 21);
+            this.labelControl12.Size = new System.Drawing.Size(53, 22);
             this.labelControl12.TabIndex = 5;
             this.labelControl12.Text = "E-poçt";
             this.labelControl12.UseMnemonic = false;
             // 
             // labelControl11
             // 
-            this.labelControl11.Appearance.Font = new System.Drawing.Font("Comfortaa", 10F);
+            this.labelControl11.Appearance.Font = new System.Drawing.Font("Nunito", 12F);
             this.labelControl11.Appearance.Options.UseFont = true;
             this.labelControl11.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Horizontal;
-            this.labelControl11.Location = new System.Drawing.Point(5, 82);
+            this.labelControl11.Location = new System.Drawing.Point(5, 81);
             this.labelControl11.Name = "labelControl11";
             this.labelControl11.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
-            this.labelControl11.Size = new System.Drawing.Size(58, 21);
+            this.labelControl11.Size = new System.Drawing.Size(62, 22);
             this.labelControl11.TabIndex = 5;
             this.labelControl11.Text = "Telefon";
             this.labelControl11.UseMnemonic = false;
@@ -429,7 +419,7 @@ namespace Barcode_Sales.Forms
             this.groupControl1.Appearance.BackColor = System.Drawing.Color.White;
             this.groupControl1.Appearance.Options.UseBackColor = true;
             this.groupControl1.AppearanceCaption.BackColor = System.Drawing.Color.White;
-            this.groupControl1.AppearanceCaption.Font = new System.Drawing.Font("Comfortaa", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupControl1.AppearanceCaption.Font = new System.Drawing.Font("Nunito", 12F);
             this.groupControl1.AppearanceCaption.Options.UseBackColor = true;
             this.groupControl1.AppearanceCaption.Options.UseFont = true;
             this.groupControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
@@ -443,12 +433,9 @@ namespace Barcode_Sales.Forms
             this.groupControl1.Controls.Add(this.labelControl8);
             this.groupControl1.Controls.Add(this.labelControl9);
             this.groupControl1.Controls.Add(this.labelControl10);
-            this.groupControl1.GroupStyle = DevExpress.Utils.GroupStyle.Light;
-            this.groupControl1.Location = new System.Drawing.Point(12, 3);
-            this.groupControl1.LookAndFeel.SkinName = "WXI";
-            this.groupControl1.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.groupControl1.Location = new System.Drawing.Point(3, 0);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(704, 249);
+            this.groupControl1.Size = new System.Drawing.Size(722, 249);
             this.groupControl1.TabIndex = 13;
             this.groupControl1.Text = "Bank məlumatları";
             // 
@@ -458,10 +445,10 @@ namespace Barcode_Sales.Forms
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tBankVoen.Location = new System.Drawing.Point(132, 74);
             this.tBankVoen.Name = "tBankVoen";
-            this.tBankVoen.Properties.Appearance.Font = new System.Drawing.Font("Comfortaa", 10F);
+            this.tBankVoen.Properties.Appearance.Font = new System.Drawing.Font("Nunito", 12F);
             this.tBankVoen.Properties.Appearance.Options.UseFont = true;
             this.tBankVoen.Properties.Mask.UseMaskAsDisplayFormat = true;
-            this.tBankVoen.Size = new System.Drawing.Size(567, 36);
+            this.tBankVoen.Size = new System.Drawing.Size(585, 36);
             this.tBankVoen.TabIndex = 1;
             // 
             // tBankSwift
@@ -470,12 +457,12 @@ namespace Barcode_Sales.Forms
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tBankSwift.Location = new System.Drawing.Point(132, 200);
             this.tBankSwift.Name = "tBankSwift";
-            this.tBankSwift.Properties.Appearance.Font = new System.Drawing.Font("Comfortaa", 10F);
+            this.tBankSwift.Properties.Appearance.Font = new System.Drawing.Font("Nunito", 12F);
             this.tBankSwift.Properties.Appearance.Options.UseFont = true;
             this.tBankSwift.Properties.LookAndFeel.SkinName = "WXI";
             this.tBankSwift.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
             this.tBankSwift.Properties.Mask.UseMaskAsDisplayFormat = true;
-            this.tBankSwift.Size = new System.Drawing.Size(567, 36);
+            this.tBankSwift.Size = new System.Drawing.Size(585, 36);
             this.tBankSwift.TabIndex = 4;
             // 
             // tBankKod
@@ -484,12 +471,12 @@ namespace Barcode_Sales.Forms
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tBankKod.Location = new System.Drawing.Point(132, 158);
             this.tBankKod.Name = "tBankKod";
-            this.tBankKod.Properties.Appearance.Font = new System.Drawing.Font("Comfortaa", 10F);
+            this.tBankKod.Properties.Appearance.Font = new System.Drawing.Font("Nunito", 12F);
             this.tBankKod.Properties.Appearance.Options.UseFont = true;
             this.tBankKod.Properties.LookAndFeel.SkinName = "WXI";
             this.tBankKod.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
             this.tBankKod.Properties.Mask.UseMaskAsDisplayFormat = true;
-            this.tBankKod.Size = new System.Drawing.Size(567, 36);
+            this.tBankKod.Size = new System.Drawing.Size(585, 36);
             this.tBankKod.TabIndex = 3;
             // 
             // tBankAccountNumber
@@ -498,12 +485,12 @@ namespace Barcode_Sales.Forms
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tBankAccountNumber.Location = new System.Drawing.Point(132, 116);
             this.tBankAccountNumber.Name = "tBankAccountNumber";
-            this.tBankAccountNumber.Properties.Appearance.Font = new System.Drawing.Font("Comfortaa", 10F);
+            this.tBankAccountNumber.Properties.Appearance.Font = new System.Drawing.Font("Nunito", 12F);
             this.tBankAccountNumber.Properties.Appearance.Options.UseFont = true;
             this.tBankAccountNumber.Properties.LookAndFeel.SkinName = "WXI";
             this.tBankAccountNumber.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
             this.tBankAccountNumber.Properties.Mask.UseMaskAsDisplayFormat = true;
-            this.tBankAccountNumber.Size = new System.Drawing.Size(567, 36);
+            this.tBankAccountNumber.Size = new System.Drawing.Size(585, 36);
             this.tBankAccountNumber.TabIndex = 2;
             // 
             // tBankName
@@ -512,86 +499,90 @@ namespace Barcode_Sales.Forms
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tBankName.Location = new System.Drawing.Point(132, 32);
             this.tBankName.Name = "tBankName";
-            this.tBankName.Properties.Appearance.Font = new System.Drawing.Font("Comfortaa", 10F);
+            this.tBankName.Properties.Appearance.Font = new System.Drawing.Font("Nunito", 12F);
             this.tBankName.Properties.Appearance.Options.UseFont = true;
             this.tBankName.Properties.LookAndFeel.SkinName = "WXI";
             this.tBankName.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
             this.tBankName.Properties.Mask.UseMaskAsDisplayFormat = true;
-            this.tBankName.Size = new System.Drawing.Size(567, 36);
+            this.tBankName.Size = new System.Drawing.Size(585, 36);
             this.tBankName.TabIndex = 0;
             // 
             // labelControl6
             // 
-            this.labelControl6.Appearance.Font = new System.Drawing.Font("Comfortaa", 10F);
+            this.labelControl6.Appearance.Font = new System.Drawing.Font("Nunito", 12F);
             this.labelControl6.Appearance.Options.UseFont = true;
             this.labelControl6.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Horizontal;
-            this.labelControl6.Location = new System.Drawing.Point(5, 124);
+            this.labelControl6.Location = new System.Drawing.Point(5, 123);
             this.labelControl6.Name = "labelControl6";
             this.labelControl6.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
-            this.labelControl6.Size = new System.Drawing.Size(109, 21);
+            this.labelControl6.Size = new System.Drawing.Size(115, 22);
             this.labelControl6.TabIndex = 5;
             this.labelControl6.Text = "Hesab nömrəsi";
             this.labelControl6.UseMnemonic = false;
             // 
             // labelControl7
             // 
-            this.labelControl7.Appearance.Font = new System.Drawing.Font("Comfortaa", 10F);
+            this.labelControl7.Appearance.Font = new System.Drawing.Font("Nunito", 12F);
             this.labelControl7.Appearance.Options.UseFont = true;
             this.labelControl7.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Horizontal;
-            this.labelControl7.Location = new System.Drawing.Point(5, 208);
+            this.labelControl7.Location = new System.Drawing.Point(5, 207);
             this.labelControl7.Name = "labelControl7";
             this.labelControl7.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
-            this.labelControl7.Size = new System.Drawing.Size(48, 21);
+            this.labelControl7.Size = new System.Drawing.Size(57, 22);
             this.labelControl7.TabIndex = 5;
             this.labelControl7.Text = "SWIFT";
             this.labelControl7.UseMnemonic = false;
             // 
             // labelControl8
             // 
-            this.labelControl8.Appearance.Font = new System.Drawing.Font("Comfortaa", 10F);
+            this.labelControl8.Appearance.Font = new System.Drawing.Font("Nunito", 12F);
             this.labelControl8.Appearance.Options.UseFont = true;
             this.labelControl8.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Horizontal;
-            this.labelControl8.Location = new System.Drawing.Point(5, 166);
+            this.labelControl8.Location = new System.Drawing.Point(5, 165);
             this.labelControl8.Name = "labelControl8";
             this.labelControl8.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
-            this.labelControl8.Size = new System.Drawing.Size(37, 21);
+            this.labelControl8.Size = new System.Drawing.Size(40, 22);
             this.labelControl8.TabIndex = 5;
             this.labelControl8.Text = "KOD";
             this.labelControl8.UseMnemonic = false;
             // 
             // labelControl9
             // 
-            this.labelControl9.Appearance.Font = new System.Drawing.Font("Comfortaa", 10F);
+            this.labelControl9.Appearance.Font = new System.Drawing.Font("Nunito", 12F);
             this.labelControl9.Appearance.Options.UseFont = true;
             this.labelControl9.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Horizontal;
-            this.labelControl9.Location = new System.Drawing.Point(5, 82);
+            this.labelControl9.Location = new System.Drawing.Point(5, 81);
             this.labelControl9.Name = "labelControl9";
             this.labelControl9.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
-            this.labelControl9.Size = new System.Drawing.Size(41, 21);
+            this.labelControl9.Size = new System.Drawing.Size(44, 22);
             this.labelControl9.TabIndex = 5;
             this.labelControl9.Text = "Vöen";
             this.labelControl9.UseMnemonic = false;
             // 
             // labelControl10
             // 
-            this.labelControl10.Appearance.Font = new System.Drawing.Font("Comfortaa", 10F);
+            this.labelControl10.Appearance.Font = new System.Drawing.Font("Nunito", 12F);
             this.labelControl10.Appearance.Options.UseFont = true;
             this.labelControl10.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Horizontal;
-            this.labelControl10.Location = new System.Drawing.Point(5, 40);
+            this.labelControl10.Location = new System.Drawing.Point(5, 39);
             this.labelControl10.Name = "labelControl10";
             this.labelControl10.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
-            this.labelControl10.Size = new System.Drawing.Size(66, 21);
+            this.labelControl10.Size = new System.Drawing.Size(67, 22);
             this.labelControl10.TabIndex = 5;
             this.labelControl10.Text = "Bank adı";
             this.labelControl10.UseMnemonic = false;
             // 
             // fSupplier
             // 
+            this.Appearance.BackColor = System.Drawing.Color.White;
+            this.Appearance.Options.UseBackColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(728, 496);
             this.Controls.Add(this.tabPane1);
             this.Controls.Add(this.userSaveFooter1);
+            this.LookAndFeel.SkinName = "WXI";
+            this.LookAndFeel.UseDefaultLookAndFeel = false;
             this.MinimumSize = new System.Drawing.Size(480, 310);
             this.Name = "fSupplier";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

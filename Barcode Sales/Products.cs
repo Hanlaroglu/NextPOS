@@ -18,13 +18,11 @@ namespace Barcode_Sales
         public Products()
         {
             this.InvoiceProducts = new HashSet<InvoiceProducts>();
-            this.SalesDataDetails = new HashSet<SalesDataDetail>();
+            this.SalesDataDetail = new HashSet<SalesDataDetail>();
         }
     
         public int Id { get; set; }
-        public string Type { get; set; }
         public Nullable<int> WarehousesID { get; set; }
-        public Nullable<int> StoreID { get; set; }
         public Nullable<int> CategoryID { get; set; }
         public string ProductName { get; set; }
         public string ProductCode { get; set; }
@@ -45,15 +43,17 @@ namespace Barcode_Sales
         public Nullable<bool> EndDateNotification { get; set; }
         public Nullable<bool> Status { get; set; }
         public Nullable<int> IsDeleted { get; set; }
+        public Nullable<int> TaxId { get; set; }
+        public Nullable<byte> Type { get; set; }
     
         public virtual Categories Categories { get; set; }
         public virtual Colors Colors { get; set; }
-        public virtual Sizes Sizes { get; set; }
-        public virtual Stores Stores { get; set; }
-        public virtual Warehouses Warehouses { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<InvoiceProducts> InvoiceProducts { get; set; }
+        public virtual Sizes Sizes { get; set; }
+        public virtual TaxType TaxTypes { get; set; }
+        public virtual Warehouses Warehouses { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<SalesDataDetail> SalesDataDetails { get; set; }
+        public virtual ICollection<SalesDataDetail> SalesDataDetail { get; set; }
     }
 }
