@@ -14,17 +14,8 @@ namespace Barcode_Sales
     
     public partial class Sizes
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Sizes()
-        {
-            this.Products = new HashSet<Products>();
-        }
-    
         public int Id { get; set; }
         public string SizeName { get; set; }
         public Nullable<int> IsDeleted { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Products> Products { get; set; }
     }
 }

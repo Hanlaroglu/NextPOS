@@ -75,5 +75,10 @@ namespace Barcode_Sales.Operations.Concrete
             else
                 return await db.TaxTypes.ToListAsync();
         }
+
+        public Dictionary<int, string> Initialize()
+        {
+            return db.TaxTypes.ToDictionary(x => x.Id, x => x.Name);
+        }
     }
 }

@@ -1,24 +1,11 @@
-﻿using Barcode_Sales.Barcode.Sales.UI;
-using NextDBSetup;
-using Barcode_Sales.Product;
-using Barcode_Sales.UserControls;
-using NextPOS.Update;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Globalization;
-using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using Barcode_Sales.Tools;
-using Barcode_Sales.Barcode.Sales.UI.Kassa;
-using Microsoft.Win32;
-using System.Diagnostics;
-using Licence;
-using System.Net.NetworkInformation;
 using Barcode_Sales.Forms;
-using Barcode_Sales.Barcode.Sales.Admin;
-using DevExpress.Utils;
+using Barcode_Sales.Helpers;
+using DevExpress.XtraGrid.Localization;
+using static Barcode_Sales.Helpers.FormHelpers;
+using fDashboard = Barcode_Sales.Barcode.Sales.Admin.fDashboard;
 
 namespace Barcode_Sales
 {
@@ -29,6 +16,7 @@ namespace Barcode_Sales
         static void Main()
         {
             var culture = new CultureInfo("az-AZ");
+            GridLocalizer.Active = new MyGridLocalizer();
             CultureInfo.DefaultThreadCurrentCulture = culture;
             CultureInfo.DefaultThreadCurrentUICulture = culture;
             CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator = ",";
@@ -37,7 +25,7 @@ namespace Barcode_Sales
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new fLogin());
-            Application.Run(new Forms.fDashboard());
+            Application.Run(new fInvoiceProduct());
 
 
 

@@ -1,7 +1,10 @@
-﻿namespace Barcode_Sales.Operations.Abstract
+﻿using System.Threading.Tasks;
+
+namespace Barcode_Sales.Operations.Abstract
 {
     public interface ISaleDataOperation:IBaseOperation<SalesData>
     {
         int InsertSaleData(SalesData item);
+        Task<string> SalesCount();
     }
 }

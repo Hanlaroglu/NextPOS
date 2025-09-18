@@ -18,23 +18,20 @@ using static Barcode_Sales.Helpers.Enums;
 
 namespace Barcode_Sales.Forms
 {
-    public partial class fAddProduct : FormBase
+    public partial class fAddProduct : DevExpress.XtraBars.FluentDesignSystem.FluentDesignForm
     {
-        NextposDBEntities db = new NextposDBEntities();
-
-        IWarehouseOperation warehouseOperation = new WarehouseManager();
+        ISupplierOperation supplierOperation = new SupplierManager();
+        IUnitTypeOperation unitTypeOperation = new UnitTypeManager();
+        ITaxTypeOperation taxTypeOperation = new TaxTypeManager();
         ICategoryOperation categoryOperation = new CategoryManager();
         IProductOperation productOperation = new ProductManager();
-        ITaxTypeOperation taxTypeOperation = new TaxTypeManager();
 
 
-
-        private Enums.Operation Operation { get; }
+        private Operation Operation { get; }
         private Products Product { get; set; }
         private BindingList<GridData> dataList = new BindingList<GridData>();
-        private byte[] imageBytes;
 
-        public fAddProduct(Enums.Operation _operation, Products _product = null)
+        public fAddProduct(Operation _operation, Products _product = null)
         {
             InitializeComponent();
             Operation = _operation;
@@ -44,143 +41,120 @@ namespace Barcode_Sales.Forms
         private async void fAddProduct_Load(object sender, EventArgs e)
         {
             #region Mask
-            //tCreatedDate.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTime;
-            //tCreatedDate.Properties.Mask.EditMask = "dd.MM.yyyy";
-            //tCreatedDate.Properties.Mask.UseMaskAsDisplayFormat = true;
-            //tCreatedDate.EditValue = DateTime.Now;
 
-            //tEndDate.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTime;
-            //tEndDate.Properties.Mask.EditMask = "dd.MM.yyyy";
-            //tEndDate.Properties.Mask.UseMaskAsDisplayFormat = true;
-            //tEndDate.EditValue = DateTime.Now;
+            //tPurchasePrice.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            //tPurchasePrice.Properties.Mask.EditMask = "f2";
+            //tPurchasePrice.Properties.Mask.UseMaskAsDisplayFormat = true;
 
-            tPurchasePrice.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            tPurchasePrice.Properties.Mask.EditMask = "n2";
-            tPurchasePrice.Properties.Mask.UseMaskAsDisplayFormat = true;
-
-            tSalesPrice.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            tSalesPrice.Properties.Mask.EditMask = "n2";
-            tSalesPrice.Properties.Mask.UseMaskAsDisplayFormat = true;
+            //tSalesPrice.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            //tSalesPrice.Properties.Mask.EditMask = "f2";
+            //tSalesPrice.Properties.Mask.UseMaskAsDisplayFormat = true;
             #endregion Mask
 
 
             ClearProduct();
-            UnitDataLoad();
+            await UnitDataLoad();
             await TaxDataLoad();
-            await WarehouseDataLoad();
+            await SupplierDataLoad();
             await CategoryDataLoad();
             gridControlProducts.DataSource = dataList;
         }
 
-        private void UnitDataLoad()
+        private async Task UnitDataLoad()
         {
-            var unitTypes = Enum.GetValues(typeof(Enums.UnitTypes))
-                                .Cast<Enums.UnitTypes>()
-                                .ToDictionary(e => e, e => Enums.GetEnumDescription(e));
-
-            FormHelpers.ControlLoad(new BindingSource(unitTypes, null), lookUnit, "Value", "Key");
+            var data = await unitTypeOperation.WhereAsync();
+            FormHelpers.ControlLoad(data, lookUnit);
+            lookUnit.EditValue = 0;
         }
 
         private async Task TaxDataLoad()
         {
             var data = await taxTypeOperation.WhereAsync(null);
-
             FormHelpers.ControlLoad(data, lookTax);
         }
 
-        private async Task WarehouseDataLoad()
+        private async Task SupplierDataLoad()
         {
-            var data = await warehouseOperation.WhereAsync();
-
-            FormHelpers.ControlLoad(data, lookWarehouse, "Name", "Id");
+            var data = await supplierOperation.WhereAsync(x => x.IsDeleted == 0);
+            FormHelpers.ControlLoad(data, lookSuppliers, "SupplierName");
         }
 
         private async Task CategoryDataLoad()
         {
-            var data = await categoryOperation.WhereAsync(x => x.IsDeleted == 0);
-            lookCategory.Properties.DataSource = data;
-            lookCategory.Properties.DisplayMember = "CategoryName";
-            lookCategory.Properties.ValueMember = "Id";
+            var data = await categoryOperation.WhereAsync(x => x.IsDeleted == 0 && x.Status == true);
+            FormHelpers.ControlLoad(data, lookCategory, "CategoryName");
         }
 
-        private void bAddProduct_Click(object sender, EventArgs e)
+        private async void bAddProduct_Click(object sender, EventArgs e)
         {
             if (Operation is Enums.Operation.Add)
             {
-                AddProduct();
+                await AddProduct();
             }
             else if (Operation is Enums.Operation.Edit)
             {
-                EditProduct();
+                //EditProduct();
             }
         }
 
-        private void EditProduct()
-        {
-            Product.CategoryID = GetCategoryId(lookCategory.Text);
-            Product.ProductName = tProductName.Text;
-            Product.Barcode = tBarcode.Text;
-            Product.ProductCode = tProductCode.Text;
-            Product.PurchasePrice = ParseHelpers.GetConvertStringToDouble(tPurchasePrice.EditValue.ToString());
-            Product.SalePrice = ParseHelpers.GetConvertStringToDouble(tSalesPrice.EditValue.ToString());
-            Product.Unit = lookUnit.Text;
-            Product.Tax = lookTax.Text;
-            Product.Comment = tComment.Text.Trim();
-            Product.Image = null;
-            productOperation.Update(Product);
-            DialogResult = DialogResult.OK;
-        }
+        //private void EditProduct()
+        //{
+        //    Product.CategoryId = (int)lookCategory.EditValue;
+        //    Product.ProductName = tProductName.Text;
+        //    Product.Barcode = tBarcode.Text;
+        //    Product.ProductCode = tProductCode.Text;
+        //    Product.PurchasePrice = ParseHelpers.GetConvertStringToDouble(tPurchasePrice.EditValue.ToString());
+        //    Product.SalePrice = ParseHelpers.GetConvertStringToDouble(tSalesPrice.EditValue.ToString());
+        //    Product.UnitId = lookUnit.EditValue == null ? 0 : (int)lookUnit.EditValue;
+        //    Product.TaxId = lookTax.EditValue == null ? 0 : (int)lookTax.EditValue;
+        //    productOperation.Update(Product);
+        //    DialogResult = DialogResult.OK;
+        //}
 
+        short rowNo = 1;
         private void ProductAddGrid()
         {
-            short rowNo = 1;
-
             GridData grid = new GridData();
             grid.No = rowNo;
-            grid.Category = lookCategory.SelectedText;
+            grid.SupplierName = lookSuppliers.Text;
+            grid.Category = lookCategory.Text;
             grid.ProductName = tProductName.Text.Trim();
             grid.Barcode = tBarcode.Text.Trim();
             grid.UnitName = lookUnit.Text;
             grid.TaxName = lookTax.Text;
-            grid.PurchasePrice = Double.Parse(tPurchasePrice.Text);
-            grid.SalePrice = Double.Parse(tSalesPrice.Text);
+            grid.PurchasePrice = Double.Parse(tPurchasePrice.EditValue.ToString());
+            grid.SalePrice = Double.Parse(tSalesPrice.EditValue.ToString());
 
             dataList.Add(grid);
             rowNo++;
-            
+
         }
 
-        private bool GetExistsBarcode(string barcode)
+        private async Task AddProduct()
         {
-            return db.Products.AsNoTracking()
-                              .Any(x => x.Barcode == barcode && x.IsDeleted == 0);
-        }
-
-        private void AddProduct()
-        {
-            if (GetExistsBarcode(tBarcode.Text.Trim()))
-            {
-                Message("Daxil edilən barkod sistemdə mövcuddur", fMessage.enmType.Warning);
-                return;
-            }
-
-
             Product = new Products();
-
             Product.Type = (byte)ProductType.Product;
-            Product.WarehousesID = (int?)lookWarehouse.EditValue;
+            Product.SupplierId = lookSuppliers.EditValue == null ? 0 : (int)lookSuppliers.EditValue;
             Product.ProductName = tProductName.Text.Trim();
-            Product.CategoryID = (int?)lookCategory.EditValue;
+            Product.CategoryId = lookCategory.EditValue == null ? 0 : (int)lookCategory.EditValue;
             Product.Barcode = tBarcode.Text.Trim();
             Product.Amount = 0;
-            Product.PurchasePrice = Double.Parse(tPurchasePrice.Text);
-            Product.SalePrice = Double.Parse(tSalesPrice.Text);
-            Product.Unit = lookUnit.Text;
-            Product.TaxId = (int?)lookTax.EditValue;
-            Product.ProductCode = tProductCode.Text.Trim();
-            Product.Comment = tComment.Text.Trim();
+            Product.PurchasePrice = Double.Parse(tPurchasePrice.EditValue.ToString());
+            Product.SalePrice = Double.Parse(tSalesPrice.EditValue.ToString());
+            Product.UnitId = lookUnit.EditValue == null ? 0 : (int)lookUnit.EditValue;
+            Product.TaxId = lookTax.EditValue == null ? 0 : (int)lookTax.EditValue;
+            Product.ProductCode = string.IsNullOrWhiteSpace(tProductCode.Text) ? null : tProductCode.Text.Trim();
             Product.Status = true;
             Product.IsDeleted = 0;
+            Product.CreatedDate = DateTime.Now;
+            Product.CreatedUserId =CommonData.CURRENT_USER.Id;
+
+            var barcodeCheck = await productOperation.BarcodeCheckAsync(Product.Barcode, (int)Product.SupplierId);
+            if (barcodeCheck)
+            {
+                NoticationHelpers.Messages.InfoMessage(this, "Daxil edilən barkod sistemdə mövcuddur");
+                return;
+            }
 
             var validator = ValidationHelpers.ValidateMessage(Product, new ProductValidation(), this);
 
@@ -201,7 +175,7 @@ namespace Barcode_Sales.Forms
             tProductCode.Text = null;
             tPurchasePrice.EditValue = CommonData.DEFAULT_INT_TOSTRING;
             tSalesPrice.Text = CommonData.DEFAULT_INT_TOSTRING;
-            tComment.Text = null;
+            tProductName.Focus();
         }
 
         private void tBarcode_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
@@ -212,11 +186,6 @@ namespace Barcode_Sales.Forms
         private void bClear_Click(object sender, EventArgs e)
         {
             ClearProduct();
-        }
-
-        private void bSendWarehouses_Click(object sender, EventArgs e)
-        {
-            AddProduct();
         }
 
         private void bProductDelete_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
@@ -232,50 +201,25 @@ namespace Barcode_Sales.Forms
             }
         }
 
-        private int GetCategoryId(string name)
+        private void bAddSupplier_Click(object sender, EventArgs e)
         {
-            if (db.Categories.Any(x => x.CategoryName == name))
-            {
-                return db.Categories.AsNoTracking().FirstOrDefault(x => x.CategoryName == name).Id;
-            }
-            else
-            {
-                throw new NullReferenceException(ValidationHelpers.CategoryNotSelected);
-            }
+            NoticationHelpers.Dialogs.DialogResultYesNo("test");
         }
 
-        private void bAddImage_Click(object sender, EventArgs e)
+        private void bAddCategory_Click(object sender, EventArgs e)
         {
-            //OpenFileDialog openFile = new OpenFileDialog();
-            //if (openFile.ShowDialog() is DialogResult.OK)
-            //{
-            //    picProductImage.Image = Image.FromFile(openFile.FileName);
-            //    using (Stream stream = File.OpenRead(openFile.FileName))
-            //    {
-            //        imageBytes = new byte[stream.Length];
-            //        stream.Read(imageBytes, 0, imageBytes.Length);
-            //    }
-            //}
-            //else
-            //{
-            //    imageBytes = null;
-            //}
-        }
-
-        private void tCategory_EditValueChanged(object sender, EventArgs e)
-        {
-            lookCategory.EditValueChanged -= tCategory_EditValueChanged;
-
-            var selectedRow = lookCategory.Properties.View.GetFocusedRow() as Categories;
-            if (selectedRow == null) return;
-
-
+            fAddCategory f = new fAddCategory(Operation.Add, null);
+            f.FormClosed += async (s, args) =>
+            {
+                await CategoryDataLoad();
+            };
+            f.ShowDialog();
         }
 
         private class GridData
         {
             public short No { get; set; }
-            public string Warehouse { get; set; }
+            public string SupplierName { get; set; }
             public string ProductName { get; set; }
             public string Category { get; set; }
             public string Barcode { get; set; }
@@ -284,5 +228,7 @@ namespace Barcode_Sales.Forms
             public double PurchasePrice { get; set; }
             public double SalePrice { get; set; }
         }
+
+     
     }
 }

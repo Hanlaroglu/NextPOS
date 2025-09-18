@@ -30,15 +30,25 @@ namespace Barcode_Sales.Forms
                 CommonData.CURRENT_USER = control.Item2;
                 if (UserValidation.AuthorizationControl(CommonData.CURRENT_USER, role => role.Admin))
                 {
-                    FormHelpers.OpenForm<Barcode.Sales.Admin.fDashboard>(CommonData.CURRENT_USER);
                     this.Hide();
+                    fDashboard f = new fDashboard();
+                    //Barcode.Sales.Admin.fDashboard f = new Barcode.Sales.Admin.fDashboard(control.Item2);
+                    f.Show();
+                    f.FormClosed += (s, args) =>
+                    {
+                        Application.Exit();
+                    };
+
                 }
                 else if (UserValidation.AuthorizationControl(CommonData.CURRENT_USER, role => role.Cashier))
                 {
-                    //FormHelpers.OpenForm<fBarcodeSalesUI>(CommonData.CURRENT_USER);
-                    
-                    FormHelpers.OpenForm<fPosSales>();
                     this.Hide();
+                    fPosSales f = new fPosSales();
+                    f.Show();
+                    f.FormClosed += (s, args) =>
+                    {
+                        Application.Exit();
+                    };
                 }
             }
             else

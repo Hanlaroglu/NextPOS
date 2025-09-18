@@ -1,25 +1,15 @@
-﻿using Barcode_Sales.Cache;
-using Barcode_Sales.Helpers;
+﻿using Barcode_Sales.Helpers;
 using Barcode_Sales.Operations.Abstract;
 using Barcode_Sales.Operations.Concrete;
-using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Localization;
 using DevExpress.XtraGrid.Views.Grid.ViewInfo;
-using DevExpress.XtraPrinting.Native.Navigation;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Data.Entity.Core.Metadata.Edm;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Web.UI.WebControls;
 using System.Windows.Forms;
-using System.Windows.Input;
 using static Barcode_Sales.Helpers.Classes.SaleClasses;
-using static Barcode_Sales.Helpers.Enums;
 using static Barcode_Sales.Helpers.FormHelpers;
 
 namespace Barcode_Sales.Forms
@@ -27,6 +17,7 @@ namespace Barcode_Sales.Forms
     public partial class fPosSales : DevExpress.XtraEditors.XtraForm
     {
         IProductOperation productOperation = new ProductManager();
+        private ISaleDataOperation saleDataOperation = new SalesDataManager();
         private BindingList<SaleDataItem> dataList;
         short rowNo = 1;
 
@@ -35,7 +26,6 @@ namespace Barcode_Sales.Forms
             InitializeComponent();
             dataList = new BindingList<SaleDataItem>();
             gridControlBasket.DataSource = dataList;
-            GridLocalizer.Active = new MyGridLocalizer();
         }
 
         private class ProductSearchData
@@ -46,15 +36,16 @@ namespace Barcode_Sales.Forms
             public double SalePrice { get; set; } = 0;
             public double Discount { get; set; } = 0;
             public string Barcode { get; set; }
-            public string Unit { get; set; }
-            public string Tax { get; set; }
+            public int UnitId { get; set; }
+            public int TaxId { get; set; }
             public double Amount { get; set; }
         }
 
-        private void fPosSales_Load(object sender, EventArgs e)
+        private async void fPosSales_Load(object sender, EventArgs e)
         {
+            tSaleCount.Text = await saleDataOperation.SalesCount();
             tToday.Properties.Buttons[1].Caption = CommonData.TODAY_DATE;
-            tCashier.Properties.Buttons[1].Caption= CommonData.CURRENT_USER.NameSurname;
+            tCashier.Properties.Buttons[1].Caption = CommonData.CURRENT_USER?.NameSurname;
             SearchProductList();
         }
 
@@ -68,8 +59,8 @@ namespace Barcode_Sales.Forms
                 SalePrice = (double)x.SalePrice,
                 PurchasePrice = (double)x.PurchasePrice,
                 Barcode = x.Barcode,
-                Unit = x.Unit,
-                Tax = x.Tax
+                UnitId = (int)x.UnitId,
+                TaxId = (int)x.TaxId
             }).ToList();
 
             tSearch.Properties.DataSource = product;
@@ -112,7 +103,7 @@ namespace Barcode_Sales.Forms
 
         private void buttonEdit4_SizeChanged(object sender, EventArgs e)
         {
-            tCashier.Size = buttonEdit5.Size;
+            tCashier.Size = tSaleCount.Size;
         }
 
         private void bExit_Click(object sender, EventArgs e)
@@ -157,8 +148,8 @@ namespace Barcode_Sales.Forms
                         Amount = 1,
                         RowNo = rowNo,
                         Barcode = selectedRow.Barcode,
-                        Unit = selectedRow.Unit,
-                        Tax = selectedRow.Tax,
+                        UnitId = selectedRow.UnitId,
+                        TaxId = selectedRow.TaxId,
                     };
                     dataList.Add(grid);
                     rowNo++;
@@ -202,7 +193,7 @@ namespace Barcode_Sales.Forms
                             Amount = 1,
                             RowNo = rowNo,
                             Barcode = product.Barcode,
-                            Unit = product.Unit
+                            UnitId = (int)product.UnitId
                         };
                         dataList.Add(grid);
                         rowNo++;
@@ -241,7 +232,7 @@ namespace Barcode_Sales.Forms
                 int focusedRow = Int32.Parse(gridBasket.GetFocusedRowCellValue(colId).ToString());
 
                 var selectedProduct = dataList.FirstOrDefault(x => x.Id == focusedRow);
-                fPriceChange f = new fPriceChange(new  Helpers.Classes.SaleClasses.PosChangeType
+                fPriceChange f = new fPriceChange(new Helpers.Classes.SaleClasses.PosChangeType
                 {
                     ChangeType = Enums.PosChangeType.Discount,
                     Amount = selectedProduct.SalePrice,

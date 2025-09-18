@@ -64,7 +64,7 @@ namespace Barcode_Sales.NoticationHelpers
 	display: flex;
 	flex-direction: column;
 	padding: 8px;
-	font-family: 'Segoe UI';
+	font-family: 'Nunito';
 	color: @WindowText;
 }
 .icon-container{
@@ -147,7 +147,7 @@ namespace Barcode_Sales.NoticationHelpers
 	display: flex;
 	flex-direction: column;
 	padding: 8px;
-	font-family: 'Segoe UI';
+	font-family: 'Nunito';
 	color: @WindowText;
 }
 .icon-container{
@@ -158,12 +158,12 @@ namespace Barcode_Sales.NoticationHelpers
 	height: 22px;
 }
 .caption{
-	font-size: 11pt;
+	font-size: 12pt;
 	font-weight: bold;
 	padding: 6px;
 }
 .text{
-	font-size: 10.5pt;
+	font-size: 11pt;
 	padding: 0px 6px 6px 6px;
 }
 .close-button{
@@ -230,7 +230,7 @@ namespace Barcode_Sales.NoticationHelpers
 	display: flex;
 	flex-direction: column;
 	padding: 8px;
-	font-family: 'Segoe UI';
+	font-family: 'Nunito';
 	color: @WindowText;
 }
 .icon-container{
@@ -241,12 +241,12 @@ namespace Barcode_Sales.NoticationHelpers
 	height: 22px;
 }
 .caption{
-	font-size: 11pt;
+	font-size: 12pt;
 	font-weight: bold;
 	padding: 6px;
 }
 .text{
-	font-size: 10.5pt;
+	font-size: 11pt;
 	padding: 0px 6px 6px 6px;
 }
 .close-button{
@@ -312,7 +312,7 @@ namespace Barcode_Sales.NoticationHelpers
 	display: flex;
 	flex-direction: column;
 	padding: 8px;
-	font-family: 'Segoe UI';
+	font-family: 'Nunito';
 	color: @WindowText;
 }
 .icon-container{
@@ -323,12 +323,12 @@ namespace Barcode_Sales.NoticationHelpers
 	height: 22px;
 }
 .caption{
-	font-size: 11pt;
+	font-size: 12pt;
 	font-weight: bold;
 	padding: 6px;
 }
 .text{
-	font-size: 10.5pt;
+	font-size: 11pt;
 	padding: 0px 6px 6px 6px;
 }
 .close-button{

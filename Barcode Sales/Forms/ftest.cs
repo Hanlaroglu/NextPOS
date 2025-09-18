@@ -19,6 +19,7 @@ using static Barcode_Sales.Helpers.FormHelpers;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraGrid;
 using System.Windows.Forms.DataVisualization.Charting;
+using System.Data.Entity;
 
 namespace Barcode_Sales.Forms
 {
@@ -50,12 +51,27 @@ namespace Barcode_Sales.Forms
                ProductName= x.ProductName,
                SalePrice = x.SalePrice,
                Barcode = x.Barcode,
-               Unit = x.Unit
+               //Unit = x.Unit
             }).ToList();
 
             tSearch.Properties.DataSource = product;
             tSearch.Properties.DisplayMember = "ProductName";
             tSearch.Properties.ValueMember = "Id";
+        }
+
+        private async Task DashboardStockList()
+        {
+            var data = await productOperation.Where(x => x.IsDeleted == 0)
+                                        .Select(x => new
+                                        {
+                                            Id = x.Id,
+                                            ProductName = x.ProductName,
+                                            Barcode = x.Barcode,
+                                            SalePrice = x.SalePrice,
+                                            Quantity = x.Amount,
+                                        }).ToListAsync();
+
+            FormHelpers.ControlLoad(data, gridControlDashboardStock);
         }
 
         private void tSearch_EditValueChanged(object sender, EventArgs e)

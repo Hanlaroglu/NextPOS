@@ -321,7 +321,7 @@ namespace Barcode_Sales.Barcode.Sales.UI
                         PName = _product.ProductName,
                         Amount = _amount,
                         SPrice = (double)_product.SalePrice,
-                        Unit = _product.Unit,
+                        //Unit = _product.Unit,
                         Total = total,
                     });
                     rowNo++;
@@ -360,7 +360,7 @@ namespace Barcode_Sales.Barcode.Sales.UI
                     gridSatisListesi.Rows[satirsayisi].Cells["colProductName"].Value = urun.ProductName;
                     gridSatisListesi.Rows[satirsayisi].Cells["colBarcode"].Value = barkod;
                     gridSatisListesi.Rows[satirsayisi].Cells["colCategory"].Value = urun.Categories.CategoryName;
-                    gridSatisListesi.Rows[satirsayisi].Cells["colVahid"].Value = urun.Unit;
+                    //gridSatisListesi.Rows[satirsayisi].Cells["colVahid"].Value = urun.Unit;
                     gridSatisListesi.Rows[satirsayisi].Cells["colPrice"].Value = urun.SalePrice;
                     gridSatisListesi.Rows[satirsayisi].Cells["colAmount"].Value = miktar;
                     gridSatisListesi.Rows[satirsayisi].Cells["colTotal"].Value = Math.Round(miktar * (double)urun.SalePrice, 2);

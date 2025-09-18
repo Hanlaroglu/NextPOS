@@ -17,8 +17,8 @@ namespace Barcode_Sales
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Suppliers()
         {
-            this.InvoiceInfo = new HashSet<InvoiceInfo>();
             this.SuppliersDebts = new HashSet<SuppliersDebt>();
+            this.Products = new HashSet<Products>();
         }
     
         public int Id { get; set; }
@@ -37,8 +37,8 @@ namespace Barcode_Sales
         public string Email { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<InvoiceInfo> InvoiceInfo { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<SuppliersDebt> SuppliersDebts { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Products> Products { get; set; }
     }
 }

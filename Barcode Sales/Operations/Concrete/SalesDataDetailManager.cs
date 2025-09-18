@@ -14,7 +14,7 @@ namespace Barcode_Sales.Operations.Concrete
         NextposDBEntities db = new NextposDBEntities();
         public bool Add(SalesDataDetail item)
         {
-            db.SalesDataDetails.Add(item);
+            db.SalesDataDetail.Add(item);
             db.SaveChanges();
             return true;
         }
@@ -26,7 +26,7 @@ namespace Barcode_Sales.Operations.Concrete
 
         public void InsertRangeSalesDataDetail(List<SalesDataDetail> items)
         {
-            db.SalesDataDetails.AddRange(items);
+            db.SalesDataDetail.AddRange(items);
             db.SaveChanges();
         }
 
@@ -62,12 +62,12 @@ namespace Barcode_Sales.Operations.Concrete
 
         public IQueryable<SalesDataDetail> Where(Expression<Func<SalesDataDetail, bool>> expression)
         {
-            return db.SalesDataDetails.Where(expression);
+            return db.SalesDataDetail.Where(expression);
         }
 
         public async Task<List<SalesDataDetail>> WhereAsync(Expression<Func<SalesDataDetail, bool>> expression = null)
         {
-            return await db.SalesDataDetails.Where(expression).ToListAsync();
+            return await db.SalesDataDetail.Where(expression).ToListAsync();
         }
     }
 }

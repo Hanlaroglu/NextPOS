@@ -106,7 +106,7 @@ namespace Barcode_Sales.Operations.Concrete
             var terminal = Where(x => x.UserId == CommonData.CURRENT_USER.Id && x.IsDeleted == 0).FirstOrDefault();
             fPosSales _form = Application.OpenForms.OfType<fPosSales>().FirstOrDefault();
 
-            if (terminal.IsDeleted != 0)
+            if (terminal is null || terminal?.IsDeleted != 0)
             {
                 NoticationHelpers.Messages.WarningMessage(_form, "İstifadəçiyə kassa təyin edilməmiştir");
                 return null;

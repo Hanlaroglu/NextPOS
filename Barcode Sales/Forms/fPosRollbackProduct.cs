@@ -172,8 +172,8 @@ namespace Barcode_Sales.Forms
                             PurchasePrice = (double)rowData.Detail.Products.PurchasePrice,
                             SalePrice = (double)rowData.Detail.SalePrice,
                             Discount = (double)rowData.Detail.Discount,
-                            Unit = rowData.Detail.Products.Unit,
-                            Tax = rowData.Detail.Products.Tax,
+                            UnitId = (int)rowData.Detail.Products.UnitId,
+                            TaxId = (int)rowData.Detail.Products.TaxId,
                         };
                         RefundDataItem.Add(dataItem);
                     }

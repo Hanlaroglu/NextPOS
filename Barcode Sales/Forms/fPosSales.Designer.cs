@@ -99,7 +99,7 @@
             this.tInternetStatus = new DevExpress.XtraEditors.ButtonEdit();
             this.tComment = new DevExpress.XtraEditors.ButtonEdit();
             this.bPay = new DevExpress.XtraEditors.SimpleButton();
-            this.buttonEdit5 = new DevExpress.XtraEditors.ButtonEdit();
+            this.tSaleCount = new DevExpress.XtraEditors.ButtonEdit();
             this.tCustomer = new DevExpress.XtraEditors.ButtonEdit();
             this.tablePanel2 = new DevExpress.Utils.Layout.TablePanel();
             this.navigationFrame1 = new DevExpress.XtraBars.Navigation.NavigationFrame();
@@ -158,7 +158,7 @@
             this.tablePanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tInternetStatus.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tComment.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.buttonEdit5.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tSaleCount.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tCustomer.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel2)).BeginInit();
             this.tablePanel2.SuspendLayout();
@@ -218,7 +218,7 @@
             this.tablePanel3.Controls.Add(this.tInternetStatus);
             this.tablePanel3.Controls.Add(this.tComment);
             this.tablePanel3.Controls.Add(this.bPay);
-            this.tablePanel3.Controls.Add(this.buttonEdit5);
+            this.tablePanel3.Controls.Add(this.tSaleCount);
             this.tablePanel3.Controls.Add(this.tCustomer);
             this.tablePanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tablePanel3.Location = new System.Drawing.Point(939, 36);
@@ -316,28 +316,28 @@
             this.bPay.Text = "ÖDƏNİŞ ET";
             this.bPay.Click += new System.EventHandler(this.bPay_Click);
             // 
-            // buttonEdit5
+            // tSaleCount
             // 
-            this.tablePanel3.SetColumn(this.buttonEdit5, 0);
-            this.buttonEdit5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonEdit5.EditValue = "26";
-            this.buttonEdit5.Location = new System.Drawing.Point(2, 36);
-            this.buttonEdit5.Margin = new System.Windows.Forms.Padding(1);
-            this.buttonEdit5.Name = "buttonEdit5";
-            this.buttonEdit5.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.buttonEdit5.Properties.Appearance.Font = new System.Drawing.Font("Nunito", 10F, System.Drawing.FontStyle.Bold);
-            this.buttonEdit5.Properties.Appearance.Options.UseBackColor = true;
-            this.buttonEdit5.Properties.Appearance.Options.UseFont = true;
-            this.buttonEdit5.Properties.Appearance.Options.UseTextOptions = true;
-            this.buttonEdit5.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.tablePanel3.SetColumn(this.tSaleCount, 0);
+            this.tSaleCount.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tSaleCount.EditValue = "26";
+            this.tSaleCount.Location = new System.Drawing.Point(2, 36);
+            this.tSaleCount.Margin = new System.Windows.Forms.Padding(1);
+            this.tSaleCount.Name = "tSaleCount";
+            this.tSaleCount.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.tSaleCount.Properties.Appearance.Font = new System.Drawing.Font("Nunito", 10F, System.Drawing.FontStyle.Bold);
+            this.tSaleCount.Properties.Appearance.Options.UseBackColor = true;
+            this.tSaleCount.Properties.Appearance.Options.UseFont = true;
+            this.tSaleCount.Properties.Appearance.Options.UseTextOptions = true;
+            this.tSaleCount.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             serializableAppearanceObject9.Font = new System.Drawing.Font("Nunito", 10F, System.Drawing.FontStyle.Bold);
             serializableAppearanceObject9.Options.UseFont = true;
-            this.buttonEdit5.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.tSaleCount.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Növbə ərzindəki çek sayı:", -1, false, true, true, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
-            this.buttonEdit5.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.tablePanel3.SetRow(this.buttonEdit5, 1);
-            this.buttonEdit5.Size = new System.Drawing.Size(377, 32);
-            this.buttonEdit5.TabIndex = 1;
+            this.tSaleCount.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            this.tablePanel3.SetRow(this.tSaleCount, 1);
+            this.tSaleCount.Size = new System.Drawing.Size(377, 32);
+            this.tSaleCount.TabIndex = 1;
             // 
             // tCustomer
             // 
@@ -1153,7 +1153,7 @@
             this.tablePanel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tInternetStatus.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tComment.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.buttonEdit5.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tSaleCount.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tCustomer.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel2)).EndInit();
             this.tablePanel2.ResumeLayout(false);
@@ -1209,7 +1209,7 @@
         private DevExpress.XtraBars.Navigation.NavigationFrame navigationFrame1;
         private DevExpress.XtraBars.Navigation.NavigationPage pageSaleScreen;
         private DevExpress.XtraEditors.ButtonEdit tCashier;
-        private DevExpress.XtraEditors.ButtonEdit buttonEdit5;
+        private DevExpress.XtraEditors.ButtonEdit tSaleCount;
         private DevExpress.XtraEditors.ButtonEdit tCustomer;
         private DevExpress.XtraBars.Navigation.AccordionControlElement bHelp;
         private DevExpress.XtraBars.Navigation.AccordionControlElement bCustomers;

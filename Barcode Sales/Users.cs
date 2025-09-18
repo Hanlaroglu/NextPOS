@@ -17,10 +17,11 @@ namespace Barcode_Sales
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Users()
         {
-            this.InvoiceInfo = new HashSet<InvoiceInfo>();
             this.Logs = new HashSet<Logs>();
             this.Terminals = new HashSet<Terminals>();
             this.SalesDatas = new HashSet<SalesData>();
+            this.Invoices = new HashSet<Invoice>();
+            this.Products = new HashSet<Products>();
         }
     
         public int Id { get; set; }
@@ -36,8 +37,6 @@ namespace Barcode_Sales
         public Nullable<int> IsDeleted { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<InvoiceInfo> InvoiceInfo { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Logs> Logs { get; set; }
         public virtual Roles Roles { get; set; }
         public virtual Stores Stores { get; set; }
@@ -45,5 +44,9 @@ namespace Barcode_Sales
         public virtual ICollection<Terminals> Terminals { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<SalesData> SalesDatas { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Invoice> Invoices { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Products> Products { get; set; }
     }
 }

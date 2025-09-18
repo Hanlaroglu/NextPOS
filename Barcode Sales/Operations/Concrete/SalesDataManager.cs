@@ -37,6 +37,19 @@ namespace Barcode_Sales.Operations.Concrete
             }
         }
 
+        public async Task<string> SalesCount()
+        {
+            var result = await db.Database
+                .SqlQuery<int>(@"SELECT COUNT(*) 
+                                 FROM SalesData
+                                 WHERE SaleDate BETWEEN CAST(GETDATE() AS DATE)
+                                 AND DATEADD(DAY,1,CAST(GETDATE() AS DATE))")
+                .SingleAsync();
+
+
+            return result.ToString();
+        }
+
         public SalesData GetById(int id)
         {
          return  db.SalesDatas.AsNoTracking().FirstOrDefault(x=> x.Id == id);
@@ -74,7 +87,7 @@ namespace Barcode_Sales.Operations.Concrete
 
         public async Task<List<SalesData>> WhereAsync(Expression<Func<SalesData, bool>> expression = null)
         {
-            return await db.SalesDatas.Where(expression).ToListAsync();
+            return await db.SalesDatas.AsNoTracking().Where(expression).ToListAsync();
         }
     }
 }

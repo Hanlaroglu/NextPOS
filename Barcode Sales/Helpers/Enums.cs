@@ -16,22 +16,6 @@ namespace Barcode_Sales.Helpers
             return attribute == null ? value.ToString() : attribute.Description;
         }
 
-        public enum NkaTaxType
-        {
-            [Description("18% ƏDV")]
-            Vat18 = 1,
-            [Description("TİCARƏT ƏLAVƏSİ")]
-            TradeSupplement = 2,
-            [Description("0% - ( ƏDV-DƏN AZAD )")]
-            VatFree = 3,
-            [Description("0% - ( ƏDV-DƏN AZAD )")]
-            Vat0 = 5,
-            [Description("2% ƏDV")]
-            Sv2 = 6,
-            [Description("8% ƏDV")]
-            Sv8 = 7,
-        }
-
         public enum UnitTypes
         {
             [Description("Ədəd")]
@@ -60,17 +44,6 @@ namespace Barcode_Sales.Helpers
             Free,
             [Description("Bank")]
             Bank,
-        }
-
-        public enum Weekdays
-        {
-            BazarErtəsi,
-            ÇərşənbəAxşamı,
-            Çərşənbə,
-            CüməAxşamı,
-            Cümə,
-            Şənbə,
-            Bazar
         }
 
         public enum MessageTitle
@@ -124,7 +97,7 @@ namespace Barcode_Sales.Helpers
             [Description("PAŞA BANK")]
             PashaBank,
             [Description("ABB BANK")]
-            AbbBank, 
+            AbbBank,
             [Description("UNİBANK")]
             UniBank,
         }
@@ -144,12 +117,58 @@ namespace Barcode_Sales.Helpers
             Rollback //Ləğv etmə
         }
 
-        public enum  ProductType
+        public enum ProductType
         {
             [Description("Məhsul")]
             Product = 1,
             [Description("Xidmət")]
             Service
+        }
+
+        public enum Week
+        {
+            [Description("Bazar Ertəsi")]
+            Monday,
+            [Description("Çərşənbə axşamı")]
+            Tuesday,
+            [Description("Çərşənbə")]
+            Wednesday,
+            [Description("Cümə Axşamı")]
+            Thursday,
+            [Description("Cümə")]
+            Friday,
+            [Description("Şənbə")]
+            Saturday,
+            [Description("Bazar")]
+            Sunday
+        }
+
+        public enum Month
+        {
+            [Description("Yanvar")]
+            January = 1,
+            [Description("Fevral")]
+            February,
+            [Description("Mart")]
+            March,
+            [Description("Aprel")]
+            April,
+            [Description("May")]
+            May,
+            [Description("İyun")]
+            June,
+            [Description("İyul")]
+            July,
+            [Description("Avqust")]
+            August,
+            [Description("Sentyabr")]
+            September,
+            [Description("Oktyabr")]
+            Octember,
+            [Description("Noyabr")]
+            November,
+            [Description("Dekabr")]
+            December,
         }
     }
 }

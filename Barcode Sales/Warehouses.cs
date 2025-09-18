@@ -17,9 +17,8 @@ namespace Barcode_Sales
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Warehouses()
         {
-            this.InvoiceInfo = new HashSet<InvoiceInfo>();
             this.AqtaProducts = new HashSet<AqtaProducts>();
-            this.Products = new HashSet<Products>();
+            this.Invoices = new HashSet<Invoice>();
         }
     
         public int Id { get; set; }
@@ -28,10 +27,8 @@ namespace Barcode_Sales
         public Nullable<bool> Status { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<InvoiceInfo> InvoiceInfo { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<AqtaProducts> AqtaProducts { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Products> Products { get; set; }
+        public virtual ICollection<Invoice> Invoices { get; set; }
     }
 }

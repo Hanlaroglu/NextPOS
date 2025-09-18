@@ -10,7 +10,9 @@ using Microsoft.Reporting.Map.WebForms.BingMaps;
 using Newtonsoft.Json;
 using RestSharp;
 using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Net.NetworkInformation;
@@ -38,16 +40,26 @@ namespace Barcode_Sales.Helpers
                 grid.DataSource = data;
                 var gridView = grid.MainView as DevExpress.XtraGrid.Views.Grid.GridView;
                 GridPanelText(gridView);
+                gridView.RefreshData();
                 GridCustomRowNumber(gridView);
             }
-            else if (control is LookUpEdit)
+            else if (control is LookUpEdit look)
             {
-                var look = control as LookUpEdit;
+                look.Properties.Columns.Clear();
                 look.Properties.DataSource = data;
                 look.Properties.DisplayMember = displayMember;
                 look.Properties.ValueMember = valueMember;
-                look.Properties.Columns.Clear();
-                look.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo(displayMember, valueMember));
+                look.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo(displayMember));
+
+                int rowCount = 0;
+                if (data is IList list)
+                    rowCount = list.Count;
+                else if (data is DataTable dt)
+                    rowCount = dt.Rows.Count;
+                else if (data is IEnumerable<object> enumerable)
+                    rowCount = enumerable.Count();
+
+                look.Properties.DropDownRows = rowCount > 7 ? 7 : rowCount;
             }
         }
 
@@ -90,6 +102,7 @@ namespace Barcode_Sales.Helpers
                     }
                 }
             };
+            gridView.RefreshData();
 
             GridColumn column = gridView.Columns.ColumnByFieldName(columnName);
             if (column != null)

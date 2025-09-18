@@ -33,8 +33,6 @@ namespace Barcode_Sales
         public virtual DbSet<Warehouses> Warehouses { get; set; }
         public virtual DbSet<Suppliers> Suppliers { get; set; }
         public virtual DbSet<Roles> Roles { get; set; }
-        public virtual DbSet<InvoiceInfo> InvoiceInfo { get; set; }
-        public virtual DbSet<InvoiceProducts> InvoiceProducts { get; set; }
         public virtual DbSet<Company> Company { get; set; }
         public virtual DbSet<AqtaProducts> AqtaProducts { get; set; }
         public virtual DbSet<Terminals> Terminals { get; set; }
@@ -45,12 +43,16 @@ namespace Barcode_Sales
         public virtual DbSet<CustomerPayment> CustomerPayments { get; set; }
         public virtual DbSet<CustomersDebt> CustomersDebts { get; set; }
         public virtual DbSet<SalesData> SalesDatas { get; set; }
-        public virtual DbSet<SalesDataDetail> SalesDataDetails { get; set; }
         public virtual DbSet<TerminalIncomesAndExpens> TerminalIncomesAndExpenses { get; set; }
         public virtual DbSet<CloseShiftReport> CloseShiftReports { get; set; }
         public virtual DbSet<ReturnPos> ReturnPos { get; set; }
         public virtual DbSet<ReturnPosDetail> ReturnPosDetails { get; set; }
         public virtual DbSet<TaxType> TaxTypes { get; set; }
+        public virtual DbSet<PaymentType> PaymentTypes { get; set; }
+        public virtual DbSet<Invoice> Invoices { get; set; }
+        public virtual DbSet<UnitType> UnitTypes { get; set; }
+        public virtual DbSet<InvoiceDetail> InvoiceDetails { get; set; }
+        public virtual DbSet<SalesDataDetail> SalesDataDetail { get; set; }
         public virtual DbSet<Products> Products { get; set; }
     }
 }

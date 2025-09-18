@@ -12,17 +12,18 @@ namespace Barcode_Sales
     using System;
     using System.Collections.Generic;
     
-    public partial class InvoiceProducts
+    public partial class UnitType
     {
-        public int Id { get; set; }
-        public Nullable<int> InvoiceInfoId { get; set; }
-        public Nullable<int> ProductId { get; set; }
-        public Nullable<double> Amount { get; set; }
-        public Nullable<double> PurchasePrice { get; set; }
-        public Nullable<double> Discount { get; set; }
-        public Nullable<double> TotalPurchasePrice { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public UnitType()
+        {
+            this.Products = new HashSet<Products>();
+        }
     
-        public virtual InvoiceInfo InvoiceInfo { get; set; }
-        public virtual Products Products { get; set; }
+        public int Id { get; set; }
+        public string Name { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Products> Products { get; set; }
     }
 }

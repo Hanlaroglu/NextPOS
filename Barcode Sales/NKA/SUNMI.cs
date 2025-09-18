@@ -266,8 +266,8 @@ namespace Barcode_Sales.NKA
                     codeType = 1,
                     discountAmount = _item.Discount,
                     quantity = _item.Amount,
-                    quantityType = _item.QuantityType,
-                    vatType = _item.TaxType,
+                    quantityType = _item.UnitId,
+                    vatType = _item.TaxId,
                     purchasePrice = _item.PurchasePrice,
                 };
                 items.Add(item);

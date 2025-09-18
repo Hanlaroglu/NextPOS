@@ -132,8 +132,6 @@ namespace Barcode_Sales.Forms
             this.tablePanel1.Controls.Add(this.groupProduct);
             this.tablePanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tablePanel1.Location = new System.Drawing.Point(0, 0);
-            this.tablePanel1.LookAndFeel.SkinName = "Office 2019 White";
-            this.tablePanel1.LookAndFeel.UseDefaultLookAndFeel = false;
             this.tablePanel1.Name = "tablePanel1";
             this.tablePanel1.Rows.AddRange(new DevExpress.Utils.Layout.TablePanelRow[] {
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 479F)});
@@ -163,8 +161,6 @@ namespace Barcode_Sales.Forms
             this.gridControlProducts.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gridControlProducts.Font = new System.Drawing.Font("Comfortaa", 10F);
             this.gridControlProducts.Location = new System.Drawing.Point(1, 1);
-            this.gridControlProducts.LookAndFeel.SkinName = "Office 2019 White";
-            this.gridControlProducts.LookAndFeel.UseDefaultLookAndFeel = false;
             this.gridControlProducts.MainView = this.gridProducts;
             this.gridControlProducts.Margin = new System.Windows.Forms.Padding(1);
             this.gridControlProducts.Name = "gridControlProducts";
@@ -468,8 +464,6 @@ namespace Barcode_Sales.Forms
             this.groupProduct.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupProduct.GroupStyle = DevExpress.Utils.GroupStyle.Light;
             this.groupProduct.Location = new System.Drawing.Point(3, 3);
-            this.groupProduct.LookAndFeel.SkinName = "Office 2019 White";
-            this.groupProduct.LookAndFeel.UseDefaultLookAndFeel = false;
             this.groupProduct.Name = "groupProduct";
             this.tablePanel1.SetRow(this.groupProduct, 0);
             this.groupProduct.Size = new System.Drawing.Size(695, 732);
@@ -596,7 +590,7 @@ namespace Barcode_Sales.Forms
             this.lookWarehouse.Properties.ShowFooter = false;
             this.lookWarehouse.Properties.ShowHeader = false;
             this.lookWarehouse.Properties.SortColumnIndex = 1;
-            this.lookWarehouse.Size = new System.Drawing.Size(532, 28);
+            this.lookWarehouse.Size = new System.Drawing.Size(532, 36);
             this.lookWarehouse.TabIndex = 1;
             // 
             // chFinishDateDeleteProduct
@@ -629,7 +623,7 @@ namespace Barcode_Sales.Forms
             this.tRetentionPeriod.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.tRetentionPeriod.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.tRetentionPeriod.Properties.MaxLength = 3;
-            this.tRetentionPeriod.Size = new System.Drawing.Size(532, 28);
+            this.tRetentionPeriod.Size = new System.Drawing.Size(532, 36);
             this.tRetentionPeriod.TabIndex = 6;
             // 
             // chPOSShowSales
@@ -667,7 +661,7 @@ namespace Barcode_Sales.Forms
             this.lookUnit.Properties.NullValuePrompt = "Vahid seçimi";
             this.lookUnit.Properties.ShowFooter = false;
             this.lookUnit.Properties.ShowHeader = false;
-            this.lookUnit.Size = new System.Drawing.Size(532, 28);
+            this.lookUnit.Size = new System.Drawing.Size(532, 36);
             this.lookUnit.TabIndex = 4;
             // 
             // labelControl3
@@ -697,7 +691,7 @@ namespace Barcode_Sales.Forms
             this.tBarcode.Properties.Mask.EditMask = "d";
             this.tBarcode.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.tBarcode.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.tBarcode_Properties_ButtonClick);
-            this.tBarcode.Size = new System.Drawing.Size(532, 28);
+            this.tBarcode.Size = new System.Drawing.Size(532, 36);
             this.tBarcode.TabIndex = 1;
             // 
             // tIngredients
@@ -724,7 +718,7 @@ namespace Barcode_Sales.Forms
             this.tReleaseDate.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Simple;
             this.tReleaseDate.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.tReleaseDate.Properties.MaxLength = 20;
-            this.tReleaseDate.Size = new System.Drawing.Size(532, 28);
+            this.tReleaseDate.Size = new System.Drawing.Size(532, 36);
             this.tReleaseDate.TabIndex = 5;
             // 
             // tStorageConditions
@@ -738,7 +732,7 @@ namespace Barcode_Sales.Forms
             this.tStorageConditions.Properties.Mask.EditMask = "(999) 000-00-00";
             this.tStorageConditions.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.tStorageConditions.Properties.MaxLength = 20;
-            this.tStorageConditions.Size = new System.Drawing.Size(532, 28);
+            this.tStorageConditions.Size = new System.Drawing.Size(532, 36);
             this.tStorageConditions.TabIndex = 7;
             // 
             // labelControl1
@@ -781,7 +775,7 @@ namespace Barcode_Sales.Forms
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.tCategory.Properties.ReadOnly = true;
             this.tCategory.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.tCategory_Properties_ButtonClick);
-            this.tCategory.Size = new System.Drawing.Size(532, 28);
+            this.tCategory.Size = new System.Drawing.Size(532, 36);
             this.tCategory.TabIndex = 2;
             // 
             // labelControl15
@@ -848,7 +842,7 @@ namespace Barcode_Sales.Forms
             this.tSalesPrice.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.tSalesPrice.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.tSalesPrice.Properties.MaxLength = 20;
-            this.tSalesPrice.Size = new System.Drawing.Size(532, 28);
+            this.tSalesPrice.Size = new System.Drawing.Size(532, 36);
             this.tSalesPrice.TabIndex = 3;
             // 
             // tPurchasePrice
@@ -868,7 +862,7 @@ namespace Barcode_Sales.Forms
             this.tPurchasePrice.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.tPurchasePrice.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.tPurchasePrice.Properties.MaxLength = 20;
-            this.tPurchasePrice.Size = new System.Drawing.Size(532, 28);
+            this.tPurchasePrice.Size = new System.Drawing.Size(532, 36);
             this.tPurchasePrice.TabIndex = 2;
             // 
             // tProductName
@@ -882,7 +876,7 @@ namespace Barcode_Sales.Forms
             this.tProductName.Properties.Mask.EditMask = "(999) 000-00-00";
             this.tProductName.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.tProductName.Properties.MaxLength = 20;
-            this.tProductName.Size = new System.Drawing.Size(532, 28);
+            this.tProductName.Size = new System.Drawing.Size(532, 36);
             this.tProductName.TabIndex = 0;
             // 
             // labelControl2

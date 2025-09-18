@@ -17,7 +17,7 @@ namespace Barcode_Sales
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public SalesData()
         {
-            this.SalesDataDetails = new HashSet<SalesDataDetail>();
+            this.SalesDataDetail = new HashSet<SalesDataDetail>();
         }
     
         public int Id { get; set; }
@@ -38,6 +38,6 @@ namespace Barcode_Sales
         public virtual Customers Customer { get; set; }
         public virtual Users User { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<SalesDataDetail> SalesDataDetails { get; set; }
+        public virtual ICollection<SalesDataDetail> SalesDataDetail { get; set; }
     }
 }

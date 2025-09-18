@@ -99,34 +99,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="InvoiceInfo">
-      <EntityTypeMapping TypeName="NextposDBModel.InvoiceInfo">
-        <MappingFragment StoreEntitySet="InvoiceInfo">
-          <ScalarProperty Name="UserId" ColumnName="UserId" />
-          <ScalarProperty Name="Comment" ColumnName="Comment" />
-          <ScalarProperty Name="PayType" ColumnName="PayType" />
-          <ScalarProperty Name="TotalPurchasePrice" ColumnName="TotalPurchasePrice" />
-          <ScalarProperty Name="WarehouseId" ColumnName="WarehouseId" />
-          <ScalarProperty Name="SupplierId" ColumnName="SupplierId" />
-          <ScalarProperty Name="InvoiceDate" ColumnName="InvoiceDate" />
-          <ScalarProperty Name="InvoiceNo" ColumnName="InvoiceNo" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="InvoiceProducts">
-      <EntityTypeMapping TypeName="NextposDBModel.InvoiceProducts">
-        <MappingFragment StoreEntitySet="InvoiceProducts">
-          <ScalarProperty Name="TotalPurchasePrice" ColumnName="TotalPurchasePrice" />
-          <ScalarProperty Name="Discount" ColumnName="Discount" />
-          <ScalarProperty Name="PurchasePrice" ColumnName="PurchasePrice" />
-          <ScalarProperty Name="Amount" ColumnName="Amount" />
-          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
-          <ScalarProperty Name="InvoiceInfoId" ColumnName="InvoiceInfoId" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Company">
       <EntityTypeMapping TypeName="NextposDBModel.Company">
         <MappingFragment StoreEntitySet="Company">
@@ -300,18 +272,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="SalesDataDetails">
-      <EntityTypeMapping TypeName="NextposDBModel.SalesDataDetail">
-        <MappingFragment StoreEntitySet="SalesDataDetail">
-          <ScalarProperty Name="Discount" ColumnName="Discount" />
-          <ScalarProperty Name="SalePrice" ColumnName="SalePrice" />
-          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
-          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
-          <ScalarProperty Name="SaleDataId" ColumnName="SaleDataId" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="TerminalIncomesAndExpenses">
       <EntityTypeMapping TypeName="NextposDBModel.TerminalIncomesAndExpens">
         <MappingFragment StoreEntitySet="TerminalIncomesAndExpenses">
@@ -378,32 +338,82 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="PaymentTypes">
+      <EntityTypeMapping TypeName="NextposDBModel.PaymentType">
+        <MappingFragment StoreEntitySet="PaymentTypes">
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Invoices">
+      <EntityTypeMapping TypeName="NextposDBModel.Invoice">
+        <MappingFragment StoreEntitySet="Invoices">
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="PaymentTypeId" ColumnName="PaymentTypeId" />
+          <ScalarProperty Name="TotalPurchasePrice" ColumnName="TotalPurchasePrice" />
+          <ScalarProperty Name="WarehouseId" ColumnName="WarehouseId" />
+          <ScalarProperty Name="InvoiceDate" ColumnName="InvoiceDate" />
+          <ScalarProperty Name="InvoiceNo" ColumnName="InvoiceNo" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UnitTypes">
+      <EntityTypeMapping TypeName="NextposDBModel.UnitType">
+        <MappingFragment StoreEntitySet="UnitTypes">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="InvoiceDetails">
+      <EntityTypeMapping TypeName="NextposDBModel.InvoiceDetail">
+        <MappingFragment StoreEntitySet="InvoiceDetails">
+          <ScalarProperty Name="TotalPurchasePrice" ColumnName="TotalPurchasePrice" />
+          <ScalarProperty Name="Discount" ColumnName="Discount" />
+          <ScalarProperty Name="PurchasePrice" ColumnName="PurchasePrice" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <ScalarProperty Name="InvoiceId" ColumnName="InvoiceId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SalesDataDetail">
+      <EntityTypeMapping TypeName="NextposDBModel.SalesDataDetail">
+        <MappingFragment StoreEntitySet="SalesDataDetail">
+          <ScalarProperty Name="Discount" ColumnName="Discount" />
+          <ScalarProperty Name="SalePrice" ColumnName="SalePrice" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <ScalarProperty Name="SaleDataId" ColumnName="SaleDataId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Products">
       <EntityTypeMapping TypeName="NextposDBModel.Products">
         <MappingFragment StoreEntitySet="Products">
-          <ScalarProperty Name="Type" ColumnName="Type" />
-          <ScalarProperty Name="TaxId" ColumnName="TaxId" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedUserId" ColumnName="CreatedUserId" />
           <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
           <ScalarProperty Name="Status" ColumnName="Status" />
-          <ScalarProperty Name="EndDateNotification" ColumnName="EndDateNotification" />
-          <ScalarProperty Name="AmountNotification" ColumnName="AmountNotification" />
-          <ScalarProperty Name="ShowPosScreen" ColumnName="ShowPosScreen" />
-          <ScalarProperty Name="Image" ColumnName="Image" />
-          <ScalarProperty Name="FinisDate" ColumnName="FinisDate" />
-          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
-          <ScalarProperty Name="Comment" ColumnName="Comment" />
-          <ScalarProperty Name="SizeID" ColumnName="SizeID" />
-          <ScalarProperty Name="ColorID" ColumnName="ColorID" />
-          <ScalarProperty Name="Tax" ColumnName="Tax" />
-          <ScalarProperty Name="Unit" ColumnName="Unit" />
+          <ScalarProperty Name="TaxId" ColumnName="TaxId" />
+          <ScalarProperty Name="UnitId" ColumnName="UnitId" />
           <ScalarProperty Name="SalePrice" ColumnName="SalePrice" />
           <ScalarProperty Name="PurchasePrice" ColumnName="PurchasePrice" />
           <ScalarProperty Name="Amount" ColumnName="Amount" />
           <ScalarProperty Name="Barcode" ColumnName="Barcode" />
           <ScalarProperty Name="ProductCode" ColumnName="ProductCode" />
           <ScalarProperty Name="ProductName" ColumnName="ProductName" />
-          <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
-          <ScalarProperty Name="WarehousesID" ColumnName="WarehousesID" />
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+          <ScalarProperty Name="SupplierId" ColumnName="SupplierId" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>

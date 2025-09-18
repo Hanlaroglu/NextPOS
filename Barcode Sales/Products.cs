@@ -17,42 +17,34 @@ namespace Barcode_Sales
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Products()
         {
-            this.InvoiceProducts = new HashSet<InvoiceProducts>();
+            this.InvoiceDetails = new HashSet<InvoiceDetail>();
             this.SalesDataDetail = new HashSet<SalesDataDetail>();
         }
     
         public int Id { get; set; }
-        public Nullable<int> WarehousesID { get; set; }
-        public Nullable<int> CategoryID { get; set; }
+        public Nullable<byte> Type { get; set; }
+        public Nullable<int> SupplierId { get; set; }
+        public Nullable<int> CategoryId { get; set; }
         public string ProductName { get; set; }
         public string ProductCode { get; set; }
         public string Barcode { get; set; }
         public Nullable<double> Amount { get; set; }
         public Nullable<double> PurchasePrice { get; set; }
         public Nullable<double> SalePrice { get; set; }
-        public string Unit { get; set; }
-        public string Tax { get; set; }
-        public Nullable<int> ColorID { get; set; }
-        public Nullable<int> SizeID { get; set; }
-        public string Comment { get; set; }
-        public Nullable<System.DateTime> CreateDate { get; set; }
-        public Nullable<System.DateTime> FinisDate { get; set; }
-        public byte[] Image { get; set; }
-        public Nullable<bool> ShowPosScreen { get; set; }
-        public Nullable<bool> AmountNotification { get; set; }
-        public Nullable<bool> EndDateNotification { get; set; }
+        public Nullable<int> UnitId { get; set; }
+        public Nullable<int> TaxId { get; set; }
         public Nullable<bool> Status { get; set; }
         public Nullable<int> IsDeleted { get; set; }
-        public Nullable<int> TaxId { get; set; }
-        public Nullable<byte> Type { get; set; }
+        public int CreatedUserId { get; set; }
+        public Nullable<System.DateTime> CreatedDate { get; set; }
     
         public virtual Categories Categories { get; set; }
-        public virtual Colors Colors { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<InvoiceProducts> InvoiceProducts { get; set; }
-        public virtual Sizes Sizes { get; set; }
+        public virtual ICollection<InvoiceDetail> InvoiceDetails { get; set; }
+        public virtual Suppliers Suppliers { get; set; }
         public virtual TaxType TaxTypes { get; set; }
-        public virtual Warehouses Warehouses { get; set; }
+        public virtual UnitType UnitTypes { get; set; }
+        public virtual Users Users { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<SalesDataDetail> SalesDataDetail { get; set; }
     }

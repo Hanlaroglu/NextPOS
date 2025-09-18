@@ -13,11 +13,6 @@
         <EntityTypeShape EntityType="NextposDBModel.Warehouses" Width="1.5" PointX="0.75" PointY="14.75" IsExpanded="true" />
         <EntityTypeShape EntityType="NextposDBModel.Suppliers" Width="1.5" PointX="8.375" PointY="4.375" />
         <EntityTypeShape EntityType="NextposDBModel.Roles" Width="1.5" PointX="3.375" PointY="0.75" FillColor="Red" />
-        <EntityTypeShape EntityType="NextposDBModel.InvoiceInfo" Width="1.5" PointX="10.625" PointY="9" FillColor="Orange" />
-        <EntityTypeShape EntityType="NextposDBModel.InvoiceProducts" Width="1.5" PointX="5.25" PointY="11.625" FillColor="Orange" />
-        <AssociationConnector Association="NextposDBModel.FK_Table_InvoiceInfo" />
-        <AssociationConnector Association="NextposDBModel.FK_Table_Suppliers" />
-        <AssociationConnector Association="NextposDBModel.FK_Table_Warehouses" />
         <EntityTypeShape EntityType="NextposDBModel.Company" Width="1.5" PointX="10.375" PointY="0.75" />
         <EntityTypeShape EntityType="NextposDBModel.AqtaProducts" Width="1.5" PointX="8" PointY="14.125" />
         <AssociationConnector Association="NextposDBModel.FK_AqtaProducts_Category" />
@@ -25,7 +20,6 @@
         <AssociationConnector Association="NextposDBModel.FK_AqtaProducts_Warehouse" />
         <EntityTypeShape EntityType="NextposDBModel.Terminals" Width="1.5" PointX="12.875" PointY="10.125" />
         <EntityTypeShape EntityType="NextposDBModel.Users" Width="1.5" PointX="7.625" PointY="8.625" FillColor="Red" />
-        <AssociationConnector Association="NextposDBModel.FK_Table_Users" />
         <AssociationConnector Association="NextposDBModel.FK__Logs__UserID__6477ECF3" />
         <AssociationConnector Association="NextposDBModel.FK_Users_RoleID" />
         <AssociationConnector Association="NextposDBModel.FK__Terminals__Store__5DCAEF64" />
@@ -41,23 +35,31 @@
         <AssociationConnector Association="NextposDBModel.FK_CustomerPayments_CustomersDebts" />
         <AssociationConnector Association="NextposDBModel.FK_CustomerDebts_Customer" />
         <EntityTypeShape EntityType="NextposDBModel.SalesData" Width="1.5" PointX="13.375" PointY="0.75" />
-        <EntityTypeShape EntityType="NextposDBModel.SalesDataDetail" Width="1.5" PointX="0.75" PointY="3.75" />
         <EntityTypeShape EntityType="NextposDBModel.TerminalIncomesAndExpens" Width="1.5" PointX="15.375" PointY="0.75" />
         <EntityTypeShape EntityType="NextposDBModel.CloseShiftReport" Width="1.5" PointX="15.375" PointY="3.75" />
         <EntityTypeShape EntityType="NextposDBModel.ReturnPos" Width="1.5" PointX="15.375" PointY="9.5" />
         <EntityTypeShape EntityType="NextposDBModel.ReturnPosDetail" Width="1.5" PointX="15.375" PointY="6.75" />
         <AssociationConnector Association="NextposDBModel.FK_SalesData_ToCustomer" />
         <AssociationConnector Association="NextposDBModel.FK_SalesData_ToUser" />
-        <AssociationConnector Association="NextposDBModel.FK_SalesDataDetail_ToSalesData" />
         <EntityTypeShape EntityType="NextposDBModel.TaxType" Width="1.5" PointX="3.375" PointY="15.75" />
-        <EntityTypeShape EntityType="NextposDBModel.Products" Width="1.5" PointX="5.625" PointY="0.75" />
+        <EntityTypeShape EntityType="NextposDBModel.PaymentType" Width="1.5" PointX="3.375" PointY="8.75" />
+        <EntityTypeShape EntityType="NextposDBModel.Invoice" Width="1.5" PointX="9.875" PointY="9" FillColor="Orange" />
+        <EntityTypeShape EntityType="NextposDBModel.UnitType" Width="1.5" PointX="3.375" PointY="11.75" />
+        <AssociationConnector Association="NextposDBModel.FK_Invoices_PaymentTypes" />
+        <AssociationConnector Association="NextposDBModel.FK_Invoices_Users" />
+        <AssociationConnector Association="NextposDBModel.FK_Invoices_Warehouses" />
+        <EntityTypeShape EntityType="NextposDBModel.InvoiceDetail" Width="1.5" PointX="19.875" PointY="8.25" />
+        <AssociationConnector Association="NextposDBModel.FK_InvoiceDetails_Invoices" />
+        <EntityTypeShape EntityType="NextposDBModel.SalesDataDetail" Width="1.5" PointX="19.875" PointY="4.125" />
+        <AssociationConnector Association="NextposDBModel.FK_SalesDataDetail_ToSalesData" />
+        <EntityTypeShape EntityType="NextposDBModel.Products" Width="1.5" PointX="17.625" PointY="6.375" FillColor="Green" />
         <AssociationConnector Association="NextposDBModel.FK_Products_Category" />
-        <AssociationConnector Association="NextposDBModel.FK_Products_Color" />
-        <AssociationConnector Association="NextposDBModel.FK_Table_Product" />
-        <AssociationConnector Association="NextposDBModel.FK_Products_Size" />
+        <AssociationConnector Association="NextposDBModel.FK_InvoiceDetails_Product" />
+        <AssociationConnector Association="NextposDBModel.FK_Products_Suppliers" />
         <AssociationConnector Association="NextposDBModel.FK_Products_TaxType" />
-        <AssociationConnector Association="NextposDBModel.FK_Products_Warehouse" />
-        <AssociationConnector Association="NextposDBModel.FK_SalesDataDetail_ToProducts" />
+        <AssociationConnector Association="NextposDBModel.FK_Products_UnitType" />
+        <AssociationConnector Association="NextposDBModel.FK_Products_Users" />
+        <AssociationConnector Association="NextposDBModel.FK_SalesDataDetail_Products" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

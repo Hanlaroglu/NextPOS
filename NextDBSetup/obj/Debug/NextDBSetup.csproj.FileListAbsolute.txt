@@ -95,8 +95,9 @@ D:\Hasan\PROJECTS\NextPOS.Barcode\NextDBSetup\obj\Debug\NextDBSetup.csproj.CoreC
 D:\Hasan\PROJECTS\NextPOS.Barcode\NextDBSetup\obj\Debug\NextDBSetup.csproj.CopyComplete
 D:\Hasan\PROJECTS\NextPOS.Barcode\NextDBSetup\obj\Debug\NextDBSetup.exe
 D:\Hasan\PROJECTS\NextPOS.Barcode\NextDBSetup\obj\Debug\NextDBSetup.pdb
-D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\NextDBSetup\bin\Debug\NextDBSetup.exe
 D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\NextDBSetup\bin\Debug\NextDBSetup.exe.config
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\NextDBSetup\bin\Debug\NextDBSetup.exe
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\NextDBSetup\bin\Debug\NextDBSetup.pdb
 D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\NextDBSetup\bin\Debug\DevExpress.Data.Desktop.v24.1.dll
 D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\NextDBSetup\bin\Debug\DevExpress.Data.v24.1.dll
 D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\NextDBSetup\bin\Debug\DevExpress.Drawing.v24.1.dll
@@ -141,4 +142,3 @@ D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\NextDBSetup\obj\Debug
 D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\NextDBSetup\obj\Debug\NextDBSe.98598C4B.Up2Date
 D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\NextDBSetup\obj\Debug\NextDBSetup.exe
 D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\NextDBSetup\obj\Debug\NextDBSetup.pdb
-D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\NextDBSetup\bin\Debug\NextDBSetup.pdb

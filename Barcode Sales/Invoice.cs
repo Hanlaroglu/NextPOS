@@ -12,28 +12,29 @@ namespace Barcode_Sales
     using System;
     using System.Collections.Generic;
     
-    public partial class InvoiceInfo
+    public partial class Invoice
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public InvoiceInfo()
+        public Invoice()
         {
-            this.InvoiceProducts = new HashSet<InvoiceProducts>();
+            this.InvoiceDetails = new HashSet<InvoiceDetail>();
         }
     
         public int Id { get; set; }
         public string InvoiceNo { get; set; }
         public Nullable<System.DateTime> InvoiceDate { get; set; }
-        public int SupplierId { get; set; }
         public int WarehouseId { get; set; }
         public Nullable<double> TotalPurchasePrice { get; set; }
-        public string PayType { get; set; }
+        public Nullable<int> PaymentTypeId { get; set; }
         public string Comment { get; set; }
         public int UserId { get; set; }
+        public Nullable<System.DateTime> CreatedDate { get; set; }
+        public Nullable<int> IsDeleted { get; set; }
     
+        public virtual PaymentType PaymentType { get; set; }
+        public virtual Users User { get; set; }
+        public virtual Warehouses Warehouse { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<InvoiceProducts> InvoiceProducts { get; set; }
-        public virtual Suppliers Suppliers { get; set; }
-        public virtual Warehouses Warehouses { get; set; }
-        public virtual Users Users { get; set; }
+        public virtual ICollection<InvoiceDetail> InvoiceDetails { get; set; }
     }
 }

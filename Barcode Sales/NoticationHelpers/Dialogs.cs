@@ -9,7 +9,7 @@ namespace Barcode_Sales.NoticationHelpers
 body{
 	padding: 15px;
 	font-size: 10pt;
-	font-family: ""Segoe UI"";
+	font-family: 'Nunito';
 	text-align: center;
 }
 .frame{
@@ -28,7 +28,7 @@ body{
 }
 .caption {
 	font-size: 15pt;
-	font-family: 'Segoe UI Semibold';
+	font-family: 'Nunito';
 }
 .message {
 	white-space: pre;

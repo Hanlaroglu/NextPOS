@@ -211,8 +211,7 @@ namespace Barcode_Sales.NKA
             List<SaleRequest.Item> items = new List<SaleRequest.Item>();
             foreach (var _item in _data.Items)
             {
-                int taxType = ConvertTaxType(_item.Tax);
-                int quantityType = ConvertQuantityType(_item.Unit);
+                int taxType = ConvertTaxType(_item.TaxName);
                 SaleRequest.Item item = new SaleRequest.Item
                 {
                     itemName = _item.ProductName,
@@ -222,13 +221,13 @@ namespace Barcode_Sales.NKA
                     itemCodeType = 0,
                     discount = _item.Discount,
                     itemQuantity = _item.Amount,
-                    itemQuantityType = quantityType,
+                    itemQuantityType = _item.UnitId,
                     itemVatPercent = taxType,
                     itemMarginPrice = _item.PurchasePrice,
                     itemMarginSum = _item.PurchaseSum,
                 };
 
-                if (_item.TaxType != 18)
+                if (taxType != 18)
                 {
                     item.itemMarginPrice = null;
                     item.itemMarginSum = null;
@@ -437,8 +436,7 @@ namespace Barcode_Sales.NKA
             List<RefundRequest.Item> items = new List<RefundRequest.Item>();
             foreach (var _item in _data.Items)
             {
-                int taxType = ConvertTaxType(_item.Tax);
-                int quantityType = ConvertQuantityType(_item.Unit);
+                int taxType = ConvertTaxType(_item.TaxName);
                 RefundRequest.Item item = new RefundRequest.Item
                 {
                     itemName = _item.ProductName,
@@ -448,13 +446,13 @@ namespace Barcode_Sales.NKA
                     itemCodeType = 0,
                     discount = _item.Discount,
                     itemQuantity = _item.Amount,
-                    itemQuantityType = quantityType,
+                    itemQuantityType = _item.UnitId,
                     itemVatPercent = taxType,
                     itemMarginPrice = _item.PurchasePrice,
                     itemMarginSum = _item.PurchaseSum,
                 };
 
-                if (_item.TaxType != 18)
+                if (taxType != 18)
                 {
                     item.itemMarginPrice = null;
                     item.itemMarginSum = null;
@@ -600,27 +598,6 @@ namespace Barcode_Sales.NKA
                     return 8;
                 default:
                     return 18;
-            }
-        }
-
-        private static int ConvertQuantityType(string unitName)
-        {
-            switch (unitName)
-            {
-                case "Ədəd":
-                    return 0;
-                case "Kq":
-                    return 1;
-                case "Litr":
-                    return 2;
-                case "Metr":
-                    return 3;
-                case "Kv. Metr":
-                    return 4;
-                case "Kub. Metr":
-                    return 5;
-                default:
-                    return 0;
             }
         }
 

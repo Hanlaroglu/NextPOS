@@ -1,11 +1,7 @@
-﻿using Barcode_Sales.Cache;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.ComponentModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static Barcode_Sales.Helpers.Classes.SaleClasses;
+using Barcode_Sales.DTOs;
 
 namespace Barcode_Sales.Helpers.Classes
 {
@@ -32,28 +28,11 @@ namespace Barcode_Sales.Helpers.Classes
             public double? PurchasePrice { get; set; }
             public double? PurchaseSum { get => PurchasePrice * Amount; }
             public double Amount { get; set; } = 1;
-            public string Unit { get; set; }
-            public string Tax { get; set; }
+            public int UnitId { get; set; }
+            public int TaxId { get; set; }
+            public string UnitName => DefinitionDto.GetUnitName(UnitId);
+            public string TaxName => DefinitionDto.GetTaxName(TaxId);
             public string Barcode { get; set; }
-            public int QuantityType
-            {
-                get
-                {
-                    return EnumsCache.quantityType.TryGetValue(Unit, out int value) ? value : (int)Enums.UnitTypes.Quantity;
-                }
-            }
-            public int TaxType
-            {
-                get
-                {
-                    var taxType = Enum.GetValues(typeof(Enums.NkaTaxType))
-                       .Cast<Enums.NkaTaxType>()
-                       .FirstOrDefault(x => Enums.GetEnumDescription(x) == Tax);
-
-                    return (int)taxType;
-
-                }
-            }
         }
 
         public class Data : BaseData

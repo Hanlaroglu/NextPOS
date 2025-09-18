@@ -102,7 +102,14 @@ namespace Barcode_Sales.Operations.Concrete
 
         public async Task<Products> GetByBarcodeAsync(string barcode)
         {
-            return await db.Products.AsNoTracking().FirstOrDefaultAsync(x => x.Barcode == barcode.Trim());
+            return await db.Products.AsNoTracking().FirstOrDefaultAsync(x => x.Barcode == barcode.Trim() && x.IsDeleted == 0);
+        }
+
+        public async Task<bool> BarcodeCheckAsync(string barcode, int supplierId)
+        {
+            return await db.Products.AsNoTracking().AnyAsync(x => x.Barcode == barcode.Trim()
+                                                                  && x.SupplierId == supplierId
+                                                                  && x.IsDeleted == 0);
         }
     }
 }

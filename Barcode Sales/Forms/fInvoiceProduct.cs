@@ -1,231 +1,192 @@
-﻿using Barcode_Sales.Helpers;
-using Barcode_Sales.Operations.Abstract;
-using Barcode_Sales.Operations.Concrete;
-using DevExpress.XtraEditors;
+﻿using DevExpress.XtraEditors;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Barcode_Sales.Helpers;
+using Barcode_Sales.Operations.Abstract;
+using Barcode_Sales.Operations.Concrete;
+using DevExpress.XtraEditors.Internal;
+using static DevExpress.Utils.Drawing.Helpers.NativeMethods;
+using Barcode_Sales.Barcode.Sales.UI;
 
 namespace Barcode_Sales.Forms
 {
-    public partial class fInvoiceProduct : FormBase
+    public partial class fInvoiceProduct : DevExpress.XtraBars.FluentDesignSystem.FluentDesignForm
     {
-        private short rowNo = 1;
-        ISupplierOperation supplierOperation = new SupplierManager();
-        private BindingList<ProductGridData> dataList;
+        private IWarehouseOperation warehouseOperation = new WarehouseManager();
+        private IPaymentTypeOperation paymentTypeOperation = new PaymentTypeManager();
+        private IProductOperation productOperation = new ProductManager();
+        private IInvoiceOperation invoiceOperation = new InvoiceManager();
+        IInvoiceDetailOperation invoiceDetailOperation = new InvoiceDetailManager();
+
+        private BindingList<Products> _products = new BindingList<Products>();
+
         public fInvoiceProduct()
         {
             InitializeComponent();
         }
 
-        void SuppliersDataLoad()
+        private async void fInvoiceProduct_Load(object sender, EventArgs e)
         {
-            var data = supplierOperation.Where(x => x.IsDeleted == 0)
-                                        .Select(x => new
-                                        {
-                                            x.SupplierName,
-                                            x.Id
-                                        }).ToList();
-
-
-            FormHelpers.ControlLoad(data, lookSupplier, "SupplierName", "Id");
+            tDate.Text = DateTime.Now.ToShortDateString();
+            WarehouseLoad();
+            PaymentTypeLoad();
+            await ProductsLoadAsync();
+            gridControl1.DataSource = _products;
         }
 
-        void PayTypeDataLoad()
+        private void WarehouseLoad()
         {
-            var payType = Enum.GetValues(typeof(Enums.UnitTypes))
-                                .Cast<Enums.PayTypes>()
-                                .Where(x => x == Enums.PayTypes.Free || x == Enums.PayTypes.Bank)
-                                .ToDictionary(x => x, x => Enums.GetEnumDescription(x));
-            FormHelpers.ControlLoad(new BindingSource(payType, null), lookPayType, "Value", "Key");
-            lookPayType.Properties.DropDownRows = payType.Values.Count;
+            var data = warehouseOperation.Where(x => x.IsDeleted == 0).ToList();
+            FormHelpers.ControlLoad(data, lookWarehouse);
         }
 
-        void FullClear()
+        private void PaymentTypeLoad()
         {
-            //Invoice
-            tInvoiceNo.Text = null;
-            tInvoiceDate.Text = null;
-            lookSupplier.Text = null;
-            lookWarehouse.Text = null;
-            lookPayType.Text = null;
-            tComment.Text = null;
-            //Supplier
-            tSupplierName.Text = null;
-            tTotalInvoice.Text = null;
-            tOldDebt.Text = null;
-            tTotalDebt.Text = null;
-            //Product
-            tProductCode.Text = null;
-            tProductName.Text = null;
-            tBarcode.Text = null;
-            tTax.Text = null;
-            tUnit.Text = null;
-            tPurchasePrice.Text = null;
-            tDiscount.Text = null;
-            tProductTotal.Text = null;
-            tPrincipalAmount.Text = null;
-            tVatAmount.Text = null;
-            tInvoiceNo.Focus();
+            var data = paymentTypeOperation.Where(x => x.IsDeleted == 0).ToList();
+            FormHelpers.ControlLoad(data, lookPaymentType);
         }
 
-        void ProductClear()
+        private async Task ProductsLoadAsync()
         {
-            tProductCode.Text = null;
-            tProductName.Text = null;
-            tBarcode.Text = null;
-            tTax.Text = null;
-            tUnit.Text = null;
-            tAmount.EditValue = 0;
-            tPurchasePrice.EditValue = 0;
-            tDiscount.EditValue = 0;
-            tProductTotal.EditValue = 0;
-            tPrincipalAmount.EditValue = 0;
-            tVatAmount.EditValue = 0;
-            tProductId.Text = null;
+            var data = await productOperation.Where(x => x.IsDeleted == 0 && x.Status == true)
+                .Select(x => new
+                {
+                    x.Id,
+                    SupplierName = x.Suppliers.SupplierName,
+                    x.ProductName,
+                    x.SalePrice,
+                }).ToListAsync();
+            lookProductName.Properties.DataSource = data;
+            lookProductName.Properties.DisplayMember = "ProductName";
+            lookProductName.Properties.ValueMember = "Id";
         }
 
-        private void bClear_Click(object sender, EventArgs e)
+        private void lookWarehouse_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
-            FullClear();
+            FormHelpers.OpenForm<fWarehouse>(Enums.Operation.Add, null);
         }
 
-        private void bRemoveProduct_Click(object sender, EventArgs e)
+        private bool IsValidDate(string text)
         {
-            ProductClear();
+            return DateTime.TryParse(text, out _);
         }
 
-        private void fInvoiceProduct_Load(object sender, EventArgs e)
+        private void tBarcodeSearch_KeyDown(object sender, KeyEventArgs e)
         {
-            PayTypeDataLoad();
-            SuppliersDataLoad();
-            dataList = new BindingList<ProductGridData>();
-            gridControlProducts.DataSource = dataList;
+            if (e.KeyCode is Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                e.Handled = true;
+                string barcode = tBarcodeSearch.Text.TrimStart().Trim();
+
+                var existingData = _products.FirstOrDefault(x => x.Barcode == barcode);
+
+                if (existingData != null)
+                {
+                    existingData.Amount += 1;
+                }
+                else
+                {
+                    var data = productOperation.Where(x => x.Barcode == barcode && x.IsDeleted == 0).FirstOrDefault();
+                    if (data is null)
+                    {
+                        NoticationHelpers.Messages.WarningMessage(this, $"({barcode}) barkoduna aid məhsul sistemdə tapılmadı", "Məhsul tapılmadı");
+                        return;
+                    }
+                    else
+                    {
+                        Products product = new Products()
+                        {
+
+                        };
+                    }
+                }
+
+                gridView1.RefreshData();
+                tBarcodeSearch.Text = null;
+                tBarcodeSearch.Focus();
+
+
+
+            }
         }
 
-        private void bAddProduct_Click(object sender, EventArgs e)
+        private void Lock()
         {
-            ProductAddGrid();
+
         }
 
-        private void ProductAddGrid()
+        private void GridAdd()
         {
-            ProductGridData productGrid = new ProductGridData();
-            productGrid.Id = int.Parse(tProductId.Text);
-            productGrid.No = rowNo;
-            productGrid.ProductCode = tProductCode.Text;
-            productGrid.ProductName = tProductName.Text;
-            productGrid.Barcode = tBarcode.Text;
-            productGrid.Amount = Double.Parse(tAmount.EditValue.ToString());
-            productGrid.UnitName = tUnit.Text;
-            productGrid.TaxName = tTax.Text;
-            productGrid.PurchasePrice = Double.Parse(tPurchasePrice.EditValue.ToString());
-            productGrid.Discount = Double.Parse(tDiscount.EditValue.ToString());
-            productGrid.TotalPurchasePrice = Double.Parse(tProductTotal.EditValue.ToString());
-            dataList.Add(productGrid);
-            rowNo++;
-            ProductClear();
+
         }
 
-        private class ProductGridData
+        private void bSave_Click(object sender, EventArgs e)
+        {
+            if (!IsValidDate(tDate.Text))
+            {
+                NoticationHelpers.Messages.WarningMessage(this, $"Tarix düzgün daxil edilmədi");
+                tDate.Focus();
+                return;
+            }
+
+            Invoice invoice = new Invoice()
+            {
+                InvoiceDate = Convert.ToDateTime(tDate.Text),
+                InvoiceNo = tContractNo.Text.Trim(),
+                TotalPurchasePrice = 0,//Ümumi alış məbləği
+                WarehouseId = lookWarehouse.EditValue == null ? 0 : (int)lookWarehouse.EditValue,
+                PaymentTypeId = lookPaymentType.EditValue == null ? 0 : (int)lookPaymentType.EditValue,
+                Comment = tComment.Text.Trim(),
+                UserId = CommonData.CURRENT_USER.Id,
+                IsDeleted = 0,
+                CreatedDate = DateTime.UtcNow
+            };
+            var invoiceId = invoiceOperation.AddInvoice(invoice);
+            AddInvoiceDetails(invoiceId);
+        }
+
+        private void AddInvoiceDetails(int invoiceId)
+        {
+            InvoiceDetail detail = new InvoiceDetail()
+            {
+                InvoiceId = invoiceId
+            };
+        }
+
+        private void tBarcodeSearch_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            tBarcodeSearch_KeyDown(sender, new KeyEventArgs(Keys.Enter));
+        }
+
+        private void lookProductName_EditValueChanged(object sender, EventArgs e)
+        {
+            lookProductName.EditValueChanged -= lookProductName_EditValueChanged;
+
+            var selectedRow = lookProductName.Properties.View.GetFocusedRow() as ProductSearchData;
+            if (selectedRow == null) return;
+        }
+
+        private class ProductSearchData
         {
             public int Id { get; set; }
-            public short No { get; set; }
-            public string Warehouses { get; set; } = "MƏRKƏZİ ANBAR";
+            public int SupplierId { get; set; }
             public string ProductName { get; set; }
-            public string ProductCode { get; set; }
+            public double? PurchasePrice { get; set; }
+            public double SalePrice { get; set; } = 0;
+            public double Discount { get; set; } = 0;
             public string Barcode { get; set; }
-            public string UnitName { get; set; }
-            public string TaxName { get; set; }
+            public int UnitId { get; set; }
+            public int TaxId { get; set; }
             public double Amount { get; set; }
-            public double PurchasePrice { get; set; }
-            public double Discount { get; set; }
-            public double TotalPurchasePrice { get; set; }
-        }
-
-        private void bSelectProduct_Click(object sender, EventArgs e)
-        {
-            fSelectedProduct<fInvoiceProduct> selectedProduct = new fSelectedProduct<fInvoiceProduct>(this);
-            selectedProduct.ShowDialog();
-        }
-
-        public override void ReceiveData<T>(T data)
-        {
-            if (data != null && data is Products product)
-            {
-                tProductId.Text = product.Id.ToString();
-                tProductCode.Text = product.ProductCode;
-                tProductName.Text = product.ProductName;
-                tBarcode.Text = product.Barcode;
-                tTax.Text = product.Tax;
-                tUnit.Text = product.Unit;
-
-                tPurchasePrice.ReadOnly = false;
-                tAmount.ReadOnly = false;
-                tDiscount.ReadOnly = false;
-            }
-        }
-
-        private void CalcTotal()
-        {
-            decimal amount = Decimal.Parse(tAmount.EditValue.ToString());
-            decimal price = Decimal.Parse(tPurchasePrice.EditValue.ToString());
-            decimal total = Decimal.Parse(tPurchasePrice.EditValue.ToString());
-            decimal discount = Decimal.Parse(tDiscount.EditValue.ToString()) / 100;
-
-            var test = (total * Decimal.Parse(tDiscount.EditValue.ToString())) / 100;
-
-            if (!((double)tDiscount.EditValue <= 0))
-            {
-                tProductTotal.EditValue = total - discount;
-            }
-            else
-            {
-                tProductTotal.EditValue = amount * price;
-            }
-        }
-
-        private void tAmount_EditValueChanged(object sender, EventArgs e)
-        {
-            CalcTotal();
-        }
-
-        private void tPurchasePrice_EditValueChanged(object sender, EventArgs e)
-        {
-            CalcTotal();
-        }
-
-        private void tDiscount_EditValueChanged(object sender, EventArgs e)
-        {
-            CalcTotal();
-        }
-
-        private void DiscountCalc()
-        {
-            double discount = Double.Parse(tDiscount.EditValue.ToString()) / 100;
-            if (!((double)tDiscount.EditValue <= 0))
-            {
-                tProductTotal.EditValue = Double.Parse(tProductTotal.EditValue.ToString()) - discount;
-            }
-            else
-            {
-                CalcTotal();
-            }
-
-        }
-
-        private void lookSupplier_Properties_EditValueChanged(object sender, EventArgs e)
-        {
-            int Id = Convert.ToInt32(lookSupplier.EditValue.ToString());
-            var control = supplierOperation.GetById(Id);
-            tSupplierName.Text = control.SupplierName;
-            tOldDebt.EditValue = control.Debt;
         }
     }
 }

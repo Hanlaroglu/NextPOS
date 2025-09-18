@@ -84,7 +84,6 @@ namespace Barcode_Sales.Barcode.Sales.UI
                 lProductName.Text = selectedValue.Trim();
                 lBarcode.Text = search.Barcode.Trim();
                 lPrice.Text = search.SalePrice.ToString() + " AZN";
-                lComment.Text = search.Comment.Trim();
                 //lStock.Text = search.Amount.ToString() + " " + search.Unit;
                 navigationFrame1.SelectedPage = pageProduct;
             }

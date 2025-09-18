@@ -26,7 +26,6 @@ namespace Barcode_Sales.Operations.Concrete
             {
                 return false;
             }
-
         }
 
         public async Task AddAsync(Categories item)
@@ -37,7 +36,7 @@ namespace Barcode_Sales.Operations.Concrete
 
         public Categories GetById(int id)
         {
-            return db.Categories.AsNoTracking().FirstOrDefault(x => x.Id == id);
+            return db.Categories.FirstOrDefault(x => x.Id == id);
         }
 
         public async Task<Categories> GetByIdAsync(int id)
@@ -49,7 +48,7 @@ namespace Barcode_Sales.Operations.Concrete
         {
             productOperation = new ProductManager();
 
-            var product = productOperation.Where(x => x.IsDeleted == 0 && x.CategoryID == item.Id).ToList();
+            var product = productOperation.Where(x => x.IsDeleted == 0 && x.CategoryId == item.Id).ToList();
 
             bool message = false;
 
@@ -83,7 +82,7 @@ namespace Barcode_Sales.Operations.Concrete
         {
             productOperation = new ProductManager();
 
-            var product = productOperation.WhereAsync(x => x.IsDeleted == 0 && x.CategoryID == item.Id);
+            var product = productOperation.WhereAsync(x => x.IsDeleted == 0 && x.CategoryId == item.Id);
 
             bool message = false;
 
@@ -115,7 +114,7 @@ namespace Barcode_Sales.Operations.Concrete
 
         public void Update(Categories item)
         {
-            var existingItem = db.Categories.Find(item.Id);
+            var existingItem = GetById(item.Id);
             if (existingItem != null)
             {
                 db.Entry(existingItem).CurrentValues.SetValues(item);
@@ -135,7 +134,7 @@ namespace Barcode_Sales.Operations.Concrete
 
         public IQueryable<Categories> Where(Expression<Func<Categories, bool>> expression)
         {
-            return db.Categories.Where(expression);
+            return db.Categories.AsNoTracking().Where(expression);
         }
 
         public async Task<List<Categories>> WhereAsync(Expression<Func<Categories, bool>> expression)
@@ -147,7 +146,7 @@ namespace Barcode_Sales.Operations.Concrete
         {
             productOperation = new ProductManager();
 
-            var product = productOperation.Where(x => x.IsDeleted == 0 && x.CategoryID == item.Id).ToList();
+            var product = productOperation.Where(x => x.IsDeleted == 0 && x.CategoryId == item.Id).ToList();
 
             string boolMessage = (bool)item.Status ? "aktiv" : "deaktiv";
 
