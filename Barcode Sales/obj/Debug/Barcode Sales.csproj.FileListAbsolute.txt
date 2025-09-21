@@ -755,5 +755,5 @@ D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\obj\Deb
 D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\obj\Debug\Next Market.exe
 D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\obj\Debug\Next Market.pdb
 D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\obj\Debug\Barcode_Sales.Forms.fTerminalSaleReport.resources
-D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\obj\Debug\Barcode_Sales.Forms.fInvoiceProduct1.resources
 D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\obj\Debug\Barcode_Sales.Forms.fAddCategory.resources
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\obj\Debug\Barcode_Sales.Forms.fInvoiceReport.resources

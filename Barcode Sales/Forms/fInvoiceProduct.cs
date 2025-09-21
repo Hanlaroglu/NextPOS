@@ -1,20 +1,15 @@
-﻿using DevExpress.XtraEditors;
+﻿using Barcode_Sales.Helpers;
+using Barcode_Sales.Operations.Abstract;
+using Barcode_Sales.Operations.Concrete;
+using Barcode_Sales.Validations;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.Entity;
-using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Barcode_Sales.Helpers;
-using Barcode_Sales.Operations.Abstract;
-using Barcode_Sales.Operations.Concrete;
-using DevExpress.XtraEditors.Internal;
-using static DevExpress.Utils.Drawing.Helpers.NativeMethods;
-using Barcode_Sales.Barcode.Sales.UI;
 
 namespace Barcode_Sales.Forms
 {
@@ -26,7 +21,7 @@ namespace Barcode_Sales.Forms
         private IInvoiceOperation invoiceOperation = new InvoiceManager();
         IInvoiceDetailOperation invoiceDetailOperation = new InvoiceDetailManager();
 
-        private BindingList<Products> _products = new BindingList<Products>();
+        private BindingList<ProductSearchData> _dataList = new BindingList<ProductSearchData>();
 
         public fInvoiceProduct()
         {
@@ -39,7 +34,20 @@ namespace Barcode_Sales.Forms
             WarehouseLoad();
             PaymentTypeLoad();
             await ProductsLoadAsync();
-            gridControl1.DataSource = _products;
+            gridControl1.DataSource = _dataList;
+            gridView1.RowCountChanged += (s, x) =>
+            {
+                if (gridView1.RowCount > 0)
+                {
+                    bSave.Cursor = Cursors.Hand;
+                    bSave.Text = $"Saxla ({_dataList.Count})";
+                }
+                else
+                {
+                    bSave.Cursor = Cursors.No;
+                    bSave.Text = "Saxla (0)";
+                }
+            };
         }
 
         private void WarehouseLoad()
@@ -57,12 +65,16 @@ namespace Barcode_Sales.Forms
         private async Task ProductsLoadAsync()
         {
             var data = await productOperation.Where(x => x.IsDeleted == 0 && x.Status == true)
-                .Select(x => new
+                .Select(x => new ProductSearchData
                 {
-                    x.Id,
+                    Id = x.Id,
+                    SupplierId = (int)x.SupplierId,
                     SupplierName = x.Suppliers.SupplierName,
-                    x.ProductName,
-                    x.SalePrice,
+                    ProductName = x.ProductName,
+                    SalePrice = (double)x.SalePrice,
+                    PurchasePrice = x.PurchasePrice,
+                    Barcode = x.Barcode,
+                    Stock = x.Amount
                 }).ToListAsync();
             lookProductName.Properties.DataSource = data;
             lookProductName.Properties.DisplayMember = "ProductName";
@@ -71,7 +83,12 @@ namespace Barcode_Sales.Forms
 
         private void lookWarehouse_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
-            FormHelpers.OpenForm<fWarehouse>(Enums.Operation.Add, null);
+            fWarehouse f = new fWarehouse(Enums.Operation.Add, null);
+            f.FormClosed += (s, args) =>
+            {
+               WarehouseLoad();
+            };
+            f.ShowDialog();
         }
 
         private bool IsValidDate(string text)
@@ -79,58 +96,11 @@ namespace Barcode_Sales.Forms
             return DateTime.TryParse(text, out _);
         }
 
-        private void tBarcodeSearch_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode is Keys.Enter)
-            {
-                e.SuppressKeyPress = true;
-                e.Handled = true;
-                string barcode = tBarcodeSearch.Text.TrimStart().Trim();
-
-                var existingData = _products.FirstOrDefault(x => x.Barcode == barcode);
-
-                if (existingData != null)
-                {
-                    existingData.Amount += 1;
-                }
-                else
-                {
-                    var data = productOperation.Where(x => x.Barcode == barcode && x.IsDeleted == 0).FirstOrDefault();
-                    if (data is null)
-                    {
-                        NoticationHelpers.Messages.WarningMessage(this, $"({barcode}) barkoduna aid məhsul sistemdə tapılmadı", "Məhsul tapılmadı");
-                        return;
-                    }
-                    else
-                    {
-                        Products product = new Products()
-                        {
-
-                        };
-                    }
-                }
-
-                gridView1.RefreshData();
-                tBarcodeSearch.Text = null;
-                tBarcodeSearch.Focus();
-
-
-
-            }
-        }
-
-        private void Lock()
-        {
-
-        }
-
-        private void GridAdd()
-        {
-
-        }
-
         private void bSave_Click(object sender, EventArgs e)
         {
+            if (bSave.Cursor == Cursors.No)
+                return;
+
             if (!IsValidDate(tDate.Text))
             {
                 NoticationHelpers.Messages.WarningMessage(this, $"Tarix düzgün daxil edilmədi");
@@ -138,28 +108,55 @@ namespace Barcode_Sales.Forms
                 return;
             }
 
-            Invoice invoice = new Invoice()
-            {
-                InvoiceDate = Convert.ToDateTime(tDate.Text),
-                InvoiceNo = tContractNo.Text.Trim(),
-                TotalPurchasePrice = 0,//Ümumi alış məbləği
-                WarehouseId = lookWarehouse.EditValue == null ? 0 : (int)lookWarehouse.EditValue,
-                PaymentTypeId = lookPaymentType.EditValue == null ? 0 : (int)lookPaymentType.EditValue,
-                Comment = tComment.Text.Trim(),
-                UserId = CommonData.CURRENT_USER.Id,
-                IsDeleted = 0,
-                CreatedDate = DateTime.UtcNow
-            };
-            var invoiceId = invoiceOperation.AddInvoice(invoice);
-            AddInvoiceDetails(invoiceId);
+            AddInvoice();
         }
 
-        private void AddInvoiceDetails(int invoiceId)
+        private void AddInvoice()
         {
-            InvoiceDetail detail = new InvoiceDetail()
+            try
             {
-                InvoiceId = invoiceId
-            };
+                Invoice invoice = new Invoice()
+                {
+                    InvoiceDate = Convert.ToDateTime(tDate.Text),
+                    InvoiceNo = tContractNo.Text.Trim(),
+                    TotalPurchasePrice = _dataList.Sum(x => x.PurchasePrice),
+                    WarehouseId = lookWarehouse.EditValue == null ? 0 : (int)lookWarehouse.EditValue,
+                    PaymentTypeId = lookPaymentType.EditValue == null ? 0 : (int)lookPaymentType.EditValue,
+                    Comment = tComment.Text.Trim(),
+                    UserId = 3,
+                    IsDeleted = 0,
+                    CreatedDate = DateTime.Now
+                };
+
+                var validator = ValidationHelpers.ValidateMessage(invoice, new InvoiceValidation(), this);
+
+                if (!validator.IsValid)
+                {
+                    return;
+                }
+
+
+                var invoiceId = invoiceOperation.AddInvoice(invoice);
+
+                List<InvoiceDetail> details = new List<InvoiceDetail>();
+                details.AddRange(_dataList.Select(x => new InvoiceDetail
+                {
+                    InvoiceId = invoiceId,
+                    ProductId = x.Id,
+                    Amount = x.Quantity,
+                    PurchasePrice = x.PurchasePrice,
+                    Discount = 0,
+                    TotalPurchasePrice = x.Quantity * x.PurchasePrice,
+                }));
+                invoiceDetailOperation.AddRange(details);
+                NoticationHelpers.Messages.SuccessMessage(this, "Məhsul alışı tamamlandı");
+                Reset();
+            }
+            catch (Exception e)
+            {
+                NoticationHelpers.Messages.ErrorMessage(this, e.Message);
+            }
+
         }
 
         private void tBarcodeSearch_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
@@ -173,20 +170,122 @@ namespace Barcode_Sales.Forms
 
             var selectedRow = lookProductName.Properties.View.GetFocusedRow() as ProductSearchData;
             if (selectedRow == null) return;
+
+            var checkProduct = _dataList.FirstOrDefault(x => x.Barcode == selectedRow.Barcode);
+
+            if (checkProduct != null)
+                checkProduct.Quantity += 1;
+            else
+                _dataList.Add(selectedRow);
+
+            gridView1.RefreshData();
+            lookProductName.Text = null;
+            lookProductName.Focus();
+            lookProductName.EditValueChanged += lookProductName_EditValueChanged;
+        }
+
+        private void tBarcodeSearch_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode is Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                e.Handled = true;
+                string barcode = tBarcodeSearch.Text.TrimStart().Trim();
+
+                var existingData = _dataList.FirstOrDefault(x => x.Barcode == barcode);
+
+                if (existingData != null)
+                    existingData.Quantity += 1;
+                else
+                {
+                    var data = productOperation.Where(x => x.Barcode == barcode && x.IsDeleted == 0).FirstOrDefault();
+                    if (data is null)
+                    {
+                        NoticationHelpers.Messages.WarningMessage(this, $"({barcode}) barkoduna aid məhsul sistemdə tapılmadı", "Məhsul tapılmadı");
+                        return;
+                    }
+                    else
+                    {
+                        _dataList.Add(new ProductSearchData()
+                        {
+                            Id = data.Id,
+                            SupplierId = data.SupplierId ?? default,
+                            SupplierName = data.Suppliers.SupplierName,
+                            Barcode = data.Barcode,
+                            ProductName = data.ProductName,
+                            PurchasePrice = data.PurchasePrice,
+                            SalePrice = data.SalePrice ?? default,
+                            Stock = data.Amount
+                        });
+                    }
+                }
+
+                gridView1.RefreshData();
+                tBarcodeSearch.Text = null;
+                tBarcodeSearch.Focus();
+            }
+        }
+
+        private void bReset_Click(object sender, EventArgs e)
+        {
+            Reset();
+        }
+
+        private void Reset()
+        {
+            _dataList.Clear();
+            tBarcodeSearch.Clear();
+            lookProductName.Text = null;
+            tDate.Text = DateTime.Now.ToShortDateString();
+            tContractNo.Clear();
+            lookWarehouse.EditValue = null;
+            lookPaymentType.EditValue = null;
+            tComment.Clear();
         }
 
         private class ProductSearchData
         {
             public int Id { get; set; }
             public int SupplierId { get; set; }
+            public string SupplierName { get; set; }
             public string ProductName { get; set; }
             public double? PurchasePrice { get; set; }
-            public double SalePrice { get; set; } = 0;
-            public double Discount { get; set; } = 0;
+            public double SalePrice { get; set; }
             public string Barcode { get; set; }
-            public int UnitId { get; set; }
-            public int TaxId { get; set; }
-            public double Amount { get; set; }
+            public double? Stock { get; set; } //Anbar qalığı
+            public double Quantity { get; set; } = 1;
+            public double TotalPurchaseAmount { get => Quantity * (double)PurchasePrice; }
+            public double TotalSaleAmount { get => Quantity * SalePrice; }
+            private double _percent;
+            public double Percent
+            {
+                get => _percent;
+                set
+                {
+                    _percent = value;
+                    SalePrice = (double)PurchasePrice * (1 + (_percent / 100));
+                }
+            }
+            public double GainAmount { get => TotalSaleAmount - TotalPurchaseAmount; }
+        }
+
+        private void bReport_Click(object sender, EventArgs e)
+        {
+            FormHelpers.OpenForm<fInvoiceReport>();
+        }
+
+        private void bDeleteRow_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            var selectedRow = gridView1.GetFocusedRow() as ProductSearchData;
+            if (selectedRow != null)
+                _dataList.Remove(selectedRow);
+
+            gridView1.RefreshData();
+        }
+
+        private void bAddProduct_Click(object sender, EventArgs e)
+        {
+            FormHelpers.OpenForm<fAddProduct>(Enums.Operation.Add, null);
         }
     }
 }

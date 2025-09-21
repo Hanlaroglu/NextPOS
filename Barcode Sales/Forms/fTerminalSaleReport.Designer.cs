@@ -28,17 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.XtraGrid.GridLevelNode gridLevelNode2 = new DevExpress.XtraGrid.GridLevelNode();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions5 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject17 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject18 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject19 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject20 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions6 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject21 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject22 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject23 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject24 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraGrid.GridLevelNode gridLevelNode1 = new DevExpress.XtraGrid.GridLevelNode();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions4 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject13 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject14 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject15 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject16 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
@@ -49,6 +44,11 @@
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions3 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject9 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject10 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject11 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject12 = new DevExpress.Utils.SerializableAppearanceObject();
             this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn15 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn16 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -77,12 +77,13 @@
             this.tablePanel1 = new DevExpress.Utils.Layout.TablePanel();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.lookCashier = new DevExpress.XtraEditors.LookUpEdit();
-            this.tFiscalCode = new DevExpress.XtraEditors.TextEdit();
+            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
             this.chFiscal = new DevExpress.XtraEditors.CheckEdit();
             this.chDate = new DevExpress.XtraEditors.CheckEdit();
             this.bSearch = new DevExpress.XtraEditors.SimpleButton();
             this.dateEnd = new DevExpress.XtraEditors.DateEdit();
             this.dateStart = new DevExpress.XtraEditors.DateEdit();
+            this.chReceipt = new DevExpress.XtraEditors.CheckEdit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
@@ -92,13 +93,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lookCashier.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tFiscalCode.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chFiscal.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chDate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEnd.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEnd.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateStart.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateStart.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chReceipt.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // gridView2
@@ -138,7 +140,7 @@
             // gridColumn15
             // 
             this.gridColumn15.Caption = "Barkod";
-            this.gridColumn15.FieldName = "Products.Barcode";
+            this.gridColumn15.FieldName = "Barcode";
             this.gridColumn15.Name = "gridColumn15";
             this.gridColumn15.OptionsFilter.AllowAutoFilter = false;
             this.gridColumn15.OptionsFilter.AllowFilter = false;
@@ -149,7 +151,7 @@
             // gridColumn16
             // 
             this.gridColumn16.Caption = "Məhsul adı";
-            this.gridColumn16.FieldName = "Products.ProductName";
+            this.gridColumn16.FieldName = "ProductName";
             this.gridColumn16.Name = "gridColumn16";
             this.gridColumn16.OptionsFilter.AllowAutoFilter = false;
             this.gridColumn16.OptionsFilter.AllowFilter = false;
@@ -178,7 +180,7 @@
             this.gridColumn18.AppearanceCell.Options.UseTextOptions = true;
             this.gridColumn18.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gridColumn18.Caption = "Vahid";
-            this.gridColumn18.FieldName = "Products.Unit";
+            this.gridColumn18.FieldName = "Unit";
             this.gridColumn18.Name = "gridColumn18";
             this.gridColumn18.OptionsColumn.FixedWidth = true;
             this.gridColumn18.OptionsFilter.AllowAutoFilter = false;
@@ -222,7 +224,7 @@
             this.gridColumn21.AppearanceCell.Options.UseTextOptions = true;
             this.gridColumn21.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gridColumn21.Caption = "ƏDV";
-            this.gridColumn21.FieldName = "Products.Tax";
+            this.gridColumn21.FieldName = "Tax";
             this.gridColumn21.Name = "gridColumn21";
             this.gridColumn21.OptionsFilter.AllowAutoFilter = false;
             this.gridColumn21.OptionsFilter.AllowFilter = false;
@@ -236,10 +238,10 @@
             this.tablePanel1.SetColumn(this.gridControl1, 0);
             this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gridControl1.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4);
-            gridLevelNode2.LevelTemplate = this.gridView2;
-            gridLevelNode2.RelationName = "SalesLog";
+            gridLevelNode1.LevelTemplate = this.gridView2;
+            gridLevelNode1.RelationName = "SalesLog";
             this.gridControl1.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
-            gridLevelNode2});
+            gridLevelNode1});
             this.gridControl1.Location = new System.Drawing.Point(4, 75);
             this.gridControl1.LookAndFeel.SkinName = "WXI";
             this.gridControl1.LookAndFeel.UseDefaultLookAndFeel = false;
@@ -248,7 +250,7 @@
             this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.bReceiptCopy});
             this.tablePanel1.SetRow(this.gridControl1, 1);
-            this.gridControl1.Size = new System.Drawing.Size(1296, 743);
+            this.gridControl1.Size = new System.Drawing.Size(1290, 747);
             this.gridControl1.TabIndex = 20;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1,
@@ -459,12 +461,12 @@
             // bReceiptCopy
             // 
             this.bReceiptCopy.AutoHeight = false;
-            serializableAppearanceObject17.Font = new System.Drawing.Font("Nunito", 10F, System.Drawing.FontStyle.Bold);
-            serializableAppearanceObject17.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.Hyperlink;
-            serializableAppearanceObject17.Options.UseFont = true;
-            serializableAppearanceObject17.Options.UseForeColor = true;
+            serializableAppearanceObject13.Font = new System.Drawing.Font("Nunito", 10F, System.Drawing.FontStyle.Bold);
+            serializableAppearanceObject13.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.Hyperlink;
+            serializableAppearanceObject13.Options.UseFont = true;
+            serializableAppearanceObject13.Options.UseForeColor = true;
             this.bReceiptCopy.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Çap et", -1, true, true, false, editorButtonImageOptions5, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject17, serializableAppearanceObject18, serializableAppearanceObject19, serializableAppearanceObject20, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Çap et", -1, true, true, false, editorButtonImageOptions4, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject13, serializableAppearanceObject14, serializableAppearanceObject15, serializableAppearanceObject16, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.bReceiptCopy.Name = "bReceiptCopy";
             this.bReceiptCopy.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.bReceiptCopy.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.bReceiptCopy_ButtonClick);
@@ -483,7 +485,7 @@
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 71F),
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 26F)});
             this.tablePanel1.ShowGrid = DevExpress.Utils.DefaultBoolean.False;
-            this.tablePanel1.Size = new System.Drawing.Size(1304, 822);
+            this.tablePanel1.Size = new System.Drawing.Size(1298, 826);
             this.tablePanel1.TabIndex = 0;
             this.tablePanel1.UseSkinIndents = true;
             // 
@@ -491,7 +493,8 @@
             // 
             this.tablePanel1.SetColumn(this.panelControl1, 0);
             this.panelControl1.Controls.Add(this.lookCashier);
-            this.panelControl1.Controls.Add(this.tFiscalCode);
+            this.panelControl1.Controls.Add(this.textEdit1);
+            this.panelControl1.Controls.Add(this.chReceipt);
             this.panelControl1.Controls.Add(this.chFiscal);
             this.panelControl1.Controls.Add(this.chDate);
             this.panelControl1.Controls.Add(this.bSearch);
@@ -502,13 +505,13 @@
             this.panelControl1.Margin = new System.Windows.Forms.Padding(0);
             this.panelControl1.Name = "panelControl1";
             this.tablePanel1.SetRow(this.panelControl1, 0);
-            this.panelControl1.Size = new System.Drawing.Size(1302, 71);
+            this.panelControl1.Size = new System.Drawing.Size(1296, 71);
             this.panelControl1.TabIndex = 0;
             // 
             // lookCashier
             // 
             this.lookCashier.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lookCashier.Location = new System.Drawing.Point(978, 5);
+            this.lookCashier.Location = new System.Drawing.Point(972, 5);
             this.lookCashier.Name = "lookCashier";
             this.lookCashier.Properties.AllowFocused = false;
             this.lookCashier.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Nunito", 10F);
@@ -517,7 +520,7 @@
             this.lookCashier.Properties.AppearanceFocused.Options.UseFont = true;
             this.lookCashier.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Kassir:", -1, false, true, true, editorButtonImageOptions6, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject21, serializableAppearanceObject22, serializableAppearanceObject23, serializableAppearanceObject24, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Kassir:", -1, false, true, true, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.lookCashier.Properties.DropDownRows = 6;
             this.lookCashier.Properties.NullText = "";
             this.lookCashier.Properties.NullValuePrompt = "Kassir";
@@ -527,14 +530,15 @@
             this.lookCashier.TabIndex = 4;
             this.lookCashier.TextChanged += new System.EventHandler(this.lookCashier_TextChanged);
             // 
-            // tFiscalCode
+            // textEdit1
             // 
-            this.tFiscalCode.Location = new System.Drawing.Point(11, 5);
-            this.tFiscalCode.Name = "tFiscalCode";
-            this.tFiscalCode.Properties.MaxLength = 12;
-            this.tFiscalCode.Size = new System.Drawing.Size(424, 32);
-            this.tFiscalCode.TabIndex = 3;
-            this.tFiscalCode.Visible = false;
+            this.textEdit1.Location = new System.Drawing.Point(11, 5);
+            this.textEdit1.Name = "textEdit1";
+            this.textEdit1.Properties.MaxLength = 12;
+            this.textEdit1.Size = new System.Drawing.Size(424, 32);
+            this.textEdit1.TabIndex = 3;
+            this.textEdit1.Visible = false;
+            this.textEdit1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Search_KeyDown);
             // 
             // chFiscal
             // 
@@ -581,13 +585,14 @@
             this.dateEnd.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
             this.dateEnd.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Tarixədək", -1, false, true, true, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Tarixədək", -1, false, true, true, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.dateEnd.Properties.CalendarTimeEditing = DevExpress.Utils.DefaultBoolean.False;
             this.dateEnd.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dateEnd.Properties.ShowToday = false;
             this.dateEnd.Size = new System.Drawing.Size(209, 32);
             this.dateEnd.TabIndex = 0;
+            this.dateEnd.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Search_KeyDown);
             // 
             // dateStart
             // 
@@ -597,7 +602,7 @@
             this.dateStart.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
             this.dateStart.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Tarixindən", -1, false, true, true, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Tarixindən", -1, false, true, true, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.dateStart.Properties.CalendarTimeEditing = DevExpress.Utils.DefaultBoolean.False;
             this.dateStart.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -605,12 +610,26 @@
             this.dateStart.Properties.ShowToday = false;
             this.dateStart.Size = new System.Drawing.Size(209, 32);
             this.dateStart.TabIndex = 0;
+            this.dateStart.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Search_KeyDown);
+            // 
+            // chReceipt
+            // 
+            this.chReceipt.Location = new System.Drawing.Point(238, 43);
+            this.chReceipt.Name = "chReceipt";
+            this.chReceipt.Properties.AllowFocused = false;
+            this.chReceipt.Properties.AutoWidth = true;
+            this.chReceipt.Properties.Caption = "Çek №";
+            this.chReceipt.Properties.RadioGroupIndex = 1;
+            this.chReceipt.Size = new System.Drawing.Size(68, 22);
+            this.chReceipt.TabIndex = 2;
+            this.chReceipt.TabStop = false;
+            this.chReceipt.CheckedChanged += new System.EventHandler(this.CheckedSearchType);
             // 
             // fTerminalSaleReport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(1304, 822);
+            this.ClientSize = new System.Drawing.Size(1298, 826);
             this.Controls.Add(this.tablePanel1);
             this.Name = "fTerminalSaleReport";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -627,13 +646,14 @@
             this.panelControl1.ResumeLayout(false);
             this.panelControl1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lookCashier.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tFiscalCode.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chFiscal.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chDate.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEnd.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEnd.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateStart.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateStart.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chReceipt.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -664,7 +684,7 @@
         private DevExpress.XtraEditors.SimpleButton bSearch;
         private DevExpress.XtraEditors.CheckEdit chDate;
         private DevExpress.XtraEditors.CheckEdit chFiscal;
-        private DevExpress.XtraEditors.TextEdit tFiscalCode;
+        private DevExpress.XtraEditors.TextEdit textEdit1;
         private DevExpress.XtraEditors.LookUpEdit lookCashier;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn15;
@@ -674,5 +694,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn19;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn20;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn21;
+        private DevExpress.XtraEditors.CheckEdit chReceipt;
     }
 }

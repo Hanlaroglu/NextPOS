@@ -86,19 +86,20 @@ namespace Barcode_Sales.Forms
 
         private void CashPaid()
         {
-            _data.IpAddress = _terminals.IpAddress;
-            _data.Cash = _data.Total;
-            _data.Card = 0;
-            _data.IncomingSum = double.Parse(tCash_Paid.Text);
-
-            if (_data.IncomingSum < _data.Total)
-            {
-                NoticationHelpers.Messages.WarningMessage(this, "Ödənilən məbləğ yekun məbləğdən kiçik olabilməz !", nameof(Enums.MessageTitle.Xəbərdarlıq));
-                return;
-            }
-
             if (_terminals != null)
             {
+                _data.IpAddress = _terminals.IpAddress;
+                _data.Cash = _data.Total;
+                _data.Card = 0;
+                _data.IncomingSum = double.Parse(tCash_Paid.Text);
+
+                if (_data.IncomingSum < _data.Total)
+                {
+                    NoticationHelpers.Messages.WarningMessage(this, "Ödənilən məbləğ yekun məbləğdən kiçik olabilməz !", nameof(Enums.MessageTitle.Xəbərdarlıq));
+                    return;
+                }
+
+
                 KassaOperator kassa = (KassaOperator)Enum.Parse(typeof(KassaOperator), _terminals.Name);
                 switch (kassa)
                 {

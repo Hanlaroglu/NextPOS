@@ -38,7 +38,7 @@ namespace Barcode_Sales.Forms
             InitializeComponent();
             _type = type;
             _salesDataSummary = items;
-            _customer = _salesDataSummary.CustomerId is null ? null : customerOperation.GetById((int)_salesDataSummary.CustomerId);
+            _customer = _salesDataSummary?.CustomerId is null ? null : customerOperation.GetById((int)_salesDataSummary.CustomerId);
         }
 
         private void fPosRollbackProduct_Load(object sender, EventArgs e)
@@ -91,7 +91,7 @@ namespace Barcode_Sales.Forms
             gridControlSalesData.DataSource = dataList;
         }
 
-        public class SalesDataWrapper
+        private class SalesDataWrapper
         {
             public SalesDataDetail Detail { get; set; }
             public double ReturnQuantity { get; set; }

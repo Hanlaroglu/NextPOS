@@ -374,6 +374,7 @@
     <EntitySetMapping Name="InvoiceDetails">
       <EntityTypeMapping TypeName="NextposDBModel.InvoiceDetail">
         <MappingFragment StoreEntitySet="InvoiceDetails">
+          <ScalarProperty Name="SalePrice" ColumnName="SalePrice" />
           <ScalarProperty Name="TotalPurchasePrice" ColumnName="TotalPurchasePrice" />
           <ScalarProperty Name="Discount" ColumnName="Discount" />
           <ScalarProperty Name="PurchasePrice" ColumnName="PurchasePrice" />

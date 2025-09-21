@@ -18,17 +18,16 @@ namespace Barcode_Sales.Forms
     {
         IProductOperation productOperation = new ProductManager();
         private ISaleDataOperation saleDataOperation = new SalesDataManager();
-        private BindingList<SaleDataItem> dataList;
+        private BindingList<SaleDataItem> dataList = new BindingList<SaleDataItem>();
         short rowNo = 1;
 
         public fPosSales()
         {
             InitializeComponent();
-            dataList = new BindingList<SaleDataItem>();
             gridControlBasket.DataSource = dataList;
         }
 
-        private class ProductSearchData
+        private class ProductSearchData:Products
         {
             public int Id { get; set; }
             public string ProductName { get; set; }
@@ -316,7 +315,7 @@ namespace Barcode_Sales.Forms
 
         private void fPosSales_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Application.Exit();
+            //Application.Exit();
         }
     }
 }

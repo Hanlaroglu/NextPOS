@@ -86,7 +86,7 @@ namespace Barcode_Sales.Operations.Concrete
 
         public IQueryable<Products> Where(Expression<Func<Products, bool>> expression)
         {
-            return db.Products.Where(expression);
+            return db.Products.AsNoTracking().Where(expression);
         }
 
         public async Task<List<Products>> WhereAsync(Expression<Func<Products, bool>> expression)

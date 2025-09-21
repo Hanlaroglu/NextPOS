@@ -3,10 +3,11 @@ using Barcode_Sales.Operations.Abstract;
 using Barcode_Sales.Operations.Concrete;
 using Barcode_Sales.Validations;
 using System;
+using DevExpress.XtraEditors;
 
 namespace Barcode_Sales.Forms
 {
-    public partial class fWarehouse : FormBase
+    public partial class fWarehouse : XtraForm  
     {
         IWarehouseOperation warehouseOperation = new WarehouseManager();
         private Warehouses _warehouses;
@@ -21,15 +22,13 @@ namespace Barcode_Sales.Forms
         private void fWarehouse_Load(object sender, EventArgs e)
         {
             if (_operation is Enums.Operation.Edit)
-            {
                 WarehouseDataList();
-            }
         }
 
         private void WarehouseDataList()
         {
             tName.Text = _warehouses.Name;
-            chStatus.IsOn = _warehouses.Status == null ? false : _warehouses.Status.Value;
+            chStatus.IsOn = _warehouses.Status.Value;
         }
 
         private void Clear()
@@ -68,11 +67,11 @@ namespace Barcode_Sales.Forms
 
             if (warehouseOperation.Add(_warehouses))
             {
-                Message("Anbar uğurla yaradıldı", NextPOS.UserControls.fMessage.enmType.Success);
+                NoticationHelpers.Messages.SuccessMessage(this, "Anbar uğurla yaradıldı");
                 Clear();
             }
             else
-                Message("Anbar yaradılarkən xəta yarandı", NextPOS.UserControls.fMessage.enmType.Error);
+                NoticationHelpers.Messages.ErrorMessage(this, "Anbar yaradılarkən xəta yarandı");
         }
 
         private void Edit()

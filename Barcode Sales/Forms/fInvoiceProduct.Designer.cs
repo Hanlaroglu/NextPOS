@@ -73,7 +73,7 @@
             this.fluentDesignFormControl1 = new DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormControl();
             this.accordionControl1 = new DevExpress.XtraBars.Navigation.AccordionControl();
             this.bHelp = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.accordionControlElement1 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.bAddProduct = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.bCustomers = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.bReport = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.tablePanel1 = new DevExpress.Utils.Layout.TablePanel();
@@ -81,7 +81,7 @@
             this.separatorControl1 = new DevExpress.XtraEditors.SeparatorControl();
             this.bSave = new DevExpress.XtraEditors.SimpleButton();
             this.bImport = new DevExpress.XtraEditors.SimpleButton();
-            this.bClear = new DevExpress.XtraEditors.SimpleButton();
+            this.bReset = new DevExpress.XtraEditors.SimpleButton();
             this.separatorControl2 = new DevExpress.XtraEditors.SeparatorControl();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.lookPaymentType = new DevExpress.XtraEditors.LookUpEdit();
@@ -189,7 +189,7 @@
             // bHelp
             // 
             this.bHelp.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
-            this.accordionControlElement1,
+            this.bAddProduct,
             this.bCustomers,
             this.bReport});
             this.bHelp.Expanded = true;
@@ -197,15 +197,17 @@
             this.bHelp.Name = "bHelp";
             this.bHelp.VisibleInFooter = false;
             // 
-            // accordionControlElement1
+            // bAddProduct
             // 
-            this.accordionControlElement1.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("accordionControlElement1.ImageOptions.SvgImage")));
-            this.accordionControlElement1.Name = "accordionControlElement1";
-            this.accordionControlElement1.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.accordionControlElement1.Text = "Məhsul yarat";
+            this.bAddProduct.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bAddProduct.ImageOptions.SvgImage")));
+            this.bAddProduct.Name = "bAddProduct";
+            this.bAddProduct.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.bAddProduct.Text = "Məhsul yarat";
+            this.bAddProduct.Click += new System.EventHandler(this.bAddProduct_Click);
             // 
             // bCustomers
             // 
+            this.bCustomers.Enabled = false;
             this.bCustomers.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bCustomers.ImageOptions.SvgImage")));
             this.bCustomers.Name = "bCustomers";
             this.bCustomers.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
@@ -219,6 +221,7 @@
             this.bReport.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.bReport.Text = "Alış hesabatı";
             this.bReport.VisibleInFooter = false;
+            this.bReport.Click += new System.EventHandler(this.bReport_Click);
             // 
             // tablePanel1
             // 
@@ -245,7 +248,7 @@
             this.panelControl2.Controls.Add(this.separatorControl1);
             this.panelControl2.Controls.Add(this.bSave);
             this.panelControl2.Controls.Add(this.bImport);
-            this.panelControl2.Controls.Add(this.bClear);
+            this.panelControl2.Controls.Add(this.bReset);
             this.panelControl2.Controls.Add(this.separatorControl2);
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl2.Location = new System.Drawing.Point(344, 91);
@@ -256,6 +259,8 @@
             // 
             // separatorControl1
             // 
+            this.separatorControl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.separatorControl1.AutoSizeMode = true;
             this.separatorControl1.Location = new System.Drawing.Point(7, 181);
             this.separatorControl1.Name = "separatorControl1";
@@ -276,6 +281,7 @@
             this.bSave.AppearanceHovered.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(131)))), ((int)(((byte)(131)))));
             this.bSave.AppearanceHovered.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(131)))), ((int)(((byte)(131)))));
             this.bSave.AppearanceHovered.Options.UseBackColor = true;
+            this.bSave.Cursor = System.Windows.Forms.Cursors.No;
             this.bSave.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bSave.ImageOptions.SvgImage")));
             this.bSave.ImageOptions.SvgImageSize = new System.Drawing.Size(28, 28);
             this.bSave.Location = new System.Drawing.Point(694, 192);
@@ -307,20 +313,23 @@
             this.bImport.TabIndex = 23;
             this.bImport.Text = "Toplu məhsul əlavə et";
             // 
-            // bClear
+            // bReset
             // 
-            this.bClear.AllowFocus = false;
-            this.bClear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.bClear.Appearance.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Danger;
-            this.bClear.Appearance.Font = new System.Drawing.Font("Nunito", 12F);
-            this.bClear.Appearance.Options.UseBackColor = true;
-            this.bClear.Appearance.Options.UseFont = true;
-            this.bClear.Location = new System.Drawing.Point(7, 192);
-            this.bClear.Name = "bClear";
-            this.bClear.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
-            this.bClear.Size = new System.Drawing.Size(140, 35);
-            this.bClear.TabIndex = 23;
-            this.bClear.Text = "Təmizlə";
+            this.bReset.AllowFocus = false;
+            this.bReset.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.bReset.Appearance.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Danger;
+            this.bReset.Appearance.Font = new System.Drawing.Font("Nunito", 12F);
+            this.bReset.Appearance.Options.UseBackColor = true;
+            this.bReset.Appearance.Options.UseFont = true;
+            this.bReset.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bReset.ImageOptions.SvgImage")));
+            this.bReset.ImageOptions.SvgImageSize = new System.Drawing.Size(28, 28);
+            this.bReset.Location = new System.Drawing.Point(7, 192);
+            this.bReset.Name = "bReset";
+            this.bReset.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
+            this.bReset.Size = new System.Drawing.Size(140, 35);
+            this.bReset.TabIndex = 23;
+            this.bReset.Text = "Sıfırla";
+            this.bReset.Click += new System.EventHandler(this.bReset_Click);
             // 
             // separatorControl2
             // 
@@ -733,8 +742,6 @@
             this.gridColumn1.OptionsFilter.AllowInHeaderSearch = DevExpress.Utils.DefaultBoolean.False;
             this.gridColumn1.OptionsFilter.FilterBySortField = DevExpress.Utils.DefaultBoolean.False;
             this.gridColumn1.OptionsFilter.ImmediateUpdateAutoFilter = false;
-            this.gridColumn1.Visible = true;
-            this.gridColumn1.VisibleIndex = 1;
             this.gridColumn1.Width = 50;
             // 
             // gridColumn13
@@ -744,10 +751,11 @@
             this.gridColumn13.Caption = "Təchizatçı";
             this.gridColumn13.FieldName = "SupplierName";
             this.gridColumn13.Name = "gridColumn13";
+            this.gridColumn13.OptionsColumn.AllowEdit = false;
             this.gridColumn13.OptionsFilter.AllowAutoFilter = false;
             this.gridColumn13.OptionsFilter.AllowFilter = false;
             this.gridColumn13.Visible = true;
-            this.gridColumn13.VisibleIndex = 2;
+            this.gridColumn13.VisibleIndex = 1;
             this.gridColumn13.Width = 100;
             // 
             // gridColumn2
@@ -763,7 +771,7 @@
             this.gridColumn2.OptionsFilter.AllowAutoFilter = false;
             this.gridColumn2.OptionsFilter.AllowFilter = false;
             this.gridColumn2.Visible = true;
-            this.gridColumn2.VisibleIndex = 3;
+            this.gridColumn2.VisibleIndex = 2;
             this.gridColumn2.Width = 196;
             // 
             // gridColumn3
@@ -778,7 +786,7 @@
             this.gridColumn3.OptionsFilter.AllowAutoFilter = false;
             this.gridColumn3.OptionsFilter.AllowFilter = false;
             this.gridColumn3.Visible = true;
-            this.gridColumn3.VisibleIndex = 4;
+            this.gridColumn3.VisibleIndex = 3;
             this.gridColumn3.Width = 85;
             // 
             // gridColumn14
@@ -790,13 +798,13 @@
             this.gridColumn14.Caption = "Anbar qalığı";
             this.gridColumn14.DisplayFormat.FormatString = "N3";
             this.gridColumn14.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.gridColumn14.FieldName = "StockAmount";
+            this.gridColumn14.FieldName = "Stock";
             this.gridColumn14.Name = "gridColumn14";
             this.gridColumn14.OptionsColumn.AllowEdit = false;
             this.gridColumn14.OptionsFilter.AllowAutoFilter = false;
             this.gridColumn14.OptionsFilter.AllowFilter = false;
             this.gridColumn14.Visible = true;
-            this.gridColumn14.VisibleIndex = 5;
+            this.gridColumn14.VisibleIndex = 4;
             this.gridColumn14.Width = 78;
             // 
             // gridColumn4
@@ -810,12 +818,12 @@
             this.gridColumn4.ColumnEdit = this.bQuantity;
             this.gridColumn4.DisplayFormat.FormatString = "N3";
             this.gridColumn4.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.gridColumn4.FieldName = "Amount";
+            this.gridColumn4.FieldName = "Quantity";
             this.gridColumn4.Name = "gridColumn4";
             this.gridColumn4.OptionsFilter.AllowAutoFilter = false;
             this.gridColumn4.OptionsFilter.AllowFilter = false;
             this.gridColumn4.Visible = true;
-            this.gridColumn4.VisibleIndex = 6;
+            this.gridColumn4.VisibleIndex = 5;
             this.gridColumn4.Width = 85;
             // 
             // bQuantity
@@ -853,14 +861,14 @@
             this.gridColumn6.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.gridColumn6.Caption = "A.Qiyməti";
             this.gridColumn6.ColumnEdit = this.tPurchasePrice;
-            this.gridColumn6.DisplayFormat.FormatString = "N2";
+            this.gridColumn6.DisplayFormat.FormatString = "C2";
             this.gridColumn6.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.gridColumn6.FieldName = "PurchasePrice";
             this.gridColumn6.Name = "gridColumn6";
             this.gridColumn6.OptionsFilter.AllowAutoFilter = false;
             this.gridColumn6.OptionsFilter.AllowFilter = false;
             this.gridColumn6.Visible = true;
-            this.gridColumn6.VisibleIndex = 7;
+            this.gridColumn6.VisibleIndex = 6;
             this.gridColumn6.Width = 82;
             // 
             // tPurchasePrice
@@ -883,7 +891,7 @@
             this.gridColumn7.AppearanceHeader.TextOptions.Trimming = DevExpress.Utils.Trimming.EllipsisCharacter;
             this.gridColumn7.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.gridColumn7.Caption = "Ümumi alış məbləği";
-            this.gridColumn7.DisplayFormat.FormatString = "N2";
+            this.gridColumn7.DisplayFormat.FormatString = "C2";
             this.gridColumn7.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.gridColumn7.FieldName = "TotalPurchaseAmount";
             this.gridColumn7.Name = "gridColumn7";
@@ -891,7 +899,7 @@
             this.gridColumn7.OptionsFilter.AllowAutoFilter = false;
             this.gridColumn7.OptionsFilter.AllowFilter = false;
             this.gridColumn7.Visible = true;
-            this.gridColumn7.VisibleIndex = 8;
+            this.gridColumn7.VisibleIndex = 7;
             this.gridColumn7.Width = 68;
             // 
             // gridColumn12
@@ -910,7 +918,7 @@
             this.gridColumn12.OptionsFilter.AllowAutoFilter = false;
             this.gridColumn12.OptionsFilter.AllowFilter = false;
             this.gridColumn12.Visible = true;
-            this.gridColumn12.VisibleIndex = 9;
+            this.gridColumn12.VisibleIndex = 8;
             this.gridColumn12.Width = 58;
             // 
             // gridColumn8
@@ -922,14 +930,14 @@
             this.gridColumn8.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.gridColumn8.Caption = "S.Qiyməti";
             this.gridColumn8.ColumnEdit = this.tSalePrice;
-            this.gridColumn8.DisplayFormat.FormatString = "N2";
+            this.gridColumn8.DisplayFormat.FormatString = "C2";
             this.gridColumn8.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.gridColumn8.FieldName = "SalePrice";
             this.gridColumn8.Name = "gridColumn8";
             this.gridColumn8.OptionsFilter.AllowAutoFilter = false;
             this.gridColumn8.OptionsFilter.AllowFilter = false;
             this.gridColumn8.Visible = true;
-            this.gridColumn8.VisibleIndex = 10;
+            this.gridColumn8.VisibleIndex = 9;
             this.gridColumn8.Width = 73;
             // 
             // tSalePrice
@@ -952,7 +960,7 @@
             this.gridColumn11.AppearanceHeader.TextOptions.Trimming = DevExpress.Utils.Trimming.EllipsisCharacter;
             this.gridColumn11.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.gridColumn11.Caption = "Ümumi satış məbləği";
-            this.gridColumn11.DisplayFormat.FormatString = "N2";
+            this.gridColumn11.DisplayFormat.FormatString = "C2";
             this.gridColumn11.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.gridColumn11.FieldName = "TotalSaleAmount";
             this.gridColumn11.Name = "gridColumn11";
@@ -968,7 +976,7 @@
             this.gridColumn9.AppearanceHeader.TextOptions.Trimming = DevExpress.Utils.Trimming.EllipsisCharacter;
             this.gridColumn9.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.gridColumn9.Caption = "Mənfəət";
-            this.gridColumn9.DisplayFormat.FormatString = "N2";
+            this.gridColumn9.DisplayFormat.FormatString = "C2";
             this.gridColumn9.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.gridColumn9.FieldName = "GainAmount";
             this.gridColumn9.Name = "gridColumn9";
@@ -976,7 +984,7 @@
             this.gridColumn9.OptionsFilter.AllowAutoFilter = false;
             this.gridColumn9.OptionsFilter.AllowFilter = false;
             this.gridColumn9.Visible = true;
-            this.gridColumn9.VisibleIndex = 11;
+            this.gridColumn9.VisibleIndex = 10;
             this.gridColumn9.Width = 95;
             // 
             // gridColumn10
@@ -995,17 +1003,8 @@
             this.gridColumn10.OptionsColumn.ShowCaption = false;
             this.gridColumn10.OptionsFilter.AllowAutoFilter = false;
             this.gridColumn10.OptionsFilter.AllowFilter = false;
-            this.gridColumn10.OptionsFilter.AllowFilterModeChanging = DevExpress.Utils.DefaultBoolean.False;
-            this.gridColumn10.OptionsFilter.AllowInHeaderSearch = DevExpress.Utils.DefaultBoolean.False;
-            this.gridColumn10.OptionsFilter.FilterBySortField = DevExpress.Utils.DefaultBoolean.False;
-            this.gridColumn10.OptionsFilter.ImmediateUpdateAutoFilter = false;
-            this.gridColumn10.OptionsFilter.ImmediateUpdatePopupDateFilterOnCheck = DevExpress.Utils.DefaultBoolean.False;
-            this.gridColumn10.OptionsFilter.ImmediateUpdatePopupDateFilterOnDateChange = DevExpress.Utils.DefaultBoolean.False;
-            this.gridColumn10.OptionsFilter.ImmediateUpdatePopupExcelFilter = DevExpress.Utils.DefaultBoolean.False;
-            this.gridColumn10.OptionsFilter.ShowBlanksFilterItems = DevExpress.Utils.DefaultBoolean.False;
-            this.gridColumn10.OptionsFilter.ShowEmptyDateFilter = false;
             this.gridColumn10.Visible = true;
-            this.gridColumn10.VisibleIndex = 12;
+            this.gridColumn10.VisibleIndex = 11;
             this.gridColumn10.Width = 60;
             // 
             // bDeleteRow
@@ -1020,6 +1019,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "SİL", -1, true, true, false, editorButtonImageOptions8, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject29, serializableAppearanceObject30, serializableAppearanceObject31, serializableAppearanceObject32, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.bDeleteRow.Name = "bDeleteRow";
             this.bDeleteRow.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+            this.bDeleteRow.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.bDeleteRow_ButtonClick);
             // 
             // fInvoiceProduct
             // 
@@ -1115,11 +1115,11 @@
         private DevExpress.XtraEditors.GroupControl groupControl2;
         private DevExpress.XtraEditors.ButtonEdit tBarcodeSearch;
         private DevExpress.XtraEditors.SeparatorControl separatorControl2;
-        private DevExpress.XtraEditors.SimpleButton bClear;
         private DevExpress.XtraEditors.SimpleButton bSave;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn16;
-        private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement1;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement bAddProduct;
         private DevExpress.XtraEditors.SeparatorControl separatorControl1;
         private DevExpress.XtraEditors.SimpleButton bImport;
+        private DevExpress.XtraEditors.SimpleButton bReset;
     }
 }

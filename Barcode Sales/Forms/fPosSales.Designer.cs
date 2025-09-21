@@ -546,7 +546,7 @@
             this.colUnit.AppearanceHeader.TextOptions.Trimming = DevExpress.Utils.Trimming.EllipsisCharacter;
             this.colUnit.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.colUnit.Caption = "Vahid";
-            this.colUnit.FieldName = "Unit";
+            this.colUnit.FieldName = "UnitName";
             this.colUnit.MinWidth = 27;
             this.colUnit.Name = "colUnit";
             this.colUnit.OptionsColumn.AllowEdit = false;

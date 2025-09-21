@@ -1,13 +1,14 @@
 ﻿using Barcode_Sales.Operations.Abstract;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 
 namespace Barcode_Sales.Operations.Concrete
 {
-    public class InvoiceManager:IInvoiceOperation
+    public class InvoiceManager : IInvoiceOperation
     {
         private NextposDBEntities db = new NextposDBEntities();
         public bool Add(Invoice item)
@@ -20,6 +21,14 @@ namespace Barcode_Sales.Operations.Concrete
             db.Invoices.Add(item);
             db.SaveChanges();
             return item.Id;
+        }
+
+        public async Task<List<Invoice>> InvoiceReport(DateTime start, DateTime end)
+        {
+            return await db.Invoices.AsNoTracking()
+                .Where(x => x.IsDeleted == 0 && x.InvoiceDate >= start.Date && x.InvoiceDate <= end.Date)
+                .OrderBy(x=> x.InvoiceDate)
+                .ToListAsync();
         }
 
         public Task AddAsync(Invoice item)
@@ -62,11 +71,9 @@ namespace Barcode_Sales.Operations.Concrete
             return db.Invoices.AsNoTracking().Where(expression);
         }
 
-        public Task<List<Invoice>> WhereAsync(Expression<Func<Invoice, bool>> expression = null)
+        public async Task<List<Invoice>> WhereAsync(Expression<Func<Invoice, bool>> expression = null)
         {
-            throw new NotImplementedException();
+            return await db.Invoices.AsNoTracking().Where(expression).OrderBy(x => x.InvoiceDate).ToListAsync();
         }
-
-      
     }
 }

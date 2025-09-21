@@ -127,6 +127,7 @@
     <Property Name="PurchasePrice" Type="float" />
     <Property Name="Discount" Type="float" />
     <Property Name="TotalPurchasePrice" Type="float" />
+    <Property Name="SalePrice" Type="float" />
   </EntityType>
   <EntityType Name="Invoices">
     <Key>

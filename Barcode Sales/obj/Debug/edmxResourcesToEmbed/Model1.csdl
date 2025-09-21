@@ -737,6 +737,7 @@
     <Property Name="TotalPurchasePrice" Type="Double" />
     <NavigationProperty Name="Invoice" Relationship="NextposDBModel.FK_InvoiceDetails_Invoices" FromRole="InvoiceDetail" ToRole="Invoice" />
     <NavigationProperty Name="Products" Relationship="NextposDBModel.FK_InvoiceDetails_Product" FromRole="InvoiceDetail" ToRole="Products" />
+    <Property Name="SalePrice" Type="Double" />
   </EntityType>
   <Association Name="FK_InvoiceDetails_Invoices">
     <End Type="NextposDBModel.Invoice" Role="Invoice" Multiplicity="0..1" />

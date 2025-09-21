@@ -21,6 +21,12 @@ namespace Barcode_Sales.Operations.Concrete
             throw new NotImplementedException();
         }
 
+        public void AddRange(List<InvoiceDetail> items)
+        {
+            db.InvoiceDetails.AddRange(items);
+            db.SaveChanges();
+        }
+
         public void Update(InvoiceDetail item)
         {
             throw new NotImplementedException();

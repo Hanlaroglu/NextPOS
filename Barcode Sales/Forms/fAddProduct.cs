@@ -147,7 +147,7 @@ namespace Barcode_Sales.Forms
             Product.Status = true;
             Product.IsDeleted = 0;
             Product.CreatedDate = DateTime.Now;
-            Product.CreatedUserId =CommonData.CURRENT_USER.Id;
+            Product.CreatedUserId = 3;
 
             var barcodeCheck = await productOperation.BarcodeCheckAsync(Product.Barcode, (int)Product.SupplierId);
             if (barcodeCheck)
@@ -229,6 +229,6 @@ namespace Barcode_Sales.Forms
             public double SalePrice { get; set; }
         }
 
-     
+
     }
 }

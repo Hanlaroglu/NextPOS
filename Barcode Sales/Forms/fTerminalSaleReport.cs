@@ -2,8 +2,10 @@
 using Barcode_Sales.Operations.Abstract;
 using Barcode_Sales.Operations.Concrete;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Barcode_Sales.Forms
 {
@@ -20,11 +22,14 @@ namespace Barcode_Sales.Forms
 
         private void bReceiptCopy_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
-            //Terminallara görə kassadan təkrar çap et
+            //todo Terminallara görə kassadan təkrar çap et
         }
 
         private async void fTerminalSaleReport_Load(object sender, EventArgs e)
         {
+            DateTime today = DateTime.Today;
+            dateStart.DateTime = today;
+            dateEnd.DateTime = today;
             dateStart.Focus();
             await CashiersLoad();
 
@@ -43,69 +48,114 @@ namespace Barcode_Sales.Forms
             if (chDate.Checked)
             {
                 dateStart.Focus();
-                tFiscalCode.Visible = false;
+                textEdit1.Visible = false;
             }
-            else if (chFiscal.Checked)
+            else
             {
-                tFiscalCode.Focus();
-                tFiscalCode.Visible = true;
+                textEdit1.Focus();
+                textEdit1.Visible = true;
             }
         }
 
         private void bSearch_Click(object sender, EventArgs e)
         {
+            var data = new List<SaleDataDto>();
             if (chDate.Checked)
             {
-                var data = saleDataOperation.Where(x => x.SaleDate >= dateStart.DateTime &&
-                                                        x.SaleDate <= dateEnd.DateTime).Select(x => new
-                                                        {
-                                                            x.Id,
-                                                            Cashier = x.User.NameSurname,
-                                                            CustomerName = x.Customer.NameSurname,
-                                                            x.SaleDate,
-                                                            x.SaleDatetime,
-                                                            x.ReceiptNo,
-                                                            x.ShortFiscalId,
-                                                            x.Rrn,
-                                                            PaymentType = x.Cash > 0 && x.Card == 0 ? "NAĞD"
+                data = saleDataOperation.Where(x => x.SaleDate >= dateStart.DateTime &&
+                                                        x.SaleDate <= dateEnd.DateTime)
+                    .Select(x => new SaleDataDto()
+                    {
+                        Id = x.Id,
+                        Cashier = x.User.NameSurname,
+                        CustomerName = x.Customer.NameSurname,
+                        SaleDate = x.SaleDate,
+                        SaleDatetime = x.SaleDatetime,
+                        ReceiptNo = x.ReceiptNo,
+                        ShortFiscalId = x.ShortFiscalId,
+                        Rrn = x.Rrn,
+                        PaymentType = x.Cash > 0 && x.Card == 0 ? "NAĞD"
                                                                 : x.Cash == 0 && x.Card > 0 ? "KART"
-                                                                : x.Cash > 0 && x.Card > 0 ? "NAĞD-KART" 
+                                                                : x.Cash > 0 && x.Card > 0 ? "NAĞD-KART"
                                                                 : string.Empty,
-                                                            x.Total,
-                                                            x.Note
-                                                        }).ToList();
-
-                FormHelpers.ControlLoad(data, gridControl1);
+                        Total = x.Total,
+                        Note = x.Note
+                    })
+                    .ToList();
             }
             else if (chFiscal.Checked)
             {
-                var data = saleDataOperation.Where(x => x.ShortFiscalId == tFiscalCode.Text.TrimStart().Trim())
-                    .Select(x => new
+                string fiscal = textEdit1.Text.TrimStart().Trim();
+                data = saleDataOperation.Where(x => x.ShortFiscalId == fiscal)
+                    .Select(x => new SaleDataDto()
                     {
-                        x.Id,
+                        Id = x.Id,
                         Cashier = x.User.NameSurname,
                         CustomerName = x.Customer.NameSurname,
-                        x.SaleDate,
-                        x.SaleDatetime,
-                        x.ReceiptNo,
-                        x.ShortFiscalId,
-                        x.Rrn,
+                        SaleDate = x.SaleDate,
+                        SaleDatetime = x.SaleDatetime,
+                        ReceiptNo = x.ReceiptNo,
+                        ShortFiscalId = x.ShortFiscalId,
+                        Rrn = x.Rrn,
                         PaymentType = x.Cash > 0 && x.Card == 0 ? "NAĞD"
                             : x.Cash == 0 && x.Card > 0 ? "KART"
-                            : x.Cash > 0 && x.Card > 0 ? "NAĞD-KART" 
+                            : x.Cash > 0 && x.Card > 0 ? "NAĞD-KART"
                             : string.Empty,
-                        x.Total,
-                        x.Note
-                    }).ToList();
-
-                FormHelpers.ControlLoad(data, gridControl1);
+                        Total = x.Total,
+                        Note = x.Note
+                    })
+                    .ToList();
             }
+            else if (chReceipt.Checked)
+            {
+                string receipt = textEdit1.Text.TrimStart().Trim();
+                data = saleDataOperation.Where(x => x.ReceiptNo == receipt)
+                    .Select(x => new SaleDataDto()
+                    {
+                        Id = x.Id,
+                        Cashier = x.User.NameSurname,
+                        CustomerName = x.Customer.NameSurname,
+                        SaleDate = x.SaleDate,
+                        SaleDatetime = x.SaleDatetime,
+                        ReceiptNo = x.ReceiptNo,
+                        ShortFiscalId = x.ShortFiscalId,
+                        Rrn = x.Rrn,
+                        PaymentType = x.Cash > 0 && x.Card == 0 ? "NAĞD"
+                            : x.Cash == 0 && x.Card > 0 ? "KART"
+                            : x.Cash > 0 && x.Card > 0 ? "NAĞD-KART"
+                            : string.Empty,
+                        Total = x.Total,
+                        Note = x.Note
+                    })
+                    .ToList();
+            }
+            FormHelpers.ControlLoad(data, gridControl1);
         }
 
         private void gridView1_MasterRowGetChildList(object sender, DevExpress.XtraGrid.Views.Grid.MasterRowGetChildListEventArgs e)
         {
-            int Id = ((SalesData)gridView1.GetRow(e.RowHandle)).Id;
-            e.ChildList = salesDataDetailOperation.Where(x => x.SaleDataId == Id).ToList();
+            var data = (SaleDataDto)gridView1.GetRow(e.RowHandle);
+            if (data != null)
+            {
+                var dataSource = salesDataDetailOperation.Where(x => x.SaleDataId == data.Id)
+                    .Select(x => new SalesDataDetailDto()
+                    {
+                        Id = x.Id,
+                        SaleDataId = x.SaleDataId,
+                        ProductId = x.ProductId,
+                        ProductName = x.Products.ProductName,
+                        Barcode = x.Products.Barcode,
+                        Unit = x.Products.UnitTypes.Name,
+                        Tax = x.Products.TaxTypes.Name,
+                        Quantity = x.Quantity,
+                        SalePrice = x.SalePrice,
+                        Discount = x.Discount,
+                        Total = (double)x.Quantity * (double)x.SalePrice,
+                    })
+                    .ToList();
+                e.ChildList = dataSource;
+            }
+
         }
 
         private void gridView1_MasterRowGetRelationName(object sender, DevExpress.XtraGrid.Views.Grid.MasterRowGetRelationNameEventArgs e)
@@ -121,7 +171,29 @@ namespace Barcode_Sales.Forms
         private void lookCashier_TextChanged(object sender, EventArgs e)
         {
             if (!string.IsNullOrWhiteSpace(lookCashier.Text))
-                gridView1.ActiveFilterString = $"Contains([User.NameSurname], '{lookCashier.Text}')";
+                gridView1.ActiveFilterString = $"Contains([Cashier], '{lookCashier.Text}')";
+        }
+
+        private class SaleDataDto : SalesData
+        {
+            public string PaymentType { get; set; }
+            public string Cashier { get; set; }
+            public string CustomerName { get; set; }
+        }
+
+        private class SalesDataDetailDto : SalesDataDetail
+        {
+            public string ProductName { get; set; }
+            public string Barcode { get; set; }
+            public string Unit { get; set; }
+            public string Tax { get; set; }
+            public double Total { get; set; }
+        }
+
+        private void Search_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode is Keys.Enter)
+                bSearch.PerformClick();
         }
     }
 }

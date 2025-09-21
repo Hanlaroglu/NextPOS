@@ -132,6 +132,7 @@
           <Property Name="PurchasePrice" Type="float" />
           <Property Name="Discount" Type="float" />
           <Property Name="TotalPurchasePrice" Type="float" />
+          <Property Name="SalePrice" Type="float" />
         </EntityType>
         <EntityType Name="Invoices">
           <Key>
@@ -1581,6 +1582,7 @@
           <Property Name="TotalPurchasePrice" Type="Double" />
           <NavigationProperty Name="Invoice" Relationship="NextposDBModel.FK_InvoiceDetails_Invoices" FromRole="InvoiceDetail" ToRole="Invoice" />
           <NavigationProperty Name="Products" Relationship="NextposDBModel.FK_InvoiceDetails_Product" FromRole="InvoiceDetail" ToRole="Products" />
+          <Property Name="SalePrice" Type="Double" />
         </EntityType>
         <Association Name="FK_InvoiceDetails_Invoices">
           <End Type="NextposDBModel.Invoice" Role="Invoice" Multiplicity="0..1" />
@@ -2110,6 +2112,7 @@
           <EntitySetMapping Name="InvoiceDetails">
             <EntityTypeMapping TypeName="NextposDBModel.InvoiceDetail">
               <MappingFragment StoreEntitySet="InvoiceDetails">
+                <ScalarProperty Name="SalePrice" ColumnName="SalePrice" />
                 <ScalarProperty Name="TotalPurchasePrice" ColumnName="TotalPurchasePrice" />
                 <ScalarProperty Name="Discount" ColumnName="Discount" />
                 <ScalarProperty Name="PurchasePrice" ColumnName="PurchasePrice" />

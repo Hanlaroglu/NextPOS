@@ -324,11 +324,11 @@
     <Compile Include="Forms\fInvoiceProduct.Designer.cs">
       <DependentUpon>fInvoiceProduct.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\fInvoiceProduct1.cs">
+    <Compile Include="Forms\fInvoiceReport.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\fInvoiceProduct1.Designer.cs">
-      <DependentUpon>fInvoiceProduct1.cs</DependentUpon>
+    <Compile Include="Forms\fInvoiceReport.Designer.cs">
+      <DependentUpon>fInvoiceReport.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\fKassalar.cs">
       <SubType>Form</SubType>
@@ -678,6 +678,7 @@
     <Compile Include="Validations\AqtaProductsValidation.cs" />
     <Compile Include="Validations\CompanyValidation.cs" />
     <Compile Include="Validations\CustomerValidation.cs" />
+    <Compile Include="Validations\InvoiceValidation.cs" />
     <Compile Include="Validations\ProductValidation.cs" />
     <Compile Include="Validations\RoleValidation.cs" />
     <Compile Include="Validations\SupplierDebtValidation.cs" />
@@ -748,8 +749,8 @@
     <EmbeddedResource Include="Forms\fInvoiceProduct.resx">
       <DependentUpon>fInvoiceProduct.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\fInvoiceProduct1.resx">
-      <DependentUpon>fInvoiceProduct1.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\fInvoiceReport.resx">
+      <DependentUpon>fInvoiceReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\fKassalar.resx">
       <DependentUpon>fKassalar.cs</DependentUpon>

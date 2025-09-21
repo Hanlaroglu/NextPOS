@@ -55,7 +55,7 @@
             this.panelControl1.LookAndFeel.SkinName = "WXI";
             this.panelControl1.LookAndFeel.UseDefaultLookAndFeel = false;
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(490, 135);
+            this.panelControl1.Size = new System.Drawing.Size(490, 95);
             this.panelControl1.TabIndex = 0;
             // 
             // bSave
@@ -63,7 +63,7 @@
             this.bSave.AllowFocus = false;
             this.bSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.bSave.Appearance.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Success;
-            this.bSave.Appearance.Font = new System.Drawing.Font("Nunito", 11F);
+            this.bSave.Appearance.Font = new System.Drawing.Font("Nunito", 12F, System.Drawing.FontStyle.Bold);
             this.bSave.Appearance.ForeColor = System.Drawing.Color.Black;
             this.bSave.Appearance.Options.UseBackColor = true;
             this.bSave.Appearance.Options.UseFont = true;
@@ -72,23 +72,23 @@
             this.bSave.AppearanceHovered.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(131)))), ((int)(((byte)(131)))));
             this.bSave.AppearanceHovered.Options.UseBackColor = true;
             this.bSave.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bSave.ImageOptions.SvgImage")));
-            this.bSave.ImageOptions.SvgImageSize = new System.Drawing.Size(24, 24);
-            this.bSave.Location = new System.Drawing.Point(359, 93);
+            this.bSave.ImageOptions.SvgImageSize = new System.Drawing.Size(28, 28);
+            this.bSave.Location = new System.Drawing.Point(343, 51);
             this.bSave.LookAndFeel.SkinName = "WXI";
             this.bSave.LookAndFeel.UseDefaultLookAndFeel = false;
             this.bSave.Name = "bSave";
             this.bSave.Padding = new System.Windows.Forms.Padding(3);
             this.bSave.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
-            this.bSave.Size = new System.Drawing.Size(124, 36);
-            this.bSave.TabIndex = 15;
+            this.bSave.Size = new System.Drawing.Size(140, 35);
+            this.bSave.TabIndex = 25;
             this.bSave.TabStop = false;
-            this.bSave.Text = "Yadda saxla";
+            this.bSave.Text = "Saxla";
             this.bSave.Click += new System.EventHandler(this.bSave_Click);
             // 
             // chStatus
             // 
             this.chStatus.EditValue = true;
-            this.chStatus.Location = new System.Drawing.Point(99, 50);
+            this.chStatus.Location = new System.Drawing.Point(99, 57);
             this.chStatus.Name = "chStatus";
             this.chStatus.Properties.AutoWidth = true;
             this.chStatus.Properties.OffText = "Deaktiv";
@@ -101,7 +101,7 @@
             this.labelControl1.Appearance.Font = new System.Drawing.Font("Nunito", 11F);
             this.labelControl1.Appearance.Options.UseFont = true;
             this.labelControl1.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Horizontal;
-            this.labelControl1.Location = new System.Drawing.Point(5, 51);
+            this.labelControl1.Location = new System.Drawing.Point(5, 59);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
             this.labelControl1.Size = new System.Drawing.Size(48, 20);
@@ -132,7 +132,7 @@
             this.tName.Properties.Appearance.Options.UseFont = true;
             this.tName.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.tName.Properties.MaskSettings.Set("mask", "(999) 000-00-00");
-            this.tName.Properties.MaxLength = 20;
+            this.tName.Properties.MaxLength = 50;
             this.tName.Size = new System.Drawing.Size(384, 32);
             this.tName.TabIndex = 0;
             // 
@@ -140,12 +140,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(498, 146);
+            this.ClientSize = new System.Drawing.Size(498, 106);
             this.Controls.Add(this.panelControl1);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(500, 180);
+            this.MaximumSize = new System.Drawing.Size(500, 140);
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(500, 180);
+            this.MinimumSize = new System.Drawing.Size(500, 140);
             this.Name = "fWarehouse";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Anbar";
