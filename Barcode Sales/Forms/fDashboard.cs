@@ -2,6 +2,8 @@
 using Barcode_Sales.Helpers;
 using Barcode_Sales.Operations.Abstract;
 using Barcode_Sales.Operations.Concrete;
+using DevExpress.XtraEditors;
+using DevExpress.XtraEditors.Controls;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -221,7 +223,7 @@ namespace Barcode_Sales.Forms
                 chartTop5Product.Titles[0].Text = $"({weekFirstDay.ToString("dd.MM.yyyy")} - {weekLastDay.ToString("dd.MM.yyyy")}) Çox satılan 5 məhsul";
             }
 
-            
+
         }
 
         #endregion [.. DASHBOARD ..]
@@ -241,13 +243,14 @@ namespace Barcode_Sales.Forms
 
         private async Task WarehouseDataList()
         {
-            var data = await warehouseOperation.Where(x => x.IsDeleted == 0).Select(x => new
-            {
-                Id = x.Id,
-                Name = x.Name,
-                Status = x.Status == true ? "Aktiv" : "Deaktiv",
-                IsDelete = x.IsDeleted,
-            }).ToListAsync();
+            var data = await warehouseOperation.Where(x => x.IsDeleted == 0)
+                .Select(x => new WarehousesDto
+                {
+                    Id = x.Id,
+                    Name = x.Name,
+                    Status = (bool)x.Status,
+                    IsDeleted = x.IsDeleted
+                }).ToListAsync();
 
             FormHelpers.ControlLoad(data, gridControlWarehouse);
         }
@@ -256,6 +259,34 @@ namespace Barcode_Sales.Forms
         {
             Point mousePosition = Control.MousePosition;
             popupMenu1.ShowPopup(mousePosition);
+        }
+
+        private async void bWarehouseEdit_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            var row = gridWarehouse.GetFocusedRow() as WarehousesDto;
+            if (row is null) return;
+            fWarehouse f = new fWarehouse(Enums.Operation.Edit, row);
+            f.FormClosed += async (s, x) =>
+            {
+                await WarehouseDataList();
+            };
+            f.ShowDialog();
+        }
+
+        private async void bWarehouseDelete_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            var row = gridWarehouse.GetFocusedRow() as WarehousesDto;
+            if (row is null) return;
+
+            var args = NoticationHelpers.Dialogs.DialogResultYesNo(
+                $"({row.Name}) anbarını silmək istədiyinizə əminsiniz ?", String.Empty);
+            var result = XtraMessageBox.Show(args);
+            if (result is DialogResult.Yes)
+            {
+                warehouseOperation.Remove(row);
+                await WarehouseDataList();
+                NoticationHelpers.Messages.SuccessMessage(this,$"{row.Name} anbarı uğurla silindi");
+            }
         }
 
         private void gridWarehouse_RowCellStyle(object sender, DevExpress.XtraGrid.Views.Grid.RowCellStyleEventArgs e)

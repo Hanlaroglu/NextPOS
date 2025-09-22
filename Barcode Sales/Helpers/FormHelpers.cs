@@ -122,7 +122,7 @@ namespace Barcode_Sales.Helpers
             {
                 if (eventArgs.CellValue != null)
                 {
-                    //eventArgs.Appearance.FontStyleDelta = FontStyle.Bold;
+                    eventArgs.Appearance.FontStyleDelta = FontStyle.Bold;
                     if (eventArgs.CellValue.ToString() == value1)
                     {
                         eventArgs.Appearance.ForeColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Success;

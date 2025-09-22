@@ -7,7 +7,7 @@ using DevExpress.XtraEditors;
 
 namespace Barcode_Sales.Forms
 {
-    public partial class fWarehouse : XtraForm  
+    public partial class fWarehouse : XtraForm
     {
         IWarehouseOperation warehouseOperation = new WarehouseManager();
         private Warehouses _warehouses;
@@ -28,7 +28,7 @@ namespace Barcode_Sales.Forms
         private void WarehouseDataList()
         {
             tName.Text = _warehouses.Name;
-            chStatus.IsOn = _warehouses.Status.Value;
+            chStatus.IsOn = _warehouses.Status ?? true;
         }
 
         private void Clear()
@@ -76,12 +76,8 @@ namespace Barcode_Sales.Forms
 
         private void Edit()
         {
-            _warehouses = new Warehouses
-            {
-                Name = tName.Text.Trim(),
-                Status = chStatus.IsOn,
-                IsDeleted = 0
-            };
+            _warehouses.Name = tName.Text.Trim();
+            _warehouses.Status = chStatus.IsOn;
 
             var validator = ValidationHelpers.ValidateMessage(_warehouses, new WarehouseValidation(), this);
 
@@ -89,7 +85,7 @@ namespace Barcode_Sales.Forms
                 return;
 
             warehouseOperation.Update(_warehouses);
-            Clear();
+            Close();
         }
 
     }

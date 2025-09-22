@@ -6,11 +6,11 @@ using System.Runtime.InteropServices;
 // Bir bütünleştirilmiş koda ilişkin Genel Bilgiler aşağıdaki öznitelikler kümesiyle
 // denetlenir. Bütünleştirilmiş kod ile ilişkili bilgileri değiştirmek için
 // bu öznitelik değerlerini değiştirin.
-[assembly: AssemblyTitle("NextPOS")]
+[assembly: AssemblyTitle("XanPOS")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Next Generation Technology")]
-[assembly: AssemblyProduct("NextPOS")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("XanPOS")]
 [assembly: AssemblyCopyright("Xanlaroğlu © 2025")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

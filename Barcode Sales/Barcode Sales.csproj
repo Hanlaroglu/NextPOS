@@ -8,7 +8,7 @@
     <ProjectGuid>{D6727043-D603-4957-81C7-7B2E4662D942}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>Barcode_Sales</RootNamespace>
-    <AssemblyName>Next Market</AssemblyName>
+    <AssemblyName>XanPOS</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -51,7 +51,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>Logo.ico</ApplicationIcon>
+    <ApplicationIcon>
+    </ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="DevExpress.BonusSkins.v24.1, Version=24.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
@@ -246,6 +247,7 @@
     <Compile Include="DTOs\DashboardStatisticsDto.cs" />
     <Compile Include="DTOs\DefinitionDto.cs" />
     <Compile Include="DTOs\SalesDataSummary.cs" />
+    <Compile Include="DTOs\WarehousesDto.cs" />
     <Compile Include="Forms\Components\controlFooterButton.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -870,10 +872,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="barcode-scanner.ico" />
     <Content Include="bin\Debug\EntityFramework.dll" />
     <Content Include="bin\Debug\EntityFramework.SqlServer.dll" />
-    <Content Include="Logo.ico" />
     <None Include="Resources\Logo_1024.png" />
     <None Include="Resources\info.png.png" />
     <None Include="Resources\return-black.svg" />

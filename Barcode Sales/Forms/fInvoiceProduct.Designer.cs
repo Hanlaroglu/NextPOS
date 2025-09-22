@@ -30,6 +30,11 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fInvoiceProduct));
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions9 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject33 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject34 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject35 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject36 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
@@ -40,6 +45,11 @@
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions10 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject37 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject38 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject39 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject40 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions3 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject9 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject10 = new DevExpress.Utils.SerializableAppearanceObject();
@@ -55,21 +65,11 @@
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject18 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject19 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject20 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions6 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject21 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject22 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject23 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject24 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions7 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject25 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject26 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject27 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject28 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions8 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject29 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject30 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject31 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject32 = new DevExpress.Utils.SerializableAppearanceObject();
             this.fluentDesignFormControl1 = new DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormControl();
             this.accordionControl1 = new DevExpress.XtraBars.Navigation.AccordionControl();
             this.bHelp = new DevExpress.XtraBars.Navigation.AccordionControlElement();
@@ -370,15 +370,15 @@
             this.lookPaymentType.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Nunito", 12F);
             this.lookPaymentType.Properties.AppearanceDropDown.Options.UseFont = true;
             this.lookPaymentType.Properties.AutoHeight = false;
-            serializableAppearanceObject1.Font = new System.Drawing.Font("Nunito", 12F, System.Drawing.FontStyle.Bold);
-            serializableAppearanceObject1.Options.UseFont = true;
-            serializableAppearanceObject4.Font = new System.Drawing.Font("Nunito", 12F, System.Drawing.FontStyle.Bold);
-            serializableAppearanceObject4.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.ControlText;
-            serializableAppearanceObject4.Options.UseFont = true;
-            serializableAppearanceObject4.Options.UseForeColor = true;
+            serializableAppearanceObject33.Font = new System.Drawing.Font("Nunito", 12F, System.Drawing.FontStyle.Bold);
+            serializableAppearanceObject33.Options.UseFont = true;
+            serializableAppearanceObject36.Font = new System.Drawing.Font("Nunito", 12F, System.Drawing.FontStyle.Bold);
+            serializableAppearanceObject36.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.ControlText;
+            serializableAppearanceObject36.Options.UseFont = true;
+            serializableAppearanceObject36.Options.UseForeColor = true;
             this.lookPaymentType.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Ödəniş növü :", -1, false, true, true, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Ödəniş növü :", -1, false, true, true, editorButtonImageOptions9, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject33, serializableAppearanceObject34, serializableAppearanceObject35, serializableAppearanceObject36, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.lookPaymentType.Properties.LookAndFeel.SkinName = "WXI";
             this.lookPaymentType.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
             this.lookPaymentType.Properties.NullText = "";
@@ -411,14 +411,14 @@
             this.tDate.Name = "tDate";
             this.tDate.Properties.Appearance.Font = new System.Drawing.Font("Nunito", 12F);
             this.tDate.Properties.Appearance.Options.UseFont = true;
-            serializableAppearanceObject5.Font = new System.Drawing.Font("Nunito", 12F, System.Drawing.FontStyle.Bold);
-            serializableAppearanceObject5.Options.UseFont = true;
-            serializableAppearanceObject8.Font = new System.Drawing.Font("Nunito", 12F, System.Drawing.FontStyle.Bold);
-            serializableAppearanceObject8.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.ControlText;
-            serializableAppearanceObject8.Options.UseFont = true;
-            serializableAppearanceObject8.Options.UseForeColor = true;
+            serializableAppearanceObject1.Font = new System.Drawing.Font("Nunito", 12F, System.Drawing.FontStyle.Bold);
+            serializableAppearanceObject1.Options.UseFont = true;
+            serializableAppearanceObject4.Font = new System.Drawing.Font("Nunito", 12F, System.Drawing.FontStyle.Bold);
+            serializableAppearanceObject4.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.ControlText;
+            serializableAppearanceObject4.Options.UseFont = true;
+            serializableAppearanceObject4.Options.UseForeColor = true;
             this.tDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Alış tarixi : ", -1, false, true, true, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Alış tarixi : ", -1, false, true, true, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.tDate.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.tDate.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.SimpleMaskManager));
             this.tDate.Properties.MaskSettings.Set("mask", "99/99/0000");
@@ -438,20 +438,20 @@
             this.lookWarehouse.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Nunito", 12F);
             this.lookWarehouse.Properties.AppearanceDropDown.Options.UseFont = true;
             this.lookWarehouse.Properties.AutoHeight = false;
-            serializableAppearanceObject9.Font = new System.Drawing.Font("Nunito", 12F, System.Drawing.FontStyle.Bold);
-            serializableAppearanceObject9.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.Hyperlink;
-            serializableAppearanceObject9.Options.UseFont = true;
-            serializableAppearanceObject9.Options.UseForeColor = true;
-            serializableAppearanceObject13.Font = new System.Drawing.Font("Nunito", 12F, System.Drawing.FontStyle.Bold);
-            serializableAppearanceObject13.Options.UseFont = true;
-            serializableAppearanceObject16.Font = new System.Drawing.Font("Nunito", 12F, System.Drawing.FontStyle.Bold);
-            serializableAppearanceObject16.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.ControlText;
-            serializableAppearanceObject16.Options.UseFont = true;
-            serializableAppearanceObject16.Options.UseForeColor = true;
+            serializableAppearanceObject5.Font = new System.Drawing.Font("Nunito", 12F, System.Drawing.FontStyle.Bold);
+            serializableAppearanceObject5.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.Hyperlink;
+            serializableAppearanceObject5.Options.UseFont = true;
+            serializableAppearanceObject5.Options.UseForeColor = true;
+            serializableAppearanceObject37.Font = new System.Drawing.Font("Nunito", 12F, System.Drawing.FontStyle.Bold);
+            serializableAppearanceObject37.Options.UseFont = true;
+            serializableAppearanceObject40.Font = new System.Drawing.Font("Nunito", 12F, System.Drawing.FontStyle.Bold);
+            serializableAppearanceObject40.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.ControlText;
+            serializableAppearanceObject40.Options.UseFont = true;
+            serializableAppearanceObject40.Options.UseForeColor = true;
             this.lookWarehouse.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Yarat", -1, true, true, false, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "", null, null, DevExpress.Utils.ToolTipAnchor.Default),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Anbar :", -1, false, true, true, editorButtonImageOptions4, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject13, serializableAppearanceObject14, serializableAppearanceObject15, serializableAppearanceObject16, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Yarat", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Anbar :", -1, false, true, true, editorButtonImageOptions10, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject37, serializableAppearanceObject38, serializableAppearanceObject39, serializableAppearanceObject40, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.lookWarehouse.Properties.LookAndFeel.SkinName = "WXI";
             this.lookWarehouse.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
             this.lookWarehouse.Properties.NullText = "";
@@ -474,14 +474,14 @@
             this.tContractNo.Properties.Appearance.Options.UseFont = true;
             this.tContractNo.Properties.Appearance.Options.UseTextOptions = true;
             this.tContractNo.Properties.Appearance.TextOptions.Trimming = DevExpress.Utils.Trimming.EllipsisCharacter;
-            serializableAppearanceObject17.Font = new System.Drawing.Font("Nunito", 12F, System.Drawing.FontStyle.Bold);
-            serializableAppearanceObject17.Options.UseFont = true;
-            serializableAppearanceObject20.Font = new System.Drawing.Font("Nunito", 12F, System.Drawing.FontStyle.Bold);
-            serializableAppearanceObject20.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.ControlText;
-            serializableAppearanceObject20.Options.UseFont = true;
-            serializableAppearanceObject20.Options.UseForeColor = true;
+            serializableAppearanceObject9.Font = new System.Drawing.Font("Nunito", 12F, System.Drawing.FontStyle.Bold);
+            serializableAppearanceObject9.Options.UseFont = true;
+            serializableAppearanceObject12.Font = new System.Drawing.Font("Nunito", 12F, System.Drawing.FontStyle.Bold);
+            serializableAppearanceObject12.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.ControlText;
+            serializableAppearanceObject12.Options.UseFont = true;
+            serializableAppearanceObject12.Options.UseForeColor = true;
             this.tContractNo.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Faktura № : ", -1, false, true, true, editorButtonImageOptions5, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject17, serializableAppearanceObject18, serializableAppearanceObject19, serializableAppearanceObject20, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Faktura № : ", -1, false, true, true, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.tContractNo.Size = new System.Drawing.Size(319, 36);
             this.tContractNo.TabIndex = 9;
             // 
@@ -618,7 +618,7 @@
             // 
             this.repositoryItemButtonEdit1.AutoHeight = false;
             this.repositoryItemButtonEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "sdfsd", -1, true, true, false, editorButtonImageOptions6, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject21, serializableAppearanceObject22, serializableAppearanceObject23, serializableAppearanceObject24, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "sdfsd", -1, true, true, false, editorButtonImageOptions4, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject13, serializableAppearanceObject14, serializableAppearanceObject15, serializableAppearanceObject16, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.repositoryItemButtonEdit1.Name = "repositoryItemButtonEdit1";
             this.repositoryItemButtonEdit1.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             // 
@@ -648,15 +648,15 @@
             this.tBarcodeSearch.Properties.Appearance.Options.UseFont = true;
             this.tBarcodeSearch.Properties.Appearance.Options.UseTextOptions = true;
             this.tBarcodeSearch.Properties.Appearance.TextOptions.Trimming = DevExpress.Utils.Trimming.EllipsisCharacter;
-            serializableAppearanceObject25.Font = new System.Drawing.Font("Nunito", 12F, System.Drawing.FontStyle.Bold);
-            serializableAppearanceObject25.Options.UseFont = true;
-            serializableAppearanceObject28.Font = new System.Drawing.Font("Nunito", 12F, System.Drawing.FontStyle.Bold);
-            serializableAppearanceObject28.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.ControlText;
-            serializableAppearanceObject28.Options.UseFont = true;
-            serializableAppearanceObject28.Options.UseForeColor = true;
+            serializableAppearanceObject17.Font = new System.Drawing.Font("Nunito", 12F, System.Drawing.FontStyle.Bold);
+            serializableAppearanceObject17.Options.UseFont = true;
+            serializableAppearanceObject20.Font = new System.Drawing.Font("Nunito", 12F, System.Drawing.FontStyle.Bold);
+            serializableAppearanceObject20.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.ControlText;
+            serializableAppearanceObject20.Options.UseFont = true;
+            serializableAppearanceObject20.Options.UseForeColor = true;
             this.tBarcodeSearch.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Search),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Barkod : ", -1, false, false, true, editorButtonImageOptions7, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject25, serializableAppearanceObject26, serializableAppearanceObject27, serializableAppearanceObject28, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Barkod : ", -1, false, false, true, editorButtonImageOptions5, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject17, serializableAppearanceObject18, serializableAppearanceObject19, serializableAppearanceObject20, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.tBarcodeSearch.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.tBarcodeSearch.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.tBarcodeSearch_Properties_ButtonClick);
             this.tBarcodeSearch.Size = new System.Drawing.Size(404, 36);
@@ -686,12 +686,8 @@
             // 
             // gridView1
             // 
-            this.gridView1.Appearance.EvenRow.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.gridView1.Appearance.EvenRow.Options.UseBackColor = true;
             this.gridView1.Appearance.HeaderPanel.Font = new System.Drawing.Font("Nunito", 10F, System.Drawing.FontStyle.Bold);
             this.gridView1.Appearance.HeaderPanel.Options.UseFont = true;
-            this.gridView1.Appearance.OddRow.BackColor = System.Drawing.Color.White;
-            this.gridView1.Appearance.OddRow.Options.UseBackColor = true;
             this.gridView1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.gridColumn1,
@@ -1011,12 +1007,12 @@
             // 
             this.bDeleteRow.AllowFocused = false;
             this.bDeleteRow.AutoHeight = false;
-            serializableAppearanceObject29.Font = new System.Drawing.Font("Nunito", 11F, System.Drawing.FontStyle.Bold);
-            serializableAppearanceObject29.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.Critical;
-            serializableAppearanceObject29.Options.UseFont = true;
-            serializableAppearanceObject29.Options.UseForeColor = true;
+            serializableAppearanceObject25.Font = new System.Drawing.Font("Nunito", 11F, System.Drawing.FontStyle.Bold);
+            serializableAppearanceObject25.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.Critical;
+            serializableAppearanceObject25.Options.UseFont = true;
+            serializableAppearanceObject25.Options.UseForeColor = true;
             this.bDeleteRow.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "SİL", -1, true, true, false, editorButtonImageOptions8, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject29, serializableAppearanceObject30, serializableAppearanceObject31, serializableAppearanceObject32, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "SİL", -1, true, true, false, editorButtonImageOptions7, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject25, serializableAppearanceObject26, serializableAppearanceObject27, serializableAppearanceObject28, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.bDeleteRow.Name = "bDeleteRow";
             this.bDeleteRow.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.bDeleteRow.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.bDeleteRow_ButtonClick);
@@ -1034,6 +1030,7 @@
             this.NavigationControl = this.accordionControl1;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MƏHSUL ALIŞI";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.fInvoiceProduct_Load);
             ((System.ComponentModel.ISupportInitialize)(this.fluentDesignFormControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.accordionControl1)).EndInit();
