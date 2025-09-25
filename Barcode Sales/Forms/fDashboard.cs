@@ -25,6 +25,7 @@ namespace Barcode_Sales.Forms
         IProductOperation productOperation = new ProductManager();
         ICategoryOperation categoryOperation = new CategoryManager();
         ICustomerOperation customerOperation = new CustomerManager();
+        ICustomerGroupOperation customerGroupOperation = new CustomerGroupManager();
         ISaleDataOperation saleDataOperation = new SalesDataManager();
         ISalesDataDetailOperation salesDataDetailOperation = new SalesDataDetailManager();
 
@@ -516,5 +517,45 @@ namespace Barcode_Sales.Forms
         {
             FormHelpers.OpenForm<fInvoiceRollbackReport>();
         }
+
+        private async void bCustomers_Click(object sender, EventArgs e)
+        {
+            navigationMenu.SelectedPage = pageCustomers;
+            await CustomerDataListAsync();
+        }
+
+        private async void bCustomerGroup_Click(object sender, EventArgs e)
+        {
+            navigationMenu.SelectedPage = pageCustomers;
+            await CustomerGroupDataListAsync();
+        }
+
+        #region [.. CUSTOMERS ..]
+
+        private void bAddCustomer_Click(object sender, EventArgs e)
+        {
+            FormHelpers.OpenForm<fAddCustomer>(async () =>
+            {
+                await CustomerDataListAsync();
+            }, Operation.Add, null);
+        }
+
+        private async Task CustomerDataListAsync()
+        {
+            var data = await customerOperation.Where(x => x.IsDeleted == 0)
+                .ToListAsync();
+            FormHelpers.ControlLoad(data, gridControlCustomers);
+        }
+
+        private async Task CustomerGroupDataListAsync()
+        {
+            var data = await customerGroupOperation.Where(x => x.IsDeleted == false)
+                .ToListAsync();
+            FormHelpers.ControlLoad(data, gridControlCustomers);
+        }
+
+        #endregion [.. CUSTOMERS ..]
+
+
     }
 }

@@ -8,6 +8,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Barcode_Sales.Operations.Concrete
 {
@@ -15,10 +16,15 @@ namespace Barcode_Sales.Operations.Concrete
     {
         NextposDBEntities db = new NextposDBEntities();
 
-        public bool Add(Customers item)
+        public bool Add(Customer item)
         {
             try
             {
+                item.Debt = 0;
+                item.Balance = 0;
+                item.Status = true;
+                item.IsDeleted = 0;
+                item.CreateDate = DateTime.Now;
                 db.Customers.Add(item);
                 db.SaveChanges();
                 return true;
@@ -32,23 +38,23 @@ namespace Barcode_Sales.Operations.Concrete
 
         }
 
-        public async Task AddAsync(Customers item)
+        public async Task AddAsync(Customer item)
         {
             db.Customers.Add(item);
             await db.SaveChangesAsync();
         }
 
-        public Customers GetById(int id)
+        public Customer GetById(int id)
         {
             return db.Customers.FirstOrDefault(x => x.Id == id);
         }
 
-        public async Task<Customers> GetByIdAsync(int id)
+        public async Task<Customer> GetByIdAsync(int id)
         {
             return await db.Customers.AsNoTracking().FirstOrDefaultAsync(x => x.Id == id);
         }
 
-        public void Remove(Customers item)
+        public void Remove(Customer item)
         {
             //Delete kodunu yaz
             if (CommonMessageBox.QuestionDialogResult($"{item.NameSurname} müştərisini silmək istədiyinizə əminsiniz ?"))
@@ -59,7 +65,7 @@ namespace Barcode_Sales.Operations.Concrete
             }
         }
 
-        public async Task RemoveAsync(Customers item)
+        public async Task RemoveAsync(Customer item)
         {
             if (CommonMessageBox.QuestionDialogResult($"{item.NameSurname} müştərisini silmək istədiyinizə əminsiniz ?"))
             {
@@ -69,7 +75,7 @@ namespace Barcode_Sales.Operations.Concrete
             }
         }
 
-        public void Update(Customers item)
+        public void Update(Customer item)
         {
             var existingItem = db.Customers.Find(item.Id);
             if (existingItem != null)
@@ -79,7 +85,7 @@ namespace Barcode_Sales.Operations.Concrete
             }
         }
 
-        public async Task UpdateAsync(Customers item)
+        public async Task UpdateAsync(Customer item)
         {
             var existingItem = db.Customers.FindAsync(item.Id);
             if (existingItem != null)
@@ -89,17 +95,17 @@ namespace Barcode_Sales.Operations.Concrete
             }
         }
 
-        public IQueryable<Customers> Where(Expression<Func<Customers, bool>> expression)
+        public IQueryable<Customer> Where(Expression<Func<Customer, bool>> expression)
         {
             return db.Customers.Where(expression);
         }
 
-        public async Task<List<Customers>> WhereAsync(Expression<Func<Customers, bool>> expression)
+        public async Task<List<Customer>> WhereAsync(Expression<Func<Customer, bool>> expression)
         {
-            return await db.Customers.Where(expression).ToListAsync();
+            return await db.Customers.AsNoTracking().Where(expression).ToListAsync();
         }
 
-        public string Active(Customers item)
+        public string Active(Customer item)
         {
             if (item is null) return null;
 
@@ -109,7 +115,7 @@ namespace Barcode_Sales.Operations.Concrete
             return $"{item.NameSurname} müştərisi aktiv edildi";
         }
 
-        public async Task ActiveAsync(List<Customers> items)
+        public async Task ActiveAsync(List<Customer> items)
         {
             foreach (var item in items)
             {
@@ -121,7 +127,7 @@ namespace Barcode_Sales.Operations.Concrete
             await db.SaveChangesAsync();
         }
 
-        public string Blocked(Customers item)
+        public string Blocked(Customer item)
         {
             if (item is null) return null;
 
@@ -131,7 +137,7 @@ namespace Barcode_Sales.Operations.Concrete
             return $"{item.NameSurname} müştərisi deaktiv edildi";
         }
 
-        public async Task BlockedAsync(List<Customers> items)
+        public async Task BlockedAsync(List<Customer> items)
         {
             foreach (var item in items)
             {

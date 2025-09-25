@@ -158,31 +158,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Customers">
-      <EntityTypeMapping TypeName="NextposDBModel.Customers">
-        <MappingFragment StoreEntitySet="Customers">
-          <ScalarProperty Name="Status" ColumnName="Status" />
-          <ScalarProperty Name="Comment" ColumnName="Comment" />
-          <ScalarProperty Name="Email" ColumnName="Email" />
-          <ScalarProperty Name="BankSwift" ColumnName="BankSwift" />
-          <ScalarProperty Name="BankKOD" ColumnName="BankKOD" />
-          <ScalarProperty Name="BankAccountNumber" ColumnName="BankAccountNumber" />
-          <ScalarProperty Name="BankVoen" ColumnName="BankVoen" />
-          <ScalarProperty Name="BankName" ColumnName="BankName" />
-          <ScalarProperty Name="Balance" ColumnName="Balance" />
-          <ScalarProperty Name="Debt" ColumnName="Debt" />
-          <ScalarProperty Name="Address" ColumnName="Address" />
-          <ScalarProperty Name="Voen" ColumnName="Voen" />
-          <ScalarProperty Name="Phone" ColumnName="Phone" />
-          <ScalarProperty Name="Gender" ColumnName="Gender" />
-          <ScalarProperty Name="DateBirth" ColumnName="DateBirth" />
-          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
-          <ScalarProperty Name="NameSurname" ColumnName="NameSurname" />
-          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="CustomerPayments">
       <EntityTypeMapping TypeName="NextposDBModel.CustomerPayment">
         <MappingFragment StoreEntitySet="CustomerPayments">
@@ -458,6 +433,45 @@
           <ScalarProperty Name="Password" ColumnName="Password" />
           <ScalarProperty Name="Username" ColumnName="Username" />
           <ScalarProperty Name="StoreID" ColumnName="StoreID" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CustomerGroups">
+      <EntityTypeMapping TypeName="NextposDBModel.CustomerGroup">
+        <MappingFragment StoreEntitySet="CustomerGroups">
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="Discount" ColumnName="Discount" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Customers">
+      <EntityTypeMapping TypeName="NextposDBModel.Customer">
+        <MappingFragment StoreEntitySet="Customers">
+          <ScalarProperty Name="CustomerGroupId" ColumnName="CustomerGroupId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="BankSwift" ColumnName="BankSwift" />
+          <ScalarProperty Name="BankKOD" ColumnName="BankKOD" />
+          <ScalarProperty Name="BankAccountNumber" ColumnName="BankAccountNumber" />
+          <ScalarProperty Name="BankVoen" ColumnName="BankVoen" />
+          <ScalarProperty Name="BankName" ColumnName="BankName" />
+          <ScalarProperty Name="Balance" ColumnName="Balance" />
+          <ScalarProperty Name="Debt" ColumnName="Debt" />
+          <ScalarProperty Name="Voen" ColumnName="Voen" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="DateBirth" ColumnName="DateBirth" />
+          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+          <ScalarProperty Name="NameSurname" ColumnName="NameSurname" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>

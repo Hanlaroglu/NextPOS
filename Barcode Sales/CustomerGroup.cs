@@ -12,24 +12,23 @@ namespace Barcode_Sales
     using System;
     using System.Collections.Generic;
     
-    public partial class CustomersDebt
+    public partial class CustomerGroup
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public CustomersDebt()
+        public CustomerGroup()
         {
-            this.CustomerPayments = new HashSet<CustomerPayment>();
+            this.Customers = new HashSet<Customer>();
         }
     
         public int Id { get; set; }
-        public Nullable<int> CustomerId { get; set; }
-        public string Type { get; set; }
-        public Nullable<double> Debt { get; set; }
-        public Nullable<System.DateTime> DebtDate { get; set; }
-        public string Comment { get; set; }
-        public Nullable<int> IsDeleted { get; set; }
+        public string Name { get; set; }
+        public double Discount { get; set; }
+        public bool IsDeleted { get; set; }
+        public int UserId { get; set; }
+        public System.DateTime CreatedDate { get; set; }
     
+        public virtual Users User { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CustomerPayment> CustomerPayments { get; set; }
-        public virtual Customer Customer { get; set; }
+        public virtual ICollection<Customer> Customers { get; set; }
     }
 }

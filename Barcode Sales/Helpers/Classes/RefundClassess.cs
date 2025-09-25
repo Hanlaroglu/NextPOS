@@ -47,7 +47,7 @@ namespace Barcode_Sales.Helpers.Classes
             public string Cashier { get; set; }
             public string RRN { get; set; } = null;
             public string CustomerName { get; set; } = null;
-            public Customers Customer { get; set; }
+            public Customer Customer { get; set; }
             public string Note { get; set; } = null;
             public string LongFiskalId { get; set; }
             public string document_number { get; set; }

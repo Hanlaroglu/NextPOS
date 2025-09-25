@@ -68,6 +68,18 @@
             this.repositoryItemButtonEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.repositoryItemCheckEdit10 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             this.pageBestSeller = new DevExpress.XtraBars.Navigation.TabNavigationPage();
+            this.gridControlCustomers = new DevExpress.XtraGrid.GridControl();
+            this.gridCustomers = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumn48 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn39 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn40 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn41 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn42 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn43 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn73 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn44 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn45 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryItemCheckEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tSearch.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchView)).BeginInit();
@@ -85,6 +97,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit10)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControlCustomers)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridCustomers)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit1)).BeginInit();
             this.SuspendLayout();
             // 
             // tSearch
@@ -402,7 +417,7 @@
             this.tabPane1.Controls.Add(this.pageStock);
             this.tabPane1.Controls.Add(this.tabNavigationPage2);
             this.tabPane1.Controls.Add(this.pageBestSeller);
-            this.tabPane1.Location = new System.Drawing.Point(607, 60);
+            this.tabPane1.Location = new System.Drawing.Point(791, 76);
             this.tabPane1.LookAndFeel.SkinName = "WXI";
             this.tabPane1.LookAndFeel.UseDefaultLookAndFeel = false;
             this.tabPane1.Name = "tabPane1";
@@ -665,11 +680,227 @@
             this.pageBestSeller.Name = "pageBestSeller";
             this.pageBestSeller.Size = new System.Drawing.Size(1275, 701);
             // 
+            // gridControlCustomers
+            // 
+            this.gridControlCustomers.AllowRestoreSelectionAndFocusedRow = DevExpress.Utils.DefaultBoolean.False;
+            this.gridControlCustomers.Location = new System.Drawing.Point(36, 76);
+            this.gridControlCustomers.MainView = this.gridCustomers;
+            this.gridControlCustomers.Name = "gridControlCustomers";
+            this.gridControlCustomers.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.repositoryItemCheckEdit1});
+            this.gridControlCustomers.Size = new System.Drawing.Size(690, 271);
+            this.gridControlCustomers.TabIndex = 21;
+            this.gridControlCustomers.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridCustomers});
+            // 
+            // gridCustomers
+            // 
+            this.gridCustomers.Appearance.EvenRow.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.gridCustomers.Appearance.EvenRow.Options.UseBackColor = true;
+            this.gridCustomers.Appearance.OddRow.BackColor = System.Drawing.Color.White;
+            this.gridCustomers.Appearance.OddRow.Options.UseBackColor = true;
+            this.gridCustomers.ColumnPanelRowHeight = 35;
+            this.gridCustomers.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumn48,
+            this.gridColumn39,
+            this.gridColumn40,
+            this.gridColumn41,
+            this.gridColumn42,
+            this.gridColumn43,
+            this.gridColumn73,
+            this.gridColumn44,
+            this.gridColumn45});
+            this.gridCustomers.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFullFocus;
+            this.gridCustomers.GridControl = this.gridControlCustomers;
+            this.gridCustomers.Name = "gridCustomers";
+            this.gridCustomers.OptionsMenu.EnableColumnMenu = false;
+            this.gridCustomers.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.gridCustomers.OptionsView.ColumnHeaderAutoHeight = DevExpress.Utils.DefaultBoolean.True;
+            this.gridCustomers.OptionsView.ShowIndicator = false;
+            this.gridCustomers.RowHeight = 35;
+            // 
+            // gridColumn48
+            // 
+            this.gridColumn48.AppearanceCell.Font = new System.Drawing.Font("Comfortaa", 10F);
+            this.gridColumn48.AppearanceCell.Options.UseFont = true;
+            this.gridColumn48.AppearanceHeader.Font = new System.Drawing.Font("Comfortaa", 10F, System.Drawing.FontStyle.Bold);
+            this.gridColumn48.AppearanceHeader.Options.UseFont = true;
+            this.gridColumn48.Caption = "#";
+            this.gridColumn48.FieldName = "#";
+            this.gridColumn48.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
+            this.gridColumn48.Name = "gridColumn48";
+            this.gridColumn48.OptionsColumn.AllowEdit = false;
+            this.gridColumn48.Visible = true;
+            this.gridColumn48.VisibleIndex = 0;
+            this.gridColumn48.Width = 36;
+            // 
+            // gridColumn39
+            // 
+            this.gridColumn39.AppearanceCell.Font = new System.Drawing.Font("Comfortaa", 10F);
+            this.gridColumn39.AppearanceCell.Options.UseFont = true;
+            this.gridColumn39.AppearanceHeader.Font = new System.Drawing.Font("Comfortaa", 10F, System.Drawing.FontStyle.Bold);
+            this.gridColumn39.AppearanceHeader.Options.UseFont = true;
+            this.gridColumn39.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn39.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn39.AppearanceHeader.TextOptions.Trimming = DevExpress.Utils.Trimming.EllipsisCharacter;
+            this.gridColumn39.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.gridColumn39.Caption = "Ad Soyad";
+            this.gridColumn39.FieldName = "NameSurname";
+            this.gridColumn39.Name = "gridColumn39";
+            this.gridColumn39.OptionsColumn.AllowEdit = false;
+            this.gridColumn39.Visible = true;
+            this.gridColumn39.VisibleIndex = 1;
+            this.gridColumn39.Width = 467;
+            // 
+            // gridColumn40
+            // 
+            this.gridColumn40.AppearanceCell.Font = new System.Drawing.Font("Comfortaa", 10F);
+            this.gridColumn40.AppearanceCell.Options.UseFont = true;
+            this.gridColumn40.AppearanceHeader.Font = new System.Drawing.Font("Comfortaa", 10F, System.Drawing.FontStyle.Bold);
+            this.gridColumn40.AppearanceHeader.Options.UseFont = true;
+            this.gridColumn40.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn40.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn40.AppearanceHeader.TextOptions.Trimming = DevExpress.Utils.Trimming.EllipsisCharacter;
+            this.gridColumn40.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.gridColumn40.Caption = "Telefon";
+            this.gridColumn40.FieldName = "Phone";
+            this.gridColumn40.Name = "gridColumn40";
+            this.gridColumn40.OptionsColumn.AllowEdit = false;
+            this.gridColumn40.Visible = true;
+            this.gridColumn40.VisibleIndex = 2;
+            this.gridColumn40.Width = 211;
+            // 
+            // gridColumn41
+            // 
+            this.gridColumn41.AppearanceCell.Font = new System.Drawing.Font("Comfortaa", 10F);
+            this.gridColumn41.AppearanceCell.Options.UseFont = true;
+            this.gridColumn41.AppearanceHeader.Font = new System.Drawing.Font("Comfortaa", 10F, System.Drawing.FontStyle.Bold);
+            this.gridColumn41.AppearanceHeader.Options.UseFont = true;
+            this.gridColumn41.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn41.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn41.AppearanceHeader.TextOptions.Trimming = DevExpress.Utils.Trimming.EllipsisCharacter;
+            this.gridColumn41.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.gridColumn41.Caption = "Vöen";
+            this.gridColumn41.FieldName = "Voen";
+            this.gridColumn41.Name = "gridColumn41";
+            this.gridColumn41.OptionsColumn.AllowEdit = false;
+            this.gridColumn41.Width = 233;
+            // 
+            // gridColumn42
+            // 
+            this.gridColumn42.AppearanceCell.Font = new System.Drawing.Font("Comfortaa", 10F);
+            this.gridColumn42.AppearanceCell.Options.UseFont = true;
+            this.gridColumn42.AppearanceHeader.Font = new System.Drawing.Font("Comfortaa", 10F, System.Drawing.FontStyle.Bold);
+            this.gridColumn42.AppearanceHeader.Options.UseFont = true;
+            this.gridColumn42.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn42.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn42.AppearanceHeader.TextOptions.Trimming = DevExpress.Utils.Trimming.EllipsisCharacter;
+            this.gridColumn42.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.gridColumn42.Caption = "Ünvan";
+            this.gridColumn42.FieldName = "Address";
+            this.gridColumn42.Name = "gridColumn42";
+            this.gridColumn42.OptionsColumn.AllowEdit = false;
+            this.gridColumn42.Width = 278;
+            // 
+            // gridColumn43
+            // 
+            this.gridColumn43.AppearanceCell.Font = new System.Drawing.Font("Comfortaa", 10F);
+            this.gridColumn43.AppearanceCell.Options.UseFont = true;
+            this.gridColumn43.AppearanceCell.Options.UseTextOptions = true;
+            this.gridColumn43.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn43.AppearanceHeader.Font = new System.Drawing.Font("Comfortaa", 10F, System.Drawing.FontStyle.Bold);
+            this.gridColumn43.AppearanceHeader.Options.UseFont = true;
+            this.gridColumn43.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn43.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn43.Caption = "Qeyd";
+            this.gridColumn43.FieldName = "Comment";
+            this.gridColumn43.Name = "gridColumn43";
+            this.gridColumn43.OptionsColumn.AllowEdit = false;
+            this.gridColumn43.Visible = true;
+            this.gridColumn43.VisibleIndex = 5;
+            this.gridColumn43.Width = 406;
+            // 
+            // gridColumn73
+            // 
+            this.gridColumn73.AppearanceCell.Font = new System.Drawing.Font("Comfortaa", 10F);
+            this.gridColumn73.AppearanceCell.Options.UseFont = true;
+            this.gridColumn73.AppearanceCell.Options.UseTextOptions = true;
+            this.gridColumn73.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.gridColumn73.AppearanceHeader.Font = new System.Drawing.Font("Comfortaa", 10F, System.Drawing.FontStyle.Bold);
+            this.gridColumn73.AppearanceHeader.Options.UseFont = true;
+            this.gridColumn73.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn73.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn73.AppearanceHeader.TextOptions.Trimming = DevExpress.Utils.Trimming.EllipsisCharacter;
+            this.gridColumn73.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.gridColumn73.Caption = "Bonus";
+            this.gridColumn73.DisplayFormat.FormatString = "C2";
+            this.gridColumn73.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.gridColumn73.FieldName = "Balance";
+            this.gridColumn73.Name = "gridColumn73";
+            this.gridColumn73.OptionsColumn.AllowEdit = false;
+            this.gridColumn73.Visible = true;
+            this.gridColumn73.VisibleIndex = 4;
+            this.gridColumn73.Width = 158;
+            // 
+            // gridColumn44
+            // 
+            this.gridColumn44.AppearanceCell.Font = new System.Drawing.Font("Comfortaa", 10F);
+            this.gridColumn44.AppearanceCell.Options.UseFont = true;
+            this.gridColumn44.AppearanceCell.Options.UseTextOptions = true;
+            this.gridColumn44.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.gridColumn44.AppearanceHeader.Font = new System.Drawing.Font("Comfortaa", 10F, System.Drawing.FontStyle.Bold);
+            this.gridColumn44.AppearanceHeader.Options.UseFont = true;
+            this.gridColumn44.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn44.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn44.AppearanceHeader.TextOptions.Trimming = DevExpress.Utils.Trimming.EllipsisCharacter;
+            this.gridColumn44.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.gridColumn44.Caption = "Borc";
+            this.gridColumn44.DisplayFormat.FormatString = "C2";
+            this.gridColumn44.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.gridColumn44.FieldName = "Debt";
+            this.gridColumn44.Name = "gridColumn44";
+            this.gridColumn44.OptionsColumn.AllowEdit = false;
+            this.gridColumn44.Visible = true;
+            this.gridColumn44.VisibleIndex = 3;
+            this.gridColumn44.Width = 174;
+            // 
+            // gridColumn45
+            // 
+            this.gridColumn45.AppearanceCell.Font = new System.Drawing.Font("Comfortaa", 10F);
+            this.gridColumn45.AppearanceCell.Options.UseFont = true;
+            this.gridColumn45.AppearanceCell.Options.UseTextOptions = true;
+            this.gridColumn45.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn45.AppearanceHeader.Font = new System.Drawing.Font("Comfortaa", 10F, System.Drawing.FontStyle.Bold);
+            this.gridColumn45.AppearanceHeader.Options.UseFont = true;
+            this.gridColumn45.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn45.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn45.AppearanceHeader.TextOptions.Trimming = DevExpress.Utils.Trimming.EllipsisCharacter;
+            this.gridColumn45.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.gridColumn45.Caption = "Status";
+            this.gridColumn45.ColumnEdit = this.repositoryItemCheckEdit1;
+            this.gridColumn45.FieldName = "Status";
+            this.gridColumn45.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Right;
+            this.gridColumn45.MaxWidth = 100;
+            this.gridColumn45.MinWidth = 100;
+            this.gridColumn45.Name = "gridColumn45";
+            this.gridColumn45.OptionsColumn.ShowCaption = false;
+            this.gridColumn45.Visible = true;
+            this.gridColumn45.VisibleIndex = 6;
+            this.gridColumn45.Width = 100;
+            // 
+            // repositoryItemCheckEdit1
+            // 
+            this.repositoryItemCheckEdit1.AutoHeight = false;
+            this.repositoryItemCheckEdit1.CheckBoxOptions.Style = DevExpress.XtraEditors.Controls.CheckBoxStyle.SvgToggle1;
+            this.repositoryItemCheckEdit1.CheckBoxOptions.SvgImageSize = new System.Drawing.Size(32, 32);
+            this.repositoryItemCheckEdit1.Name = "repositoryItemCheckEdit1";
+            // 
             // ftest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1288, 780);
+            this.Controls.Add(this.gridControlCustomers);
             this.Controls.Add(this.gridControlBasket);
             this.Controls.Add(this.tabPane1);
             this.Controls.Add(this.tSearch);
@@ -693,6 +924,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit10)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControlCustomers)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridCustomers)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -737,5 +971,17 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit repositoryItemButtonEdit2;
         private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit repositoryItemCheckEdit10;
         private DevExpress.XtraBars.Navigation.TabNavigationPage pageBestSeller;
+        private DevExpress.XtraGrid.GridControl gridControlCustomers;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridCustomers;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn48;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn39;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn40;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn41;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn42;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn43;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn73;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn44;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn45;
+        private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit repositoryItemCheckEdit1;
     }
 }

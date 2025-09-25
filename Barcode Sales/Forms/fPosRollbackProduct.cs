@@ -31,7 +31,7 @@ namespace Barcode_Sales.Forms
         private readonly SalesDataSummary _salesDataSummary;
         private BindingList<RefundClassess.DataItem> RefundDataItem = new BindingList<RefundClassess.DataItem>();
         private RefundClassess.Data _refundData;
-        private Customers _customer;
+        private Customer _customer;
 
         public fPosRollbackProduct(PosReturnType type, SalesDataSummary items)
         {

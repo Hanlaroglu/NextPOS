@@ -8,6 +8,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using static Barcode_Sales.Helpers.Classes.SaleClasses;
 using static Barcode_Sales.Helpers.FormHelpers;
@@ -27,7 +28,7 @@ namespace Barcode_Sales.Forms
             gridControlBasket.DataSource = dataList;
         }
 
-        private class ProductSearchData:Products
+        private class ProductSearchData : Products
         {
             public int Id { get; set; }
             public string ProductName { get; set; }
@@ -45,12 +46,12 @@ namespace Barcode_Sales.Forms
             tSaleCount.Text = await saleDataOperation.SalesCount();
             tToday.Properties.Buttons[1].Caption = CommonData.TODAY_DATE;
             tCashier.Properties.Buttons[1].Caption = CommonData.CURRENT_USER?.NameSurname;
-            SearchProductList();
+            await SearchProductList();
         }
 
-        private async void SearchProductList()
+        private async Task SearchProductList()
         {
-            var data = await productOperation.WhereAsync(x => x.IsDeleted == 0);
+            var data = await productOperation.WhereAsync(x => x.IsDeleted == 0 || x.Status == true);
             var product = data.Select(x => new ProductSearchData
             {
                 Id = x.Id,

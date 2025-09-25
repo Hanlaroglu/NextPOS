@@ -78,26 +78,17 @@
       <End Role="Suppliers" EntitySet="Suppliers" />
       <End Role="SuppliersDebt" EntitySet="SuppliersDebts" />
     </AssociationSet>
-    <EntitySet Name="Customers" EntityType="NextposDBModel.Customers" />
     <EntitySet Name="CustomerPayments" EntityType="NextposDBModel.CustomerPayment" />
     <EntitySet Name="CustomersDebts" EntityType="NextposDBModel.CustomersDebt" />
     <AssociationSet Name="FK_CustomerPayments_CustomersDebts" Association="NextposDBModel.FK_CustomerPayments_CustomersDebts">
       <End Role="CustomersDebt" EntitySet="CustomersDebts" />
       <End Role="CustomerPayment" EntitySet="CustomerPayments" />
     </AssociationSet>
-    <AssociationSet Name="FK_CustomerDebts_Customer" Association="NextposDBModel.FK_CustomerDebts_Customer">
-      <End Role="Customers" EntitySet="Customers" />
-      <End Role="CustomersDebt" EntitySet="CustomersDebts" />
-    </AssociationSet>
     <EntitySet Name="SalesDatas" EntityType="NextposDBModel.SalesData" />
     <EntitySet Name="TerminalIncomesAndExpenses" EntityType="NextposDBModel.TerminalIncomesAndExpens" />
     <EntitySet Name="CloseShiftReports" EntityType="NextposDBModel.CloseShiftReport" />
     <EntitySet Name="ReturnPos" EntityType="NextposDBModel.ReturnPos" />
     <EntitySet Name="ReturnPosDetails" EntityType="NextposDBModel.ReturnPosDetail" />
-    <AssociationSet Name="FK_SalesData_ToCustomer" Association="NextposDBModel.FK_SalesData_ToCustomer">
-      <End Role="Customers" EntitySet="Customers" />
-      <End Role="SalesData" EntitySet="SalesDatas" />
-    </AssociationSet>
     <EntitySet Name="TaxTypes" EntityType="NextposDBModel.TaxType" />
     <EntitySet Name="PaymentTypes" EntityType="NextposDBModel.PaymentType" />
     <EntitySet Name="Invoices" EntityType="NextposDBModel.Invoice" />
@@ -206,6 +197,28 @@
     <AssociationSet Name="FK_Terminals_To_User" Association="NextposDBModel.FK_Terminals_To_User">
       <End Role="Users" EntitySet="Users" />
       <End Role="Terminals" EntitySet="Terminals" />
+    </AssociationSet>
+    <EntitySet Name="CustomerGroups" EntityType="NextposDBModel.CustomerGroup" />
+    <EntitySet Name="Customers" EntityType="NextposDBModel.Customer" />
+    <AssociationSet Name="FK_CustomerGroups_Users" Association="NextposDBModel.FK_CustomerGroups_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="CustomerGroup" EntitySet="CustomerGroups" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Customers_CustomerGroups" Association="NextposDBModel.FK_Customers_CustomerGroups">
+      <End Role="CustomerGroup" EntitySet="CustomerGroups" />
+      <End Role="Customer" EntitySet="Customers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CustomerDebts_Customer" Association="NextposDBModel.FK_CustomerDebts_Customer">
+      <End Role="Customer" EntitySet="Customers" />
+      <End Role="CustomersDebt" EntitySet="CustomersDebts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Customers_Users" Association="NextposDBModel.FK_Customers_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Customer" EntitySet="Customers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SalesData_ToCustomer" Association="NextposDBModel.FK_SalesData_ToCustomer">
+      <End Role="Customer" EntitySet="Customers" />
+      <End Role="SalesData" EntitySet="SalesDatas" />
     </AssociationSet>
   </EntityContainer>
   <EntityType Name="Suppliers">
@@ -367,32 +380,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityType Name="Customers">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="IsDeleted" Type="Int32" />
-    <Property Name="NameSurname" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-    <Property Name="CompanyName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-    <Property Name="DateBirth" Type="DateTime" Precision="0" />
-    <Property Name="Gender" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
-    <Property Name="Phone" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-    <Property Name="Voen" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
-    <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="Debt" Type="Double" />
-    <Property Name="Balance" Type="Double" />
-    <Property Name="BankName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-    <Property Name="BankVoen" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="BankAccountNumber" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-    <Property Name="BankKOD" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="BankSwift" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="Email" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-    <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="Status" Type="Boolean" />
-    <NavigationProperty Name="CustomersDebts" Relationship="NextposDBModel.FK_CustomerDebts_Customer" FromRole="Customers" ToRole="CustomersDebt" />
-    <NavigationProperty Name="SalesDatas" Relationship="NextposDBModel.FK_SalesData_ToCustomer" FromRole="Customers" ToRole="SalesData" />
-  </EntityType>
   <EntityType Name="CustomerPayment">
     <Key>
       <PropertyRef Name="Id" />
@@ -419,7 +406,7 @@
     <Property Name="Comment" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
     <Property Name="IsDeleted" Type="Int32" />
     <NavigationProperty Name="CustomerPayments" Relationship="NextposDBModel.FK_CustomerPayments_CustomersDebts" FromRole="CustomersDebt" ToRole="CustomerPayment" />
-    <NavigationProperty Name="Customer" Relationship="NextposDBModel.FK_CustomerDebts_Customer" FromRole="CustomersDebt" ToRole="Customers" />
+    <NavigationProperty Name="Customer" Relationship="NextposDBModel.FK_CustomerDebts_Customer" FromRole="CustomersDebt" ToRole="Customer" />
   </EntityType>
   <Association Name="FK_CustomerPayments_CustomersDebts">
     <End Type="NextposDBModel.CustomersDebt" Role="CustomersDebt" Multiplicity="0..1" />
@@ -430,18 +417,6 @@
       </Principal>
       <Dependent Role="CustomerPayment">
         <PropertyRef Name="CustomerDebtId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_CustomerDebts_Customer">
-    <End Type="NextposDBModel.Customers" Role="Customers" Multiplicity="0..1" />
-    <End Type="NextposDBModel.CustomersDebt" Role="CustomersDebt" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Customers">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="CustomersDebt">
-        <PropertyRef Name="CustomerId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -463,9 +438,9 @@
     <Property Name="IncomingSum" Type="Double" />
     <Property Name="CustomerId" Type="Int32" />
     <Property Name="Note" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="Customer" Relationship="NextposDBModel.FK_SalesData_ToCustomer" FromRole="SalesData" ToRole="Customers" />
     <NavigationProperty Name="SalesDataDetail" Relationship="NextposDBModel.FK_SalesDataDetail_ToSalesData" FromRole="SalesData" ToRole="SalesDataDetail" />
     <NavigationProperty Name="Users" Relationship="NextposDBModel.FK_SalesData_ToUser" FromRole="SalesData" ToRole="Users" />
+    <NavigationProperty Name="Customer" Relationship="NextposDBModel.FK_SalesData_ToCustomer" FromRole="SalesData" ToRole="Customer" />
   </EntityType>
   <EntityType Name="TerminalIncomesAndExpens">
     <Key>
@@ -521,18 +496,6 @@
     <Property Name="SalePrice" Type="Double" />
     <Property Name="Discount" Type="Double" />
   </EntityType>
-  <Association Name="FK_SalesData_ToCustomer">
-    <End Type="NextposDBModel.Customers" Role="Customers" Multiplicity="0..1" />
-    <End Type="NextposDBModel.SalesData" Role="SalesData" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Customers">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="SalesData">
-        <PropertyRef Name="CustomerId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <EntityType Name="TaxType">
     <Key>
       <PropertyRef Name="Id" />
@@ -926,6 +889,8 @@
     <NavigationProperty Name="SalesData" Relationship="NextposDBModel.FK_SalesData_ToUser" FromRole="Users" ToRole="SalesData" />
     <NavigationProperty Name="Stores" Relationship="NextposDBModel.FK_Users_Stores" FromRole="Users" ToRole="Store" />
     <NavigationProperty Name="Terminals" Relationship="NextposDBModel.FK_Terminals_To_User" FromRole="Users" ToRole="Terminals" />
+    <NavigationProperty Name="CustomerGroups" Relationship="NextposDBModel.FK_CustomerGroups_Users" FromRole="Users" ToRole="CustomerGroup" />
+    <NavigationProperty Name="Customers" Relationship="NextposDBModel.FK_Customers_Users" FromRole="Users" ToRole="Customer" />
   </EntityType>
   <Association Name="FK_InvoiceRollbacks_Users">
     <End Type="NextposDBModel.Users" Role="Users" Multiplicity="0..1" />
@@ -1020,6 +985,109 @@
       </Principal>
       <Dependent Role="Terminals">
         <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="CustomerGroup">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Discount" Type="Double" Nullable="false" />
+    <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="User" Relationship="NextposDBModel.FK_CustomerGroups_Users" FromRole="CustomerGroup" ToRole="Users" />
+    <NavigationProperty Name="Customers" Relationship="NextposDBModel.FK_Customers_CustomerGroups" FromRole="CustomerGroup" ToRole="Customer" />
+  </EntityType>
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IsDeleted" Type="Int32" />
+    <Property Name="NameSurname" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="CompanyName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="DateBirth" Type="DateTime" Precision="0" />
+    <Property Name="Gender" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
+    <Property Name="Phone" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Voen" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+    <Property Name="Debt" Type="Double" />
+    <Property Name="Balance" Type="Double" />
+    <Property Name="BankName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="BankVoen" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BankAccountNumber" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="BankKOD" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BankSwift" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="Boolean" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="UserId" Type="Int32" />
+    <Property Name="CustomerGroupId" Type="Int32" />
+    <NavigationProperty Name="CustomerGroup" Relationship="NextposDBModel.FK_Customers_CustomerGroups" FromRole="Customer" ToRole="CustomerGroup" />
+    <NavigationProperty Name="CustomersDebts" Relationship="NextposDBModel.FK_CustomerDebts_Customer" FromRole="Customer" ToRole="CustomersDebt" />
+    <NavigationProperty Name="User" Relationship="NextposDBModel.FK_Customers_Users" FromRole="Customer" ToRole="Users" />
+    <NavigationProperty Name="SalesDatas" Relationship="NextposDBModel.FK_SalesData_ToCustomer" FromRole="Customer" ToRole="SalesData" />
+  </EntityType>
+  <Association Name="FK_CustomerGroups_Users">
+    <End Type="NextposDBModel.Users" Role="Users" Multiplicity="1" />
+    <End Type="NextposDBModel.CustomerGroup" Role="CustomerGroup" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CustomerGroup">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Customers_CustomerGroups">
+    <End Type="NextposDBModel.CustomerGroup" Role="CustomerGroup" Multiplicity="0..1" />
+    <End Type="NextposDBModel.Customer" Role="Customer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CustomerGroup">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Customer">
+        <PropertyRef Name="CustomerGroupId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CustomerDebts_Customer">
+    <End Type="NextposDBModel.Customer" Role="Customer" Multiplicity="0..1" />
+    <End Type="NextposDBModel.CustomersDebt" Role="CustomersDebt" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CustomersDebt">
+        <PropertyRef Name="CustomerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Customers_Users">
+    <End Type="NextposDBModel.Users" Role="Users" Multiplicity="0..1" />
+    <End Type="NextposDBModel.Customer" Role="Customer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Customer">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SalesData_ToCustomer">
+    <End Type="NextposDBModel.Customer" Role="Customer" Multiplicity="0..1" />
+    <End Type="NextposDBModel.SalesData" Role="SalesData" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SalesData">
+        <PropertyRef Name="CustomerId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

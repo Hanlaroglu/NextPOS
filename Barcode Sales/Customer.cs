@@ -12,10 +12,10 @@ namespace Barcode_Sales
     using System;
     using System.Collections.Generic;
     
-    public partial class Customers
+    public partial class Customer
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Customers()
+        public Customer()
         {
             this.CustomersDebts = new HashSet<CustomersDebt>();
             this.SalesDatas = new HashSet<SalesData>();
@@ -29,7 +29,6 @@ namespace Barcode_Sales
         public string Gender { get; set; }
         public string Phone { get; set; }
         public string Voen { get; set; }
-        public string Address { get; set; }
         public Nullable<double> Debt { get; set; }
         public Nullable<double> Balance { get; set; }
         public string BankName { get; set; }
@@ -40,9 +39,14 @@ namespace Barcode_Sales
         public string Email { get; set; }
         public string Comment { get; set; }
         public Nullable<bool> Status { get; set; }
+        public Nullable<System.DateTime> CreateDate { get; set; }
+        public Nullable<int> UserId { get; set; }
+        public Nullable<int> CustomerGroupId { get; set; }
     
+        public virtual CustomerGroup CustomerGroup { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CustomersDebt> CustomersDebts { get; set; }
+        public virtual Users User { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<SalesData> SalesDatas { get; set; }
     }

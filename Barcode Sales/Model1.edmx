@@ -72,6 +72,17 @@
           <Property Name="RegistrationDate" Type="date" />
           <Property Name="Logo" Type="varbinary(max)" />
         </EntityType>
+        <EntityType Name="CustomerGroups">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Discount" Type="float" Nullable="false" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+        </EntityType>
         <EntityType Name="CustomerPayments">
           <Key>
             <PropertyRef Name="Id" />
@@ -97,7 +108,6 @@
           <Property Name="Gender" Type="char" MaxLength="5" />
           <Property Name="Phone" Type="nvarchar" MaxLength="100" />
           <Property Name="Voen" Type="nvarchar" MaxLength="11" />
-          <Property Name="Address" Type="nvarchar(max)" />
           <Property Name="Debt" Type="float" />
           <Property Name="Balance" Type="float" />
           <Property Name="BankName" Type="nvarchar" MaxLength="100" />
@@ -108,6 +118,9 @@
           <Property Name="Email" Type="nvarchar" MaxLength="200" />
           <Property Name="Comment" Type="nvarchar(max)" />
           <Property Name="Status" Type="bit" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="CustomerGroupId" Type="int" />
         </EntityType>
         <EntityType Name="CustomersDebts">
           <Key>
@@ -435,8 +448,8 @@ warning 6002: The table/view 'NextposDB.dbo.view_InvoiceRollbackList' does not h
           <Property Name="ProductId" Type="int" />
           <Property Name="ProductName" Type="nvarchar(max)" />
           <Property Name="Barcode" Type="nvarchar(max)" />
-          <Property Name="Amount" Type="float" />
           <Property Name="PurchasePrice" Type="float" />
+          <Property Name="Amount" Type="float" />
         </EntityType>
         <Association Name="FK__Logs__UserID__6477ECF3">
           <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
@@ -486,6 +499,18 @@ warning 6002: The table/view 'NextposDB.dbo.view_InvoiceRollbackList' does not h
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_CustomerGroups_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="CustomerGroups" Type="Self.CustomerGroups" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CustomerGroups">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_CustomerPayments_CustomersDebts">
           <End Role="CustomersDebts" Type="Self.CustomersDebts" Multiplicity="0..1" />
           <End Role="CustomerPayments" Type="Self.CustomerPayments" Multiplicity="*" />
@@ -495,6 +520,30 @@ warning 6002: The table/view 'NextposDB.dbo.view_InvoiceRollbackList' does not h
             </Principal>
             <Dependent Role="CustomerPayments">
               <PropertyRef Name="CustomerDebtId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Customers_CustomerGroups">
+          <End Role="CustomerGroups" Type="Self.CustomerGroups" Multiplicity="0..1" />
+          <End Role="Customers" Type="Self.Customers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CustomerGroups">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Customers">
+              <PropertyRef Name="CustomerGroupId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Customers_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="Customers" Type="Self.Customers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Customers">
+              <PropertyRef Name="UserId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -816,6 +865,7 @@ warning 6002: The table/view 'NextposDB.dbo.view_InvoiceRollbackList' does not h
           <EntitySet Name="CloseShiftReports" EntityType="Self.CloseShiftReports" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Colors" EntityType="Self.Colors" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Company" EntityType="Self.Company" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CustomerGroups" EntityType="Self.CustomerGroups" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CustomerPayments" EntityType="Self.CustomerPayments" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Customers" EntityType="Self.Customers" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CustomersDebts" EntityType="Self.CustomersDebts" Schema="dbo" store:Type="Tables" />
@@ -853,8 +903,8 @@ warning 6002: The table/view 'NextposDB.dbo.view_InvoiceRollbackList' does not h
     [view_InvoiceRollbackList].[ProductId] AS [ProductId], 
     [view_InvoiceRollbackList].[ProductName] AS [ProductName], 
     [view_InvoiceRollbackList].[Barcode] AS [Barcode], 
-    [view_InvoiceRollbackList].[Amount] AS [Amount], 
-    [view_InvoiceRollbackList].[PurchasePrice] AS [PurchasePrice]
+    [view_InvoiceRollbackList].[PurchasePrice] AS [PurchasePrice], 
+    [view_InvoiceRollbackList].[Amount] AS [Amount]
     FROM [dbo].[view_InvoiceRollbackList] AS [view_InvoiceRollbackList]</DefiningQuery>
           </EntitySet>
           <AssociationSet Name="FK__Logs__UserID__6477ECF3" Association="Self.FK__Logs__UserID__6477ECF3">
@@ -873,9 +923,21 @@ warning 6002: The table/view 'NextposDB.dbo.view_InvoiceRollbackList' does not h
             <End Role="Customers" EntitySet="Customers" />
             <End Role="CustomersDebts" EntitySet="CustomersDebts" />
           </AssociationSet>
+          <AssociationSet Name="FK_CustomerGroups_Users" Association="Self.FK_CustomerGroups_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="CustomerGroups" EntitySet="CustomerGroups" />
+          </AssociationSet>
           <AssociationSet Name="FK_CustomerPayments_CustomersDebts" Association="Self.FK_CustomerPayments_CustomersDebts">
             <End Role="CustomersDebts" EntitySet="CustomersDebts" />
             <End Role="CustomerPayments" EntitySet="CustomerPayments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Customers_CustomerGroups" Association="Self.FK_Customers_CustomerGroups">
+            <End Role="CustomerGroups" EntitySet="CustomerGroups" />
+            <End Role="Customers" EntitySet="Customers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Customers_Users" Association="Self.FK_Customers_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Customers" EntitySet="Customers" />
           </AssociationSet>
           <AssociationSet Name="FK_InvoiceDetails_Invoices" Association="Self.FK_InvoiceDetails_Invoices">
             <End Role="Invoices" EntitySet="Invoices" />
@@ -1064,26 +1126,17 @@ warning 6002: The table/view 'NextposDB.dbo.view_InvoiceRollbackList' does not h
             <End Role="Suppliers" EntitySet="Suppliers" />
             <End Role="SuppliersDebt" EntitySet="SuppliersDebts" />
           </AssociationSet>
-          <EntitySet Name="Customers" EntityType="NextposDBModel.Customers" />
           <EntitySet Name="CustomerPayments" EntityType="NextposDBModel.CustomerPayment" />
           <EntitySet Name="CustomersDebts" EntityType="NextposDBModel.CustomersDebt" />
           <AssociationSet Name="FK_CustomerPayments_CustomersDebts" Association="NextposDBModel.FK_CustomerPayments_CustomersDebts">
             <End Role="CustomersDebt" EntitySet="CustomersDebts" />
             <End Role="CustomerPayment" EntitySet="CustomerPayments" />
           </AssociationSet>
-          <AssociationSet Name="FK_CustomerDebts_Customer" Association="NextposDBModel.FK_CustomerDebts_Customer">
-            <End Role="Customers" EntitySet="Customers" />
-            <End Role="CustomersDebt" EntitySet="CustomersDebts" />
-          </AssociationSet>
           <EntitySet Name="SalesDatas" EntityType="NextposDBModel.SalesData" />
           <EntitySet Name="TerminalIncomesAndExpenses" EntityType="NextposDBModel.TerminalIncomesAndExpens" />
           <EntitySet Name="CloseShiftReports" EntityType="NextposDBModel.CloseShiftReport" />
           <EntitySet Name="ReturnPos" EntityType="NextposDBModel.ReturnPos" />
           <EntitySet Name="ReturnPosDetails" EntityType="NextposDBModel.ReturnPosDetail" />
-          <AssociationSet Name="FK_SalesData_ToCustomer" Association="NextposDBModel.FK_SalesData_ToCustomer">
-            <End Role="Customers" EntitySet="Customers" />
-            <End Role="SalesData" EntitySet="SalesDatas" />
-          </AssociationSet>
           <EntitySet Name="TaxTypes" EntityType="NextposDBModel.TaxType" />
           <EntitySet Name="PaymentTypes" EntityType="NextposDBModel.PaymentType" />
           <EntitySet Name="Invoices" EntityType="NextposDBModel.Invoice" />
@@ -1192,6 +1245,28 @@ warning 6002: The table/view 'NextposDB.dbo.view_InvoiceRollbackList' does not h
           <AssociationSet Name="FK_Terminals_To_User" Association="NextposDBModel.FK_Terminals_To_User">
             <End Role="Users" EntitySet="Users" />
             <End Role="Terminals" EntitySet="Terminals" />
+          </AssociationSet>
+          <EntitySet Name="CustomerGroups" EntityType="NextposDBModel.CustomerGroup" />
+          <EntitySet Name="Customers" EntityType="NextposDBModel.Customer" />
+          <AssociationSet Name="FK_CustomerGroups_Users" Association="NextposDBModel.FK_CustomerGroups_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="CustomerGroup" EntitySet="CustomerGroups" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Customers_CustomerGroups" Association="NextposDBModel.FK_Customers_CustomerGroups">
+            <End Role="CustomerGroup" EntitySet="CustomerGroups" />
+            <End Role="Customer" EntitySet="Customers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CustomerDebts_Customer" Association="NextposDBModel.FK_CustomerDebts_Customer">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="CustomersDebt" EntitySet="CustomersDebts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Customers_Users" Association="NextposDBModel.FK_Customers_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Customer" EntitySet="Customers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SalesData_ToCustomer" Association="NextposDBModel.FK_SalesData_ToCustomer">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="SalesData" EntitySet="SalesDatas" />
           </AssociationSet>
           </EntityContainer>
         <EntityType Name="Suppliers">
@@ -1353,32 +1428,6 @@ warning 6002: The table/view 'NextposDB.dbo.view_InvoiceRollbackList' does not h
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="Customers">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="IsDeleted" Type="Int32" />
-          <Property Name="NameSurname" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="CompanyName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="DateBirth" Type="DateTime" Precision="0" />
-          <Property Name="Gender" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
-          <Property Name="Phone" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="Voen" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
-          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Debt" Type="Double" />
-          <Property Name="Balance" Type="Double" />
-          <Property Name="BankName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="BankVoen" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="BankAccountNumber" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="BankKOD" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="BankSwift" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Email" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Status" Type="Boolean" />
-          <NavigationProperty Name="CustomersDebts" Relationship="NextposDBModel.FK_CustomerDebts_Customer" FromRole="Customers" ToRole="CustomersDebt" />
-          <NavigationProperty Name="SalesDatas" Relationship="NextposDBModel.FK_SalesData_ToCustomer" FromRole="Customers" ToRole="SalesData" />
-        </EntityType>
         <EntityType Name="CustomerPayment">
           <Key>
             <PropertyRef Name="Id" />
@@ -1405,7 +1454,7 @@ warning 6002: The table/view 'NextposDB.dbo.view_InvoiceRollbackList' does not h
           <Property Name="Comment" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Name="IsDeleted" Type="Int32" />
           <NavigationProperty Name="CustomerPayments" Relationship="NextposDBModel.FK_CustomerPayments_CustomersDebts" FromRole="CustomersDebt" ToRole="CustomerPayment" />
-          <NavigationProperty Name="Customer" Relationship="NextposDBModel.FK_CustomerDebts_Customer" FromRole="CustomersDebt" ToRole="Customers" />
+          <NavigationProperty Name="Customer" Relationship="NextposDBModel.FK_CustomerDebts_Customer" FromRole="CustomersDebt" ToRole="Customer" />
         </EntityType>
         <Association Name="FK_CustomerPayments_CustomersDebts">
           <End Type="NextposDBModel.CustomersDebt" Role="CustomersDebt" Multiplicity="0..1" />
@@ -1416,18 +1465,6 @@ warning 6002: The table/view 'NextposDB.dbo.view_InvoiceRollbackList' does not h
             </Principal>
             <Dependent Role="CustomerPayment">
               <PropertyRef Name="CustomerDebtId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_CustomerDebts_Customer">
-          <End Type="NextposDBModel.Customers" Role="Customers" Multiplicity="0..1" />
-          <End Type="NextposDBModel.CustomersDebt" Role="CustomersDebt" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Customers">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="CustomersDebt">
-              <PropertyRef Name="CustomerId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1449,9 +1486,9 @@ warning 6002: The table/view 'NextposDB.dbo.view_InvoiceRollbackList' does not h
           <Property Name="IncomingSum" Type="Double" />
           <Property Name="CustomerId" Type="Int32" />
           <Property Name="Note" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Customer" Relationship="NextposDBModel.FK_SalesData_ToCustomer" FromRole="SalesData" ToRole="Customers" />
           <NavigationProperty Name="SalesDataDetail" Relationship="NextposDBModel.FK_SalesDataDetail_ToSalesData" FromRole="SalesData" ToRole="SalesDataDetail" />
           <NavigationProperty Name="Users" Relationship="NextposDBModel.FK_SalesData_ToUser" FromRole="SalesData" ToRole="Users" />
+          <NavigationProperty Name="Customer" Relationship="NextposDBModel.FK_SalesData_ToCustomer" FromRole="SalesData" ToRole="Customer" />
         </EntityType>
         <EntityType Name="TerminalIncomesAndExpens">
           <Key>
@@ -1507,18 +1544,6 @@ warning 6002: The table/view 'NextposDB.dbo.view_InvoiceRollbackList' does not h
           <Property Name="SalePrice" Type="Double" />
           <Property Name="Discount" Type="Double" />
         </EntityType>
-        <Association Name="FK_SalesData_ToCustomer">
-          <End Type="NextposDBModel.Customers" Role="Customers" Multiplicity="0..1" />
-          <End Type="NextposDBModel.SalesData" Role="SalesData" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Customers">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="SalesData">
-              <PropertyRef Name="CustomerId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityType Name="TaxType">
           <Key>
             <PropertyRef Name="Id" />
@@ -1912,6 +1937,8 @@ warning 6002: The table/view 'NextposDB.dbo.view_InvoiceRollbackList' does not h
           <NavigationProperty Name="SalesData" Relationship="NextposDBModel.FK_SalesData_ToUser" FromRole="Users" ToRole="SalesData" />
           <NavigationProperty Name="Stores" Relationship="NextposDBModel.FK_Users_Stores" FromRole="Users" ToRole="Store" />
           <NavigationProperty Name="Terminals" Relationship="NextposDBModel.FK_Terminals_To_User" FromRole="Users" ToRole="Terminals" />
+          <NavigationProperty Name="CustomerGroups" Relationship="NextposDBModel.FK_CustomerGroups_Users" FromRole="Users" ToRole="CustomerGroup" />
+          <NavigationProperty Name="Customers" Relationship="NextposDBModel.FK_Customers_Users" FromRole="Users" ToRole="Customer" />
         </EntityType>
         <Association Name="FK_InvoiceRollbacks_Users">
           <End Type="NextposDBModel.Users" Role="Users" Multiplicity="0..1" />
@@ -2006,6 +2033,109 @@ warning 6002: The table/view 'NextposDB.dbo.view_InvoiceRollbackList' does not h
             </Principal>
             <Dependent Role="Terminals">
               <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="CustomerGroup">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Discount" Type="Double" Nullable="false" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="User" Relationship="NextposDBModel.FK_CustomerGroups_Users" FromRole="CustomerGroup" ToRole="Users" />
+          <NavigationProperty Name="Customers" Relationship="NextposDBModel.FK_Customers_CustomerGroups" FromRole="CustomerGroup" ToRole="Customer" />
+        </EntityType>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IsDeleted" Type="Int32" />
+          <Property Name="NameSurname" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="CompanyName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="DateBirth" Type="DateTime" Precision="0" />
+          <Property Name="Gender" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
+          <Property Name="Phone" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Voen" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+          <Property Name="Debt" Type="Double" />
+          <Property Name="Balance" Type="Double" />
+          <Property Name="BankName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="BankVoen" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BankAccountNumber" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="BankKOD" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BankSwift" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="Boolean" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="UserId" Type="Int32" />
+          <Property Name="CustomerGroupId" Type="Int32" />
+          <NavigationProperty Name="CustomerGroup" Relationship="NextposDBModel.FK_Customers_CustomerGroups" FromRole="Customer" ToRole="CustomerGroup" />
+          <NavigationProperty Name="CustomersDebts" Relationship="NextposDBModel.FK_CustomerDebts_Customer" FromRole="Customer" ToRole="CustomersDebt" />
+          <NavigationProperty Name="User" Relationship="NextposDBModel.FK_Customers_Users" FromRole="Customer" ToRole="Users" />
+          <NavigationProperty Name="SalesDatas" Relationship="NextposDBModel.FK_SalesData_ToCustomer" FromRole="Customer" ToRole="SalesData" />
+        </EntityType>
+        <Association Name="FK_CustomerGroups_Users">
+          <End Type="NextposDBModel.Users" Role="Users" Multiplicity="1" />
+          <End Type="NextposDBModel.CustomerGroup" Role="CustomerGroup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CustomerGroup">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Customers_CustomerGroups">
+          <End Type="NextposDBModel.CustomerGroup" Role="CustomerGroup" Multiplicity="0..1" />
+          <End Type="NextposDBModel.Customer" Role="Customer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CustomerGroup">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Customer">
+              <PropertyRef Name="CustomerGroupId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CustomerDebts_Customer">
+          <End Type="NextposDBModel.Customer" Role="Customer" Multiplicity="0..1" />
+          <End Type="NextposDBModel.CustomersDebt" Role="CustomersDebt" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CustomersDebt">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Customers_Users">
+          <End Type="NextposDBModel.Users" Role="Users" Multiplicity="0..1" />
+          <End Type="NextposDBModel.Customer" Role="Customer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Customer">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SalesData_ToCustomer">
+          <End Type="NextposDBModel.Customer" Role="Customer" Multiplicity="0..1" />
+          <End Type="NextposDBModel.SalesData" Role="SalesData" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SalesData">
+              <PropertyRef Name="CustomerId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -2168,31 +2298,6 @@ warning 6002: The table/view 'NextposDB.dbo.view_InvoiceRollbackList' does not h
                 <ScalarProperty Name="Debt" ColumnName="Debt" />
                 <ScalarProperty Name="SupplierId" ColumnName="SupplierId" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Customers">
-            <EntityTypeMapping TypeName="NextposDBModel.Customers">
-              <MappingFragment StoreEntitySet="Customers">
-                <ScalarProperty Name="Status" ColumnName="Status" />
-                <ScalarProperty Name="Comment" ColumnName="Comment" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="BankSwift" ColumnName="BankSwift" />
-                <ScalarProperty Name="BankKOD" ColumnName="BankKOD" />
-                <ScalarProperty Name="BankAccountNumber" ColumnName="BankAccountNumber" />
-                <ScalarProperty Name="BankVoen" ColumnName="BankVoen" />
-                <ScalarProperty Name="BankName" ColumnName="BankName" />
-                <ScalarProperty Name="Balance" ColumnName="Balance" />
-                <ScalarProperty Name="Debt" ColumnName="Debt" />
-                <ScalarProperty Name="Address" ColumnName="Address" />
-                <ScalarProperty Name="Voen" ColumnName="Voen" />
-                <ScalarProperty Name="Phone" ColumnName="Phone" />
-                <ScalarProperty Name="Gender" ColumnName="Gender" />
-                <ScalarProperty Name="DateBirth" ColumnName="DateBirth" />
-                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
-                <ScalarProperty Name="NameSurname" ColumnName="NameSurname" />
-                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -2476,6 +2581,45 @@ warning 6002: The table/view 'NextposDB.dbo.view_InvoiceRollbackList' does not h
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="CustomerGroups">
+            <EntityTypeMapping TypeName="NextposDBModel.CustomerGroup">
+              <MappingFragment StoreEntitySet="CustomerGroups">
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="Discount" ColumnName="Discount" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Customers">
+            <EntityTypeMapping TypeName="NextposDBModel.Customer">
+              <MappingFragment StoreEntitySet="Customers">
+                <ScalarProperty Name="CustomerGroupId" ColumnName="CustomerGroupId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="BankSwift" ColumnName="BankSwift" />
+                <ScalarProperty Name="BankKOD" ColumnName="BankKOD" />
+                <ScalarProperty Name="BankAccountNumber" ColumnName="BankAccountNumber" />
+                <ScalarProperty Name="BankVoen" ColumnName="BankVoen" />
+                <ScalarProperty Name="BankName" ColumnName="BankName" />
+                <ScalarProperty Name="Balance" ColumnName="Balance" />
+                <ScalarProperty Name="Debt" ColumnName="Debt" />
+                <ScalarProperty Name="Voen" ColumnName="Voen" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="DateBirth" ColumnName="DateBirth" />
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+                <ScalarProperty Name="NameSurname" ColumnName="NameSurname" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -2490,7 +2634,7 @@ warning 6002: The table/view 'NextposDB.dbo.view_InvoiceRollbackList' does not h
     <Options>
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
-        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
         <DesignerProperty Name="UseLegacyProvider" Value="false" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />

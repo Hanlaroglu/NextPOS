@@ -36,7 +36,6 @@ namespace Barcode_Sales
         public virtual DbSet<AqtaProducts> AqtaProducts { get; set; }
         public virtual DbSet<SupplierPayment> SupplierPayments { get; set; }
         public virtual DbSet<SuppliersDebt> SuppliersDebts { get; set; }
-        public virtual DbSet<Customers> Customers { get; set; }
         public virtual DbSet<CustomerPayment> CustomerPayments { get; set; }
         public virtual DbSet<CustomersDebt> CustomersDebts { get; set; }
         public virtual DbSet<SalesData> SalesDatas { get; set; }
@@ -57,5 +56,7 @@ namespace Barcode_Sales
         public virtual DbSet<Store> Stores { get; set; }
         public virtual DbSet<Terminals> Terminals { get; set; }
         public virtual DbSet<Users> Users { get; set; }
+        public virtual DbSet<CustomerGroup> CustomerGroups { get; set; }
+        public virtual DbSet<Customer> Customers { get; set; }
     }
 }

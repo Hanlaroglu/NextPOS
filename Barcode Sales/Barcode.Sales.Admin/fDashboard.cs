@@ -754,7 +754,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             if (gridCustomers.GetFocusedRow() is null) { CommonMessageBox.InformationMessageBox(CommonMessages.NOT_SELECTİON); return; }
 
             int id = Convert.ToInt32(gridCustomers.GetFocusedRowCellValue("Id").ToString());
-            Customers customer = customerOperation.GetById(id);
+            Customer customer = customerOperation.GetById(id);
             fAddCustomer f = new fAddCustomer(Enums.Operation.Edit);
             if (f.ShowDialog() is DialogResult.OK)
             {
@@ -879,8 +879,8 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             var result = XtraMessageBox.Show(args);
             if (result is DialogResult.Yes)
             {
-                List<Customers> customer = selectedRows
-                                            .Select(x => gridCustomers.GetRow(x) as Customers)
+                List<Customer> customer = selectedRows
+                                            .Select(x => gridCustomers.GetRow(x) as Customer)
                                             .Where(c => c != null)
                                             .ToList();
 
@@ -904,8 +904,8 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             var result = XtraMessageBox.Show(args);
             if (result is DialogResult.Yes)
             {
-                List<Customers> customer = selectedRows
-                                            .Select(x => gridCustomers.GetRow(x) as Customers)
+                List<Customer> customer = selectedRows
+                                            .Select(x => gridCustomers.GetRow(x) as Customer)
                                             .Where(c => c != null)
                                             .ToList();
 

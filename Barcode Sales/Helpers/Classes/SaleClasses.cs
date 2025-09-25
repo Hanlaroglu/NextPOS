@@ -46,7 +46,7 @@ namespace Barcode_Sales.Helpers.Classes
             public string Cashier { get; set; }
             public string RRN { get; set; } = null;
             public string CustomerName { get; set; } = null; //Test üçün istifadə olunur. Digər hallarda Customer classsindan istifadə olunacaq
-            public Customers Customer { get; set; }
+            public Customer Customer { get; set; }
             public string Note { get; set; } = null;
             public BindingList<SaleDataItem> Items { get; set; } = new BindingList<SaleDataItem>();
         }

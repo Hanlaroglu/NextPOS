@@ -775,7 +775,7 @@ namespace Barcode_Sales.Barcode.Sales.UI
 
         private void bNisye_Click(object sender, EventArgs e)
         {
-            FormHelpers.OpenForm<fNisyeSales>();
+           
         }
 
         private void bKassa_Click(object sender, EventArgs e)

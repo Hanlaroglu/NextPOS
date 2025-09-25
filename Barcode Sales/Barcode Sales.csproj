@@ -235,16 +235,20 @@
     <Compile Include="Company.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="CustomerPayment.cs">
+    <Compile Include="Customer.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Customers.cs">
+    <Compile Include="CustomerGroup.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerPayment.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="CustomersDebt.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="DTOs\CategoryDto.cs" />
+    <Compile Include="DTOs\CustomerDto.cs" />
     <Compile Include="DTOs\DashboardStatisticsDto.cs" />
     <Compile Include="DTOs\DefinitionDto.cs" />
     <Compile Include="DTOs\SalesDataSummary.cs" />
@@ -371,18 +375,6 @@
     <Compile Include="Forms\fNBAPrint.Designer.cs">
       <DependentUpon>fNBAPrint.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\fNewCustomer.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\fNewCustomer.Designer.cs">
-      <DependentUpon>fNewCustomer.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\fNisyeSales.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\fNisyeSales.Designer.cs">
-      <DependentUpon>fNisyeSales.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\fPosPay.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -430,12 +422,6 @@
     </Compile>
     <Compile Include="Forms\fRole.Designer.cs">
       <DependentUpon>fRole.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\fSearchData.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\fSearchData.Designer.cs">
-      <DependentUpon>fSearchData.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\fSelected.cs">
       <SubType>Form</SubType>
@@ -567,6 +553,7 @@
     <Compile Include="Operations\Abstract\ICloseShiftOperation.cs" />
     <Compile Include="Operations\Abstract\ICompanyOperation.cs" />
     <Compile Include="Operations\Abstract\ICustomerDebtOperation.cs" />
+    <Compile Include="Operations\Abstract\ICustomerGroupOperation.cs" />
     <Compile Include="Operations\Abstract\ICustomerOperation.cs" />
     <Compile Include="Operations\Abstract\ICustomerPaymentOperation.cs" />
     <Compile Include="Operations\Abstract\IInvoiceDetailOperation.cs" />
@@ -595,6 +582,7 @@
     <Compile Include="Operations\Concrete\CloseShiftManager.cs" />
     <Compile Include="Operations\Concrete\CompanyManager.cs" />
     <Compile Include="Operations\Concrete\CustomerDebtManager.cs" />
+    <Compile Include="Operations\Concrete\CustomerGroupManager.cs" />
     <Compile Include="Operations\Concrete\CustomerManager.cs" />
     <Compile Include="Operations\Concrete\InvoiceRollbackManager.cs" />
     <Compile Include="Operations\Concrete\IncomeAndExpenseManager.cs" />
@@ -800,12 +788,6 @@
     <EmbeddedResource Include="Forms\fNBAPrint.resx">
       <DependentUpon>fNBAPrint.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\fNewCustomer.resx">
-      <DependentUpon>fNewCustomer.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\fNisyeSales.resx">
-      <DependentUpon>fNisyeSales.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\fPosPay.resx">
       <DependentUpon>fPosPay.cs</DependentUpon>
     </EmbeddedResource>
@@ -829,9 +811,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\fRole.resx">
       <DependentUpon>fRole.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\fSearchData.resx">
-      <DependentUpon>fSearchData.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\fSelected.resx">
       <DependentUpon>fSelected.cs</DependentUpon>

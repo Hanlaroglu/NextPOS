@@ -8,12 +8,13 @@ using System.Linq;
 
 namespace Barcode_Sales.Forms
 {
-    public partial class fAddCustomer : DevExpress.XtraEditors.XtraForm
+    public partial class fAddCustomer : DevExpress.XtraBars.FluentDesignSystem.FluentDesignForm
     {
+        private ICustomerGroupOperation customerGroupOperation = new CustomerGroupManager();
         ICustomerOperation customerOperation = new CustomerManager();
         private Enums.Operation _operation { get; }
-        private Customers _customer { get; set; }
-        public fAddCustomer(Enums.Operation operation, Customers customer = null)
+        private Customer _customer { get; set; }
+        public fAddCustomer(Enums.Operation operation, Customer customer = null)
         {
             InitializeComponent();
             _operation = operation;
@@ -22,41 +23,32 @@ namespace Barcode_Sales.Forms
 
         private void fAddCustomer_Load(object sender, EventArgs e)
         {
-            tDateBirth.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTime;
-            tDateBirth.Properties.Mask.EditMask = "dd.MM.yyyy";
-            tDateBirth.Properties.Mask.UseMaskAsDisplayFormat = true;
-            tDateBirth.EditValue = DateTime.Now;
-
             switch (_operation)
             {
                 case Enums.Operation.Add:
-                    Clear();
-                    controlFooterButton1.SaveButtonText = Enums.GetEnumDescription(Enums.Operation.Add);
-                    controlFooterButton1.SaveButtonImage = Enums.Operation.Add;
-                    bSaleHistory.Visible = false;
-                    bCredit.Visible = false;
-                    bDebtHistory.Visible = false;
+                    CustomerGroupsLoad();
                     break;
                 case Enums.Operation.Edit:
                     CustomerDataLoad();
-                    controlFooterButton1.SaveButtonText = Enums.GetEnumDescription(Enums.Operation.Edit);
-                    controlFooterButton1.SaveButtonImage = Enums.Operation.Edit;
                     break;
                 case Enums.Operation.Show:
                     CustomerDataLoad();
-                    controlFooterButton1.SaveButtonText = Enums.GetEnumDescription(Enums.Operation.Close);
-                    controlFooterButton1.SaveButtonImage = Enums.Operation.Close;
                     break;
             }
+        }
+
+        private void CustomerGroupsLoad()
+        {
+            var data = customerGroupOperation.Where(x => x.IsDeleted == false).ToList();
+            FormHelpers.ControlLoad(data, lookCustomerGroup);
         }
 
         private void CustomerDataLoad()
         {
             tNameSurname.Text = _customer.NameSurname;
-            tDateBirth.EditValue = _customer.DateBirth;
+            tDateBirth.EditValue = _customer.DateBirth == null ? null : _customer.DateBirth;
             chMan.Checked = _customer.Gender == "KİŞİ" || _customer.Gender == "KISI ";
             chWomen.Checked = _customer.Gender == "QADIN";
-            tAddress.Text = _customer.Address;
             tVoen.Text = _customer.Voen;
             tComment.Text = _customer.Comment;
             tEmail.Text = _customer.Email;
@@ -70,26 +62,21 @@ namespace Barcode_Sales.Forms
 
         private void Add()
         {
-            var gender = groupProduct.Controls.OfType<CheckEdit>().FirstOrDefault(x => x.Checked);
-            _customer = new Customers()
+            var gender = groupCustomer.Controls.OfType<CheckEdit>().FirstOrDefault(x => x.Checked);
+            _customer = new Customer()
             {
                 NameSurname = tNameSurname.Text.Trim(),
-                DateBirth = (DateTime)tDateBirth.EditValue,
+                DateBirth = tDateBirth.EditValue as DateTime?,
                 Gender = gender.Text,
-                Address = tAddress.Text.Trim(),
                 Voen = tVoen.Text.Trim(),
                 Comment = tComment.Text.Trim(),
                 Email = tEmail.Text.Trim(),
-                Phone = tPhone.Text.Trim(),
+                Phone = tPhone.Text,
                 BankName = tBankName.Text.Trim(),
                 BankVoen = tBankVoen.Text.Trim(),
                 BankAccountNumber = tBankAccountNumber.Text.Trim(),
                 BankKOD = tBankKod.Text.Trim(),
                 BankSwift = tBankSwift.Text.Trim(),
-                Debt = 0,
-                Balance = 0,
-                Status = true,
-                IsDeleted = 0,
             };
 
             var validator = ValidationHelpers.ValidateMessage(_customer, new CustomerValidation(), this);
@@ -108,11 +95,10 @@ namespace Barcode_Sales.Forms
 
         private void Edit()
         {
-            var gender = groupProduct.Controls.OfType<CheckEdit>().FirstOrDefault(x => x.Checked);
+            var gender = groupCustomer.Controls.OfType<CheckEdit>().FirstOrDefault(x => x.Checked);
 
-            _customer.DateBirth = (DateTime)tDateBirth.EditValue;
+            _customer.DateBirth = tDateBirth.EditValue as DateTime?;
             _customer.Gender = gender.Text;
-            _customer.Address = tAddress.Text.Trim();
             _customer.Voen = tVoen.Text.Trim();
             _customer.Comment = tComment.Text.Trim();
             _customer.Email = tEmail.Text.Trim();
@@ -129,38 +115,31 @@ namespace Barcode_Sales.Forms
 
         private void Clear()
         {
-            tNameSurname.Text = null;
+            tNameSurname.Clear();
             tDateBirth.Text = null;
             chMan.Checked = false;
             chWomen.Checked = false;
-            tAddress.Text = null;
-            tVoen.Text = null;
-            tComment.Text = null;
-            tEmail.Text = null;
-            tPhone.Text = null;
-            tBankName.Text = null;
-            tBankVoen.Text = null;
-            tBankAccountNumber.Text = null;
-            tBankKod.Text = null;
-            tBankSwift.Text = null;
+            tVoen.Clear();
+            tComment.Clear();
+            tEmail.Clear();
+            tPhone.Clear();
+            tBankName.Clear();
+            tBankVoen.Clear();
+            tBankAccountNumber.Clear();
+            tBankKod.Clear();
+            tBankSwift.Clear();
             tNameSurname.Focus();
         }
 
-        private void controlFooterButton1_SaveClick(object sender, EventArgs e)
+        private void bSave_Click(object sender, EventArgs e)
         {
-            if (_operation is Enums.Operation.Add)
+            switch (_operation)
             {
-                Add();
+                case Enums.Operation.Add:
+                    Add(); break;
+                case Enums.Operation.Edit:
+                    Edit(); break;
             }
-            else if (_operation is Enums.Operation.Edit)
-            {
-                Edit();
-            }
-        }
-
-        private void controlFooterButton1_CancelClick(object sender, EventArgs e)
-        {
-            Close();
         }
     }
 }

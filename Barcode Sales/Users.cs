@@ -23,6 +23,8 @@ namespace Barcode_Sales
             this.Products = new HashSet<Products>();
             this.SalesData = new HashSet<SalesData>();
             this.Terminals = new HashSet<Terminals>();
+            this.CustomerGroups = new HashSet<CustomerGroup>();
+            this.Customers = new HashSet<Customer>();
         }
     
         public int Id { get; set; }
@@ -51,5 +53,9 @@ namespace Barcode_Sales
         public virtual Store Stores { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Terminals> Terminals { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<CustomerGroup> CustomerGroups { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Customer> Customers { get; set; }
     }
 }
