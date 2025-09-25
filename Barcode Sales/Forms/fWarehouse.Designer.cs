@@ -28,13 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fWarehouse));
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.chStatus = new DevExpress.XtraEditors.CheckEdit();
+            this.tName = new DevExpress.XtraEditors.ButtonEdit();
             this.bSave = new DevExpress.XtraEditors.SimpleButton();
-            this.chStatus = new DevExpress.XtraEditors.ToggleSwitch();
-            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
-            this.tName = new DevExpress.XtraEditors.TextEdit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chStatus.Properties)).BeginInit();
@@ -43,20 +51,63 @@
             // 
             // panelControl1
             // 
-            this.panelControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelControl1.Controls.Add(this.bSave);
             this.panelControl1.Controls.Add(this.chStatus);
-            this.panelControl1.Controls.Add(this.labelControl1);
-            this.panelControl1.Controls.Add(this.labelControl4);
             this.panelControl1.Controls.Add(this.tName);
-            this.panelControl1.Location = new System.Drawing.Point(3, 5);
+            this.panelControl1.Controls.Add(this.bSave);
+            this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelControl1.Location = new System.Drawing.Point(0, 0);
             this.panelControl1.LookAndFeel.SkinName = "WXI";
             this.panelControl1.LookAndFeel.UseDefaultLookAndFeel = false;
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(490, 95);
+            this.panelControl1.Size = new System.Drawing.Size(493, 101);
             this.panelControl1.TabIndex = 0;
+            // 
+            // chStatus
+            // 
+            this.chStatus.EditValue = true;
+            this.chStatus.Location = new System.Drawing.Point(12, 54);
+            this.chStatus.Name = "chStatus";
+            this.chStatus.Properties.AllowFocused = false;
+            this.chStatus.Properties.Appearance.Font = new System.Drawing.Font("Nunito", 12F, System.Drawing.FontStyle.Bold);
+            this.chStatus.Properties.Appearance.Options.UseFont = true;
+            this.chStatus.Properties.Caption = "Status";
+            this.chStatus.Properties.CheckBoxOptions.Style = DevExpress.XtraEditors.Controls.CheckBoxStyle.SvgToggle1;
+            this.chStatus.Properties.CheckBoxOptions.SvgColorChecked = DevExpress.LookAndFeel.DXSkinColors.ForeColors.Information;
+            this.chStatus.Properties.CheckBoxOptions.SvgImageSize = new System.Drawing.Size(36, 30);
+            this.chStatus.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.chStatus.Size = new System.Drawing.Size(129, 34);
+            this.chStatus.TabIndex = 27;
+            this.chStatus.TabStop = false;
+            // 
+            // tName
+            // 
+            this.tName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tName.Location = new System.Drawing.Point(12, 12);
+            this.tName.Name = "tName";
+            this.tName.Properties.AllowFocused = false;
+            this.tName.Properties.Appearance.Font = new System.Drawing.Font("Nunito", 12F);
+            this.tName.Properties.Appearance.Options.UseFont = true;
+            this.tName.Properties.Appearance.Options.UseTextOptions = true;
+            this.tName.Properties.Appearance.TextOptions.Trimming = DevExpress.Utils.Trimming.EllipsisCharacter;
+            serializableAppearanceObject1.Font = new System.Drawing.Font("Nunito", 12F, System.Drawing.FontStyle.Bold);
+            serializableAppearanceObject1.Options.UseFont = true;
+            serializableAppearanceObject4.Font = new System.Drawing.Font("Nunito", 12F, System.Drawing.FontStyle.Bold);
+            serializableAppearanceObject4.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.ControlText;
+            serializableAppearanceObject4.Options.UseFont = true;
+            serializableAppearanceObject4.Options.UseForeColor = true;
+            serializableAppearanceObject8.Font = new System.Drawing.Font("Nunito", 12F, System.Drawing.FontStyle.Bold);
+            serializableAppearanceObject8.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.Critical;
+            serializableAppearanceObject8.Options.UseFont = true;
+            serializableAppearanceObject8.Options.UseForeColor = true;
+            this.tName.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Anbar adı : ", -1, false, true, true, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "*", -1, false, true, true, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            this.tName.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.tName.Size = new System.Drawing.Size(479, 36);
+            this.tName.TabIndex = 26;
+            this.tName.TabStop = false;
+            this.tName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tName_KeyDown);
             // 
             // bSave
             // 
@@ -73,7 +124,7 @@
             this.bSave.AppearanceHovered.Options.UseBackColor = true;
             this.bSave.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bSave.ImageOptions.SvgImage")));
             this.bSave.ImageOptions.SvgImageSize = new System.Drawing.Size(28, 28);
-            this.bSave.Location = new System.Drawing.Point(343, 51);
+            this.bSave.Location = new System.Drawing.Point(346, 57);
             this.bSave.LookAndFeel.SkinName = "WXI";
             this.bSave.LookAndFeel.UseDefaultLookAndFeel = false;
             this.bSave.Name = "bSave";
@@ -85,74 +136,22 @@
             this.bSave.Text = "Saxla";
             this.bSave.Click += new System.EventHandler(this.bSave_Click);
             // 
-            // chStatus
-            // 
-            this.chStatus.EditValue = true;
-            this.chStatus.Location = new System.Drawing.Point(99, 57);
-            this.chStatus.Name = "chStatus";
-            this.chStatus.Properties.AutoWidth = true;
-            this.chStatus.Properties.OffText = "Deaktiv";
-            this.chStatus.Properties.OnText = "Aktiv";
-            this.chStatus.Size = new System.Drawing.Size(113, 24);
-            this.chStatus.TabIndex = 1;
-            // 
-            // labelControl1
-            // 
-            this.labelControl1.Appearance.Font = new System.Drawing.Font("Nunito", 11F);
-            this.labelControl1.Appearance.Options.UseFont = true;
-            this.labelControl1.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Horizontal;
-            this.labelControl1.Location = new System.Drawing.Point(5, 59);
-            this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
-            this.labelControl1.Size = new System.Drawing.Size(48, 20);
-            this.labelControl1.TabIndex = 7;
-            this.labelControl1.Text = "Status";
-            this.labelControl1.UseMnemonic = false;
-            // 
-            // labelControl4
-            // 
-            this.labelControl4.Appearance.Font = new System.Drawing.Font("Nunito", 11F);
-            this.labelControl4.Appearance.Options.UseFont = true;
-            this.labelControl4.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Horizontal;
-            this.labelControl4.Location = new System.Drawing.Point(5, 13);
-            this.labelControl4.Name = "labelControl4";
-            this.labelControl4.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
-            this.labelControl4.Size = new System.Drawing.Size(72, 20);
-            this.labelControl4.TabIndex = 7;
-            this.labelControl4.Text = "Anbar adı";
-            this.labelControl4.UseMnemonic = false;
-            // 
-            // tName
-            // 
-            this.tName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tName.Location = new System.Drawing.Point(99, 7);
-            this.tName.Name = "tName";
-            this.tName.Properties.Appearance.Font = new System.Drawing.Font("Nunito", 10F);
-            this.tName.Properties.Appearance.Options.UseFont = true;
-            this.tName.Properties.Mask.UseMaskAsDisplayFormat = true;
-            this.tName.Properties.MaskSettings.Set("mask", "(999) 000-00-00");
-            this.tName.Properties.MaxLength = 50;
-            this.tName.Size = new System.Drawing.Size(384, 32);
-            this.tName.TabIndex = 0;
-            // 
             // fWarehouse
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(498, 106);
+            this.ClientSize = new System.Drawing.Size(493, 101);
             this.Controls.Add(this.panelControl1);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(500, 140);
+            this.MaximumSize = new System.Drawing.Size(495, 135);
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(500, 140);
+            this.MinimumSize = new System.Drawing.Size(495, 135);
             this.Name = "fWarehouse";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Anbar";
             this.Load += new System.EventHandler(this.fWarehouse_Load);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
-            this.panelControl1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chStatus.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tName.Properties)).EndInit();
             this.ResumeLayout(false);
@@ -162,10 +161,8 @@
         #endregion
 
         private DevExpress.XtraEditors.PanelControl panelControl1;
-        private DevExpress.XtraEditors.ToggleSwitch chStatus;
-        private DevExpress.XtraEditors.LabelControl labelControl1;
-        private DevExpress.XtraEditors.LabelControl labelControl4;
-        private DevExpress.XtraEditors.TextEdit tName;
         private DevExpress.XtraEditors.SimpleButton bSave;
+        private DevExpress.XtraEditors.ButtonEdit tName;
+        private DevExpress.XtraEditors.CheckEdit chStatus;
     }
 }

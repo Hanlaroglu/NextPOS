@@ -106,7 +106,7 @@ namespace Barcode_Sales.Forms
 
         int GetByIdStore(string storeName)
         {
-            var store = db.Stores.AsNoTracking().FirstOrDefault(x => x.StoreName == storeName);
+            var store = db.Stores.AsNoTracking().FirstOrDefault(x => x.Name == storeName);
             return store != null ? store.Id : throw new NullReferenceException(UserValidation.StoreNotSelected);
         }
 
@@ -145,7 +145,7 @@ namespace Barcode_Sales.Forms
 
         void UserDataLoad()
         {
-            lookStore.Text = User?.Stores?.StoreName;
+            lookStore.Text = User?.Stores?.Name;
             tUsername.Text = User.Username;
             tPassword.Text = User.Password;
             tNameSurname.Text = User.NameSurname;
@@ -157,10 +157,10 @@ namespace Barcode_Sales.Forms
         void StoreDataLoad()
         {
             var data = db.Stores.AsNoTracking()
-                               .Where(x => x.IsDeleted == 0)
+                               .Where(x => x.IsDeleted == false)
                                .Select(x => new
                                {
-                                   x.StoreName
+                                   x.Name
                                })
                                .ToList();
 

@@ -18,6 +18,7 @@ namespace Barcode_Sales
         public PaymentType()
         {
             this.Invoices = new HashSet<Invoice>();
+            this.InvoiceRollbacks = new HashSet<InvoiceRollback>();
         }
     
         public int Id { get; set; }
@@ -26,5 +27,7 @@ namespace Barcode_Sales
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Invoice> Invoices { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<InvoiceRollback> InvoiceRollbacks { get; set; }
     }
 }

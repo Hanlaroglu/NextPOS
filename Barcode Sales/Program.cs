@@ -25,7 +25,7 @@ namespace Barcode_Sales
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new fLogin());
-            //Application.Run(new fInvoiceProduct());
+           // Application.Run(new fInvoiceRollbackProduct());
 
 
 

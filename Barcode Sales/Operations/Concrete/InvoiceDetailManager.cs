@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
@@ -8,7 +9,7 @@ using Barcode_Sales.Operations.Abstract;
 
 namespace Barcode_Sales.Operations.Concrete
 {
-    public class InvoiceDetailManager:IInvoiceDetailOperation
+    public class InvoiceDetailManager : IInvoiceDetailOperation
     {
         private NextposDBEntities db = new NextposDBEntities();
         public bool Add(InvoiceDetail item)
@@ -62,9 +63,9 @@ namespace Barcode_Sales.Operations.Concrete
             return db.InvoiceDetails.AsNoTracking().Where(expression);
         }
 
-        public Task<List<InvoiceDetail>> WhereAsync(Expression<Func<InvoiceDetail, bool>> expression = null)
+        public async Task<List<InvoiceDetail>> WhereAsync(Expression<Func<InvoiceDetail, bool>> expression = null)
         {
-            throw new NotImplementedException();
+            return await db.InvoiceDetails.AsNoTracking().Where(expression).ToListAsync();
         }
     }
 }

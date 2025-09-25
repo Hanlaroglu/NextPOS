@@ -67,7 +67,7 @@ namespace Barcode_Sales.Forms
                     .Select(x => new SaleDataDto()
                     {
                         Id = x.Id,
-                        Cashier = x.User.NameSurname,
+                        Cashier = x.Users.NameSurname,
                         CustomerName = x.Customer.NameSurname,
                         SaleDate = x.SaleDate,
                         SaleDatetime = x.SaleDatetime,
@@ -90,7 +90,7 @@ namespace Barcode_Sales.Forms
                     .Select(x => new SaleDataDto()
                     {
                         Id = x.Id,
-                        Cashier = x.User.NameSurname,
+                        Cashier = x.Users.NameSurname,
                         CustomerName = x.Customer.NameSurname,
                         SaleDate = x.SaleDate,
                         SaleDatetime = x.SaleDatetime,
@@ -113,7 +113,7 @@ namespace Barcode_Sales.Forms
                     .Select(x => new SaleDataDto()
                     {
                         Id = x.Id,
-                        Cashier = x.User.NameSurname,
+                        Cashier = x.Users.NameSurname,
                         CustomerName = x.Customer.NameSurname,
                         SaleDate = x.SaleDate,
                         SaleDatetime = x.SaleDatetime,

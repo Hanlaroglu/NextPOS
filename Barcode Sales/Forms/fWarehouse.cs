@@ -4,6 +4,7 @@ using Barcode_Sales.Operations.Concrete;
 using Barcode_Sales.Validations;
 using System;
 using DevExpress.XtraEditors;
+using System.Windows.Forms;
 
 namespace Barcode_Sales.Forms
 {
@@ -28,13 +29,13 @@ namespace Barcode_Sales.Forms
         private void WarehouseDataList()
         {
             tName.Text = _warehouses.Name;
-            chStatus.IsOn = _warehouses.Status ?? true;
+            chStatus.Checked = _warehouses.Status ?? true;
         }
 
         private void Clear()
         {
             tName.Clear();
-            chStatus.IsOn = true;
+            chStatus.Checked = true;
             tName.Focus();
         }
 
@@ -56,7 +57,7 @@ namespace Barcode_Sales.Forms
             _warehouses = new Warehouses
             {
                 Name = tName.Text.Trim(),
-                Status = chStatus.IsOn,
+                Status = chStatus.Checked,
                 IsDeleted = 0
             };
 
@@ -77,7 +78,7 @@ namespace Barcode_Sales.Forms
         private void Edit()
         {
             _warehouses.Name = tName.Text.Trim();
-            _warehouses.Status = chStatus.IsOn;
+            _warehouses.Status = chStatus.Checked;
 
             var validator = ValidationHelpers.ValidateMessage(_warehouses, new WarehouseValidation(), this);
 
@@ -88,5 +89,10 @@ namespace Barcode_Sales.Forms
             Close();
         }
 
+        private void tName_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
+        {
+            if (e.KeyCode is Keys.Enter)
+                bSave.PerformClick();
+        }
     }
 }

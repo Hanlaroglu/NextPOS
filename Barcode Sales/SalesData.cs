@@ -36,8 +36,8 @@ namespace Barcode_Sales
         public string Note { get; set; }
     
         public virtual Customers Customer { get; set; }
-        public virtual Users User { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<SalesDataDetail> SalesDataDetail { get; set; }
+        public virtual Users Users { get; set; }
     }
 }

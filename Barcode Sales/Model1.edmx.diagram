@@ -4,27 +4,18 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="b5cf45043ef04e46bed5e42906862e99" Name="Diagram1" ZoomLevel="74">
+      <Diagram DiagramId="b5cf45043ef04e46bed5e42906862e99" Name="Diagram1" ZoomLevel="80">
         <EntityTypeShape EntityType="NextposDBModel.Categories" Width="1.5" PointX="0.75" PointY="0.875" IsExpanded="true" />
         <EntityTypeShape EntityType="NextposDBModel.Colors" Width="1.5" PointX="0.75" PointY="6.75" IsExpanded="true" />
         <EntityTypeShape EntityType="NextposDBModel.Logs" Width="1.5" PointX="8" PointY="1.125" IsExpanded="true" />
         <EntityTypeShape EntityType="NextposDBModel.Sizes" Width="1.5" PointX="0.75" PointY="9.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="NextposDBModel.Stores" Width="1.5" PointX="0.75" PointY="11.875" IsExpanded="true" />
         <EntityTypeShape EntityType="NextposDBModel.Warehouses" Width="1.5" PointX="0.75" PointY="14.75" IsExpanded="true" />
         <EntityTypeShape EntityType="NextposDBModel.Suppliers" Width="1.5" PointX="8.375" PointY="4.375" />
         <EntityTypeShape EntityType="NextposDBModel.Roles" Width="1.5" PointX="3.375" PointY="0.75" FillColor="Red" />
         <EntityTypeShape EntityType="NextposDBModel.Company" Width="1.5" PointX="10.375" PointY="0.75" />
         <EntityTypeShape EntityType="NextposDBModel.AqtaProducts" Width="1.5" PointX="8" PointY="14.125" />
         <AssociationConnector Association="NextposDBModel.FK_AqtaProducts_Category" />
-        <AssociationConnector Association="NextposDBModel.FK_AqtaProducts_Store" />
         <AssociationConnector Association="NextposDBModel.FK_AqtaProducts_Warehouse" />
-        <EntityTypeShape EntityType="NextposDBModel.Terminals" Width="1.5" PointX="12.875" PointY="10.125" />
-        <EntityTypeShape EntityType="NextposDBModel.Users" Width="1.5" PointX="7.625" PointY="8.625" FillColor="Red" />
-        <AssociationConnector Association="NextposDBModel.FK__Logs__UserID__6477ECF3" />
-        <AssociationConnector Association="NextposDBModel.FK_Users_RoleID" />
-        <AssociationConnector Association="NextposDBModel.FK__Terminals__Store__5DCAEF64" />
-        <AssociationConnector Association="NextposDBModel.FK__Users__StoreID__60A75C0F" />
-        <AssociationConnector Association="NextposDBModel.FK_Terminals_To_User" />
         <EntityTypeShape EntityType="NextposDBModel.SupplierPayment" Width="1.5" PointX="12.875" PointY="5.375" />
         <EntityTypeShape EntityType="NextposDBModel.SuppliersDebt" Width="1.5" PointX="10.625" PointY="5" />
         <AssociationConnector Association="NextposDBModel.FK_SupplierPayments_SuppliersDebts" />
@@ -40,13 +31,11 @@
         <EntityTypeShape EntityType="NextposDBModel.ReturnPos" Width="1.5" PointX="15.375" PointY="9.5" />
         <EntityTypeShape EntityType="NextposDBModel.ReturnPosDetail" Width="1.5" PointX="15.375" PointY="6.75" />
         <AssociationConnector Association="NextposDBModel.FK_SalesData_ToCustomer" />
-        <AssociationConnector Association="NextposDBModel.FK_SalesData_ToUser" />
         <EntityTypeShape EntityType="NextposDBModel.TaxType" Width="1.5" PointX="3.375" PointY="15.75" />
         <EntityTypeShape EntityType="NextposDBModel.PaymentType" Width="1.5" PointX="3.375" PointY="8.75" />
         <EntityTypeShape EntityType="NextposDBModel.Invoice" Width="1.5" PointX="9.875" PointY="9" FillColor="Orange" />
         <EntityTypeShape EntityType="NextposDBModel.UnitType" Width="1.5" PointX="3.375" PointY="11.75" />
         <AssociationConnector Association="NextposDBModel.FK_Invoices_PaymentTypes" />
-        <AssociationConnector Association="NextposDBModel.FK_Invoices_Users" />
         <AssociationConnector Association="NextposDBModel.FK_Invoices_Warehouses" />
         <EntityTypeShape EntityType="NextposDBModel.InvoiceDetail" Width="1.5" PointX="19.875" PointY="8.25" />
         <AssociationConnector Association="NextposDBModel.FK_InvoiceDetails_Invoices" />
@@ -58,8 +47,27 @@
         <AssociationConnector Association="NextposDBModel.FK_Products_Suppliers" />
         <AssociationConnector Association="NextposDBModel.FK_Products_TaxType" />
         <AssociationConnector Association="NextposDBModel.FK_Products_UnitType" />
-        <AssociationConnector Association="NextposDBModel.FK_Products_Users" />
         <AssociationConnector Association="NextposDBModel.FK_SalesDataDetail_Products" />
+        <EntityTypeShape EntityType="NextposDBModel.InvoiceRollbackDetail" Width="1.5" PointX="19.375" PointY="15.875" />
+        <EntityTypeShape EntityType="NextposDBModel.InvoiceRollback" Width="1.5" PointX="17.125" PointY="14.875" />
+        <AssociationConnector Association="NextposDBModel.FK_InvoiceRollbackDetails_InvoiceRollbacks" />
+        <AssociationConnector Association="NextposDBModel.FK_InvoiceRollbacks_Invoices" />
+        <AssociationConnector Association="NextposDBModel.FK_InvoiceRollbacks_PaymentTypes" />
+        <AssociationConnector Association="NextposDBModel.FK_InvoiceRollbacks_Warehouses" />
+        <EntityTypeShape EntityType="NextposDBModel.view_InvoiceRollbackList" Width="1.5" PointX="0.75" PointY="18.75" />
+        <EntityTypeShape EntityType="NextposDBModel.Store" Width="1.5" PointX="3" PointY="18.875" />
+        <AssociationConnector Association="NextposDBModel.FK_Stores_Warehouses" />
+        <EntityTypeShape EntityType="NextposDBModel.Terminals" Width="1.5" PointX="12.875" PointY="11.5" />
+        <AssociationConnector Association="NextposDBModel.FK_Terminals_Stores" />
+        <EntityTypeShape EntityType="NextposDBModel.Users" Width="1.5" PointX="5.625" PointY="8.75" FillColor="Red" />
+        <AssociationConnector Association="NextposDBModel.FK_InvoiceRollbacks_Users" />
+        <AssociationConnector Association="NextposDBModel.FK_Invoices_Users" />
+        <AssociationConnector Association="NextposDBModel.FK__Logs__UserID__6477ECF3" />
+        <AssociationConnector Association="NextposDBModel.FK_Products_Users" />
+        <AssociationConnector Association="NextposDBModel.FK_Users_RoleID" />
+        <AssociationConnector Association="NextposDBModel.FK_SalesData_ToUser" />
+        <AssociationConnector Association="NextposDBModel.FK_Users_Stores" />
+        <AssociationConnector Association="NextposDBModel.FK_Terminals_To_User" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

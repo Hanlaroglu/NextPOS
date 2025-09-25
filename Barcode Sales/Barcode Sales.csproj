@@ -244,9 +244,12 @@
     <Compile Include="CustomersDebt.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="DTOs\CategoryDto.cs" />
     <Compile Include="DTOs\DashboardStatisticsDto.cs" />
     <Compile Include="DTOs\DefinitionDto.cs" />
     <Compile Include="DTOs\SalesDataSummary.cs" />
+    <Compile Include="DTOs\StoresDto.cs" />
+    <Compile Include="DTOs\ViewInvoiceRollbackListDto.cs" />
     <Compile Include="DTOs\WarehousesDto.cs" />
     <Compile Include="Forms\Components\controlFooterButton.cs">
       <SubType>UserControl</SubType>
@@ -320,6 +323,12 @@
     <Compile Include="Forms\fEditProduct.Designer.cs">
       <DependentUpon>fEditProduct.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\fInvoiceDetailsReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\fInvoiceDetailsReport.Designer.cs">
+      <DependentUpon>fInvoiceDetailsReport.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\fInvoiceProduct.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -331,6 +340,18 @@
     </Compile>
     <Compile Include="Forms\fInvoiceReport.Designer.cs">
       <DependentUpon>fInvoiceReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\fInvoiceRollbackProduct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\fInvoiceRollbackProduct.Designer.cs">
+      <DependentUpon>fInvoiceRollbackProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\fInvoiceRollbackReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\fInvoiceRollbackReport.Designer.cs">
+      <DependentUpon>fInvoiceRollbackReport.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\fKassalar.cs">
       <SubType>Form</SubType>
@@ -397,12 +418,6 @@
     </Compile>
     <Compile Include="Forms\fPriceChange.Designer.cs">
       <DependentUpon>fPriceChange.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\fProductPurchase.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\fProductPurchase.Designer.cs">
-      <DependentUpon>fProductPurchase.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\fRegistration.cs">
       <SubType>Form</SubType>
@@ -512,6 +527,12 @@
     <Compile Include="InvoiceDetail.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="InvoiceRollback.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InvoiceRollbackDetail.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Logs.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -550,6 +571,8 @@
     <Compile Include="Operations\Abstract\ICustomerPaymentOperation.cs" />
     <Compile Include="Operations\Abstract\IInvoiceDetailOperation.cs" />
     <Compile Include="Operations\Abstract\IInvoiceOperation.cs" />
+    <Compile Include="Operations\Abstract\IInvoiceRollbackDetailOperation.cs" />
+    <Compile Include="Operations\Abstract\IInvoiceRollbackOperation.cs" />
     <Compile Include="Operations\Abstract\IPaymentTypeOperation.cs" />
     <Compile Include="Operations\Abstract\IProductOperation.cs" />
     <Compile Include="Operations\Abstract\IReturnPosDetailOperation.cs" />
@@ -573,9 +596,11 @@
     <Compile Include="Operations\Concrete\CompanyManager.cs" />
     <Compile Include="Operations\Concrete\CustomerDebtManager.cs" />
     <Compile Include="Operations\Concrete\CustomerManager.cs" />
+    <Compile Include="Operations\Concrete\InvoiceRollbackManager.cs" />
     <Compile Include="Operations\Concrete\IncomeAndExpenseManager.cs" />
     <Compile Include="Operations\Concrete\InvoiceDetailManager.cs" />
     <Compile Include="Operations\Concrete\InvoiceManager.cs" />
+    <Compile Include="Operations\Concrete\InvoiceRollbackDetailManager.cs" />
     <Compile Include="Operations\Concrete\PaymentTypeManager.cs" />
     <Compile Include="Operations\Concrete\ProductManager.cs" />
     <Compile Include="Forms\fSelectProduct.cs">
@@ -632,7 +657,7 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
-    <Compile Include="Stores.cs">
+    <Compile Include="Store.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="SupplierPayment.cs">
@@ -690,6 +715,9 @@
     <Compile Include="Validations\UserValidation.cs" />
     <Compile Include="Validations\ValidationHelpers.cs" />
     <Compile Include="Validations\WarehouseValidation.cs" />
+    <Compile Include="view_InvoiceRollbackList.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Warehouses.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -748,11 +776,20 @@
     <EmbeddedResource Include="Forms\fEditProduct.resx">
       <DependentUpon>fEditProduct.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\fInvoiceDetailsReport.resx">
+      <DependentUpon>fInvoiceDetailsReport.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\fInvoiceProduct.resx">
       <DependentUpon>fInvoiceProduct.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\fInvoiceReport.resx">
       <DependentUpon>fInvoiceReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\fInvoiceRollbackProduct.resx">
+      <DependentUpon>fInvoiceRollbackProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\fInvoiceRollbackReport.resx">
+      <DependentUpon>fInvoiceRollbackReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\fKassalar.resx">
       <DependentUpon>fKassalar.cs</DependentUpon>
@@ -786,9 +823,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\fPriceChange.resx">
       <DependentUpon>fPriceChange.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\fProductPurchase.resx">
-      <DependentUpon>fProductPurchase.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\fRegistration.resx">
       <DependentUpon>fRegistration.cs</DependentUpon>

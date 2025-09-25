@@ -36,7 +36,6 @@ namespace Barcode_Sales
         public Nullable<int> IsDeleted { get; set; }
     
         public virtual Categories Categories { get; set; }
-        public virtual Stores Stores { get; set; }
         public virtual Warehouses Warehouses { get; set; }
     }
 }

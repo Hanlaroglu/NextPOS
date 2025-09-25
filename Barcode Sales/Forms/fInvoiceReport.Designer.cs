@@ -55,12 +55,12 @@
             this.gridColumn8 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn7 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn10 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn13 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.bDetail = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
-            this.bSearch = new DevExpress.XtraEditors.SimpleButton();
             this.dateEnd = new DevExpress.XtraEditors.DateEdit();
             this.dateStart = new DevExpress.XtraEditors.DateEdit();
+            this.bSearch = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel1)).BeginInit();
             this.tablePanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
@@ -85,8 +85,9 @@
             this.tablePanel1.Name = "tablePanel1";
             this.tablePanel1.Padding = new System.Windows.Forms.Padding(1);
             this.tablePanel1.Rows.AddRange(new DevExpress.Utils.Layout.TablePanelRow[] {
-            new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 47F),
-            new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 26F)});
+            new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 54F),
+            new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 445F)});
+            this.tablePanel1.ShowGrid = DevExpress.Utils.DefaultBoolean.False;
             this.tablePanel1.Size = new System.Drawing.Size(1298, 826);
             this.tablePanel1.TabIndex = 1;
             this.tablePanel1.UseSkinIndents = true;
@@ -97,16 +98,18 @@
             this.tablePanel1.SetColumn(this.gridControl1, 0);
             this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gridControl1.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4);
-            this.gridControl1.Location = new System.Drawing.Point(4, 51);
+            this.gridControl1.Location = new System.Drawing.Point(4, 60);
             this.gridControl1.LookAndFeel.SkinName = "WXI";
             this.gridControl1.LookAndFeel.UseDefaultLookAndFeel = false;
             this.gridControl1.MainView = this.gridView1;
+            this.gridControl1.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
             this.gridControl1.Name = "gridControl1";
             this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.bDetail});
             this.tablePanel1.SetRow(this.gridControl1, 1);
-            this.gridControl1.Size = new System.Drawing.Size(1290, 771);
+            this.gridControl1.Size = new System.Drawing.Size(1290, 762);
             this.gridControl1.TabIndex = 20;
+            this.gridControl1.TabStop = false;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
             // 
@@ -136,11 +139,10 @@
             this.gridColumn8,
             this.gridColumn7,
             this.gridColumn10,
-            this.gridColumn13});
+            this.gridColumn4});
             this.gridView1.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFullFocus;
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
-            this.gridView1.OptionsDetail.ShowDetailTabs = false;
             this.gridView1.OptionsEditForm.PopupEditFormWidth = 1067;
             this.gridView1.OptionsMenu.EnableColumnMenu = false;
             this.gridView1.OptionsSelection.EnableAppearanceFocusedCell = false;
@@ -249,20 +251,18 @@
             this.gridColumn10.VisibleIndex = 7;
             this.gridColumn10.Width = 242;
             // 
-            // gridColumn13
+            // gridColumn4
             // 
-            this.gridColumn13.Caption = "gridColumn13";
-            this.gridColumn13.ColumnEdit = this.bDetail;
-            this.gridColumn13.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.MiddleLeft;
-            this.gridColumn13.Name = "gridColumn13";
-            this.gridColumn13.OptionsColumn.AllowFocus = false;
-            this.gridColumn13.OptionsColumn.ShowCaption = false;
-            this.gridColumn13.OptionsFilter.AllowAutoFilter = false;
-            this.gridColumn13.OptionsFilter.AllowFilter = false;
-            this.gridColumn13.OptionsFilter.ImmediateUpdateAutoFilter = false;
-            this.gridColumn13.Visible = true;
-            this.gridColumn13.VisibleIndex = 8;
-            this.gridColumn13.Width = 97;
+            this.gridColumn4.Caption = "gridColumn4";
+            this.gridColumn4.ColumnEdit = this.bDetail;
+            this.gridColumn4.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.MiddleLeft;
+            this.gridColumn4.Name = "gridColumn4";
+            this.gridColumn4.OptionsColumn.AllowMove = false;
+            this.gridColumn4.OptionsColumn.ShowCaption = false;
+            this.gridColumn4.OptionsFilter.AllowAutoFilter = false;
+            this.gridColumn4.OptionsFilter.AllowFilter = false;
+            this.gridColumn4.Visible = true;
+            this.gridColumn4.VisibleIndex = 8;
             // 
             // bDetail
             // 
@@ -280,34 +280,34 @@
             // panelControl1
             // 
             this.tablePanel1.SetColumn(this.panelControl1, 0);
-            this.panelControl1.Controls.Add(this.bSearch);
             this.panelControl1.Controls.Add(this.dateEnd);
             this.panelControl1.Controls.Add(this.dateStart);
+            this.panelControl1.Controls.Add(this.bSearch);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl1.Location = new System.Drawing.Point(1, 1);
             this.panelControl1.Margin = new System.Windows.Forms.Padding(0);
             this.panelControl1.Name = "panelControl1";
             this.tablePanel1.SetRow(this.panelControl1, 0);
-            this.panelControl1.Size = new System.Drawing.Size(1296, 47);
+            this.panelControl1.Size = new System.Drawing.Size(1296, 54);
             this.panelControl1.TabIndex = 0;
-            // 
-            // bSearch
-            // 
-            this.bSearch.Appearance.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Question;
-            this.bSearch.Appearance.Options.UseBackColor = true;
-            this.bSearch.Location = new System.Drawing.Point(441, 5);
-            this.bSearch.Name = "bSearch";
-            this.bSearch.Size = new System.Drawing.Size(138, 32);
-            this.bSearch.TabIndex = 1;
-            this.bSearch.Text = "Axtar";
-            this.bSearch.Click += new System.EventHandler(this.bSearch_Click);
             // 
             // dateEnd
             // 
             this.dateEnd.EditValue = null;
-            this.dateEnd.Location = new System.Drawing.Point(226, 5);
+            this.dateEnd.Location = new System.Drawing.Point(226, 8);
             this.dateEnd.Name = "dateEnd";
+            this.dateEnd.Properties.AllowFocused = false;
             this.dateEnd.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
+            this.dateEnd.Properties.Appearance.Font = new System.Drawing.Font("Nunito", 12F);
+            this.dateEnd.Properties.Appearance.Options.UseFont = true;
+            serializableAppearanceObject5.Font = new System.Drawing.Font("Nunito", 11F, System.Drawing.FontStyle.Bold);
+            serializableAppearanceObject5.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.DisabledText;
+            serializableAppearanceObject5.Options.UseFont = true;
+            serializableAppearanceObject5.Options.UseForeColor = true;
+            serializableAppearanceObject8.Font = new System.Drawing.Font("Nunito", 11F, System.Drawing.FontStyle.Bold);
+            serializableAppearanceObject8.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.DisabledText;
+            serializableAppearanceObject8.Options.UseFont = true;
+            serializableAppearanceObject8.Options.UseForeColor = true;
             this.dateEnd.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo),
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Tarixədək", -1, false, true, true, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
@@ -315,15 +315,27 @@
             this.dateEnd.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dateEnd.Properties.ShowToday = false;
-            this.dateEnd.Size = new System.Drawing.Size(209, 32);
-            this.dateEnd.TabIndex = 0;
+            this.dateEnd.Size = new System.Drawing.Size(209, 36);
+            this.dateEnd.TabIndex = 1;
+            this.dateEnd.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Search_KeyDown);
             // 
             // dateStart
             // 
             this.dateStart.EditValue = null;
-            this.dateStart.Location = new System.Drawing.Point(11, 5);
+            this.dateStart.Location = new System.Drawing.Point(11, 8);
             this.dateStart.Name = "dateStart";
+            this.dateStart.Properties.AllowFocused = false;
             this.dateStart.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
+            this.dateStart.Properties.Appearance.Font = new System.Drawing.Font("Nunito", 12F);
+            this.dateStart.Properties.Appearance.Options.UseFont = true;
+            serializableAppearanceObject9.Font = new System.Drawing.Font("Nunito", 11F, System.Drawing.FontStyle.Bold);
+            serializableAppearanceObject9.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.DisabledText;
+            serializableAppearanceObject9.Options.UseFont = true;
+            serializableAppearanceObject9.Options.UseForeColor = true;
+            serializableAppearanceObject12.Font = new System.Drawing.Font("Nunito", 11F, System.Drawing.FontStyle.Bold);
+            serializableAppearanceObject12.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.DisabledText;
+            serializableAppearanceObject12.Options.UseFont = true;
+            serializableAppearanceObject12.Options.UseForeColor = true;
             this.dateStart.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo),
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Tarixindən", -1, false, true, true, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
@@ -332,8 +344,22 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dateStart.Properties.ShowOk = DevExpress.Utils.DefaultBoolean.False;
             this.dateStart.Properties.ShowToday = false;
-            this.dateStart.Size = new System.Drawing.Size(209, 32);
+            this.dateStart.Size = new System.Drawing.Size(209, 36);
             this.dateStart.TabIndex = 0;
+            this.dateStart.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Search_KeyDown);
+            // 
+            // bSearch
+            // 
+            this.bSearch.AllowFocus = false;
+            this.bSearch.Appearance.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Question;
+            this.bSearch.Appearance.Options.UseBackColor = true;
+            this.bSearch.Location = new System.Drawing.Point(441, 8);
+            this.bSearch.Name = "bSearch";
+            this.bSearch.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
+            this.bSearch.Size = new System.Drawing.Size(138, 36);
+            this.bSearch.TabIndex = 2;
+            this.bSearch.Text = "Axtar";
+            this.bSearch.Click += new System.EventHandler(this.bSearch_Click);
             // 
             // fInvoiceReport
             // 
@@ -344,6 +370,7 @@
             this.Name = "fInvoiceReport";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Məhsul alış hesabatı";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.fInvoiceReport_Load);
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel1)).EndInit();
             this.tablePanel1.ResumeLayout(false);
@@ -373,12 +400,12 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn8;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn7;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn10;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn13;
-        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit bDetail;
         private DevExpress.XtraEditors.PanelControl panelControl1;
         private DevExpress.XtraEditors.SimpleButton bSearch;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn4;
+        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit bDetail;
         private DevExpress.XtraEditors.DateEdit dateEnd;
         private DevExpress.XtraEditors.DateEdit dateStart;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
     }
 }

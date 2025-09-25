@@ -23,7 +23,7 @@ namespace Barcode_Sales
         public Nullable<int> IsDeleted { get; set; }
         public Nullable<int> UserId { get; set; }
     
-        public virtual Stores Stores { get; set; }
+        public virtual Store Stores { get; set; }
         public virtual Users Users { get; set; }
     }
 }

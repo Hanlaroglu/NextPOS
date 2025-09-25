@@ -44,8 +44,8 @@ namespace Barcode_Sales
         public virtual Suppliers Suppliers { get; set; }
         public virtual TaxType TaxTypes { get; set; }
         public virtual UnitType UnitTypes { get; set; }
-        public virtual Users Users { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<SalesDataDetail> SalesDataDetail { get; set; }
+        public virtual Users Users { get; set; }
     }
 }

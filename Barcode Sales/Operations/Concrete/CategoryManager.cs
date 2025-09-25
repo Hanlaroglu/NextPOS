@@ -7,6 +7,8 @@ using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
+using System.Windows.Forms;
+using DevExpress.XtraEditors;
 
 namespace Barcode_Sales.Operations.Concrete
 {
@@ -54,25 +56,23 @@ namespace Barcode_Sales.Operations.Concrete
 
             if (product.Count == 0)
             {
-                message = CommonMessageBox.QuestionDialogResult($"{item.CategoryName} kateqoriyasını silmək istədiyinizə əminsiniz ?");
-
+                var args = NoticationHelpers.Dialogs.DialogResultYesNo(
+                    $"({item.CategoryName}) kateqoriyasını silmək istədiyinizə əminsiniz ?", String.Empty);
+                message = XtraMessageBox.Show(args) == DialogResult.Yes;
             }
             else
             {
-                message = CommonMessageBox.QuestionDialogResult($"{item.CategoryName} kateqoriyasının daxilindəki '{product.Count}' məhsulda silinəcəkdir.\n\n" +
-                    $"{item.CategoryName} kateqoriyasını silmək istədiyinizə əminsiniz ?");
-
+  var args = NoticationHelpers.Dialogs.DialogResultYesNo(
+                    $@"({item.CategoryName}) kateqoriyasında '{product.Count}' məhsul var. Bu kateqoriyanı silmək istədiyinizə əminsiniz ?", "Diqqət!");
+                message = XtraMessageBox.Show(args) == DialogResult.Yes;
             }
 
             if (message)
             {
                 foreach (var x in product)
-                {
                     x.IsDeleted = x.Id;
-                    db.SaveChanges();
-                }
 
-                Categories data = db.Categories.Find(item.Id);
+                Categories data = GetById(item.Id);
                 data.IsDeleted = data.Id;
                 db.SaveChanges();
             }

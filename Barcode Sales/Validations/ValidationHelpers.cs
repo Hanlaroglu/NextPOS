@@ -71,5 +71,10 @@ namespace Barcode_Sales.Validations
             var equalityDirect = Expression.Equal(property, constant);
             return Expression.Lambda<Func<T, bool>>(equalityDirect, parameter);
         }
+
+        public static bool IsValidDate(string text)
+        {
+            return DateTime.TryParse(text, out _);
+        }
     }
 }

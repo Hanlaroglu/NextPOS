@@ -19,6 +19,8 @@ namespace Barcode_Sales
         {
             this.AqtaProducts = new HashSet<AqtaProducts>();
             this.Invoices = new HashSet<Invoice>();
+            this.InvoiceRollbacks = new HashSet<InvoiceRollback>();
+            this.Stores = new HashSet<Store>();
         }
     
         public int Id { get; set; }
@@ -30,5 +32,9 @@ namespace Barcode_Sales
         public virtual ICollection<AqtaProducts> AqtaProducts { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Invoice> Invoices { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<InvoiceRollback> InvoiceRollbacks { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Store> Stores { get; set; }
     }
 }

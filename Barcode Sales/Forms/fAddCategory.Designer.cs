@@ -114,21 +114,23 @@
             this.tName.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.tName.Size = new System.Drawing.Size(476, 36);
             this.tName.TabIndex = 0;
+            this.tName.TabStop = false;
+            this.tName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tName_KeyDown);
             // 
             // chStatus
             // 
             this.chStatus.EditValue = true;
-            this.chStatus.Location = new System.Drawing.Point(12, 58);
+            this.chStatus.Location = new System.Drawing.Point(12, 54);
             this.chStatus.Name = "chStatus";
             this.chStatus.Properties.AllowFocused = false;
-            this.chStatus.Properties.Appearance.Font = new System.Drawing.Font("Nunito", 14F);
+            this.chStatus.Properties.Appearance.Font = new System.Drawing.Font("Nunito", 12F, System.Drawing.FontStyle.Bold);
             this.chStatus.Properties.Appearance.Options.UseFont = true;
             this.chStatus.Properties.Caption = "Status";
             this.chStatus.Properties.CheckBoxOptions.Style = DevExpress.XtraEditors.Controls.CheckBoxStyle.SvgToggle1;
             this.chStatus.Properties.CheckBoxOptions.SvgColorChecked = DevExpress.LookAndFeel.DXSkinColors.ForeColors.Information;
-            this.chStatus.Properties.CheckBoxOptions.SvgImageSize = new System.Drawing.Size(24, 24);
+            this.chStatus.Properties.CheckBoxOptions.SvgImageSize = new System.Drawing.Size(36, 30);
             this.chStatus.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Far;
-            this.chStatus.Size = new System.Drawing.Size(114, 30);
+            this.chStatus.Size = new System.Drawing.Size(129, 34);
             this.chStatus.TabIndex = 1;
             this.chStatus.TabStop = false;
             // 
@@ -139,14 +141,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(493, 101);
             this.Controls.Add(this.panelControl1);
-            this.KeyPreview = true;
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(495, 135);
             this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(495, 135);
             this.Name = "fAddCategory";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Yeni Kateqoriya";
+            this.Text = "Kateqoriya";
             this.Load += new System.EventHandler(this.fAddCategory_Load);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);

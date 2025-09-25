@@ -12,24 +12,22 @@ namespace Barcode_Sales
     using System;
     using System.Collections.Generic;
     
-    public partial class Stores
+    public partial class Store
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Stores()
+        public Store()
         {
-            this.AqtaProducts = new HashSet<AqtaProducts>();
             this.Terminals = new HashSet<Terminals>();
             this.Users = new HashSet<Users>();
         }
     
         public int Id { get; set; }
-        public Nullable<int> WarehouseID { get; set; }
-        public string StoreName { get; set; }
-        public Nullable<bool> Status { get; set; }
-        public Nullable<int> IsDeleted { get; set; }
+        public int WarehouseId { get; set; }
+        public string Name { get; set; }
+        public bool Status { get; set; }
+        public bool IsDeleted { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<AqtaProducts> AqtaProducts { get; set; }
+        public virtual Warehouses Warehouse { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Terminals> Terminals { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

@@ -29,14 +29,11 @@ namespace Barcode_Sales
         public virtual DbSet<Colors> Colors { get; set; }
         public virtual DbSet<Logs> Logs { get; set; }
         public virtual DbSet<Sizes> Sizes { get; set; }
-        public virtual DbSet<Stores> Stores { get; set; }
         public virtual DbSet<Warehouses> Warehouses { get; set; }
         public virtual DbSet<Suppliers> Suppliers { get; set; }
         public virtual DbSet<Roles> Roles { get; set; }
         public virtual DbSet<Company> Company { get; set; }
         public virtual DbSet<AqtaProducts> AqtaProducts { get; set; }
-        public virtual DbSet<Terminals> Terminals { get; set; }
-        public virtual DbSet<Users> Users { get; set; }
         public virtual DbSet<SupplierPayment> SupplierPayments { get; set; }
         public virtual DbSet<SuppliersDebt> SuppliersDebts { get; set; }
         public virtual DbSet<Customers> Customers { get; set; }
@@ -54,5 +51,11 @@ namespace Barcode_Sales
         public virtual DbSet<InvoiceDetail> InvoiceDetails { get; set; }
         public virtual DbSet<SalesDataDetail> SalesDataDetail { get; set; }
         public virtual DbSet<Products> Products { get; set; }
+        public virtual DbSet<InvoiceRollbackDetail> InvoiceRollbackDetails { get; set; }
+        public virtual DbSet<InvoiceRollback> InvoiceRollbacks { get; set; }
+        public virtual DbSet<view_InvoiceRollbackList> view_InvoiceRollbackList { get; set; }
+        public virtual DbSet<Store> Stores { get; set; }
+        public virtual DbSet<Terminals> Terminals { get; set; }
+        public virtual DbSet<Users> Users { get; set; }
     }
 }

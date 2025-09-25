@@ -37,11 +37,13 @@ namespace Barcode_Sales.Helpers
             else if (control is GridControl)
             {
                 var grid = control as GridControl;
-                grid.DataSource = data;
                 var gridView = grid.MainView as DevExpress.XtraGrid.Views.Grid.GridView;
+                gridView.ShowLoadingPanel();
+                grid.DataSource = data;
                 GridPanelText(gridView);
-                gridView.RefreshData();
                 GridCustomRowNumber(gridView);
+                gridView.RefreshData();
+                gridView.HideLoadingPanel();
             }
             else if (control is LookUpEdit look)
             {
@@ -102,7 +104,6 @@ namespace Barcode_Sales.Helpers
                     }
                 }
             };
-            gridView.RefreshData();
 
             GridColumn column = gridView.Columns.ColumnByFieldName(columnName);
             if (column != null)
@@ -122,15 +123,12 @@ namespace Barcode_Sales.Helpers
             {
                 if (eventArgs.CellValue != null)
                 {
-                    eventArgs.Appearance.FontStyleDelta = FontStyle.Bold;
                     if (eventArgs.CellValue.ToString() == value1)
-                    {
                         eventArgs.Appearance.ForeColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Success;
-                    }
                     else if (eventArgs.CellValue.ToString() == value2)
-                    {
                         eventArgs.Appearance.ForeColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Danger;
-                    }
+                    eventArgs.Appearance.FontStyleDelta = FontStyle.Bold;
+
                 }
             }
         }
@@ -139,9 +137,32 @@ namespace Barcode_Sales.Helpers
         {
             T form = Application.OpenForms.OfType<T>().FirstOrDefault();
 
-            if (form == null)
+            if (form is null)
             {
                 form = (T)Activator.CreateInstance(typeof(T), constructorArgs);
+                form.Show();
+            }
+            else
+            {
+                form.WindowState = FormWindowState.Normal;
+                form.StartPosition = FormStartPosition.CenterScreen;
+                form.BringToFront();
+            }
+
+            return form;
+        }
+
+        public static T OpenForm<T>(Func<Task> onClosed = null, params object[] constructorArgs) where T : Form
+        {
+            T form = Application.OpenForms.OfType<T>().FirstOrDefault();
+
+            if (form is null)
+            {
+                form = (T)Activator.CreateInstance(typeof(T), constructorArgs);
+
+                if (onClosed != null)
+                    form.FormClosed += async (s, e) => await onClosed();
+
                 form.Show();
             }
             else

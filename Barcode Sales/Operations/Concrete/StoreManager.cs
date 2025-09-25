@@ -15,7 +15,7 @@ namespace Barcode_Sales.Operations.Concrete
     {
         NextposDBEntities db = new NextposDBEntities();
 
-        public bool Add(Stores item)
+        public bool Add(Store item)
         {
             try
             {
@@ -29,43 +29,43 @@ namespace Barcode_Sales.Operations.Concrete
             }
         }
 
-        public async Task AddAsync(Stores item)
+        public async Task AddAsync(Store item)
         {
             db.Stores.Add(item);
             await db.SaveChangesAsync();
         }
 
-        public Stores GetById(int id)
+        public Store GetById(int id)
         {
-            return db.Stores.AsNoTracking().FirstOrDefault(x => x.Id == id);
+            return db.Stores.FirstOrDefault(x => x.Id == id);
         }
 
-        public async Task<Stores> GetByIdAsync(int id)
+        public async Task<Store> GetByIdAsync(int id)
         {
             return await db.Stores.AsNoTracking().FirstOrDefaultAsync(x => x.Id == id);
         }
 
-        public void Remove(Stores item)
+        public void Remove(Store item)
         {
-            if (CommonMessageBox.QuestionDialogResult($"{item.StoreName} mağazasını silmək istədiyinizə əminsiniz ?"))
+            if (CommonMessageBox.QuestionDialogResult($"{item.Name} mağazasını silmək istədiyinizə əminsiniz ?"))
             {
-                var data = db.Stores.Find(item.Id);
-                data.IsDeleted = data.Id;
+                var data = GetById(item.Id);
+                data.IsDeleted = true;
                 db.SaveChanges();
             }
         }
 
-        public async Task RemoveAsync(Stores item)
+        public async Task RemoveAsync(Store item)
         {
-            if (CommonMessageBox.QuestionDialogResult($"{item.StoreName} mağazasını silmək istədiyinizə əminsiniz ?"))
+            if (CommonMessageBox.QuestionDialogResult($"{item.Name} mağazasını silmək istədiyinizə əminsiniz ?"))
             {
                 var data = await db.Stores.FindAsync(item.Id);
-                data.IsDeleted = data.Id;
+                data.IsDeleted = true;
                 await db.SaveChangesAsync();
             }
         }
 
-        public void Update(Stores item)
+        public void Update(Store item)
         {
             var existingItem = db.Stores.Find(item.Id);
             if (existingItem != null)
@@ -75,7 +75,7 @@ namespace Barcode_Sales.Operations.Concrete
             }
         }
 
-        public async Task UpdateAsync(Stores item)
+        public async Task UpdateAsync(Store item)
         {
             var existingItem = await db.Stores.FindAsync(item.Id);
             if (existingItem != null)
@@ -85,12 +85,12 @@ namespace Barcode_Sales.Operations.Concrete
             }
         }
 
-        public IQueryable<Stores> Where(Expression<Func<Stores, bool>> expression)
+        public IQueryable<Store> Where(Expression<Func<Store, bool>> expression)
         {
             return db.Stores.Where(expression);
         }
 
-        public async Task<List<Stores>> WhereAsync(Expression<Func<Stores, bool>> expression)
+        public async Task<List<Store>> WhereAsync(Expression<Func<Store, bool>> expression)
         {
             return await db.Stores.Where(expression).ToListAsync();
         }

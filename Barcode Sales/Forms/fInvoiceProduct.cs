@@ -64,15 +64,16 @@ namespace Barcode_Sales.Forms
 
         private async Task ProductsLoadAsync()
         {
-            var data = await productOperation.Where(x => x.IsDeleted == 0 && x.Status == true)
+            var data = await productOperation
+                .Where(x => x.IsDeleted == 0 && x.Status == true)
                 .Select(x => new ProductSearchData
                 {
                     Id = x.Id,
                     SupplierId = (int)x.SupplierId,
                     SupplierName = x.Suppliers.SupplierName,
                     ProductName = x.ProductName,
-                    SalePrice = (double)x.SalePrice,
-                    PurchasePrice = x.PurchasePrice,
+                    SalePrice = x.SalePrice ?? 0,
+                    PurchasePrice = x.PurchasePrice ?? 0,
                     Barcode = x.Barcode,
                     Stock = x.Amount
                 }).ToListAsync();
@@ -86,14 +87,9 @@ namespace Barcode_Sales.Forms
             fWarehouse f = new fWarehouse(Enums.Operation.Add, null);
             f.FormClosed += (s, args) =>
             {
-               WarehouseLoad();
+                WarehouseLoad();
             };
             f.ShowDialog();
-        }
-
-        private bool IsValidDate(string text)
-        {
-            return DateTime.TryParse(text, out _);
         }
 
         private void bSave_Click(object sender, EventArgs e)
@@ -101,7 +97,7 @@ namespace Barcode_Sales.Forms
             if (bSave.Cursor == Cursors.No)
                 return;
 
-            if (!IsValidDate(tDate.Text))
+            if (!ValidationHelpers.IsValidDate(tDate.Text))
             {
                 NoticationHelpers.Messages.WarningMessage(this, $"Tarix düzgün daxil edilmədi");
                 tDate.Focus();
@@ -235,7 +231,7 @@ namespace Barcode_Sales.Forms
         {
             _dataList.Clear();
             tBarcodeSearch.Clear();
-            lookProductName.Text = null;
+            lookProductName.EditValue = null;
             tDate.Text = DateTime.Now.ToShortDateString();
             tContractNo.Clear();
             lookWarehouse.EditValue = null;

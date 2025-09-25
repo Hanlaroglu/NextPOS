@@ -3,6 +3,7 @@ using Barcode_Sales.Operations.Abstract;
 using Barcode_Sales.Operations.Concrete;
 using System;
 using System.Linq;
+using System.Windows.Forms;
 
 namespace Barcode_Sales.Forms
 {
@@ -64,13 +65,19 @@ namespace Barcode_Sales.Forms
             if (!CheckName(_category.CategoryName))
             {
                 categoryOperation.Update(_category);
-                Clear();
+                Close();
             }
         }
 
         private bool CheckName(string name)
         {
-            bool check = categoryOperation.Where(x => x.CategoryName == name && x.IsDeleted == 0).Any();
+            bool check = categoryOperation
+                .Where(x =>
+                    x.CategoryName == name &&
+                    x.Status == chStatus.Checked &&
+                    x.IsDeleted == 0)
+                .Any();
+
             if (check)
             {
                 NoticationHelpers.Messages.WarningMessage(this, "Kateqoriya adı sistemdə mövcuddur.");
@@ -84,6 +91,12 @@ namespace Barcode_Sales.Forms
             tName.Clear();
             chStatus.Checked = true;
             tName.Focus();
+        }
+
+        private void tName_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
+        {
+            if (e.KeyCode is Keys.Enter)
+                bSave_Click(sender, null);
         }
     }
 }

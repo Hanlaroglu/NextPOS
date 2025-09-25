@@ -12,6 +12,7 @@ using System.Drawing;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static Barcode_Sales.Helpers.Enums;
 using static Barcode_Sales.Helpers.FormHelpers;
 
 namespace Barcode_Sales.Forms
@@ -104,9 +105,9 @@ namespace Barcode_Sales.Forms
 
         private async void tabPane3_SelectedPageChanged(object sender, DevExpress.XtraBars.Navigation.SelectedPageChangedEventArgs e)
         {
-            if (tabPane3.SelectedPage == tabNavigationPage3)
+            if (tabPane3.SelectedPage == tabCategory)
             {
-                await CategoryDataList();
+                await CategoryDataListAsync();
             }
         }
 
@@ -258,13 +259,14 @@ namespace Barcode_Sales.Forms
         private void bWarehouseSettings_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
             Point mousePosition = Control.MousePosition;
-            popupMenu1.ShowPopup(mousePosition);
+            popupMainMenu.ShowPopup(mousePosition);
         }
 
-        private async void bWarehouseEdit_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        private void WarehouseEdit()
         {
             var row = gridWarehouse.GetFocusedRow() as WarehousesDto;
             if (row is null) return;
+
             fWarehouse f = new fWarehouse(Enums.Operation.Edit, row);
             f.FormClosed += async (s, x) =>
             {
@@ -273,7 +275,7 @@ namespace Barcode_Sales.Forms
             f.ShowDialog();
         }
 
-        private async void bWarehouseDelete_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        private async Task WarehouseDelete()
         {
             var row = gridWarehouse.GetFocusedRow() as WarehousesDto;
             if (row is null) return;
@@ -285,7 +287,7 @@ namespace Barcode_Sales.Forms
             {
                 warehouseOperation.Remove(row);
                 await WarehouseDataList();
-                NoticationHelpers.Messages.SuccessMessage(this,$"{row.Name} anbarı uğurla silindi");
+                NoticationHelpers.Messages.SuccessMessage(this, $"{row.Name} anbarı uğurla silindi");
             }
         }
 
@@ -345,27 +347,14 @@ namespace Barcode_Sales.Forms
             FormHelpers.ControlLoad(data, gridControlProducts);
         }
 
-        private async Task CategoryDataList()
+        private void bEditProduct_Click(object sender, EventArgs e)
         {
-            var data = await categoryOperation.Where(x => x.IsDeleted == 0)
-                                              .Select(x => new
-                                              {
-                                                  Id = x.Id,
-                                                  CategoryName = x.CategoryName,
-                                                  Status = x.Status == true ? "Aktiv" : "Deaktiv",
-                                                  IsDeleted = x.IsDeleted
-                                              }).ToListAsync();
+            int[] selectedRows = gridProducts.GetSelectedRows();
+            foreach (int row in selectedRows)
+            {
 
-            FormHelpers.ControlLoad(data, gridControlCategory);
+            }
         }
-
-        private void gridCategory_RowCellStyle(object sender, DevExpress.XtraGrid.Views.Grid.RowCellStyleEventArgs e)
-        {
-            GridViewStatusDisplayColor(gridColumn103, "Aktiv", "Deaktiv", e);
-        }
-
-
-        #endregion [.. PRODUCTS ..]
 
         private void chSelectedProducts_CheckedChanged(object sender, EventArgs e)
         {
@@ -383,23 +372,87 @@ namespace Barcode_Sales.Forms
             }
         }
 
-        private void bEditProduct_Click(object sender, EventArgs e)
-        {
-            int[] selectedRows = gridProducts.GetSelectedRows();
-            foreach (int row in selectedRows)
-            {
+        #endregion [.. PRODUCTS ..]
 
-            }
+
+        #region [.. CATEGORY ..]
+
+        private void bAddCategory_Click(object sender, EventArgs e)
+        {
+            FormHelpers.OpenForm<fAddCategory>(async () =>
+            {
+                await CategoryDataListAsync();
+            }, Operation.Add, null);
         }
+
+        private async Task CategoryDataListAsync()
+        {
+            var data = await categoryOperation.Where(x => x.IsDeleted == 0)
+                .Select(x => new CategoryDto()
+                {
+                    Id = x.Id,
+                    CategoryName = x.CategoryName,
+                    Status = x.Status,
+                    IsDeleted = x.IsDeleted
+                }).ToListAsync();
+
+            FormHelpers.ControlLoad(data, gridControlCategory);
+        }
+
+        private void CategoryEdit()
+        {
+            var row = gridCategory.GetFocusedRow() as CategoryDto;
+            if (row is null) return;
+
+            fAddCategory f = new fAddCategory(Enums.Operation.Edit, row);
+            f.FormClosed += async (s, x) =>
+            {
+                await CategoryDataListAsync();
+            };
+            f.ShowDialog();
+        }
+
+        private async Task CategoryDelete()
+        {
+            var row = gridCategory.GetFocusedRow() as CategoryDto;
+            if (row is null) return;
+
+            categoryOperation.Remove(row);
+            await CategoryDataListAsync();
+        }
+
+        private void gridCategory_RowCellStyle(object sender, DevExpress.XtraGrid.Views.Grid.RowCellStyleEventArgs e)
+        {
+            GridViewStatusDisplayColor(gridColumn103, "Aktiv", "Deaktiv", e);
+        }
+
+        private void bCategorySettings_ButtonClick(object sender, ButtonPressedEventArgs e)
+        {
+            Point mousePosition = Control.MousePosition;
+            popupMainMenu.ShowPopup(mousePosition);
+        }
+
+        #endregion [.. CATEGORY ..]
+
+
+        #region [.. PRODUCT ROLLBACK INVOICE ..]
+
+        private void bRollBackInvoice_Click(object sender, EventArgs e)
+        {
+            FormHelpers.OpenForm<fInvoiceRollbackProduct>();
+        }
+
+        #endregion [.. PRODUCT ROLLBACK INVOICE ..]
 
         private async Task StoreDataList()
         {
-            var data = await storeOperation.Where(x => x.IsDeleted == 0)
-                                              .Select(x => new
+            var data = await storeOperation.Where(x => x.IsDeleted == false)
+                                              .Select(x => new StoresDto()
                                               {
                                                   Id = x.Id,
-                                                  StoreName = x.StoreName,
-                                                  Status = x.Status == true ? "Aktiv" : "Deaktiv",
+                                                  WarehouseName = x.Warehouse.Name,
+                                                  Name = x.Name,
+                                                  Status = x.Status,
                                                   IsDeleted = x.IsDeleted
                                               }).ToListAsync();
 
@@ -414,13 +467,9 @@ namespace Barcode_Sales.Forms
         private void fDashboard_Resize(object sender, EventArgs e)
         {
             if (this.Width <= 1400)
-            {
                 tablePanel24.Columns[3].Visible = false;
-            }
             else
-            {
                 tablePanel24.Columns[3].Visible = true;
-            }
         }
 
         private async void tabPane1_SelectedPageChanged(object sender, DevExpress.XtraBars.Navigation.SelectedPageChangedEventArgs e)
@@ -445,6 +494,27 @@ namespace Barcode_Sales.Forms
         private void bAddInvoice_Click(object sender, EventArgs e)
         {
             FormHelpers.OpenForm<fInvoiceProduct>();
+        }
+
+        private void bPopupEdit_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if (navigationMenu.SelectedPage == pageWarehouse)
+                WarehouseEdit();
+            else if (navigationMenu.SelectedPage == pageProduct && tabPane3.SelectedPage == tabCategory)
+                CategoryEdit();
+        }
+
+        private async void bPopupDelete_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if (navigationMenu.SelectedPage == pageWarehouse)
+                await WarehouseDelete();
+            else if (navigationMenu.SelectedPage == pageProduct && tabPane3.SelectedPage == tabCategory)
+                await CategoryDelete();
+        }
+
+        private void accordionControlElement9_Click(object sender, EventArgs e)
+        {
+            FormHelpers.OpenForm<fInvoiceRollbackReport>();
         }
     }
 }

@@ -129,6 +129,30 @@
     <Property Name="TotalPurchasePrice" Type="float" />
     <Property Name="SalePrice" Type="float" />
   </EntityType>
+  <EntityType Name="InvoiceRollbackDetails">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="InvoiceRollbackId" Type="int" />
+    <Property Name="ProductId" Type="int" />
+    <Property Name="Quantity" Type="float" />
+  </EntityType>
+  <EntityType Name="InvoiceRollbacks">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="InvoiceId" Type="int" />
+    <Property Name="RollbackDate" Type="date" />
+    <Property Name="WarehouseId" Type="int" />
+    <Property Name="TotalPurchasePrice" Type="float" />
+    <Property Name="PaymentTypeId" Type="int" />
+    <Property Name="Commnet" Type="nvarchar" MaxLength="200" />
+    <Property Name="UserId" Type="int" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="IsDeleted" Type="bit" />
+  </EntityType>
   <EntityType Name="Invoices">
     <Key>
       <PropertyRef Name="Id" />
@@ -275,10 +299,10 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="WarehouseID" Type="int" />
-    <Property Name="StoreName" Type="nvarchar" MaxLength="50" />
-    <Property Name="Status" Type="bit" />
-    <Property Name="IsDeleted" Type="int" />
+    <Property Name="WarehouseId" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Status" Type="bit" Nullable="false" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="SupplierPayments">
     <Key>
@@ -389,6 +413,26 @@
     <Property Name="IsDeleted" Type="int" />
     <Property Name="Status" Type="bit" />
   </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'NextposDB.dbo.view_InvoiceRollbackList' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="view_InvoiceRollbackList">
+    <Key>
+      <PropertyRef Name="WarehouseId" />
+      <PropertyRef Name="InvoiceId" />
+      <PropertyRef Name="InvoiceNo" />
+    </Key>
+    <Property Name="WarehouseId" Type="int" Nullable="false" />
+    <Property Name="WarehouseName" Type="nvarchar" MaxLength="50" />
+    <Property Name="InvoiceId" Type="int" Nullable="false" />
+    <Property Name="InvoiceNo" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="InvoiceDate" Type="date" />
+    <Property Name="SupplierName" Type="nvarchar" MaxLength="100" />
+    <Property Name="ProductId" Type="int" />
+    <Property Name="ProductName" Type="nvarchar(max)" />
+    <Property Name="Barcode" Type="nvarchar(max)" />
+    <Property Name="Amount" Type="float" />
+    <Property Name="PurchasePrice" Type="float" />
+  </EntityType>
   <Association Name="FK__Logs__UserID__6477ECF3">
     <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
     <End Role="Logs" Type="Self.Logs" Multiplicity="*" />
@@ -401,30 +445,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Terminals__Store__5DCAEF64">
-    <End Role="Stores" Type="Self.Stores" Multiplicity="0..1" />
-    <End Role="Terminals" Type="Self.Terminals" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Stores">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Terminals">
-        <PropertyRef Name="StoreID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__Users__StoreID__60A75C0F">
-    <End Role="Stores" Type="Self.Stores" Multiplicity="0..1" />
-    <End Role="Users" Type="Self.Users" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Stores">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Users">
-        <PropertyRef Name="StoreID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_AqtaProducts_Category">
     <End Role="Categories" Type="Self.Categories" Multiplicity="0..1" />
     <End Role="AqtaProducts" Type="Self.AqtaProducts" Multiplicity="*" />
@@ -434,18 +454,6 @@
       </Principal>
       <Dependent Role="AqtaProducts">
         <PropertyRef Name="CategoryID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_AqtaProducts_Store">
-    <End Role="Stores" Type="Self.Stores" Multiplicity="0..1" />
-    <End Role="AqtaProducts" Type="Self.AqtaProducts" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Stores">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="AqtaProducts">
-        <PropertyRef Name="StoreID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -506,6 +514,66 @@
       </Principal>
       <Dependent Role="InvoiceDetails">
         <PropertyRef Name="ProductId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_InvoiceRollbackDetails_InvoiceRollbacks">
+    <End Role="InvoiceRollbacks" Type="Self.InvoiceRollbacks" Multiplicity="0..1" />
+    <End Role="InvoiceRollbackDetails" Type="Self.InvoiceRollbackDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="InvoiceRollbacks">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="InvoiceRollbackDetails">
+        <PropertyRef Name="InvoiceRollbackId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_InvoiceRollbacks_Invoices">
+    <End Role="Invoices" Type="Self.Invoices" Multiplicity="0..1" />
+    <End Role="InvoiceRollbacks" Type="Self.InvoiceRollbacks" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Invoices">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="InvoiceRollbacks">
+        <PropertyRef Name="InvoiceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_InvoiceRollbacks_PaymentTypes">
+    <End Role="PaymentTypes" Type="Self.PaymentTypes" Multiplicity="0..1" />
+    <End Role="InvoiceRollbacks" Type="Self.InvoiceRollbacks" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PaymentTypes">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="InvoiceRollbacks">
+        <PropertyRef Name="PaymentTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_InvoiceRollbacks_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="InvoiceRollbacks" Type="Self.InvoiceRollbacks" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="InvoiceRollbacks">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_InvoiceRollbacks_Warehouses">
+    <End Role="Warehouses" Type="Self.Warehouses" Multiplicity="0..1" />
+    <End Role="InvoiceRollbacks" Type="Self.InvoiceRollbacks" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Warehouses">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="InvoiceRollbacks">
+        <PropertyRef Name="WarehouseId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -653,6 +721,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_Stores_Warehouses">
+    <End Role="Warehouses" Type="Self.Warehouses" Multiplicity="1" />
+    <End Role="Stores" Type="Self.Stores" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Warehouses">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Stores">
+        <PropertyRef Name="WarehouseId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_SupplierDebts_Supplier">
     <End Role="Suppliers" Type="Self.Suppliers" Multiplicity="0..1" />
     <End Role="SuppliersDebts" Type="Self.SuppliersDebts" Multiplicity="*" />
@@ -674,6 +754,18 @@
       </Principal>
       <Dependent Role="SupplierPayments">
         <PropertyRef Name="SupplierDebtId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Terminals_Stores">
+    <End Role="Stores" Type="Self.Stores" Multiplicity="0..1" />
+    <End Role="Terminals" Type="Self.Terminals" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Stores">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Terminals">
+        <PropertyRef Name="StoreID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -701,6 +793,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_Users_Stores">
+    <End Role="Stores" Type="Self.Stores" Multiplicity="0..1" />
+    <End Role="Users" Type="Self.Users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Stores">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Users">
+        <PropertyRef Name="StoreID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <EntityContainer Name="NextposDBModelStoreContainer">
     <EntitySet Name="AqtaProducts" EntityType="Self.AqtaProducts" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Categories" EntityType="Self.Categories" Schema="dbo" store:Type="Tables" />
@@ -711,6 +815,8 @@
     <EntitySet Name="Customers" EntityType="Self.Customers" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="CustomersDebts" EntityType="Self.CustomersDebts" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="InvoiceDetails" EntityType="Self.InvoiceDetails" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="InvoiceRollbackDetails" EntityType="Self.InvoiceRollbackDetails" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="InvoiceRollbacks" EntityType="Self.InvoiceRollbacks" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Invoices" EntityType="Self.Invoices" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Logs" EntityType="Self.Logs" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="PaymentTypes" EntityType="Self.PaymentTypes" Schema="dbo" store:Type="Tables" />
@@ -731,24 +837,27 @@
     <EntitySet Name="UnitTypes" EntityType="Self.UnitTypes" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Warehouses" EntityType="Self.Warehouses" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="view_InvoiceRollbackList" EntityType="Self.view_InvoiceRollbackList" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [view_InvoiceRollbackList].[WarehouseId] AS [WarehouseId], 
+    [view_InvoiceRollbackList].[WarehouseName] AS [WarehouseName], 
+    [view_InvoiceRollbackList].[InvoiceId] AS [InvoiceId], 
+    [view_InvoiceRollbackList].[InvoiceNo] AS [InvoiceNo], 
+    [view_InvoiceRollbackList].[InvoiceDate] AS [InvoiceDate], 
+    [view_InvoiceRollbackList].[SupplierName] AS [SupplierName], 
+    [view_InvoiceRollbackList].[ProductId] AS [ProductId], 
+    [view_InvoiceRollbackList].[ProductName] AS [ProductName], 
+    [view_InvoiceRollbackList].[Barcode] AS [Barcode], 
+    [view_InvoiceRollbackList].[Amount] AS [Amount], 
+    [view_InvoiceRollbackList].[PurchasePrice] AS [PurchasePrice]
+    FROM [dbo].[view_InvoiceRollbackList] AS [view_InvoiceRollbackList]</DefiningQuery>
+    </EntitySet>
     <AssociationSet Name="FK__Logs__UserID__6477ECF3" Association="Self.FK__Logs__UserID__6477ECF3">
       <End Role="Users" EntitySet="Users" />
       <End Role="Logs" EntitySet="Logs" />
     </AssociationSet>
-    <AssociationSet Name="FK__Terminals__Store__5DCAEF64" Association="Self.FK__Terminals__Store__5DCAEF64">
-      <End Role="Stores" EntitySet="Stores" />
-      <End Role="Terminals" EntitySet="Terminals" />
-    </AssociationSet>
-    <AssociationSet Name="FK__Users__StoreID__60A75C0F" Association="Self.FK__Users__StoreID__60A75C0F">
-      <End Role="Stores" EntitySet="Stores" />
-      <End Role="Users" EntitySet="Users" />
-    </AssociationSet>
     <AssociationSet Name="FK_AqtaProducts_Category" Association="Self.FK_AqtaProducts_Category">
       <End Role="Categories" EntitySet="Categories" />
-      <End Role="AqtaProducts" EntitySet="AqtaProducts" />
-    </AssociationSet>
-    <AssociationSet Name="FK_AqtaProducts_Store" Association="Self.FK_AqtaProducts_Store">
-      <End Role="Stores" EntitySet="Stores" />
       <End Role="AqtaProducts" EntitySet="AqtaProducts" />
     </AssociationSet>
     <AssociationSet Name="FK_AqtaProducts_Warehouse" Association="Self.FK_AqtaProducts_Warehouse">
@@ -770,6 +879,26 @@
     <AssociationSet Name="FK_InvoiceDetails_Product" Association="Self.FK_InvoiceDetails_Product">
       <End Role="Products" EntitySet="Products" />
       <End Role="InvoiceDetails" EntitySet="InvoiceDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_InvoiceRollbackDetails_InvoiceRollbacks" Association="Self.FK_InvoiceRollbackDetails_InvoiceRollbacks">
+      <End Role="InvoiceRollbacks" EntitySet="InvoiceRollbacks" />
+      <End Role="InvoiceRollbackDetails" EntitySet="InvoiceRollbackDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_InvoiceRollbacks_Invoices" Association="Self.FK_InvoiceRollbacks_Invoices">
+      <End Role="Invoices" EntitySet="Invoices" />
+      <End Role="InvoiceRollbacks" EntitySet="InvoiceRollbacks" />
+    </AssociationSet>
+    <AssociationSet Name="FK_InvoiceRollbacks_PaymentTypes" Association="Self.FK_InvoiceRollbacks_PaymentTypes">
+      <End Role="PaymentTypes" EntitySet="PaymentTypes" />
+      <End Role="InvoiceRollbacks" EntitySet="InvoiceRollbacks" />
+    </AssociationSet>
+    <AssociationSet Name="FK_InvoiceRollbacks_Users" Association="Self.FK_InvoiceRollbacks_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="InvoiceRollbacks" EntitySet="InvoiceRollbacks" />
+    </AssociationSet>
+    <AssociationSet Name="FK_InvoiceRollbacks_Warehouses" Association="Self.FK_InvoiceRollbacks_Warehouses">
+      <End Role="Warehouses" EntitySet="Warehouses" />
+      <End Role="InvoiceRollbacks" EntitySet="InvoiceRollbacks" />
     </AssociationSet>
     <AssociationSet Name="FK_Invoices_PaymentTypes" Association="Self.FK_Invoices_PaymentTypes">
       <End Role="PaymentTypes" EntitySet="PaymentTypes" />
@@ -819,6 +948,10 @@
       <End Role="SalesData" EntitySet="SalesData" />
       <End Role="SalesDataDetail" EntitySet="SalesDataDetail" />
     </AssociationSet>
+    <AssociationSet Name="FK_Stores_Warehouses" Association="Self.FK_Stores_Warehouses">
+      <End Role="Warehouses" EntitySet="Warehouses" />
+      <End Role="Stores" EntitySet="Stores" />
+    </AssociationSet>
     <AssociationSet Name="FK_SupplierDebts_Supplier" Association="Self.FK_SupplierDebts_Supplier">
       <End Role="Suppliers" EntitySet="Suppliers" />
       <End Role="SuppliersDebts" EntitySet="SuppliersDebts" />
@@ -827,12 +960,20 @@
       <End Role="SuppliersDebts" EntitySet="SuppliersDebts" />
       <End Role="SupplierPayments" EntitySet="SupplierPayments" />
     </AssociationSet>
+    <AssociationSet Name="FK_Terminals_Stores" Association="Self.FK_Terminals_Stores">
+      <End Role="Stores" EntitySet="Stores" />
+      <End Role="Terminals" EntitySet="Terminals" />
+    </AssociationSet>
     <AssociationSet Name="FK_Terminals_To_User" Association="Self.FK_Terminals_To_User">
       <End Role="Users" EntitySet="Users" />
       <End Role="Terminals" EntitySet="Terminals" />
     </AssociationSet>
     <AssociationSet Name="FK_Users_RoleID" Association="Self.FK_Users_RoleID">
       <End Role="Roles" EntitySet="Roles" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Users_Stores" Association="Self.FK_Users_Stores">
+      <End Role="Stores" EntitySet="Stores" />
       <End Role="Users" EntitySet="Users" />
     </AssociationSet>
   </EntityContainer>
