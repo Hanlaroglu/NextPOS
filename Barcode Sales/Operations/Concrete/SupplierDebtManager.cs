@@ -28,7 +28,7 @@ namespace Barcode_Sales.Operations.Concrete
             catch (Exception ex)
             {
                 Barcode.Sales.Admin.fDashboard form = Application.OpenForms.OfType<Barcode.Sales.Admin.fDashboard>().FirstOrDefault();
-                NoticationHelpers.Messages.ErrorMessage(form, $"{ex.Message}");
+                NotificationHelpers.Messages.ErrorMessage(form, $"{ex.Message}");
                 return false;
             }
         }
@@ -51,7 +51,7 @@ namespace Barcode_Sales.Operations.Concrete
 
         public void Remove(SuppliersDebt item)
         {
-            var args = NoticationHelpers.Dialogs.DialogResultYesNo($"{item.Supplier.SupplierName} təchizatçısının {item.Name} adlı borcunu silmək istədiyinizə əminsiniz ?");
+            var args = NotificationHelpers.Dialogs.DialogResultYesNo($"{item.Supplier.SupplierName} təchizatçısının {item.Name} adlı borcunu silmək istədiyinizə əminsiniz ?");
             var result = XtraMessageBox.Show(args);
             if (result is DialogResult.Yes)
             {
@@ -60,7 +60,7 @@ namespace Barcode_Sales.Operations.Concrete
                 db.SaveChanges();
 
                 Barcode.Sales.Admin.fDashboard form = Application.OpenForms.OfType<Barcode.Sales.Admin.fDashboard>().FirstOrDefault();
-                NoticationHelpers.Messages.SuccessMessage(form, $"{data.Supplier.SupplierName} təchizatçısının {data.Name} adlı borcu uğurla silindi");
+                NotificationHelpers.Messages.SuccessMessage(form, $"{data.Supplier.SupplierName} təchizatçısının {data.Name} adlı borcu uğurla silindi");
             }
         }
 

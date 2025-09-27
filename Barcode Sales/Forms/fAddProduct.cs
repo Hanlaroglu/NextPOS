@@ -152,7 +152,7 @@ namespace Barcode_Sales.Forms
             var barcodeCheck = await productOperation.BarcodeCheckAsync(Product.Barcode, (int)Product.SupplierId);
             if (barcodeCheck)
             {
-                NoticationHelpers.Messages.InfoMessage(this, "Daxil edilən barkod sistemdə mövcuddur");
+                NotificationHelpers.Messages.InfoMessage(this, "Daxil edilən barkod sistemdə mövcuddur");
                 return;
             }
 
@@ -203,7 +203,7 @@ namespace Barcode_Sales.Forms
 
         private void bAddSupplier_Click(object sender, EventArgs e)
         {
-            NoticationHelpers.Dialogs.DialogResultYesNo("test");
+            NotificationHelpers.Dialogs.DialogResultYesNo("test");
         }
 
         private void bAddCategory_Click(object sender, EventArgs e)

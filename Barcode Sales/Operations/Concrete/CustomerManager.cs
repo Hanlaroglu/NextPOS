@@ -8,7 +8,6 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Barcode_Sales.Operations.Concrete
 {
@@ -20,6 +19,7 @@ namespace Barcode_Sales.Operations.Concrete
         {
             try
             {
+                item.Phone = item.Phone == "(___)___-__-__" ? null : item.Phone;
                 item.Debt = 0;
                 item.Balance = 0;
                 item.Status = true;
@@ -32,7 +32,7 @@ namespace Barcode_Sales.Operations.Concrete
             catch (Exception ex)
             {
                 fAddCustomer form = Application.OpenForms.OfType<fAddCustomer>().FirstOrDefault();
-                NoticationHelpers.Messages.ErrorMessage(form, $"{ex.Message}");
+                NotificationHelpers.Messages.ErrorMessage(form, $"{ex.Message}");
                 return false;
             }
 
@@ -56,13 +56,10 @@ namespace Barcode_Sales.Operations.Concrete
 
         public void Remove(Customer item)
         {
-            //Delete kodunu yaz
-            if (CommonMessageBox.QuestionDialogResult($"{item.NameSurname} müştərisini silmək istədiyinizə əminsiniz ?"))
-            {
-                var data = db.Customers.FindAsync(item.Id);
-                //data.IsDeleted = data.Id;
-                db.SaveChanges();
-            }
+            item.IsDeleted = item.Id;
+            db.Customers.Attach(item);
+            db.Entry(item).Property(x => x.IsDeleted).IsModified = true;
+            db.SaveChanges();
         }
 
         public async Task RemoveAsync(Customer item)
@@ -77,22 +74,40 @@ namespace Barcode_Sales.Operations.Concrete
 
         public void Update(Customer item)
         {
-            var existingItem = db.Customers.Find(item.Id);
-            if (existingItem != null)
-            {
-                db.Entry(existingItem).CurrentValues.SetValues(item);
-                db.SaveChangesAsync();
-            }
+            item.Phone = item.Phone == "(___)___-__-__" ? null : item.Phone;
+            db.Customers.Attach(item);
+            db.Entry(item).Property(x => x.DateBirth).IsModified = true;
+            db.Entry(item).Property(x => x.Gender).IsModified = true;
+            db.Entry(item).Property(x => x.Phone).IsModified = true;
+            db.Entry(item).Property(x => x.Email).IsModified = true;
+            db.Entry(item).Property(x => x.Voen).IsModified = true;
+            db.Entry(item).Property(x => x.CustomerGroupId).IsModified = true;
+            db.Entry(item).Property(x => x.Comment).IsModified = true;
+            db.Entry(item).Property(x => x.BankName).IsModified = true;
+            db.Entry(item).Property(x => x.BankVoen).IsModified = true;
+            db.Entry(item).Property(x => x.BankAccountNumber).IsModified = true;
+            db.Entry(item).Property(x => x.BankKOD).IsModified = true;
+            db.Entry(item).Property(x => x.BankSwift).IsModified = true;
+            db.SaveChanges();
         }
 
         public async Task UpdateAsync(Customer item)
         {
-            var existingItem = db.Customers.FindAsync(item.Id);
-            if (existingItem != null)
-            {
-                db.Entry(existingItem).CurrentValues.SetValues(item);
-                await db.SaveChangesAsync();
-            }
+            item.Phone = item.Phone == "(___)___-__-__" ? null : item.Phone;
+            db.Customers.Attach(item);
+            db.Entry(item).Property(x => x.DateBirth).IsModified = true;
+            db.Entry(item).Property(x => x.Gender).IsModified = true;
+            db.Entry(item).Property(x => x.Phone).IsModified = true;
+            db.Entry(item).Property(x => x.Email).IsModified = true;
+            db.Entry(item).Property(x => x.Voen).IsModified = true;
+            db.Entry(item).Property(x => x.CustomerGroupId).IsModified = true;
+            db.Entry(item).Property(x => x.Comment).IsModified = true;
+            db.Entry(item).Property(x => x.BankName).IsModified = true;
+            db.Entry(item).Property(x => x.BankVoen).IsModified = true;
+            db.Entry(item).Property(x => x.BankAccountNumber).IsModified = true;
+            db.Entry(item).Property(x => x.BankKOD).IsModified = true;
+            db.Entry(item).Property(x => x.BankSwift).IsModified = true;
+            await db.SaveChangesAsync();
         }
 
         public IQueryable<Customer> Where(Expression<Func<Customer, bool>> expression)

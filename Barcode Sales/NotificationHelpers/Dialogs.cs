@@ -1,14 +1,14 @@
 ﻿using DevExpress.Utils.Html;
 using DevExpress.XtraEditors;
 
-namespace Barcode_Sales.NoticationHelpers
+namespace Barcode_Sales.NotificationHelpers
 {
     public static class Dialogs
     {
         private static readonly string css = @"
 body{
 	padding: 15px;
-	font-size: 10pt;
+	font-size: 12pt;
 	font-family: 'Nunito';
 	text-align: center;
 }

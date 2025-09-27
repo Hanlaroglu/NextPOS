@@ -68,11 +68,11 @@ namespace Barcode_Sales.Forms
 
             if (warehouseOperation.Add(_warehouses))
             {
-                NoticationHelpers.Messages.SuccessMessage(this, "Anbar uğurla yaradıldı");
+                NotificationHelpers.Messages.SuccessMessage(this, "Anbar uğurla yaradıldı");
                 Clear();
             }
             else
-                NoticationHelpers.Messages.ErrorMessage(this, "Anbar yaradılarkən xəta yarandı");
+                NotificationHelpers.Messages.ErrorMessage(this, "Anbar yaradılarkən xəta yarandı");
         }
 
         private void Edit()

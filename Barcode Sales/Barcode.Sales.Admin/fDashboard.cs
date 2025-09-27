@@ -1,4 +1,5 @@
-﻿using Barcode_Sales.Forms;
+﻿using Barcode_Sales.DTOs;
+using Barcode_Sales.Forms;
 using Barcode_Sales.Helpers;
 using Barcode_Sales.Helpers.Messages;
 using Barcode_Sales.Operations.Abstract;
@@ -12,6 +13,7 @@ using Microsoft.Win32;
 using NextPOS.UserControls;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Diagnostics;
 using System.Linq;
 using System.Net;
@@ -390,7 +392,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
         {
             if (gridSupplier.GetFocusedRow() == null)
             {
-                NoticationHelpers.Messages.WarningMessage(this, CommonMessages.NOT_SELECTİON);
+                NotificationHelpers.Messages.WarningMessage(this, CommonMessages.NOT_SELECTİON);
                 return;
             }
             else
@@ -414,7 +416,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
         {
             if (gridSupplier.GetFocusedRow() == null)
             {
-                NoticationHelpers.Messages.WarningMessage(this, CommonMessages.NOT_SELECTİON);
+                NotificationHelpers.Messages.WarningMessage(this, CommonMessages.NOT_SELECTİON);
                 return;
             }
 
@@ -433,7 +435,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
         {
             if (gridSupplier.GetFocusedRow() == null)
             {
-                NoticationHelpers.Messages.WarningMessage(this, CommonMessages.NOT_SELECTİON);
+                NotificationHelpers.Messages.WarningMessage(this, CommonMessages.NOT_SELECTİON);
                 return;
             }
             else
@@ -455,7 +457,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
                 int[] selectedRows = gridSupplier.GetSelectedRows();
 
 
-                var args = NoticationHelpers.Dialogs.DialogResultYesNo($"{selectedRows.Count()} təchizatçını silmək istədiyinizə əminsiniz ?");
+                var args = NotificationHelpers.Dialogs.DialogResultYesNo($"{selectedRows.Count()} təchizatçını silmək istədiyinizə əminsiniz ?");
                 var result = XtraMessageBox.Show(args);
                 if (result is DialogResult.Yes)
                 {
@@ -471,7 +473,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             {
                 if (gridSupplier.GetFocusedRow() == null)
                 {
-                    NoticationHelpers.Messages.WarningMessage(this, CommonMessages.NOT_SELECTİON);
+                    NotificationHelpers.Messages.WarningMessage(this, CommonMessages.NOT_SELECTİON);
                     return;
                 }
                 else
@@ -518,7 +520,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             int[] selectedRows = gridSupplier.GetSelectedRows();
 
 
-            var args = NoticationHelpers.Dialogs.DialogResultYesNo($"{selectedRows.Count()} təchizatçını bloklamaq istədiyinizə əminsiniz ?");
+            var args = NotificationHelpers.Dialogs.DialogResultYesNo($"{selectedRows.Count()} təchizatçını bloklamaq istədiyinizə əminsiniz ?");
             var result = XtraMessageBox.Show(args);
             if (result is DialogResult.Yes)
             {
@@ -541,11 +543,11 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             string result = supplierOperation.Blocked(data);
             if (result is null)
             {
-                NoticationHelpers.Messages.ErrorMessage(this, $"{data.SupplierName} təchizatçısında edilən əməliyyat uğursuz oldu");
+                NotificationHelpers.Messages.ErrorMessage(this, $"{data.SupplierName} təchizatçısında edilən əməliyyat uğursuz oldu");
             }
             else
             {
-                NoticationHelpers.Messages.SuccessMessage(this, result);
+                NotificationHelpers.Messages.SuccessMessage(this, result);
                 SupplierDataLoad();
             }
         }
@@ -555,7 +557,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             int[] selectedRows = gridSupplier.GetSelectedRows();
 
 
-            var args = NoticationHelpers.Dialogs.DialogResultYesNo($"{selectedRows.Count()} təchizatçını aktiv etmək istədiyinizə əminsiniz ?");
+            var args = NotificationHelpers.Dialogs.DialogResultYesNo($"{selectedRows.Count()} təchizatçını aktiv etmək istədiyinizə əminsiniz ?");
             var result = XtraMessageBox.Show(args);
             if (result is DialogResult.Yes)
             {
@@ -578,11 +580,11 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             string result = supplierOperation.Active(data);
             if (result is null)
             {
-                NoticationHelpers.Messages.ErrorMessage(this, $"{data.SupplierName} təchizatçısında edilən əməliyyat uğursuz oldu");
+                NotificationHelpers.Messages.ErrorMessage(this, $"{data.SupplierName} təchizatçısında edilən əməliyyat uğursuz oldu");
             }
             else
             {
-                NoticationHelpers.Messages.SuccessMessage(this, result);
+                NotificationHelpers.Messages.SuccessMessage(this, result);
                 SupplierDataLoad();
             }
         }
@@ -641,7 +643,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
         {
             if (gridSupplierDebt.GetFocusedRow() == null)
             {
-                NoticationHelpers.Messages.WarningMessage(this, CommonMessages.NOT_SELECTİON);
+                NotificationHelpers.Messages.WarningMessage(this, CommonMessages.NOT_SELECTİON);
                 return;
             }
             else
@@ -681,7 +683,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
         {
             if (gridSupplierDebt.GetFocusedRow() == null)
             {
-                NoticationHelpers.Messages.WarningMessage(this, CommonMessages.NOT_SELECTİON);
+                NotificationHelpers.Messages.WarningMessage(this, CommonMessages.NOT_SELECTİON);
                 return;
             }
 
@@ -690,7 +692,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
                 int[] selectedRows = gridSupplierDebt.GetSelectedRows();
 
 
-                var args = NoticationHelpers.Dialogs.DialogResultYesNo($"{selectedRows.Count()} təchizatçının borcunu silmək istədiyinizə əminsiniz ?");
+                var args = NotificationHelpers.Dialogs.DialogResultYesNo($"{selectedRows.Count()} təchizatçının borcunu silmək istədiyinizə əminsiniz ?");
                 var result = XtraMessageBox.Show(args);
                 if (result is DialogResult.Yes)
                 {
@@ -733,10 +735,21 @@ namespace Barcode_Sales.Barcode.Sales.Admin
 
         private async void CustomerLoadData()
         {
-            var data = await customerOperation.WhereAsync(x => x.IsDeleted == 0);
+            var data = await customerOperation.Where(x => x.IsDeleted == 0)
+                .Select(x=> new CustomerDto
+                {
+                    Id = x.Id,
+                    NameSurname = x.NameSurname,
+                    GroupName = x.CustomerGroup.Name,
+                    Phone = x.Phone,
+                    Debt = x.Debt,
+                    Balance = x.Balance,
+                    Status = x.Status,
+                    IsDeleted = x.IsDeleted,
+                    UserNameSurname = x.User.NameSurname,
+                }).ToListAsync();
             ControlLoad(data, gridControlCustomers);
             gridCustomers.GroupPanelText = $"Müştəri sayı : {data.Count()}";
-            GridCustomRowNumber(gridCustomers);
         }
 
         private void bCustomerList_Click(object sender, EventArgs e)
@@ -758,7 +771,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             fAddCustomer f = new fAddCustomer(Enums.Operation.Edit);
             if (f.ShowDialog() is DialogResult.OK)
             {
-                NoticationHelpers.Messages.SuccessMessage(this, $"{customer.NameSurname} müştərisində düzəliş edildi");
+                NotificationHelpers.Messages.SuccessMessage(this, $"{customer.NameSurname} müştərisində düzəliş edildi");
                 CustomerLoadData();
             }
         }
@@ -781,7 +794,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
         {
             if (gridCustomers.GetFocusedRow() == null)
             {
-                NoticationHelpers.Messages.WarningMessage(this, CommonMessages.NOT_SELECTİON);
+                NotificationHelpers.Messages.WarningMessage(this, CommonMessages.NOT_SELECTİON);
                 return;
             }
 
@@ -841,11 +854,11 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             string result = customerOperation.Active(data);
             if (result is null)
             {
-                NoticationHelpers.Messages.ErrorMessage(this, $"{data.NameSurname} müştərisində edilən əməliyyat uğursuz oldu");
+                NotificationHelpers.Messages.ErrorMessage(this, $"{data.NameSurname} müştərisində edilən əməliyyat uğursuz oldu");
             }
             else
             {
-                NoticationHelpers.Messages.SuccessMessage(this, result);
+                NotificationHelpers.Messages.SuccessMessage(this, result);
                 SupplierDataLoad();
             }
         }
@@ -857,11 +870,11 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             string result = customerOperation.Blocked(data);
             if (result is null)
             {
-                NoticationHelpers.Messages.ErrorMessage(this, $"{data.NameSurname} müştərisində edilən əməliyyat uğursuz oldu");
+                NotificationHelpers.Messages.ErrorMessage(this, $"{data.NameSurname} müştərisində edilən əməliyyat uğursuz oldu");
             }
             else
             {
-                NoticationHelpers.Messages.SuccessMessage(this, result);
+                NotificationHelpers.Messages.SuccessMessage(this, result);
                 SupplierDataLoad();
             }
         }
@@ -872,10 +885,10 @@ namespace Barcode_Sales.Barcode.Sales.Admin
 
             if (selectedRows.Count() is 0)
             {
-                NoticationHelpers.Messages.WarningMessage(this, CommonMessages.NOT_SELECTİON);
+                NotificationHelpers.Messages.WarningMessage(this, CommonMessages.NOT_SELECTİON);
                 return;
             }
-            var args = NoticationHelpers.Dialogs.DialogResultYesNo($"{selectedRows.Count()} müştərini aktiv etmək istədiyinizə əminsiniz ?");
+            var args = NotificationHelpers.Dialogs.DialogResultYesNo($"{selectedRows.Count()} müştərini aktiv etmək istədiyinizə əminsiniz ?");
             var result = XtraMessageBox.Show(args);
             if (result is DialogResult.Yes)
             {
@@ -897,10 +910,10 @@ namespace Barcode_Sales.Barcode.Sales.Admin
 
             if (selectedRows.Count() is 0)
             {
-                NoticationHelpers.Messages.WarningMessage(this, CommonMessages.NOT_SELECTİON);
+                NotificationHelpers.Messages.WarningMessage(this, CommonMessages.NOT_SELECTİON);
                 return;
             }
-            var args = NoticationHelpers.Dialogs.DialogResultYesNo($"{selectedRows.Count()} müştərini bloklamaq istədiyinizə əminsiniz ?");
+            var args = NotificationHelpers.Dialogs.DialogResultYesNo($"{selectedRows.Count()} müştərini bloklamaq istədiyinizə əminsiniz ?");
             var result = XtraMessageBox.Show(args);
             if (result is DialogResult.Yes)
             {

@@ -95,7 +95,7 @@ namespace Barcode_Sales.Forms
 
                 if (_data.IncomingSum < _data.Total)
                 {
-                    NoticationHelpers.Messages.WarningMessage(this, "Ödənilən məbləğ yekun məbləğdən kiçik olabilməz !", nameof(Enums.MessageTitle.Xəbərdarlıq));
+                    NotificationHelpers.Messages.WarningMessage(this, "Ödənilən məbləğ yekun məbləğdən kiçik olabilməz !", nameof(Enums.MessageTitle.Xəbərdarlıq));
                     return;
                 }
 
@@ -173,22 +173,22 @@ namespace Barcode_Sales.Forms
 
             if ((_data.IncomingSum + _data.Card) < _data.Total)
             {
-                NoticationHelpers.Messages.WarningMessage(this, "Ödənilən məbləğ yekun məbləğdən kiçik olabilməz !", nameof(Enums.MessageTitle.Xəbərdarlıq));
+                NotificationHelpers.Messages.WarningMessage(this, "Ödənilən məbləğ yekun məbləğdən kiçik olabilməz !", nameof(Enums.MessageTitle.Xəbərdarlıq));
                 return;
             }
             else if (_data.Card >= _data.Total)
             {
-                NoticationHelpers.Messages.WarningMessage(this, "Ödənilən kart məbləği yekun məbləğdən böyük olabilməz !", nameof(Enums.MessageTitle.Xəbərdarlıq));
+                NotificationHelpers.Messages.WarningMessage(this, "Ödənilən kart məbləği yekun məbləğdən böyük olabilməz !", nameof(Enums.MessageTitle.Xəbərdarlıq));
                 return;
             }
             else if (_data.IncomingSum is 0)
             {
-                NoticationHelpers.Messages.WarningMessage(this, "Nağd məbləğ '0' olabilməz !", nameof(Enums.MessageTitle.Xəbərdarlıq));
+                NotificationHelpers.Messages.WarningMessage(this, "Nağd məbləğ '0' olabilməz !", nameof(Enums.MessageTitle.Xəbərdarlıq));
                 return;
             }
             else if (_data.Card is 0)
             {
-                NoticationHelpers.Messages.WarningMessage(this, "Kart məbləğ '0' olabilməz !", nameof(Enums.MessageTitle.Xəbərdarlıq));
+                NotificationHelpers.Messages.WarningMessage(this, "Kart məbləğ '0' olabilməz !", nameof(Enums.MessageTitle.Xəbərdarlıq));
                 return;
             }
 
@@ -253,7 +253,7 @@ namespace Barcode_Sales.Forms
             double cashTotal = total - card;
             if (cashTotal < 0)
             {
-                NoticationHelpers.Messages.WarningMessage(this, "Kart məbləği yekun məbləğdən böyük olabilməz !", nameof(Enums.MessageTitle.Xəbərdarlıq));
+                NotificationHelpers.Messages.WarningMessage(this, "Kart məbləği yekun məbləğdən böyük olabilməz !", nameof(Enums.MessageTitle.Xəbərdarlıq));
                 return;
             }
             if (cash >= cashTotal)

@@ -53,7 +53,7 @@ namespace Barcode_Sales.Forms
             }
             else
             {
-                NoticationHelpers.Messages.ErrorMessage(this, control.Item3);
+                NotificationHelpers.Messages.ErrorMessage(this, control.Item3);
                 return;
             }
         }

@@ -96,12 +96,12 @@ namespace Barcode_Sales.Forms
             if (IsSuccess)
             {
                 fDashboard form = Application.OpenForms.OfType<fDashboard>().FirstOrDefault();
-                NoticationHelpers.Messages.SuccessMessage(form, "Ödəniş uğurla tamamlandı");
+                NotificationHelpers.Messages.SuccessMessage(form, "Ödəniş uğurla tamamlandı");
                 DialogResult = DialogResult.OK;
             }
             else
             {
-                NoticationHelpers.Messages.ErrorMessage(this, "Ödəniş əməliyyatı uğursuz oldu");
+                NotificationHelpers.Messages.ErrorMessage(this, "Ödəniş əməliyyatı uğursuz oldu");
             }
         }
 

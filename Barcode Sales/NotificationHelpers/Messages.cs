@@ -2,7 +2,7 @@
 using DevExpress.XtraBars.Alerter;
 using DevExpress.XtraEditors;
 
-namespace Barcode_Sales.NoticationHelpers
+namespace Barcode_Sales.NotificationHelpers
 {
     public class Messages
     {

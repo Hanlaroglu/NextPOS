@@ -20,7 +20,7 @@ namespace Barcode_Sales.Validations
             {
                 foreach (var error in validateResult.Errors)
                 {
-                    NoticationHelpers.Messages.WarningMessage(form, error.ErrorMessage);
+                    NotificationHelpers.Messages.WarningMessage(form, error.ErrorMessage);
                     break;
                 }
             }

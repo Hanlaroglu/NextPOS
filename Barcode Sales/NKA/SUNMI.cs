@@ -57,20 +57,20 @@ namespace Barcode_Sales.NKA
 
                 if ($"{responseData.message}" == "Success operation" || $"{responseData.message}" == "Successful operation")
                 {
-                    NoticationHelpers.Messages.SuccessMessage(_form, $"Növbə uğurla açıldı");
+                    NotificationHelpers.Messages.SuccessMessage(_form, $"Növbə uğurla açıldı");
                 }
                 else if (responseData.message is "Növbə artıq açıqdır")
                 {
-                    NoticationHelpers.Messages.InfoMessage(_form, responseData.message);
+                    NotificationHelpers.Messages.InfoMessage(_form, responseData.message);
                 }
                 else
                 {
-                    NoticationHelpers.Messages.ErrorMessage(_form, responseData.message);
+                    NotificationHelpers.Messages.ErrorMessage(_form, responseData.message);
                 }
             }
             else
             {
-                NoticationHelpers.Messages.ErrorMessage(_form, response.ErrorMessage);
+                NotificationHelpers.Messages.ErrorMessage(_form, response.ErrorMessage);
             }
         }
 
@@ -93,7 +93,7 @@ namespace Barcode_Sales.NKA
                     if (responseData.data.shift_open)
                     {
                         string open_time = responseData.data.shift_open_time.ToString("dd.MM.yyyy HH:mm:ss");
-                        NoticationHelpers.Messages.InfoMessage(_form, $"Növbə artıq açıqdır\n\nNövbənin açılma tarixi: {open_time}");
+                        NotificationHelpers.Messages.InfoMessage(_form, $"Növbə artıq açıqdır\n\nNövbənin açılma tarixi: {open_time}");
                     }
                     else
                     {
@@ -106,7 +106,7 @@ namespace Barcode_Sales.NKA
                 }
                 else
                 {
-                    NoticationHelpers.Messages.ErrorMessage(_form, responseData.message);
+                    NotificationHelpers.Messages.ErrorMessage(_form, responseData.message);
                 }
             }
         }
@@ -142,18 +142,18 @@ namespace Barcode_Sales.NKA
                 SunmiBaseResponse responseData = System.Text.Json.JsonSerializer.Deserialize<SunmiBaseResponse>(response.Content);
                 if ($"{responseData.message}" == "Success operation" || $"{responseData.message}" == "Successful operation")
                 {
-                    NoticationHelpers.Messages.SuccessMessage(_form, $"Günsonu (Z) hesabatı uğurla çıxarıldı");
+                    NotificationHelpers.Messages.SuccessMessage(_form, $"Günsonu (Z) hesabatı uğurla çıxarıldı");
                     return true;
                 }
                 else
                 {
-                    NoticationHelpers.Messages.ErrorMessage(_form, responseData.message, "Gün sonu hesabatı");
+                    NotificationHelpers.Messages.ErrorMessage(_form, responseData.message, "Gün sonu hesabatı");
                     return false;
                 }
             }
             else
             {
-                NoticationHelpers.Messages.ErrorMessage(_form, response.ErrorMessage);
+                NotificationHelpers.Messages.ErrorMessage(_form, response.ErrorMessage);
                 return false;
             }
         }
@@ -190,18 +190,18 @@ namespace Barcode_Sales.NKA
                         OperationType = (byte)Enums.PosChangeType.Deposit,
                     });
 
-                    NoticationHelpers.Messages.SuccessMessage(_form, $"Kassaya {item.Amount.ToString("C2")} mədaxil edildi");
+                    NotificationHelpers.Messages.SuccessMessage(_form, $"Kassaya {item.Amount.ToString("C2")} mədaxil edildi");
                     return true;
                 }
                 else
                 {
-                    NoticationHelpers.Messages.ErrorMessage(_form, responseData.message);
+                    NotificationHelpers.Messages.ErrorMessage(_form, responseData.message);
                     return false;
                 }
             }
             else
             {
-                NoticationHelpers.Messages.ErrorMessage(_form, response.ErrorMessage);
+                NotificationHelpers.Messages.ErrorMessage(_form, response.ErrorMessage);
                 return false;
             }
         }
@@ -237,18 +237,18 @@ namespace Barcode_Sales.NKA
                         UserId = CommonData.CURRENT_USER.Id,
                         OperationType = (byte)Enums.PosChangeType.Withdraw,
                     });
-                    NoticationHelpers.Messages.SuccessMessage(_form, $"Kassadan {item.Amount.ToString("C2")} məbləği məxaric edildi");
+                    NotificationHelpers.Messages.SuccessMessage(_form, $"Kassadan {item.Amount.ToString("C2")} məbləği məxaric edildi");
                     return true;
                 }
                 else
                 {
-                    NoticationHelpers.Messages.ErrorMessage(_form, responseData.message);
+                    NotificationHelpers.Messages.ErrorMessage(_form, responseData.message);
                     return false;
                 }
             }
             else
             {
-                NoticationHelpers.Messages.ErrorMessage(_form, response.ErrorMessage);
+                NotificationHelpers.Messages.ErrorMessage(_form, response.ErrorMessage);
                 return false;
             }
         }
@@ -304,7 +304,7 @@ namespace Barcode_Sales.NKA
                 SaleResponse responseData = System.Text.Json.JsonSerializer.Deserialize<SaleResponse>(response.Content);
                 if ($"{responseData.message}" == "Success operation" || $"{responseData.message}" == "Successful operation")
                 {
-                    NoticationHelpers.Messages.SuccessMessage(_form, $"Satış uğurla tamamlandı");
+                    NotificationHelpers.Messages.SuccessMessage(_form, $"Satış uğurla tamamlandı");
 
                     int SaleId = _saleDataOperation.InsertSaleData(new SalesData
                     {
@@ -342,13 +342,13 @@ namespace Barcode_Sales.NKA
                 }
                 else
                 {
-                    NoticationHelpers.Messages.ErrorMessage(_form, responseData.message, "Uğursuz satış");
+                    NotificationHelpers.Messages.ErrorMessage(_form, responseData.message, "Uğursuz satış");
                     return false;
                 }
             }
             else
             {
-                NoticationHelpers.Messages.ErrorMessage(_form, response.ErrorMessage);
+                NotificationHelpers.Messages.ErrorMessage(_form, response.ErrorMessage);
                 return false;
             }
         }

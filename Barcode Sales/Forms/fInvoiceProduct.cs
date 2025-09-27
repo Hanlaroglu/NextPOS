@@ -99,7 +99,7 @@ namespace Barcode_Sales.Forms
 
             if (!ValidationHelpers.IsValidDate(tDate.Text))
             {
-                NoticationHelpers.Messages.WarningMessage(this, $"Tarix düzgün daxil edilmədi");
+                NotificationHelpers.Messages.WarningMessage(this, $"Tarix düzgün daxil edilmədi");
                 tDate.Focus();
                 return;
             }
@@ -145,12 +145,12 @@ namespace Barcode_Sales.Forms
                     TotalPurchasePrice = x.Quantity * x.PurchasePrice,
                 }));
                 invoiceDetailOperation.AddRange(details);
-                NoticationHelpers.Messages.SuccessMessage(this, "Məhsul alışı tamamlandı");
+                NotificationHelpers.Messages.SuccessMessage(this, "Məhsul alışı tamamlandı");
                 Reset();
             }
             catch (Exception e)
             {
-                NoticationHelpers.Messages.ErrorMessage(this, e.Message);
+                NotificationHelpers.Messages.ErrorMessage(this, e.Message);
             }
 
         }
@@ -197,7 +197,7 @@ namespace Barcode_Sales.Forms
                     var data = productOperation.Where(x => x.Barcode == barcode && x.IsDeleted == 0).FirstOrDefault();
                     if (data is null)
                     {
-                        NoticationHelpers.Messages.WarningMessage(this, $"({barcode}) barkoduna aid məhsul sistemdə tapılmadı", "Məhsul tapılmadı");
+                        NotificationHelpers.Messages.WarningMessage(this, $"({barcode}) barkoduna aid məhsul sistemdə tapılmadı", "Məhsul tapılmadı");
                         return;
                     }
                     else

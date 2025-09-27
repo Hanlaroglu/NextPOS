@@ -29,27 +29,29 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fAddCustomer));
             this.tabPane1 = new DevExpress.XtraBars.Navigation.TabPane();
             this.tabNavigationPage1 = new DevExpress.XtraBars.Navigation.TabNavigationPage();
-            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
             this.tPhone = new DevExpress.XtraEditors.TextEdit();
             this.tEmail = new DevExpress.XtraEditors.TextEdit();
             this.labelControl12 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl11 = new DevExpress.XtraEditors.LabelControl();
             this.groupCustomer = new DevExpress.XtraEditors.GroupControl();
+            this.lookCustomerGroup = new DevExpress.XtraEditors.LookUpEdit();
+            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.tComment = new DevExpress.XtraEditors.MemoEdit();
-            this.chWomen = new DevExpress.XtraEditors.CheckEdit();
+            this.chWoman = new DevExpress.XtraEditors.CheckEdit();
             this.chMan = new DevExpress.XtraEditors.CheckEdit();
             this.tVoen = new DevExpress.XtraEditors.TextEdit();
             this.tDateBirth = new DevExpress.XtraEditors.ButtonEdit();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl13 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
@@ -66,7 +68,6 @@
             this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
             this.tBankAccountNumber = new DevExpress.XtraEditors.TextEdit();
             this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
-            this.bReset = new DevExpress.XtraEditors.SimpleButton();
             this.bSave = new DevExpress.XtraEditors.SimpleButton();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.fluentDesignFormContainer1 = new DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormContainer();
@@ -75,10 +76,9 @@
             this.bSaleHistory = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.bCredit = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.bDebtHistory = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.bAddCustomerGroup = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControl1 = new DevExpress.XtraBars.Navigation.AccordionControl();
-            this.accordionControlElement1 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.lookCustomerGroup = new DevExpress.XtraEditors.LookUpEdit();
-            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
+            this.chOther = new DevExpress.XtraEditors.CheckEdit();
             ((System.ComponentModel.ISupportInitialize)(this.tabPane1)).BeginInit();
             this.tabPane1.SuspendLayout();
             this.tabNavigationPage1.SuspendLayout();
@@ -88,8 +88,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.tEmail.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupCustomer)).BeginInit();
             this.groupCustomer.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.lookCustomerGroup.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tComment.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chWomen.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chWoman.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chMan.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tVoen.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tDateBirth.Properties)).BeginInit();
@@ -107,7 +108,7 @@
             this.fluentDesignFormContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fluentDesignFormControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.accordionControl1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lookCustomerGroup.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chOther.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // tabPane1
@@ -141,19 +142,6 @@
             this.tabNavigationPage1.Controls.Add(this.groupCustomer);
             this.tabNavigationPage1.Name = "tabNavigationPage1";
             this.tabNavigationPage1.Size = new System.Drawing.Size(749, 523);
-            // 
-            // labelControl1
-            // 
-            this.labelControl1.Appearance.Font = new System.Drawing.Font("Nunito", 11F);
-            this.labelControl1.Appearance.Options.UseFont = true;
-            this.labelControl1.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Horizontal;
-            this.labelControl1.Location = new System.Drawing.Point(8, 205);
-            this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
-            this.labelControl1.Size = new System.Drawing.Size(41, 20);
-            this.labelControl1.TabIndex = 5;
-            this.labelControl1.Text = "Vöen";
-            this.labelControl1.UseMnemonic = false;
             // 
             // groupControl2
             // 
@@ -251,7 +239,8 @@
             this.groupCustomer.Controls.Add(this.lookCustomerGroup);
             this.groupCustomer.Controls.Add(this.labelControl1);
             this.groupCustomer.Controls.Add(this.tComment);
-            this.groupCustomer.Controls.Add(this.chWomen);
+            this.groupCustomer.Controls.Add(this.chOther);
+            this.groupCustomer.Controls.Add(this.chWoman);
             this.groupCustomer.Controls.Add(this.chMan);
             this.groupCustomer.Controls.Add(this.tVoen);
             this.groupCustomer.Controls.Add(this.tDateBirth);
@@ -269,6 +258,43 @@
             this.groupCustomer.TabIndex = 12;
             this.groupCustomer.Text = "Müştəri məlumatları";
             // 
+            // lookCustomerGroup
+            // 
+            this.lookCustomerGroup.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lookCustomerGroup.Location = new System.Drawing.Point(115, 157);
+            this.lookCustomerGroup.Name = "lookCustomerGroup";
+            this.lookCustomerGroup.Properties.AllowFocused = false;
+            this.lookCustomerGroup.Properties.Appearance.Font = new System.Drawing.Font("Nunito", 12F);
+            this.lookCustomerGroup.Properties.Appearance.Options.UseFont = true;
+            this.lookCustomerGroup.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Nunito", 12F);
+            this.lookCustomerGroup.Properties.AppearanceDropDown.Options.UseFont = true;
+            this.lookCustomerGroup.Properties.AutoHeight = false;
+            this.lookCustomerGroup.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lookCustomerGroup.Properties.LookAndFeel.SkinName = "WXI";
+            this.lookCustomerGroup.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.lookCustomerGroup.Properties.NullText = "";
+            this.lookCustomerGroup.Properties.NullValuePrompt = "Qrup seç";
+            this.lookCustomerGroup.Properties.ShowFooter = false;
+            this.lookCustomerGroup.Properties.ShowHeader = false;
+            this.lookCustomerGroup.Properties.ShowLines = false;
+            this.lookCustomerGroup.Size = new System.Drawing.Size(610, 34);
+            this.lookCustomerGroup.TabIndex = 5;
+            // 
+            // labelControl1
+            // 
+            this.labelControl1.Appearance.Font = new System.Drawing.Font("Nunito", 11F);
+            this.labelControl1.Appearance.Options.UseFont = true;
+            this.labelControl1.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Horizontal;
+            this.labelControl1.Location = new System.Drawing.Point(8, 205);
+            this.labelControl1.Name = "labelControl1";
+            this.labelControl1.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
+            this.labelControl1.Size = new System.Drawing.Size(41, 20);
+            this.labelControl1.TabIndex = 5;
+            this.labelControl1.Text = "Vöen";
+            this.labelControl1.UseMnemonic = false;
+            // 
             // tComment
             // 
             this.tComment.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -279,25 +305,25 @@
             this.tComment.Properties.Appearance.Font = new System.Drawing.Font("Nunito", 12F);
             this.tComment.Properties.Appearance.Options.UseFont = true;
             this.tComment.Size = new System.Drawing.Size(610, 77);
-            this.tComment.TabIndex = 6;
+            this.tComment.TabIndex = 7;
             // 
-            // chWomen
+            // chWoman
             // 
-            this.chWomen.Location = new System.Drawing.Point(217, 125);
-            this.chWomen.Name = "chWomen";
-            this.chWomen.Properties.AllowFocused = false;
-            this.chWomen.Properties.Appearance.Font = new System.Drawing.Font("Nunito", 12F);
-            this.chWomen.Properties.Appearance.Options.UseFont = true;
-            this.chWomen.Properties.AutoWidth = true;
-            this.chWomen.Properties.Caption = "QADIN";
-            this.chWomen.Properties.RadioGroupIndex = 1;
-            this.chWomen.Size = new System.Drawing.Size(80, 26);
-            this.chWomen.TabIndex = 3;
-            this.chWomen.TabStop = false;
+            this.chWoman.Location = new System.Drawing.Point(217, 125);
+            this.chWoman.Name = "chWoman";
+            this.chWoman.Properties.AllowFocused = false;
+            this.chWoman.Properties.Appearance.Font = new System.Drawing.Font("Nunito", 12F);
+            this.chWoman.Properties.Appearance.Options.UseFont = true;
+            this.chWoman.Properties.AutoWidth = true;
+            this.chWoman.Properties.Caption = "QADIN";
+            this.chWoman.Properties.RadioGroupIndex = 1;
+            this.chWoman.Size = new System.Drawing.Size(80, 26);
+            this.chWoman.TabIndex = 3;
+            this.chWoman.TabStop = false;
+            this.chWoman.Tag = "Woman";
             // 
             // chMan
             // 
-            this.chMan.EditValue = true;
             this.chMan.Location = new System.Drawing.Point(116, 125);
             this.chMan.Name = "chMan";
             this.chMan.Properties.AllowFocused = false;
@@ -308,6 +334,8 @@
             this.chMan.Properties.RadioGroupIndex = 1;
             this.chMan.Size = new System.Drawing.Size(56, 26);
             this.chMan.TabIndex = 2;
+            this.chMan.TabStop = false;
+            this.chMan.Tag = "Man";
             // 
             // tVoen
             // 
@@ -319,7 +347,7 @@
             this.tVoen.Properties.Appearance.Options.UseFont = true;
             this.tVoen.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.tVoen.Size = new System.Drawing.Size(610, 36);
-            this.tVoen.TabIndex = 5;
+            this.tVoen.TabIndex = 6;
             // 
             // tDateBirth
             // 
@@ -352,6 +380,19 @@
             this.labelControl5.TabIndex = 5;
             this.labelControl5.Text = "Qeyd";
             this.labelControl5.UseMnemonic = false;
+            // 
+            // labelControl2
+            // 
+            this.labelControl2.Appearance.Font = new System.Drawing.Font("Nunito", 11F);
+            this.labelControl2.Appearance.Options.UseFont = true;
+            this.labelControl2.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Horizontal;
+            this.labelControl2.Location = new System.Drawing.Point(5, 164);
+            this.labelControl2.Name = "labelControl2";
+            this.labelControl2.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
+            this.labelControl2.Size = new System.Drawing.Size(40, 20);
+            this.labelControl2.TabIndex = 5;
+            this.labelControl2.Text = "Qrup";
+            this.labelControl2.UseMnemonic = false;
             // 
             // labelControl13
             // 
@@ -400,12 +441,12 @@
             this.tNameSurname.Name = "tNameSurname";
             this.tNameSurname.Properties.Appearance.Font = new System.Drawing.Font("Nunito", 12F);
             this.tNameSurname.Properties.Appearance.Options.UseFont = true;
-            serializableAppearanceObject1.Font = new System.Drawing.Font("Nunito", 9.749998F, System.Drawing.FontStyle.Bold);
-            serializableAppearanceObject1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(72)))), ((int)(((byte)(86)))));
-            serializableAppearanceObject1.Options.UseFont = true;
-            serializableAppearanceObject1.Options.UseForeColor = true;
+            serializableAppearanceObject5.Font = new System.Drawing.Font("Nunito", 9.749998F, System.Drawing.FontStyle.Bold);
+            serializableAppearanceObject5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(72)))), ((int)(((byte)(86)))));
+            serializableAppearanceObject5.Options.UseFont = true;
+            serializableAppearanceObject5.Options.UseForeColor = true;
             this.tNameSurname.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "*", -1, false, true, true, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "*", -1, false, true, true, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.tNameSurname.Properties.LookAndFeel.SkinName = "WXI";
             this.tNameSurname.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
             this.tNameSurname.Properties.Mask.UseMaskAsDisplayFormat = true;
@@ -581,23 +622,6 @@
             this.labelControl8.Text = "KOD";
             this.labelControl8.UseMnemonic = false;
             // 
-            // bReset
-            // 
-            this.bReset.AllowFocus = false;
-            this.bReset.Appearance.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Danger;
-            this.bReset.Appearance.Font = new System.Drawing.Font("Nunito", 12F, System.Drawing.FontStyle.Bold);
-            this.bReset.Appearance.Options.UseBackColor = true;
-            this.bReset.Appearance.Options.UseFont = true;
-            this.bReset.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bReset.ImageOptions.SvgImage")));
-            this.bReset.ImageOptions.SvgImageSize = new System.Drawing.Size(28, 28);
-            this.bReset.Location = new System.Drawing.Point(10, 6);
-            this.bReset.Name = "bReset";
-            this.bReset.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
-            this.bReset.Size = new System.Drawing.Size(140, 35);
-            this.bReset.TabIndex = 104;
-            this.bReset.Text = "Təmizlə";
-            this.bReset.Visible = false;
-            // 
             // bSave
             // 
             this.bSave.AllowFocus = false;
@@ -611,7 +635,6 @@
             this.bSave.AppearanceHovered.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(131)))), ((int)(((byte)(131)))));
             this.bSave.AppearanceHovered.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(131)))), ((int)(((byte)(131)))));
             this.bSave.AppearanceHovered.Options.UseBackColor = true;
-            this.bSave.Cursor = System.Windows.Forms.Cursors.No;
             this.bSave.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bSave.ImageOptions.SvgImage")));
             this.bSave.ImageOptions.SvgImageSize = new System.Drawing.Size(28, 28);
             this.bSave.Location = new System.Drawing.Point(601, 6);
@@ -627,7 +650,6 @@
             // 
             // panelControl1
             // 
-            this.panelControl1.Controls.Add(this.bReset);
             this.panelControl1.Controls.Add(this.bSave);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panelControl1.Location = new System.Drawing.Point(0, 520);
@@ -660,7 +682,7 @@
             this.bSaleHistory,
             this.bCredit,
             this.bDebtHistory,
-            this.accordionControlElement1});
+            this.bAddCustomerGroup});
             this.bHelp.Expanded = true;
             this.bHelp.HeaderVisible = false;
             this.bHelp.Name = "bHelp";
@@ -668,25 +690,39 @@
             // 
             // bSaleHistory
             // 
+            this.bSaleHistory.Enabled = false;
             this.bSaleHistory.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bSaleHistory.ImageOptions.SvgImage")));
             this.bSaleHistory.Name = "bSaleHistory";
             this.bSaleHistory.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.bSaleHistory.Text = "Satış tarixçəsi";
+            this.bSaleHistory.Click += new System.EventHandler(this.bSaleHistory_Click);
             // 
             // bCredit
             // 
+            this.bCredit.Enabled = false;
             this.bCredit.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bCredit.ImageOptions.SvgImage")));
             this.bCredit.Name = "bCredit";
             this.bCredit.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.bCredit.Text = "Kredit ödənişləri";
+            this.bCredit.Click += new System.EventHandler(this.bCredit_Click);
             // 
             // bDebtHistory
             // 
+            this.bDebtHistory.Enabled = false;
             this.bDebtHistory.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bDebtHistory.ImageOptions.SvgImage")));
             this.bDebtHistory.Name = "bDebtHistory";
             this.bDebtHistory.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.bDebtHistory.Text = "Borc tarixçəsi";
             this.bDebtHistory.VisibleInFooter = false;
+            this.bDebtHistory.Click += new System.EventHandler(this.bDebtHistory_Click);
+            // 
+            // bAddCustomerGroup
+            // 
+            this.bAddCustomerGroup.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bAddCustomerGroup.ImageOptions.SvgImage")));
+            this.bAddCustomerGroup.Name = "bAddCustomerGroup";
+            this.bAddCustomerGroup.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.bAddCustomerGroup.Text = "Müştəri qrupu yarat";
+            this.bAddCustomerGroup.Click += new System.EventHandler(this.bAddCustomerGroup_Click);
             // 
             // accordionControl1
             // 
@@ -713,53 +749,20 @@
             this.accordionControl1.TabIndex = 16;
             this.accordionControl1.ViewType = DevExpress.XtraBars.Navigation.AccordionControlViewType.HamburgerMenu;
             // 
-            // accordionControlElement1
+            // chOther
             // 
-            this.accordionControlElement1.HeaderTemplate.AddRange(new DevExpress.XtraBars.Navigation.HeaderElementInfo[] {
-            new DevExpress.XtraBars.Navigation.HeaderElementInfo(DevExpress.XtraBars.Navigation.HeaderElementType.Text, DevExpress.XtraBars.Navigation.HeaderElementAlignment.Right),
-            new DevExpress.XtraBars.Navigation.HeaderElementInfo(DevExpress.XtraBars.Navigation.HeaderElementType.ContextButtons),
-            new DevExpress.XtraBars.Navigation.HeaderElementInfo(DevExpress.XtraBars.Navigation.HeaderElementType.HeaderControl),
-            new DevExpress.XtraBars.Navigation.HeaderElementInfo(DevExpress.XtraBars.Navigation.HeaderElementType.Image, DevExpress.XtraBars.Navigation.HeaderElementAlignment.Right)});
-            this.accordionControlElement1.Name = "accordionControlElement1";
-            this.accordionControlElement1.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.accordionControlElement1.Text = "Müştəri qrupu yarat";
-            // 
-            // lookCustomerGroup
-            // 
-            this.lookCustomerGroup.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lookCustomerGroup.Location = new System.Drawing.Point(115, 157);
-            this.lookCustomerGroup.Name = "lookCustomerGroup";
-            this.lookCustomerGroup.Properties.AllowFocused = false;
-            this.lookCustomerGroup.Properties.Appearance.Font = new System.Drawing.Font("Nunito", 12F);
-            this.lookCustomerGroup.Properties.Appearance.Options.UseFont = true;
-            this.lookCustomerGroup.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Nunito", 12F);
-            this.lookCustomerGroup.Properties.AppearanceDropDown.Options.UseFont = true;
-            this.lookCustomerGroup.Properties.AutoHeight = false;
-            this.lookCustomerGroup.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.lookCustomerGroup.Properties.LookAndFeel.SkinName = "WXI";
-            this.lookCustomerGroup.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
-            this.lookCustomerGroup.Properties.NullText = "";
-            this.lookCustomerGroup.Properties.NullValuePrompt = "Qrup seç";
-            this.lookCustomerGroup.Properties.ShowFooter = false;
-            this.lookCustomerGroup.Properties.ShowHeader = false;
-            this.lookCustomerGroup.Properties.ShowLines = false;
-            this.lookCustomerGroup.Size = new System.Drawing.Size(610, 34);
-            this.lookCustomerGroup.TabIndex = 4;
-            // 
-            // labelControl2
-            // 
-            this.labelControl2.Appearance.Font = new System.Drawing.Font("Nunito", 11F);
-            this.labelControl2.Appearance.Options.UseFont = true;
-            this.labelControl2.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Horizontal;
-            this.labelControl2.Location = new System.Drawing.Point(5, 164);
-            this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
-            this.labelControl2.Size = new System.Drawing.Size(40, 20);
-            this.labelControl2.TabIndex = 5;
-            this.labelControl2.Text = "Qrup";
-            this.labelControl2.UseMnemonic = false;
+            this.chOther.EditValue = true;
+            this.chOther.Location = new System.Drawing.Point(336, 125);
+            this.chOther.Name = "chOther";
+            this.chOther.Properties.AllowFocused = false;
+            this.chOther.Properties.Appearance.Font = new System.Drawing.Font("Nunito", 12F);
+            this.chOther.Properties.Appearance.Options.UseFont = true;
+            this.chOther.Properties.AutoWidth = true;
+            this.chOther.Properties.Caption = "DİGƏR";
+            this.chOther.Properties.RadioGroupIndex = 1;
+            this.chOther.Size = new System.Drawing.Size(79, 26);
+            this.chOther.TabIndex = 4;
+            this.chOther.Tag = "Other";
             // 
             // fAddCustomer
             // 
@@ -779,7 +782,7 @@
             this.Name = "fAddCustomer";
             this.NavigationControl = this.accordionControl1;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Yeni müştəri";
+            this.Text = "Müştəri";
             this.Load += new System.EventHandler(this.fAddCustomer_Load);
             ((System.ComponentModel.ISupportInitialize)(this.tabPane1)).EndInit();
             this.tabPane1.ResumeLayout(false);
@@ -792,8 +795,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupCustomer)).EndInit();
             this.groupCustomer.ResumeLayout(false);
             this.groupCustomer.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.lookCustomerGroup.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tComment.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chWomen.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chWoman.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chMan.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tVoen.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tDateBirth.Properties)).EndInit();
@@ -812,7 +816,7 @@
             this.fluentDesignFormContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.fluentDesignFormControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.accordionControl1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lookCustomerGroup.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chOther.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -847,10 +851,9 @@
         private DevExpress.XtraEditors.LabelControl labelControl13;
         private DevExpress.XtraEditors.LabelControl labelControl3;
         private DevExpress.XtraEditors.ButtonEdit tDateBirth;
-        private DevExpress.XtraEditors.CheckEdit chWomen;
+        private DevExpress.XtraEditors.CheckEdit chWoman;
         private DevExpress.XtraEditors.CheckEdit chMan;
         private DevExpress.XtraEditors.MemoEdit tComment;
-        private DevExpress.XtraEditors.SimpleButton bReset;
         private DevExpress.XtraEditors.SimpleButton bSave;
         private DevExpress.XtraEditors.PanelControl panelControl1;
         private DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormContainer fluentDesignFormContainer1;
@@ -860,8 +863,9 @@
         private DevExpress.XtraBars.Navigation.AccordionControlElement bSaleHistory;
         private DevExpress.XtraBars.Navigation.AccordionControlElement bCredit;
         private DevExpress.XtraBars.Navigation.AccordionControlElement bDebtHistory;
-        private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement1;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement bAddCustomerGroup;
         private DevExpress.XtraEditors.LookUpEdit lookCustomerGroup;
         private DevExpress.XtraEditors.LabelControl labelControl2;
+        private DevExpress.XtraEditors.CheckEdit chOther;
     }
 }

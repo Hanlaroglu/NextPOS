@@ -51,7 +51,7 @@ namespace Barcode_Sales.Forms
                 bool IsSuccess = categoryOperation.Add(_category);
                 if (IsSuccess)
                 {
-                    NoticationHelpers.Messages.SuccessMessage(this, $"{_category.CategoryName} kateqoriyası yaradıldı");
+                    NotificationHelpers.Messages.SuccessMessage(this, $"{_category.CategoryName} kateqoriyası yaradıldı");
                     Clear();
                 }
             }
@@ -80,7 +80,7 @@ namespace Barcode_Sales.Forms
 
             if (check)
             {
-                NoticationHelpers.Messages.WarningMessage(this, "Kateqoriya adı sistemdə mövcuddur.");
+                NotificationHelpers.Messages.WarningMessage(this, "Kateqoriya adı sistemdə mövcuddur.");
                 return true;
             }
             return false;

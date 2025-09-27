@@ -48,13 +48,13 @@ namespace Barcode_Sales.NKA
                 }
                 else
                 {
-                    NoticationHelpers.Messages.ErrorMessage(_form, response.message);
+                    NotificationHelpers.Messages.ErrorMessage(_form, response.message);
                     return null;
                 }
             }
             else
             {
-                NoticationHelpers.Messages.ErrorMessage(_form, result.ErrorMessage);
+                NotificationHelpers.Messages.ErrorMessage(_form, result.ErrorMessage);
                 return null;
             }
         }
@@ -82,11 +82,11 @@ namespace Barcode_Sales.NKA
 
                 if (responseData.message == "Successful operation")
                 {
-                    NoticationHelpers.Messages.SuccessMessage(_form, "Növbə uğurla açıldı");
+                    NotificationHelpers.Messages.SuccessMessage(_form, "Növbə uğurla açıldı");
                 }
                 else
                 {
-                    NoticationHelpers.Messages.ErrorMessage(_form, responseData.message);
+                    NotificationHelpers.Messages.ErrorMessage(_form, responseData.message);
                 }
             }
         }
@@ -118,7 +118,7 @@ namespace Barcode_Sales.NKA
                     {
                         //string open_time = responseData.shift_open_time.ToString("dd.MM.yyyy HH:mm:ss");
                         string open_time = responseData.shift_open_time;
-                        NoticationHelpers.Messages.InfoMessage(_form, $"Növbə artıq açıqdır\n\nNövbənin açılma tarixi: {open_time}");
+                        NotificationHelpers.Messages.InfoMessage(_form, $"Növbə artıq açıqdır\n\nNövbənin açılma tarixi: {open_time}");
                     }
                     else
                     {
@@ -131,7 +131,7 @@ namespace Barcode_Sales.NKA
                 }
                 else
                 {
-                    NoticationHelpers.Messages.ErrorMessage(_form, responseData.message);
+                    NotificationHelpers.Messages.ErrorMessage(_form, responseData.message);
                 }
             }
         }
@@ -164,7 +164,7 @@ namespace Barcode_Sales.NKA
 
                 if (responseData.message == "Successful operation")
                 {
-                    NoticationHelpers.Messages.SuccessMessage(_form, $"Günsonu (Z) hesabatı uğurla çıxarıldı");
+                    NotificationHelpers.Messages.SuccessMessage(_form, $"Günsonu (Z) hesabatı uğurla çıxarıldı");
                     CloseShiftReport closeShift = new CloseShiftReport
                     {
                         FiskalID = responseData.data.document_id,
@@ -178,13 +178,13 @@ namespace Barcode_Sales.NKA
                 }
                 else
                 {
-                    NoticationHelpers.Messages.ErrorMessage(_form, responseData.message, "Gün sonu hesabatı");
+                    NotificationHelpers.Messages.ErrorMessage(_form, responseData.message, "Gün sonu hesabatı");
                     return false;
                 }
             }
             else
             {
-                NoticationHelpers.Messages.ErrorMessage(_form, response.ErrorMessage);
+                NotificationHelpers.Messages.ErrorMessage(_form, response.ErrorMessage);
                 return false;
             }
         }
@@ -283,7 +283,7 @@ namespace Barcode_Sales.NKA
                 SaleResponse response = JsonConvert.DeserializeObject<SaleResponse>(result.Content);
                 if (response.message is "Successful operation")
                 {
-                    NoticationHelpers.Messages.SuccessMessage(_form, $"Satış uğurla tamamlandı");
+                    NotificationHelpers.Messages.SuccessMessage(_form, $"Satış uğurla tamamlandı");
 
                     int SaleId = _saleDataOperation.InsertSaleData(new SalesData
                     {
@@ -319,13 +319,13 @@ namespace Barcode_Sales.NKA
                 }
                 else
                 {
-                    NoticationHelpers.Messages.ErrorMessage(_form, response.message, "Uğursuz satış");
+                    NotificationHelpers.Messages.ErrorMessage(_form, response.message, "Uğursuz satış");
                     return false;
                 }
             }
             else
             {
-                NoticationHelpers.Messages.ErrorMessage(_form, result.ErrorMessage);
+                NotificationHelpers.Messages.ErrorMessage(_form, result.ErrorMessage);
                 return false;
             }
         }
@@ -372,7 +372,7 @@ namespace Barcode_Sales.NKA
                 RefundResponse response = JsonConvert.DeserializeObject<RefundResponse>(result.Content);
                 if (response.message is "Successful operation" || response.code is 0)
                 {
-                    NoticationHelpers.Messages.SuccessMessage(_form, $"{response.document_number} №-li çek ləğv edildi");
+                    NotificationHelpers.Messages.SuccessMessage(_form, $"{response.document_number} №-li çek ləğv edildi");
 
                     int refundId = _returnPosOperation.InsertReturnData(new ReturnPos
                     {
@@ -411,13 +411,13 @@ namespace Barcode_Sales.NKA
                 }
                 else
                 {
-                    NoticationHelpers.Messages.ErrorMessage(_form, response.message);
+                    NotificationHelpers.Messages.ErrorMessage(_form, response.message);
                     return false;
                 }
             }
             else
             {
-                NoticationHelpers.Messages.ErrorMessage(_form, result.ErrorMessage);
+                NotificationHelpers.Messages.ErrorMessage(_form, result.ErrorMessage);
                 return false;
             }
 
@@ -521,7 +521,7 @@ namespace Barcode_Sales.NKA
                 RefundResponse response = JsonConvert.DeserializeObject<RefundResponse>(result.Content);
                 if (response.message is "Successful operation" || response.code is 0)
                 {
-                    NoticationHelpers.Messages.SuccessMessage(_form, $"{response.document_number} №-li çek uğurla geri qaytarıldı");
+                    NotificationHelpers.Messages.SuccessMessage(_form, $"{response.document_number} №-li çek uğurla geri qaytarıldı");
 
                     int refundId = _returnPosOperation.InsertReturnData(new ReturnPos
                     {

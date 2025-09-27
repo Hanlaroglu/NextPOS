@@ -108,12 +108,12 @@ namespace Barcode_Sales.Operations.Concrete
 
             if (terminal is null || terminal?.IsDeleted != 0)
             {
-                NoticationHelpers.Messages.WarningMessage(_form, "İstifadəçiyə kassa təyin edilməmiştir");
+                NotificationHelpers.Messages.WarningMessage(_form, "İstifadəçiyə kassa təyin edilməmiştir");
                 return null;
             }
             else if (terminal.Status is false)
             {
-                NoticationHelpers.Messages.WarningMessage(_form, "İstifadəçinin kassa statusu aktiv deyil");
+                NotificationHelpers.Messages.WarningMessage(_form, "İstifadəçinin kassa statusu aktiv deyil");
                 return null;
             }
 

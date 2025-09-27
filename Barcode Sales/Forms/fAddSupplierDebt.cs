@@ -122,12 +122,12 @@ namespace Barcode_Sales.Forms
             if (IsSuccess)
             {
                 fDashboard form = Application.OpenForms.OfType<fDashboard>().FirstOrDefault();
-                NoticationHelpers.Messages.SuccessMessage(form, $"{tName.Text} borcu uğurla yaradıldı");
+                NotificationHelpers.Messages.SuccessMessage(form, $"{tName.Text} borcu uğurla yaradıldı");
                 DialogResult = DialogResult.OK;
             }
             else
             {
-                NoticationHelpers.Messages.ErrorMessage(this, "Borc yaradılması zamanı xəta yarandı");
+                NotificationHelpers.Messages.ErrorMessage(this, "Borc yaradılması zamanı xəta yarandı");
             }
         }
 

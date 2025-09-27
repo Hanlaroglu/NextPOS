@@ -1,11 +1,12 @@
-﻿using System;
+﻿using Barcode_Sales.Operations.Abstract;
+using DevExpress.XtraEditors;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
 using System.Threading.Tasks;
-using Barcode_Sales.Operations.Abstract;
+using System.Windows.Forms;
 
 namespace Barcode_Sales.Operations.Concrete
 {
@@ -16,12 +17,12 @@ namespace Barcode_Sales.Operations.Concrete
         {
             try
             {
-               db.CustomerGroups.Add(item);
-               db.SaveChanges();
-               return true;
+                db.CustomerGroups.Add(item);
+                db.SaveChanges();
+                return true;
             }
             catch (Exception e)
-            { 
+            {
                 return false;
             }
         }
@@ -33,22 +34,40 @@ namespace Barcode_Sales.Operations.Concrete
 
         public void Update(CustomerGroup item)
         {
-            throw new NotImplementedException();
+            db.CustomerGroups.Attach(item);
+            db.Entry(item).Property(x => x.Name).IsModified = true;
+            db.Entry(item).Property(x => x.Discount).IsModified = true;
+            db.SaveChanges();
         }
 
-        public Task UpdateAsync(CustomerGroup item)
+        public async Task UpdateAsync(CustomerGroup item)
         {
-            throw new NotImplementedException();
+            db.CustomerGroups.Attach(item);
+            db.Entry(item).Property(x => x.Name).IsModified = true;
+            db.Entry(item).Property(x => x.Discount).IsModified = true;
+            await db.SaveChangesAsync();
         }
 
         public void Remove(CustomerGroup item)
         {
-            throw new NotImplementedException();
+            item.IsDeleted = true;
+            string query = $@"UPDATE Customers SET CustomerGroupId = NULL WHERE CustomerGroupId = {item.Id}";
+            db.CustomerGroups.Attach(item);
+            db.Entry(item).Property(x => x.IsDeleted).IsModified = true;
+            db.SaveChanges();
+            db.Database.ExecuteSqlCommand(query);
         }
 
-        public Task RemoveAsync(CustomerGroup item)
+        public async Task RemoveAsync(CustomerGroup item)
         {
-            throw new NotImplementedException();
+            CustomerGroup entity = new CustomerGroup
+            {
+                Id = item.Id,
+                IsDeleted = true,
+            };
+            db.CustomerGroups.Attach(entity);
+            db.Entry(entity).Property(x => x.IsDeleted).IsModified = true;
+            await db.SaveChangesAsync();
         }
 
         public CustomerGroup GetById(int id)
@@ -58,7 +77,7 @@ namespace Barcode_Sales.Operations.Concrete
 
         public async Task<CustomerGroup> GetByIdAsync(int id)
         {
-            return await db.CustomerGroups.FirstOrDefaultAsync(x => x.Id == id);
+            return await db.CustomerGroups.AsNoTracking().FirstOrDefaultAsync(x => x.Id == id);
         }
 
         public IQueryable<CustomerGroup> Where(Expression<Func<CustomerGroup, bool>> expression)

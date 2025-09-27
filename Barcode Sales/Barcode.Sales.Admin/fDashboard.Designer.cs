@@ -3460,14 +3460,14 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.tabPageKassalar.Controls.Add(this.KassalarFooter);
             this.tabPageKassalar.Controls.Add(this.groupControl3);
             this.tabPageKassalar.Name = "tabPageKassalar";
-            this.tabPageKassalar.Size = new System.Drawing.Size(1536, 734);
+            this.tabPageKassalar.Size = new System.Drawing.Size(1536, 732);
             this.tabPageKassalar.Text = "Kassalar";
             // 
             // KassalarFooter
             // 
             this.KassalarFooter.CancelVisible = true;
             this.KassalarFooter.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.KassalarFooter.Location = new System.Drawing.Point(0, 681);
+            this.KassalarFooter.Location = new System.Drawing.Point(0, 679);
             this.KassalarFooter.LookAndFeel.SkinName = "Office 2019 White";
             this.KassalarFooter.LookAndFeel.UseDefaultLookAndFeel = false;
             this.KassalarFooter.Name = "KassalarFooter";
@@ -3519,20 +3519,20 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             // tabPageBackup
             // 
             this.tabPageBackup.Name = "tabPageBackup";
-            this.tabPageBackup.Size = new System.Drawing.Size(1536, 734);
+            this.tabPageBackup.Size = new System.Drawing.Size(1536, 732);
             this.tabPageBackup.Text = "Backup";
             // 
             // tabPageArchive
             // 
             this.tabPageArchive.ImageOptions.SvgImageSize = new System.Drawing.Size(24, 24);
             this.tabPageArchive.Name = "tabPageArchive";
-            this.tabPageArchive.Size = new System.Drawing.Size(1536, 734);
+            this.tabPageArchive.Size = new System.Drawing.Size(1536, 732);
             this.tabPageArchive.Text = "Arxiv";
             // 
             // tabExcel
             // 
             this.tabExcel.Name = "tabExcel";
-            this.tabExcel.Size = new System.Drawing.Size(1536, 734);
+            this.tabExcel.Size = new System.Drawing.Size(1536, 732);
             this.tabExcel.Text = "Excel import (admin)";
             // 
             // pageReport
@@ -4172,7 +4172,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.tableMenfeet.Controls.Add(this.gridControlMenfeet);
             this.tableMenfeet.Controls.Add(this.panelControl7);
             this.tableMenfeet.Name = "tableMenfeet";
-            this.tableMenfeet.Size = new System.Drawing.Size(1536, 734);
+            this.tableMenfeet.Size = new System.Drawing.Size(1536, 732);
             this.tableMenfeet.Text = "Mənfəət hesabatı";
             // 
             // gridControlMenfeet
@@ -4186,7 +4186,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.gridControlMenfeet.Name = "gridControlMenfeet";
             this.gridControlMenfeet.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemCheckEdit2});
-            this.gridControlMenfeet.Size = new System.Drawing.Size(1536, 692);
+            this.gridControlMenfeet.Size = new System.Drawing.Size(1536, 690);
             this.gridControlMenfeet.TabIndex = 8;
             this.gridControlMenfeet.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridMenfeet});
@@ -4383,7 +4383,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.tableObyekt.Controls.Add(this.gridControlObyekt);
             this.tableObyekt.Controls.Add(this.panelHeaderObyekt);
             this.tableObyekt.Name = "tableObyekt";
-            this.tableObyekt.Size = new System.Drawing.Size(1536, 734);
+            this.tableObyekt.Size = new System.Drawing.Size(1536, 732);
             this.tableObyekt.Text = "Obyekt üzrə hesabat";
             // 
             // gridControlObyekt
@@ -4397,7 +4397,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.gridControlObyekt.Name = "gridControlObyekt";
             this.gridControlObyekt.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemCheckEdit3});
-            this.gridControlObyekt.Size = new System.Drawing.Size(1536, 692);
+            this.gridControlObyekt.Size = new System.Drawing.Size(1536, 690);
             this.gridControlObyekt.TabIndex = 8;
             this.gridControlObyekt.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridObyekt});
@@ -4611,7 +4611,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.tableUmumiSatis.Controls.Add(this.gridControlTotalSales);
             this.tableUmumiSatis.Controls.Add(this.panelControl17);
             this.tableUmumiSatis.Name = "tableUmumiSatis";
-            this.tableUmumiSatis.Size = new System.Drawing.Size(1536, 734);
+            this.tableUmumiSatis.Size = new System.Drawing.Size(1536, 732);
             this.tableUmumiSatis.Text = "Ümumi satış hesabatı";
             // 
             // gridControlTotalSales
@@ -4625,7 +4625,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.gridControlTotalSales.Name = "gridControlTotalSales";
             this.gridControlTotalSales.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemCheckEdit7});
-            this.gridControlTotalSales.Size = new System.Drawing.Size(1536, 692);
+            this.gridControlTotalSales.Size = new System.Drawing.Size(1536, 690);
             this.gridControlTotalSales.TabIndex = 15;
             this.gridControlTotalSales.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -5037,7 +5037,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.tableSatisNovHesabat.Controls.Add(this.panelControl12);
             this.tableSatisNovHesabat.ImageOptions.SvgImageSize = new System.Drawing.Size(32, 32);
             this.tableSatisNovHesabat.Name = "tableSatisNovHesabat";
-            this.tableSatisNovHesabat.Size = new System.Drawing.Size(1536, 734);
+            this.tableSatisNovHesabat.Size = new System.Drawing.Size(1536, 732);
             this.tableSatisNovHesabat.Text = "Satış növ hesabatı";
             // 
             // panelFooter_SalesType
@@ -5046,7 +5046,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.panelFooter_SalesType.Appearance.Options.UseBackColor = true;
             this.panelFooter_SalesType.Controls.Add(this.tablePanel17);
             this.panelFooter_SalesType.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelFooter_SalesType.Location = new System.Drawing.Point(0, 692);
+            this.panelFooter_SalesType.Location = new System.Drawing.Point(0, 690);
             this.panelFooter_SalesType.LookAndFeel.SkinName = "Office 2019 White";
             this.panelFooter_SalesType.LookAndFeel.UseDefaultLookAndFeel = false;
             this.panelFooter_SalesType.Name = "panelFooter_SalesType";
@@ -5226,7 +5226,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.gridControlSalesType.Name = "gridControlSalesType";
             this.gridControlSalesType.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemCheckEdit5});
-            this.gridControlSalesType.Size = new System.Drawing.Size(1536, 692);
+            this.gridControlSalesType.Size = new System.Drawing.Size(1536, 690);
             this.gridControlSalesType.TabIndex = 12;
             this.gridControlSalesType.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridSalesType});
@@ -5544,7 +5544,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.tableSatilanMehsullar.Controls.Add(this.panelFooter_SalesProduct);
             this.tableSatilanMehsullar.Controls.Add(this.panelHeader_SalesProduct);
             this.tableSatilanMehsullar.Name = "tableSatilanMehsullar";
-            this.tableSatilanMehsullar.Size = new System.Drawing.Size(1536, 734);
+            this.tableSatilanMehsullar.Size = new System.Drawing.Size(1536, 732);
             this.tableSatilanMehsullar.Text = "Satılan məhsullar";
             // 
             // gridControlSalesProduct
@@ -5558,7 +5558,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.gridControlSalesProduct.Name = "gridControlSalesProduct";
             this.gridControlSalesProduct.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemCheckEdit4});
-            this.gridControlSalesProduct.Size = new System.Drawing.Size(1536, 650);
+            this.gridControlSalesProduct.Size = new System.Drawing.Size(1536, 648);
             this.gridControlSalesProduct.TabIndex = 10;
             this.gridControlSalesProduct.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridSalesProduct});
@@ -5809,7 +5809,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.panelFooter_SalesProduct.Appearance.Options.UseBackColor = true;
             this.panelFooter_SalesProduct.Controls.Add(this.tablePanel11);
             this.panelFooter_SalesProduct.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelFooter_SalesProduct.Location = new System.Drawing.Point(0, 692);
+            this.panelFooter_SalesProduct.Location = new System.Drawing.Point(0, 690);
             this.panelFooter_SalesProduct.LookAndFeel.SkinName = "Office 2019 White";
             this.panelFooter_SalesProduct.LookAndFeel.UseDefaultLookAndFeel = false;
             this.panelFooter_SalesProduct.Name = "panelFooter_SalesProduct";
@@ -6090,7 +6090,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.tableQaytarilanMehsullar.Controls.Add(this.panelFooter_ReturnProduct);
             this.tableQaytarilanMehsullar.Controls.Add(this.panelControl10);
             this.tableQaytarilanMehsullar.Name = "tableQaytarilanMehsullar";
-            this.tableQaytarilanMehsullar.Size = new System.Drawing.Size(1536, 734);
+            this.tableQaytarilanMehsullar.Size = new System.Drawing.Size(1536, 732);
             this.tableQaytarilanMehsullar.Text = "Qaytarılan məhsullar";
             // 
             // gridControlReturnProduct
@@ -6104,7 +6104,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.gridControlReturnProduct.Name = "gridControlReturnProduct";
             this.gridControlReturnProduct.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemCheckEdit6});
-            this.gridControlReturnProduct.Size = new System.Drawing.Size(1536, 650);
+            this.gridControlReturnProduct.Size = new System.Drawing.Size(1536, 648);
             this.gridControlReturnProduct.TabIndex = 12;
             this.gridControlReturnProduct.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridReturnProduct});
@@ -6365,7 +6365,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.panelFooter_ReturnProduct.Appearance.Options.UseBackColor = true;
             this.panelFooter_ReturnProduct.Controls.Add(this.tablePanel15);
             this.panelFooter_ReturnProduct.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelFooter_ReturnProduct.Location = new System.Drawing.Point(0, 692);
+            this.panelFooter_ReturnProduct.Location = new System.Drawing.Point(0, 690);
             this.panelFooter_ReturnProduct.LookAndFeel.SkinName = "Office 2019 White";
             this.panelFooter_ReturnProduct.LookAndFeel.UseDefaultLookAndFeel = false;
             this.panelFooter_ReturnProduct.Name = "panelFooter_ReturnProduct";
@@ -7787,7 +7787,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.tabAnbar.ImageOptions.SvgImageSize = new System.Drawing.Size(24, 24);
             this.tabAnbar.Name = "tabAnbar";
             this.tabAnbar.PageEnabled = false;
-            this.tabAnbar.Size = new System.Drawing.Size(1536, 734);
+            this.tabAnbar.Size = new System.Drawing.Size(1536, 732);
             this.tabAnbar.Text = "Anbarlar";
             // 
             // tabShop
@@ -7795,14 +7795,14 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.tabShop.ImageOptions.SvgImageSize = new System.Drawing.Size(24, 24);
             this.tabShop.Name = "tabShop";
             this.tabShop.PageEnabled = false;
-            this.tabShop.Size = new System.Drawing.Size(1536, 734);
+            this.tabShop.Size = new System.Drawing.Size(1536, 732);
             this.tabShop.Text = "Mağazalar";
             // 
             // tabCompanyReset
             // 
             this.tabCompanyReset.Name = "tabCompanyReset";
             this.tabCompanyReset.PageEnabled = false;
-            this.tabCompanyReset.Size = new System.Drawing.Size(1536, 734);
+            this.tabCompanyReset.Size = new System.Drawing.Size(1536, 732);
             this.tabCompanyReset.Text = "Şirkət sıfırlama";
             // 
             // pageUpdate

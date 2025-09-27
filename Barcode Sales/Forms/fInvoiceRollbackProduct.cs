@@ -63,13 +63,13 @@ namespace Barcode_Sales.Forms
             if (!ValidationHelpers.IsValidDate(start.ToString()) ||
                 !ValidationHelpers.IsValidDate(end.ToString()))
             {
-                NoticationHelpers.Messages.ErrorMessage(this, "Tarix formatı düzgün seçilmədi");
+                NotificationHelpers.Messages.ErrorMessage(this, "Tarix formatı düzgün seçilmədi");
                 return;
             }
 
             if (start > end)
             {
-                NoticationHelpers.Messages.ErrorMessage(this, "Başlanğıc tarixi bitiş tarixindən böyük ola bilməz!");
+                NotificationHelpers.Messages.ErrorMessage(this, "Başlanğıc tarixi bitiş tarixindən böyük ola bilməz!");
                 return;
             }
 
@@ -181,7 +181,7 @@ namespace Barcode_Sales.Forms
                     {
                         if (row.RollbackQuantity > row.Amount)
                         {
-                            NoticationHelpers.Messages.ErrorMessage(this, "Qaytarılacaq miqdar alış miqdarından çox ola bilməz");
+                            NotificationHelpers.Messages.ErrorMessage(this, "Qaytarılacaq miqdar alış miqdarından çox ola bilməz");
                             return;
                         }
 
@@ -226,12 +226,12 @@ namespace Barcode_Sales.Forms
                     }
                     tran.Commit();
                     Clear();
-                    NoticationHelpers.Messages.SuccessMessage(this,$"{list.Count} məhsul uğurla qaytarıldı");
+                    NotificationHelpers.Messages.SuccessMessage(this,$"{list.Count} məhsul uğurla qaytarıldı");
                 }
                 catch (Exception e)
                 {
                     tran.Rollback();
-                    NoticationHelpers.Messages.ErrorMessage(this, e.Message);
+                    NotificationHelpers.Messages.ErrorMessage(this, e.Message);
                 }
             }
 

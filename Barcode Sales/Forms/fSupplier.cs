@@ -98,12 +98,12 @@ namespace Barcode_Sales.Forms
 
             bool valueUnique = ValidationHelpers.Any<Suppliers>(x => x.SupplierName.ToLower() == Supplier.SupplierName.ToLower());
             if (valueUnique){
-                NoticationHelpers.Messages.WarningMessage(this, $"{Supplier.SupplierName} təchizatçısı sistemdə mövcuddur");
+                NotificationHelpers.Messages.WarningMessage(this, $"{Supplier.SupplierName} təchizatçısı sistemdə mövcuddur");
                 return;
             }
 
             supplierOperation.Add(Supplier);
-            NoticationHelpers.Messages.SuccessMessage(this, $"{Supplier.SupplierName} təchizatçısı uğurla yaradıldı");
+            NotificationHelpers.Messages.SuccessMessage(this, $"{Supplier.SupplierName} təchizatçısı uğurla yaradıldı");
             Clear();
         }
 
@@ -169,7 +169,7 @@ namespace Barcode_Sales.Forms
         {
             var data = supplierOperation.GetById(Supplier.Id);
             supplierOperation.Remove(data);
-            NoticationHelpers.Messages.SuccessMessage(this,$"{data.SupplierName} təchizatçısı uğurla silindi");
+            NotificationHelpers.Messages.SuccessMessage(this,$"{data.SupplierName} təchizatçısı uğurla silindi");
             Close();
         }
     }

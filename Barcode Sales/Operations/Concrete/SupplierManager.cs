@@ -48,7 +48,7 @@ namespace Barcode_Sales.Operations.Concrete
 
         public void Remove(Suppliers item)
         {
-            var args = NoticationHelpers.Dialogs.DialogResultYesNo($"{item.SupplierName} təchizatçısını silmək istədiyinizə əminsiniz ?");
+            var args = NotificationHelpers.Dialogs.DialogResultYesNo($"{item.SupplierName} təchizatçısını silmək istədiyinizə əminsiniz ?");
             var result = XtraMessageBox.Show(args);
             if (result is DialogResult.Yes)
             {
@@ -56,7 +56,7 @@ namespace Barcode_Sales.Operations.Concrete
                 var data = db.Suppliers.Find(item.Id);
                 data.IsDeleted = data.Id;
                 db.SaveChanges();
-                NoticationHelpers.Messages.SuccessMessage(form, $"{data.SupplierName} təchizatçısı uğurla silindi");
+                NotificationHelpers.Messages.SuccessMessage(form, $"{data.SupplierName} təchizatçısı uğurla silindi");
             }
         }
 

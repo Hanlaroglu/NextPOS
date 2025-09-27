@@ -26,7 +26,7 @@ namespace Barcode_Sales.Operations.Concrete
             catch (Exception ex)
             {
                 fDashboard form = Application.OpenForms.OfType<fDashboard>().FirstOrDefault();
-                NoticationHelpers.Messages.ErrorMessage(form, $"{ex.Message}");
+                NotificationHelpers.Messages.ErrorMessage(form, $"{ex.Message}");
                 return false;
             }
         }
@@ -48,7 +48,7 @@ namespace Barcode_Sales.Operations.Concrete
 
         public void Remove(CustomersDebt item)
         {
-            var args = NoticationHelpers.Dialogs.DialogResultYesNo($"{item.Customer.NameSurname} müştərisinin {item.Type} borcunu silmək istədiyinizə əminsiniz ?");
+            var args = NotificationHelpers.Dialogs.DialogResultYesNo($"{item.Customer.NameSurname} müştərisinin {item.Type} borcunu silmək istədiyinizə əminsiniz ?");
             var result = XtraMessageBox.Show(args);
             if (result is DialogResult.Yes)
             {
@@ -57,7 +57,7 @@ namespace Barcode_Sales.Operations.Concrete
                 db.SaveChanges();
 
                 fDashboard form = Application.OpenForms.OfType<fDashboard>().FirstOrDefault();
-                NoticationHelpers.Messages.SuccessMessage(form, $"{data.Customer.NameSurname} müştərisinin {data.Type} borcu uğurla silindi");
+                NotificationHelpers.Messages.SuccessMessage(form, $"{data.Customer.NameSurname} müştərisinin {data.Type} borcu uğurla silindi");
             }
         }
 

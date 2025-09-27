@@ -91,7 +91,8 @@ namespace Barcode_Sales.Operations.Concrete
 
         public async Task<List<Products>> WhereAsync(Expression<Func<Products, bool>> expression)
         {
-            return await db.Products.AsNoTracking().Where(expression).ToListAsync();
+          var data = await db.Products.AsNoTracking().Where(expression).ToListAsync();
+            return data;
         }
 
         public void StatusChanged(Products item)

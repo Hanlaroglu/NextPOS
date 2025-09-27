@@ -1,12 +1,12 @@
-﻿using Barcode_Sales.Operations.Abstract;
+﻿using Barcode_Sales.DTOs;
+using Barcode_Sales.Operations.Abstract;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Runtime.Remoting.Contexts;
-using System.Text;
 using System.Threading.Tasks;
+using static Barcode_Sales.DTOs.DashboardUIDto;
 
 namespace Barcode_Sales.Operations.Concrete
 {
@@ -50,9 +50,39 @@ namespace Barcode_Sales.Operations.Concrete
             return result.ToString();
         }
 
+        public async Task<string> CurrentSalesDataAsync()
+        {
+            var data = await db.Database
+                .SqlQuery<double?>(@"SELECT SUM(Total) 
+FROM SalesData
+WHERE SaleDate = CAST(GETDATE() AS date)")
+                .SingleAsync();
+
+            string result = (data ?? 0).ToString("C2");
+            return result;
+        }
+
+        public async Task<DashboardUIDto.PaymentTypeTotal> CurrentPaymentTypeDataAsync()
+        {
+            var data = await db.Database
+                .SqlQuery<PaymentTypeTotal>(@"
+            SELECT 
+                 ISNULL(SUM(Cash), 0) AS TotalCash,
+                 ISNULL(SUM(Card), 0) AS TotalCard
+            FROM SalesData
+            WHERE SaleDate = CAST(GETDATE() AS date)")
+                .SingleOrDefaultAsync();
+
+            return new PaymentTypeTotal
+            {
+                TotalCash = data?.TotalCash ?? 0,
+                TotalCard = data?.TotalCard ?? 0
+            };
+        }
+
         public SalesData GetById(int id)
         {
-         return  db.SalesDatas.AsNoTracking().FirstOrDefault(x=> x.Id == id);
+            return db.SalesDatas.AsNoTracking().FirstOrDefault(x => x.Id == id);
         }
 
         public Task<SalesData> GetByIdAsync(int id)

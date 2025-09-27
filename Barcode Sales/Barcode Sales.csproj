@@ -250,7 +250,9 @@
     <Compile Include="DTOs\CategoryDto.cs" />
     <Compile Include="DTOs\CustomerDto.cs" />
     <Compile Include="DTOs\DashboardStatisticsDto.cs" />
+    <Compile Include="DTOs\DashboardUIDto.cs" />
     <Compile Include="DTOs\DefinitionDto.cs" />
+    <Compile Include="DTOs\ProductDto.cs" />
     <Compile Include="DTOs\SalesDataSummary.cs" />
     <Compile Include="DTOs\StoresDto.cs" />
     <Compile Include="DTOs\ViewInvoiceRollbackListDto.cs" />
@@ -272,6 +274,12 @@
     </Compile>
     <Compile Include="Forms\fAddCustomer.Designer.cs">
       <DependentUpon>fAddCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\fAddCustomerGroup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\fAddCustomerGroup.Designer.cs">
+      <DependentUpon>fAddCustomerGroup.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\fAddProduct.cs">
       <SubType>Form</SubType>
@@ -545,8 +553,8 @@
     <Compile Include="NKA\Omnitech.cs" />
     <Compile Include="NKA\OneClick.cs" />
     <Compile Include="NKA\Sunmi.cs" />
-    <Compile Include="NoticationHelpers\Dialogs.cs" />
-    <Compile Include="NoticationHelpers\Messages.cs" />
+    <Compile Include="NotificationHelpers\Dialogs.cs" />
+    <Compile Include="NotificationHelpers\Messages.cs" />
     <Compile Include="Operations\Abstract\IAqtaProductsOperation.cs" />
     <Compile Include="Operations\Abstract\IBaseOperation.cs" />
     <Compile Include="Operations\Abstract\ICategoryOperation.cs" />
@@ -692,6 +700,7 @@
     </Compile>
     <Compile Include="Validations\AqtaProductsValidation.cs" />
     <Compile Include="Validations\CompanyValidation.cs" />
+    <Compile Include="Validations\CustomerGroupValidation.cs" />
     <Compile Include="Validations\CustomerValidation.cs" />
     <Compile Include="Validations\InvoiceValidation.cs" />
     <Compile Include="Validations\ProductValidation.cs" />
@@ -736,6 +745,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\fAddCustomer.resx">
       <DependentUpon>fAddCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\fAddCustomerGroup.resx">
+      <DependentUpon>fAddCustomerGroup.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\fAddProduct.resx">
       <DependentUpon>fAddProduct.cs</DependentUpon>

@@ -56,14 +56,14 @@ namespace Barcode_Sales.Operations.Concrete
 
             if (product.Count == 0)
             {
-                var args = NoticationHelpers.Dialogs.DialogResultYesNo(
+                var args = NotificationHelpers.Dialogs.DialogResultYesNo(
                     $"({item.CategoryName}) kateqoriyasını silmək istədiyinizə əminsiniz ?", String.Empty);
                 message = XtraMessageBox.Show(args) == DialogResult.Yes;
             }
             else
             {
-  var args = NoticationHelpers.Dialogs.DialogResultYesNo(
-                    $@"({item.CategoryName}) kateqoriyasında '{product.Count}' məhsul var. Bu kateqoriyanı silmək istədiyinizə əminsiniz ?", "Diqqət!");
+                var args = NotificationHelpers.Dialogs.DialogResultYesNo(
+                                  $@"({item.CategoryName}) kateqoriyasında '{product.Count}' məhsul var. Bu kateqoriyanı silmək istədiyinizə əminsiniz ?", "Diqqət!");
                 message = XtraMessageBox.Show(args) == DialogResult.Yes;
             }
 

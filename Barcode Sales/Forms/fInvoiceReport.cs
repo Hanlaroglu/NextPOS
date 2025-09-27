@@ -40,13 +40,13 @@ namespace Barcode_Sales.Forms
             if (!ValidationHelpers.IsValidDate(start.ToString()) ||
                 !ValidationHelpers.IsValidDate(end.ToString()))
             {
-                NoticationHelpers.Messages.ErrorMessage(this, "Tarix formatı düzgün seçilmədi");
+                NotificationHelpers.Messages.ErrorMessage(this, "Tarix formatı düzgün seçilmədi");
                 return;
             }
 
             if (start > end)
             {
-                NoticationHelpers.Messages.ErrorMessage(this, "Başlanğıc tarixi bitiş tarixindən böyük ola bilməz!");
+                NotificationHelpers.Messages.ErrorMessage(this, "Başlanğıc tarixi bitiş tarixindən böyük ola bilməz!");
                 return;
             }
 

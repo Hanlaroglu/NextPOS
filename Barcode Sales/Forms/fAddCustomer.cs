@@ -5,6 +5,8 @@ using Barcode_Sales.Validations;
 using DevExpress.XtraEditors;
 using System;
 using System.Linq;
+using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Barcode_Sales.Forms
 {
@@ -21,13 +23,11 @@ namespace Barcode_Sales.Forms
             _customer = customer;
         }
 
-        private void fAddCustomer_Load(object sender, EventArgs e)
+        private async void fAddCustomer_Load(object sender, EventArgs e)
         {
+           await CustomerGroupsLoad();
             switch (_operation)
             {
-                case Enums.Operation.Add:
-                    CustomerGroupsLoad();
-                    break;
                 case Enums.Operation.Edit:
                     CustomerDataLoad();
                     break;
@@ -37,19 +37,23 @@ namespace Barcode_Sales.Forms
             }
         }
 
-        private void CustomerGroupsLoad()
+        private async Task CustomerGroupsLoad()
         {
-            var data = customerGroupOperation.Where(x => x.IsDeleted == false).ToList();
+            var data = await customerGroupOperation.WhereAsync(x => x.IsDeleted == false);
             FormHelpers.ControlLoad(data, lookCustomerGroup);
         }
 
         private void CustomerDataLoad()
         {
+            tNameSurname.ReadOnly = true;
+            tNameSurname.Cursor = Cursors.No;
             tNameSurname.Text = _customer.NameSurname;
             tDateBirth.EditValue = _customer.DateBirth == null ? null : _customer.DateBirth;
-            chMan.Checked = _customer.Gender == "KİŞİ" || _customer.Gender == "KISI ";
-            chWomen.Checked = _customer.Gender == "QADIN";
+            chMan.Checked = _customer.Gender.Trim() == "Man";
+            chWoman.Checked = _customer.Gender.Trim() == "Woman";
+            chOther.Checked = _customer.Gender.Trim() == "Other";
             tVoen.Text = _customer.Voen;
+            lookCustomerGroup.EditValue = _customer.CustomerGroupId;
             tComment.Text = _customer.Comment;
             tEmail.Text = _customer.Email;
             tPhone.Text = _customer.Phone;
@@ -67,7 +71,8 @@ namespace Barcode_Sales.Forms
             {
                 NameSurname = tNameSurname.Text.Trim(),
                 DateBirth = tDateBirth.EditValue as DateTime?,
-                Gender = gender.Text,
+                Gender = gender.Tag.ToString(),
+                CustomerGroupId = lookCustomerGroup.EditValue as int?,
                 Voen = tVoen.Text.Trim(),
                 Comment = tComment.Text.Trim(),
                 Email = tEmail.Text.Trim(),
@@ -88,17 +93,18 @@ namespace Barcode_Sales.Forms
 
             if (customerOperation.Add(_customer))
             {
-                NoticationHelpers.Messages.SuccessMessage(this, $"{_customer.NameSurname} müştərisi uğurla yaradıldı");
+                NotificationHelpers.Messages.SuccessMessage(this, $"{_customer.NameSurname} müştərisi uğurla yaradıldı");
                 Clear();
             }
         }
 
-        private void Edit()
+        private async Task Edit()
         {
             var gender = groupCustomer.Controls.OfType<CheckEdit>().FirstOrDefault(x => x.Checked);
 
             _customer.DateBirth = tDateBirth.EditValue as DateTime?;
-            _customer.Gender = gender.Text;
+            _customer.Gender = gender.Tag.ToString();
+            _customer.CustomerGroupId = lookCustomerGroup.EditValue as int?;
             _customer.Voen = tVoen.Text.Trim();
             _customer.Comment = tComment.Text.Trim();
             _customer.Email = tEmail.Text.Trim();
@@ -109,8 +115,8 @@ namespace Barcode_Sales.Forms
             _customer.BankKOD = tBankKod.Text.Trim();
             _customer.BankSwift = tBankSwift.Text.Trim();
 
-            customerOperation.Update(_customer);
-            DialogResult = System.Windows.Forms.DialogResult.OK;
+            await customerOperation.UpdateAsync(_customer);
+            Close();
         }
 
         private void Clear()
@@ -118,7 +124,7 @@ namespace Barcode_Sales.Forms
             tNameSurname.Clear();
             tDateBirth.Text = null;
             chMan.Checked = false;
-            chWomen.Checked = false;
+            chWoman.Checked = false;
             tVoen.Clear();
             tComment.Clear();
             tEmail.Clear();
@@ -131,15 +137,40 @@ namespace Barcode_Sales.Forms
             tNameSurname.Focus();
         }
 
-        private void bSave_Click(object sender, EventArgs e)
+        private async void bSave_Click(object sender, EventArgs e)
         {
             switch (_operation)
             {
                 case Enums.Operation.Add:
                     Add(); break;
                 case Enums.Operation.Edit:
-                    Edit(); break;
+                    await Edit(); break;
             }
+        }
+
+        private void bSaleHistory_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bCredit_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bDebtHistory_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bAddCustomerGroup_Click(object sender, EventArgs e)
+        {
+            fAddCustomerGroup f = new fAddCustomerGroup(Enums.Operation.Add);
+            f.FormClosed += async (s, x) =>
+            {
+                await CustomerGroupsLoad();
+            };
+            f.ShowDialog();
         }
     }
 }
