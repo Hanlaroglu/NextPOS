@@ -8,6 +8,7 @@ namespace Barcode_Sales.Operations.Abstract
         int InsertSaleData(SalesData item);
         Task<string> SalesCount();
         Task<string> CurrentSalesDataAsync();
+        Task<string> CurrentSalesCountAsync();
         Task<PaymentTypeTotal> CurrentPaymentTypeDataAsync();
     }
 }

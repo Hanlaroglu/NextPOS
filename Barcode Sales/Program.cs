@@ -21,11 +21,11 @@ namespace Barcode_Sales
             CultureInfo.DefaultThreadCurrentUICulture = culture;
             CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator = ",";
             CultureInfo.CurrentCulture.NumberFormat.CurrencyGroupSeparator = ".";
-            CultureInfo.CurrentCulture.NumberFormat.CurrencySymbol = "AZN"; //₼
+            CultureInfo.CurrentCulture.NumberFormat.CurrencySymbol = "₼"; //₼
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new fLogin());
-            //Application.Run(new fAddCustomer(Enums.Operation.Add, null));
+           // Application.Run(new fUsers(Enums.Operation.Add, null));
 
 
 

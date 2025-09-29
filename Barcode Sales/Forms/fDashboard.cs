@@ -78,6 +78,7 @@ namespace Barcode_Sales.Forms
         private async Task CurrentSalesDataAsync()
         {
             lSalesAmount.Text = await saleDataOperation.CurrentSalesDataAsync();
+            lSalesCount.Text = await saleDataOperation.CurrentSalesCountAsync();
         }
 
         private async Task CurrentPaymentTypeLoadsAsync()

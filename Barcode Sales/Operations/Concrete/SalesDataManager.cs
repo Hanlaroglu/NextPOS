@@ -62,6 +62,18 @@ WHERE SaleDate = CAST(GETDATE() AS date)")
             return result;
         }
 
+        public async Task<string> CurrentSalesCountAsync()
+        {
+            var data = await db.Database
+                .SqlQuery<int?>(@"SELECT Count(*) AS 'Count'
+FROM SalesData
+WHERE SaleDate = CAST(GETDATE() AS date)")
+                .SingleAsync();
+
+            string result = (data ?? 0).ToString();
+            return result;
+        }
+
         public async Task<DashboardUIDto.PaymentTypeTotal> CurrentPaymentTypeDataAsync()
         {
             var data = await db.Database
