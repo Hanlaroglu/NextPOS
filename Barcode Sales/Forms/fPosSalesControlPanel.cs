@@ -51,8 +51,7 @@ namespace Barcode_Sales.Forms
                     KassaOperator kassa = (KassaOperator)Enum.Parse(typeof(KassaOperator), _terminals.Name);
                     switch (kassa)
                     {
-                        case KassaOperator.SUNMI:
-                        case KassaOperator.TIANYU:
+                        case KassaOperator.CASPOS:
                             NKA.Sunmi.Deposit(new NKA.DTOs.NkaDto.DepositDto
                             {
                                 IpAddress = _terminals.IpAddress,
@@ -91,8 +90,7 @@ namespace Barcode_Sales.Forms
                     KassaOperator kassa = (KassaOperator)Enum.Parse(typeof(KassaOperator), _terminals.Name);
                     switch (kassa)
                     {
-                        case KassaOperator.SUNMI:
-                        case KassaOperator.TIANYU:
+                        case KassaOperator.CASPOS:
                             NKA.Sunmi.Withdraw(new NKA.DTOs.NkaDto.DepositDto
                             {
                                 IpAddress = _terminals.IpAddress,
@@ -124,8 +122,7 @@ namespace Barcode_Sales.Forms
                 KassaOperator kassa = (KassaOperator)Enum.Parse(typeof(KassaOperator), _terminals.Name);
                 switch (kassa)
                 {
-                    case KassaOperator.SUNMI:
-                    case KassaOperator.TIANYU:
+                    case KassaOperator.CASPOS:
                         NKA.Sunmi.GetShiftStatus(new NKA.DTOs.NkaDto.ShiftDto
                         {
                             IpAddress = _terminals.IpAddress,
@@ -157,8 +154,7 @@ namespace Barcode_Sales.Forms
                 KassaOperator kassa = (KassaOperator)Enum.Parse(typeof(KassaOperator), _terminals.Name);
                 switch (kassa)
                 {
-                    case KassaOperator.SUNMI:
-                    case KassaOperator.TIANYU:
+                    case KassaOperator.CASPOS:
                         NKA.Sunmi.CloseShift(new NKA.DTOs.NkaDto.ShiftDto
                         {
                             IpAddress = _terminals.IpAddress

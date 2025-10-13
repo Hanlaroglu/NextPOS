@@ -87,11 +87,6 @@ namespace Barcode_Sales.Helpers
             }
         }
 
-        public static string AppVersion()
-        {
-            return "Versiya: " + Application.ProductVersion;
-        }
-
         public static void GridCustomRowNumber(GridView gridView, string columnName = "#")
         {
             gridView.CustomDrawCell += (sender, e) =>
@@ -216,30 +211,26 @@ namespace Barcode_Sales.Helpers
             return $"994{barcodeContent}";
         }
 
-        public static void PingHostAsync(string host)
+        public static bool PingHostAsync(string host)
         {
-            //using (Ping ping = new Ping())
-            //{
-            //    try
-            //    {
-            //        Cursor.Current = Cursors.WaitCursor;
+            using (Ping ping = new Ping())
+            {
+                try
+                {
+                    Cursor.Current = Cursors.WaitCursor;
 
-            //        PingReply reply = ping.Send(host);
-            //        if (reply.Status == IPStatus.Success)
-            //        {
-            //            Alert($"{host} adresi ilə əlaqə mövcuddur", Enums.MessageType.Success);
-            //        }
-            //        else
-            //        {
-            //            Alert($"{host} adresi ilə əlaqə yoxdur", Enums.MessageType.Error);
-            //        }
-            //    }
-            //    catch (Exception ex)
-            //    {
-            //        ReadyMessages.ERROR_DEFAULT_MESSAGE($"Error ping {host}: {ex.Message}");
-            //    }
-            //    finally { Cursor.Current = Cursors.Default; }
-            //}
+                    PingReply reply = ping.Send(host);
+                    if (reply.Status == IPStatus.Success)
+                        return true;
+                    else
+                        return false;
+                }
+                catch (Exception)
+                {
+                    return false;
+                }
+                finally { Cursor.Current = Cursors.Default; }
+            }
         }
 
         public static string ConvertClassToJson(object item)

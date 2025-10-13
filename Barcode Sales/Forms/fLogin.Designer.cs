@@ -1,5 +1,4 @@
-﻿
-namespace Barcode_Sales.Forms
+﻿namespace Barcode_Sales.Forms
 {
     partial class fLogin
     {
@@ -29,62 +28,65 @@ namespace Barcode_Sales.Forms
         /// </summary>
         private void InitializeComponent()
         {
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fLogin));
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions3 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject9 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject10 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject11 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject12 = new DevExpress.Utils.SerializableAppearanceObject();
             this.tablePanel1 = new DevExpress.Utils.Layout.TablePanel();
-            this.svgImageBox1 = new DevExpress.XtraEditors.SvgImageBox();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
-            this.pictureEdit1 = new DevExpress.XtraEditors.PictureEdit();
-            this.tablePanel2 = new DevExpress.Utils.Layout.TablePanel();
-            this.lVersion = new DevExpress.XtraEditors.LabelControl();
-            this.lContact = new DevExpress.XtraEditors.LabelControl();
             this.chSaveMe = new DevExpress.XtraEditors.CheckEdit();
-            this.bExit = new NextPOS.UserControls.ButtonRadius();
-            this.bLogin = new NextPOS.UserControls.ButtonRadius();
-            this.tPassword = new DevExpress.XtraEditors.TextEdit();
-            this.tUsername = new DevExpress.XtraEditors.TextEdit();
+            this.lVersion = new DevExpress.XtraEditors.LabelControl();
+            this.bClose = new DevExpress.XtraEditors.SimpleButton();
+            this.bLogin = new DevExpress.XtraEditors.SimpleButton();
+            this.pictureEdit1 = new DevExpress.XtraEditors.PictureEdit();
+            this.tPassword = new DevExpress.XtraEditors.ButtonEdit();
+            this.tUsername = new DevExpress.XtraEditors.ButtonEdit();
+            this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
+            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel1)).BeginInit();
             this.tablePanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.svgImageBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tablePanel2)).BeginInit();
-            this.tablePanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chSaveMe.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tPassword.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tUsername.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
+            this.panelControl2.SuspendLayout();
             this.SuspendLayout();
             // 
             // tablePanel1
             // 
-            this.tablePanel1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
             this.tablePanel1.Columns.AddRange(new DevExpress.Utils.Layout.TablePanelColumn[] {
-            new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 36.08F),
-            new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 23.92F)});
-            this.tablePanel1.Controls.Add(this.svgImageBox1);
+            new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 565.6F),
+            new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 427.4F)});
             this.tablePanel1.Controls.Add(this.panelControl1);
+            this.tablePanel1.Controls.Add(this.panelControl2);
             this.tablePanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tablePanel1.Location = new System.Drawing.Point(0, 0);
             this.tablePanel1.Margin = new System.Windows.Forms.Padding(0);
             this.tablePanel1.Name = "tablePanel1";
+            this.tablePanel1.Padding = new System.Windows.Forms.Padding(1);
             this.tablePanel1.Rows.AddRange(new DevExpress.Utils.Layout.TablePanelRow[] {
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 26F)});
-            this.tablePanel1.Size = new System.Drawing.Size(1072, 601);
-            this.tablePanel1.TabIndex = 0;
-            // 
-            // svgImageBox1
-            // 
-            this.tablePanel1.SetColumn(this.svgImageBox1, 0);
-            this.svgImageBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.svgImageBox1.Location = new System.Drawing.Point(4, 4);
-            this.svgImageBox1.Name = "svgImageBox1";
-            this.tablePanel1.SetRow(this.svgImageBox1, 0);
-            this.svgImageBox1.Size = new System.Drawing.Size(637, 593);
-            this.svgImageBox1.SizeMode = DevExpress.XtraEditors.SvgImageSizeMode.Zoom;
-            this.svgImageBox1.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("svgImageBox1.SvgImage")));
-            this.svgImageBox1.TabIndex = 1;
-            this.svgImageBox1.TabStop = false;
-            this.svgImageBox1.Text = "svgImageBox1";
+            this.tablePanel1.Size = new System.Drawing.Size(900, 580);
+            this.tablePanel1.TabIndex = 1;
+            this.tablePanel1.UseSkinIndents = true;
             // 
             // panelControl1
             // 
@@ -92,174 +94,213 @@ namespace Barcode_Sales.Forms
             this.panelControl1.Appearance.Options.UseBackColor = true;
             this.panelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.tablePanel1.SetColumn(this.panelControl1, 1);
-            this.panelControl1.Controls.Add(this.pictureEdit1);
-            this.panelControl1.Controls.Add(this.tablePanel2);
             this.panelControl1.Controls.Add(this.chSaveMe);
-            this.panelControl1.Controls.Add(this.bExit);
+            this.panelControl1.Controls.Add(this.lVersion);
+            this.panelControl1.Controls.Add(this.bClose);
             this.panelControl1.Controls.Add(this.bLogin);
+            this.panelControl1.Controls.Add(this.pictureEdit1);
             this.panelControl1.Controls.Add(this.tPassword);
             this.panelControl1.Controls.Add(this.tUsername);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl1.Location = new System.Drawing.Point(644, 1);
+            this.panelControl1.Location = new System.Drawing.Point(472, 1);
             this.panelControl1.Margin = new System.Windows.Forms.Padding(0);
             this.panelControl1.Name = "panelControl1";
             this.tablePanel1.SetRow(this.panelControl1, 0);
-            this.panelControl1.Size = new System.Drawing.Size(427, 599);
-            this.panelControl1.TabIndex = 0;
-            // 
-            // pictureEdit1
-            // 
-            this.pictureEdit1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.pictureEdit1.EditValue = ((object)(resources.GetObject("pictureEdit1.EditValue")));
-            this.pictureEdit1.Location = new System.Drawing.Point(128, 29);
-            this.pictureEdit1.Name = "pictureEdit1";
-            this.pictureEdit1.Properties.AllowFocused = false;
-            this.pictureEdit1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.pictureEdit1.Properties.NullText = "Logo";
-            this.pictureEdit1.Properties.ShowMenu = false;
-            this.pictureEdit1.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Zoom;
-            this.pictureEdit1.Size = new System.Drawing.Size(185, 156);
-            this.pictureEdit1.TabIndex = 5;
-            // 
-            // tablePanel2
-            // 
-            this.tablePanel2.AutoSize = true;
-            this.tablePanel2.Columns.AddRange(new DevExpress.Utils.Layout.TablePanelColumn[] {
-            new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 32.86F),
-            new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 27.14F)});
-            this.tablePanel2.Controls.Add(this.lVersion);
-            this.tablePanel2.Controls.Add(this.lContact);
-            this.tablePanel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.tablePanel2.Location = new System.Drawing.Point(0, 573);
-            this.tablePanel2.Name = "tablePanel2";
-            this.tablePanel2.Rows.AddRange(new DevExpress.Utils.Layout.TablePanelRow[] {
-            new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 26F)});
-            this.tablePanel2.Size = new System.Drawing.Size(427, 26);
-            this.tablePanel2.TabIndex = 4;
-            // 
-            // lVersion
-            // 
-            this.lVersion.Appearance.Font = new System.Drawing.Font("Calibri", 12F);
-            this.lVersion.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(70)))), ((int)(((byte)(68)))));
-            this.lVersion.Appearance.Options.UseFont = true;
-            this.lVersion.Appearance.Options.UseForeColor = true;
-            this.lVersion.Appearance.Options.UseTextOptions = true;
-            this.lVersion.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-            this.lVersion.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Vertical;
-            this.tablePanel2.SetColumn(this.lVersion, 1);
-            this.lVersion.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.lVersion.ImageOptions.SvgImageSize = new System.Drawing.Size(24, 24);
-            this.lVersion.Location = new System.Drawing.Point(234, 3);
-            this.lVersion.Margin = new System.Windows.Forms.Padding(0, 0, 5, 0);
-            this.lVersion.Name = "lVersion";
-            this.tablePanel2.SetRow(this.lVersion, 0);
-            this.lVersion.Size = new System.Drawing.Size(188, 19);
-            this.lVersion.TabIndex = 5;
-            this.lVersion.Text = "Version: ";
-            // 
-            // lContact
-            // 
-            this.lContact.Appearance.Font = new System.Drawing.Font("Calibri", 12F);
-            this.lContact.Appearance.ForeColor = System.Drawing.Color.SlateBlue;
-            this.lContact.Appearance.Options.UseFont = true;
-            this.lContact.Appearance.Options.UseForeColor = true;
-            this.lContact.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Vertical;
-            this.tablePanel2.SetColumn(this.lContact, 0);
-            this.lContact.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.lContact.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("lContact.ImageOptions.SvgImage")));
-            this.lContact.ImageOptions.SvgImageSize = new System.Drawing.Size(24, 24);
-            this.lContact.Location = new System.Drawing.Point(3, 0);
-            this.lContact.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.lContact.Name = "lContact";
-            this.tablePanel2.SetRow(this.lContact, 0);
-            this.lContact.Size = new System.Drawing.Size(231, 26);
-            this.lContact.TabIndex = 3;
-            this.lContact.Text = "Əlaqə: 0702008816";
+            this.panelControl1.Size = new System.Drawing.Size(427, 578);
+            this.panelControl1.TabIndex = 3;
             // 
             // chSaveMe
             // 
-            this.chSaveMe.Location = new System.Drawing.Point(52, 311);
+            this.chSaveMe.Location = new System.Drawing.Point(26, 347);
             this.chSaveMe.Name = "chSaveMe";
             this.chSaveMe.Properties.AllowFocused = false;
-            this.chSaveMe.Properties.Appearance.Font = new System.Drawing.Font("Calibri", 12F);
+            this.chSaveMe.Properties.Appearance.Font = new System.Drawing.Font("Nunito", 10F);
             this.chSaveMe.Properties.Appearance.Options.UseFont = true;
+            this.chSaveMe.Properties.AutoWidth = true;
             this.chSaveMe.Properties.Caption = "Yadda saxla";
-            this.chSaveMe.Size = new System.Drawing.Size(123, 23);
-            this.chSaveMe.TabIndex = 2;
-            this.chSaveMe.TabStop = false;
-            this.chSaveMe.CheckedChanged += new System.EventHandler(this.chSaveMe_CheckedChanged);
+            this.chSaveMe.Size = new System.Drawing.Size(100, 22);
+            this.chSaveMe.TabIndex = 3;
             // 
-            // bExit
+            // lVersion
             // 
-            this.bExit.BackColor = System.Drawing.Color.Crimson;
-            this.bExit.BackgroundColor = System.Drawing.Color.Crimson;
-            this.bExit.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.bExit.BorderRadius = 10;
-            this.bExit.BorderSize = 0;
-            this.bExit.FlatAppearance.BorderSize = 0;
-            this.bExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bExit.Font = new System.Drawing.Font("Calibri", 14F);
-            this.bExit.ForeColor = System.Drawing.Color.White;
-            this.bExit.Location = new System.Drawing.Point(52, 400);
-            this.bExit.Name = "bExit";
-            this.bExit.Size = new System.Drawing.Size(336, 40);
-            this.bExit.TabIndex = 4;
-            this.bExit.TabStop = false;
-            this.bExit.Text = "Çıxış";
-            this.bExit.TextColor = System.Drawing.Color.White;
-            this.bExit.UseVisualStyleBackColor = false;
-            this.bExit.Click += new System.EventHandler(this.bExit_Click);
+            this.lVersion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.lVersion.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.lVersion.Appearance.Font = new System.Drawing.Font("Nunito", 12F);
+            this.lVersion.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(36)))));
+            this.lVersion.Appearance.Options.UseBackColor = true;
+            this.lVersion.Appearance.Options.UseFont = true;
+            this.lVersion.Appearance.Options.UseForeColor = true;
+            this.lVersion.Appearance.Options.UseTextOptions = true;
+            this.lVersion.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.lVersion.Appearance.TextOptions.Trimming = DevExpress.Utils.Trimming.EllipsisCharacter;
+            this.lVersion.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.lVersion.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.lVersion.Location = new System.Drawing.Point(359, 551);
+            this.lVersion.Name = "lVersion";
+            this.lVersion.Size = new System.Drawing.Size(63, 22);
+            this.lVersion.TabIndex = 6;
+            this.lVersion.Text = "V1.0.0.0";
+            // 
+            // bClose
+            // 
+            this.bClose.AllowFocus = false;
+            this.bClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.bClose.Appearance.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Danger;
+            this.bClose.Appearance.Font = new System.Drawing.Font("Nunito", 12F, System.Drawing.FontStyle.Bold);
+            this.bClose.Appearance.Options.UseBackColor = true;
+            this.bClose.Appearance.Options.UseFont = true;
+            this.bClose.Location = new System.Drawing.Point(387, 5);
+            this.bClose.Name = "bClose";
+            this.bClose.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
+            this.bClose.Size = new System.Drawing.Size(35, 25);
+            this.bClose.TabIndex = 2;
+            this.bClose.Text = "X";
+            this.bClose.Click += new System.EventHandler(this.bClose_Click);
             // 
             // bLogin
             // 
-            this.bLogin.BackColor = System.Drawing.Color.MediumSlateBlue;
-            this.bLogin.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
-            this.bLogin.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.bLogin.BorderRadius = 10;
-            this.bLogin.BorderSize = 0;
-            this.bLogin.FlatAppearance.BorderSize = 0;
-            this.bLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bLogin.Font = new System.Drawing.Font("Calibri", 14F);
-            this.bLogin.ForeColor = System.Drawing.Color.White;
-            this.bLogin.Location = new System.Drawing.Point(52, 354);
+            this.bLogin.AllowFocus = false;
+            this.bLogin.Appearance.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Primary;
+            this.bLogin.Appearance.Font = new System.Drawing.Font("Nunito", 10F, System.Drawing.FontStyle.Bold);
+            this.bLogin.Appearance.Options.UseBackColor = true;
+            this.bLogin.Appearance.Options.UseFont = true;
+            this.bLogin.Location = new System.Drawing.Point(318, 347);
             this.bLogin.Name = "bLogin";
-            this.bLogin.Size = new System.Drawing.Size(336, 40);
-            this.bLogin.TabIndex = 3;
-            this.bLogin.TabStop = false;
-            this.bLogin.Text = "Daxil ol";
-            this.bLogin.TextColor = System.Drawing.Color.White;
-            this.bLogin.UseVisualStyleBackColor = false;
+            this.bLogin.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
+            this.bLogin.Size = new System.Drawing.Size(93, 29);
+            this.bLogin.TabIndex = 4;
+            this.bLogin.Text = "Giriş et";
             this.bLogin.Click += new System.EventHandler(this.bLogin_Click);
+            // 
+            // pictureEdit1
+            // 
+            this.pictureEdit1.Location = new System.Drawing.Point(22, 159);
+            this.pictureEdit1.Name = "pictureEdit1";
+            this.pictureEdit1.Properties.AllowFocused = false;
+            this.pictureEdit1.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.pictureEdit1.Properties.Appearance.Options.UseBackColor = true;
+            this.pictureEdit1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.pictureEdit1.Properties.NullText = "Logo";
+            this.pictureEdit1.Properties.Padding = new System.Windows.Forms.Padding(0, 35, 0, 0);
+            this.pictureEdit1.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
+            this.pictureEdit1.Properties.ShowMenu = false;
+            this.pictureEdit1.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Zoom;
+            this.pictureEdit1.Size = new System.Drawing.Size(393, 98);
+            this.pictureEdit1.TabIndex = 1;
             // 
             // tPassword
             // 
-            this.tPassword.EditValue = "12345";
-            this.tPassword.Location = new System.Drawing.Point(52, 273);
+            this.tPassword.Location = new System.Drawing.Point(26, 305);
             this.tPassword.Name = "tPassword";
-            this.tPassword.Properties.Appearance.Font = new System.Drawing.Font("Nunito", 14F);
+            this.tPassword.Properties.AllowFocused = false;
+            this.tPassword.Properties.Appearance.Font = new System.Drawing.Font("Nunito", 12F);
             this.tPassword.Properties.Appearance.Options.UseFont = true;
-            this.tPassword.Properties.ContextImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("tPassword.Properties.ContextImageOptions.SvgImage")));
-            this.tPassword.Properties.ContextImageOptions.SvgImageSize = new System.Drawing.Size(22, 22);
+            editorButtonImageOptions1.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("editorButtonImageOptions1.SvgImage")));
+            editorButtonImageOptions1.SvgImageSize = new System.Drawing.Size(24, 24);
+            serializableAppearanceObject1.Font = new System.Drawing.Font("Nunito", 9F);
+            serializableAppearanceObject1.Options.UseFont = true;
+            serializableAppearanceObject5.Font = new System.Drawing.Font("Nunito", 9F);
+            serializableAppearanceObject5.Options.UseFont = true;
+            this.tPassword.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, true, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Şifrəmi unutdum", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.tPassword.Properties.NullValuePrompt = "Şifrə";
             this.tPassword.Properties.UseSystemPasswordChar = true;
-            this.tPassword.Size = new System.Drawing.Size(336, 32);
-            this.tPassword.TabIndex = 1;
-            this.tPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.KeyboardPress);
+            this.tPassword.Size = new System.Drawing.Size(385, 36);
+            this.tPassword.TabIndex = 2;
             // 
             // tUsername
             // 
-            this.tUsername.EditValue = "admin";
-            this.tUsername.Location = new System.Drawing.Point(52, 235);
+            this.tUsername.Location = new System.Drawing.Point(26, 263);
             this.tUsername.Name = "tUsername";
             this.tUsername.Properties.AllowFocused = false;
-            this.tUsername.Properties.Appearance.Font = new System.Drawing.Font("Nunito", 14F);
+            this.tUsername.Properties.Appearance.Font = new System.Drawing.Font("Nunito", 12F);
             this.tUsername.Properties.Appearance.Options.UseFont = true;
-            this.tUsername.Properties.ContextImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("tUsername.Properties.ContextImageOptions.SvgImage")));
-            this.tUsername.Properties.ContextImageOptions.SvgImageSize = new System.Drawing.Size(22, 22);
+            editorButtonImageOptions3.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("editorButtonImageOptions3.SvgImage")));
+            editorButtonImageOptions3.SvgImageSize = new System.Drawing.Size(24, 24);
+            this.tUsername.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, true, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.tUsername.Properties.NullValuePrompt = "İstifadəçi adı";
-            this.tUsername.Size = new System.Drawing.Size(336, 32);
-            this.tUsername.TabIndex = 0;
-            this.tUsername.KeyDown += new System.Windows.Forms.KeyEventHandler(this.KeyboardPress);
+            this.tUsername.Size = new System.Drawing.Size(385, 36);
+            this.tUsername.TabIndex = 1;
+            // 
+            // panelControl2
+            // 
+            this.panelControl2.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.tablePanel1.SetColumn(this.panelControl2, 0);
+            this.panelControl2.ContentImage = ((System.Drawing.Image)(resources.GetObject("panelControl2.ContentImage")));
+            this.panelControl2.ContentImageAlignment = System.Drawing.ContentAlignment.MiddleRight;
+            this.panelControl2.Controls.Add(this.labelControl2);
+            this.panelControl2.Controls.Add(this.labelControl3);
+            this.panelControl2.Controls.Add(this.labelControl5);
+            this.panelControl2.Controls.Add(this.labelControl1);
+            this.panelControl2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelControl2.Location = new System.Drawing.Point(1, 1);
+            this.panelControl2.Margin = new System.Windows.Forms.Padding(0);
+            this.panelControl2.Name = "panelControl2";
+            this.tablePanel1.SetRow(this.panelControl2, 0);
+            this.panelControl2.Size = new System.Drawing.Size(471, 578);
+            this.panelControl2.TabIndex = 2;
+            // 
+            // labelControl2
+            // 
+            this.labelControl2.Appearance.Font = new System.Drawing.Font("Nunito", 24F);
+            this.labelControl2.Appearance.ForeColor = System.Drawing.Color.White;
+            this.labelControl2.Appearance.Options.UseFont = true;
+            this.labelControl2.Appearance.Options.UseForeColor = true;
+            this.labelControl2.Location = new System.Drawing.Point(115, 189);
+            this.labelControl2.Name = "labelControl2";
+            this.labelControl2.Size = new System.Drawing.Size(218, 44);
+            this.labelControl2.TabIndex = 7;
+            this.labelControl2.Text = "Xoş gəlmisiniz !";
+            // 
+            // labelControl3
+            // 
+            this.labelControl3.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.labelControl3.Appearance.Font = new System.Drawing.Font("Nunito", 12F);
+            this.labelControl3.Appearance.ForeColor = System.Drawing.Color.White;
+            this.labelControl3.Appearance.Options.UseBackColor = true;
+            this.labelControl3.Appearance.Options.UseFont = true;
+            this.labelControl3.Appearance.Options.UseForeColor = true;
+            this.labelControl3.Appearance.Options.UseTextOptions = true;
+            this.labelControl3.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.labelControl3.Appearance.TextOptions.Trimming = DevExpress.Utils.Trimming.EllipsisCharacter;
+            this.labelControl3.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.labelControl3.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.labelControl3.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.labelControl3.Location = new System.Drawing.Point(28, 210);
+            this.labelControl3.Name = "labelControl3";
+            this.labelControl3.Size = new System.Drawing.Size(425, 77);
+            this.labelControl3.TabIndex = 8;
+            this.labelControl3.Text = "Daxil olmaq üçün istifadəçi adı və şifrənizi daxil edin";
+            // 
+            // labelControl5
+            // 
+            this.labelControl5.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.labelControl5.Appearance.Options.UseFont = true;
+            this.labelControl5.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+            this.labelControl5.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("labelControl5.ImageOptions.SvgImage")));
+            this.labelControl5.ImageOptions.SvgImageColorizationMode = DevExpress.Utils.SvgImageColorizationMode.None;
+            this.labelControl5.ImageOptions.SvgImageSize = new System.Drawing.Size(24, 24);
+            this.labelControl5.Location = new System.Drawing.Point(343, 543);
+            this.labelControl5.Name = "labelControl5";
+            this.labelControl5.Size = new System.Drawing.Size(121, 28);
+            this.labelControl5.TabIndex = 5;
+            this.labelControl5.Text = "+994102128816";
+            // 
+            // labelControl1
+            // 
+            this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.labelControl1.Appearance.Options.UseFont = true;
+            this.labelControl1.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+            this.labelControl1.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("labelControl1.ImageOptions.SvgImage")));
+            this.labelControl1.ImageOptions.SvgImageColorizationMode = DevExpress.Utils.SvgImageColorizationMode.None;
+            this.labelControl1.ImageOptions.SvgImageSize = new System.Drawing.Size(24, 24);
+            this.labelControl1.Location = new System.Drawing.Point(11, 543);
+            this.labelControl1.Name = "labelControl1";
+            this.labelControl1.Size = new System.Drawing.Size(124, 28);
+            this.labelControl1.TabIndex = 5;
+            this.labelControl1.Text = "www.website.az";
             // 
             // fLogin
             // 
@@ -267,28 +308,29 @@ namespace Barcode_Sales.Forms
             this.Appearance.Options.UseBackColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(1072, 601);
+            this.ClientSize = new System.Drawing.Size(900, 580);
             this.Controls.Add(this.tablePanel1);
+            this.FormBorderEffect = DevExpress.XtraEditors.FormBorderEffect.None;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.LookAndFeel.SkinName = "Office 2019 White";
-            this.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.MaximumSize = new System.Drawing.Size(900, 580);
+            this.MinimumSize = new System.Drawing.Size(900, 580);
             this.Name = "fLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "fLogin";
             this.Load += new System.EventHandler(this.fLogin_Load);
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.KeyboardPress);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.fLogin_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel1)).EndInit();
             this.tablePanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.svgImageBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             this.panelControl1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tablePanel2)).EndInit();
-            this.tablePanel2.ResumeLayout(false);
-            this.tablePanel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chSaveMe.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tPassword.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tUsername.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
+            this.panelControl2.ResumeLayout(false);
+            this.panelControl2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -296,16 +338,18 @@ namespace Barcode_Sales.Forms
         #endregion
 
         private DevExpress.Utils.Layout.TablePanel tablePanel1;
+        private DevExpress.XtraEditors.PanelControl panelControl2;
+        private DevExpress.XtraEditors.LabelControl labelControl2;
+        private DevExpress.XtraEditors.LabelControl labelControl3;
+        private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraEditors.PanelControl panelControl1;
         private DevExpress.XtraEditors.CheckEdit chSaveMe;
-        private NextPOS.UserControls.ButtonRadius bExit;
-        private NextPOS.UserControls.ButtonRadius bLogin;
-        private DevExpress.XtraEditors.TextEdit tPassword;
-        private DevExpress.XtraEditors.TextEdit tUsername;
-        private DevExpress.XtraEditors.LabelControl lContact;
-        private DevExpress.Utils.Layout.TablePanel tablePanel2;
         private DevExpress.XtraEditors.LabelControl lVersion;
-        private DevExpress.XtraEditors.SvgImageBox svgImageBox1;
+        private DevExpress.XtraEditors.SimpleButton bClose;
+        private DevExpress.XtraEditors.SimpleButton bLogin;
         private DevExpress.XtraEditors.PictureEdit pictureEdit1;
+        private DevExpress.XtraEditors.ButtonEdit tPassword;
+        private DevExpress.XtraEditors.ButtonEdit tUsername;
+        private DevExpress.XtraEditors.LabelControl labelControl5;
     }
 }

@@ -80,11 +80,10 @@ namespace Barcode_Sales.Helpers
 
         public enum KassaOperator
         {
-            SUNMI,
+            CASPOS,
             OMNITECH,
             AZSMART,
             NBA,
-            TIANYU,
             DATAPAY,
             ONECLICK,
             XPRINTER

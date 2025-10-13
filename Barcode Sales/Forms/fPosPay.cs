@@ -103,18 +103,13 @@ namespace Barcode_Sales.Forms
                 KassaOperator kassa = (KassaOperator)Enum.Parse(typeof(KassaOperator), _terminals.Name);
                 switch (kassa)
                 {
-                    case KassaOperator.SUNMI:
-                    case KassaOperator.TIANYU:
+                    case KassaOperator.CASPOS:
                         if (NKA.Sunmi.Sale(_data))
-                        {
                             DialogResult = DialogResult.OK;
-                        }
                         break;
                     case KassaOperator.OMNITECH:
                         if (NKA.Omnitech.Sale(_data))
-                        {
                             DialogResult = DialogResult.OK;
-                        }
                         break;
                     case KassaOperator.AZSMART:
                         break;
@@ -139,18 +134,13 @@ namespace Barcode_Sales.Forms
                 KassaOperator kassa = (KassaOperator)Enum.Parse(typeof(KassaOperator), _terminals.Name);
                 switch (kassa)
                 {
-                    case KassaOperator.SUNMI:
-                    case KassaOperator.TIANYU:
+                    case KassaOperator.CASPOS:
                         if (NKA.Sunmi.Sale(_data))
-                        {
                             DialogResult = DialogResult.OK;
-                        }
                         break;
                     case KassaOperator.OMNITECH:
                         if (NKA.Omnitech.Sale(_data))
-                        {
                             DialogResult = DialogResult.OK;
-                        }
                         break;
                     case KassaOperator.AZSMART:
                         break;
@@ -197,18 +187,13 @@ namespace Barcode_Sales.Forms
                 KassaOperator kassa = (KassaOperator)Enum.Parse(typeof(KassaOperator), _terminals.Name);
                 switch (kassa)
                 {
-                    case KassaOperator.SUNMI:
-                    case KassaOperator.TIANYU:
+                    case KassaOperator.CASPOS:
                         if (NKA.Sunmi.Sale(_data))
-                        {
                             DialogResult = DialogResult.OK;
-                        }
                         break;
                     case KassaOperator.OMNITECH:
                         if (NKA.Omnitech.Sale(_data))
-                        {
                             DialogResult = DialogResult.OK;
-                        }
                         break;
                     case KassaOperator.AZSMART:
                         break;

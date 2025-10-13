@@ -213,8 +213,7 @@ namespace Barcode_Sales.Forms
                 KassaOperator kassa = (KassaOperator)Enum.Parse(typeof(KassaOperator), _terminals.Name);
                 switch (kassa)
                 {
-                    case KassaOperator.SUNMI:
-                    case KassaOperator.TIANYU:
+                    case KassaOperator.CASPOS:
                         if (NKA.Sunmi.Sale(null))
                         {
                             DialogResult = DialogResult.OK;
@@ -246,8 +245,7 @@ namespace Barcode_Sales.Forms
                 KassaOperator kassa = (KassaOperator)Enum.Parse(typeof(KassaOperator), _terminals.Name);
                 switch (kassa)
                 {
-                    case KassaOperator.SUNMI:
-                    case KassaOperator.TIANYU:
+                    case KassaOperator.CASPOS:
                         if (NKA.Sunmi.Sale(null))
                         {
                             DialogResult = DialogResult.OK;

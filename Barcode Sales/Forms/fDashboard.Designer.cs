@@ -97,6 +97,7 @@
             this.accordionControlElement10 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.bAddInvoice = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.bRollBackInvoice = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.accordionControlElement36 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement6 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.bCustomers = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.bCustomerGroup = new DevExpress.XtraBars.Navigation.AccordionControlElement();
@@ -1159,7 +1160,8 @@
             this.accordionControlElement7,
             this.accordionControlElement10,
             this.bAddInvoice,
-            this.bRollBackInvoice});
+            this.bRollBackInvoice,
+            this.accordionControlElement36});
             this.accordionControlElement4.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("accordionControlElement4.ImageOptions.SvgImage")));
             this.accordionControlElement4.ImageOptions.SvgImageColorizationMode = DevExpress.Utils.SvgImageColorizationMode.None;
             this.accordionControlElement4.ImageOptions.SvgImageSize = new System.Drawing.Size(32, 32);
@@ -1234,6 +1236,12 @@
             this.bRollBackInvoice.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.bRollBackInvoice.Text = "Məhsul qaytarma";
             this.bRollBackInvoice.Click += new System.EventHandler(this.bRollBackInvoice_Click);
+            // 
+            // accordionControlElement36
+            // 
+            this.accordionControlElement36.Name = "accordionControlElement36";
+            this.accordionControlElement36.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.accordionControlElement36.Text = "Excel ilə əlavə";
             // 
             // accordionControlElement6
             // 
@@ -1326,6 +1334,7 @@
             this.accordionControlElement8.Name = "accordionControlElement8";
             this.accordionControlElement8.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.accordionControlElement8.Text = "Məhsul alış hesabatı";
+            this.accordionControlElement8.Click += new System.EventHandler(this.accordionControlElement8_Click);
             // 
             // accordionControlElement9
             // 
@@ -1412,6 +1421,7 @@
             this.accordionControlElement11.Name = "accordionControlElement11";
             this.accordionControlElement11.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.accordionControlElement11.Text = "Kassalar";
+            this.accordionControlElement11.Click += new System.EventHandler(this.accordionControlElement11_Click);
             // 
             // accordionControlElement35
             // 
@@ -10841,5 +10851,6 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit bCustomerSettings;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement11;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement35;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement36;
     }
 }

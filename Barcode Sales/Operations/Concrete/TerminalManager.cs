@@ -38,7 +38,7 @@ namespace Barcode_Sales.Operations.Concrete
 
         public Terminals GetById(int id)
         {
-            return db.Terminals.AsNoTracking().FirstOrDefault(x => x.Id == id);
+            return db.Terminals.FirstOrDefault(x => x.Id == id);
         }
 
         public async Task<Terminals> GetByIdAsync(int id)
@@ -48,12 +48,8 @@ namespace Barcode_Sales.Operations.Concrete
 
         public void Remove(Terminals item)
         {
-            if (CommonMessageBox.QuestionDialogResult($"{item.Name} kassasını silmək istədiyinizə əminsiniz ?"))
-            {
-                var data = db.Terminals.Find(item.Id);
-                data.IsDeleted = data.Id;
-                db.SaveChanges();
-            }
+            item.IsDeleted = item.Id;
+            db.SaveChanges();
         }
 
         public async Task RemoveAsync(Terminals item)
@@ -123,7 +119,7 @@ namespace Barcode_Sales.Operations.Concrete
 
                 switch (kassa)
                 {
-                    case KassaOperator.SUNMI:
+                    case KassaOperator.CASPOS:
                         terminal.IpAddress = $"http://{terminal.IpAddress}";
                         break;
                     case KassaOperator.OMNITECH:
@@ -134,9 +130,6 @@ namespace Barcode_Sales.Operations.Concrete
                         break;
                     case KassaOperator.NBA:
                         terminal.IpAddress = $"http://{terminal.IpAddress}/api/v1";
-                        break;
-                    case KassaOperator.TIANYU:
-                        terminal.IpAddress = $"http://{terminal.IpAddress}";
                         break;
                     case KassaOperator.DATAPAY:
                         terminal.IpAddress = $"http://{terminal.IpAddress}";

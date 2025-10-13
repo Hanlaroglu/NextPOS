@@ -4,7 +4,6 @@ using Barcode_Sales.Operations.Abstract;
 using Barcode_Sales.Operations.Concrete;
 using Barcode_Sales.Tools;
 using Barcode_Sales.Validations;
-using DevExpress.XtraEditors;
 using System;
 using System.Data;
 using System.Drawing;
@@ -25,14 +24,14 @@ namespace Barcode_Sales.Forms
         {
             InitializeComponent();
 
-            FormHelpers.GridCustomRowNumber(gridView1);
+            //FormHelpers.GridCustomRowNumber(gridView1);
         }
 
-        private void fKassalar_Load(object sender, EventArgs e)
+        private async void fKassalar_Load(object sender, EventArgs e)
         {
             OperatorLoad();
             UsersLoad();
-            TerminalsDataLoad();
+            await TerminalsDataLoad();
         }
 
         private void UsersLoad()
@@ -61,21 +60,13 @@ namespace Barcode_Sales.Forms
         {
             if (lookKassa.Text == "AZSMART")
             {
-                labelControl3.Visible = true;
                 tMerchantId.Visible = true;
                 tMerchantId.Text = "";
-                groupControl1.Height = 165;
-                groupControl2.Location = new Point(0, 171);
-                gridControl1.Location = new Point(5, 217);
             }
             else
             {
-                labelControl3.Visible = false;
                 tMerchantId.Visible = false;
                 tMerchantId.Text = "";
-                groupControl1.Height = 123;
-                groupControl2.Location = new Point(0, 130);
-                gridControl1.Location = new Point(5, 176);
             }
         }
 
@@ -83,31 +74,31 @@ namespace Barcode_Sales.Forms
         {
             try
             {
-                if (bSave.Text == Enums.GetEnumDescription(Enums.Operation.Add))
-                {
-                    Add();
-                }
-                else if (bSave.Text == Enums.GetEnumDescription(Enums.Operation.Edit))
-                {
-                    UpdateData();
-                }
+                Add();
+                //else if (bSave.Text == Enums.GetEnumDescription(Enums.Operation.Edit))
+                //    UpdateData();
 
                 await TerminalsDataLoad();
             }
             catch (Exception ex)
             {
-                CommonMessageBox.ErrorMessageBox(ex.Message);
+                NotificationHelpers.Messages.ErrorMessage(this, ex.Message);
             }
         }
 
         private void Add()
         {
+       
+
+
             int? userId = (int?)lookUser.EditValue;
+
+            var ipAdress = $"{tIpAdress.Text.TrimStart().Trim()}:{tPort.Text.TrimStart().Trim()}";
 
             _terminal = new Terminals()
             {
                 Name = lookKassa.Text,
-                IpAddress = tIpAdress.Text,
+                IpAddress = ipAdress,
                 MerchantId = tMerchantId.Text,
                 Status = true,
                 IsDeleted = 0,
@@ -118,6 +109,12 @@ namespace Barcode_Sales.Forms
 
             if (!validator.IsValid)
             {
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(tPort.Text))
+            {
+                NotificationHelpers.Messages.ErrorMessage(this, "Port nömrəsi daxil edilmədi");
                 return;
             }
 
@@ -150,8 +147,9 @@ namespace Barcode_Sales.Forms
         {
             lookKassa.EditValue = null;
             lookUser.EditValue = null;
-            tIpAdress.Text = null;
-            tMerchantId.Text = null;
+            tIpAdress.Clear();
+            tPort.Clear();
+            tMerchantId.Clear();
             _terminal = null;
         }
 
@@ -162,33 +160,16 @@ namespace Barcode_Sales.Forms
 
                 Cursor.Current = Cursors.WaitCursor;
                 var data = await terminalOperation.WhereAsync();
-                //FormHelpers.ControlLoad(data, gridControl1);
 
                 gridControl1.Invoke(new Action(() => FormHelpers.ControlLoad(data, gridControl1)));
             }
             catch (Exception ex)
             {
-                CommonMessageBox.ErrorMessageBox(ex.Message);
+                NotificationHelpers.Messages.ErrorMessage(this, ex.Message);
             }
             finally
             {
                 Cursor.Current = Cursors.Default;
-            }
-        }
-
-        private async void bDelete_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
-        {
-            if (gridView1.GetFocusedRow() == null)
-            {
-                OperationsControl.Message(CommonMessages.NOT_SELECTİON, NextPOS.UserControls.fMessage.enmType.Warning);
-                return;
-            }
-            else
-            {
-                int Id = Convert.ToInt32(gridView1.GetFocusedRowCellValue("Id").ToString());
-                var item = terminalOperation.GetById(Id);
-                terminalOperation.Remove(item);
-                await TerminalsDataLoad();
             }
         }
 
@@ -240,6 +221,53 @@ namespace Barcode_Sales.Forms
         private async void bRefresh_Click(object sender, EventArgs e)
         {
             await TerminalsDataLoad();
+        }
+
+        private async void bPopupDelete_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            await Delete();
+        }
+
+        private async Task Delete()
+        {
+            if (gridView1.GetFocusedRow() == null)
+                NotificationHelpers.Messages.WarningMessage(this, CommonMessages.NOT_SELECTİON);
+            else
+            {
+                int Id = Convert.ToInt32(gridView1.GetFocusedRowCellValue("Id").ToString());
+                var item = terminalOperation.GetById(Id);
+                terminalOperation.Remove(item);
+                await TerminalsDataLoad();
+            }
+        }
+
+        private void bDetail_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            Point mousePosition = Control.MousePosition;
+            popupMainMenu.ShowPopup(mousePosition);
+        }
+
+        private void bPopupPing_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if (gridView1.GetFocusedRow() == null)
+            {
+                NotificationHelpers.Messages.WarningMessage(this, CommonMessages.NOT_SELECTİON);
+            }
+            else
+            {
+                string data = gridView1.GetFocusedRowCellValue("IpAddress").ToString();
+
+                if (string.IsNullOrWhiteSpace(data))
+                    return;
+
+                string IpAddress = data.Split(':')[0];
+
+                bool result = FormHelpers.PingHostAsync(IpAddress);
+                if (result)
+                    NotificationHelpers.Messages.SuccessMessage(this, $"{IpAddress} adresi ilə əlaqə mövcuddur");
+                else
+                    NotificationHelpers.Messages.ErrorMessage(this, $"{IpAddress} adresi ilə əlaqə yoxdur");
+            }
         }
     }
 }

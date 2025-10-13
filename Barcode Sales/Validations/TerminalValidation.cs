@@ -1,11 +1,6 @@
 ﻿using Barcode_Sales.Helpers;
 using FluentValidation;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Barcode_Sales.Validations
 {
@@ -15,10 +10,8 @@ namespace Barcode_Sales.Validations
         {
             RuleFor(x => x.Name).NotEmpty().WithMessage("Operator seçimi edilmədi");
             RuleFor(x => x.IpAddress).NotEmpty()
-                                     .WithMessage("İp adresi boş buraxılabilməz")
-                                     .Must(BeValidIpAddressAndPort)
-                                     .WithMessage("Etibarlı IP ünvanı və port daxil edin. Misal: 192.168.1.1:8080")
-                                     .When(x=> x.Name != nameof(Enums.KassaOperator.XPRINTER));
+                .WithMessage("İp adresi boş buraxılabilməz")
+                .WithMessage("Etibarlı IP ünvanı  daxil edin. Misal: 192.168.1.26");
 
             RuleFor(x => x.MerchantId).NotEmpty()
                                      .WithMessage("MerchantID boş buraxılabilməz")

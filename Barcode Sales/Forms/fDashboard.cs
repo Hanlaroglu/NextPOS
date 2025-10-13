@@ -738,5 +738,15 @@ namespace Barcode_Sales.Forms
                 NotificationHelpers.Messages.ErrorMessage(this, ex.Message);
             }
         }
+
+        private void accordionControlElement11_Click(object sender, EventArgs e)
+        {
+            FormHelpers.OpenForm<fKassalar>();
+        }
+
+        private void accordionControlElement8_Click(object sender, EventArgs e)
+        {
+            FormHelpers.OpenForm<fInvoiceReport>();
+        }
     }
 }
