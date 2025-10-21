@@ -28,6 +28,13 @@ namespace Barcode_Sales.Operations.Concrete
             }
         }
 
+        public int AddProduct(Products item)
+        {
+            db.Products.Add(item);
+            db.SaveChanges();
+            return item.Id;
+        }
+
         public async Task AddAsync(Products item)
         {
             db.Products.Add(item);

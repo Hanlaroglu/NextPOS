@@ -671,7 +671,7 @@ namespace Barcode_Sales.Forms
 
         private void bAddInvoice_Click(object sender, EventArgs e)
         {
-            FormHelpers.OpenForm<fInvoiceProduct>();
+            FormHelpers.OpenForm<fInvoiceProduct>((object[])null);
         }
 
         private void bCustomerSettings_ButtonClick(object sender, ButtonPressedEventArgs e)

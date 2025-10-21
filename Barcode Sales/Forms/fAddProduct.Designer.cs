@@ -30,11 +30,22 @@ namespace Barcode_Sales.Forms
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions12 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject45 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject46 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject47 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject48 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions17 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject65 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject66 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject67 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject68 = new DevExpress.Utils.SerializableAppearanceObject();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fAddProduct));
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions18 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject69 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject70 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject71 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject72 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions19 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject73 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject74 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject75 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject76 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
@@ -55,6 +66,11 @@ namespace Barcode_Sales.Forms
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject14 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject15 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject16 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions20 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject77 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject78 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject79 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject80 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions5 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject17 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject18 = new DevExpress.Utils.SerializableAppearanceObject();
@@ -90,7 +106,11 @@ namespace Barcode_Sales.Forms
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject42 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject43 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject44 = new DevExpress.Utils.SerializableAppearanceObject();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fAddProduct));
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions12 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject45 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject46 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject47 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject48 = new DevExpress.Utils.SerializableAppearanceObject();
             this.gridControlProducts = new DevExpress.XtraGrid.GridControl();
             this.gridProducts = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colNo = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -110,25 +130,18 @@ namespace Barcode_Sales.Forms
             this.tabPane3 = new DevExpress.XtraBars.Navigation.TabPane();
             this.tabNavigationPage1 = new DevExpress.XtraBars.Navigation.TabNavigationPage();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
+            this.bSave = new DevExpress.XtraEditors.SimpleButton();
             this.tablePanel2 = new DevExpress.Utils.Layout.TablePanel();
             this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
-            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.lookCategory = new DevExpress.XtraEditors.LookUpEdit();
             this.tProductName = new DevExpress.XtraEditors.ButtonEdit();
             this.tBarcode = new DevExpress.XtraEditors.ButtonEdit();
-            this.labelControl24 = new DevExpress.XtraEditors.LabelControl();
             this.lookSuppliers = new DevExpress.XtraEditors.LookUpEdit();
-            this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.panelControl4 = new DevExpress.XtraEditors.PanelControl();
-            this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl11 = new DevExpress.XtraEditors.LabelControl();
-            this.lookTax = new DevExpress.XtraEditors.LookUpEdit();
-            this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
-            this.lookUnit = new DevExpress.XtraEditors.LookUpEdit();
-            this.tSalesPrice = new DevExpress.XtraEditors.ButtonEdit();
             this.tPurchasePrice = new DevExpress.XtraEditors.ButtonEdit();
+            this.tSalePrice = new DevExpress.XtraEditors.ButtonEdit();
+            this.lookTax = new DevExpress.XtraEditors.LookUpEdit();
+            this.lookUnit = new DevExpress.XtraEditors.LookUpEdit();
             this.bClear = new DevExpress.XtraEditors.SimpleButton();
             this.bAddProduct = new DevExpress.XtraEditors.SimpleButton();
             this.tabNavigationPage2 = new DevExpress.XtraBars.Navigation.TabNavigationPage();
@@ -144,6 +157,7 @@ namespace Barcode_Sales.Forms
             this.bAddCategory = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement1 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement2 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.behaviorManager1 = new DevExpress.Utils.Behaviors.BehaviorManager(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.gridControlProducts)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridProducts)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bProductDelete)).BeginInit();
@@ -162,10 +176,10 @@ namespace Barcode_Sales.Forms
             ((System.ComponentModel.ISupportInitialize)(this.lookSuppliers.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).BeginInit();
             this.panelControl4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tPurchasePrice.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tSalePrice.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookTax.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookUnit.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tSalesPrice.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tPurchasePrice.Properties)).BeginInit();
             this.tabNavigationPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
@@ -175,6 +189,7 @@ namespace Barcode_Sales.Forms
             this.tablePanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fluentDesignFormControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.accordionControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).BeginInit();
             this.SuspendLayout();
             // 
             // gridControlProducts
@@ -183,13 +198,13 @@ namespace Barcode_Sales.Forms
             this.tablePanel1.SetColumn(this.gridControlProducts, 0);
             this.tablePanel1.SetColumnSpan(this.gridControlProducts, 2);
             this.gridControlProducts.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControlProducts.Location = new System.Drawing.Point(3, 296);
+            this.gridControlProducts.Location = new System.Drawing.Point(3, 285);
             this.gridControlProducts.MainView = this.gridProducts;
             this.gridControlProducts.Name = "gridControlProducts";
             this.gridControlProducts.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.bProductDelete});
             this.tablePanel1.SetRow(this.gridControlProducts, 1);
-            this.gridControlProducts.Size = new System.Drawing.Size(913, 467);
+            this.gridControlProducts.Size = new System.Drawing.Size(913, 478);
             this.gridControlProducts.TabIndex = 9;
             this.gridControlProducts.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridProducts});
@@ -249,8 +264,6 @@ namespace Barcode_Sales.Forms
             this.colNo.OptionsColumn.AllowEdit = false;
             this.colNo.OptionsFilter.AllowAutoFilter = false;
             this.colNo.OptionsFilter.AllowFilter = false;
-            this.colNo.Visible = true;
-            this.colNo.VisibleIndex = 0;
             this.colNo.Width = 34;
             // 
             // gridColumn1
@@ -290,7 +303,7 @@ namespace Barcode_Sales.Forms
             this.colProductName.Name = "colProductName";
             this.colProductName.OptionsColumn.AllowEdit = false;
             this.colProductName.Visible = true;
-            this.colProductName.VisibleIndex = 1;
+            this.colProductName.VisibleIndex = 0;
             this.colProductName.Width = 243;
             // 
             // colBarcode
@@ -305,7 +318,7 @@ namespace Barcode_Sales.Forms
             this.colBarcode.Name = "colBarcode";
             this.colBarcode.OptionsColumn.AllowEdit = false;
             this.colBarcode.Visible = true;
-            this.colBarcode.VisibleIndex = 2;
+            this.colBarcode.VisibleIndex = 1;
             this.colBarcode.Width = 123;
             // 
             // colCode
@@ -333,7 +346,7 @@ namespace Barcode_Sales.Forms
             this.colUnit.Name = "colUnit";
             this.colUnit.OptionsColumn.AllowEdit = false;
             this.colUnit.Visible = true;
-            this.colUnit.VisibleIndex = 3;
+            this.colUnit.VisibleIndex = 2;
             this.colUnit.Width = 99;
             // 
             // colAmount
@@ -359,7 +372,7 @@ namespace Barcode_Sales.Forms
             this.colTax.Name = "colTax";
             this.colTax.OptionsColumn.AllowEdit = false;
             this.colTax.Visible = true;
-            this.colTax.VisibleIndex = 4;
+            this.colTax.VisibleIndex = 3;
             this.colTax.Width = 104;
             // 
             // colPurchasePrice
@@ -377,7 +390,7 @@ namespace Barcode_Sales.Forms
             this.colPurchasePrice.Name = "colPurchasePrice";
             this.colPurchasePrice.OptionsColumn.AllowEdit = false;
             this.colPurchasePrice.Visible = true;
-            this.colPurchasePrice.VisibleIndex = 5;
+            this.colPurchasePrice.VisibleIndex = 4;
             this.colPurchasePrice.Width = 113;
             // 
             // colSalesPrice
@@ -395,7 +408,7 @@ namespace Barcode_Sales.Forms
             this.colSalesPrice.Name = "colSalesPrice";
             this.colSalesPrice.OptionsColumn.AllowEdit = false;
             this.colSalesPrice.Visible = true;
-            this.colSalesPrice.VisibleIndex = 6;
+            this.colSalesPrice.VisibleIndex = 5;
             this.colSalesPrice.Width = 126;
             // 
             // colDelete
@@ -416,16 +429,16 @@ namespace Barcode_Sales.Forms
             this.colDelete.OptionsFilter.AllowAutoFilter = false;
             this.colDelete.OptionsFilter.AllowFilter = false;
             this.colDelete.Visible = true;
-            this.colDelete.VisibleIndex = 7;
+            this.colDelete.VisibleIndex = 6;
             this.colDelete.Width = 50;
             // 
             // bProductDelete
             // 
             this.bProductDelete.AutoHeight = false;
             this.bProductDelete.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            editorButtonImageOptions12.SvgImage = global::Barcode_Sales.Properties.Resources.del;
+            editorButtonImageOptions17.SvgImage = global::Barcode_Sales.Properties.Resources.del;
             this.bProductDelete.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions12, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject45, serializableAppearanceObject46, serializableAppearanceObject47, serializableAppearanceObject48, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions17, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject65, serializableAppearanceObject66, serializableAppearanceObject67, serializableAppearanceObject68, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.bProductDelete.Name = "bProductDelete";
             this.bProductDelete.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.bProductDelete.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.bProductDelete_ButtonClick);
@@ -464,10 +477,10 @@ namespace Barcode_Sales.Forms
             this.tabPane3.Pages.AddRange(new DevExpress.XtraBars.Navigation.NavigationPageBase[] {
             this.tabNavigationPage1,
             this.tabNavigationPage2});
-            this.tabPane3.RegularSize = new System.Drawing.Size(913, 289);
+            this.tabPane3.RegularSize = new System.Drawing.Size(913, 278);
             this.tablePanel1.SetRow(this.tabPane3, 0);
             this.tabPane3.SelectedPage = this.tabNavigationPage1;
-            this.tabPane3.Size = new System.Drawing.Size(913, 289);
+            this.tabPane3.Size = new System.Drawing.Size(913, 278);
             this.tabPane3.TabIndex = 11;
             this.tabPane3.Text = "tabPane3";
             // 
@@ -476,18 +489,46 @@ namespace Barcode_Sales.Forms
             this.tabNavigationPage1.Caption = "Məhsul məlumatları";
             this.tabNavigationPage1.Controls.Add(this.panelControl2);
             this.tabNavigationPage1.Name = "tabNavigationPage1";
-            this.tabNavigationPage1.Size = new System.Drawing.Size(913, 244);
+            this.tabNavigationPage1.Size = new System.Drawing.Size(913, 233);
             // 
             // panelControl2
             // 
+            this.panelControl2.Controls.Add(this.bSave);
             this.panelControl2.Controls.Add(this.tablePanel2);
             this.panelControl2.Controls.Add(this.bClear);
             this.panelControl2.Controls.Add(this.bAddProduct);
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl2.Location = new System.Drawing.Point(0, 0);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(913, 244);
+            this.panelControl2.Size = new System.Drawing.Size(913, 233);
             this.panelControl2.TabIndex = 12;
+            // 
+            // bSave
+            // 
+            this.bSave.AllowFocus = false;
+            this.bSave.Appearance.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Success;
+            this.bSave.Appearance.Font = new System.Drawing.Font("Nunito", 12F, System.Drawing.FontStyle.Bold);
+            this.bSave.Appearance.ForeColor = System.Drawing.Color.Black;
+            this.bSave.Appearance.Options.UseBackColor = true;
+            this.bSave.Appearance.Options.UseFont = true;
+            this.bSave.Appearance.Options.UseForeColor = true;
+            this.bSave.AppearanceHovered.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(131)))), ((int)(((byte)(131)))));
+            this.bSave.AppearanceHovered.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(131)))), ((int)(((byte)(131)))));
+            this.bSave.AppearanceHovered.Options.UseBackColor = true;
+            this.bSave.Cursor = System.Windows.Forms.Cursors.No;
+            this.bSave.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bSave.ImageOptions.SvgImage")));
+            this.bSave.ImageOptions.SvgImageSize = new System.Drawing.Size(28, 28);
+            this.bSave.Location = new System.Drawing.Point(8, 192);
+            this.bSave.LookAndFeel.SkinName = "WXI";
+            this.bSave.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.bSave.Name = "bSave";
+            this.bSave.Padding = new System.Windows.Forms.Padding(3);
+            this.bSave.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
+            this.bSave.Size = new System.Drawing.Size(140, 35);
+            this.bSave.TabIndex = 25;
+            this.bSave.TabStop = false;
+            this.bSave.Text = "Saxla (0)";
+            this.bSave.Click += new System.EventHandler(this.bSave_Click);
             // 
             // tablePanel2
             // 
@@ -509,14 +550,10 @@ namespace Barcode_Sales.Forms
             // panelControl3
             // 
             this.tablePanel2.SetColumn(this.panelControl3, 0);
-            this.panelControl3.Controls.Add(this.labelControl2);
             this.panelControl3.Controls.Add(this.lookCategory);
             this.panelControl3.Controls.Add(this.tProductName);
             this.panelControl3.Controls.Add(this.tBarcode);
-            this.panelControl3.Controls.Add(this.labelControl24);
             this.panelControl3.Controls.Add(this.lookSuppliers);
-            this.panelControl3.Controls.Add(this.labelControl4);
-            this.panelControl3.Controls.Add(this.labelControl5);
             this.panelControl3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl3.Location = new System.Drawing.Point(3, 3);
             this.panelControl3.Name = "panelControl3";
@@ -524,23 +561,11 @@ namespace Barcode_Sales.Forms
             this.panelControl3.Size = new System.Drawing.Size(439, 178);
             this.panelControl3.TabIndex = 0;
             // 
-            // labelControl2
-            // 
-            this.labelControl2.Appearance.Font = new System.Drawing.Font("Nunito", 12F);
-            this.labelControl2.Appearance.Options.UseFont = true;
-            this.labelControl2.Location = new System.Drawing.Point(5, 139);
-            this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
-            this.labelControl2.Size = new System.Drawing.Size(57, 22);
-            this.labelControl2.TabIndex = 10;
-            this.labelControl2.Text = "Barkod";
-            this.labelControl2.UseMnemonic = false;
-            // 
             // lookCategory
             // 
             this.lookCategory.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.lookCategory.Location = new System.Drawing.Point(115, 48);
+            this.lookCategory.Location = new System.Drawing.Point(5, 48);
             this.lookCategory.Name = "lookCategory";
             this.lookCategory.Properties.AllowFocused = false;
             this.lookCategory.Properties.Appearance.Font = new System.Drawing.Font("Nunito", 12F);
@@ -555,46 +580,60 @@ namespace Barcode_Sales.Forms
             this.lookCategory.Properties.AppearanceFocused.Options.UseFont = true;
             this.lookCategory.Properties.AppearanceReadOnly.Font = new System.Drawing.Font("Nunito", 12F);
             this.lookCategory.Properties.AppearanceReadOnly.Options.UseFont = true;
-            serializableAppearanceObject4.Font = new System.Drawing.Font("Nunito", 9.749998F, System.Drawing.FontStyle.Bold);
-            serializableAppearanceObject4.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.Critical;
-            serializableAppearanceObject4.Options.UseFont = true;
-            serializableAppearanceObject4.Options.UseForeColor = true;
+            serializableAppearanceObject69.Font = new System.Drawing.Font("Nunito", 12F, System.Drawing.FontStyle.Bold);
+            serializableAppearanceObject69.Options.UseFont = true;
+            serializableAppearanceObject72.Font = new System.Drawing.Font("Nunito", 12F, System.Drawing.FontStyle.Bold);
+            serializableAppearanceObject72.Options.UseFont = true;
+            serializableAppearanceObject73.Font = new System.Drawing.Font("Nunito", 12F, System.Drawing.FontStyle.Bold);
+            serializableAppearanceObject73.Options.UseFont = true;
+            serializableAppearanceObject76.Font = new System.Drawing.Font("Nunito", 12F, System.Drawing.FontStyle.Bold);
+            serializableAppearanceObject76.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.Critical;
+            serializableAppearanceObject76.Options.UseFont = true;
+            serializableAppearanceObject76.Options.UseForeColor = true;
             this.lookCategory.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "*", -1, false, true, true, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Kateqoriya : ", -1, false, true, true, editorButtonImageOptions18, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject69, serializableAppearanceObject70, serializableAppearanceObject71, serializableAppearanceObject72, "", null, null, DevExpress.Utils.ToolTipAnchor.Default),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "*", -1, false, true, true, editorButtonImageOptions19, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject73, serializableAppearanceObject74, serializableAppearanceObject75, serializableAppearanceObject76, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.lookCategory.Properties.DropDownRows = 6;
             this.lookCategory.Properties.NullText = "";
             this.lookCategory.Properties.NullValuePrompt = "Kateqoriya seçimini edin";
             this.lookCategory.Properties.ShowFooter = false;
             this.lookCategory.Properties.ShowHeader = false;
-            this.lookCategory.Size = new System.Drawing.Size(319, 36);
+            this.lookCategory.Size = new System.Drawing.Size(429, 36);
             this.lookCategory.TabIndex = 1;
             // 
             // tProductName
             // 
             this.tProductName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tProductName.Location = new System.Drawing.Point(115, 90);
+            this.tProductName.Location = new System.Drawing.Point(5, 90);
             this.tProductName.Name = "tProductName";
             this.tProductName.Properties.Appearance.Font = new System.Drawing.Font("Nunito", 12F);
             this.tProductName.Properties.Appearance.Options.UseFont = true;
-            serializableAppearanceObject8.Font = new System.Drawing.Font("Nunito", 9.749998F, System.Drawing.FontStyle.Bold);
+            serializableAppearanceObject1.Font = new System.Drawing.Font("Nunito", 12F, System.Drawing.FontStyle.Bold);
+            serializableAppearanceObject1.Options.UseFont = true;
+            serializableAppearanceObject4.Font = new System.Drawing.Font("Nunito", 12F, System.Drawing.FontStyle.Bold);
+            serializableAppearanceObject4.Options.UseFont = true;
+            serializableAppearanceObject5.Font = new System.Drawing.Font("Nunito", 12F, System.Drawing.FontStyle.Bold);
+            serializableAppearanceObject5.Options.UseFont = true;
+            serializableAppearanceObject8.Font = new System.Drawing.Font("Nunito", 12F, System.Drawing.FontStyle.Bold);
             serializableAppearanceObject8.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.Critical;
             serializableAppearanceObject8.Options.UseFont = true;
             serializableAppearanceObject8.Options.UseForeColor = true;
             this.tProductName.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Məhsul adı : ", -1, false, true, true, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default),
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "*", -1, false, true, true, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.tProductName.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.tProductName.Properties.MaskSettings.Set("mask", "(999) 000-00-00");
             this.tProductName.Properties.MaxLength = 20;
-            this.tProductName.Size = new System.Drawing.Size(319, 36);
+            this.tProductName.Size = new System.Drawing.Size(429, 36);
             this.tProductName.TabIndex = 2;
             // 
             // tBarcode
             // 
             this.tBarcode.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tBarcode.Location = new System.Drawing.Point(115, 132);
+            this.tBarcode.Location = new System.Drawing.Point(5, 132);
             this.tBarcode.Name = "tBarcode";
             this.tBarcode.Properties.Appearance.Font = new System.Drawing.Font("Nunito", 12F);
             this.tBarcode.Properties.Appearance.Options.UseFont = true;
@@ -603,34 +642,29 @@ namespace Barcode_Sales.Forms
             serializableAppearanceObject9.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.Hyperlink;
             serializableAppearanceObject9.Options.UseFont = true;
             serializableAppearanceObject9.Options.UseForeColor = true;
-            serializableAppearanceObject16.Font = new System.Drawing.Font("Nunito", 12F);
-            serializableAppearanceObject16.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.Critical;
+            serializableAppearanceObject13.Font = new System.Drawing.Font("Nunito", 12F, System.Drawing.FontStyle.Bold);
+            serializableAppearanceObject13.Options.UseFont = true;
+            serializableAppearanceObject16.Font = new System.Drawing.Font("Nunito", 12F, System.Drawing.FontStyle.Bold);
             serializableAppearanceObject16.Options.UseFont = true;
-            serializableAppearanceObject16.Options.UseForeColor = true;
+            serializableAppearanceObject77.Font = new System.Drawing.Font("Nunito", 12F, System.Drawing.FontStyle.Bold);
+            serializableAppearanceObject77.Options.UseFont = true;
+            serializableAppearanceObject80.Font = new System.Drawing.Font("Nunito", 12F, System.Drawing.FontStyle.Bold);
+            serializableAppearanceObject80.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.Critical;
+            serializableAppearanceObject80.Options.UseFont = true;
+            serializableAppearanceObject80.Options.UseForeColor = true;
             this.tBarcode.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "BARKOD YARAT", -1, true, true, false, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "", null, null, DevExpress.Utils.ToolTipAnchor.Default),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "*", -1, false, true, true, editorButtonImageOptions4, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject13, serializableAppearanceObject14, serializableAppearanceObject15, serializableAppearanceObject16, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Barkod : ", -1, false, true, true, editorButtonImageOptions4, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject13, serializableAppearanceObject14, serializableAppearanceObject15, serializableAppearanceObject16, "", null, null, DevExpress.Utils.ToolTipAnchor.Default),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "*", -1, false, true, true, editorButtonImageOptions20, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject77, serializableAppearanceObject78, serializableAppearanceObject79, serializableAppearanceObject80, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.tBarcode.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.tBarcode_Properties_ButtonClick);
-            this.tBarcode.Size = new System.Drawing.Size(319, 36);
+            this.tBarcode.Size = new System.Drawing.Size(429, 36);
             this.tBarcode.TabIndex = 3;
-            // 
-            // labelControl24
-            // 
-            this.labelControl24.Appearance.Font = new System.Drawing.Font("Nunito", 12F);
-            this.labelControl24.Appearance.Options.UseFont = true;
-            this.labelControl24.Location = new System.Drawing.Point(5, 55);
-            this.labelControl24.Name = "labelControl24";
-            this.labelControl24.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
-            this.labelControl24.Size = new System.Drawing.Size(83, 22);
-            this.labelControl24.TabIndex = 5;
-            this.labelControl24.Text = "Kateqoriya";
-            this.labelControl24.UseMnemonic = false;
             // 
             // lookSuppliers
             // 
             this.lookSuppliers.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.lookSuppliers.Location = new System.Drawing.Point(115, 6);
+            this.lookSuppliers.Location = new System.Drawing.Point(5, 6);
             this.lookSuppliers.Name = "lookSuppliers";
             this.lookSuppliers.Properties.AllowFocused = false;
             this.lookSuppliers.Properties.Appearance.Font = new System.Drawing.Font("Nunito", 12F);
@@ -645,58 +679,35 @@ namespace Barcode_Sales.Forms
             this.lookSuppliers.Properties.AppearanceFocused.Options.UseFont = true;
             this.lookSuppliers.Properties.AppearanceReadOnly.Font = new System.Drawing.Font("Nunito", 12F);
             this.lookSuppliers.Properties.AppearanceReadOnly.Options.UseFont = true;
-            serializableAppearanceObject20.Font = new System.Drawing.Font("Nunito", 9.749998F, System.Drawing.FontStyle.Bold);
-            serializableAppearanceObject20.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.Critical;
+            serializableAppearanceObject17.Font = new System.Drawing.Font("Nunito", 12F, System.Drawing.FontStyle.Bold);
+            serializableAppearanceObject17.Options.UseFont = true;
+            serializableAppearanceObject20.Font = new System.Drawing.Font("Nunito", 12F, System.Drawing.FontStyle.Bold);
             serializableAppearanceObject20.Options.UseFont = true;
-            serializableAppearanceObject20.Options.UseForeColor = true;
+            serializableAppearanceObject21.Font = new System.Drawing.Font("Nunito", 12F, System.Drawing.FontStyle.Bold);
+            serializableAppearanceObject21.Options.UseFont = true;
+            serializableAppearanceObject24.Font = new System.Drawing.Font("Nunito", 12F, System.Drawing.FontStyle.Bold);
+            serializableAppearanceObject24.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.Critical;
+            serializableAppearanceObject24.Options.UseFont = true;
+            serializableAppearanceObject24.Options.UseForeColor = true;
             this.lookSuppliers.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "*", -1, false, true, true, editorButtonImageOptions5, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject17, serializableAppearanceObject18, serializableAppearanceObject19, serializableAppearanceObject20, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Təchizatçı : ", -1, false, true, true, editorButtonImageOptions5, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject17, serializableAppearanceObject18, serializableAppearanceObject19, serializableAppearanceObject20, "", null, null, DevExpress.Utils.ToolTipAnchor.Default),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "*", -1, false, true, true, editorButtonImageOptions6, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject21, serializableAppearanceObject22, serializableAppearanceObject23, serializableAppearanceObject24, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.lookSuppliers.Properties.DropDownRows = 6;
             this.lookSuppliers.Properties.NullText = "";
             this.lookSuppliers.Properties.NullValuePrompt = "Təchizatçı seçimini edin";
             this.lookSuppliers.Properties.ShowFooter = false;
             this.lookSuppliers.Properties.ShowHeader = false;
-            this.lookSuppliers.Size = new System.Drawing.Size(319, 36);
+            this.lookSuppliers.Size = new System.Drawing.Size(429, 36);
             this.lookSuppliers.TabIndex = 0;
-            // 
-            // labelControl4
-            // 
-            this.labelControl4.Appearance.Font = new System.Drawing.Font("Nunito", 12F);
-            this.labelControl4.Appearance.Options.UseFont = true;
-            this.labelControl4.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Horizontal;
-            this.labelControl4.Location = new System.Drawing.Point(5, 97);
-            this.labelControl4.Name = "labelControl4";
-            this.labelControl4.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
-            this.labelControl4.Size = new System.Drawing.Size(85, 22);
-            this.labelControl4.TabIndex = 5;
-            this.labelControl4.Text = "Məhsul adı";
-            this.labelControl4.UseMnemonic = false;
-            // 
-            // labelControl5
-            // 
-            this.labelControl5.Appearance.Font = new System.Drawing.Font("Nunito", 12F);
-            this.labelControl5.Appearance.Options.UseFont = true;
-            this.labelControl5.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Horizontal;
-            this.labelControl5.Location = new System.Drawing.Point(5, 13);
-            this.labelControl5.Name = "labelControl5";
-            this.labelControl5.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
-            this.labelControl5.Size = new System.Drawing.Size(77, 22);
-            this.labelControl5.TabIndex = 5;
-            this.labelControl5.Text = "Təchizatçı";
-            this.labelControl5.UseMnemonic = false;
             // 
             // panelControl4
             // 
             this.tablePanel2.SetColumn(this.panelControl4, 1);
-            this.panelControl4.Controls.Add(this.labelControl6);
-            this.panelControl4.Controls.Add(this.labelControl10);
-            this.panelControl4.Controls.Add(this.labelControl11);
-            this.panelControl4.Controls.Add(this.lookTax);
-            this.panelControl4.Controls.Add(this.labelControl7);
-            this.panelControl4.Controls.Add(this.lookUnit);
-            this.panelControl4.Controls.Add(this.tSalesPrice);
             this.panelControl4.Controls.Add(this.tPurchasePrice);
+            this.panelControl4.Controls.Add(this.tSalePrice);
+            this.panelControl4.Controls.Add(this.lookTax);
+            this.panelControl4.Controls.Add(this.lookUnit);
             this.panelControl4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl4.Location = new System.Drawing.Point(448, 3);
             this.panelControl4.Name = "panelControl4";
@@ -704,47 +715,61 @@ namespace Barcode_Sales.Forms
             this.panelControl4.Size = new System.Drawing.Size(452, 178);
             this.panelControl4.TabIndex = 0;
             // 
-            // labelControl6
+            // tPurchasePrice
             // 
-            this.labelControl6.Appearance.Font = new System.Drawing.Font("Nunito", 12F);
-            this.labelControl6.Appearance.Options.UseFont = true;
-            this.labelControl6.Location = new System.Drawing.Point(5, 139);
-            this.labelControl6.Name = "labelControl6";
-            this.labelControl6.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
-            this.labelControl6.Size = new System.Drawing.Size(110, 22);
-            this.labelControl6.TabIndex = 10;
-            this.labelControl6.Text = "Vergi dərəcəsi";
-            this.labelControl6.UseMnemonic = false;
+            this.tPurchasePrice.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tPurchasePrice.EditValue = "0";
+            this.tPurchasePrice.Location = new System.Drawing.Point(5, 6);
+            this.tPurchasePrice.Name = "tPurchasePrice";
+            this.tPurchasePrice.Properties.AllowFocused = false;
+            this.tPurchasePrice.Properties.Appearance.Font = new System.Drawing.Font("Nunito", 12F);
+            this.tPurchasePrice.Properties.Appearance.Options.UseFont = true;
+            this.tPurchasePrice.Properties.Appearance.Options.UseTextOptions = true;
+            this.tPurchasePrice.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.tPurchasePrice.Properties.Appearance.TextOptions.Trimming = DevExpress.Utils.Trimming.EllipsisCharacter;
+            serializableAppearanceObject25.Font = new System.Drawing.Font("Nunito", 12F, System.Drawing.FontStyle.Bold);
+            serializableAppearanceObject25.Options.UseFont = true;
+            serializableAppearanceObject28.Font = new System.Drawing.Font("Nunito", 12F, System.Drawing.FontStyle.Bold);
+            serializableAppearanceObject28.Options.UseFont = true;
+            this.tPurchasePrice.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Alış qiyməti : ", -1, false, true, true, editorButtonImageOptions7, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject25, serializableAppearanceObject26, serializableAppearanceObject27, serializableAppearanceObject28, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            this.tPurchasePrice.Properties.Mask.UseMaskAsDisplayFormat = true;
+            this.tPurchasePrice.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
+            this.tPurchasePrice.Properties.MaskSettings.Set("mask", "c");
+            this.tPurchasePrice.Size = new System.Drawing.Size(442, 36);
+            this.tPurchasePrice.TabIndex = 4;
             // 
-            // labelControl10
+            // tSalePrice
             // 
-            this.labelControl10.Appearance.Font = new System.Drawing.Font("Nunito", 12F);
-            this.labelControl10.Appearance.Options.UseFont = true;
-            this.labelControl10.Location = new System.Drawing.Point(5, 13);
-            this.labelControl10.Name = "labelControl10";
-            this.labelControl10.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
-            this.labelControl10.Size = new System.Drawing.Size(93, 22);
-            this.labelControl10.TabIndex = 10;
-            this.labelControl10.Text = "Alış qiyməti";
-            this.labelControl10.UseMnemonic = false;
-            // 
-            // labelControl11
-            // 
-            this.labelControl11.Appearance.Font = new System.Drawing.Font("Nunito", 12F);
-            this.labelControl11.Appearance.Options.UseFont = true;
-            this.labelControl11.Location = new System.Drawing.Point(5, 56);
-            this.labelControl11.Name = "labelControl11";
-            this.labelControl11.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
-            this.labelControl11.Size = new System.Drawing.Size(100, 22);
-            this.labelControl11.TabIndex = 10;
-            this.labelControl11.Text = "Satış qiyməti";
-            this.labelControl11.UseMnemonic = false;
+            this.tSalePrice.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tSalePrice.EditValue = "0";
+            this.tSalePrice.Location = new System.Drawing.Point(5, 48);
+            this.tSalePrice.Name = "tSalePrice";
+            this.tSalePrice.Properties.AllowFocused = false;
+            this.tSalePrice.Properties.Appearance.Font = new System.Drawing.Font("Nunito", 12F);
+            this.tSalePrice.Properties.Appearance.Options.UseFont = true;
+            this.tSalePrice.Properties.Appearance.Options.UseTextOptions = true;
+            this.tSalePrice.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.tSalePrice.Properties.Appearance.TextOptions.Trimming = DevExpress.Utils.Trimming.EllipsisCharacter;
+            serializableAppearanceObject29.Font = new System.Drawing.Font("Nunito", 12F, System.Drawing.FontStyle.Bold);
+            serializableAppearanceObject29.Options.UseFont = true;
+            serializableAppearanceObject32.Font = new System.Drawing.Font("Nunito", 12F, System.Drawing.FontStyle.Bold);
+            serializableAppearanceObject32.Options.UseFont = true;
+            this.tSalePrice.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Satış qiyməti : ", -1, false, true, true, editorButtonImageOptions8, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject29, serializableAppearanceObject30, serializableAppearanceObject31, serializableAppearanceObject32, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            this.tSalePrice.Properties.Mask.UseMaskAsDisplayFormat = true;
+            this.tSalePrice.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
+            this.tSalePrice.Properties.MaskSettings.Set("mask", "c");
+            this.tSalePrice.Size = new System.Drawing.Size(442, 36);
+            this.tSalePrice.TabIndex = 5;
             // 
             // lookTax
             // 
             this.lookTax.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.lookTax.Location = new System.Drawing.Point(128, 132);
+            this.lookTax.Location = new System.Drawing.Point(5, 132);
             this.lookTax.Name = "lookTax";
             this.lookTax.Properties.AllowFocused = false;
             this.lookTax.Properties.Appearance.Font = new System.Drawing.Font("Nunito", 12F);
@@ -759,39 +784,34 @@ namespace Barcode_Sales.Forms
             this.lookTax.Properties.AppearanceFocused.Options.UseFont = true;
             this.lookTax.Properties.AppearanceReadOnly.Font = new System.Drawing.Font("Nunito", 12F);
             this.lookTax.Properties.AppearanceReadOnly.Options.UseFont = true;
-            serializableAppearanceObject24.Font = new System.Drawing.Font("Nunito", 12F);
-            serializableAppearanceObject24.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.Critical;
-            serializableAppearanceObject24.Options.UseFont = true;
-            serializableAppearanceObject24.Options.UseForeColor = true;
+            serializableAppearanceObject33.Font = new System.Drawing.Font("Nunito", 12F, System.Drawing.FontStyle.Bold);
+            serializableAppearanceObject33.Options.UseFont = true;
+            serializableAppearanceObject36.Font = new System.Drawing.Font("Nunito", 12F, System.Drawing.FontStyle.Bold);
+            serializableAppearanceObject36.Options.UseFont = true;
+            serializableAppearanceObject37.Font = new System.Drawing.Font("Nunito", 12F, System.Drawing.FontStyle.Bold);
+            serializableAppearanceObject37.Options.UseFont = true;
+            serializableAppearanceObject40.Font = new System.Drawing.Font("Nunito", 12F, System.Drawing.FontStyle.Bold);
+            serializableAppearanceObject40.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.Critical;
+            serializableAppearanceObject40.Options.UseFont = true;
+            serializableAppearanceObject40.Options.UseForeColor = true;
             this.lookTax.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "*", -1, false, true, true, editorButtonImageOptions6, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject21, serializableAppearanceObject22, serializableAppearanceObject23, serializableAppearanceObject24, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Vergi dərəcəsi : ", -1, false, true, true, editorButtonImageOptions9, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject33, serializableAppearanceObject34, serializableAppearanceObject35, serializableAppearanceObject36, "", null, null, DevExpress.Utils.ToolTipAnchor.Default),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "*", -1, false, true, true, editorButtonImageOptions10, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject37, serializableAppearanceObject38, serializableAppearanceObject39, serializableAppearanceObject40, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.lookTax.Properties.DropDownRows = 5;
             this.lookTax.Properties.NullText = "";
             this.lookTax.Properties.NullValuePrompt = "Vergi dərəcəsini seçin";
             this.lookTax.Properties.PopupWidthMode = DevExpress.XtraEditors.PopupWidthMode.ContentWidth;
             this.lookTax.Properties.ShowFooter = false;
             this.lookTax.Properties.ShowHeader = false;
-            this.lookTax.Size = new System.Drawing.Size(319, 36);
+            this.lookTax.Size = new System.Drawing.Size(442, 36);
             this.lookTax.TabIndex = 7;
-            // 
-            // labelControl7
-            // 
-            this.labelControl7.Appearance.Font = new System.Drawing.Font("Nunito", 12F);
-            this.labelControl7.Appearance.Options.UseFont = true;
-            this.labelControl7.Location = new System.Drawing.Point(5, 97);
-            this.labelControl7.Name = "labelControl7";
-            this.labelControl7.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
-            this.labelControl7.Size = new System.Drawing.Size(47, 22);
-            this.labelControl7.TabIndex = 10;
-            this.labelControl7.Text = "Vahid";
-            this.labelControl7.UseMnemonic = false;
             // 
             // lookUnit
             // 
             this.lookUnit.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.lookUnit.Location = new System.Drawing.Point(128, 90);
+            this.lookUnit.Location = new System.Drawing.Point(5, 90);
             this.lookUnit.Name = "lookUnit";
             this.lookUnit.Properties.AllowFocused = false;
             this.lookUnit.Properties.Appearance.Font = new System.Drawing.Font("Nunito", 12F);
@@ -806,76 +826,27 @@ namespace Barcode_Sales.Forms
             this.lookUnit.Properties.AppearanceFocused.Options.UseFont = true;
             this.lookUnit.Properties.AppearanceReadOnly.Font = new System.Drawing.Font("Nunito", 12F);
             this.lookUnit.Properties.AppearanceReadOnly.Options.UseFont = true;
-            serializableAppearanceObject28.Font = new System.Drawing.Font("Nunito", 12F);
-            serializableAppearanceObject28.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.Critical;
-            serializableAppearanceObject28.Options.UseFont = true;
-            serializableAppearanceObject28.Options.UseForeColor = true;
+            serializableAppearanceObject41.Font = new System.Drawing.Font("Nunito", 12F, System.Drawing.FontStyle.Bold);
+            serializableAppearanceObject41.Options.UseFont = true;
+            serializableAppearanceObject44.Font = new System.Drawing.Font("Nunito", 12F, System.Drawing.FontStyle.Bold);
+            serializableAppearanceObject44.Options.UseFont = true;
+            serializableAppearanceObject45.Font = new System.Drawing.Font("Nunito", 12F, System.Drawing.FontStyle.Bold);
+            serializableAppearanceObject45.Options.UseFont = true;
+            serializableAppearanceObject48.Font = new System.Drawing.Font("Nunito", 12F, System.Drawing.FontStyle.Bold);
+            serializableAppearanceObject48.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.Critical;
+            serializableAppearanceObject48.Options.UseFont = true;
+            serializableAppearanceObject48.Options.UseForeColor = true;
             this.lookUnit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "*", -1, false, true, true, editorButtonImageOptions7, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject25, serializableAppearanceObject26, serializableAppearanceObject27, serializableAppearanceObject28, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Vahid : ", -1, false, true, true, editorButtonImageOptions11, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject41, serializableAppearanceObject42, serializableAppearanceObject43, serializableAppearanceObject44, "", null, null, DevExpress.Utils.ToolTipAnchor.Default),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "*", -1, false, true, true, editorButtonImageOptions12, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject45, serializableAppearanceObject46, serializableAppearanceObject47, serializableAppearanceObject48, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.lookUnit.Properties.DropDownRows = 6;
             this.lookUnit.Properties.NullText = "";
             this.lookUnit.Properties.NullValuePrompt = "Vahid seçimini edin";
             this.lookUnit.Properties.ShowFooter = false;
             this.lookUnit.Properties.ShowHeader = false;
-            this.lookUnit.Size = new System.Drawing.Size(319, 36);
+            this.lookUnit.Size = new System.Drawing.Size(442, 36);
             this.lookUnit.TabIndex = 6;
-            // 
-            // tSalesPrice
-            // 
-            this.tSalesPrice.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tSalesPrice.EditValue = 0D;
-            this.tSalesPrice.Location = new System.Drawing.Point(128, 49);
-            this.tSalesPrice.Name = "tSalesPrice";
-            this.tSalesPrice.Properties.Appearance.Font = new System.Drawing.Font("Nunito", 12F);
-            this.tSalesPrice.Properties.Appearance.Options.UseFont = true;
-            this.tSalesPrice.Properties.Appearance.Options.UseTextOptions = true;
-            this.tSalesPrice.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-            serializableAppearanceObject29.Font = new System.Drawing.Font("Nunito", 12F, System.Drawing.FontStyle.Bold);
-            serializableAppearanceObject29.Options.UseFont = true;
-            serializableAppearanceObject36.Font = new System.Drawing.Font("Nunito", 12F);
-            serializableAppearanceObject36.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.Critical;
-            serializableAppearanceObject36.Options.UseFont = true;
-            serializableAppearanceObject36.Options.UseForeColor = true;
-            this.tSalesPrice.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "AZN", -1, false, false, false, editorButtonImageOptions8, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject29, serializableAppearanceObject30, serializableAppearanceObject31, serializableAppearanceObject32, "", null, null, DevExpress.Utils.ToolTipAnchor.Default),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "*", -1, false, false, true, editorButtonImageOptions9, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject33, serializableAppearanceObject34, serializableAppearanceObject35, serializableAppearanceObject36, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
-            this.tSalesPrice.Properties.DisplayFormat.FormatString = "C2";
-            this.tSalesPrice.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.tSalesPrice.Properties.Mask.UseMaskAsDisplayFormat = true;
-            this.tSalesPrice.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
-            this.tSalesPrice.Properties.MaskSettings.Set("mask", "c");
-            this.tSalesPrice.Size = new System.Drawing.Size(319, 36);
-            this.tSalesPrice.TabIndex = 5;
-            // 
-            // tPurchasePrice
-            // 
-            this.tPurchasePrice.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tPurchasePrice.EditValue = "0";
-            this.tPurchasePrice.Location = new System.Drawing.Point(128, 6);
-            this.tPurchasePrice.Name = "tPurchasePrice";
-            this.tPurchasePrice.Properties.Appearance.Font = new System.Drawing.Font("Nunito", 12F);
-            this.tPurchasePrice.Properties.Appearance.Options.UseFont = true;
-            this.tPurchasePrice.Properties.Appearance.Options.UseTextOptions = true;
-            this.tPurchasePrice.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-            serializableAppearanceObject37.Font = new System.Drawing.Font("Nunito", 12F, System.Drawing.FontStyle.Bold);
-            serializableAppearanceObject37.Options.UseFont = true;
-            serializableAppearanceObject44.Font = new System.Drawing.Font("Nunito", 12F);
-            serializableAppearanceObject44.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.Critical;
-            serializableAppearanceObject44.Options.UseFont = true;
-            serializableAppearanceObject44.Options.UseForeColor = true;
-            this.tPurchasePrice.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "AZN", -1, false, false, false, editorButtonImageOptions10, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject37, serializableAppearanceObject38, serializableAppearanceObject39, serializableAppearanceObject40, "", null, null, DevExpress.Utils.ToolTipAnchor.Default),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "*", -1, false, false, true, editorButtonImageOptions11, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject41, serializableAppearanceObject42, serializableAppearanceObject43, serializableAppearanceObject44, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
-            this.tPurchasePrice.Properties.DisplayFormat.FormatString = "C2";
-            this.tPurchasePrice.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.tPurchasePrice.Properties.Mask.UseMaskAsDisplayFormat = true;
-            this.tPurchasePrice.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
-            this.tPurchasePrice.Properties.MaskSettings.Set("mask", "c");
-            this.tPurchasePrice.Size = new System.Drawing.Size(319, 36);
-            this.tPurchasePrice.TabIndex = 4;
             // 
             // bClear
             // 
@@ -892,13 +863,13 @@ namespace Barcode_Sales.Forms
             this.bClear.AppearanceHovered.Options.UseBackColor = true;
             this.bClear.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bClear.ImageOptions.SvgImage")));
             this.bClear.ImageOptions.SvgImageSize = new System.Drawing.Size(28, 28);
-            this.bClear.Location = new System.Drawing.Point(667, 195);
+            this.bClear.Location = new System.Drawing.Point(668, 192);
             this.bClear.LookAndFeel.SkinName = "WXI";
             this.bClear.LookAndFeel.UseDefaultLookAndFeel = false;
             this.bClear.Name = "bClear";
             this.bClear.Padding = new System.Windows.Forms.Padding(3);
             this.bClear.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
-            this.bClear.Size = new System.Drawing.Size(113, 40);
+            this.bClear.Size = new System.Drawing.Size(113, 35);
             this.bClear.TabIndex = 14;
             this.bClear.TabStop = false;
             this.bClear.Text = "Təmizlə";
@@ -909,23 +880,25 @@ namespace Barcode_Sales.Forms
             this.bAddProduct.AllowFocus = false;
             this.bAddProduct.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.bAddProduct.Appearance.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Question;
-            this.bAddProduct.Appearance.Font = new System.Drawing.Font("Nunito", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bAddProduct.Appearance.Font = new System.Drawing.Font("Nunito", 12F, System.Drawing.FontStyle.Bold);
             this.bAddProduct.Appearance.ForeColor = System.Drawing.Color.Black;
             this.bAddProduct.Appearance.Options.UseBackColor = true;
             this.bAddProduct.Appearance.Options.UseFont = true;
             this.bAddProduct.Appearance.Options.UseForeColor = true;
+            this.bAddProduct.Appearance.Options.UseTextOptions = true;
+            this.bAddProduct.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.bAddProduct.AppearanceHovered.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(131)))), ((int)(((byte)(131)))));
             this.bAddProduct.AppearanceHovered.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(131)))), ((int)(((byte)(131)))));
             this.bAddProduct.AppearanceHovered.Options.UseBackColor = true;
             this.bAddProduct.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bAddProduct.ImageOptions.SvgImage")));
             this.bAddProduct.ImageOptions.SvgImageSize = new System.Drawing.Size(28, 28);
-            this.bAddProduct.Location = new System.Drawing.Point(787, 195);
+            this.bAddProduct.Location = new System.Drawing.Point(787, 192);
             this.bAddProduct.LookAndFeel.SkinName = "WXI";
             this.bAddProduct.LookAndFeel.UseDefaultLookAndFeel = false;
             this.bAddProduct.Name = "bAddProduct";
             this.bAddProduct.Padding = new System.Windows.Forms.Padding(3);
             this.bAddProduct.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
-            this.bAddProduct.Size = new System.Drawing.Size(118, 40);
+            this.bAddProduct.Size = new System.Drawing.Size(118, 35);
             this.bAddProduct.TabIndex = 14;
             this.bAddProduct.TabStop = false;
             this.bAddProduct.Text = "Əlavə et";
@@ -991,7 +964,7 @@ namespace Barcode_Sales.Forms
             this.tablePanel1.Location = new System.Drawing.Point(0, 0);
             this.tablePanel1.Name = "tablePanel1";
             this.tablePanel1.Rows.AddRange(new DevExpress.Utils.Layout.TablePanelRow[] {
-            new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 293F),
+            new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 282F),
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 26F)});
             this.tablePanel1.Size = new System.Drawing.Size(919, 766);
             this.tablePanel1.TabIndex = 12;
@@ -1090,6 +1063,7 @@ namespace Barcode_Sales.Forms
             this.NavigationControl = this.accordionControl1;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Yeni məhsul";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.fAddProduct_FormClosing);
             this.Load += new System.EventHandler(this.fAddProduct_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gridControlProducts)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridProducts)).EndInit();
@@ -1103,18 +1077,16 @@ namespace Barcode_Sales.Forms
             this.tablePanel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
             this.panelControl3.ResumeLayout(false);
-            this.panelControl3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lookCategory.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tProductName.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tBarcode.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookSuppliers.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).EndInit();
             this.panelControl4.ResumeLayout(false);
-            this.panelControl4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tPurchasePrice.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tSalePrice.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookTax.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookUnit.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tSalesPrice.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tPurchasePrice.Properties)).EndInit();
             this.tabNavigationPage2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
@@ -1125,6 +1097,7 @@ namespace Barcode_Sales.Forms
             this.tablePanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.fluentDesignFormControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.accordionControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1132,14 +1105,10 @@ namespace Barcode_Sales.Forms
         #endregion
 
         private DevExpress.XtraGrid.GridControl gridControlProducts;
-        private DevExpress.XtraEditors.LabelControl labelControl2;
-        private DevExpress.XtraEditors.LabelControl labelControl24;
-        private DevExpress.XtraEditors.LabelControl labelControl4;
         private DevExpress.XtraGrid.Views.Grid.GridView gridProducts;
         private DevExpress.XtraGrid.Columns.GridColumn colNo;
         private DevExpress.XtraEditors.LookUpEdit lookTax;
         private DevExpress.XtraEditors.LookUpEdit lookUnit;
-        private DevExpress.XtraEditors.LabelControl labelControl7;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
         private DevExpress.XtraGrid.Columns.GridColumn colCategory;
         private DevExpress.XtraGrid.Columns.GridColumn colProductName;
@@ -1147,8 +1116,6 @@ namespace Barcode_Sales.Forms
         private DevExpress.XtraGrid.Columns.GridColumn colBarcode;
         private DevExpress.XtraGrid.Columns.GridColumn colUnit;
         private DevExpress.XtraGrid.Columns.GridColumn colTax;
-        private DevExpress.XtraEditors.LabelControl labelControl11;
-        private DevExpress.XtraEditors.LabelControl labelControl10;
         private DevExpress.XtraEditors.ButtonEdit tBarcode;
         private DevExpress.XtraGrid.Columns.GridColumn colDelete;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit bProductDelete;
@@ -1158,17 +1125,13 @@ namespace Barcode_Sales.Forms
         private DevExpress.XtraGrid.Columns.GridColumn colImage;
         private DevExpress.XtraEditors.SimpleButton bAddProduct;
         private DevExpress.XtraEditors.SimpleButton bClear;
-        private DevExpress.XtraEditors.ButtonEdit tSalesPrice;
-        private DevExpress.XtraEditors.ButtonEdit tPurchasePrice;
         private DevExpress.XtraBars.Navigation.TabPane tabPane3;
         private DevExpress.XtraBars.Navigation.TabNavigationPage tabNavigationPage1;
         private DevExpress.XtraBars.Navigation.TabNavigationPage tabNavigationPage2;
         private DevExpress.XtraEditors.PanelControl panelControl2;
         private DevExpress.XtraEditors.PanelControl panelControl1;
-        private DevExpress.XtraEditors.LabelControl labelControl6;
         private DevExpress.XtraEditors.TextEdit tProductCode;
         private DevExpress.XtraEditors.LabelControl labelControl1;
-        private DevExpress.XtraEditors.LabelControl labelControl5;
         private DevExpress.XtraEditors.LookUpEdit lookSuppliers;
         private DevExpress.XtraEditors.ButtonEdit tProductName;
         private DevExpress.XtraEditors.LookUpEdit lookCategory;
@@ -1184,5 +1147,9 @@ namespace Barcode_Sales.Forms
         private DevExpress.Utils.Layout.TablePanel tablePanel2;
         private DevExpress.XtraEditors.PanelControl panelControl3;
         private DevExpress.XtraEditors.PanelControl panelControl4;
+        private DevExpress.XtraEditors.ButtonEdit tSalePrice;
+        private DevExpress.XtraEditors.ButtonEdit tPurchasePrice;
+        private DevExpress.Utils.Behaviors.BehaviorManager behaviorManager1;
+        private DevExpress.XtraEditors.SimpleButton bSave;
     }
 }

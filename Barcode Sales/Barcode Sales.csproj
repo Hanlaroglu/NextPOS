@@ -253,6 +253,7 @@
     <Compile Include="DTOs\DashboardUIDto.cs" />
     <Compile Include="DTOs\DefinitionDto.cs" />
     <Compile Include="DTOs\ProductDto.cs" />
+    <Compile Include="DTOs\ProductInvoiceDto.cs" />
     <Compile Include="DTOs\SalesDataSummary.cs" />
     <Compile Include="DTOs\StoresDto.cs" />
     <Compile Include="DTOs\ViewInvoiceRollbackListDto.cs" />

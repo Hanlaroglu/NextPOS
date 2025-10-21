@@ -139,11 +139,12 @@ namespace Barcode_Sales.Helpers
             }
             else
             {
-                form.WindowState = FormWindowState.Normal;
-                form.StartPosition = FormStartPosition.CenterScreen;
-                form.BringToFront();
+                if (form.WindowState == FormWindowState.Minimized)
+                    form.WindowState = FormWindowState.Normal;
+                form.Show();
             }
-
+            form.BringToFront();
+            form.Activate();
             return form;
         }
 
@@ -162,11 +163,15 @@ namespace Barcode_Sales.Helpers
             }
             else
             {
+                if (form.WindowState == FormWindowState.Minimized)
+                    form.WindowState = FormWindowState.Normal;
+                form.Show();
+
                 form.WindowState = FormWindowState.Normal;
                 form.StartPosition = FormStartPosition.CenterScreen;
-                form.BringToFront();
             }
-
+            form.BringToFront();
+            form.Activate();
             return form;
         }
 

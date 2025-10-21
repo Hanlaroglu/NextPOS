@@ -15,13 +15,15 @@ namespace Barcode_Sales
 
         static void Main()
         {
-            var culture = new CultureInfo("az-AZ");
             GridLocalizer.Active = new MyGridLocalizer();
+
+            var culture = new CultureInfo("az-AZ");
+
+            culture.NumberFormat.NumberDecimalSeparator = ".";
+            culture.NumberFormat.CurrencyGroupSeparator = ",";
+            culture.NumberFormat.CurrencySymbol = "₼"; //₼
             CultureInfo.DefaultThreadCurrentCulture = culture;
             CultureInfo.DefaultThreadCurrentUICulture = culture;
-            CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator = ",";
-            CultureInfo.CurrentCulture.NumberFormat.CurrencyGroupSeparator = ".";
-            CultureInfo.CurrentCulture.NumberFormat.CurrencySymbol = "₼"; //₼
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new fLogin());

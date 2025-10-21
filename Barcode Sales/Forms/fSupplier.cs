@@ -2,25 +2,18 @@
 using Barcode_Sales.Operations.Abstract;
 using Barcode_Sales.Operations.Concrete;
 using Barcode_Sales.Validations;
-using DevExpress.XtraBars.Alerter;
-using DevExpress.XtraEditors;
-using DevExpress.XtraEditors.Internal;
 using System;
-using System.ComponentModel.DataAnnotations;
-using System.Drawing;
-using System.Linq;
 using System.Windows.Forms;
 
 namespace Barcode_Sales.Forms
 {
     public partial class fSupplier : FormBase
     {
-        NextposDBEntities db = new NextposDBEntities();
         ISupplierOperation supplierOperation = new SupplierManager();
         private Enums.Operation Operation { get; }
         private Suppliers Supplier { get; set; }
 
-        public fSupplier(Enums.Operation _operation, Suppliers _suppliers)
+        public fSupplier(Enums.Operation _operation, Suppliers _suppliers = null)
         {
             InitializeComponent();
             Operation = _operation;

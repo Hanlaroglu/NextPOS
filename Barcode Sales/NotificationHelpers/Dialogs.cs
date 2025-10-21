@@ -96,7 +96,7 @@ body{
             return args;
         }
 
-        public static XtraMessageBoxArgs GetMessageArgs()
+        private static XtraMessageBoxArgs GetMessageArgs()
         {
             XtraMessageBoxArgs args = new XtraMessageBoxArgs();
             args.Caption = "Xəbərdarlıq";

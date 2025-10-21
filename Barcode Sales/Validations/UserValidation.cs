@@ -25,11 +25,9 @@ namespace Barcode_Sales.Validations
         {
             using (var db = new NextposDBEntities())
             {
-
                 var control = db.Users.AsNoTracking()
                                 .Include(u => u.Roles)
                                 .FirstOrDefault(x => x.Password == password && x.Username == username);
-
 
                 if (control is null)
                 {

@@ -1,4 +1,5 @@
-﻿using Barcode_Sales.Helpers;
+﻿using Barcode_Sales.DTOs;
+using Barcode_Sales.Helpers;
 using Barcode_Sales.Operations.Abstract;
 using Barcode_Sales.Operations.Concrete;
 using Barcode_Sales.Validations;
@@ -15,17 +16,22 @@ namespace Barcode_Sales.Forms
 {
     public partial class fInvoiceProduct : DevExpress.XtraBars.FluentDesignSystem.FluentDesignForm
     {
-        private IWarehouseOperation warehouseOperation = new WarehouseManager();
-        private IPaymentTypeOperation paymentTypeOperation = new PaymentTypeManager();
-        private IProductOperation productOperation = new ProductManager();
-        private IInvoiceOperation invoiceOperation = new InvoiceManager();
+        IWarehouseOperation warehouseOperation = new WarehouseManager();
+        IPaymentTypeOperation paymentTypeOperation = new PaymentTypeManager();
+        IProductOperation productOperation = new ProductManager();
+        IInvoiceOperation invoiceOperation = new InvoiceManager();
         IInvoiceDetailOperation invoiceDetailOperation = new InvoiceDetailManager();
 
-        private BindingList<ProductSearchData> _dataList = new BindingList<ProductSearchData>();
+        private BindingList<ProductInvoiceDto> _dataList;
 
-        public fInvoiceProduct()
+        public fInvoiceProduct(BindingList<ProductInvoiceDto> productListDto = null)
         {
             InitializeComponent();
+            gridView1.RowCountChanged += (s, x) => UpdateCountData();
+            _dataList = productListDto ?? new BindingList<ProductInvoiceDto>();
+            gridControl1.DataSource = _dataList;
+           
+
         }
 
         private async void fInvoiceProduct_Load(object sender, EventArgs e)
@@ -34,20 +40,20 @@ namespace Barcode_Sales.Forms
             WarehouseLoad();
             PaymentTypeLoad();
             await ProductsLoadAsync();
-            gridControl1.DataSource = _dataList;
-            gridView1.RowCountChanged += (s, x) =>
+        }
+
+        private void UpdateCountData()
+        {
+            if (gridView1.RowCount > 0)
             {
-                if (gridView1.RowCount > 0)
-                {
-                    bSave.Cursor = Cursors.Hand;
-                    bSave.Text = $"Saxla ({_dataList.Count})";
-                }
-                else
-                {
-                    bSave.Cursor = Cursors.No;
-                    bSave.Text = "Saxla (0)";
-                }
-            };
+                bSave.Cursor = Cursors.Hand;
+                bSave.Text = $"Saxla ({_dataList.Count})";
+            }
+            else
+            {
+                bSave.Cursor = Cursors.No;
+                bSave.Text = "Saxla (0)";
+            }
         }
 
         private void WarehouseLoad()
@@ -66,7 +72,7 @@ namespace Barcode_Sales.Forms
         {
             var data = await productOperation
                 .Where(x => x.IsDeleted == 0 && x.Status == true)
-                .Select(x => new ProductSearchData
+                .Select(x => new ProductInvoiceDto
                 {
                     Id = x.Id,
                     SupplierId = (int)x.SupplierId,
@@ -141,6 +147,7 @@ namespace Barcode_Sales.Forms
                     ProductId = x.Id,
                     Amount = x.Quantity,
                     PurchasePrice = x.PurchasePrice,
+                    SalePrice = x.SalePrice,
                     Discount = 0,
                     TotalPurchasePrice = x.Quantity * x.PurchasePrice,
                 }));
@@ -164,7 +171,7 @@ namespace Barcode_Sales.Forms
         {
             lookProductName.EditValueChanged -= lookProductName_EditValueChanged;
 
-            var selectedRow = lookProductName.Properties.View.GetFocusedRow() as ProductSearchData;
+            var selectedRow = lookProductName.Properties.View.GetFocusedRow() as ProductInvoiceDto;
             if (selectedRow == null) return;
 
             var checkProduct = _dataList.FirstOrDefault(x => x.Barcode == selectedRow.Barcode);
@@ -202,7 +209,7 @@ namespace Barcode_Sales.Forms
                     }
                     else
                     {
-                        _dataList.Add(new ProductSearchData()
+                        _dataList.Add(new ProductInvoiceDto()
                         {
                             Id = data.Id,
                             SupplierId = data.SupplierId ?? default,
@@ -239,32 +246,6 @@ namespace Barcode_Sales.Forms
             tComment.Clear();
         }
 
-        private class ProductSearchData
-        {
-            public int Id { get; set; }
-            public int SupplierId { get; set; }
-            public string SupplierName { get; set; }
-            public string ProductName { get; set; }
-            public double? PurchasePrice { get; set; }
-            public double SalePrice { get; set; }
-            public string Barcode { get; set; }
-            public double? Stock { get; set; } //Anbar qalığı
-            public double Quantity { get; set; } = 1;
-            public double TotalPurchaseAmount { get => Quantity * (double)PurchasePrice; }
-            public double TotalSaleAmount { get => Quantity * SalePrice; }
-            private double _percent;
-            public double Percent
-            {
-                get => _percent;
-                set
-                {
-                    _percent = value;
-                    SalePrice = (double)PurchasePrice * (1 + (_percent / 100));
-                }
-            }
-            public double GainAmount { get => TotalSaleAmount - TotalPurchaseAmount; }
-        }
-
         private void bReport_Click(object sender, EventArgs e)
         {
             FormHelpers.OpenForm<fInvoiceReport>();
@@ -272,7 +253,7 @@ namespace Barcode_Sales.Forms
 
         private void bDeleteRow_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
-            var selectedRow = gridView1.GetFocusedRow() as ProductSearchData;
+            var selectedRow = gridView1.GetFocusedRow() as ProductInvoiceDto;
             if (selectedRow != null)
                 _dataList.Remove(selectedRow);
 
