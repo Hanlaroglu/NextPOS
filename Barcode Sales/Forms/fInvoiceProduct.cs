@@ -105,7 +105,7 @@ namespace Barcode_Sales.Forms
 
             if (!ValidationHelpers.IsValidDate(tDate.Text))
             {
-                NotificationHelpers.Messages.WarningMessage(this, $"Tarix düzgün daxil edilmədi");
+                NotificationHelpers.Messages.WarningMessage(this, ValidationHelpers.DatetimeFormatError);
                 tDate.Focus();
                 return;
             }

@@ -97,6 +97,7 @@ namespace Licence
             this.picLogo.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Zoom;
             this.picLogo.Size = new System.Drawing.Size(61, 57);
             this.picLogo.TabIndex = 10;
+            this.picLogo.Visible = false;
             // 
             // bExit
             // 

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Licence.Forms;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,7 +17,7 @@ namespace Licence
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new fDeactive());
+            Application.Run(new fRegister());
         }
     }
 }

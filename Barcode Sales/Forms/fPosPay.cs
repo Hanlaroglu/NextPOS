@@ -1,7 +1,6 @@
 ﻿using Barcode_Sales.Helpers;
 using Barcode_Sales.Operations.Abstract;
 using Barcode_Sales.Operations.Concrete;
-using DevExpress.XtraBars.Navigation;
 using System;
 using System.Windows.Forms;
 using static Barcode_Sales.Helpers.Classes.SaleClasses;
@@ -12,20 +11,26 @@ namespace Barcode_Sales.Forms
     public partial class fPosPay : DevExpress.XtraEditors.XtraForm
     {
         private SaleData _data;
-        static ITerminalOperation terminalOperation = new TerminalManager();
-        public static readonly Terminals _terminals = terminalOperation.GetIpAddress();
+        private readonly Terminals _terminals = CommonData.terminal;
         public fPosPay(SaleData data)
         {
             InitializeComponent();
             _data = data;
+          
+        }
+
+        private void fPosPay_Load(object sender, EventArgs e)
+        {
             tTotal.Text = _data.Total.ToString("N2");
-            accordionControl1.SelectedElement = bCash;
+            bCash_Click(sender,null);
         }
 
         private void bCash_Click(object sender, EventArgs e)
         {
             navigationFrame1.SelectedPage = pageCash;
-            tCash_Paid.Focus();
+            this.tCash_Paid.Focus();
+            tCash_Paid.Text = _data.Total.ToString("N2");
+
         }
 
         private void bCard_Click(object sender, EventArgs e)
@@ -112,6 +117,8 @@ namespace Barcode_Sales.Forms
                             DialogResult = DialogResult.OK;
                         break;
                     case KassaOperator.AZSMART:
+                        if (NKA.AzSmart.Sale(_data))
+                            DialogResult = DialogResult.OK;
                         break;
                     case KassaOperator.NBA:
                         break;
@@ -143,6 +150,8 @@ namespace Barcode_Sales.Forms
                             DialogResult = DialogResult.OK;
                         break;
                     case KassaOperator.AZSMART:
+                        if (NKA.AzSmart.Sale(_data))
+                            DialogResult = DialogResult.OK;
                         break;
                     case KassaOperator.NBA:
                         break;
@@ -196,6 +205,8 @@ namespace Barcode_Sales.Forms
                             DialogResult = DialogResult.OK;
                         break;
                     case KassaOperator.AZSMART:
+                        if (NKA.AzSmart.Sale(_data))
+                            DialogResult = DialogResult.OK;
                         break;
                     case KassaOperator.NBA:
                         break;

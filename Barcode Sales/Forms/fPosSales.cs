@@ -20,6 +20,7 @@ namespace Barcode_Sales.Forms
         IProductOperation productOperation = new ProductManager();
         private ISaleDataOperation saleDataOperation = new SalesDataManager();
         private BindingList<SaleDataItem> dataList = new BindingList<SaleDataItem>();
+        private ITerminalOperation terminalOperation = new TerminalManager();
         short rowNo = 1;
 
         public fPosSales()
@@ -43,6 +44,7 @@ namespace Barcode_Sales.Forms
 
         private async void fPosSales_Load(object sender, EventArgs e)
         {
+            CommonData.terminal = terminalOperation.GetIpAddress();
             tSaleCount.Text = await saleDataOperation.SalesCount();
             tToday.Properties.Buttons[1].Caption = CommonData.TODAY_DATE;
             tCashier.Properties.Buttons[1].Caption = CommonData.CURRENT_USER?.NameSurname;
@@ -256,7 +258,9 @@ namespace Barcode_Sales.Forms
         {
             Point pt = gridBasket.GridControl.PointToClient(Control.MousePosition);
             GridHitInfo info = gridBasket.CalcHitInfo(pt);
-            int focusedRow = Int32.Parse(gridBasket.GetFocusedRowCellValue(colId).ToString());
+            var value = gridBasket.GetFocusedRowCellValue(colId);
+            if (value == null || !Int32.TryParse(value.ToString(), out int focusedRow))
+                return;
 
             var selectedProduct = dataList.FirstOrDefault(x => x.Id == focusedRow);
             if (info.InRowCell)

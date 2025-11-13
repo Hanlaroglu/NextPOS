@@ -189,7 +189,6 @@ namespace Barcode_Sales.Forms
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo),
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "İstifadəçi : ", -1, false, true, true, editorButtonImageOptions5, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject17, serializableAppearanceObject18, serializableAppearanceObject19, serializableAppearanceObject20, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.lookUser.Properties.NullText = "";
-            this.lookUser.Properties.NullValuePrompt = "İstifadəçi seç";
             this.lookUser.Properties.ShowFooter = false;
             this.lookUser.Properties.ShowHeader = false;
             this.lookUser.Size = new System.Drawing.Size(347, 32);
@@ -212,7 +211,6 @@ namespace Barcode_Sales.Forms
             this.lookKassa.Properties.HighlightedItemStyle = DevExpress.XtraEditors.HighlightStyle.Skinned;
             this.lookKassa.Properties.HotTrackItems = false;
             this.lookKassa.Properties.NullText = "";
-            this.lookKassa.Properties.NullValuePrompt = "Operator seç";
             this.lookKassa.Properties.ShowFooter = false;
             this.lookKassa.Properties.ShowHeader = false;
             this.lookKassa.Size = new System.Drawing.Size(347, 32);
@@ -233,7 +231,6 @@ namespace Barcode_Sales.Forms
             this.tIpAdress.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.tIpAdress.Properties.MaskSettings.Set("mask", "(999) 000-00-00");
             this.tIpAdress.Properties.MaxLength = 20;
-            this.tIpAdress.Properties.NullValuePrompt = "192.168.1.26:1234";
             this.tIpAdress.Size = new System.Drawing.Size(223, 32);
             this.tIpAdress.TabIndex = 1;
             // 
@@ -270,7 +267,6 @@ namespace Barcode_Sales.Forms
             this.tPort.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.tPort.Properties.MaskSettings.Set("mask", "(999) 000-00-00");
             this.tPort.Properties.MaxLength = 20;
-            this.tPort.Properties.NullValuePrompt = "1234";
             this.tPort.Size = new System.Drawing.Size(118, 32);
             this.tPort.TabIndex = 2;
             // 

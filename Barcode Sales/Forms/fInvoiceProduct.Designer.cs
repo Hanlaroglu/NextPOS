@@ -249,10 +249,10 @@
             this.panelControl2.Controls.Add(this.bReset);
             this.panelControl2.Controls.Add(this.separatorControl2);
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl2.Location = new System.Drawing.Point(344, 91);
+            this.panelControl2.Location = new System.Drawing.Point(275, 73);
             this.panelControl2.Name = "panelControl2";
             this.tablePanel1.SetRow(this.panelControl2, 1);
-            this.panelControl2.Size = new System.Drawing.Size(839, 234);
+            this.panelControl2.Size = new System.Drawing.Size(671, 187);
             this.panelControl2.TabIndex = 7;
             // 
             // separatorControl1
@@ -263,7 +263,7 @@
             this.separatorControl1.Location = new System.Drawing.Point(7, 181);
             this.separatorControl1.Name = "separatorControl1";
             this.separatorControl1.Padding = new System.Windows.Forms.Padding(3);
-            this.separatorControl1.Size = new System.Drawing.Size(827, 7);
+            this.separatorControl1.Size = new System.Drawing.Size(452, 7);
             this.separatorControl1.TabIndex = 25;
             // 
             // bSave
@@ -282,7 +282,7 @@
             this.bSave.Cursor = System.Windows.Forms.Cursors.No;
             this.bSave.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bSave.ImageOptions.SvgImage")));
             this.bSave.ImageOptions.SvgImageSize = new System.Drawing.Size(28, 28);
-            this.bSave.Location = new System.Drawing.Point(694, 192);
+            this.bSave.Location = new System.Drawing.Point(526, 145);
             this.bSave.LookAndFeel.SkinName = "WXI";
             this.bSave.LookAndFeel.UseDefaultLookAndFeel = false;
             this.bSave.Name = "bSave";
@@ -304,7 +304,7 @@
             this.bReset.Appearance.Options.UseFont = true;
             this.bReset.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bReset.ImageOptions.SvgImage")));
             this.bReset.ImageOptions.SvgImageSize = new System.Drawing.Size(28, 28);
-            this.bReset.Location = new System.Drawing.Point(7, 192);
+            this.bReset.Location = new System.Drawing.Point(7, 145);
             this.bReset.Name = "bReset";
             this.bReset.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
             this.bReset.Size = new System.Drawing.Size(140, 35);
@@ -320,7 +320,7 @@
             this.separatorControl2.Location = new System.Drawing.Point(11, 243);
             this.separatorControl2.Name = "separatorControl2";
             this.separatorControl2.Padding = new System.Windows.Forms.Padding(2);
-            this.separatorControl2.Size = new System.Drawing.Size(821, 5);
+            this.separatorControl2.Size = new System.Drawing.Size(653, 5);
             this.separatorControl2.TabIndex = 7;
             // 
             // panelControl1
@@ -332,11 +332,11 @@
             this.panelControl1.Controls.Add(this.lookWarehouse);
             this.panelControl1.Controls.Add(this.tContractNo);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl1.Location = new System.Drawing.Point(3, 3);
+            this.panelControl1.Location = new System.Drawing.Point(2, 2);
             this.panelControl1.Name = "panelControl1";
             this.tablePanel1.SetRow(this.panelControl1, 0);
             this.tablePanel1.SetRowSpan(this.panelControl1, 2);
-            this.panelControl1.Size = new System.Drawing.Size(335, 322);
+            this.panelControl1.Size = new System.Drawing.Size(268, 258);
             this.panelControl1.TabIndex = 6;
             // 
             // lookPaymentType
@@ -367,7 +367,7 @@
             this.lookPaymentType.Properties.ShowFooter = false;
             this.lookPaymentType.Properties.ShowHeader = false;
             this.lookPaymentType.Properties.ShowLines = false;
-            this.lookPaymentType.Size = new System.Drawing.Size(325, 34);
+            this.lookPaymentType.Size = new System.Drawing.Size(258, 34);
             this.lookPaymentType.TabIndex = 10;
             // 
             // tComment
@@ -380,7 +380,7 @@
             this.tComment.Properties.Appearance.Font = new System.Drawing.Font("Nunito", 12F);
             this.tComment.Properties.Appearance.Options.UseFont = true;
             this.tComment.Properties.NullValuePrompt = "Qeyd";
-            this.tComment.Size = new System.Drawing.Size(325, 146);
+            this.tComment.Size = new System.Drawing.Size(258, 146);
             this.tComment.TabIndex = 7;
             // 
             // tDate
@@ -404,7 +404,7 @@
             this.tDate.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.SimpleMaskManager));
             this.tDate.Properties.MaskSettings.Set("mask", "99/99/0000");
             this.tDate.Properties.MaxLength = 20;
-            this.tDate.Size = new System.Drawing.Size(325, 36);
+            this.tDate.Size = new System.Drawing.Size(258, 36);
             this.tDate.TabIndex = 8;
             // 
             // lookWarehouse
@@ -440,7 +440,7 @@
             this.lookWarehouse.Properties.ShowFooter = false;
             this.lookWarehouse.Properties.ShowHeader = false;
             this.lookWarehouse.Properties.ShowLines = false;
-            this.lookWarehouse.Size = new System.Drawing.Size(325, 34);
+            this.lookWarehouse.Size = new System.Drawing.Size(258, 34);
             this.lookWarehouse.TabIndex = 10;
             this.lookWarehouse.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.lookWarehouse_ButtonClick);
             // 
@@ -463,7 +463,7 @@
             serializableAppearanceObject20.Options.UseForeColor = true;
             this.tContractNo.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Faktura № : ", -1, false, true, true, editorButtonImageOptions5, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject17, serializableAppearanceObject18, serializableAppearanceObject19, serializableAppearanceObject20, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
-            this.tContractNo.Size = new System.Drawing.Size(325, 36);
+            this.tContractNo.Size = new System.Drawing.Size(258, 36);
             this.tContractNo.TabIndex = 9;
             // 
             // tablePanel2
@@ -475,13 +475,13 @@
             this.tablePanel2.Controls.Add(this.groupControl1);
             this.tablePanel2.Controls.Add(this.groupControl2);
             this.tablePanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tablePanel2.Location = new System.Drawing.Point(344, 3);
+            this.tablePanel2.Location = new System.Drawing.Point(275, 2);
             this.tablePanel2.Name = "tablePanel2";
             this.tablePanel1.SetRow(this.tablePanel2, 0);
             this.tablePanel2.Rows.AddRange(new DevExpress.Utils.Layout.TablePanelRow[] {
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 26F)});
             this.tablePanel2.ShowGrid = DevExpress.Utils.DefaultBoolean.False;
-            this.tablePanel2.Size = new System.Drawing.Size(839, 82);
+            this.tablePanel2.Size = new System.Drawing.Size(671, 66);
             this.tablePanel2.TabIndex = 22;
             // 
             // groupControl1
@@ -495,7 +495,7 @@
             this.groupControl1.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
             this.groupControl1.Name = "groupControl1";
             this.tablePanel2.SetRow(this.groupControl1, 0);
-            this.groupControl1.Size = new System.Drawing.Size(417, 82);
+            this.groupControl1.Size = new System.Drawing.Size(266, 53);
             this.groupControl1.TabIndex = 21;
             this.groupControl1.Text = "Məhsul adı ilə axtar";
             // 
@@ -521,7 +521,7 @@
             this.repositoryItemButtonEdit1});
             this.lookProductName.Properties.ShowClearButton = false;
             this.lookProductName.Properties.ShowFooter = false;
-            this.lookProductName.Size = new System.Drawing.Size(404, 36);
+            this.lookProductName.Size = new System.Drawing.Size(253, 36);
             this.lookProductName.TabIndex = 20;
             this.lookProductName.EditValueChanged += new System.EventHandler(this.lookProductName_EditValueChanged);
             // 
@@ -610,11 +610,11 @@
             this.tablePanel2.SetColumn(this.groupControl2, 1);
             this.groupControl2.Controls.Add(this.tBarcodeSearch);
             this.groupControl2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupControl2.Location = new System.Drawing.Point(423, 0);
+            this.groupControl2.Location = new System.Drawing.Point(271, 0);
             this.groupControl2.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
             this.groupControl2.Name = "groupControl2";
             this.tablePanel2.SetRow(this.groupControl2, 0);
-            this.groupControl2.Size = new System.Drawing.Size(416, 82);
+            this.groupControl2.Size = new System.Drawing.Size(266, 53);
             this.groupControl2.TabIndex = 21;
             this.groupControl2.Text = "Barkod ilə axtar";
             // 
@@ -640,7 +640,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Barkod : ", -1, false, false, true, editorButtonImageOptions7, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject25, serializableAppearanceObject26, serializableAppearanceObject27, serializableAppearanceObject28, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.tBarcodeSearch.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.tBarcodeSearch.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.tBarcodeSearch_Properties_ButtonClick);
-            this.tBarcodeSearch.Size = new System.Drawing.Size(404, 36);
+            this.tBarcodeSearch.Size = new System.Drawing.Size(254, 36);
             this.tBarcodeSearch.TabIndex = 10;
             this.tBarcodeSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tBarcodeSearch_KeyDown);
             // 
@@ -651,7 +651,7 @@
             this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gridControl1.EmbeddedNavigator.AutoSize = true;
             this.gridControl1.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(5);
-            this.gridControl1.Location = new System.Drawing.Point(3, 331);
+            this.gridControl1.Location = new System.Drawing.Point(2, 265);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
             this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
@@ -660,7 +660,7 @@
             this.tSalePrice,
             this.tPurchasePrice});
             this.tablePanel1.SetRow(this.gridControl1, 2);
-            this.gridControl1.Size = new System.Drawing.Size(1180, 378);
+            this.gridControl1.Size = new System.Drawing.Size(944, 302);
             this.gridControl1.TabIndex = 4;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -1005,6 +1005,8 @@
             this.Controls.Add(this.accordionControl1);
             this.Controls.Add(this.fluentDesignFormControl1);
             this.FluentDesignFormControl = this.fluentDesignFormControl1;
+            this.LookAndFeel.SkinName = "WXI";
+            this.LookAndFeel.UseDefaultLookAndFeel = false;
             this.Name = "fInvoiceProduct";
             this.NavigationControl = this.accordionControl1;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

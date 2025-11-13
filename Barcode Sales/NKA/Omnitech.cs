@@ -75,7 +75,7 @@ namespace Barcode_Sales.NKA
 
             string json = FormHelpers.ConvertClassToJson(request);
 
-            var response = FormHelpers.PostRequestJson(_terminals.IpAddress, json);
+            var response = FormHelpers.PostRequestJson(CommonData.terminal.IpAddress, json);
             if (response.IsSuccessful)
             {
                 BaseResponse responseData = JsonConvert.DeserializeObject<BaseResponse>(response.Content);
@@ -107,7 +107,7 @@ namespace Barcode_Sales.NKA
 
             string json = FormHelpers.ConvertClassToJson(request);
 
-            var response = FormHelpers.PostRequestJson(_terminals.IpAddress, json);
+            var response = FormHelpers.PostRequestJson(item.IpAddress, json);
             if (response.IsSuccessful)
             {
                 ShiftResponse responseData = System.Text.Json.JsonSerializer.Deserialize<ShiftResponse>(response.Content);
@@ -157,7 +157,7 @@ namespace Barcode_Sales.NKA
 
             string json = FormHelpers.ConvertClassToJson(request);
 
-            var response = FormHelpers.PostRequestJson(_terminals.IpAddress, json);
+            var response = FormHelpers.PostRequestJson(item.IpAddress, json);
             if (response.IsSuccessful)
             {
                 CloseShiftResponse responseData = System.Text.Json.JsonSerializer.Deserialize<CloseShiftResponse>(response.Content);
@@ -178,7 +178,7 @@ namespace Barcode_Sales.NKA
                 }
                 else
                 {
-                    NotificationHelpers.Messages.ErrorMessage(_form, responseData.message, "Gün sonu hesabatı");
+                    NotificationHelpers.Messages.ErrorMessage(_form, responseData.message, "Gün sonu hesabat xətası");
                     return false;
                 }
             }

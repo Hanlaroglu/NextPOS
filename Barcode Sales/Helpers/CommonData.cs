@@ -11,6 +11,8 @@ namespace Barcode_Sales.Helpers
 {
     public static class CommonData
     {
+        public static Terminals terminal;
+
         public static readonly string DEFAULT_INT_TOSTRING = 0.ToString();
         public static readonly string TODAY_DATE = DateTime.Now.ToString("dd.MM.yyyy");
         public static readonly string DATE_AND_TIME = DateTime.Now.ToString("dd.MM.yyyy HH:mm:ss");

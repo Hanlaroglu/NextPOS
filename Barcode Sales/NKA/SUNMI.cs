@@ -18,11 +18,9 @@ namespace Barcode_Sales.NKA
 {
     public class Sunmi
     {
-        private static ITerminalOperation _terminalOperation = new TerminalManager();
         static ISaleDataOperation _saleDataOperation = new SalesDataManager();
         static ISalesDataDetailOperation _salesDataDetailOperation = new SalesDataDetailManager();
         static ITerminalIncomeAndExpenseOperation incomeAndExpenseOperation = new IncomeAndExpenseManager();
-        public static readonly Terminals _terminals = _terminalOperation.GetIpAddress();
         static fPosSales _form = Application.OpenForms.OfType<fPosSales>().FirstOrDefault();
 
 
@@ -50,7 +48,7 @@ namespace Barcode_Sales.NKA
 
             string json = FormHelpers.ConvertClassToJson(request);
 
-            var response = FormHelpers.PostRequestJson(_terminals.IpAddress, json);
+            var response = FormHelpers.PostRequestJson(item.IpAddress, json);
             if (response.IsSuccessful)
             {
                 OpenShiftResponse responseData = System.Text.Json.JsonSerializer.Deserialize<OpenShiftResponse>(response.Content);
@@ -83,7 +81,7 @@ namespace Barcode_Sales.NKA
 
             string json = FormHelpers.ConvertClassToJson(request);
 
-            var response = FormHelpers.PostRequestJson(_terminals.IpAddress, json);
+            var response = FormHelpers.PostRequestJson(item.IpAddress, json);
             if (response.IsSuccessful)
             {
                 ShiftStatusResponse responseData = System.Text.Json.JsonSerializer.Deserialize<ShiftStatusResponse>(response.Content);
@@ -135,7 +133,7 @@ namespace Barcode_Sales.NKA
 
             string json = FormHelpers.ConvertClassToJson(request);
 
-            var response = FormHelpers.PostRequestJson(_terminals.IpAddress, json);
+            var response = FormHelpers.PostRequestJson(item.IpAddress, json);
 
             if (response.IsSuccessful)
             {
@@ -174,7 +172,7 @@ namespace Barcode_Sales.NKA
 
             string json = FormHelpers.ConvertClassToJson(request);
 
-            var response = FormHelpers.PostRequestJson(_terminals.IpAddress, json);
+            var response = FormHelpers.PostRequestJson(item.IpAddress, json);
 
             if (response.IsSuccessful)
             {
@@ -222,7 +220,7 @@ namespace Barcode_Sales.NKA
 
             string json = FormHelpers.ConvertClassToJson(request);
 
-            var response = FormHelpers.PostRequestJson(_terminals.IpAddress, json);
+            var response = FormHelpers.PostRequestJson(item.IpAddress, json);
 
             if (response.IsSuccessful)
             {
@@ -297,7 +295,7 @@ namespace Barcode_Sales.NKA
 
             string json = FormHelpers.ConvertClassToJson(request);
 
-            var response = FormHelpers.PostRequestJson(_terminals.IpAddress, json);
+            var response = FormHelpers.PostRequestJson(data.IpAddress, json);
 
             if (response.IsSuccessful)
             {

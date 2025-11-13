@@ -403,7 +403,7 @@
             this.tCash_Paid.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.tCash_Paid.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.tCash_Paid.Size = new System.Drawing.Size(1054, 48);
-            this.tCash_Paid.TabIndex = 1;
+            this.tCash_Paid.TabIndex = 0;
             this.tCash_Paid.EditValueChanged += new System.EventHandler(this.tCash_Paid_EditValueChanged);
             this.tCash_Paid.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tCash_Paid_KeyDown);
             // 
@@ -581,6 +581,7 @@
             this.Name = "fPosPay";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Ödəniş";
+            this.Load += new System.EventHandler(this.fPosPay_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.fPosPay_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.accordionControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel1)).EndInit();

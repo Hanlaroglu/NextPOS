@@ -1,4 +1,6 @@
-﻿using Microsoft.Win32;
+﻿using Licence.Models;
+using Licence.Services;
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,7 +16,7 @@ namespace Licence
 {
     public partial class fDeactive : Form
     {
-        public fDeactive()
+        public fDeactive(Client client)
         {
             InitializeComponent();
         }
@@ -26,10 +28,11 @@ namespace Licence
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            string ProjectPath = $"{Application.StartupPath}\\Next Market.exe";
-            FileVersionInfo versionInfo = FileVersionInfo.GetVersionInfo(ProjectPath);
-            lVersion.Text = "V" + versionInfo.ProductVersion;
-            lKey.Text = Registry.CurrentUser.OpenSubKey("NGT").OpenSubKey("Next Market").OpenSubKey("Settings").GetValue("ProductID").ToString();
+            var path = LicenseService.path;
+            //string ProjectPath = $"{Application.StartupPath}\\Next Market.exe";
+            //FileVersionInfo versionInfo = FileVersionInfo.GetVersionInfo(ProjectPath);
+            lVersion.Text = $"V{Application.ProductVersion}";
+            lKey.Text = Registry.CurrentUser.OpenSubKey(LicenseService.path).GetValue("ProductID").ToString();
         }
 
         private void lKey_Click(object sender, EventArgs e)

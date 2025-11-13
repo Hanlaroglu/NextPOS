@@ -160,6 +160,7 @@
             this.gridSalesData.OptionsView.ShowGroupPanel = false;
             this.gridSalesData.OptionsView.ShowIndicator = false;
             this.gridSalesData.RowSeparatorHeight = 1;
+            this.gridSalesData.RowStyle += new DevExpress.XtraGrid.Views.Grid.RowStyleEventHandler(this.gridSalesData_RowStyle);
             this.gridSalesData.CustomRowCellEdit += new DevExpress.XtraGrid.Views.Grid.CustomRowCellEditEventHandler(this.gridSalesData_CustomRowCellEdit);
             this.gridSalesData.ShownEditor += new System.EventHandler(this.gridSalesData_ShownEditor);
             // 

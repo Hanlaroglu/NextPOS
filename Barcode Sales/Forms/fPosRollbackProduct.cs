@@ -1,9 +1,11 @@
 ﻿using Barcode_Sales.DTOs;
+using Barcode_Sales.Helpers;
 using Barcode_Sales.Helpers.Classes;
 using Barcode_Sales.Operations.Abstract;
 using Barcode_Sales.Operations.Concrete;
 using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Repository;
+using DevExpress.XtraGrid.Views.Grid;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,8 +22,6 @@ namespace Barcode_Sales.Forms
 {
     public partial class fPosRollbackProduct : DevExpress.XtraEditors.XtraForm
     {
-        static ITerminalOperation terminalOperation = new TerminalManager();
-        public static readonly Terminals _terminals = terminalOperation.GetIpAddress();
         ISalesDataDetailOperation salesDataDetailOperation = new SalesDataDetailManager();
         ICustomerOperation customerOperation = new CustomerManager();
         private readonly PosReturnType _type;
@@ -181,10 +181,10 @@ namespace Barcode_Sales.Forms
 
                 _refundData = new RefundClassess.Data()
                 {
-                    IpAddress = _terminals.IpAddress,
+                    IpAddress = CommonData.terminal.IpAddress,
                     Items = RefundDataItem,
                     Cashier = tCashier.Text,
-                    Cash = (double)_salesDataSummary.Cash,
+                    Cash = (double)_salesDataSummary.Cash - RefundDataItem.Sum(x=> x.SalePrice),
                     Card = (double)_salesDataSummary.Card,
                     LongFiskalId = _salesDataSummary.LongFiscalId,
                     ShortFiskalId = _salesDataSummary.ShortFiscalId,
@@ -196,25 +196,21 @@ namespace Barcode_Sales.Forms
                 };
 
                 if (_type is PosReturnType.MoneyBack)
-                {
                     Refund();
-                }
                 else
-                {
                     Rollback();
-                }
             }
         }
 
         private void Refund()
         {
-            if (_terminals != null)
+            if (CommonData.terminal != null)
             {
-                KassaOperator kassa = (KassaOperator)Enum.Parse(typeof(KassaOperator), _terminals.Name);
+                KassaOperator kassa = (KassaOperator)Enum.Parse(typeof(KassaOperator), CommonData.terminal.Name);
                 switch (kassa)
                 {
                     case KassaOperator.CASPOS:
-                        if (NKA.Sunmi.Sale(null))
+                        if (NKA.Sunmi.Refund())
                         {
                             DialogResult = DialogResult.OK;
                         }
@@ -227,6 +223,11 @@ namespace Barcode_Sales.Forms
                         }
                         break;
                     case KassaOperator.AZSMART:
+                        if (NKA.AzSmart.Refund(_refundData))
+                        {
+                            RefundDataItem.Clear();
+                            DialogResult = DialogResult.OK;
+                        }
                         break;
                     case KassaOperator.NBA:
                         break;
@@ -240,9 +241,9 @@ namespace Barcode_Sales.Forms
 
         private void Rollback()
         {
-            if (_terminals != null)
+            if (CommonData.terminal != null)
             {
-                KassaOperator kassa = (KassaOperator)Enum.Parse(typeof(KassaOperator), _terminals.Name);
+                KassaOperator kassa = (KassaOperator)Enum.Parse(typeof(KassaOperator), CommonData.terminal.Name);
                 switch (kassa)
                 {
                     case KassaOperator.CASPOS:
@@ -273,6 +274,20 @@ namespace Barcode_Sales.Forms
         private void fPosRollbackProduct_FormClosed(object sender, FormClosedEventArgs e)
         {
 
+        }
+
+        private void gridSalesData_RowStyle(object sender, DevExpress.XtraGrid.Views.Grid.RowStyleEventArgs e)
+        {
+            var view = sender as GridView;
+            if (view == null || e.RowHandle < 0)
+                return;
+
+            //var row = view.GetRow(e.RowHandle) as Person;
+            //if (row != null && row.IsLocked)
+            //{
+            //    e.Appearance.BackColor = Color.Red;
+            //    e.Appearance.ForeColor = Color.White;
+            //}
         }
     }
 }

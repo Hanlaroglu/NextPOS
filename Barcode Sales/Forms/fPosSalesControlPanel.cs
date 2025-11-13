@@ -18,8 +18,8 @@ namespace Barcode_Sales.Forms
 {
     public partial class fPosSalesControlPanel : DevExpress.XtraEditors.XtraForm
     {
-        static ITerminalOperation terminalOperation = new TerminalManager();
-        public static readonly Terminals _terminals = terminalOperation.GetIpAddress();
+
+        private static readonly Terminals _terminals = CommonData.terminal;
         public fPosSalesControlPanel()
         {
             InitializeComponent();
@@ -119,23 +119,25 @@ namespace Barcode_Sales.Forms
         {
             if (_terminals != null)
             {
+                NKA.DTOs.NkaDto.ShiftDto item = new NKA.DTOs.NkaDto.ShiftDto
+                {
+                    Cashier = CommonData.CURRENT_USER.NameSurname,
+                    IpAddress = _terminals.IpAddress,
+                    MerchantId = _terminals.MerchantId,
+                };
+
                 KassaOperator kassa = (KassaOperator)Enum.Parse(typeof(KassaOperator), _terminals.Name);
+               
                 switch (kassa)
                 {
                     case KassaOperator.CASPOS:
-                        NKA.Sunmi.GetShiftStatus(new NKA.DTOs.NkaDto.ShiftDto
-                        {
-                            IpAddress = _terminals.IpAddress,
-                            Cashier = CommonData.CURRENT_USER.NameSurname
-                        });
+                        NKA.Sunmi.GetShiftStatus(item);
                         break;
                     case KassaOperator.OMNITECH:
-                        NKA.Omnitech.GetShiftStatus(new NKA.DTOs.NkaDto.ShiftDto
-                        {
-                            IpAddress = _terminals.IpAddress
-                        });
+                        NKA.Omnitech.GetShiftStatus(item);
                         break;
                     case KassaOperator.AZSMART:
+                        NKA.AzSmart.GetShiftStatus(item);
                         break;
                     case KassaOperator.NBA:
                         break;
@@ -151,23 +153,24 @@ namespace Barcode_Sales.Forms
         {
             if (_terminals != null)
             {
+                NKA.DTOs.NkaDto.ShiftDto item = new NKA.DTOs.NkaDto.ShiftDto
+                {
+                    Cashier = CommonData.CURRENT_USER.NameSurname,
+                    IpAddress = _terminals.IpAddress,
+                    MerchantId = _terminals.MerchantId,
+                };
+
                 KassaOperator kassa = (KassaOperator)Enum.Parse(typeof(KassaOperator), _terminals.Name);
                 switch (kassa)
                 {
                     case KassaOperator.CASPOS:
-                        NKA.Sunmi.CloseShift(new NKA.DTOs.NkaDto.ShiftDto
-                        {
-                            IpAddress = _terminals.IpAddress
-                        });
+                        NKA.Sunmi.CloseShift(item);
                         break;
                     case KassaOperator.OMNITECH:
-                        NKA.Omnitech.CloseShift(new NKA.DTOs.NkaDto.ShiftDto
-                        {
-                            IpAddress = _terminals.IpAddress,
-                            
-                        });
+                        NKA.Omnitech.CloseShift(item);
                         break;
                     case KassaOperator.AZSMART:
+                        NKA.AzSmart.CloseShift(item);
                         break;
                     case KassaOperator.NBA:
                         break;

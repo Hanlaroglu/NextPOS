@@ -152,6 +152,8 @@
             this.accordionControlSeparator6 = new DevExpress.XtraBars.Navigation.AccordionControlSeparator();
             this.accordionControl1 = new DevExpress.XtraBars.Navigation.AccordionControl();
             this.bExit = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.pageBaskets = new DevExpress.XtraBars.Navigation.NavigationPage();
+            this.pageHotSales = new DevExpress.XtraBars.Navigation.NavigationPage();
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel1)).BeginInit();
             this.tablePanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel3)).BeginInit();
@@ -388,12 +390,16 @@
             // 
             this.tablePanel2.SetColumn(this.navigationFrame1, 0);
             this.navigationFrame1.Controls.Add(this.pageSaleScreen);
+            this.navigationFrame1.Controls.Add(this.pageBaskets);
+            this.navigationFrame1.Controls.Add(this.pageHotSales);
             this.navigationFrame1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.navigationFrame1.Location = new System.Drawing.Point(1, 43);
             this.navigationFrame1.Margin = new System.Windows.Forms.Padding(0);
             this.navigationFrame1.Name = "navigationFrame1";
             this.navigationFrame1.Pages.AddRange(new DevExpress.XtraBars.Navigation.NavigationPageBase[] {
-            this.pageSaleScreen});
+            this.pageSaleScreen,
+            this.pageBaskets,
+            this.pageHotSales});
             this.tablePanel2.SetRow(this.navigationFrame1, 1);
             this.navigationFrame1.SelectedPage = this.pageSaleScreen;
             this.navigationFrame1.Size = new System.Drawing.Size(935, 676);
@@ -402,7 +408,6 @@
             // 
             // pageSaleScreen
             // 
-            this.pageSaleScreen.Caption = "pageSaleScreen";
             this.pageSaleScreen.Controls.Add(this.gridControlBasket);
             this.pageSaleScreen.Name = "pageSaleScreen";
             this.pageSaleScreen.Size = new System.Drawing.Size(935, 676);
@@ -458,6 +463,8 @@
             // 
             // colId
             // 
+            this.colId.AppearanceHeader.Font = new System.Drawing.Font("Nunito", 10F, System.Drawing.FontStyle.Bold);
+            this.colId.AppearanceHeader.Options.UseFont = true;
             this.colId.Caption = "Id";
             this.colId.FieldName = "Id";
             this.colId.Name = "colId";
@@ -467,7 +474,7 @@
             this.colBarcode.AppearanceCell.Font = new System.Drawing.Font("Comfortaa", 10F);
             this.colBarcode.AppearanceCell.Options.UseFont = true;
             this.colBarcode.AppearanceHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.colBarcode.AppearanceHeader.Font = new System.Drawing.Font("Comfortaa SemiBold", 10F, System.Drawing.FontStyle.Bold);
+            this.colBarcode.AppearanceHeader.Font = new System.Drawing.Font("Nunito", 10F, System.Drawing.FontStyle.Bold);
             this.colBarcode.AppearanceHeader.Options.UseBackColor = true;
             this.colBarcode.AppearanceHeader.Options.UseFont = true;
             this.colBarcode.AppearanceHeader.Options.UseTextOptions = true;
@@ -488,11 +495,10 @@
             this.colName.AppearanceCell.Font = new System.Drawing.Font("Comfortaa", 10F);
             this.colName.AppearanceCell.Options.UseFont = true;
             this.colName.AppearanceHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.colName.AppearanceHeader.Font = new System.Drawing.Font("Comfortaa SemiBold", 10F, System.Drawing.FontStyle.Bold);
+            this.colName.AppearanceHeader.Font = new System.Drawing.Font("Nunito", 10F, System.Drawing.FontStyle.Bold);
             this.colName.AppearanceHeader.Options.UseBackColor = true;
             this.colName.AppearanceHeader.Options.UseFont = true;
             this.colName.AppearanceHeader.Options.UseTextOptions = true;
-            this.colName.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.colName.AppearanceHeader.TextOptions.Trimming = DevExpress.Utils.Trimming.EllipsisCharacter;
             this.colName.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.colName.Caption = "Məhsul adı";
@@ -513,7 +519,7 @@
             this.colAmount.AppearanceCell.Options.UseTextOptions = true;
             this.colAmount.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.colAmount.AppearanceHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.colAmount.AppearanceHeader.Font = new System.Drawing.Font("Comfortaa SemiBold", 10F, System.Drawing.FontStyle.Bold);
+            this.colAmount.AppearanceHeader.Font = new System.Drawing.Font("Nunito", 10F, System.Drawing.FontStyle.Bold);
             this.colAmount.AppearanceHeader.Options.UseBackColor = true;
             this.colAmount.AppearanceHeader.Options.UseFont = true;
             this.colAmount.AppearanceHeader.Options.UseTextOptions = true;
@@ -538,7 +544,7 @@
             this.colUnit.AppearanceCell.Options.UseTextOptions = true;
             this.colUnit.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.colUnit.AppearanceHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.colUnit.AppearanceHeader.Font = new System.Drawing.Font("Comfortaa SemiBold", 10F, System.Drawing.FontStyle.Bold);
+            this.colUnit.AppearanceHeader.Font = new System.Drawing.Font("Nunito", 10F, System.Drawing.FontStyle.Bold);
             this.colUnit.AppearanceHeader.Options.UseBackColor = true;
             this.colUnit.AppearanceHeader.Options.UseFont = true;
             this.colUnit.AppearanceHeader.Options.UseTextOptions = true;
@@ -558,6 +564,8 @@
             // 
             // colPurchasePrice
             // 
+            this.colPurchasePrice.AppearanceHeader.Font = new System.Drawing.Font("Nunito", 10F, System.Drawing.FontStyle.Bold);
+            this.colPurchasePrice.AppearanceHeader.Options.UseFont = true;
             this.colPurchasePrice.Caption = "Alış qiyməti";
             this.colPurchasePrice.FieldName = "PurchasePrice";
             this.colPurchasePrice.Name = "colPurchasePrice";
@@ -570,7 +578,7 @@
             this.colSalePrice.AppearanceCell.Options.UseTextOptions = true;
             this.colSalePrice.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.colSalePrice.AppearanceHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.colSalePrice.AppearanceHeader.Font = new System.Drawing.Font("Comfortaa SemiBold", 10F, System.Drawing.FontStyle.Bold);
+            this.colSalePrice.AppearanceHeader.Font = new System.Drawing.Font("Nunito", 10F, System.Drawing.FontStyle.Bold);
             this.colSalePrice.AppearanceHeader.Options.UseBackColor = true;
             this.colSalePrice.AppearanceHeader.Options.UseFont = true;
             this.colSalePrice.AppearanceHeader.Options.UseTextOptions = true;
@@ -597,7 +605,7 @@
             this.colDiscount.AppearanceCell.Options.UseTextOptions = true;
             this.colDiscount.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.colDiscount.AppearanceHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.colDiscount.AppearanceHeader.Font = new System.Drawing.Font("Comfortaa SemiBold", 10F, System.Drawing.FontStyle.Bold);
+            this.colDiscount.AppearanceHeader.Font = new System.Drawing.Font("Nunito", 10F, System.Drawing.FontStyle.Bold);
             this.colDiscount.AppearanceHeader.Options.UseBackColor = true;
             this.colDiscount.AppearanceHeader.Options.UseFont = true;
             this.colDiscount.AppearanceHeader.Options.UseTextOptions = true;
@@ -621,7 +629,7 @@
             this.colTotal.AppearanceCell.Options.UseTextOptions = true;
             this.colTotal.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.colTotal.AppearanceHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.colTotal.AppearanceHeader.Font = new System.Drawing.Font("Comfortaa SemiBold", 10F, System.Drawing.FontStyle.Bold);
+            this.colTotal.AppearanceHeader.Font = new System.Drawing.Font("Nunito", 10F, System.Drawing.FontStyle.Bold);
             this.colTotal.AppearanceHeader.Options.UseBackColor = true;
             this.colTotal.AppearanceHeader.Options.UseFont = true;
             this.colTotal.AppearanceHeader.Options.UseTextOptions = true;
@@ -644,7 +652,7 @@
             this.colDelete.AppearanceCell.Font = new System.Drawing.Font("Comfortaa", 10F);
             this.colDelete.AppearanceCell.Options.UseFont = true;
             this.colDelete.AppearanceHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.colDelete.AppearanceHeader.Font = new System.Drawing.Font("Comfortaa SemiBold", 10F, System.Drawing.FontStyle.Bold);
+            this.colDelete.AppearanceHeader.Font = new System.Drawing.Font("Nunito", 10F, System.Drawing.FontStyle.Bold);
             this.colDelete.AppearanceHeader.Options.UseBackColor = true;
             this.colDelete.AppearanceHeader.Options.UseFont = true;
             this.colDelete.Caption = "Sil";
@@ -1129,6 +1137,16 @@
             this.bExit.Text = "Element1";
             this.bExit.Click += new System.EventHandler(this.bExit_Click);
             // 
+            // pageBaskets
+            // 
+            this.pageBaskets.Name = "pageBaskets";
+            this.pageBaskets.Size = new System.Drawing.Size(935, 676);
+            // 
+            // pageHotSales
+            // 
+            this.pageHotSales.Name = "pageHotSales";
+            this.pageHotSales.Size = new System.Drawing.Size(935, 676);
+            // 
             // fPosSales
             // 
             this.Appearance.Options.UseFont = true;
@@ -1247,5 +1265,7 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit bProductDelete;
         private DevExpress.XtraGrid.Columns.GridColumn colDiscount;
         private DevExpress.XtraGrid.Columns.GridColumn colPurchasePrice;
+        private DevExpress.XtraBars.Navigation.NavigationPage pageBaskets;
+        private DevExpress.XtraBars.Navigation.NavigationPage pageHotSales;
     }
 }
