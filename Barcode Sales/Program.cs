@@ -58,36 +58,36 @@ namespace Barcode_Sales
 
             #region [..Licence..]
 
-            if (string.IsNullOrWhiteSpace(_licenceKey) || _licenceKey is "Yoxdur")
-            {
-                var result = new fRegister().ShowDialog();
+            //if (string.IsNullOrWhiteSpace(_licenceKey) || _licenceKey is "Yoxdur")
+            //{
+            //    var result = new fRegister().ShowDialog();
 
-                if (result == DialogResult.OK)
-                {
-                    Application.Restart();
-                }
-                return;
-            }
+            //    if (result == DialogResult.OK)
+            //    {
+            //        Application.Restart();
+            //    }
+            //    return;
+            //}
 
 
-            if (Licence.Helpers.FormHelpers.HasInternetConnection())
-            {
-                var user = LicenseService.Instance.GetKeyControl(_licenceKey).Result;
-                if (user == null || !user.IsActive || !LicenseService.Instance.LicenceExpireDateControl(user))
-                {
-                    Application.Run(new fDeactive(user));
-                    return;
-                }
-            }
-            else
-            {
-                //NotificationHelpers.Messages.WarningMessage(,"İnternet bağlantınız yoxdur",);
-            }
+            //if (Licence.Helpers.FormHelpers.HasInternetConnection())
+            //{
+            //    var user = LicenseService.Instance.GetKeyControl(_licenceKey).Result;
+            //    if (user == null || !user.IsActive || !LicenseService.Instance.LicenceExpireDateControl(user))
+            //    {
+            //        Application.Run(new fDeactive(user));
+            //        return;
+            //    }
+            //}
+            //else
+            //{
+            //    //NotificationHelpers.Messages.WarningMessage(,"İnternet bağlantınız yoxdur",);
+            //}
 
             #endregion [..Licence..]
 
             CultureInfoData();
-            Application.Run(new fLogin());
+            Application.Run(new fLoginDemo());
 
         }
 

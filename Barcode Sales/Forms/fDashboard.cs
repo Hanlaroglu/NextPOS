@@ -748,5 +748,10 @@ namespace Barcode_Sales.Forms
         {
             FormHelpers.OpenForm<fInvoiceReport>();
         }
+
+        private void accordionControlElement37_Click(object sender, EventArgs e)
+        {
+            FormHelpers.OpenForm<fStockReport>();
+        }
     }
 }

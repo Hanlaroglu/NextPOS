@@ -177,14 +177,18 @@ namespace Barcode_Sales.Forms
 
                     var product = await productOperation.GetByBarcodeAsync(tBarcodeSearch.Text);
 
-                    if (product == null) return;
+                    if (product is null)
+                    {
+                        NotificationHelpers.Messages.WarningMessage(this, "Məhsul tapılmadı");
+                        tBarcodeSearch.Clear();
+                        return;
+                    }
+                        
 
                     var existingProduct = dataList.FirstOrDefault(x => x.Id == product.Id);
 
                     if (existingProduct != null)
-                    {
                         existingProduct.Amount += 1;
-                    }
                     else
                     {
                         SaleDataItem grid = new SaleDataItem

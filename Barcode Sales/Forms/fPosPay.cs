@@ -22,15 +22,15 @@ namespace Barcode_Sales.Forms
         private void fPosPay_Load(object sender, EventArgs e)
         {
             tTotal.Text = _data.Total.ToString("N2");
-            bCash_Click(sender,null);
+            bCash_Click(sender,e);
+            this.tCash_Paid.SelectAll();
+            this.tCash_Paid.Focus();
         }
 
         private void bCash_Click(object sender, EventArgs e)
         {
             navigationFrame1.SelectedPage = pageCash;
-            this.tCash_Paid.Focus();
             tCash_Paid.Text = _data.Total.ToString("N2");
-
         }
 
         private void bCard_Click(object sender, EventArgs e)

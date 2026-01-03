@@ -73,7 +73,7 @@
             // tablePanel1
             // 
             this.tablePanel1.Columns.AddRange(new DevExpress.Utils.Layout.TablePanelColumn[] {
-            new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 565.6F),
+            new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.AutoSize, 565.6F),
             new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 427.4F)});
             this.tablePanel1.Controls.Add(this.panelControl1);
             this.tablePanel1.Controls.Add(this.panelControl2);
@@ -208,6 +208,7 @@
             this.tPassword.Properties.UseSystemPasswordChar = true;
             this.tPassword.Size = new System.Drawing.Size(385, 36);
             this.tPassword.TabIndex = 2;
+            this.tPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.fLogin_KeyDown);
             // 
             // tUsername
             // 
@@ -223,6 +224,7 @@
             this.tUsername.Properties.NullValuePrompt = "İstifadəçi adı";
             this.tUsername.Size = new System.Drawing.Size(385, 36);
             this.tUsername.TabIndex = 1;
+            this.tUsername.KeyDown += new System.Windows.Forms.KeyEventHandler(this.fLogin_KeyDown);
             // 
             // panelControl2
             // 
@@ -312,11 +314,11 @@
             this.Controls.Add(this.tablePanel1);
             this.FormBorderEffect = DevExpress.XtraEditors.FormBorderEffect.None;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.MaximumSize = new System.Drawing.Size(900, 580);
             this.MinimumSize = new System.Drawing.Size(900, 580);
             this.Name = "fLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "fLogin";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.fLogin_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.fLogin_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel1)).EndInit();

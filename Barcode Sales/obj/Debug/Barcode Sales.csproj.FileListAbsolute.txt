@@ -527,9 +527,6 @@ D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Deb
 D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\SqlServerTypes\x64\SqlServerSpatial140.dll
 D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\SqlServerTypes\x86\msvcr120.dll
 D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\SqlServerTypes\x86\SqlServerSpatial140.dll
-D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\XanPOS.exe.config
-D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\XanPOS.exe
-D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\XanPOS.pdb
 D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\DevExpress.BonusSkins.v24.1.dll
 D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\DevExpress.Charts.v24.1.Core.dll
 D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\DevExpress.Data.Desktop.v24.1.dll
@@ -750,12 +747,17 @@ D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\obj\Deb
 D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\obj\Debug\Barcode_Sales.UserControls.fShutdown.resources
 D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\obj\Debug\Barcode_Sales.UserControls.RadiusTextbox.resources
 D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\obj\Debug\Barcode Sales.csproj.GenerateResource.cache
-D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\obj\Debug\XanPOS.exe.licenses
 D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\obj\Debug\Barcode Sales.csproj.CoreCompileInputs.cache
 D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\obj\Debug\Barcode .28D80BE3.Up2Date
-D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\obj\Debug\XanPOS.exe
-D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\obj\Debug\XanPOS.pdb
 D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\System.IO.Pipelines.dll
 D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\System.IO.Pipelines.xml
 D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\obj\Debug\Barcode Sales.csproj.SuggestedBindingRedirects.cache
-D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\obj\Debug\XanPOS.exe.config
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\obj\Debug\Barcode_Sales.Forms.fStockReport.resources
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\KhanPOS.exe.config
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\KhanPOS.exe
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\KhanPOS.pdb
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\obj\Debug\KhanPOS.exe.config
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\obj\Debug\KhanPOS.exe.licenses
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\obj\Debug\KhanPOS.exe
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\obj\Debug\KhanPOS.pdb
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\obj\Debug\Barcode_Sales.Forms.fLoginDemo.resources
