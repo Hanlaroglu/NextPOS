@@ -1,19 +1,26 @@
 ﻿using Barcode_Sales.Helpers;
 using Barcode_Sales.Validations;
+using DevExpress.XtraEditors;
 using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Barcode_Sales.Forms
 {
-    public partial class fLogin : FormBase
+    public partial class fLogin : DevExpress.XtraEditors.XtraForm
     {
         public fLogin()
         {
             InitializeComponent();
-            tUsername.Focus();
         }
 
-        private void fLogin_Load(object sender, EventArgs e)
+        private void fLoginDemo_Load(object sender, EventArgs e)
         {
             lVersion.Text = $"V{Application.ProductVersion}";
             if (Properties.Settings.Default.SaveMe is true)
@@ -28,16 +35,6 @@ namespace Barcode_Sales.Forms
                 tUsername.Text = null;
                 tPassword.Text = null;
             }
-        }
-
-        private void bClose_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
-        private void bLogin_Click(object sender, EventArgs e)
-        {
-            Login();
         }
 
         private void Login()
@@ -76,7 +73,12 @@ namespace Barcode_Sales.Forms
             }
         }
 
-        private void fLogin_KeyDown(object sender, KeyEventArgs e)
+        private void bLogin_Click(object sender, EventArgs e)
+        {
+            Login();
+        }
+
+        private void fLoginDemo_KeyDown(object sender, KeyEventArgs e)
         {
             switch (e.KeyCode)
             {

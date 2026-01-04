@@ -154,10 +154,12 @@ namespace Barcode_Sales.Forms
 
         private async Task Top5SellingProductAsync()
         {
-            DateTime today = DateTime.Today;
-            int diff = (7 + (today.DayOfWeek - DayOfWeek.Monday)) % 7;
-            DateTime weekFirstDay = today.AddDays(-diff);
-            DateTime weekLastDay = weekFirstDay.AddDays(6);
+            DateTime now = DateTime.Now;
+            // Ayın 1-i (00:00:00)
+            DateTime monthStart = new DateTime(now.Year, now.Month, 1);
+
+            // Növbəti ayın 1-i (00:00:00)
+            DateTime nextMonthStart = monthStart.AddMonths(1);
 
             using (NextposDBEntities db = new NextposDBEntities())
             {
@@ -165,7 +167,8 @@ namespace Barcode_Sales.Forms
                     from sd in db.SalesDatas
                     join sdd in db.SalesDataDetail on sd.Id equals sdd.SaleDataId
                     join p in db.Products on sdd.ProductId equals p.Id
-                    where sd.SaleDate >= weekFirstDay && sd.SaleDate <= weekLastDay
+                    where sd.SaleDate >= monthStart
+                       && sd.SaleDate < nextMonthStart   // <<< kritik nöqtə
                     group sdd by p.ProductName into g
                     orderby g.Sum(x => x.Quantity) descending
                     select new DashboardStatisticsDto
@@ -181,25 +184,15 @@ namespace Barcode_Sales.Forms
                 series.DataSource = list;
                 series.ArgumentDataMember = "ProductName";
                 series.ValueDataMembers.Clear();
-                series.ValueDataMembers.AddRange(new[] { "TotalQuantity" });
+                series.ValueDataMembers.AddRange("TotalQuantity");
+                //series.ValueDataMembers.AddRange(new[] { "TotalQuantity" });
 
-
-                // Pie dilimlerinde sadece yüzde göster
                 series.Label.TextPattern = "{VP:P2}";
                 series.LegendTextPattern = "{A}";
 
-                if (chartTop5Product.Legends.Count > 1)
-                {
-                    series.Legend = chartTop5Product.Legends[1]; // Sağ üstteki ek legend
-                    chartTop5Product.Legends[1].AlignmentHorizontal = DevExpress.XtraCharts.LegendAlignmentHorizontal.Right;
-                    chartTop5Product.Legends[1].AlignmentVertical = DevExpress.XtraCharts.LegendAlignmentVertical.Top;
-                }
-
-
-                chartTop5Product.Titles[0].Text = $"({weekFirstDay.ToString("dd.MM.yyyy")} - {weekLastDay.ToString("dd.MM.yyyy")}) Çox satılan 5 məhsul";
+                chartTop5Product.Titles[0].Text =
+                    $"{monthStart.ToString("MMMM yyyy")} üzrə ən çox satılan 5 məhsul";
             }
-
-
         }
 
         #endregion [.. DASHBOARD ..]

@@ -527,6 +527,9 @@ D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Deb
 D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\SqlServerTypes\x64\SqlServerSpatial140.dll
 D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\SqlServerTypes\x86\msvcr120.dll
 D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\SqlServerTypes\x86\SqlServerSpatial140.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\KhanPOS.exe.config
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\KhanPOS.exe
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\KhanPOS.pdb
 D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\DevExpress.BonusSkins.v24.1.dll
 D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\DevExpress.Charts.v24.1.Core.dll
 D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\DevExpress.Data.Desktop.v24.1.dll
@@ -568,6 +571,8 @@ D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Deb
 D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\NGT.Update.exe
 D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\RestSharp.dll
 D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\System.Buffers.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\System.CodeDom.dll
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\System.IO.Pipelines.dll
 D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\System.Memory.dll
 D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\System.Numerics.Vectors.dll
 D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
@@ -634,6 +639,8 @@ D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Deb
 D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\Newtonsoft.Json.xml
 D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\RestSharp.xml
 D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\System.Buffers.xml
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\System.CodeDom.xml
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\System.IO.Pipelines.xml
 D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\System.Memory.xml
 D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\System.Numerics.Vectors.xml
 D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
@@ -732,6 +739,7 @@ D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\obj\Deb
 D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\obj\Debug\Barcode_Sales.Forms.fRole.resources
 D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\obj\Debug\Barcode_Sales.Forms.fSelected.resources
 D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\obj\Debug\Barcode_Sales.Forms.fSelectedProduct.resources
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\obj\Debug\Barcode_Sales.Forms.fStockReport.resources
 D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\obj\Debug\Barcode_Sales.Forms.fSupplier.resources
 D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\obj\Debug\Barcode_Sales.Forms.fSupplierPaidData.resources
 D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\obj\Debug\Barcode_Sales.Forms.fSupplierPay.resources
@@ -747,17 +755,8 @@ D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\obj\Deb
 D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\obj\Debug\Barcode_Sales.UserControls.fShutdown.resources
 D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\obj\Debug\Barcode_Sales.UserControls.RadiusTextbox.resources
 D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\obj\Debug\Barcode Sales.csproj.GenerateResource.cache
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\obj\Debug\KhanPOS.exe.licenses
 D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\obj\Debug\Barcode Sales.csproj.CoreCompileInputs.cache
 D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\obj\Debug\Barcode .28D80BE3.Up2Date
-D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\System.IO.Pipelines.dll
-D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\System.IO.Pipelines.xml
-D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\obj\Debug\Barcode Sales.csproj.SuggestedBindingRedirects.cache
-D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\obj\Debug\Barcode_Sales.Forms.fStockReport.resources
-D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\KhanPOS.exe.config
-D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\KhanPOS.exe
-D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\bin\Debug\KhanPOS.pdb
-D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\obj\Debug\KhanPOS.exe.config
-D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\obj\Debug\KhanPOS.exe.licenses
 D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\obj\Debug\KhanPOS.exe
 D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\obj\Debug\KhanPOS.pdb
-D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\obj\Debug\Barcode_Sales.Forms.fLoginDemo.resources

@@ -575,13 +575,11 @@
             this.ClientSize = new System.Drawing.Size(1158, 701);
             this.Controls.Add(this.panelControl1);
             this.Controls.Add(this.accordionControl1);
-            this.IconOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("fPosPay.IconOptions.SvgImage")));
             this.LookAndFeel.SkinName = "WXI";
             this.LookAndFeel.UseDefaultLookAndFeel = false;
             this.Name = "fPosPay";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Ödəniş";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.fPosPay_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.fPosPay_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.accordionControl1)).EndInit();
