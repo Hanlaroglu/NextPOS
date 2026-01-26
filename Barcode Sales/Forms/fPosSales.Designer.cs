@@ -117,6 +117,8 @@
             this.colTotal = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDelete = new DevExpress.XtraGrid.Columns.GridColumn();
             this.bProductDelete = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+            this.pageBaskets = new DevExpress.XtraBars.Navigation.NavigationPage();
+            this.pageHotSales = new DevExpress.XtraBars.Navigation.NavigationPage();
             this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
             this.tProductCount = new DevExpress.XtraEditors.ButtonEdit();
             this.tTotal = new DevExpress.XtraEditors.ButtonEdit();
@@ -152,8 +154,6 @@
             this.accordionControlSeparator6 = new DevExpress.XtraBars.Navigation.AccordionControlSeparator();
             this.accordionControl1 = new DevExpress.XtraBars.Navigation.AccordionControl();
             this.bExit = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.pageBaskets = new DevExpress.XtraBars.Navigation.NavigationPage();
-            this.pageHotSales = new DevExpress.XtraBars.Navigation.NavigationPage();
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel1)).BeginInit();
             this.tablePanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel3)).BeginInit();
@@ -408,6 +408,7 @@
             // 
             // pageSaleScreen
             // 
+            this.pageSaleScreen.Caption = "pageSaleScreen";
             this.pageSaleScreen.Controls.Add(this.gridControlBasket);
             this.pageSaleScreen.Name = "pageSaleScreen";
             this.pageSaleScreen.Size = new System.Drawing.Size(935, 676);
@@ -677,6 +678,18 @@
             this.bProductDelete.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.bProductDelete.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.bProductDelete_ButtonClick);
             // 
+            // pageBaskets
+            // 
+            this.pageBaskets.Caption = "pageBaskets";
+            this.pageBaskets.Name = "pageBaskets";
+            this.pageBaskets.Size = new System.Drawing.Size(935, 676);
+            // 
+            // pageHotSales
+            // 
+            this.pageHotSales.Caption = "pageHotSales";
+            this.pageHotSales.Name = "pageHotSales";
+            this.pageHotSales.Size = new System.Drawing.Size(935, 676);
+            // 
             // panelControl3
             // 
             this.tablePanel2.SetColumn(this.panelControl3, 0);
@@ -806,6 +819,10 @@
             // 
             // searchView
             // 
+            this.searchView.Appearance.HeaderPanel.Font = new System.Drawing.Font("Nunito", 10F, System.Drawing.FontStyle.Bold);
+            this.searchView.Appearance.HeaderPanel.Options.UseFont = true;
+            this.searchView.Appearance.Row.Font = new System.Drawing.Font("Nunito", 10F);
+            this.searchView.Appearance.Row.Options.UseFont = true;
             this.searchView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.gridColumn1,
             this.gridColumn2,
@@ -1136,16 +1153,6 @@
             this.bExit.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.bExit.Text = "Element1";
             this.bExit.Click += new System.EventHandler(this.bExit_Click);
-            // 
-            // pageBaskets
-            // 
-            this.pageBaskets.Name = "pageBaskets";
-            this.pageBaskets.Size = new System.Drawing.Size(935, 676);
-            // 
-            // pageHotSales
-            // 
-            this.pageHotSales.Name = "pageHotSales";
-            this.pageHotSales.Size = new System.Drawing.Size(935, 676);
             // 
             // fPosSales
             // 

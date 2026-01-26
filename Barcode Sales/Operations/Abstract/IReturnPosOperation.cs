@@ -5,5 +5,6 @@
         int InsertReturnData(ReturnPos item);
         int CurrentCountTotal();
         double CurrentAmountTotal();
+
     }
 }

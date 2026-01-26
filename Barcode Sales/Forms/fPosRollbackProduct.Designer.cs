@@ -131,6 +131,8 @@
             // 
             this.gridSalesData.Appearance.EvenRow.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.gridSalesData.Appearance.EvenRow.Options.UseBackColor = true;
+            this.gridSalesData.Appearance.HeaderPanel.Font = new System.Drawing.Font("Nunito", 11F, System.Drawing.FontStyle.Bold);
+            this.gridSalesData.Appearance.HeaderPanel.Options.UseFont = true;
             this.gridSalesData.Appearance.OddRow.BackColor = System.Drawing.Color.White;
             this.gridSalesData.Appearance.OddRow.Options.UseBackColor = true;
             this.gridSalesData.Appearance.Row.Font = new System.Drawing.Font("Nunito", 11F);
@@ -197,7 +199,7 @@
             this.colProductName.OptionsColumn.AllowEdit = false;
             this.colProductName.Visible = true;
             this.colProductName.VisibleIndex = 2;
-            this.colProductName.Width = 337;
+            this.colProductName.Width = 332;
             // 
             // colQuantity
             // 
@@ -213,7 +215,7 @@
             this.colQuantity.OptionsColumn.AllowEdit = false;
             this.colQuantity.Visible = true;
             this.colQuantity.VisibleIndex = 3;
-            this.colQuantity.Width = 109;
+            this.colQuantity.Width = 99;
             // 
             // colUnitName
             // 
@@ -223,13 +225,13 @@
             this.colUnitName.AppearanceHeader.TextOptions.Trimming = DevExpress.Utils.Trimming.EllipsisCharacter;
             this.colUnitName.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.colUnitName.Caption = "Vahid";
-            this.colUnitName.FieldName = "item.Detail.Products.UnitTypes.Name";
+            this.colUnitName.FieldName = "Detail.Products.UnitTypes.Name";
             this.colUnitName.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.MiddleLeft;
             this.colUnitName.Name = "colUnitName";
             this.colUnitName.OptionsColumn.AllowEdit = false;
             this.colUnitName.Visible = true;
             this.colUnitName.VisibleIndex = 4;
-            this.colUnitName.Width = 107;
+            this.colUnitName.Width = 102;
             // 
             // colSalePrice
             // 
@@ -265,7 +267,7 @@
             this.colTotal.OptionsColumn.AllowEdit = false;
             this.colTotal.Visible = true;
             this.colTotal.VisibleIndex = 6;
-            this.colTotal.Width = 149;
+            this.colTotal.Width = 140;
             // 
             // colTaxName
             // 
@@ -283,6 +285,9 @@
             // 
             this.colReturnQuantity.AppearanceCell.Options.UseTextOptions = true;
             this.colReturnQuantity.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.colReturnQuantity.AppearanceHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.colReturnQuantity.AppearanceHeader.Font = new System.Drawing.Font("Nunito", 11F, System.Drawing.FontStyle.Bold);
+            this.colReturnQuantity.AppearanceHeader.Options.UseBackColor = true;
             this.colReturnQuantity.AppearanceHeader.Options.UseFont = true;
             this.colReturnQuantity.AppearanceHeader.Options.UseTextOptions = true;
             this.colReturnQuantity.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
@@ -368,7 +373,7 @@
             // 
             // tComment
             // 
-            this.tComment.Location = new System.Drawing.Point(665, 58);
+            this.tComment.Location = new System.Drawing.Point(566, 54);
             this.tComment.Name = "tComment";
             this.tComment.Size = new System.Drawing.Size(410, 162);
             this.tComment.TabIndex = 26;
@@ -376,7 +381,7 @@
             // tTotal
             // 
             this.tTotal.EditValue = "0,00";
-            this.tTotal.Location = new System.Drawing.Point(337, 122);
+            this.tTotal.Location = new System.Drawing.Point(299, 122);
             this.tTotal.Name = "tTotal";
             this.tTotal.Properties.Appearance.BackColor = System.Drawing.Color.White;
             this.tTotal.Properties.Appearance.Options.UseBackColor = true;
@@ -393,19 +398,19 @@
             this.tTotal.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
             this.tTotal.Properties.MaskSettings.Set("mask", "N2");
             this.tTotal.Properties.ReadOnly = true;
-            this.tTotal.Size = new System.Drawing.Size(234, 32);
+            this.tTotal.Size = new System.Drawing.Size(234, 28);
             this.tTotal.TabIndex = 25;
             this.tTotal.TabStop = false;
             // 
             // tPaymentType
             // 
             this.tPaymentType.EditValue = "";
-            this.tPaymentType.Location = new System.Drawing.Point(337, 188);
+            this.tPaymentType.Location = new System.Drawing.Point(299, 188);
             this.tPaymentType.Name = "tPaymentType";
             this.tPaymentType.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.tPaymentType.Properties.MaskSettings.Set("mask", "(999) 000-00-00");
             this.tPaymentType.Properties.ReadOnly = true;
-            this.tPaymentType.Size = new System.Drawing.Size(234, 32);
+            this.tPaymentType.Size = new System.Drawing.Size(234, 28);
             this.tPaymentType.TabIndex = 24;
             this.tPaymentType.TabStop = false;
             // 
@@ -413,7 +418,7 @@
             // 
             this.labelControl6.Appearance.Font = new System.Drawing.Font("Nunito", 11F);
             this.labelControl6.Appearance.Options.UseFont = true;
-            this.labelControl6.Location = new System.Drawing.Point(337, 162);
+            this.labelControl6.Location = new System.Drawing.Point(299, 162);
             this.labelControl6.Name = "labelControl6";
             this.labelControl6.Size = new System.Drawing.Size(85, 20);
             this.labelControl6.TabIndex = 23;
@@ -423,7 +428,7 @@
             // 
             this.labelControl5.Appearance.Font = new System.Drawing.Font("Nunito", 11F);
             this.labelControl5.Appearance.Options.UseFont = true;
-            this.labelControl5.Location = new System.Drawing.Point(337, 96);
+            this.labelControl5.Location = new System.Drawing.Point(299, 96);
             this.labelControl5.Name = "labelControl5";
             this.labelControl5.Size = new System.Drawing.Size(103, 20);
             this.labelControl5.TabIndex = 23;
@@ -432,12 +437,12 @@
             // tReceiptNo
             // 
             this.tReceiptNo.EditValue = "";
-            this.tReceiptNo.Location = new System.Drawing.Point(337, 58);
+            this.tReceiptNo.Location = new System.Drawing.Point(299, 58);
             this.tReceiptNo.Name = "tReceiptNo";
             this.tReceiptNo.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.tReceiptNo.Properties.MaskSettings.Set("mask", "(999) 000-00-00");
             this.tReceiptNo.Properties.ReadOnly = true;
-            this.tReceiptNo.Size = new System.Drawing.Size(234, 32);
+            this.tReceiptNo.Size = new System.Drawing.Size(234, 28);
             this.tReceiptNo.TabIndex = 24;
             this.tReceiptNo.TabStop = false;
             // 
@@ -445,7 +450,7 @@
             // 
             this.labelControl7.Appearance.Font = new System.Drawing.Font("Nunito", 11F);
             this.labelControl7.Appearance.Options.UseFont = true;
-            this.labelControl7.Location = new System.Drawing.Point(665, 32);
+            this.labelControl7.Location = new System.Drawing.Point(566, 32);
             this.labelControl7.Name = "labelControl7";
             this.labelControl7.Size = new System.Drawing.Size(37, 20);
             this.labelControl7.TabIndex = 23;
@@ -455,7 +460,7 @@
             // 
             this.labelControl3.Appearance.Font = new System.Drawing.Font("Nunito", 11F);
             this.labelControl3.Appearance.Options.UseFont = true;
-            this.labelControl3.Location = new System.Drawing.Point(337, 32);
+            this.labelControl3.Location = new System.Drawing.Point(299, 32);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(82, 20);
             this.labelControl3.TabIndex = 23;
@@ -469,7 +474,7 @@
             this.tSaleDatetime.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.tSaleDatetime.Properties.MaskSettings.Set("mask", "(999) 000-00-00");
             this.tSaleDatetime.Properties.ReadOnly = true;
-            this.tSaleDatetime.Size = new System.Drawing.Size(234, 32);
+            this.tSaleDatetime.Size = new System.Drawing.Size(234, 28);
             this.tSaleDatetime.TabIndex = 24;
             this.tSaleDatetime.TabStop = false;
             // 
@@ -515,7 +520,7 @@
             this.tCashier.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.tCashier.Properties.MaskSettings.Set("mask", "(999) 000-00-00");
             this.tCashier.Properties.ReadOnly = true;
-            this.tCashier.Size = new System.Drawing.Size(234, 32);
+            this.tCashier.Size = new System.Drawing.Size(234, 28);
             this.tCashier.TabIndex = 24;
             this.tCashier.TabStop = false;
             // 
@@ -531,7 +536,7 @@
             this.tCustomer.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.tCustomer.Properties.MaskSettings.Set("mask", "(999) 000-00-00");
             this.tCustomer.Properties.ReadOnly = true;
-            this.tCustomer.Size = new System.Drawing.Size(234, 32);
+            this.tCustomer.Size = new System.Drawing.Size(234, 28);
             this.tCustomer.TabIndex = 24;
             this.tCustomer.TabStop = false;
             // 

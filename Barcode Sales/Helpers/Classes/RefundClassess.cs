@@ -23,7 +23,7 @@ namespace Barcode_Sales.Helpers.Classes
             public double Discount { get; set; } = 0;
             public double Total
             {
-                get => Math.Floor((SalePrice * Amount - Discount) * 100) / 100;
+                get => Math.Round((SalePrice * Amount - Discount) * 100) / 100;
             }
             public double? PurchasePrice { get; set; }
             public double? PurchaseSum { get => PurchasePrice * Amount; }

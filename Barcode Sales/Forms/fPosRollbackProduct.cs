@@ -7,16 +7,11 @@ using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Repository;
 using DevExpress.XtraGrid.Views.Grid;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using static Barcode_Sales.Helpers.Enums;
-using static DevExpress.Utils.Diagnostics.GUIResources;
 
 namespace Barcode_Sales.Forms
 {
@@ -78,7 +73,7 @@ namespace Barcode_Sales.Forms
                           ReturnQuantity = 1
                       })
                       .ToList();
-
+            
             if (_type is PosReturnType.Rollback)
             {
                 foreach (var item in data)
@@ -211,23 +206,15 @@ namespace Barcode_Sales.Forms
                 {
                     case KassaOperator.CASPOS:
                         if (NKA.Sunmi.Refund())
-                        {
                             DialogResult = DialogResult.OK;
-                        }
                         break;
                     case KassaOperator.OMNITECH:
                         if (NKA.Omnitech.Refund(_refundData))
-                        {
-                            RefundDataItem.Clear();
                             DialogResult = DialogResult.OK;
-                        }
                         break;
                     case KassaOperator.AZSMART:
                         if (NKA.AzSmart.Refund(_refundData))
-                        {
-                            RefundDataItem.Clear();
                             DialogResult = DialogResult.OK;
-                        }
                         break;
                     case KassaOperator.NBA:
                         break;
@@ -236,6 +223,7 @@ namespace Barcode_Sales.Forms
                     case KassaOperator.ONECLICK:
                         break;
                 }
+                RefundDataItem.Clear();
             }
         }
 

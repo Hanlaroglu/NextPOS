@@ -26,6 +26,7 @@ namespace Barcode_Sales.Forms
         ICustomerOperation customerOperation = new CustomerManager();
         ICustomerGroupOperation customerGroupOperation = new CustomerGroupManager();
         ISaleDataOperation saleDataOperation = new SalesDataManager();
+        IReturnPosOperation returnPosOperation = new ReturnPosManager();
         ISalesDataDetailOperation salesDataDetailOperation = new SalesDataDetailManager();
 
         public fDashboard()
@@ -39,7 +40,7 @@ namespace Barcode_Sales.Forms
             await Top5SellingProductAsync();
             await CurrentSalesDataAsync();
             await CurrentPaymentTypeLoadsAsync();
-
+            CurrentRefundDataAsync();
         }
 
         private void ScreenREsolution()
@@ -79,6 +80,12 @@ namespace Barcode_Sales.Forms
         {
             lSalesAmount.Text = await saleDataOperation.CurrentSalesDataAsync();
             lSalesCount.Text = await saleDataOperation.CurrentSalesCountAsync();
+        }
+
+        private  void CurrentRefundDataAsync()
+        {
+            lRollbackAmount.Text =  returnPosOperation.CurrentAmountTotal().ToString();
+            lRollbackCount.Text = returnPosOperation.CurrentCountTotal().ToString();
         }
 
         private async Task CurrentPaymentTypeLoadsAsync()
@@ -184,14 +191,13 @@ namespace Barcode_Sales.Forms
                 series.DataSource = list;
                 series.ArgumentDataMember = "ProductName";
                 series.ValueDataMembers.Clear();
-                series.ValueDataMembers.AddRange("TotalQuantity");
-                //series.ValueDataMembers.AddRange(new[] { "TotalQuantity" });
+                //series.ValueDataMembers.AddRange("TotalQuantity");
+                series.ValueDataMembers.AddRange(new[] { "TotalQuantity" });
 
-                series.Label.TextPattern = "{VP:P2}";
-                series.LegendTextPattern = "{A}";
+                //series.Label.TextPattern = "{VP:P2}";
+                //series.LegendTextPattern = "{A}";
 
-                chartTop5Product.Titles[0].Text =
-                    $"{monthStart.ToString("MMMM yyyy")} üzrə ən çox satılan 5 məhsul";
+                chartTop5Product.Titles[0].Text = $"{monthStart.ToString("MMMM yyyy")} üzrə ən çox satılan 5 məhsul";
             }
         }
 
