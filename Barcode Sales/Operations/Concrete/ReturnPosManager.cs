@@ -11,7 +11,7 @@ namespace Barcode_Sales.Operations.Concrete
 {
     public class ReturnPosManager : IReturnPosOperation
     {
-        NextposDBEntities db = new NextposDBEntities();
+        KhanposDbEntities db = new KhanposDbEntities();
         public bool Add(ReturnPos item)
         {
             try

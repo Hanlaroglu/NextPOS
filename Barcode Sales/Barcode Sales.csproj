@@ -8,7 +8,7 @@
     <ProjectGuid>{D6727043-D603-4957-81C7-7B2E4662D942}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>Barcode_Sales</RootNamespace>
-    <AssemblyName>KhanPOS</AssemblyName>
+    <AssemblyName>Khanpos</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -199,9 +199,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AqtaProducts.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
     <Compile Include="Barcode..Sales.UI\fBarcodeSalesUI.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -242,16 +239,13 @@
     <Compile Include="Barcode.Sales.Admin\fDashboard.Designer.cs">
       <DependentUpon>fDashboard.cs</DependentUpon>
     </Compile>
-    <Compile Include="Categories.cs">
+    <Compile Include="Category.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="CloseShiftReport.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Colors.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Company.cs">
+    <Compile Include="Color.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Customer.cs">
@@ -324,12 +318,6 @@
     </Compile>
     <Compile Include="Forms\fAddSupplierDebt.Designer.cs">
       <DependentUpon>fAddSupplierDebt.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\fAqtaAddProfuct.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\fAqtaAddProfuct.Designer.cs">
-      <DependentUpon>fAqtaAddProfuct.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\fAqtaReport.cs">
       <SubType>Form</SubType>
@@ -559,7 +547,7 @@
     <Compile Include="InvoiceRollbackDetail.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Logs.cs">
+    <Compile Include="Log.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Model1.Context.cs">
@@ -587,7 +575,6 @@
     <Compile Include="NKA\Sunmi.cs" />
     <Compile Include="NotificationHelpers\Dialogs.cs" />
     <Compile Include="NotificationHelpers\Messages.cs" />
-    <Compile Include="Operations\Abstract\IAqtaProductsOperation.cs" />
     <Compile Include="Operations\Abstract\IBaseOperation.cs" />
     <Compile Include="Operations\Abstract\ICategoryOperation.cs" />
     <Compile Include="Operations\Abstract\ICloseShiftOperation.cs" />
@@ -601,12 +588,12 @@
     <Compile Include="Operations\Abstract\IInvoiceRollbackDetailOperation.cs" />
     <Compile Include="Operations\Abstract\IInvoiceRollbackOperation.cs" />
     <Compile Include="Operations\Abstract\IPaymentTypeOperation.cs" />
+    <Compile Include="Operations\Abstract\IPosSaleItemOperation.cs" />
+    <Compile Include="Operations\Abstract\IPosSaleOperation.cs" />
     <Compile Include="Operations\Abstract\IProductOperation.cs" />
     <Compile Include="Operations\Abstract\IReturnPosDetailOperation.cs" />
     <Compile Include="Operations\Abstract\IReturnPosOperation.cs" />
     <Compile Include="Operations\Abstract\IRoleOperation.cs" />
-    <Compile Include="Operations\Abstract\ISaleDataOperation.cs" />
-    <Compile Include="Operations\Abstract\ISalesDataDetailOperation.cs" />
     <Compile Include="Operations\Abstract\IStoreOperation.cs" />
     <Compile Include="Operations\Abstract\ISupplierDebtOperation.cs" />
     <Compile Include="Operations\Abstract\ISupplierOperation.cs" />
@@ -617,7 +604,6 @@
     <Compile Include="Operations\Abstract\IUnitTypeOperation.cs" />
     <Compile Include="Operations\Abstract\IUserOperation.cs" />
     <Compile Include="Operations\Abstract\IWarehouseOperation.cs" />
-    <Compile Include="Operations\Concrete\AqtaProductsManager.cs" />
     <Compile Include="Operations\Concrete\CategoryManager.cs" />
     <Compile Include="Operations\Concrete\CloseShiftManager.cs" />
     <Compile Include="Operations\Concrete\CompanyManager.cs" />
@@ -630,6 +616,8 @@
     <Compile Include="Operations\Concrete\InvoiceManager.cs" />
     <Compile Include="Operations\Concrete\InvoiceRollbackDetailManager.cs" />
     <Compile Include="Operations\Concrete\PaymentTypeManager.cs" />
+    <Compile Include="Operations\Concrete\PosSaleItemManager.cs" />
+    <Compile Include="Operations\Concrete\PosSaleManager.cs" />
     <Compile Include="Operations\Concrete\ProductManager.cs" />
     <Compile Include="Forms\fSelectProduct.cs">
       <SubType>Form</SubType>
@@ -640,8 +628,6 @@
     <Compile Include="Operations\Concrete\ReturnPosDetailManager.cs" />
     <Compile Include="Operations\Concrete\ReturnPosManager.cs" />
     <Compile Include="Operations\Concrete\RoleManager.cs" />
-    <Compile Include="Operations\Concrete\SalesDataDetailManager.cs" />
-    <Compile Include="Operations\Concrete\SalesDataManager.cs" />
     <Compile Include="Operations\Concrete\StoreManager.cs" />
     <Compile Include="Operations\Concrete\SupplierDebtManager.cs" />
     <Compile Include="Operations\Concrete\SupplierManager.cs" />
@@ -654,7 +640,13 @@
     <Compile Include="PaymentType.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Products.cs">
+    <Compile Include="PosSale.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PosSaleItem.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Product.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
@@ -672,26 +664,21 @@
     <Compile Include="ReturnPosDetail.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Roles.cs">
+    <Compile Include="Role.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="SalesData.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="SalesDataDetail.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Sizes.cs">
+    <Compile Include="Services\ExcelService.cs" />
+    <Compile Include="Size.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="Store.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="SupplierPayment.cs">
+    <Compile Include="Supplier.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Suppliers.cs">
+    <Compile Include="SupplierPayment.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="SuppliersDebt.cs">
@@ -700,10 +687,10 @@
     <Compile Include="TaxType.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="TerminalIncomesAndExpens.cs">
+    <Compile Include="Terminal.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Terminals.cs">
+    <Compile Include="TerminalIncomesAndExpens.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Tools\fShutdown.cs">
@@ -712,9 +699,11 @@
     <Compile Include="Tools\fShutdown.Designer.cs">
       <DependentUpon>fShutdown.cs</DependentUpon>
     </Compile>
-    <Compile Include="Tools\MonthInfo.cs" />
     <Compile Include="Tools\OperationsControl.cs" />
     <Compile Include="UnitType.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="User.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="UserControls\controlCategoryButton.cs">
@@ -727,10 +716,6 @@
       <DependentUpon>RadiusTextbox.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\Config.cs" />
-    <Compile Include="Users.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Validations\AqtaProductsValidation.cs" />
     <Compile Include="Validations\CompanyValidation.cs" />
     <Compile Include="Validations\CustomerGroupValidation.cs" />
     <Compile Include="Validations\CustomerValidation.cs" />
@@ -747,7 +732,7 @@
     <Compile Include="view_InvoiceRollbackList.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Warehouses.cs">
+    <Compile Include="Warehouse.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Yazdir.cs" />
@@ -792,9 +777,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\fAddSupplierDebt.resx">
       <DependentUpon>fAddSupplierDebt.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\fAqtaAddProfuct.resx">
-      <DependentUpon>fAqtaAddProfuct.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\fAqtaReport.resx">
       <DependentUpon>fAqtaReport.cs</DependentUpon>

@@ -35,7 +35,7 @@ namespace Barcode_Sales.Forms
             }
         }
 
-        private void Add()
+        private async void Add()
         {
             _customerGroup = new CustomerGroup()
             {
@@ -55,7 +55,7 @@ namespace Barcode_Sales.Forms
 
             if (!CheckName(_customerGroup))
             {
-                if (customerGroupOperation.Add(_customerGroup))
+                if (await customerGroupOperation.Add(_customerGroup) > 0)
                 {
                     NotificationHelpers.Messages.SuccessMessage(this, $"{_customerGroup.Name} qrup adı yaradıldı");
                     Clear();
@@ -73,13 +73,11 @@ namespace Barcode_Sales.Forms
             var validator = ValidationHelpers.ValidateMessage(_customerGroup, new CustomerGroupValidation(), this);
 
             if (!validator.IsValid)
-            {
                 return;
-            }
 
             if (!CheckName(_customerGroup))
             {
-                await customerGroupOperation.UpdateAsync(_customerGroup);
+                await customerGroupOperation.Update(_customerGroup, x=> x.Name, x => x.Discount);
                 Close();
             }
         }

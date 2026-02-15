@@ -1,181 +1,124 @@
-﻿using Barcode_Sales.Helpers;
-using Barcode_Sales.Helpers.Messages;
-using Barcode_Sales.Operations.Abstract;
+﻿using Barcode_Sales.Operations.Abstract;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
-using System.Windows.Forms;
-using DevExpress.XtraEditors;
 
 namespace Barcode_Sales.Operations.Concrete
 {
     public class CategoryManager : ICategoryOperation
     {
-        NextposDBEntities db = new NextposDBEntities();
+        KhanposDbEntities db = new KhanposDbEntities();
         private IProductOperation productOperation { get; set; }
-        public bool Add(Categories item)
+
+        public async Task<int> Add(Category item)
         {
             try
             {
-                db.Categories.Add(item);
-                db.SaveChanges();
-                return true;
+                db.Set<Categories>().Add(item);
+                await db.SaveChangesAsync();
+                return item.Id;
             }
-            catch (Exception)
+            catch
+            {
+                return 0;
+            }
+        }
+
+        public async Task<bool> Add(List<Category> items)
+        {
+            if (items == null || items.Count == 0)
+                return false;
+
+
+            try
+            {
+                db.Set<Categories>().AddRange(items);
+                return await db.SaveChangesAsync() > 0;
+            }
+            catch
             {
                 return false;
             }
         }
 
-        public async Task AddAsync(Categories item)
+        public async Task<Category> Get(Expression<Func<Category, bool>> expression)
         {
-            db.Categories.Add(item);
-            await db.SaveChangesAsync();
+            return await db.Categories.FirstOrDefaultAsync(expression);
         }
 
-        public Categories GetById(int id)
+        public async Task<bool> Update(Category item, params Expression<Func<Category, object>>[] updateProperties)
         {
-            return db.Categories.FirstOrDefault(x => x.Id == id);
-        }
-
-        public async Task<Categories> GetByIdAsync(int id)
-        {
-            return await db.Categories.AsNoTracking().FirstOrDefaultAsync(x => x.Id == id);
-        }
-
-        public void Remove(Categories item)
-        {
-            productOperation = new ProductManager();
-
-            var product = productOperation.Where(x => x.IsDeleted == 0 && x.CategoryId == item.Id).ToList();
-
-            bool message = false;
-
-            if (product.Count == 0)
+            try
             {
-                var args = NotificationHelpers.Dialogs.DialogResultYesNo(
-                    $"({item.CategoryName}) kateqoriyasını silmək istədiyinizə əminsiniz ?", String.Empty);
-                message = XtraMessageBox.Show(args) == DialogResult.Yes;
+                db.Set<Categories>().Attach(item);
+
+                foreach (var property in updateProperties)
+                    db.Entry(item).Property(property).IsModified = true;
+
+                return await db.SaveChangesAsync() > 0;
             }
-            else
+            catch
             {
-                var args = NotificationHelpers.Dialogs.DialogResultYesNo(
-                                  $@"({item.CategoryName}) kateqoriyasında '{product.Count}' məhsul var. Bu kateqoriyanı silmək istədiyinizə əminsiniz ?", "Diqqət!");
-                message = XtraMessageBox.Show(args) == DialogResult.Yes;
-            }
-
-            if (message)
-            {
-                foreach (var x in product)
-                    x.IsDeleted = x.Id;
-
-                Categories data = GetById(item.Id);
-                data.IsDeleted = data.Id;
-                db.SaveChanges();
+                return false;
             }
         }
 
-        public async Task RemoveAsync(Categories item)
+        public async Task<bool> Update(List<Category> items, params Expression<Func<Category, object>>[] updateProperties)
         {
-            productOperation = new ProductManager();
+            if (items == null || items.Count == 0)
+                return false;
 
-            var product = productOperation.WhereAsync(x => x.IsDeleted == 0 && x.CategoryId == item.Id);
-
-            bool message = false;
-
-            if (product.Result.Count == 0)
+            using (var transaction = db.Database.BeginTransaction())
             {
-                message = CommonMessageBox.QuestionDialogResult($"{item.CategoryName} kateqoriyasını silmək istədiyinizə əminsiniz ?");
-
-            }
-            else
-            {
-                message = CommonMessageBox.QuestionDialogResult($"{item.CategoryName} kateqoriyasının daxilindəki '{product.Result.Count}' məhsulda silinəcəkdir.\n\n" +
-                    $"{item.CategoryName} kateqoriyasını silmək istədiyinizə əminsiniz ?");
-
-            }
-
-            if (message)
-            {
-                foreach (var x in product.Result)
+                try
                 {
-                    x.IsDeleted = x.Id;
+                    foreach (var entity in items)
+                    {
+                        db.Set<Categories>().Attach(entity);
+
+                        foreach (var property in updateProperties)
+                            db.Entry(entity).Property(property).IsModified = true;
+                    }
+
                     await db.SaveChangesAsync();
+                    transaction.Commit();
+                    return true;
                 }
-
-                var data = await db.Categories.FindAsync(item.Id);
-                data.IsDeleted = data.Id;
-                await db.SaveChangesAsync();
+                catch
+                {
+                    transaction.Rollback();
+                    return false;
+                }
             }
         }
 
-        public void Update(Categories item)
+        public async Task<bool> Remove(Category item)
         {
-            var existingItem = GetById(item.Id);
-            if (existingItem != null)
+            try
             {
-                db.Entry(existingItem).CurrentValues.SetValues(item);
-                db.SaveChanges();
+                db.Set<Categories>().Remove(item);
+                return await db.SaveChangesAsync() > 0;
+            }
+            catch
+            {
+                return false;
             }
         }
 
-        public async Task UpdateAsync(Categories item)
-        {
-            var existingItem = await db.Categories.FindAsync(item.Id);
-            if (existingItem != null)
-            {
-                db.Entry(existingItem).CurrentValues.SetValues(item);
-                await db.SaveChangesAsync();
-            }
-        }
-
-        public IQueryable<Categories> Where(Expression<Func<Categories, bool>> expression)
+        public IQueryable<Category> Where(Expression<Func<Category, bool>> expression)
         {
             return db.Categories.AsNoTracking().Where(expression);
         }
 
-        public async Task<List<Categories>> WhereAsync(Expression<Func<Categories, bool>> expression)
+        public async Task<List<Category>> ToListAsync(Expression<Func<Category, bool>> expression = null)
         {
-            return await db.Categories.Where(expression).ToListAsync();
-        }
-
-        public void StatusUpdate(Categories item)
-        {
-            productOperation = new ProductManager();
-
-            var product = productOperation.Where(x => x.IsDeleted == 0 && x.CategoryId == item.Id).ToList();
-
-            string boolMessage = (bool)item.Status ? "aktiv" : "deaktiv";
-
-            bool message = false;
-
-            if (product.Count == 0)
-            {
-                message = true;
-
-            }
+            if (expression is null)
+                return await db.Categories.AsNoTracking().ToListAsync();
             else
-            {
-                message = CommonMessageBox.QuestionDialogResult($"{item.CategoryName} kateqoriyasının daxilindəki '{product.Count}' məhsulun statusu da {boolMessage} ediləcəkdir.\n\n" +
-                    $"{item.CategoryName} kateqoriyasını deaktiv etmək istədiyinizə əminsiniz ?");
-
-            }
-
-            if (message)
-            {
-                foreach (var x in product)
-                {
-                    x.Status = item.Status;
-                    db.SaveChanges();
-                }
-
-                var existingItem = db.Categories.Find(item.Id);
-                existingItem.Status = item.Status;
-                db.SaveChanges();
-            }
+                return await db.Categories.AsNoTracking().Where(expression).OrderBy(x => x.Id).ToListAsync();
         }
     }
 }

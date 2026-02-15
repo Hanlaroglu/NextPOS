@@ -17,11 +17,12 @@ namespace Barcode_Sales.Forms
 {
     public partial class fUsers : FormBase
     {
-        NextposDBEntities db = new NextposDBEntities();
         IUserOperation userOperation = new UserManager();
+        IStoreOperation storeOperation = new StoreManager();
+        IRoleOperation roleOperation = new RoleManager();
         private Enums.Operation Operation { get; }
-        private Users User { get; set; }
-        public fUsers(Enums.Operation _operation, Users _users)
+        private User User { get; set; }
+        public fUsers(Enums.Operation _operation, User _users)
         {
             InitializeComponent();
             Operation = _operation;
@@ -40,20 +41,20 @@ namespace Barcode_Sales.Forms
             }
         }
 
-        void AddUser()
+        async void AddUser()
         {
-            User = new Users();
-            User.StoreID = GetByIdStore(lookStore.Text);
+            User = new User();
+            User.StoreID = await GetByIdStore(lookStore.Text);
             User.Username = tUsername.Text;
             User.Password = tPassword.Text;
             User.NameSurname = tNameSurname.Text;
             User.Email = tEmail.Text;
             User.Phone = tPhone.Text;
-            User.RoleID = GetByIdRole(lookRole.Text);
+            User.RoleID = await GetByIdRole(lookRole.Text);
             User.IsDeleted = 0;
             User.Status = true;
 
-            bool uniqueData = userOperation.Where(x=> x.Username == tUsername.Text.Trim()).Any();
+            bool uniqueData = userOperation.Where(x => x.Username == tUsername.Text.Trim()).Any();
             if (!uniqueData)
             {
                 Message(UserValidation.ExistingUsername, NextPOS.UserControls.fMessage.enmType.Warning);
@@ -68,18 +69,18 @@ namespace Barcode_Sales.Forms
                 return;
             }
 
-            userOperation.Add(User);
+            await userOperation.Add(User);
             Clear();
         }
 
-        void EditUser()
+        async void EditUser()
         {
-            User.StoreID = GetByIdStore(lookStore.Text);
+            User.StoreID = await GetByIdStore(lookStore.Text);
             User.Password = tPassword.Text;
             User.NameSurname = tNameSurname.Text;
             User.Email = tEmail.Text;
             User.Phone = tPhone.Text;
-            User.RoleID = GetByIdRole(lookRole.Text);
+            User.RoleID = await GetByIdRole(lookRole.Text);
 
             var validator = ValidationHelpers.ValidateMessage(User, new UserValidation(), this);
 
@@ -88,7 +89,13 @@ namespace Barcode_Sales.Forms
                 return;
             }
 
-            userOperation.Update(User);
+          await  userOperation.Update(User, 
+              x=> x.StoreID,
+              x => x.Password,
+              x => x.NameSurname,
+              x => x.Email,
+              x => x.Phone,
+              x => x.RoleID);
             Close();
         }
 
@@ -104,17 +111,16 @@ namespace Barcode_Sales.Forms
             tUsername.Focus();
         }
 
-        int GetByIdStore(string storeName)
+        private async Task<int> GetByIdStore(string storeName)
         {
-            var store = db.Stores.AsNoTracking().FirstOrDefault(x => x.Name == storeName);
+            var store = await storeOperation.Get(x => x.Name == storeName);
             return store != null ? store.Id : throw new NullReferenceException(UserValidation.StoreNotSelected);
         }
 
-        int GetByIdRole(string roleName)
+        private async Task<int> GetByIdRole(string roleName)
         {
-            var role = db.Roles.AsNoTracking().FirstOrDefault(x => x.RoleName == roleName);
+            var role = await roleOperation.Get(x => x.Name == roleName);
             return role != null ? role.Id : throw new NullReferenceException(UserValidation.RoleNotSelected);
-
         }
 
         private void tPassword_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
@@ -127,7 +133,6 @@ namespace Barcode_Sales.Forms
 
         private void fUsers_Load(object sender, EventArgs e)
         {
-            TestCode();
             StoreDataLoad();
             RoleDataLoad();
             if (Operation is Enums.Operation.Edit)
@@ -138,45 +143,35 @@ namespace Barcode_Sales.Forms
             }
         }
 
-
-        private void TestCode()
-        {
-        }
-
         void UserDataLoad()
         {
-            lookStore.Text = User?.Stores?.Name;
+            lookStore.Text = User?.Store?.Name;
             tUsername.Text = User.Username;
             tPassword.Text = User.Password;
             tNameSurname.Text = User.NameSurname;
             tPhone.Text = User.Phone;
             tEmail.Text = User.Email;
-            lookRole.Text = User?.Roles?.RoleName;
+            lookRole.Text = User?.Role?.RoleName;
         }
 
         void StoreDataLoad()
         {
-            var data = db.Stores.AsNoTracking()
-                               .Where(x => x.IsDeleted == false)
-                               .Select(x => new
-                               {
-                                   x.Name
-                               })
-                               .ToList();
+            var data = storeOperation.Where(x => x.IsDeleted == false)
+                                     .Select(x => new
+                                     {
+                                         x.Name
+                                     }).ToList();
 
             FormHelpers.ControlLoad(data, lookStore, "StoreName", null);
         }
 
         void RoleDataLoad()
         {
-            var data = db.Roles.AsNoTracking()
-                               .Where(x => x.IsDeleted == 0)
-                               .Select(x => new
-                               {
-                                   x.RoleName
-                               })
-                               .ToList();
-
+            var data = roleOperation.Where(x => x.IsDeleted == 0)
+                                     .Select(x => new
+                                     {
+                                         x.RoleName
+                                     }).ToList();
 
             FormHelpers.ControlLoad(data, lookRole, "RoleName", null);
         }

@@ -147,31 +147,44 @@
         MzJWMTY4YTIwLDIwLDAsMCwwLDIwLDIwLDEyLDEyLDAsMCwwLDQtMjMuMzJaIiAvPg0KPC9zdmc+Cw==
 </value>
   </data>
-  <data name="labelControl2.ImageOptions.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="editorButtonImageOptions1.SvgImage" type="DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v24.1" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAAA4sAAAOLAXXLF/sAAAAZdEVYdFNvZnR3YXJlAHd3dy5pbmtzY2FwZS5vcmeb7jwa
-        AAAD7ElEQVRIS81VW2xUVRRdLTN1mKbDTKctQx+000emxUagQbCxCeFVifVRlX7UYgGNRCXB+MYogg2K
-        hMqrgBakpgE/qpBY/JCoH2rVaKKJoRraRMXpCyqCkY6ldFq2a8/pzZQ4VSQkupKVe+45e+91zr777Iv/
-        EwpcTqzhM8W8XiPYbFiQ5UHbkiL0NNUiXOpHX34ajnFpjrG4OtjdDqzK9qLj4fn4NbgZIo2Go69Dti7D
-        qG0Shmn3IVlDXqdOVwK3z426vDQEt9yDgfM7o4F/2w7ZfBcGClLRleFGPW19pIt8Ki4OPeluNHCcScaE
-        f5obzcUZCLY8iIsjr0UDH38BUn0jzuSl4DuPA8tpazcuyMn0YF/Ah2BDNULH1uLSogD6c1PxKdM6f8zG
-        IMODE0U+yNurIcN7IWEKtKzG8Jxs9OZ48S5NZhpLxNH5Fqbu8/IZOPXx47hkbUT51bOQxUWQyXaEaes1
-        LkReKjrPMQWvVkHK8iF+L37mkTdyyWMsMCU1CetyUvDTE+U417MlGnRwN6RpBWRRIWTtQkhHHaRyFvro
-        k25cCRWwHA7eD+GUpkLhYb4PFqejq3kVhi7uiQb+YRPkyXLIggCkcTkktCu6Fkugw1p8cyVGOFVtVrB0
-        dhbCC7m7/fdBBhjkvTWQO2dCauZBPns6GnQ8/1agmQKuydjLaS29W+urEPqjAfJGLYQfVV6qhHS9Amnf
-        APnmOUh//YQC0zR2BOMF9CPzyIP5LEdnAo5sr8KgtaYnKS/CL7msKFZPiz8FjeQngano3bYMQ0NjKfyL
-        AIOdsIJY1Eo6UIsLXz6DUT3BylKcTXbia5q/ZbyQSFppKLPFo50l2vcF7a9IwKJWTKEPvR4nbqOp8tGI
-        EyJp7CbjSE1nK5nGkm9LcyHEcVSgYGpsgW7mWi8STQqNJYrJPWYYmbvbDCP3ZJcZwuaw4xCf2hgNJhLQ
-        mmaOO2mibcHCYfImM4wgiTxKBiJvRIINL/OxwbwREwkov98IYW5P2u0oGTPX/nOAfJ9UMW14N5MKJ+/N
-        YZcDFziOpogBOrWZxRJQaikumYF+lqk2NOt/kEDq7hXxrLjK7GScPPIQhhcXop9zUQF+wAq2h+M1c3FG
-        dxxLRFmai9EbMnGKgdqmJ2OHJxHr+HyH78EHyhBaX4FBFkSQczsZNt5EvxyzWQWtc/3obn0EI9r7xwss
-        vd48T2+FfPQY5Chv9SG2lnu5Md6ldm8SVjCGnuwf4c5yYz2dfnzxdvx+dtvlAirMDYTn8e/G9H5A+1nG
-        7d/DnuhADXP/LXd5umQ65PkKnGdRdGUlo47rVre9Jijhv6HJOQl3cBwzv/8BgD8BX14OFDi49qYAAAAA
-        SUVORK5CYII=
+        AAEAAAD/////AQAAAAAAAAAMAgAAAFlEZXZFeHByZXNzLkRhdGEudjI0LjEsIFZlcnNpb249MjQuMS4z
+        LjAsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49Yjg4ZDE3NTRkNzAwZTQ5YQUBAAAAHURl
+        dkV4cHJlc3MuVXRpbHMuU3ZnLlN2Z0ltYWdlAQAAAAREYXRhBwICAAAACQMAAAAPAwAAAJsBAAAC77u/
+        PD94bWwgdmVyc2lvbj0nMS4wJyBlbmNvZGluZz0nVVRGLTgnPz4NCjxzdmcgd2lkdGg9IjMycHgiIGhl
+        aWdodD0iMzJweCIgdmlld0JveD0iMCAwIDI1NiAyNTYiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8y
+        MDAwL3N2ZyIgZmlsbD0iIzAwNzhkNCI+DQogIDxwYXRoIGQ9Ik0xMjgsMjZBMTAyLDEwMiwwLDEsMCwy
+        MzAsMTI4LDEwMi4xMiwxMDIuMTIsMCwwLDAsMTI4LDI2Wm0wLDE5MmE5MCw5MCwwLDEsMSw5MC05MEE5
+        MC4xLDkwLjEsMCwwLDEsMTI4LDIxOFpNMTM4LDg0YTEwLDEwLDAsMSwxLTEwLTEwQTEwLDEwLDAsMCwx
+        LDEzOCw4NFptMCw0NGExMCwxMCwwLDEsMS0xMC0xMEExMCwxMCwwLDAsMSwxMzgsMTI4Wm0wLDQ0YTEw
+        LDEwLDAsMSwxLTEwLTEwQTEwLDEwLDAsMCwxLDEzOCwxNzJaIiAvPg0KPC9zdmc+Cw==
 </value>
   </data>
-  <data name="simpleButton2.ImageOptions.SvgImage" type="DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v24.1" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="bShowProducts.ImageOptions.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAD
+        iwAAA4sBdcsX+wAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAPsSURBVEhLzVVb
+        bFRVFF0tM3WYpsNMpy1DH7TTR6bFRqBBsLEJ4VWJ9VGVftRiAY1EJcH4xiiCDYqEyquAFqSmAT+qkFj8
+        kKgfatVooomhGtpExekLKoKRjqV0WrZrz+nNlDhVJCS6kpV77jl773XOvvvsi/8TClxOrOEzxbxeI9hs
+        WJDlQduSIvQ01SJc6kdffhqOcWmOsbg62N0OrMr2ouPh+fg1uBkijYajr0O2LsOobRKGafchWUNep05X
+        ArfPjbq8NAS33IOB8zujgX/bDtl8FwYKUtGV4UY9bX2ki3wqLg496W40cJxJxoR/mhvNxRkItjyIiyOv
+        RQMffwFSfSPO5KXgO48Dy2lrNy7IyfRgX8CHYEM1QsfW4tKiAPpzU/Ep0zp/zMYgw4MTRT7I26shw3sh
+        YQq0rMbwnGz05njxLk1mGkvE0fkWpu7z8hk49fHjuGRtRPnVs5DFRZDJdoRp6zUuRF4qOs8xBa9WQcry
+        IX4vfuaRN3LJYywwJTUJ63JS8NMT5TjXsyUadHA3pGkFZFEhZO1CSEcdpHIW+uiTblwJFbAcDt4P4ZSm
+        QuFhvg8Wp6OreRWGLu6JBv5hE+TJcsiCAKRxOSS0K7oWS6DDWnxzJUY4VW1WsHR2FsILubv990EGGOS9
+        NZA7Z0Jq5kE+ezoadDz/VqCZAq7J2MtpLb1b66sQ+qMB8kYthB9VXqqEdL0Cad8A+eY5SH/9hALTNHYE
+        4wX0I/PIg/ksR2cCjmyvwqC1picpL8IvuawoVk+LPwWN5CeBqejdtgxDQ2Mp/IsAg52wgljUSjpQiwtf
+        PoNRPcHKUpxNduJrmr9lvJBIWmkos8WjnSXa9wXtr0jAolZMoQ+9Hiduo6ny0YgTImnsJuNITWcrmcaS
+        b0tzIcRxVKBgamyBbuZaLxJNCo0lisk9ZhiZu9sMI/dklxnC5rDjEJ/aGA0mEtCaZo47aaJtwcJh8iYz
+        jCCJPEoGIm9Egg0v87HBvBETCSi/3whhbk/a7SgZM9f+c4B8n1QxbXg3kwon781hlwMXOI6miAE6tZnF
+        ElBqKS6ZgX6WqTY063+QQOruFfGsuMrsZJw88hCGFxein3NRAX7ACraH4zVzcUZ3HEtEWZqL0RsycYqB
+        2qYnY4cnEev4fIfvwQfKEFpfgUEWRJBzOxk23kS/HLNZBa1z/ehufQQj2vvHCyy93jxPb4V89BjkKG/1
+        IbaWe7kx3qV2bxJWMIae7B/hznJjPZ1+fPF2/H522+UCKswNhOfx78b0fkD7Wcbt38Oe6EANc/8td3m6
+        ZDrk+QqcZ1F0ZSWjjutWt70mKOG/ock5CXdwHDO//wGAPwFfXg4UOLj2pgAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="bSelectFile.ImageOptions.SvgImage" type="DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v24.1" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAEAAAD/////AQAAAAAAAAAMAgAAAFlEZXZFeHByZXNzLkRhdGEudjI0LjEsIFZlcnNpb249MjQuMS4z
         LjAsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49Yjg4ZDE3NTRkNzAwZTQ5YQUBAAAAHURl
@@ -186,60 +199,6 @@
         LjMyLTExLjMyWk0xMDQsMTQ4YTIwLDIwLDAsMSwxLDIwLDIwQTIwLDIwLDAsMCwxLDEwNCwxNDhaIiAv
         Pg0KPC9zdmc+Cw==
 </value>
-  </data>
-  <data name="htmlContentControl2.HtmlTemplate.Styles" xml:space="preserve">
-    <value>body {
-	text-align: left;
-	Font-family: Nunito;
-	Font-size: 16px;
-	color:@ControlText;
-}
-
-span {
-	Font-family: Nunito;
-	color: @Success;
-	font-weight: bold;
-}
-
-.header-text{
-	Font-size: 18px;
-}
-
-.hint-container {
-	display: inline-block;
-	max-width: 100%;
-	border-radius: 10px;
-	border-color: @Black;
-	overflow: hidden;
-	border: 1.5px dashed @Question;
-	border-left: none;
-	border-spacing: 4px;
-	margin: 10px 10px 10px 10px;
-}
-
-.hint {
-	border-left: 4px solid;
-	background-color: @Window;
-	border-left-color: @Question; /*#FF7200;*/
-	padding: 10px;
-}
-
-.hint-text {
-	margin-left: 10px;
-	display: inline-block;
-	text-align: left;
-}</value>
-  </data>
-  <data name="htmlContentControl2.HtmlTemplate.Template" xml:space="preserve">
-    <value>&lt;div class="hint-container"&gt;
-    &lt;div class="hint"&gt;
-        &lt;div class="hint-text"&gt;
-            &lt;span class="header-text"&gt;Məhsul İdxalı&lt;/span&gt;&lt;br&gt;&lt;br&gt;
-        	&lt;span&gt;Şablon yüklə&lt;/span&gt; düyməsinə basaraq tövsiyyə etdiyimiz 
-        	şablondan istifadə edin. Daha çox köməyə ehtiyacınız var ? &lt;span&gt;Məlumat&lt;/span&gt; düyməsini basın
-        &lt;/div&gt;
-    &lt;/div&gt;
-&lt;/div&gt;</value>
   </data>
   <metadata name="xtraOpenFileDialog1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>

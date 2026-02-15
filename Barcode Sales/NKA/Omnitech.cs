@@ -17,8 +17,8 @@ namespace Barcode_Sales.NKA
 {
     public static class Omnitech
     {
-        static ISaleDataOperation _saleDataOperation = new SalesDataManager();
-        static ISalesDataDetailOperation _salesDataDetailOperation = new SalesDataDetailManager();
+        static IPosSaleOperation posSaleOperation = new PosSaleManager();
+        static IPosSaleItemOperation posSaleItemOperation = new PosSaleItemManager();
         static IReturnPosOperation _returnPosOperation = new ReturnPosManager();
         static IReturnPosDetailOperation _returnPosDetailOperation = new ReturnPosDetailManager();
         static ITerminalIncomeAndExpenseOperation incomeAndExpenseOperation = new IncomeAndExpenseManager();
@@ -199,7 +199,7 @@ namespace Barcode_Sales.NKA
             throw new NotImplementedException();
         }
 
-        public static bool Sale(SaleClasses.SaleData _data)
+        public static async bool Sale(SaleClasses.SaleData _data)
         {
             if (string.IsNullOrWhiteSpace(_data.AccessToken))
             {
@@ -285,7 +285,7 @@ namespace Barcode_Sales.NKA
                 {
                     NotificationHelpers.Messages.SuccessMessage(_form, $"Satış uğurla tamamlandı");
 
-                    int SaleId = _saleDataOperation.InsertSaleData(new SalesData
+                    int SaleId = await posSaleOperation.Add(new PosSale
                     {
                         UserId = CommonData.CURRENT_USER.Id,
                         ReceiptNo = response.document_number.ToString(),
@@ -301,21 +301,22 @@ namespace Barcode_Sales.NKA
                         Note = _data.Note,
                     });
 
-                    if (SaleId != -1)
+                    if (SaleId > 0)
                     {
-                        List<SalesDataDetail> dataDetails = new List<SalesDataDetail>();
+                        List<PosSaleItem> saleItems = new List<PosSaleItem>();
 
-                        dataDetails.AddRange(_data.Items.Select(x => new SalesDataDetail
+                        saleItems.AddRange(_data.Items.Select(x => new PosSaleItem
                         {
                             ProductId = x.Id,
                             Quantity = x.Amount,
                             SalePrice = x.SalePrice,
                             Discount = x.Discount,
-                            SaleDataId = SaleId,
+                            PosSaleId = SaleId,
                         }));
-                        _salesDataDetailOperation.InsertRangeSalesDataDetail(dataDetails);
+
+                        if (await posSaleItemOperation.Add(saleItems))
+                            return true;
                     }
-                    return true;
                 }
                 else
                 {
@@ -421,7 +422,7 @@ namespace Barcode_Sales.NKA
                 return false;
             }
 
-           
+
         }
 
         public static bool Refund(RefundClassess.Data _data)
@@ -650,26 +651,26 @@ namespace Barcode_Sales.NKA
                 public int itemCodeType { get; set; }
                 public string itemCode { get; set; }
                 public int itemQuantityType { get; set; }
-                public double itemQuantity { get; set; }
-                public double itemPrice { get; set; }
-                public double itemSum { get; set; }
-                public double itemVatPercent { get; set; }
-                public double discount { get; set; }
-                public double? itemMarginPrice { get; set; } = null;
-                public double? itemMarginSum { get; set; } = null;
+                public decimal itemQuantity { get; set; }
+                public decimal itemPrice { get; set; }
+                public decimal itemSum { get; set; }
+                public decimal itemVatPercent { get; set; }
+                public decimal discount { get; set; }
+                public decimal? itemMarginPrice { get; set; } = null;
+                public decimal? itemMarginSum { get; set; } = null;
             }
             public class Data
             {
                 public string cashier { get; set; }
                 public string currency { get; set; } = "AZN";
                 public List<Item> items { get; set; }
-                public double sum { get; set; }
-                public double cashSum { get; set; }
-                public double cashlessSum { get; set; }
-                public double prepaymentSum { get; set; }
-                public double creditSum { get; set; }
-                public double bonusSum { get; set; }
-                public double incomingSum { get; set; }
+                public decimal sum { get; set; }
+                public decimal cashSum { get; set; }
+                public decimal cashlessSum { get; set; }
+                public decimal prepaymentSum { get; set; }
+                public decimal creditSum { get; set; }
+                public decimal bonusSum { get; set; }
+                public decimal incomingSum { get; set; }
                 public List<VatAmount> vatAmounts { get; set; }
             }
             public class Parameters
@@ -685,8 +686,8 @@ namespace Barcode_Sales.NKA
             }
             public class VatAmount
             {
-                public double vatSum { get; set; }
-                public double vatPercent { get; set; }
+                public decimal vatSum { get; set; }
+                public decimal vatPercent { get; set; }
             }
         }
 
@@ -699,7 +700,7 @@ namespace Barcode_Sales.NKA
             }
             public class Data
             {
-                public double cashSum { get; set; }
+                public decimal cashSum { get; set; }
             }
             public class TokenData
             {
@@ -719,28 +720,28 @@ namespace Barcode_Sales.NKA
                 public int itemCodeType { get; set; }
                 public string itemCode { get; set; }
                 public int itemQuantityType { get; set; }
-                public double itemQuantity { get; set; }
-                public double itemPrice { get; set; }
-                public double itemSum { get; set; }
-                public double itemVatPercent { get; set; }
-                public double discount { get; set; }
-                public double? itemMarginPrice { get; set; } = null;
-                public double? itemMarginSum { get; set; } = null;
+                public decimal itemQuantity { get; set; }
+                public decimal itemPrice { get; set; }
+                public decimal itemSum { get; set; }
+                public decimal itemVatPercent { get; set; }
+                public decimal discount { get; set; }
+                public decimal? itemMarginPrice { get; set; } = null;
+                public decimal? itemMarginSum { get; set; } = null;
             }
             public class Data
             {
                 public string cashier { get; set; }
                 public string currency { get; set; } = "AZN";
                 public List<Item> items { get; set; }
-                public double sum { get; set; }
-                public double cashSum { get; set; }
-                public double cashlessSum { get; set; }
-                public double prepaymentSum { get; set; }
+                public decimal sum { get; set; }
+                public decimal cashSum { get; set; }
+                public decimal cashlessSum { get; set; }
+                public decimal prepaymentSum { get; set; }
                 public string parentDocument { get; set; }
                 public string refund_document_number { get; set; }
                 public string refund_short_document_id { get; set; }
-                public double creditSum { get; set; }
-                public double bonusSum { get; set; }
+                public decimal creditSum { get; set; }
+                public decimal bonusSum { get; set; }
                 public List<VatAmount> vatAmounts { get; set; }
             }
             public class Parameters
@@ -756,8 +757,8 @@ namespace Barcode_Sales.NKA
             }
             public class VatAmount
             {
-                public double vatSum { get; set; }
-                public double vatPercent { get; set; }
+                public decimal vatSum { get; set; }
+                public decimal vatPercent { get; set; }
             }
         }
 

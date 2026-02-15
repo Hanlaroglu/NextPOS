@@ -4,7 +4,7 @@ using System.Net;
 
 namespace Barcode_Sales.Validations
 {
-    public class TerminalValidation : AbstractValidator<Terminals>
+    public class TerminalValidation : AbstractValidator<Terminal>
     {
         public TerminalValidation()
         {

@@ -12,10 +12,10 @@ namespace Barcode_Sales.Forms
         IWarehouseOperation warehouseOperation = new WarehouseManager();
         ITaxTypeOperation taxTypeOperation = new TaxTypeManager();
         IProductOperation productOperation = new ProductManager();
-        private readonly List<Products> _products;
+        private readonly List<Product> _products;
 
 
-        public fEditProduct(List<Products> products)
+        public fEditProduct(List<Product> products)
         {
             InitializeComponent();
             _products = products;

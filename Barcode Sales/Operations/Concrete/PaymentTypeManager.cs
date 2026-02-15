@@ -1,55 +1,110 @@
-﻿using System;
+﻿using Barcode_Sales.Operations.Abstract;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
 using System.Threading.Tasks;
-using Barcode_Sales.Operations.Abstract;
 
 namespace Barcode_Sales.Operations.Concrete
 {
     public class PaymentTypeManager : IPaymentTypeOperation
     {
-        private NextposDBEntities db = new NextposDBEntities();
-        public bool Add(PaymentType item)
+        private KhanposDbEntities db = new KhanposDbEntities();
+
+        public async Task<int> Add(PaymentType item)
         {
-            throw new NotImplementedException();
+            try
+            {
+                db.Set<PaymentType>().Add(item);
+                await db.SaveChangesAsync();
+                return item.Id;
+            }
+            catch
+            {
+                return 0;
+            }
         }
 
-        public Task AddAsync(PaymentType item)
+        public async Task<bool> Add(List<PaymentType> items)
         {
-            throw new NotImplementedException();
+            if (items == null || items.Count == 0)
+                return false;
+
+
+            try
+            {
+                db.Set<PaymentType>().AddRange(items);
+                return await db.SaveChangesAsync() > 0;
+            }
+            catch
+            {
+                return false;
+            }
         }
 
-        public void Update(PaymentType item)
+        public async Task<bool> Update(PaymentType item, params Expression<Func<PaymentType, object>>[] updateProperties)
         {
-            throw new NotImplementedException();
+            try
+            {
+                db.Set<PaymentType>().Attach(item);
+
+                foreach (var property in updateProperties)
+                    db.Entry(item).Property(property).IsModified = true;
+
+                return await db.SaveChangesAsync() > 0;
+            }
+            catch
+            {
+                return false;
+            }
         }
 
-        public Task UpdateAsync(PaymentType item)
+        public async Task<bool> Update(List<PaymentType> items, params Expression<Func<PaymentType, object>>[] updateProperties)
         {
-            throw new NotImplementedException();
+            if (items == null || items.Count == 0)
+                return false;
+
+            using (var transaction = db.Database.BeginTransaction())
+            {
+                try
+                {
+                    foreach (var entity in items)
+                    {
+                        db.Set<PaymentType>().Attach(entity);
+
+                        foreach (var property in updateProperties)
+                            db.Entry(entity).Property(property).IsModified = true;
+                    }
+
+                    await db.SaveChangesAsync();
+                    transaction.Commit();
+                    return true;
+                }
+                catch
+                {
+                    transaction.Rollback();
+                    return false;
+                }
+            }
         }
 
-        public void Remove(PaymentType item)
+        public async Task<bool> Remove(PaymentType item)
         {
-            throw new NotImplementedException();
+            try
+            {
+                db.Set<PaymentType>().Remove(item);
+                return await db.SaveChangesAsync() > 0;
+            }
+            catch
+            {
+                return false;
+            }
         }
 
-        public Task RemoveAsync(PaymentType item)
+        public async Task<PaymentType> Get(Expression<Func<PaymentType, bool>> expression)
         {
-            throw new NotImplementedException();
-        }
-
-        public PaymentType GetById(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<PaymentType> GetByIdAsync(int id)
-        {
-            throw new NotImplementedException();
+            return await db.PaymentTypes.FirstOrDefaultAsync(expression);
         }
 
         public IQueryable<PaymentType> Where(Expression<Func<PaymentType, bool>> expression)
@@ -57,7 +112,7 @@ namespace Barcode_Sales.Operations.Concrete
             return db.PaymentTypes.AsNoTracking().Where(expression);
         }
 
-        public async Task<List<PaymentType>> WhereAsync(Expression<Func<PaymentType, bool>> expression = null)
+        public async Task<List<PaymentType>> ToListAsync(Expression<Func<PaymentType, bool>> expression = null)
         {
             if (expression is null)
                 return await db.PaymentTypes.AsNoTracking().ToListAsync();

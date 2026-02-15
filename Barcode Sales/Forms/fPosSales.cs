@@ -17,8 +17,8 @@ namespace Barcode_Sales.Forms
 {
     public partial class fPosSales : DevExpress.XtraEditors.XtraForm
     {
+        IPosSaleOperation posSaleOperation = new PosSaleManager();
         IProductOperation productOperation = new ProductManager();
-        private ISaleDataOperation saleDataOperation = new SalesDataManager();
         private BindingList<SaleDataItem> dataList = new BindingList<SaleDataItem>();
         private ITerminalOperation terminalOperation = new TerminalManager();
         short rowNo = 1;
@@ -29,23 +29,24 @@ namespace Barcode_Sales.Forms
             gridControlBasket.DataSource = dataList;
         }
 
-        private class ProductSearchData : Products
+        private class ProductSearchData : Product
         {
             public int Id { get; set; }
             public string ProductName { get; set; }
-            public double? PurchasePrice { get; set; }
-            public double SalePrice { get; set; } = 0;
-            public double Discount { get; set; } = 0;
+            public decimal? PurchasePrice { get; set; }
+            public decimal SalePrice { get; set; } = 0;
+            public decimal Discount { get; set; } = 0;
             public string Barcode { get; set; }
             public int UnitId { get; set; }
             public int TaxId { get; set; }
-            public double Amount { get; set; }
+            public decimal Amount { get; set; }
         }
 
         private async void fPosSales_Load(object sender, EventArgs e)
         {
             CommonData.terminal = terminalOperation.GetIpAddress();
-            tSaleCount.Text = await saleDataOperation.SalesCount();
+            var saleCount = await posSaleOperation.CurrentSaleCount();
+            tSaleCount.Text = saleCount.ToString();
             tToday.Properties.Buttons[1].Caption = CommonData.TODAY_DATE;
             tCashier.Properties.Buttons[1].Caption = CommonData.CURRENT_USER?.NameSurname;
             await SearchProductList();
@@ -53,13 +54,13 @@ namespace Barcode_Sales.Forms
 
         private async Task SearchProductList()
         {
-            var data = await productOperation.WhereAsync(x => x.IsDeleted == 0 || x.Status == true);
+            var data = await productOperation.ToListAsync(x => x.IsDeleted == 0 || x.Status == true);
             var product = data.Select(x => new ProductSearchData
             {
                 Id = x.Id,
                 ProductName = x.ProductName,
-                SalePrice = (double)x.SalePrice,
-                PurchasePrice = (double)x.PurchasePrice,
+                SalePrice = (decimal)x.SalePrice,
+                PurchasePrice = (decimal)x.PurchasePrice,
                 Barcode = x.Barcode,
                 UnitId = (int)x.UnitId,
                 TaxId = (int)x.TaxId
@@ -175,7 +176,7 @@ namespace Barcode_Sales.Forms
                 {
                     tSearch.EditValueChanged -= tSearch_EditValueChanged;
 
-                    var product = await productOperation.GetByBarcodeAsync(tBarcodeSearch.Text);
+                    var product = await productOperation.Get(x=> x.Barcode == tBarcodeSearch.Text.Trim());
 
                     if (product is null)
                     {
@@ -194,7 +195,7 @@ namespace Barcode_Sales.Forms
                         SaleDataItem grid = new SaleDataItem
                         {
                             ProductName = product.ProductName,
-                            SalePrice = (double)product.SalePrice,
+                            SalePrice = (decimal)product.SalePrice,
                             Id = product.Id,
                             Amount = 1,
                             RowNo = rowNo,
@@ -258,7 +259,7 @@ namespace Barcode_Sales.Forms
             f.ShowDialog();
         }
 
-        private void gridBasket_DoubleClick(object sender, EventArgs e)
+        private void gridBasket_decimalClick(object sender, EventArgs e)
         {
             Point pt = gridBasket.GridControl.PointToClient(Control.MousePosition);
             GridHitInfo info = gridBasket.CalcHitInfo(pt);

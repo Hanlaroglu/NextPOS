@@ -17,7 +17,7 @@ namespace Barcode_Sales.Forms
     {
         private readonly SaleClasses.PosChangeType _posChangeType;
 
-        public double Amount { get; set; }
+        public decimal Amount { get; set; }
         //public double SalePrice { get; set; }
         //public double DiscountPrice { get; set; }
         //public double Quantity { get; set; }
@@ -96,18 +96,18 @@ namespace Barcode_Sales.Forms
                 case Enums.PosChangeType.Discount:
                     if (chDiscountPercent.Checked)
                     {
-                        double price = (_posChangeType.Amount * Double.Parse(tTotal.Text)) / 100;
+                        decimal price = (_posChangeType.Amount * Decimal.Parse(tTotal.Text)) / 100;
                         Amount = price;
                         DialogResult = DialogResult.OK;
                     }
                     else if (chDiscountCash.Checked)
                     {
-                        Amount = Double.Parse(tTotal.Text);
+                        Amount = decimal.Parse(tTotal.Text);
                         DialogResult = DialogResult.OK;
                     }
                     break;
                 default:
-                    Amount = Double.Parse(tTotal.Text);
+                    Amount = Decimal.Parse(tTotal.Text);
                     DialogResult = DialogResult.OK;
                     break;
             }

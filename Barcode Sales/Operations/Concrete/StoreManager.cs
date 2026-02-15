@@ -1,88 +1,110 @@
-﻿using Barcode_Sales.Helpers;
-using Barcode_Sales.Operations.Abstract;
+﻿using Barcode_Sales.Operations.Abstract;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Data.Entity;
+using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
 using System.Threading.Tasks;
-using Barcode_Sales.Helpers.Messages;
 
 namespace Barcode_Sales.Operations.Concrete
 {
     public class StoreManager : IStoreOperation
     {
-        NextposDBEntities db = new NextposDBEntities();
+        KhanposDbEntities db = new KhanposDbEntities();
 
-        public bool Add(Store item)
+        public async Task<int> Add(Store item)
         {
             try
             {
-                db.Stores.Add(item);
-                db.SaveChanges();
-                return true;
+                db.Set<Store>().Add(item);
+                await db.SaveChangesAsync();
+                return item.Id;
             }
-            catch (Exception)
+            catch
+            {
+                return 0;
+            }
+        }
+
+        public async Task<bool> Add(List<Store> items)
+        {
+            if (items == null || items.Count == 0)
+                return false;
+
+
+            try
+            {
+                db.Set<Store>().AddRange(items);
+                return await db.SaveChangesAsync() > 0;
+            }
+            catch
             {
                 return false;
             }
         }
 
-        public async Task AddAsync(Store item)
+        public async Task<bool> Update(Store item, params Expression<Func<Store, object>>[] updateProperties)
         {
-            db.Stores.Add(item);
-            await db.SaveChangesAsync();
-        }
-
-        public Store GetById(int id)
-        {
-            return db.Stores.FirstOrDefault(x => x.Id == id);
-        }
-
-        public async Task<Store> GetByIdAsync(int id)
-        {
-            return await db.Stores.AsNoTracking().FirstOrDefaultAsync(x => x.Id == id);
-        }
-
-        public void Remove(Store item)
-        {
-            if (CommonMessageBox.QuestionDialogResult($"{item.Name} mağazasını silmək istədiyinizə əminsiniz ?"))
+            try
             {
-                var data = GetById(item.Id);
-                data.IsDeleted = true;
-                db.SaveChanges();
+                db.Set<Store>().Attach(item);
+
+                foreach (var property in updateProperties)
+                    db.Entry(item).Property(property).IsModified = true;
+
+                return await db.SaveChangesAsync() > 0;
+            }
+            catch
+            {
+                return false;
             }
         }
 
-        public async Task RemoveAsync(Store item)
+        public async Task<bool> Update(List<Store> items, params Expression<Func<Store, object>>[] updateProperties)
         {
-            if (CommonMessageBox.QuestionDialogResult($"{item.Name} mağazasını silmək istədiyinizə əminsiniz ?"))
+            if (items == null || items.Count == 0)
+                return false;
+
+            using (var transaction = db.Database.BeginTransaction())
             {
-                var data = await db.Stores.FindAsync(item.Id);
-                data.IsDeleted = true;
-                await db.SaveChangesAsync();
+                try
+                {
+                    foreach (var entity in items)
+                    {
+                        db.Set<Store>().Attach(entity);
+
+                        foreach (var property in updateProperties)
+                            db.Entry(entity).Property(property).IsModified = true;
+                    }
+
+                    await db.SaveChangesAsync();
+                    transaction.Commit();
+                    return true;
+                }
+                catch
+                {
+                    transaction.Rollback();
+                    return false;
+                }
             }
         }
 
-        public void Update(Store item)
+        public async Task<bool> Remove(Store item)
         {
-            var existingItem = db.Stores.Find(item.Id);
-            if (existingItem != null)
+            try
             {
-                db.Entry(existingItem).CurrentValues.SetValues(item);
-                db.SaveChanges();
+                db.Set<Store>().Remove(item);
+                return await db.SaveChangesAsync() > 0;
+            }
+            catch
+            {
+                return false;
             }
         }
 
-        public async Task UpdateAsync(Store item)
+        public async Task<Store> Get(Expression<Func<Store, bool>> expression)
         {
-            var existingItem = await db.Stores.FindAsync(item.Id);
-            if (existingItem != null)
-            {
-                db.Entry(existingItem).CurrentValues.SetValues(item);
-              await  db.SaveChangesAsync();
-            }
+            return await db.Stores.FirstOrDefaultAsync(expression);
         }
 
         public IQueryable<Store> Where(Expression<Func<Store, bool>> expression)
@@ -90,9 +112,22 @@ namespace Barcode_Sales.Operations.Concrete
             return db.Stores.Where(expression);
         }
 
-        public async Task<List<Store>> WhereAsync(Expression<Func<Store, bool>> expression)
+        public async Task<List<Store>> ToListAsync(Expression<Func<Store, bool>> expression = null)
         {
-            return await db.Stores.Where(expression).ToListAsync();
+            if (expression is null)
+                return await db.Stores.AsNoTracking().ToListAsync();
+            else
+                return await db.Stores.AsNoTracking().Where(expression).ToListAsync();
         }
+
+        //public void Remove(Store item)
+        //{
+        //    if (CommonMessageBox.QuestionDialogResult($"{item.Name} mağazasını silmək istədiyinizə əminsiniz ?"))
+        //    {
+        //        var data = GetById(item.Id);
+        //        data.IsDeleted = true;
+        //        db.SaveChanges();
+        //    }
+        //}
     }
 }

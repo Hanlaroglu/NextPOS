@@ -2,7 +2,7 @@
 
 namespace Barcode_Sales.Validations
 {
-    public class WarehouseValidation:AbstractValidator<Warehouses>
+    public class WarehouseValidation:AbstractValidator<Warehouse>
     {
         public WarehouseValidation()
         {

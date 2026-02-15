@@ -24,6 +24,5 @@ namespace Barcode_Sales
         public Nullable<double> SalePrice { get; set; }
     
         public virtual Invoice Invoice { get; set; }
-        public virtual Products Products { get; set; }
     }
 }

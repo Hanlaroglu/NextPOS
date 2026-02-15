@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace Barcode_Sales.Validations
 {
-    public class UserValidation : AbstractValidator<Users>
+    public class UserValidation : AbstractValidator<User>
     {
         public static readonly string StoreNotSelected = "Mağaza seçimi edilmədi";
         public static readonly string RoleNotSelected = "İstifadəçi rolu seçilmədi";
@@ -21,22 +21,22 @@ namespace Barcode_Sales.Validations
             RuleFor(x => x.NameSurname).NotEmpty().WithMessage("Ad və Soyad daxil edin");
         }
 
-        public static Tuple<bool, Users, string> AuthenticationControl(string username, string password, bool SaveMe = false)
+        public static Tuple<bool, User, string> AuthenticationControl(string username, string password, bool SaveMe = false)
         {
-            using (var db = new NextposDBEntities())
+            using (var db = new KhanposDbEntities())
             {
                 var control = db.Users.AsNoTracking()
-                                .Include(u => u.Roles)
+                                .Include(u => u.Role)
                                 .FirstOrDefault(x => x.Password == password && x.Username == username);
 
                 if (control is null)
                 {
-                    return new Tuple<bool, Users, string>(false, null, ErrorUsernamePassword);
+                    return new Tuple<bool, User, string>(false, null, ErrorUsernamePassword);
                 }
 
                 if (control.Status is false)
                 {
-                    return new Tuple<bool, Users, string>(false, control, UserStatusDeactivated);
+                    return new Tuple<bool, User, string>(false, control, UserStatusDeactivated);
                 }
 
                 if (SaveMe is true)
@@ -54,13 +54,13 @@ namespace Barcode_Sales.Validations
 
                 Properties.Settings.Default.UserID = control.Id;
                 Properties.Settings.Default.Save();
-                return new Tuple<bool, Users, string>(true, control, null);
+                return new Tuple<bool, User, string>(true, control, null);
             }
         }
 
-        public static bool AuthorizationControl(Users user, Func<Roles, bool?> permissionSelector)
+        public static bool AuthorizationControl(User user, Func<Role, bool?> permissionSelector)
         {
-            return permissionSelector(user.Roles) == true;
+            return permissionSelector(user.Role) == true;
         }
     }
 }

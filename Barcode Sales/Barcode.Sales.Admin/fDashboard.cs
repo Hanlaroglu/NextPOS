@@ -9,6 +9,7 @@ using Barcode_Sales.Validations;
 using DevExpress.XtraBars.Navigation;
 using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Localization;
+using Licence.Models;
 using Microsoft.Win32;
 using NextPOS.UserControls;
 using System;
@@ -26,11 +27,9 @@ namespace Barcode_Sales.Barcode.Sales.Admin
 {
     public partial class fDashboard : DevExpress.XtraBars.FluentDesignSystem.FluentDesignForm
     {
-        NextposDBEntities db = new NextposDBEntities();
 
         ICustomerOperation customerOperation = new CustomerManager();
         IProductOperation productOperation = new ProductManager();
-        IAqtaProductsOperation aqtaProductsOperation = new AqtaProductsManager();
         ICategoryOperation categoryOperation = new CategoryManager();
         ISupplierOperation supplierOperation = new SupplierManager();
         ISupplierDebtOperation supplierDebtOperation = new SupplierDebtManager();
@@ -39,8 +38,8 @@ namespace Barcode_Sales.Barcode.Sales.Admin
         ICustomerDebtOperation customerDebtOperation = new CustomerDebtManager();
         IReturnPosOperation returnPosOperation = new ReturnPosManager();
 
-        private readonly Users CurrentUser;
-        public fDashboard(Users _user)
+        private readonly User CurrentUser;
+        public fDashboard(User _user)
         {
             InitializeComponent();
             CurrentUser = _user;
@@ -109,7 +108,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
 
         private async void ProductStockLoad()
         {
-            var data =await productOperation.WhereAsync(x => x.IsDeleted == 0);
+            var data = await productOperation.ToListAsync(x => x.IsDeleted == 0);
             gridControlDashboardStock.DataSource = data;
         }
 
@@ -119,15 +118,12 @@ namespace Barcode_Sales.Barcode.Sales.Admin
 
         #region [...Products...]
 
-        private void AqtaProductFill()
+        private async void AqtaProductFill()
         {
-            if (db.AqtaProducts.AsNoTracking().Any())
-            {
-                var data = aqtaProductsOperation.WhereAsync(x => x.IsDeleted == 0).Result;
+            var data = await aqtaProductsOperation.ToListAsync(x => x.IsDeleted == 0);
 
-                FormHelpers.ControlLoad(data, gridControlProducts);
+            FormHelpers.ControlLoad(data, gridControlProducts);
 
-            }
             gridProducts.RefreshData();
             FormHelpers.GridCustomRowNumber(gridProducts);
             tablePanelProductCount.Visible = false;
@@ -135,12 +131,15 @@ namespace Barcode_Sales.Barcode.Sales.Admin
 
         private async void ProductFill()
         {
-            var data = await productOperation.WhereAsync(x => x.IsDeleted == 0);
+            var data = await productOperation.ToListAsync(x => x.IsDeleted == 0);
+
             FormHelpers.ControlLoad(data, gridControlProducts);
             gridProducts.RefreshData();
+
             lPlusProduct_Count.Text = data.Count(x => x.Amount > 0).ToString();
             lNegativeProduct_Count.Text = data.Count(x => x.Amount < 0).ToString();
             lZeroProduct_Count.Text = data.Count(x => x.Amount == 0).ToString();
+
             FormHelpers.GridCustomRowNumber(gridProducts);
         }
 
@@ -152,10 +151,6 @@ namespace Barcode_Sales.Barcode.Sales.Admin
 
         private void bStatusProduct_CheckedChanged(object sender, EventArgs e)
         {
-            if (true)
-            {
-
-            }
 
             if (gridProducts.GetFocusedRow() == null)
             {
@@ -163,8 +158,8 @@ namespace Barcode_Sales.Barcode.Sales.Admin
                 return;
             }
             var edit = (CheckEdit)sender;
-            Products products = (Products)gridProducts.GetFocusedRow();
-            products.Status = (bool)edit.EditValue;
+            var product = (Product)gridProducts.GetFocusedRow();
+            product.Status = (bool)edit.EditValue;
             //todo status codunu yaz
             //productOperation.StatusUpdate(products, (bool)edit.EditValue);
         }
@@ -175,7 +170,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             // FormHelpers.OpenForm<fAqtaAddProfuct>(Enums.Operation.Add, null);
         }
 
-        private void bEditProduct_Click(object sender, EventArgs e)
+        private async void bEditProduct_Click(object sender, EventArgs e)
         {
             if (gridProducts.GetFocusedRow() == null)
             {
@@ -185,8 +180,8 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             else
             {
                 int productId = Convert.ToInt32(gridProducts.GetFocusedRowCellValue("Id").ToString());
-                Products data = productOperation.GetById(productId);
-                fAddProduct f = new fAddProduct(Enums.Operation.Edit, data);
+                var product = await productOperation.Get(x => x.Id == productId);
+                fAddProduct f = new fAddProduct(Enums.Operation.Edit, product);
                 if (f.ShowDialog() is DialogResult.OK)
                 {
                     ProductFill();
@@ -194,7 +189,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             }
         }
 
-        private void bDeleteProduct_Click(object sender, EventArgs e)
+        private async void bDeleteProduct_Click(object sender, EventArgs e)
         {
             if (gridProducts.GetFocusedRow() == null)
             {
@@ -204,7 +199,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             else
             {
                 int productId = Convert.ToInt32(gridProducts.GetFocusedRowCellValue("Id").ToString());
-                var product = productOperation.GetById(productId);
+                var product = await productOperation.Get(x => x.Id == productId);
                 productOperation.Remove(product);
                 ProductFill();
             }
@@ -220,7 +215,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             ProductFill();
         }
 
-        private void gridProducts_DoubleClick(object sender, EventArgs e)
+        private async void gridProducts_DoubleClick(object sender, EventArgs e)
         {
             if (gridProducts.GetFocusedRow() == null)
             {
@@ -230,7 +225,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             else
             {
                 int productId = Convert.ToInt32(gridProducts.GetFocusedRowCellValue("Id").ToString());
-                var product = productOperation.GetById(productId);
+                var product = await productOperation.Get(x => x.Id == productId);
                 FormHelpers.OpenForm<fAddProduct>(Enums.Operation.Show, product);
             }
         }
@@ -243,7 +238,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
 
         private async void CategoryFill()
         {
-            var data = await categoryOperation.WhereAsync(x => x.IsDeleted == 0);
+            var data = await categoryOperation.ToListAsync(x => x.IsDeleted == 0);
             FormHelpers.ControlLoad(data, gridControlCategory);
             gridCategory.GroupPanelText = $"Kateqoriya sayı: {data.Count()}";
             gridCategory.RefreshData();
@@ -274,7 +269,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
                     return;
                 }
 
-                Categories category = new Categories
+                Category category = new Category
                 {
                     CategoryName = value,
                     IsDeleted = 0,
@@ -292,7 +287,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             }
         }
 
-        private void bEditCategory_Click(object sender, EventArgs e)
+        private async void bEditCategory_Click(object sender, EventArgs e)
         {
             if (gridCategory.GetFocusedRow() == null)
             {
@@ -300,10 +295,12 @@ namespace Barcode_Sales.Barcode.Sales.Admin
                 return;
             }
             int Id = Convert.ToInt32(gridCategory.GetFocusedRowCellValue("Id").ToString());
-            var data = categoryOperation.GetById(Id);
+
+            var category = await categoryOperation.Get(x => x.Id == Id);
+
             string value = "";
-            DialogResult result = InputBox.Show($"{data.CategoryName} / kateqoriya düzəlişi",
-                                                "Kateqoriyanın adını daxil edin:",
+            DialogResult result = InputBox.Show($"{category.CategoryName} / kateqoriya düzəlişi",
+                                                "Yeni kateqoriya adını daxil edin:",
                                                 Enums.GetEnumDescription(Enums.Operation.Edit),
                                                 ref value);
 
@@ -313,23 +310,28 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             {
                 if (string.IsNullOrWhiteSpace(value))
                 {
-                    CommonMessageBox.WarningMessageBox("Kateqoriya adı boş olabilməz");
-                    return;
-                }
-                if (db.Categories.Any(x => x.CategoryName.ToLower() == value.ToLower()))
-                {
-                    OperationsControl.Message("Daxil edilən kateqoriya adı sistemdə mövcuddur: " + value, fMessage.enmType.Error);
+                    NotificationHelpers.Messages.WarningMessage(this, "Kateqoriya adı boş olabilməz");
                     return;
                 }
 
-                data.CategoryName = value;
-                categoryOperation.Update(data);
-                OperationsControl.Message(value + " kateqoriyasında düzəliş edildi", fMessage.enmType.Success);
-                CategoryFill();
+                var categoryExists = await categoryOperation.Get(x => x.CategoryName.ToLower() == value.ToLower());
+
+                if (categoryExists != null)
+                {
+                    NotificationHelpers.Messages.WarningMessage(this, $"Daxil edilən kateqoriya adı sistemdə mövcuddur: {value}");
+                    return;
+                }
+
+                category.CategoryName = value;
+                if (await categoryOperation.Update(category, x => x.CategoryName))
+                {
+                    NotificationHelpers.Messages.SuccessMessage(this, $"{value} kateqoriyasında düzəliş edildi");
+                    CategoryFill();
+                }
             }
         }
 
-        private void bDeleteCategory_Click(object sender, EventArgs e)
+        private async void bDeleteCategory_Click(object sender, EventArgs e)
         {
             if (gridCategory.GetFocusedRow() == null)
             {
@@ -338,10 +340,38 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             }
             else
             {
-                int CategorytId = Convert.ToInt32(gridCategory.GetFocusedRowCellValue("Id").ToString());
-                var data = categoryOperation.GetById(CategorytId);
-                categoryOperation.Remove(data);
-                CategoryFill();
+                int categorytId = Convert.ToInt32(gridCategory.GetFocusedRowCellValue("Id").ToString());
+                bool result = false;
+
+                var category = await categoryOperation.Get(x => x.Id == categorytId);
+                var products = await productOperation.ToListAsync(x => x.IsDeleted == 0 && x.CategoryId == categorytId);
+
+                if (products.Count is 0)
+                {
+                    var args = NotificationHelpers.Dialogs.DialogResultYesNo(
+                    $"({category.CategoryName}) kateqoriyasını silmək istədiyinizə əminsiniz ?", String.Empty);
+                    result = XtraMessageBox.Show(args) == DialogResult.Yes;
+
+                    if (result)
+                    {
+                        products.ForEach(x => x.IsDeleted = x.Id);
+                        await productOperation.Update(products, x => x.IsDeleted);
+                    }
+                }
+                else
+                {
+                    var args = NotificationHelpers.Dialogs.DialogResultYesNo(
+                                  $@"({category.CategoryName}) kateqoriyasında '{products.Count}' məhsul var. Bu kateqoriyanı silmək istədiyinizə əminsiniz ?", "Diqqət!");
+                    result = XtraMessageBox.Show(args) == DialogResult.Yes;
+                }
+
+                if (result)
+                {
+                    category.IsDeleted = category.Id;
+
+                    if (await categoryOperation.Update(category, x => x.IsDeleted))
+                        CategoryFill();
+                }
             }
         }
 
@@ -350,12 +380,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             CategoryFill();
         }
 
-        private void bExportCategory_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void bCategoryStatus_CheckedChanged(object sender, EventArgs e)
+        private async void bCategoryStatus_CheckedChanged(object sender, EventArgs e)
         {
             if (gridCategory.GetFocusedRow() == null)
             {
@@ -363,9 +388,32 @@ namespace Barcode_Sales.Barcode.Sales.Admin
                 return;
             }
             var edit = (CheckEdit)sender;
-            Categories data = (Categories)gridCategory.GetFocusedRow();
-            data.Status = (bool)edit.EditValue;
-            categoryOperation.StatusUpdate(data);
+            var category = (Category)gridCategory.GetFocusedRow();
+            var products = productOperation.Where(x => x.IsDeleted == 0 && x.CategoryId == category.Id).ToList();
+
+            category.Status = (bool)edit.EditValue;
+            string boolMessage = (bool)category.Status ? "aktiv" : "deaktiv";
+            bool message = false;
+
+            if (products.Count is 0)
+                message = true;
+            else
+            {
+                message = CommonMessageBox.QuestionDialogResult($"{category.CategoryName} kateqoriyasının daxilindəki '{products.Count}' məhsulun statusu da {boolMessage} ediləcəkdir.\n\n" +
+                   $"{category.CategoryName} kateqoriyasını deaktiv etmək istədiyinizə əminsiniz ?");
+            }
+
+
+            if (message)
+            {
+                foreach (var x in products)
+                    x.Status = category.Status;
+
+                await productOperation.Update(products, x => x.Status);
+            }
+
+            await categoryOperation.Update(category, x => x.Status);
+
         }
 
         #endregion [...Categories...]
@@ -376,7 +424,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
 
         private async void SupplierDataLoad()
         {
-            var data = await supplierOperation.WhereAsync(x => x.IsDeleted == 0);
+            var data = await supplierOperation.ToListAsync(x => x.IsDeleted == 0);
             FormHelpers.ControlLoad(data, gridControlSupplier);
             gridSupplier.GroupPanelText = $"Təchizatçı sayı: {gridSupplier.RowCount}";
             gridSupplier.RefreshData();
@@ -388,7 +436,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             FormNavigation(SupplierDataLoad, "Təchizatçı", pageSupplier);
         }
 
-        private void gridSupplier_DoubleClick(object sender, EventArgs e)
+        private async void gridSupplier_DoubleClick(object sender, EventArgs e)
         {
             if (gridSupplier.GetFocusedRow() == null)
             {
@@ -398,8 +446,8 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             else
             {
                 int Id = Convert.ToInt32(gridSupplier.GetFocusedRowCellValue("Id").ToString());
-                var data = supplierOperation.GetById(Id);
-                fSupplier f = new fSupplier(Enums.Operation.Show, data);
+                var product = await supplierOperation.Get(x => x.Id == Id);
+                fSupplier f = new fSupplier(Enums.Operation.Show, product);
                 if (f.ShowDialog() is DialogResult.OK)
                 {
                     SupplierDataLoad();
@@ -431,7 +479,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             }
         }
 
-        private void bSupplier_Edit_Click(object sender, EventArgs e)
+        private async void bSupplier_Edit_Click(object sender, EventArgs e)
         {
             if (gridSupplier.GetFocusedRow() == null)
             {
@@ -441,8 +489,8 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             else
             {
                 int Id = Convert.ToInt32(gridSupplier.GetFocusedRowCellValue("Id").ToString());
-                var data = supplierOperation.GetById(Id);
-                fSupplier f = new fSupplier(Enums.Operation.Edit, data);
+                var supplier = await supplierOperation.Get(x => x.Id == Id);
+                fSupplier f = new fSupplier(Enums.Operation.Edit, supplier);
                 if (f.ShowDialog() is DialogResult.OK)
                 {
                     SupplierDataLoad();
@@ -450,23 +498,25 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             }
         }
 
-        private void bSupplier_Delete_Click(object sender, EventArgs e)
+        private async void bSupplier_Delete_Click(object sender, EventArgs e)
         {
             if (chCategorySelected.Checked)
             {
                 int[] selectedRows = gridSupplier.GetSelectedRows();
 
-
                 var args = NotificationHelpers.Dialogs.DialogResultYesNo($"{selectedRows.Count()} təchizatçını silmək istədiyinizə əminsiniz ?");
                 var result = XtraMessageBox.Show(args);
                 if (result is DialogResult.Yes)
                 {
+                    List<Supplier> suppliers = new List<Supplier>();
                     foreach (var item in selectedRows)
                     {
-                        Suppliers suppliers = gridSupplier.GetRow(item) as Suppliers;
-                        supplierOperation.RemoveAsync(suppliers);
+                        var supplier = gridSupplier.GetRow(item) as Supplier;
+                        suppliers.Add(supplier);
                     }
-                    SupplierDataLoad();
+
+                    if (await supplierOperation.Update(suppliers, x => x.IsDeleted))
+                        SupplierDataLoad();
                 }
             }
             else
@@ -479,9 +529,12 @@ namespace Barcode_Sales.Barcode.Sales.Admin
                 else
                 {
                     int Id = Convert.ToInt32(gridSupplier.GetFocusedRowCellValue("Id").ToString());
-                    var data = supplierOperation.GetById(Id);
-                    supplierOperation.Remove(data);
-                    SupplierDataLoad();
+                    var supplier = await supplierOperation.Get(x => x.Id == Id);
+
+                    supplier.IsDeleted = supplier.Id;
+
+                    if (await supplierOperation.Update(supplier, x => x.IsDeleted))
+                        SupplierDataLoad();
                 }
             }
         }
@@ -524,30 +577,33 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             var result = XtraMessageBox.Show(args);
             if (result is DialogResult.Yes)
             {
-                List<Suppliers> suppliers = selectedRows
-                                            .Select(x => gridSupplier.GetRow(x) as Suppliers)
+                List<Supplier> suppliers = selectedRows
+                                            .Select(x => gridSupplier.GetRow(x) as Supplier)
                                             .Where(supplier => supplier != null)
                                             .ToList();
 
-                await supplierOperation.BlockedAsync(suppliers);
+                await supplierOperation.Update(suppliers, x => x.Status);
 
 
                 SupplierDataLoad();
             }
         }
 
-        private void SelectedSupplierBlocked()
+        private async void SelectedSupplierBlocked()
         {
             int? Id = Convert.ToInt32(gridSupplier.GetFocusedRowCellValue("Id").ToString());
-            var data = supplierOperation.GetById((int)Id);
-            string result = supplierOperation.Blocked(data);
-            if (result is null)
-            {
-                NotificationHelpers.Messages.ErrorMessage(this, $"{data.SupplierName} təchizatçısında edilən əməliyyat uğursuz oldu");
-            }
+
+            var supplier = await supplierOperation.Get(x => x.Id == (int)Id);
+            if (supplier == null) return;
+
+            supplier.Status = false;
+
+            bool result = await supplierOperation.Update(supplier, x => x.Status);
+            if (!result)
+                NotificationHelpers.Messages.ErrorMessage(this, $"{supplier.SupplierName} təchizatçısında edilən əməliyyat uğursuz oldu");
             else
             {
-                NotificationHelpers.Messages.SuccessMessage(this, result);
+                NotificationHelpers.Messages.SuccessMessage(this, $"{supplier.SupplierName} təchizatçısı deaktiv edildi");
                 SupplierDataLoad();
             }
         }
@@ -561,30 +617,33 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             var result = XtraMessageBox.Show(args);
             if (result is DialogResult.Yes)
             {
-                List<Suppliers> suppliers = selectedRows
-                                            .Select(x => gridSupplier.GetRow(x) as Suppliers)
-                                            .Where(supplier => supplier != null)
+                List<Supplier> suppliers = selectedRows
+                                            .Select(x => gridSupplier.GetRow(x) as Supplier)
+                                            .Where(s => s != null)
                                             .ToList();
 
-                await supplierOperation.ActiveAsync(suppliers);
+                await supplierOperation.Update(suppliers, x => x.Status);
 
 
                 SupplierDataLoad();
             }
         }
 
-        private void SelectedSupplierActived()
+        private async void SelectedSupplierActived()
         {
             int? Id = Convert.ToInt32(gridSupplier.GetFocusedRowCellValue("Id").ToString());
-            var data = supplierOperation.GetById((int)Id);
-            string result = supplierOperation.Active(data);
-            if (result is null)
-            {
-                NotificationHelpers.Messages.ErrorMessage(this, $"{data.SupplierName} təchizatçısında edilən əməliyyat uğursuz oldu");
-            }
+
+            var supplier = await supplierOperation.Get(x => x.Id == (int)Id);
+            if (supplier == null) return;
+
+            supplier.Status = true;
+
+            bool result = await supplierOperation.Update(supplier, x => x.Status);
+            if (!result)
+                NotificationHelpers.Messages.ErrorMessage(this, $"{supplier.SupplierName} təchizatçısında edilən əməliyyat uğursuz oldu");
             else
             {
-                NotificationHelpers.Messages.SuccessMessage(this, result);
+                NotificationHelpers.Messages.SuccessMessage(this, $"{supplier.SupplierName} təchizatçısı aktiv edildi");
                 SupplierDataLoad();
             }
         }
@@ -613,7 +672,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
 
         private async void SuppliersDebtsLoad()
         {
-            var data = await supplierDebtOperation.WhereAsync(x => x.Debt > 0 || x.TaxDebt > 0);
+            var data = await supplierDebtOperation.ToListAsync(x => x.Debt > 0 || x.TaxDebt > 0);
             FormHelpers.ControlLoad(data, gridControlSupplierDebt);
             gridSupplierDebt.GroupPanelText = $"Təchizatçı sayı: {gridSupplierDebt.RowCount}";
             gridSupplierDebt.RefreshData();
@@ -639,7 +698,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             }
         }
 
-        private void bPaySuppliersDebt_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        private async void bPaySuppliersDebt_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
             if (gridSupplierDebt.GetFocusedRow() == null)
             {
@@ -649,12 +708,11 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             else
             {
                 int Id = Convert.ToInt32(gridSupplierDebt.GetFocusedRowCellValue("Id").ToString());
-                var data = supplierDebtOperation.GetById(Id);
-                fSupplierPay fSupplierPay = new fSupplierPay(Enums.Operation.Pay, data);
+                var supplierDebt = await supplierDebtOperation.Get(x => x.Id == Id);
+
+                var fSupplierPay = new fSupplierPay(Enums.Operation.Pay, supplierDebt);
                 if (fSupplierPay.ShowDialog() is DialogResult.OK)
-                {
                     SuppliersDebtsLoad();
-                }
             }
         }
 
@@ -667,16 +725,14 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             }
         }
 
-        private void bSupplierDebt_Edit_Click(object sender, EventArgs e)
+        private async void bSupplierDebt_Edit_Click(object sender, EventArgs e)
         {
             int? Id = Convert.ToInt32(gridSupplierDebt.GetFocusedRowCellValue("Id").ToString());
-            var data = supplierDebtOperation.GetById((int)Id);
+            var supplierDebt = await supplierDebtOperation.Get(x => x.Id == (int)Id);
 
-            fAddSupplierDebt f = new fAddSupplierDebt(Enums.Operation.Edit, data);
+            fAddSupplierDebt f = new fAddSupplierDebt(Enums.Operation.Edit, supplierDebt);
             if (f.ShowDialog() is DialogResult.OK)
-            {
                 SuppliersDebtsLoad();
-            }
         }
 
         private async void bSupplierDebt_Delete_Click(object sender, EventArgs e)
@@ -696,11 +752,14 @@ namespace Barcode_Sales.Barcode.Sales.Admin
                 var result = XtraMessageBox.Show(args);
                 if (result is DialogResult.Yes)
                 {
+                    List<SuppliersDebt> suppliersDebts = new List<SuppliersDebt>();
                     foreach (var item in selectedRows)
                     {
-                        SuppliersDebt debt = gridSupplierDebt.GetRow(item) as SuppliersDebt;
-                        await supplierDebtOperation.RemoveAsync(debt);
+                        var supplierDebt = gridSupplierDebt.GetRow(item) as SuppliersDebt;
+                        supplierDebt.IsDeleted = supplierDebt.Id;
+                        suppliersDebts.Add(supplierDebt);
                     }
+                    await supplierDebtOperation.Update(suppliersDebts, x => x.IsDeleted);
                     await Task.Delay(1500);
                     SuppliersDebtsLoad();
                 }
@@ -708,9 +767,16 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             else
             {
                 int Id = Convert.ToInt32(gridSupplierDebt.GetFocusedRowCellValue("Id").ToString());
-                var data = supplierDebtOperation.GetById(Id);
-                supplierDebtOperation.Remove(data);
-                SuppliersDebtsLoad();
+                var supplierDebt = await supplierDebtOperation.Get(x => x.Id == Id);
+
+                supplierDebt.IsDeleted = supplierDebt.Id;
+
+                if (await supplierDebtOperation.Update(supplierDebt, x => x.IsDeleted))
+                {
+                    NotificationHelpers.Messages.SuccessMessage(this, $"{supplierDebt.Supplier.SupplierName} təchizatçısının borcu uğurla silindi");
+                    SuppliersDebtsLoad();
+                }
+
             }
         }
 
@@ -736,7 +802,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
         private async void CustomerLoadData()
         {
             var data = await customerOperation.Where(x => x.IsDeleted == 0)
-                .Select(x=> new CustomerDto
+                .Select(x => new CustomerDto
                 {
                     Id = x.Id,
                     NameSurname = x.NameSurname,
@@ -762,12 +828,12 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             OpenForm<fAddCustomer>(Enums.Operation.Add);
         }
 
-        private void bEditCustomer_Click(object sender, EventArgs e)
+        private async void bEditCustomer_Click(object sender, EventArgs e)
         {
             if (gridCustomers.GetFocusedRow() is null) { CommonMessageBox.InformationMessageBox(CommonMessages.NOT_SELECTİON); return; }
 
             int id = Convert.ToInt32(gridCustomers.GetFocusedRowCellValue("Id").ToString());
-            Customer customer = customerOperation.GetById(id);
+            var customer = await customerOperation.Get(x => x.Id == id);
             fAddCustomer f = new fAddCustomer(Enums.Operation.Edit);
             if (f.ShowDialog() is DialogResult.OK)
             {
@@ -776,12 +842,12 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             }
         }
 
-        private void bDeleteCustomer_Click(object sender, EventArgs e)
+        private async void bDeleteCustomer_Click(object sender, EventArgs e)
         {
             if (gridCustomers.GetFocusedRow() is null) { CommonMessageBox.InformationMessageBox(CommonMessages.NOT_SELECTİON); return; }
             int id = Convert.ToInt32(gridCustomers.GetFocusedRowCellValue("Id").ToString());
-            var data = customerOperation.GetById(id);
-            customerOperation.Remove(data);
+            var data = await customerOperation.Get(x => x.Id == id);
+            await customerOperation.Remove(data);
             CustomerLoadData();
         }
 
@@ -847,34 +913,34 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             }
         }
 
-        private void SelectedCustomerActived()
+        private async void SelectedCustomerActived()
         {
             int? Id = Convert.ToInt32(gridCustomers.GetFocusedRowCellValue("Id").ToString());
-            var data = customerOperation.GetById((int)Id);
-            string result = customerOperation.Active(data);
-            if (result is null)
-            {
-                NotificationHelpers.Messages.ErrorMessage(this, $"{data.NameSurname} müştərisində edilən əməliyyat uğursuz oldu");
-            }
+            var customer = await customerOperation.Get(x => x.Id == (int)Id);
+            if (customer == null) return;
+
+            customer.Status = true;
+            if (await customerOperation.Update(customer, x => x.Status))
+                NotificationHelpers.Messages.ErrorMessage(this, $"{customer.NameSurname} müştərisində edilən əməliyyat uğursuz oldu");
             else
             {
-                NotificationHelpers.Messages.SuccessMessage(this, result);
-                SupplierDataLoad();
+                NotificationHelpers.Messages.SuccessMessage(this, $"{customer.NameSurname} müştərisi aktiv edildi");
+                CustomerLoadData();
             }
         }
 
-        private void SelectedCustomerBlocked()
+        private async void SelectedCustomerBlocked()
         {
             int? Id = Convert.ToInt32(gridCustomers.GetFocusedRowCellValue("Id").ToString());
-            var data = customerOperation.GetById((int)Id);
-            string result = customerOperation.Blocked(data);
-            if (result is null)
-            {
-                NotificationHelpers.Messages.ErrorMessage(this, $"{data.NameSurname} müştərisində edilən əməliyyat uğursuz oldu");
-            }
+            var customer = await customerOperation.Get(x => x.Id == (int)Id);
+            if (customer is null) return;
+
+            customer.Status = true;
+            if (await customerOperation.Update(customer, x => x.Status))
+                NotificationHelpers.Messages.ErrorMessage(this, $"{customer.NameSurname} müştərisində edilən əməliyyat uğursuz oldu");
             else
             {
-                NotificationHelpers.Messages.SuccessMessage(this, result);
+                NotificationHelpers.Messages.SuccessMessage(this, $"{customer.NameSurname} müştərisi deaktiv edildi");
                 SupplierDataLoad();
             }
         }
@@ -892,13 +958,15 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             var result = XtraMessageBox.Show(args);
             if (result is DialogResult.Yes)
             {
-                List<Customer> customer = selectedRows
+                List<Customer> customers = selectedRows
                                             .Select(x => gridCustomers.GetRow(x) as Customer)
                                             .Where(c => c != null)
                                             .ToList();
 
-                await customerOperation.ActiveAsync(customer);
+                foreach (var item in customers)
+                    item.Status = false;
 
+                await customerOperation.Update(customers, x => x.Status);
 
                 CustomerLoadData();
             }
@@ -917,13 +985,15 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             var result = XtraMessageBox.Show(args);
             if (result is DialogResult.Yes)
             {
-                List<Customer> customer = selectedRows
+                List<Customer> customers = selectedRows
                                             .Select(x => gridCustomers.GetRow(x) as Customer)
                                             .Where(c => c != null)
                                             .ToList();
 
-                await customerOperation.BlockedAsync(customer);
+                foreach (var item in customers)
+                    item.Status = false;
 
+                await customerOperation.Update(customers, x => x.Status);
 
                 CustomerLoadData();
             }
@@ -933,7 +1003,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
 
         private async void CustomerDebtLoadData()
         {
-            var data = await customerDebtOperation.WhereAsync(x => x.IsDeleted == 0);
+            var data = await customerDebtOperation.ToListAsync(x => x.IsDeleted == 0);
             ControlLoad(data, gridControlCustomerDebts);
             gridCustomerDebts.GroupPanelText = $"Borclu müştəri sayı : {data.Count()}";
             GridCustomRowNumber(gridCustomers);
@@ -952,16 +1022,15 @@ namespace Barcode_Sales.Barcode.Sales.Admin
 
         #region [...Users...]
 
-        void UsersDataLoad()
+        async void UsersDataLoad()
         {
-            if (db.Users.AsNoTracking().Any())
-            {
-                var data = userOperation.WhereAsync(x => x.IsDeleted == x.Id);
-                FormHelpers.ControlLoad(data.Result, gridControlUsers);
-                GridCustomRowNumber(gridUsers);
-                lUserCount.Text = $"İstifadəçi sayı : {data.Result.Count()}";
-            }
+            var data = await userOperation.ToListAsync(x => x.IsDeleted == x.Id);
+
+            FormHelpers.ControlLoad(data, gridControlUsers);
+            GridCustomRowNumber(gridUsers);
             gridUsers.RefreshData();
+
+            lUserCount.Text = $"İstifadəçi sayı : {data.Count()}";
         }
 
         private void bUsers_Click(object sender, EventArgs e)
@@ -974,7 +1043,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             FormHelpers.OpenForm<fUsers>(Enums.Operation.Add, null);
         }
 
-        private void bEditUser_Click(object sender, EventArgs e)
+        private async void bEditUser_Click(object sender, EventArgs e)
         {
             if (gridUsers.GetFocusedRow() == null)
             {
@@ -984,8 +1053,9 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             else
             {
                 int Id = Convert.ToInt32(gridUsers.GetFocusedRowCellValue("Id").ToString());
-                var data = userOperation.GetById(Id);
-                fUsers f = new fUsers(Enums.Operation.Edit, data);
+                var user = await userOperation.Get(x => x.Id == Id);
+
+                var f = new fUsers(Enums.Operation.Edit, user);
                 if (f.ShowDialog() is DialogResult.OK)
                 {
                     UsersDataLoad();
@@ -993,7 +1063,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             }
         }
 
-        private void bDeleteUser_Click(object sender, EventArgs e)
+        private async void bDeleteUser_Click(object sender, EventArgs e)
         {
             if (gridUsers.GetFocusedRow() == null)
             {
@@ -1003,9 +1073,17 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             else
             {
                 int Id = Convert.ToInt32(gridUsers.GetFocusedRowCellValue("Id").ToString());
-                var data = userOperation.GetById(Id);
-                userOperation.Remove(data);
-                UsersDataLoad();
+                var user = await userOperation.Get(x => x.Id == Id);
+
+                if (CommonMessageBox.QuestionDialogResult($"{user.Username} istifadəçisini silmək istədiyinizə əminsiniz ?"))
+                {
+                    user.IsDeleted = user.Id;
+
+                    if (await userOperation.Update(user, x => x.IsDeleted))
+                    {
+                        UsersDataLoad();
+                    }
+                }
             }
         }
 
@@ -1027,9 +1105,11 @@ namespace Barcode_Sales.Barcode.Sales.Admin
                 return;
             }
             var edit = (CheckEdit)sender;
-            Users data = (Users)gridUsers.GetFocusedRow();
-            data.Status = (bool)edit.EditValue;
-            //userOperation.StatusUpdate(data);
+            var user = (User)gridUsers.GetFocusedRow();
+
+            user.Status = (bool)edit.EditValue;
+
+            userOperation.Update(user, x => x.Status);
         }
 
         #endregion [...Users...]
@@ -1043,14 +1123,12 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             FormNavigation(RolesDataLoad, "Rol və İcazələr", pageRole);
         }
 
-        void RolesDataLoad()
+        async void RolesDataLoad()
         {
-            if (db.Roles.AsNoTracking().Any())
-            {
-                var data = roleOperation.WhereAsync(x => x.IsDeleted == 0).Result;
-                FormHelpers.ControlLoad(data, gridControlRole);
-                GridCustomRowNumber(gridRole);
-            }
+            var data = await roleOperation.ToListAsync(x => x.IsDeleted == 0);
+            FormHelpers.ControlLoad(data, gridControlRole);
+            GridCustomRowNumber(gridRole);
+
             gridRole.RefreshData();
         }
 
@@ -1059,7 +1137,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             FormHelpers.OpenForm<fRole>(Enums.Operation.Add, null);
         }
 
-        private void bRoleEdit_Click(object sender, EventArgs e)
+        private async void bRoleEdit_Click(object sender, EventArgs e)
         {
             if (gridRole.GetFocusedRow() == null)
             {
@@ -1069,8 +1147,8 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             else
             {
                 int Id = Convert.ToInt32(gridRole.GetFocusedRowCellValue("Id").ToString());
-                var data = roleOperation.GetById(Id);
-                fRole f = new fRole(Enums.Operation.Edit, data);
+                var role = await roleOperation.Get(x => x.Id == Id);
+                fRole f = new fRole(Enums.Operation.Edit, role);
                 if (f.ShowDialog() is DialogResult.OK)
                 {
                     RolesDataLoad();
@@ -1078,7 +1156,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             }
         }
 
-        private void bRoleRemove_Click(object sender, EventArgs e)
+        private async void bRoleRemove_Click(object sender, EventArgs e)
         {
             if (gridRole.GetFocusedRow() == null)
             {
@@ -1088,9 +1166,10 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             else
             {
                 int Id = Convert.ToInt32(gridRole.GetFocusedRowCellValue("Id").ToString());
-                var data = roleOperation.GetById(Id);
-                roleOperation.Remove(data);
-                RolesDataLoad();
+                var role = await roleOperation.Get(x => x.Id == Id);
+
+                if (await roleOperation.Remove(role))
+                    RolesDataLoad();
             }
         }
 
@@ -1278,7 +1357,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             Cursor.Current = Cursors.Default;
         }
 
-        #endregion 
+        #endregion
 
 
         #region [...] Məhsul alış hesabatı

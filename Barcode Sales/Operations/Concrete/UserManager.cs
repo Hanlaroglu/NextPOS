@@ -12,86 +12,114 @@ namespace Barcode_Sales.Operations.Concrete
 {
     public class UserManager : IUserOperation
     {
-        NextposDBEntities db = new NextposDBEntities();
+        KhanposDbEntities db = new KhanposDbEntities();
 
-        public bool Add(Users item)
+        public async Task<int> Add(User item)
         {
             try
             {
-                db.Users.Add(item);
-                db.SaveChanges();
-                return true;
+                db.Set<User>().Add(item);
+                await db.SaveChangesAsync();
+                return item.Id;
             }
-            catch (Exception)
+            catch
+            {
+                return 0;
+            }
+        }
+
+        public async Task<bool> Add(List<User> items)
+        {
+            if (items == null || items.Count == 0)
+                return false;
+
+
+            try
+            {
+                db.Set<User>().AddRange(items);
+                return await db.SaveChangesAsync() > 0;
+            }
+            catch
             {
                 return false;
             }
         }
 
-        public async Task AddAsync(Users item)
+        public async Task<bool> Update(User item, params Expression<Func<User, object>>[] updateProperties)
         {
-            db.Users.Add(item);
-            await db.SaveChangesAsync();
-        }
-
-        public Users GetById(int id)
-        {
-            return db.Users.AsNoTracking().FirstOrDefault(x => x.Id == id);
-        }
-
-        public async Task<Users> GetByIdAsync(int id)
-        {
-            return await db.Users.AsNoTracking().FirstOrDefaultAsync(x => x.Id == id);
-        }
-
-        public void Remove(Users item)
-        {
-            if (CommonMessageBox.QuestionDialogResult($"{item.Username} istifadəçisini silmək istədiyinizə əminsiniz ?"))
+            try
             {
-                var data = db.Users.Find(item.Id);
-                data.IsDeleted = data.Id;
-                db.SaveChanges();
+                db.Set<User>().Attach(item);
+
+                foreach (var property in updateProperties)
+                    db.Entry(item).Property(property).IsModified = true;
+
+                return await db.SaveChangesAsync() > 0;
+            }
+            catch
+            {
+                return false;
             }
         }
 
-        public async Task RemoveAsync(Users item)
+        public async Task<bool> Update(List<User> items, params Expression<Func<User, object>>[] updateProperties)
         {
-            if (CommonMessageBox.QuestionDialogResult($"{item.Username} istifadəçisini silmək istədiyinizə əminsiniz ?"))
+            if (items == null || items.Count == 0)
+                return false;
+
+            using (var transaction = db.Database.BeginTransaction())
             {
-                var data = await db.Users.FindAsync(item.Id);
-                data.IsDeleted = data.Id;
-                await db.SaveChangesAsync();
+                try
+                {
+                    foreach (var entity in items)
+                    {
+                        db.Set<User>().Attach(entity);
+
+                        foreach (var property in updateProperties)
+                            db.Entry(entity).Property(property).IsModified = true;
+                    }
+
+                    await db.SaveChangesAsync();
+                    transaction.Commit();
+                    return true;
+                }
+                catch
+                {
+                    transaction.Rollback();
+                    return false;
+                }
             }
         }
 
-        public void Update(Users item)
+        public async Task<bool> Remove(User item)
         {
-            var existingItem = db.Users.Find(item.Id);
-            if (existingItem != null)
+            try
             {
-                db.Entry(existingItem).CurrentValues.SetValues(item);
-                db.SaveChanges();
+                db.Set<User>().Remove(item);
+                return await db.SaveChangesAsync() > 0;
+            }
+            catch
+            {
+                return false;
             }
         }
 
-        public async Task UpdateAsync(Users item)
+        public async Task<User> Get(Expression<Func<User, bool>> expression)
         {
-            var existingItem = await db.Users.FindAsync(item.Id);
-            if (existingItem != null)
-            {
-                db.Entry(existingItem).CurrentValues.SetValues(item);
-               await db.SaveChangesAsync();
-            }
+            return await db.Users.FirstOrDefaultAsync(expression);
         }
 
-        public IQueryable<Users> Where(Expression<Func<Users, bool>> expression)
+        public IQueryable<User> Where(Expression<Func<User, bool>> expression)
         {
-           return db.Users.Where(expression);
+            return db.Users.Where(expression);
         }
 
-        public async Task<List<Users>> WhereAsync(Expression<Func<Users, bool>> expression)
+        public async Task<List<User>> ToListAsync(Expression<Func<User, bool>> expression = null)
         {
-            return await db.Users.Where(x=> x.IsDeleted == 0).Where(expression).ToListAsync();
+            if (expression is null)
+                return await db.Users.AsNoTracking().ToListAsync();
+            else
+                return await db.Users.AsNoTracking().Where(expression).ToListAsync();
         }
     }
 }

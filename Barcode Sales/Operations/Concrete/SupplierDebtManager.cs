@@ -1,98 +1,140 @@
-﻿using Barcode_Sales.Barcode.Sales.Admin;
-using Barcode_Sales.Forms;
-using Barcode_Sales.Operations.Abstract;
-using DevExpress.XtraEditors;
+﻿using Barcode_Sales.Operations.Abstract;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace Barcode_Sales.Operations.Concrete
 {
     internal class SupplierDebtManager : ISupplierDebtOperation
     {
-        NextposDBEntities db = new NextposDBEntities();
+        KhanposDbEntities db = new KhanposDbEntities();
 
-        public bool Add(SuppliersDebt item)
+
+        public async Task<int> Add(SuppliersDebt item)
         {
             try
             {
-                db.SuppliersDebts.Add(item);
-                db.SaveChanges();
-                return true;
+                db.Set<SuppliersDebt>().Add(item);
+                await db.SaveChangesAsync();
+                return item.Id;
             }
-            catch (Exception ex)
+            catch
             {
-                Barcode.Sales.Admin.fDashboard form = Application.OpenForms.OfType<Barcode.Sales.Admin.fDashboard>().FirstOrDefault();
-                NotificationHelpers.Messages.ErrorMessage(form, $"{ex.Message}");
+                return 0;
+            }
+        }
+
+        public async Task<bool> Add(List<SuppliersDebt> items)
+        {
+            if (items == null || items.Count == 0)
+                return false;
+
+
+            try
+            {
+                db.Set<SuppliersDebt>().AddRange(items);
+                return await db.SaveChangesAsync() > 0;
+            }
+            catch
+            {
                 return false;
             }
         }
 
-        public Task AddAsync(SuppliersDebt item)
+        public async Task<bool> Update(SuppliersDebt item, params Expression<Func<SuppliersDebt, object>>[] updateProperties)
         {
-            throw new NotImplementedException();
-        }
-
-        public SuppliersDebt GetById(int id)
-        {
-            return db.SuppliersDebts.AsNoTracking().FirstOrDefault(x => x.Id == id);
-        }
-
-        public async Task<SuppliersDebt> GetByIdAsync(int id)
-        {
-            return await db.SuppliersDebts.FirstOrDefaultAsync(x => x.Id == id);
-
-        }
-
-        public void Remove(SuppliersDebt item)
-        {
-            var args = NotificationHelpers.Dialogs.DialogResultYesNo($"{item.Supplier.SupplierName} təchizatçısının {item.Name} adlı borcunu silmək istədiyinizə əminsiniz ?");
-            var result = XtraMessageBox.Show(args);
-            if (result is DialogResult.Yes)
+            try
             {
-                var data = db.SuppliersDebts.Find(item.Id);
-                data.IsDeleted = data.Id;
-                db.SaveChanges();
+                db.Set<SuppliersDebt>().Attach(item);
 
-                Barcode.Sales.Admin.fDashboard form = Application.OpenForms.OfType<Barcode.Sales.Admin.fDashboard>().FirstOrDefault();
-                NotificationHelpers.Messages.SuccessMessage(form, $"{data.Supplier.SupplierName} təchizatçısının {data.Name} adlı borcu uğurla silindi");
+                foreach (var property in updateProperties)
+                    db.Entry(item).Property(property).IsModified = true;
+
+                return await db.SaveChangesAsync() > 0;
+            }
+            catch
+            {
+                return false;
             }
         }
 
-        public async Task RemoveAsync(SuppliersDebt item)
+        public async Task<bool> Update(List<SuppliersDebt> items, params Expression<Func<SuppliersDebt, object>>[] updateProperties)
         {
-            var data = await GetByIdAsync(item.Id);
-            data.IsDeleted = data.Id;
-            await db.SaveChangesAsync();
+            if (items == null || items.Count == 0)
+                return false;
+
+            using (var transaction = db.Database.BeginTransaction())
+            {
+                try
+                {
+                    foreach (var entity in items)
+                    {
+                        db.Set<SuppliersDebt>().Attach(entity);
+
+                        foreach (var property in updateProperties)
+                            db.Entry(entity).Property(property).IsModified = true;
+                    }
+
+                    await db.SaveChangesAsync();
+                    transaction.Commit();
+                    return true;
+                }
+                catch
+                {
+                    transaction.Rollback();
+                    return false;
+                }
+            }
         }
 
-        public void Update(SuppliersDebt item)
+        public async Task<bool> Remove(SuppliersDebt item)
         {
-            throw new NotImplementedException();
+            try
+            {
+                db.Set<SuppliersDebt>().Remove(item);
+                return await db.SaveChangesAsync() > 0;
+            }
+            catch
+            {
+                return false;
+            }
         }
 
-        public Task UpdateAsync(SuppliersDebt item)
+        public async Task<SuppliersDebt> Get(Expression<Func<SuppliersDebt, bool>> expression)
         {
-            throw new NotImplementedException();
+            return await db.SuppliersDebts.FirstOrDefaultAsync(expression);
         }
 
         public IQueryable<SuppliersDebt> Where(Expression<Func<SuppliersDebt, bool>> expression)
         {
-            return db.SuppliersDebts.AsNoTracking().Where(expression);
+            return db.SuppliersDebts.Where(expression);
         }
 
-        public async Task<List<SuppliersDebt>> WhereAsync(Expression<Func<SuppliersDebt, bool>> expression = null)
+        public async Task<List<SuppliersDebt>> ToListAsync(Expression<Func<SuppliersDebt, bool>> expression = null)
         {
-            return await db.SuppliersDebts.AsNoTracking()
-                                          .Where(x => x.IsDeleted == 0)
-                                          .Where(expression).ToListAsync();
-
+            if (expression is null)
+                return await db.SuppliersDebts.AsNoTracking().ToListAsync();
+            else
+                return await db.SuppliersDebts.AsNoTracking().Where(expression).ToListAsync();
         }
+
+        //public void Remove(SuppliersDebt item)
+        //{
+        //    var args = NotificationHelpers.Dialogs.DialogResultYesNo($"{item.Supplier.SupplierName} təchizatçısının {item.Name} adlı borcunu silmək istədiyinizə əminsiniz ?");
+        //    var result = XtraMessageBox.Show(args);
+        //    if (result is DialogResult.Yes)
+        //    {
+        //        var data = db.SuppliersDebts.Find(item.Id);
+        //        data.IsDeleted = data.Id;
+        //        db.SaveChanges();
+
+        //        Barcode.Sales.Admin.fDashboard form = Application.OpenForms.OfType<Barcode.Sales.Admin.fDashboard>().FirstOrDefault();
+        //        NotificationHelpers.Messages.SuccessMessage(form, $"{data.Supplier.SupplierName} təchizatçısının {data.Name} adlı borcu uğurla silindi");
+        //    }
+        //}
 
         public double SupplierTotalDebt(int supplierId)
         {

@@ -10,9 +10,9 @@ namespace Barcode_Sales.Forms
     public partial class fAddCategory : DevExpress.XtraEditors.XtraForm
     {
         private ICategoryOperation categoryOperation = new CategoryManager();
-        private Categories _category;
+        private Category _category;
         private Enums.Operation _operation;
-        public fAddCategory(Enums.Operation operation, Categories category)
+        public fAddCategory(Enums.Operation operation, Category category)
         {
             InitializeComponent();
             _operation = operation;
@@ -37,9 +37,9 @@ namespace Barcode_Sales.Forms
                 Edit();
         }
 
-        private void Add()
+        private async void Add()
         {
-            _category = new Categories()
+            _category = new Category()
             {
                 CategoryName = tName.Text.TrimStart().Trim(),
                 Status = chStatus.Checked,
@@ -47,26 +47,20 @@ namespace Barcode_Sales.Forms
             };
 
             if (!CheckName(_category.CategoryName))
-            {
-                bool IsSuccess = categoryOperation.Add(_category);
-                if (IsSuccess)
+                if (await categoryOperation.Add(_category) > 0)
                 {
                     NotificationHelpers.Messages.SuccessMessage(this, $"{_category.CategoryName} kateqoriyası yaradıldı");
                     Clear();
                 }
-            }
         }
 
-        private void Edit()
+        private async void Edit()
         {
             _category.CategoryName = tName.Text.TrimStart().Trim();
             _category.Status = chStatus.Checked;
 
-            if (!CheckName(_category.CategoryName))
-            {
-                categoryOperation.Update(_category);
+            if (!CheckName(_category.CategoryName) && await categoryOperation.Update(_category, x => x.CategoryName, x => x.Status))
                 Close();
-            }
         }
 
         private bool CheckName(string name)

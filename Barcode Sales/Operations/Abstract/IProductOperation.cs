@@ -2,11 +2,10 @@
 
 namespace Barcode_Sales.Operations.Abstract
 {
-    public interface IProductOperation : IBaseOperation<Products>
+    public interface IProductOperation : IBaseOperation<Product>
     {
-        int AddProduct(Products item);
-        void StatusChanged(Products item);
+        void StatusChanged(Product item);
         Task<bool> BarcodeCheckAsync(string barcode, int supplierId);
-        Task<Products> GetByBarcodeAsync(string barcode);
+        Task<Product> GetByBarcodeAsync(string barcode);
     }
 }

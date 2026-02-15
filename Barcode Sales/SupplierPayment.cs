@@ -18,8 +18,8 @@ namespace Barcode_Sales
         public Nullable<int> SupplierDebtId { get; set; }
         public Nullable<double> DebtPaid { get; set; }
         public Nullable<double> TaxPaid { get; set; }
-        public Nullable<int> IsDeleted { get; set; }
         public string Comment { get; set; }
+        public Nullable<int> IsDeleted { get; set; }
         public string PaymentType { get; set; }
         public Nullable<System.DateTime> PayDate { get; set; }
         public Nullable<System.DateTime> LogDate { get; set; }

@@ -10,53 +10,109 @@ namespace Barcode_Sales.Operations.Concrete
 {
     public class UnitTypeManager:IUnitTypeOperation
     {
-        private NextposDBEntities db = new NextposDBEntities();
-        public bool Add(UnitType item)
+        private KhanposDbEntities db = new KhanposDbEntities();
+
+        public async Task<int> Add(UnitType item)
         {
-            throw new NotImplementedException();
+            try
+            {
+                db.Set<UnitType>().Add(item);
+                await db.SaveChangesAsync();
+                return item.Id;
+            }
+            catch
+            {
+                return 0;
+            }
         }
 
-        public Task AddAsync(UnitType item)
+        public async Task<bool> Add(List<UnitType> items)
         {
-            throw new NotImplementedException();
+            if (items == null || items.Count == 0)
+                return false;
+
+
+            try
+            {
+                db.Set<UnitType>().AddRange(items);
+                return await db.SaveChangesAsync() > 0;
+            }
+            catch
+            {
+                return false;
+            }
         }
 
-        public void Update(UnitType item)
+        public async Task<bool> Update(UnitType item, params Expression<Func<UnitType, object>>[] updateProperties)
         {
-            throw new NotImplementedException();
+            try
+            {
+                db.Set<UnitType>().Attach(item);
+
+                foreach (var property in updateProperties)
+                    db.Entry(item).Property(property).IsModified = true;
+
+                return await db.SaveChangesAsync() > 0;
+            }
+            catch
+            {
+                return false;
+            }
         }
 
-        public Task UpdateAsync(UnitType item)
+        public async Task<bool> Update(List<UnitType> items, params Expression<Func<UnitType, object>>[] updateProperties)
         {
-            throw new NotImplementedException();
+            if (items == null || items.Count == 0)
+                return false;
+
+            using (var transaction = db.Database.BeginTransaction())
+            {
+                try
+                {
+                    foreach (var entity in items)
+                    {
+                        db.Set<UnitType>().Attach(entity);
+
+                        foreach (var property in updateProperties)
+                            db.Entry(entity).Property(property).IsModified = true;
+                    }
+
+                    await db.SaveChangesAsync();
+                    transaction.Commit();
+                    return true;
+                }
+                catch
+                {
+                    transaction.Rollback();
+                    return false;
+                }
+            }
         }
 
-        public void Remove(UnitType item)
+        public async Task<bool> Remove(UnitType item)
         {
-            throw new NotImplementedException();
+            try
+            {
+                db.Set<UnitType>().Remove(item);
+                return await db.SaveChangesAsync() > 0;
+            }
+            catch
+            {
+                return false;
+            }
         }
 
-        public Task RemoveAsync(UnitType item)
+        public async Task<UnitType> Get(Expression<Func<UnitType, bool>> expression)
         {
-            throw new NotImplementedException();
-        }
-
-        public UnitType GetById(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<UnitType> GetByIdAsync(int id)
-        {
-            throw new NotImplementedException();
+            return await db.UnitTypes.FirstOrDefaultAsync(expression);
         }
 
         public IQueryable<UnitType> Where(Expression<Func<UnitType, bool>> expression)
         {
-            return db.UnitTypes.AsNoTracking().Where(expression);
+            return db.UnitTypes.Where(expression);
         }
 
-        public async Task<List<UnitType>> WhereAsync(Expression<Func<UnitType, bool>> expression = null)
+        public async Task<List<UnitType>> ToListAsync(Expression<Func<UnitType, bool>> expression = null)
         {
             if (expression is null)
                 return await db.UnitTypes.ToListAsync();

@@ -4,74 +4,120 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Barcode_Sales.Operations.Concrete
 {
     public class SupplierPaymentManager : ISupplierPaymentOperation
     {
-        NextposDBEntities db = new NextposDBEntities();
+        KhanposDbEntities db = new KhanposDbEntities();
 
-        public bool Add(SupplierPayment item)
+        public async Task<int> Add(SupplierPayment item)
         {
             try
             {
-                db.SupplierPayments.Add(item);
-                db.SaveChanges();
-                return true;
+                db.Set<SupplierPayment>().Add(item);
+                await db.SaveChangesAsync();
+                return item.Id;
             }
-            catch (Exception)
+            catch
+            {
+                return 0;
+            }
+        }
+
+        public async Task<bool> Add(List<SupplierPayment> items)
+        {
+            if (items == null || items.Count == 0)
+                return false;
+
+
+            try
+            {
+                db.Set<SupplierPayment>().AddRange(items);
+                return await db.SaveChangesAsync() > 0;
+            }
+            catch
             {
                 return false;
             }
-           
         }
 
-        public async Task AddAsync(SupplierPayment item)
+        public async Task<bool> Update(SupplierPayment item, params Expression<Func<SupplierPayment, object>>[] updateProperties)
         {
-            db.SupplierPayments.Add(item);
-            await db.SaveChangesAsync();
+            try
+            {
+                db.Set<SupplierPayment>().Attach(item);
+
+                foreach (var property in updateProperties)
+                    db.Entry(item).Property(property).IsModified = true;
+
+                return await db.SaveChangesAsync() > 0;
+            }
+            catch
+            {
+                return false;
+            }
         }
 
-        public SupplierPayment GetById(int id)
+        public async Task<bool> Update(List<SupplierPayment> items, params Expression<Func<SupplierPayment, object>>[] updateProperties)
         {
-            return db.SupplierPayments.FirstOrDefault(x => x.Id == id);
+            if (items == null || items.Count == 0)
+                return false;
+
+            using (var transaction = db.Database.BeginTransaction())
+            {
+                try
+                {
+                    foreach (var entity in items)
+                    {
+                        db.Set<SupplierPayment>().Attach(entity);
+
+                        foreach (var property in updateProperties)
+                            db.Entry(entity).Property(property).IsModified = true;
+                    }
+
+                    await db.SaveChangesAsync();
+                    transaction.Commit();
+                    return true;
+                }
+                catch
+                {
+                    transaction.Rollback();
+                    return false;
+                }
+            }
         }
 
-        public async Task<SupplierPayment> GetByIdAsync(int id)
+        public async Task<bool> Remove(SupplierPayment item)
         {
-            return await db.SupplierPayments.FirstOrDefaultAsync(x => x.Id == id);
+            try
+            {
+                db.Set<SupplierPayment>().Remove(item);
+                return await db.SaveChangesAsync() > 0;
+            }
+            catch
+            {
+                return false;
+            }
         }
 
-        public void Remove(SupplierPayment item)
+        public async Task<SupplierPayment> Get(Expression<Func<SupplierPayment, bool>> expression)
         {
-            throw new NotImplementedException();
-        }
-
-        public Task RemoveAsync(SupplierPayment item)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Update(SupplierPayment item)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task UpdateAsync(SupplierPayment item)
-        {
-            throw new NotImplementedException();
+            return await db.SupplierPayments.FirstOrDefaultAsync(expression);
         }
 
         public IQueryable<SupplierPayment> Where(Expression<Func<SupplierPayment, bool>> expression)
         {
-            return db.SupplierPayments.AsNoTracking().Where(expression);
+            return db.SupplierPayments.Where(expression);
         }
 
-        public async Task<List<SupplierPayment>> WhereAsync(Expression<Func<SupplierPayment, bool>> expression = null)
+        public async Task<List<SupplierPayment>> ToListAsync(Expression<Func<SupplierPayment, bool>> expression = null)
         {
-            return await db.SupplierPayments.Where(expression).ToListAsync();
+            if (expression is null)
+                return await db.SupplierPayments.AsNoTracking().ToListAsync();
+            else
+                return await db.SupplierPayments.AsNoTracking().Where(expression).ToListAsync();
         }
     }
 }

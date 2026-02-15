@@ -12,77 +12,100 @@ namespace Barcode_Sales.Operations.Concrete
 {
     public class CompanyManager : ICompanyOperation
     {
-        NextposDBEntities db = new NextposDBEntities();
+        KhanposDbEntities db = new KhanposDbEntities();
 
-        public bool Add(Company item)
+        public async Task<int> Add(Company item)
         {
             try
             {
-                db.Company.Add(item);
-                db.SaveChanges();
-                return true;
+                db.Set<Company>().Add(item);
+                await db.SaveChangesAsync();
+                return item.Id;
             }
-            catch (Exception)
+            catch
+            {
+                return 0;
+            }
+        }
+
+        public async Task<bool> Add(List<Company> items)
+        {
+            if (items == null || items.Count == 0)
+                return false;
+
+
+            try
+            {
+                db.Set<Company>().AddRange(items);
+                return await db.SaveChangesAsync() > 0;
+            }
+            catch
             {
                 return false;
             }
-
         }
 
-        public async Task AddAsync(Company item)
+        public async Task<Company> Get(Expression<Func<Company, bool>> expression)
         {
-            db.Company.Add(item);
-            await db.SaveChangesAsync();
+            return await db.Company.FirstOrDefaultAsync(expression);
         }
 
-        public Company GetById(int id)
+        public async Task<bool> Remove(Company item)
         {
-            return db.Company.AsNoTracking().FirstOrDefault(x => x.Id == id);
-        }
-
-        public async Task<Company> GetByIdAsync(int id)
-        {
-            return await db.Company.AsNoTracking().FirstOrDefaultAsync(x => x.Id == id);
-        }
-
-        public void Remove(Company item)
-        {
-            //Remove kodunu yaz
-            if (CommonMessageBox.QuestionDialogResult($"{item.CompanyName} şirkətini silmək istədiyinizə əminsiniz ?"))
+            try
             {
-                var data = db.Company.Find(item.Id);
-                //data.IsDeleted = data.Id;
-                db.SaveChanges();
+                db.Set<Company>().Remove(item);
+                return await db.SaveChangesAsync() > 0;
+            }
+            catch
+            {
+                return false;
             }
         }
 
-        public async Task RemoveAsync(Company item)
+        public async Task<bool> Update(Company item, params Expression<Func<Company, object>>[] updateProperties)
         {
-            if (CommonMessageBox.QuestionDialogResult($"{item.CompanyName} şirkətini silmək istədiyinizə əminsiniz ?"))
+            try
             {
-                var data = db.Company.FindAsync(item.Id);
-                //data.IsDeleted = data.Id;
-                await db.SaveChangesAsync();
+                db.Set<Invoice>().Attach(item);
+
+                foreach (var property in updateProperties)
+                    db.Entry(item).Property(property).IsModified = true;
+
+                return await db.SaveChangesAsync() > 0;
+            }
+            catch
+            {
+                return false;
             }
         }
 
-        public void Update(Company item)
+        public async Task<bool> Update(List<Company> items, params Expression<Func<Company, object>>[] updateProperties)
         {
-            var existingItem = db.Company.Find(item.Id);
-            if (existingItem != null)
-            {
-                db.Entry(existingItem).CurrentValues.SetValues(item);
-                db.SaveChanges();
-            }
-        }
+            if (items == null || items.Count == 0)
+                return false;
 
-        public async Task UpdateAsync(Company item)
-        {
-            var existingItem = await db.Company.FindAsync(item.Id);
-            if (existingItem != null)
+            using (var transaction = db.Database.BeginTransaction())
             {
-                db.Entry(existingItem).CurrentValues.SetValues(item);
-                await db.SaveChangesAsync();
+                try
+                {
+                    foreach (var entity in items)
+                    {
+                        db.Set<Invoice>().Attach(entity);
+
+                        foreach (var property in updateProperties)
+                            db.Entry(entity).Property(property).IsModified = true;
+                    }
+
+                    await db.SaveChangesAsync();
+                    transaction.Commit();
+                    return true;
+                }
+                catch
+                {
+                    transaction.Rollback();
+                    return false;
+                }
             }
         }
 
@@ -91,9 +114,12 @@ namespace Barcode_Sales.Operations.Concrete
             return db.Company.Where(expression);
         }
 
-        public async Task<List<Company>> WhereAsync(Expression<Func<Company, bool>> expression)
+        public async Task<List<Company>> ToListAsync(Expression<Func<Company, bool>> expression = null)
         {
-            return await db.Company.Where(expression).ToListAsync();
+            if (expression is null)
+                return await db.Company.AsNoTracking().ToListAsync();
+            else
+                return await db.Company.AsNoTracking().Where(expression).ToListAsync();
         }
     }
 }

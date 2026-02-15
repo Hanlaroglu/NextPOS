@@ -31,6 +31,6 @@ namespace Barcode_Sales
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<SupplierPayment> SupplierPayments { get; set; }
-        public virtual Suppliers Supplier { get; set; }
+        public virtual Supplier Supplier { get; set; }
     }
 }

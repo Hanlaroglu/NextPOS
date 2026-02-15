@@ -1,6 +1,6 @@
 ﻿namespace Barcode_Sales.DTOs
 {
-    public class WarehousesDto : Warehouses
+    public class WarehousesDto : Warehouse
     {
         public string StatusText
         {

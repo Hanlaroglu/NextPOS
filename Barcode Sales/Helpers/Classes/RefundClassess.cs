@@ -19,15 +19,15 @@ namespace Barcode_Sales.Helpers.Classes
             public short RowNo { get; set; }
             public int Id { get; set; }
             public string ProductName { get; set; }
-            public double SalePrice { get; set; }
-            public double Discount { get; set; } = 0;
-            public double Total
+            public decimal SalePrice { get; set; }
+            public decimal Discount { get; set; } = 0;
+            public decimal Total
             {
                 get => Math.Round((SalePrice * Amount - Discount) * 100) / 100;
             }
-            public double? PurchasePrice { get; set; }
-            public double? PurchaseSum { get => PurchasePrice * Amount; }
-            public double Amount { get; set; } = 1;
+            public decimal? PurchasePrice { get; set; }
+            public decimal? PurchaseSum { get => PurchasePrice * Amount; }
+            public decimal Amount { get; set; } = 1;
             public int UnitId { get; set; }
             public int TaxId { get; set; }
             public string UnitName => DefinitionDto.GetUnitName(UnitId);
@@ -37,13 +37,13 @@ namespace Barcode_Sales.Helpers.Classes
 
         public class Data : BaseData
         {
-            public double Total => Items?.Sum(x => x.Total) ?? 0;
-            public double Cash { get; set; }
-            public double Card { get; set; }
-            public double IncomingSum { get; set; }
-            public double Deposit { get; set; } = 0;
-            public double Credit { get; set; } = 0;
-            public double Bonus { get; set; } = 0;
+            public decimal Total => Items?.Sum(x => x.Total) ?? 0;
+            public decimal Cash { get; set; }
+            public decimal Card { get; set; }
+            public decimal IncomingSum { get; set; }
+            public decimal Deposit { get; set; } = 0;
+            public decimal Credit { get; set; } = 0;
+            public decimal Bonus { get; set; } = 0;
             public string Cashier { get; set; }
             public string RRN { get; set; } = null;
             public string CustomerName { get; set; } = null;

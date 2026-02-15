@@ -1,83 +1,110 @@
 ﻿using Barcode_Sales.Operations.Abstract;
-using DevExpress.XtraEditors;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace Barcode_Sales.Operations.Concrete
 {
     public class CustomerGroupManager : ICustomerGroupOperation
     {
-        private NextposDBEntities db = new NextposDBEntities();
-        public bool Add(CustomerGroup item)
+        private KhanposDbEntities db = new KhanposDbEntities();
+
+        public async Task<int> Add(CustomerGroup item)
         {
             try
             {
-                db.CustomerGroups.Add(item);
-                db.SaveChanges();
-                return true;
+                db.Set<CustomerGroup>().Add(item);
+                await db.SaveChangesAsync();
+                return item.Id;
             }
-            catch (Exception e)
+            catch
+            {
+                return 0;
+            }
+        }
+
+        public async Task<bool> Add(List<CustomerGroup> items)
+        {
+            if (items == null || items.Count == 0)
+                return false;
+
+
+            try
+            {
+                db.Set<CustomerGroup>().AddRange(items);
+                return await db.SaveChangesAsync() > 0;
+            }
+            catch
             {
                 return false;
             }
         }
 
-        public Task AddAsync(CustomerGroup item)
+        public async Task<bool> Update(CustomerGroup item, params Expression<Func<CustomerGroup, object>>[] updateProperties)
         {
-            throw new NotImplementedException();
-        }
-
-        public void Update(CustomerGroup item)
-        {
-            db.CustomerGroups.Attach(item);
-            db.Entry(item).Property(x => x.Name).IsModified = true;
-            db.Entry(item).Property(x => x.Discount).IsModified = true;
-            db.SaveChanges();
-        }
-
-        public async Task UpdateAsync(CustomerGroup item)
-        {
-            db.CustomerGroups.Attach(item);
-            db.Entry(item).Property(x => x.Name).IsModified = true;
-            db.Entry(item).Property(x => x.Discount).IsModified = true;
-            await db.SaveChangesAsync();
-        }
-
-        public void Remove(CustomerGroup item)
-        {
-            item.IsDeleted = true;
-            string query = $@"UPDATE Customers SET CustomerGroupId = NULL WHERE CustomerGroupId = {item.Id}";
-            db.CustomerGroups.Attach(item);
-            db.Entry(item).Property(x => x.IsDeleted).IsModified = true;
-            db.SaveChanges();
-            db.Database.ExecuteSqlCommand(query);
-        }
-
-        public async Task RemoveAsync(CustomerGroup item)
-        {
-            CustomerGroup entity = new CustomerGroup
+            try
             {
-                Id = item.Id,
-                IsDeleted = true,
-            };
-            db.CustomerGroups.Attach(entity);
-            db.Entry(entity).Property(x => x.IsDeleted).IsModified = true;
-            await db.SaveChangesAsync();
+                db.Set<CustomerGroup>().Attach(item);
+
+                foreach (var property in updateProperties)
+                    db.Entry(item).Property(property).IsModified = true;
+
+                return await db.SaveChangesAsync() > 0;
+            }
+            catch
+            {
+                return false;
+            }
         }
 
-        public CustomerGroup GetById(int id)
+        public async Task<bool> Update(List<CustomerGroup> items, params Expression<Func<CustomerGroup, object>>[] updateProperties)
         {
-            return db.CustomerGroups.FirstOrDefault(x => x.Id == id);
+            if (items == null || items.Count == 0)
+                return false;
+
+            using (var transaction = db.Database.BeginTransaction())
+            {
+                try
+                {
+                    foreach (var entity in items)
+                    {
+                        db.Set<CustomerGroup>().Attach(entity);
+
+                        foreach (var property in updateProperties)
+                            db.Entry(entity).Property(property).IsModified = true;
+                    }
+
+                    await db.SaveChangesAsync();
+                    transaction.Commit();
+                    return true;
+                }
+                catch
+                {
+                    transaction.Rollback();
+                    return false;
+                }
+            }
         }
 
-        public async Task<CustomerGroup> GetByIdAsync(int id)
+        public async Task<bool> Remove(CustomerGroup item)
         {
-            return await db.CustomerGroups.AsNoTracking().FirstOrDefaultAsync(x => x.Id == id);
+            try
+            {
+                db.Set<CustomerGroup>().Remove(item);
+                return await db.SaveChangesAsync() > 0;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        public async Task<CustomerGroup> Get(Expression<Func<CustomerGroup, bool>> expression)
+        {
+            return await db.CustomerGroups.FirstOrDefaultAsync(expression);
         }
 
         public IQueryable<CustomerGroup> Where(Expression<Func<CustomerGroup, bool>> expression)
@@ -85,11 +112,35 @@ namespace Barcode_Sales.Operations.Concrete
             return db.CustomerGroups.Where(expression);
         }
 
-        public async Task<List<CustomerGroup>> WhereAsync(Expression<Func<CustomerGroup, bool>> expression = null)
+        public async Task<List<CustomerGroup>> ToListAsync(Expression<Func<CustomerGroup, bool>> expression = null)
         {
-            return await db.CustomerGroups.AsNoTracking()
-                .Where(expression)
-                .ToListAsync();
+            if (expression is null)
+                return await db.CustomerGroups.AsNoTracking().ToListAsync();
+            else
+                return await db.CustomerGroups.AsNoTracking().Where(expression).ToListAsync();
         }
+
+
+        //public void Remove(CustomerGroup item)
+        //{
+        //    item.IsDeleted = true;
+        //    string query = $@"UPDATE Customers SET CustomerGroupId = NULL WHERE CustomerGroupId = {item.Id}";
+        //    db.CustomerGroups.Attach(item);
+        //    db.Entry(item).Property(x => x.IsDeleted).IsModified = true;
+        //    db.SaveChanges();
+        //    db.Database.ExecuteSqlCommand(query);
+        //}
+
+        //public async Task RemoveAsync(CustomerGroup item)
+        //{
+        //    CustomerGroup entity = new CustomerGroup
+        //    {
+        //        Id = item.Id,
+        //        IsDeleted = true,
+        //    };
+        //    db.CustomerGroups.Attach(entity);
+        //    db.Entry(entity).Property(x => x.IsDeleted).IsModified = true;
+        //    await db.SaveChangesAsync();
+        //}
     }
 }

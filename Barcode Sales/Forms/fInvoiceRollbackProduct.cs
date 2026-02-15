@@ -80,7 +80,7 @@ namespace Barcode_Sales.Forms
         private void DataLoad(DateTime? start = null, DateTime? end = null, string supplierName = null)
         {
             gridView1.ShowLoadingPanel();
-            using (var db = new NextposDBEntities())
+            using (var db = new KhanposDbEntities())
             {
                 if (supplierName is null)
                 {
@@ -195,9 +195,9 @@ namespace Barcode_Sales.Forms
                 AddRollback(selectedItems);
         }
 
-        private void AddRollback(List<ViewInvoiceRollbackListDto> list)
+        private async void AddRollback(List<ViewInvoiceRollbackListDto> list)
         {
-            using (var db = new NextposDBEntities())
+            using (var db = new KhanposDbEntities())
             using (var tran = db.Database.BeginTransaction())
             {
                 try
@@ -214,7 +214,8 @@ namespace Barcode_Sales.Forms
                             CreatedDate = DateTime.Now,
                             IsDeleted = false,
                         };
-                        var result = invoiceRollbackOperation.AddRollback(rollback);
+
+                        var result = await invoiceRollbackOperation.Add(rollback);
 
                         var details = group.Select(x => new InvoiceRollbackDetail
                         {
@@ -222,11 +223,13 @@ namespace Barcode_Sales.Forms
                             ProductId = x.ProductId,
                             Quantity = x.RollbackQuantity
                         }).ToList();
-                        invoiceRollbackDetailOperation.AddRange(details);
+
+
+                        await invoiceRollbackDetailOperation.Add(details);
                     }
                     tran.Commit();
                     Clear();
-                    NotificationHelpers.Messages.SuccessMessage(this,$"{list.Count} məhsul uğurla qaytarıldı");
+                    NotificationHelpers.Messages.SuccessMessage(this, $"{list.Count} məhsul uğurla qaytarıldı");
                 }
                 catch (Exception e)
                 {

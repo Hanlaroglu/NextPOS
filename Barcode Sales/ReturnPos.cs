@@ -23,10 +23,10 @@ namespace Barcode_Sales
         public string Rrn { get; set; }
         public Nullable<System.DateTime> ReturnDate { get; set; }
         public Nullable<System.DateTime> ReturnDatetime { get; set; }
-        public Nullable<double> Total { get; set; }
-        public Nullable<double> Cash { get; set; }
-        public Nullable<double> Card { get; set; }
-        public Nullable<double> IncomingSum { get; set; }
+        public Nullable<decimal> Total { get; set; }
+        public Nullable<decimal> Cash { get; set; }
+        public Nullable<decimal> Card { get; set; }
+        public Nullable<decimal> IncomingSum { get; set; }
         public Nullable<int> CustomerId { get; set; }
         public string Note { get; set; }
     }

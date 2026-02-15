@@ -15,7 +15,7 @@ namespace Barcode_Sales.Forms
 {
     public partial class fSelected : DevExpress.XtraEditors.XtraForm
     {
-        NextposDBEntities db = new NextposDBEntities();
+        KhanposDbEntities db = new KhanposDbEntities();
         public string CategoryName { get; set; }
         public fSelected()
         {

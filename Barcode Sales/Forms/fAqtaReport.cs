@@ -13,7 +13,7 @@ using System.Windows.Forms;
 
 namespace Barcode_Sales.Forms
 {
-    public partial class fAqtaReport : FormBase
+    public partial class fAqtaReport : XtraForm
     {
         private BindingList<GridData> dataList;
         public fAqtaReport()
@@ -189,24 +189,24 @@ namespace Barcode_Sales.Forms
 
         private void tProductName_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
-            fSelectedProduct<fAqtaReport> selectedProduct = new fSelectedProduct<fAqtaReport>(this);
-            selectedProduct.ShowDialog();
+            //fSelectedProduct<fAqtaReport> selectedProduct = new fSelectedProduct<fAqtaReport>(this);
+            //selectedProduct.ShowDialog();
         }
 
-        public override void ReceiveData<T>(T data)
-        {
-            if (data != null && data is AqtaProducts product)
-            {
-                tProductId.Text = product.Id.ToString();
-                tProductName.Text = product.ProductName;
-                tBarcode.Text = product.Barcode;
-                tSalesPrice.EditValue = product.SalePrice;
-                tReleaseDate.Text = product.ReleaseDate.ToString();
-                tRetentionPeriod.EditValue = product.RetentionPeriod;
-                tStorageConditions.Text = product.StorageConditions;
-                tIngredients.Text = product.Ingredients;
-            }
-        }
+        //public override void ReceiveData<T>(T data)
+        //{
+        //    if (data != null && data is AqtaProducts product)
+        //    {
+        //        tProductId.Text = product.Id.ToString();
+        //        tProductName.Text = product.ProductName;
+        //        tBarcode.Text = product.Barcode;
+        //        tSalesPrice.EditValue = product.SalePrice;
+        //        tReleaseDate.Text = product.ReleaseDate.ToString();
+        //        tRetentionPeriod.EditValue = product.RetentionPeriod;
+        //        tStorageConditions.Text = product.StorageConditions;
+        //        tIngredients.Text = product.Ingredients;
+        //    }
+        //}
 
         private void gridView1_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
         {

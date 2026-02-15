@@ -23,7 +23,7 @@ namespace Barcode_Sales
         public Nullable<int> ProductId { get; set; }
         public string ProductName { get; set; }
         public string Barcode { get; set; }
-        public Nullable<double> Amount { get; set; }
         public Nullable<double> PurchasePrice { get; set; }
+        public Nullable<double> Amount { get; set; }
     }
 }

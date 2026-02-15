@@ -1,30 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="NextposDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-  <EntityType Name="AqtaProducts">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="WarehousesID" Type="int" />
-    <Property Name="StoreID" Type="int" />
-    <Property Name="CategoryID" Type="int" />
-    <Property Name="ProductName" Type="nvarchar(max)" />
-    <Property Name="Barcode" Type="nvarchar(max)" />
-    <Property Name="PurchasePrice" Type="float" />
-    <Property Name="SalePrice" Type="float" />
-    <Property Name="Unit" Type="nvarchar" MaxLength="10" />
-    <Property Name="Tax" Type="nvarchar" MaxLength="50" />
-    <Property Name="Ingredients" Type="nvarchar(max)" />
-    <Property Name="ReleaseDate" Type="date" />
-    <Property Name="RetentionPeriod" Type="int" />
-    <Property Name="StorageConditions" Type="nvarchar" MaxLength="100" />
-    <Property Name="CreateDate" Type="date" />
-    <Property Name="ShowPosScreen" Type="bit" />
-    <Property Name="AmountNotification" Type="bit" />
-    <Property Name="EndDateNotification" Type="bit" />
-    <Property Name="Status" Type="bit" />
-    <Property Name="IsDeleted" Type="int" />
-  </EntityType>
   <EntityType Name="Categories">
     <Key>
       <PropertyRef Name="Id" />
@@ -52,20 +27,6 @@
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="ColorName" Type="nvarchar" MaxLength="50" />
     <Property Name="IsDeleted" Type="int" />
-  </EntityType>
-  <EntityType Name="Company">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="CompanyName" Type="nvarchar" MaxLength="100" />
-    <Property Name="Voen" Type="nvarchar" MaxLength="12" />
-    <Property Name="CompanyCode" Type="nvarchar" MaxLength="5" />
-    <Property Name="Address" Type="nvarchar" MaxLength="500" />
-    <Property Name="Phone" Type="nvarchar" MaxLength="25" />
-    <Property Name="Email" Type="nvarchar" MaxLength="100" />
-    <Property Name="RegistrationDate" Type="date" />
-    <Property Name="Logo" Type="varbinary(max)" />
   </EntityType>
   <EntityType Name="CustomerGroups">
     <Key>
@@ -203,21 +164,20 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Type" Type="tinyint" />
-    <Property Name="SupplierId" Type="int" />
-    <Property Name="CategoryId" Type="int" />
-    <Property Name="ProductName" Type="nvarchar(max)" />
-    <Property Name="ProductCode" Type="nvarchar(max)" />
-    <Property Name="Barcode" Type="nvarchar(max)" />
-    <Property Name="Amount" Type="float" />
-    <Property Name="PurchasePrice" Type="float" />
-    <Property Name="SalePrice" Type="float" />
-    <Property Name="UnitId" Type="int" />
-    <Property Name="TaxId" Type="int" />
-    <Property Name="Status" Type="bit" />
-    <Property Name="IsDeleted" Type="int" />
+    <Property Name="Type" Type="tinyint" Nullable="false" />
+    <Property Name="CategoryId" Type="int" Nullable="false" />
+    <Property Name="ProductName" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="ProductCode" Type="nvarchar" MaxLength="50" />
+    <Property Name="Barcode" Type="nvarchar" MaxLength="50" />
+    <Property Name="Quantity" Type="decimal" Precision="18" Scale="3" Nullable="false" />
+    <Property Name="PurchasePrice" Type="decimal" Precision="18" Scale="3" Nullable="false" />
+    <Property Name="SalePrice" Type="decimal" Precision="18" Scale="3" Nullable="false" />
+    <Property Name="UnitId" Type="int" Nullable="false" />
+    <Property Name="TaxId" Type="int" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
     <Property Name="CreatedUserId" Type="int" Nullable="false" />
-    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="CreatedDate" Type="datetime2" Precision="3" Nullable="false" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="ReturnPos">
     <Key>
@@ -268,36 +228,6 @@
     <Property Name="MoneyBox" Type="bit" />
     <Property Name="Admin" Type="bit" />
     <Property Name="Cashier" Type="bit" />
-  </EntityType>
-  <EntityType Name="SalesData">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="UserId" Type="int" />
-    <Property Name="ReceiptNo" Type="nvarchar" MaxLength="50" />
-    <Property Name="LongFiscalId" Type="nvarchar" MaxLength="200" />
-    <Property Name="ShortFiscalId" Type="nvarchar" MaxLength="50" />
-    <Property Name="Rrn" Type="nvarchar" MaxLength="50" />
-    <Property Name="SaleDate" Type="date" />
-    <Property Name="SaleDatetime" Type="datetime" />
-    <Property Name="Total" Type="float" />
-    <Property Name="Cash" Type="float" />
-    <Property Name="Card" Type="float" />
-    <Property Name="IncomingSum" Type="float" />
-    <Property Name="CustomerId" Type="int" />
-    <Property Name="Note" Type="nvarchar" MaxLength="500" />
-  </EntityType>
-  <EntityType Name="SalesDataDetail">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="SaleDataId" Type="int" />
-    <Property Name="ProductId" Type="int" />
-    <Property Name="Quantity" Type="float" />
-    <Property Name="SalePrice" Type="float" />
-    <Property Name="Discount" Type="float" />
   </EntityType>
   <EntityType Name="Sizes">
     <Key>
@@ -427,7 +357,7 @@
     <Property Name="Status" Type="bit" />
   </EntityType>
   <!--Errors Found During Generation:
-warning 6002: The table/view 'NextposDB.dbo.view_InvoiceRollbackList' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'KhanposDb.dbo.view_InvoiceRollbackList' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="view_InvoiceRollbackList">
     <Key>
       <PropertyRef Name="WarehouseId" />
@@ -455,30 +385,6 @@ warning 6002: The table/view 'NextposDB.dbo.view_InvoiceRollbackList' does not h
       </Principal>
       <Dependent Role="Logs">
         <PropertyRef Name="UserID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_AqtaProducts_Category">
-    <End Role="Categories" Type="Self.Categories" Multiplicity="0..1" />
-    <End Role="AqtaProducts" Type="Self.AqtaProducts" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Categories">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="AqtaProducts">
-        <PropertyRef Name="CategoryID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_AqtaProducts_Warehouse">
-    <End Role="Warehouses" Type="Self.Warehouses" Multiplicity="0..1" />
-    <End Role="AqtaProducts" Type="Self.AqtaProducts" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Warehouses">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="AqtaProducts">
-        <PropertyRef Name="WarehousesID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -551,18 +457,6 @@ warning 6002: The table/view 'NextposDB.dbo.view_InvoiceRollbackList' does not h
       </Principal>
       <Dependent Role="InvoiceDetails">
         <PropertyRef Name="InvoiceId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_InvoiceDetails_Product">
-    <End Role="Products" Type="Self.Products" Multiplicity="0..1" />
-    <End Role="InvoiceDetails" Type="Self.InvoiceDetails" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Products">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="InvoiceDetails">
-        <PropertyRef Name="ProductId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -663,7 +557,7 @@ warning 6002: The table/view 'NextposDB.dbo.view_InvoiceRollbackList' does not h
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Products_Category">
-    <End Role="Categories" Type="Self.Categories" Multiplicity="0..1" />
+    <End Role="Categories" Type="Self.Categories" Multiplicity="1" />
     <End Role="Products" Type="Self.Products" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Categories">
@@ -674,20 +568,8 @@ warning 6002: The table/view 'NextposDB.dbo.view_InvoiceRollbackList' does not h
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Products_Suppliers">
-    <End Role="Suppliers" Type="Self.Suppliers" Multiplicity="0..1" />
-    <End Role="Products" Type="Self.Products" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Suppliers">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Products">
-        <PropertyRef Name="SupplierId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_Products_TaxType">
-    <End Role="TaxTypes" Type="Self.TaxTypes" Multiplicity="0..1" />
+    <End Role="TaxTypes" Type="Self.TaxTypes" Multiplicity="1" />
     <End Role="Products" Type="Self.Products" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="TaxTypes">
@@ -699,7 +581,7 @@ warning 6002: The table/view 'NextposDB.dbo.view_InvoiceRollbackList' does not h
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Products_UnitType">
-    <End Role="UnitTypes" Type="Self.UnitTypes" Multiplicity="0..1" />
+    <End Role="UnitTypes" Type="Self.UnitTypes" Multiplicity="1" />
     <End Role="Products" Type="Self.Products" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="UnitTypes">
@@ -719,54 +601,6 @@ warning 6002: The table/view 'NextposDB.dbo.view_InvoiceRollbackList' does not h
       </Principal>
       <Dependent Role="Products">
         <PropertyRef Name="CreatedUserId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_SalesData_ToCustomer">
-    <End Role="Customers" Type="Self.Customers" Multiplicity="0..1" />
-    <End Role="SalesData" Type="Self.SalesData" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Customers">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="SalesData">
-        <PropertyRef Name="CustomerId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_SalesData_ToUser">
-    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
-    <End Role="SalesData" Type="Self.SalesData" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Users">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="SalesData">
-        <PropertyRef Name="UserId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_SalesDataDetail_Products">
-    <End Role="Products" Type="Self.Products" Multiplicity="0..1" />
-    <End Role="SalesDataDetail" Type="Self.SalesDataDetail" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Products">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="SalesDataDetail">
-        <PropertyRef Name="ProductId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_SalesDataDetail_ToSalesData">
-    <End Role="SalesData" Type="Self.SalesData" Multiplicity="0..1" />
-    <End Role="SalesDataDetail" Type="Self.SalesDataDetail" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="SalesData">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="SalesDataDetail">
-        <PropertyRef Name="SaleDataId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -855,11 +689,9 @@ warning 6002: The table/view 'NextposDB.dbo.view_InvoiceRollbackList' does not h
     </ReferentialConstraint>
   </Association>
   <EntityContainer Name="NextposDBModelStoreContainer">
-    <EntitySet Name="AqtaProducts" EntityType="Self.AqtaProducts" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Categories" EntityType="Self.Categories" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="CloseShiftReports" EntityType="Self.CloseShiftReports" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Colors" EntityType="Self.Colors" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Company" EntityType="Self.Company" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="CustomerGroups" EntityType="Self.CustomerGroups" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="CustomerPayments" EntityType="Self.CustomerPayments" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Customers" EntityType="Self.Customers" Schema="dbo" store:Type="Tables" />
@@ -874,8 +706,6 @@ warning 6002: The table/view 'NextposDB.dbo.view_InvoiceRollbackList' does not h
     <EntitySet Name="ReturnPos" EntityType="Self.ReturnPos" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ReturnPosDetails" EntityType="Self.ReturnPosDetails" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="SalesData" EntityType="Self.SalesData" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="SalesDataDetail" EntityType="Self.SalesDataDetail" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Sizes" EntityType="Self.Sizes" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Stores" EntityType="Self.Stores" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="SupplierPayments" EntityType="Self.SupplierPayments" Schema="dbo" store:Type="Tables" />
@@ -906,14 +736,6 @@ warning 6002: The table/view 'NextposDB.dbo.view_InvoiceRollbackList' does not h
       <End Role="Users" EntitySet="Users" />
       <End Role="Logs" EntitySet="Logs" />
     </AssociationSet>
-    <AssociationSet Name="FK_AqtaProducts_Category" Association="Self.FK_AqtaProducts_Category">
-      <End Role="Categories" EntitySet="Categories" />
-      <End Role="AqtaProducts" EntitySet="AqtaProducts" />
-    </AssociationSet>
-    <AssociationSet Name="FK_AqtaProducts_Warehouse" Association="Self.FK_AqtaProducts_Warehouse">
-      <End Role="Warehouses" EntitySet="Warehouses" />
-      <End Role="AqtaProducts" EntitySet="AqtaProducts" />
-    </AssociationSet>
     <AssociationSet Name="FK_CustomerDebts_Customer" Association="Self.FK_CustomerDebts_Customer">
       <End Role="Customers" EntitySet="Customers" />
       <End Role="CustomersDebts" EntitySet="CustomersDebts" />
@@ -936,10 +758,6 @@ warning 6002: The table/view 'NextposDB.dbo.view_InvoiceRollbackList' does not h
     </AssociationSet>
     <AssociationSet Name="FK_InvoiceDetails_Invoices" Association="Self.FK_InvoiceDetails_Invoices">
       <End Role="Invoices" EntitySet="Invoices" />
-      <End Role="InvoiceDetails" EntitySet="InvoiceDetails" />
-    </AssociationSet>
-    <AssociationSet Name="FK_InvoiceDetails_Product" Association="Self.FK_InvoiceDetails_Product">
-      <End Role="Products" EntitySet="Products" />
       <End Role="InvoiceDetails" EntitySet="InvoiceDetails" />
     </AssociationSet>
     <AssociationSet Name="FK_InvoiceRollbackDetails_InvoiceRollbacks" Association="Self.FK_InvoiceRollbackDetails_InvoiceRollbacks">
@@ -978,10 +796,6 @@ warning 6002: The table/view 'NextposDB.dbo.view_InvoiceRollbackList' does not h
       <End Role="Categories" EntitySet="Categories" />
       <End Role="Products" EntitySet="Products" />
     </AssociationSet>
-    <AssociationSet Name="FK_Products_Suppliers" Association="Self.FK_Products_Suppliers">
-      <End Role="Suppliers" EntitySet="Suppliers" />
-      <End Role="Products" EntitySet="Products" />
-    </AssociationSet>
     <AssociationSet Name="FK_Products_TaxType" Association="Self.FK_Products_TaxType">
       <End Role="TaxTypes" EntitySet="TaxTypes" />
       <End Role="Products" EntitySet="Products" />
@@ -993,22 +807,6 @@ warning 6002: The table/view 'NextposDB.dbo.view_InvoiceRollbackList' does not h
     <AssociationSet Name="FK_Products_Users" Association="Self.FK_Products_Users">
       <End Role="Users" EntitySet="Users" />
       <End Role="Products" EntitySet="Products" />
-    </AssociationSet>
-    <AssociationSet Name="FK_SalesData_ToCustomer" Association="Self.FK_SalesData_ToCustomer">
-      <End Role="Customers" EntitySet="Customers" />
-      <End Role="SalesData" EntitySet="SalesData" />
-    </AssociationSet>
-    <AssociationSet Name="FK_SalesData_ToUser" Association="Self.FK_SalesData_ToUser">
-      <End Role="Users" EntitySet="Users" />
-      <End Role="SalesData" EntitySet="SalesData" />
-    </AssociationSet>
-    <AssociationSet Name="FK_SalesDataDetail_Products" Association="Self.FK_SalesDataDetail_Products">
-      <End Role="Products" EntitySet="Products" />
-      <End Role="SalesDataDetail" EntitySet="SalesDataDetail" />
-    </AssociationSet>
-    <AssociationSet Name="FK_SalesDataDetail_ToSalesData" Association="Self.FK_SalesDataDetail_ToSalesData">
-      <End Role="SalesData" EntitySet="SalesData" />
-      <End Role="SalesDataDetail" EntitySet="SalesDataDetail" />
     </AssociationSet>
     <AssociationSet Name="FK_Stores_Warehouses" Association="Self.FK_Stores_Warehouses">
       <End Role="Warehouses" EntitySet="Warehouses" />

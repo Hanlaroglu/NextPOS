@@ -1,6 +1,7 @@
 ﻿using Barcode_Sales.Operations.Abstract;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
@@ -9,64 +10,114 @@ namespace Barcode_Sales.Operations.Concrete
 {
     public class IncomeAndExpenseManager : ITerminalIncomeAndExpenseOperation
     {
-        NextposDBEntities db = new NextposDBEntities();
-        public bool Add(TerminalIncomesAndExpens item)
+        KhanposDbEntities db = new KhanposDbEntities();
+
+        public async Task<int> Add(TerminalIncomesAndExpens item)
         {
             try
             {
-                db.TerminalIncomesAndExpenses.Add(item);
-                db.SaveChanges();
-                return true;
+                db.Set<TerminalIncomesAndExpens>().Add(item);
+                await db.SaveChangesAsync();
+                return item.Id;
             }
-            catch (Exception)
+            catch
+            {
+                return 0;
+            }
+        }
+
+        public async Task<bool> Add(List<TerminalIncomesAndExpens> items)
+        {
+            if (items == null || items.Count == 0)
+                return false;
+
+
+            try
+            {
+                db.Set<TerminalIncomesAndExpens>().AddRange(items);
+                return await db.SaveChangesAsync() > 0;
+            }
+            catch
             {
                 return false;
             }
         }
 
-        public Task AddAsync(TerminalIncomesAndExpens item)
+        public async Task<bool> Update(TerminalIncomesAndExpens item, params Expression<Func<TerminalIncomesAndExpens, object>>[] updateProperties)
         {
-            throw new NotImplementedException();
+            try
+            {
+                db.Set<TerminalIncomesAndExpens>().Attach(item);
+
+                foreach (var property in updateProperties)
+                    db.Entry(item).Property(property).IsModified = true;
+
+                return await db.SaveChangesAsync() > 0;
+            }
+            catch
+            {
+                return false;
+            }
         }
 
-        public TerminalIncomesAndExpens GetById(int id)
+        public async Task<bool> Update(List<TerminalIncomesAndExpens> items, params Expression<Func<TerminalIncomesAndExpens, object>>[] updateProperties)
         {
-            throw new NotImplementedException();
+            if (items == null || items.Count == 0)
+                return false;
+
+            using (var transaction = db.Database.BeginTransaction())
+            {
+                try
+                {
+                    foreach (var entity in items)
+                    {
+                        db.Set<TerminalIncomesAndExpens>().Attach(entity);
+
+                        foreach (var property in updateProperties)
+                            db.Entry(entity).Property(property).IsModified = true;
+                    }
+
+                    await db.SaveChangesAsync();
+                    transaction.Commit();
+                    return true;
+                }
+                catch
+                {
+                    transaction.Rollback();
+                    return false;
+                }
+            }
         }
 
-        public Task<TerminalIncomesAndExpens> GetByIdAsync(int id)
+        public async Task<bool> Remove(TerminalIncomesAndExpens item)
         {
-            throw new NotImplementedException();
+            try
+            {
+                db.Set<TerminalIncomesAndExpens>().Remove(item);
+                return await db.SaveChangesAsync() > 0;
+            }
+            catch
+            {
+                return false;
+            }
         }
 
-        public void Remove(TerminalIncomesAndExpens item)
+        public async Task<TerminalIncomesAndExpens> Get(Expression<Func<TerminalIncomesAndExpens, bool>> expression)
         {
-            throw new NotImplementedException();
-        }
-
-        public Task RemoveAsync(TerminalIncomesAndExpens item)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Update(TerminalIncomesAndExpens item)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task UpdateAsync(TerminalIncomesAndExpens item)
-        {
-            throw new NotImplementedException();
+            return await db.TerminalIncomesAndExpenses.FirstOrDefaultAsync(expression);
         }
 
         public IQueryable<TerminalIncomesAndExpens> Where(Expression<Func<TerminalIncomesAndExpens, bool>> expression)
         {
-            throw new NotImplementedException();
+            return db.TerminalIncomesAndExpenses.Where(expression);
         }
 
-        public Task<List<TerminalIncomesAndExpens>> WhereAsync(Expression<Func<TerminalIncomesAndExpens, bool>> expression = null)
+        public async Task<List<TerminalIncomesAndExpens>> ToListAsync(Expression<Func<TerminalIncomesAndExpens, bool>> expression = null)
         {
-            throw new NotImplementedException();
+            if (expression is null)
+                return await db.TerminalIncomesAndExpenses.AsNoTracking().ToListAsync();
+            else
+                return await db.TerminalIncomesAndExpenses.AsNoTracking().Where(expression).ToListAsync();
         }
     }
 }

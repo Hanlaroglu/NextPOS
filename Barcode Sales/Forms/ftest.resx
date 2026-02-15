@@ -120,4 +120,58 @@
   <metadata name="behaviorManager1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
+  <data name="htmlContentControl2.HtmlTemplate.Styles" xml:space="preserve">
+    <value>body {
+	text-align: left;
+	Font-family: Nunito;
+	Font-size: 16px;
+	color:@ControlText;
+}
+
+span {
+	Font-family: Nunito;
+	color: @Success;
+	font-weight: bold;
+}
+
+.header-text{
+	Font-size: 18px;
+}
+
+.hint-container {
+	display: inline-block;
+	max-width: 100%;
+	border-radius: 10px;
+	border-color: @Black;
+	overflow: hidden;
+	border: 1.5px dashed @Question;
+	border-left: none;
+	border-spacing: 4px;
+	margin: 10px 10px 10px 10px;
+}
+
+.hint {
+	border-left: 4px solid;
+	background-color: @Window;
+	border-left-color: @Question; /*#FF7200;*/
+	padding: 10px;
+}
+
+.hint-text {
+	margin-left: 10px;
+	display: inline-block;
+	text-align: left;
+}</value>
+  </data>
+  <data name="htmlContentControl2.HtmlTemplate.Template" xml:space="preserve">
+    <value>&lt;div class="hint-container"&gt;
+    &lt;div class="hint"&gt;
+        &lt;div class="hint-text"&gt;
+            &lt;span class="header-text"&gt;Məhsul İdxalı&lt;/span&gt;&lt;br&gt;&lt;br&gt;
+        	&lt;span&gt;Şablon yüklə&lt;/span&gt; düyməsinə basaraq tövsiyyə etdiyimiz 
+        	şablondan istifadə edin. Daha çox köməyə ehtiyacınız var ? &lt;span&gt;Məlumat&lt;/span&gt; düyməsini basın
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</value>
+  </data>
 </root>

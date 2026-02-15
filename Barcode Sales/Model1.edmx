@@ -5,31 +5,6 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="NextposDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="AqtaProducts">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="WarehousesID" Type="int" />
-          <Property Name="StoreID" Type="int" />
-          <Property Name="CategoryID" Type="int" />
-          <Property Name="ProductName" Type="nvarchar(max)" />
-          <Property Name="Barcode" Type="nvarchar(max)" />
-          <Property Name="PurchasePrice" Type="float" />
-          <Property Name="SalePrice" Type="float" />
-          <Property Name="Unit" Type="nvarchar" MaxLength="10" />
-          <Property Name="Tax" Type="nvarchar" MaxLength="50" />
-          <Property Name="Ingredients" Type="nvarchar(max)" />
-          <Property Name="ReleaseDate" Type="date" />
-          <Property Name="RetentionPeriod" Type="int" />
-          <Property Name="StorageConditions" Type="nvarchar" MaxLength="100" />
-          <Property Name="CreateDate" Type="date" />
-          <Property Name="ShowPosScreen" Type="bit" />
-          <Property Name="AmountNotification" Type="bit" />
-          <Property Name="EndDateNotification" Type="bit" />
-          <Property Name="Status" Type="bit" />
-          <Property Name="IsDeleted" Type="int" />
-        </EntityType>
         <EntityType Name="Categories">
           <Key>
             <PropertyRef Name="Id" />
@@ -57,20 +32,6 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ColorName" Type="nvarchar" MaxLength="50" />
           <Property Name="IsDeleted" Type="int" />
-        </EntityType>
-        <EntityType Name="Company">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="CompanyName" Type="nvarchar" MaxLength="100" />
-          <Property Name="Voen" Type="nvarchar" MaxLength="12" />
-          <Property Name="CompanyCode" Type="nvarchar" MaxLength="5" />
-          <Property Name="Address" Type="nvarchar" MaxLength="500" />
-          <Property Name="Phone" Type="nvarchar" MaxLength="25" />
-          <Property Name="Email" Type="nvarchar" MaxLength="100" />
-          <Property Name="RegistrationDate" Type="date" />
-          <Property Name="Logo" Type="varbinary(max)" />
         </EntityType>
         <EntityType Name="CustomerGroups">
           <Key>
@@ -203,26 +164,56 @@
           <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="IsDeleted" Type="int" />
         </EntityType>
+        <EntityType Name="PosSaleItems">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PosSaleId" Type="int" Nullable="false" />
+          <Property Name="ProductId" Type="int" Nullable="false" />
+          <Property Name="Quantity" Type="decimal" Precision="18" Scale="3" Nullable="false" />
+          <Property Name="SalePrice" Type="decimal" Precision="18" Scale="3" Nullable="false" />
+          <Property Name="Discount" Type="decimal" Precision="18" Scale="3" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PosSales">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="SaleDate" Type="date" Nullable="false" />
+          <Property Name="SaleDatetime" Type="datetime" Nullable="false" />
+          <Property Name="ReceiptNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="LongFiscalId" Type="nvarchar" MaxLength="200" />
+          <Property Name="ShortFiscalId" Type="nvarchar" MaxLength="50" />
+          <Property Name="Rrn" Type="nvarchar" MaxLength="50" />
+          <Property Name="Total" Type="decimal" Precision="18" Scale="3" Nullable="false" />
+          <Property Name="Cash" Type="decimal" Precision="18" Scale="3" Nullable="false" />
+          <Property Name="Card" Type="decimal" Precision="18" Scale="3" Nullable="false" />
+          <Property Name="IncomingSum" Type="decimal" Precision="18" Scale="3" Nullable="false" />
+          <Property Name="Residue" Type="decimal" Precision="18" Scale="3" Nullable="false" />
+          <Property Name="CustomerId" Type="int" />
+          <Property Name="Note" Type="nvarchar" MaxLength="500" />
+        </EntityType>
         <EntityType Name="Products">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Type" Type="tinyint" />
-          <Property Name="SupplierId" Type="int" />
-          <Property Name="CategoryId" Type="int" />
-          <Property Name="ProductName" Type="nvarchar(max)" />
-          <Property Name="ProductCode" Type="nvarchar(max)" />
-          <Property Name="Barcode" Type="nvarchar(max)" />
-          <Property Name="Amount" Type="float" />
-          <Property Name="PurchasePrice" Type="float" />
-          <Property Name="SalePrice" Type="float" />
-          <Property Name="UnitId" Type="int" />
-          <Property Name="TaxId" Type="int" />
-          <Property Name="Status" Type="bit" />
-          <Property Name="IsDeleted" Type="int" />
+          <Property Name="Type" Type="tinyint" Nullable="false" />
+          <Property Name="CategoryId" Type="int" Nullable="false" />
+          <Property Name="ProductName" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="ProductCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="Barcode" Type="nvarchar" MaxLength="50" />
+          <Property Name="Quantity" Type="decimal" Precision="18" Scale="3" Nullable="false" />
+          <Property Name="PurchasePrice" Type="decimal" Precision="18" Scale="3" Nullable="false" />
+          <Property Name="SalePrice" Type="decimal" Precision="18" Scale="3" Nullable="false" />
+          <Property Name="UnitId" Type="int" Nullable="false" />
+          <Property Name="TaxId" Type="int" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
           <Property Name="CreatedUserId" Type="int" Nullable="false" />
-          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="CreatedDate" Type="datetime2" Precision="3" Nullable="false" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="ReturnPos">
           <Key>
@@ -273,36 +264,6 @@
           <Property Name="MoneyBox" Type="bit" />
           <Property Name="Admin" Type="bit" />
           <Property Name="Cashier" Type="bit" />
-        </EntityType>
-        <EntityType Name="SalesData">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="UserId" Type="int" />
-          <Property Name="ReceiptNo" Type="nvarchar" MaxLength="50" />
-          <Property Name="LongFiscalId" Type="nvarchar" MaxLength="200" />
-          <Property Name="ShortFiscalId" Type="nvarchar" MaxLength="50" />
-          <Property Name="Rrn" Type="nvarchar" MaxLength="50" />
-          <Property Name="SaleDate" Type="date" />
-          <Property Name="SaleDatetime" Type="datetime" />
-          <Property Name="Total" Type="float" />
-          <Property Name="Cash" Type="float" />
-          <Property Name="Card" Type="float" />
-          <Property Name="IncomingSum" Type="float" />
-          <Property Name="CustomerId" Type="int" />
-          <Property Name="Note" Type="nvarchar" MaxLength="500" />
-        </EntityType>
-        <EntityType Name="SalesDataDetail">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="SaleDataId" Type="int" />
-          <Property Name="ProductId" Type="int" />
-          <Property Name="Quantity" Type="float" />
-          <Property Name="SalePrice" Type="float" />
-          <Property Name="Discount" Type="float" />
         </EntityType>
         <EntityType Name="Sizes">
           <Key>
@@ -432,7 +393,7 @@
           <Property Name="Status" Type="bit" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'NextposDB.dbo.view_InvoiceRollbackList' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'KhanposDb.dbo.view_InvoiceRollbackList' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="view_InvoiceRollbackList">
           <Key>
             <PropertyRef Name="WarehouseId" />
@@ -460,30 +421,6 @@ warning 6002: The table/view 'NextposDB.dbo.view_InvoiceRollbackList' does not h
             </Principal>
             <Dependent Role="Logs">
               <PropertyRef Name="UserID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_AqtaProducts_Category">
-          <End Role="Categories" Type="Self.Categories" Multiplicity="0..1" />
-          <End Role="AqtaProducts" Type="Self.AqtaProducts" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Categories">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="AqtaProducts">
-              <PropertyRef Name="CategoryID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_AqtaProducts_Warehouse">
-          <End Role="Warehouses" Type="Self.Warehouses" Multiplicity="0..1" />
-          <End Role="AqtaProducts" Type="Self.AqtaProducts" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Warehouses">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="AqtaProducts">
-              <PropertyRef Name="WarehousesID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -556,18 +493,6 @@ warning 6002: The table/view 'NextposDB.dbo.view_InvoiceRollbackList' does not h
             </Principal>
             <Dependent Role="InvoiceDetails">
               <PropertyRef Name="InvoiceId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_InvoiceDetails_Product">
-          <End Role="Products" Type="Self.Products" Multiplicity="0..1" />
-          <End Role="InvoiceDetails" Type="Self.InvoiceDetails" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Products">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="InvoiceDetails">
-              <PropertyRef Name="ProductId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -667,8 +592,44 @@ warning 6002: The table/view 'NextposDB.dbo.view_InvoiceRollbackList' does not h
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_PosSaleItems_PosSales">
+          <End Role="PosSales" Type="Self.PosSales" Multiplicity="1" />
+          <End Role="PosSaleItems" Type="Self.PosSaleItems" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PosSales">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PosSaleItems">
+              <PropertyRef Name="PosSaleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PosSales_Customer">
+          <End Role="Customers" Type="Self.Customers" Multiplicity="0..1" />
+          <End Role="PosSales" Type="Self.PosSales" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PosSales">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PosSales_User">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="PosSales" Type="Self.PosSales" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PosSales">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Products_Category">
-          <End Role="Categories" Type="Self.Categories" Multiplicity="0..1" />
+          <End Role="Categories" Type="Self.Categories" Multiplicity="1" />
           <End Role="Products" Type="Self.Products" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Categories">
@@ -679,20 +640,8 @@ warning 6002: The table/view 'NextposDB.dbo.view_InvoiceRollbackList' does not h
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Products_Suppliers">
-          <End Role="Suppliers" Type="Self.Suppliers" Multiplicity="0..1" />
-          <End Role="Products" Type="Self.Products" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Suppliers">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Products">
-              <PropertyRef Name="SupplierId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Products_TaxType">
-          <End Role="TaxTypes" Type="Self.TaxTypes" Multiplicity="0..1" />
+          <End Role="TaxTypes" Type="Self.TaxTypes" Multiplicity="1" />
           <End Role="Products" Type="Self.Products" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="TaxTypes">
@@ -704,7 +653,7 @@ warning 6002: The table/view 'NextposDB.dbo.view_InvoiceRollbackList' does not h
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Products_UnitType">
-          <End Role="UnitTypes" Type="Self.UnitTypes" Multiplicity="0..1" />
+          <End Role="UnitTypes" Type="Self.UnitTypes" Multiplicity="1" />
           <End Role="Products" Type="Self.Products" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="UnitTypes">
@@ -724,54 +673,6 @@ warning 6002: The table/view 'NextposDB.dbo.view_InvoiceRollbackList' does not h
             </Principal>
             <Dependent Role="Products">
               <PropertyRef Name="CreatedUserId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_SalesData_ToCustomer">
-          <End Role="Customers" Type="Self.Customers" Multiplicity="0..1" />
-          <End Role="SalesData" Type="Self.SalesData" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Customers">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="SalesData">
-              <PropertyRef Name="CustomerId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_SalesData_ToUser">
-          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
-          <End Role="SalesData" Type="Self.SalesData" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Users">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="SalesData">
-              <PropertyRef Name="UserId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_SalesDataDetail_Products">
-          <End Role="Products" Type="Self.Products" Multiplicity="0..1" />
-          <End Role="SalesDataDetail" Type="Self.SalesDataDetail" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Products">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="SalesDataDetail">
-              <PropertyRef Name="ProductId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_SalesDataDetail_ToSalesData">
-          <End Role="SalesData" Type="Self.SalesData" Multiplicity="0..1" />
-          <End Role="SalesDataDetail" Type="Self.SalesDataDetail" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="SalesData">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="SalesDataDetail">
-              <PropertyRef Name="SaleDataId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -860,11 +761,9 @@ warning 6002: The table/view 'NextposDB.dbo.view_InvoiceRollbackList' does not h
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="NextposDBModelStoreContainer">
-          <EntitySet Name="AqtaProducts" EntityType="Self.AqtaProducts" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Categories" EntityType="Self.Categories" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CloseShiftReports" EntityType="Self.CloseShiftReports" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Colors" EntityType="Self.Colors" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Company" EntityType="Self.Company" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CustomerGroups" EntityType="Self.CustomerGroups" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CustomerPayments" EntityType="Self.CustomerPayments" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Customers" EntityType="Self.Customers" Schema="dbo" store:Type="Tables" />
@@ -875,12 +774,12 @@ warning 6002: The table/view 'NextposDB.dbo.view_InvoiceRollbackList' does not h
           <EntitySet Name="Invoices" EntityType="Self.Invoices" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Logs" EntityType="Self.Logs" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PaymentTypes" EntityType="Self.PaymentTypes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PosSaleItems" EntityType="Self.PosSaleItems" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PosSales" EntityType="Self.PosSales" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Products" EntityType="Self.Products" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ReturnPos" EntityType="Self.ReturnPos" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ReturnPosDetails" EntityType="Self.ReturnPosDetails" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="SalesData" EntityType="Self.SalesData" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="SalesDataDetail" EntityType="Self.SalesDataDetail" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Sizes" EntityType="Self.Sizes" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Stores" EntityType="Self.Stores" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SupplierPayments" EntityType="Self.SupplierPayments" Schema="dbo" store:Type="Tables" />
@@ -911,14 +810,6 @@ warning 6002: The table/view 'NextposDB.dbo.view_InvoiceRollbackList' does not h
             <End Role="Users" EntitySet="Users" />
             <End Role="Logs" EntitySet="Logs" />
           </AssociationSet>
-          <AssociationSet Name="FK_AqtaProducts_Category" Association="Self.FK_AqtaProducts_Category">
-            <End Role="Categories" EntitySet="Categories" />
-            <End Role="AqtaProducts" EntitySet="AqtaProducts" />
-          </AssociationSet>
-          <AssociationSet Name="FK_AqtaProducts_Warehouse" Association="Self.FK_AqtaProducts_Warehouse">
-            <End Role="Warehouses" EntitySet="Warehouses" />
-            <End Role="AqtaProducts" EntitySet="AqtaProducts" />
-          </AssociationSet>
           <AssociationSet Name="FK_CustomerDebts_Customer" Association="Self.FK_CustomerDebts_Customer">
             <End Role="Customers" EntitySet="Customers" />
             <End Role="CustomersDebts" EntitySet="CustomersDebts" />
@@ -941,10 +832,6 @@ warning 6002: The table/view 'NextposDB.dbo.view_InvoiceRollbackList' does not h
           </AssociationSet>
           <AssociationSet Name="FK_InvoiceDetails_Invoices" Association="Self.FK_InvoiceDetails_Invoices">
             <End Role="Invoices" EntitySet="Invoices" />
-            <End Role="InvoiceDetails" EntitySet="InvoiceDetails" />
-          </AssociationSet>
-          <AssociationSet Name="FK_InvoiceDetails_Product" Association="Self.FK_InvoiceDetails_Product">
-            <End Role="Products" EntitySet="Products" />
             <End Role="InvoiceDetails" EntitySet="InvoiceDetails" />
           </AssociationSet>
           <AssociationSet Name="FK_InvoiceRollbackDetails_InvoiceRollbacks" Association="Self.FK_InvoiceRollbackDetails_InvoiceRollbacks">
@@ -979,12 +866,20 @@ warning 6002: The table/view 'NextposDB.dbo.view_InvoiceRollbackList' does not h
             <End Role="Warehouses" EntitySet="Warehouses" />
             <End Role="Invoices" EntitySet="Invoices" />
           </AssociationSet>
+          <AssociationSet Name="FK_PosSaleItems_PosSales" Association="Self.FK_PosSaleItems_PosSales">
+            <End Role="PosSales" EntitySet="PosSales" />
+            <End Role="PosSaleItems" EntitySet="PosSaleItems" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PosSales_Customer" Association="Self.FK_PosSales_Customer">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="PosSales" EntitySet="PosSales" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PosSales_User" Association="Self.FK_PosSales_User">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="PosSales" EntitySet="PosSales" />
+          </AssociationSet>
           <AssociationSet Name="FK_Products_Category" Association="Self.FK_Products_Category">
             <End Role="Categories" EntitySet="Categories" />
-            <End Role="Products" EntitySet="Products" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Products_Suppliers" Association="Self.FK_Products_Suppliers">
-            <End Role="Suppliers" EntitySet="Suppliers" />
             <End Role="Products" EntitySet="Products" />
           </AssociationSet>
           <AssociationSet Name="FK_Products_TaxType" Association="Self.FK_Products_TaxType">
@@ -998,22 +893,6 @@ warning 6002: The table/view 'NextposDB.dbo.view_InvoiceRollbackList' does not h
           <AssociationSet Name="FK_Products_Users" Association="Self.FK_Products_Users">
             <End Role="Users" EntitySet="Users" />
             <End Role="Products" EntitySet="Products" />
-          </AssociationSet>
-          <AssociationSet Name="FK_SalesData_ToCustomer" Association="Self.FK_SalesData_ToCustomer">
-            <End Role="Customers" EntitySet="Customers" />
-            <End Role="SalesData" EntitySet="SalesData" />
-          </AssociationSet>
-          <AssociationSet Name="FK_SalesData_ToUser" Association="Self.FK_SalesData_ToUser">
-            <End Role="Users" EntitySet="Users" />
-            <End Role="SalesData" EntitySet="SalesData" />
-          </AssociationSet>
-          <AssociationSet Name="FK_SalesDataDetail_Products" Association="Self.FK_SalesDataDetail_Products">
-            <End Role="Products" EntitySet="Products" />
-            <End Role="SalesDataDetail" EntitySet="SalesDataDetail" />
-          </AssociationSet>
-          <AssociationSet Name="FK_SalesDataDetail_ToSalesData" Association="Self.FK_SalesDataDetail_ToSalesData">
-            <End Role="SalesData" EntitySet="SalesData" />
-            <End Role="SalesDataDetail" EntitySet="SalesDataDetail" />
           </AssociationSet>
           <AssociationSet Name="FK_Stores_Warehouses" Association="Self.FK_Stores_Warehouses">
             <End Role="Warehouses" EntitySet="Warehouses" />
@@ -1047,8 +926,157 @@ warning 6002: The table/view 'NextposDB.dbo.view_InvoiceRollbackList' does not h
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="NextposDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="Categories">
+      <Schema Namespace="KhanposDbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="KhanposDbEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Categories" EntityType="KhanposDbModel.Category" />
+          <EntitySet Name="CloseShiftReports" EntityType="KhanposDbModel.CloseShiftReport" />
+          <EntitySet Name="Colors" EntityType="KhanposDbModel.Color" />
+          <EntitySet Name="CustomerGroups" EntityType="KhanposDbModel.CustomerGroup" />
+          <EntitySet Name="CustomerPayments" EntityType="KhanposDbModel.CustomerPayment" />
+          <EntitySet Name="Customers" EntityType="KhanposDbModel.Customer" />
+          <EntitySet Name="CustomersDebts" EntityType="KhanposDbModel.CustomersDebt" />
+          <EntitySet Name="InvoiceDetails" EntityType="KhanposDbModel.InvoiceDetail" />
+          <EntitySet Name="InvoiceRollbackDetails" EntityType="KhanposDbModel.InvoiceRollbackDetail" />
+          <EntitySet Name="InvoiceRollbacks" EntityType="KhanposDbModel.InvoiceRollback" />
+          <EntitySet Name="Invoices" EntityType="KhanposDbModel.Invoice" />
+          <EntitySet Name="Logs" EntityType="KhanposDbModel.Log" />
+          <EntitySet Name="PaymentTypes" EntityType="KhanposDbModel.PaymentType" />
+          <EntitySet Name="Products" EntityType="KhanposDbModel.Product" />
+          <EntitySet Name="ReturnPos" EntityType="KhanposDbModel.ReturnPos" />
+          <EntitySet Name="ReturnPosDetails" EntityType="KhanposDbModel.ReturnPosDetail" />
+          <EntitySet Name="Roles" EntityType="KhanposDbModel.Role" />
+          <EntitySet Name="Sizes" EntityType="KhanposDbModel.Size" />
+          <EntitySet Name="Stores" EntityType="KhanposDbModel.Store" />
+          <EntitySet Name="SupplierPayments" EntityType="KhanposDbModel.SupplierPayment" />
+          <EntitySet Name="Suppliers" EntityType="KhanposDbModel.Supplier" />
+          <EntitySet Name="SuppliersDebts" EntityType="KhanposDbModel.SuppliersDebt" />
+          <EntitySet Name="TaxTypes" EntityType="KhanposDbModel.TaxType" />
+          <EntitySet Name="TerminalIncomesAndExpenses" EntityType="KhanposDbModel.TerminalIncomesAndExpens" />
+          <EntitySet Name="Terminals" EntityType="KhanposDbModel.Terminal" />
+          <EntitySet Name="UnitTypes" EntityType="KhanposDbModel.UnitType" />
+          <EntitySet Name="Users" EntityType="KhanposDbModel.User" />
+          <EntitySet Name="Warehouses" EntityType="KhanposDbModel.Warehouse" />
+          <EntitySet Name="view_InvoiceRollbackList" EntityType="KhanposDbModel.view_InvoiceRollbackList" />
+          <AssociationSet Name="FK_Products_Category" Association="KhanposDbModel.FK_Products_Category">
+            <End Role="Category" EntitySet="Categories" />
+            <End Role="Product" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CustomerGroups_Users" Association="KhanposDbModel.FK_CustomerGroups_Users">
+            <End Role="User" EntitySet="Users" />
+            <End Role="CustomerGroup" EntitySet="CustomerGroups" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Customers_CustomerGroups" Association="KhanposDbModel.FK_Customers_CustomerGroups">
+            <End Role="CustomerGroup" EntitySet="CustomerGroups" />
+            <End Role="Customer" EntitySet="Customers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CustomerPayments_CustomersDebts" Association="KhanposDbModel.FK_CustomerPayments_CustomersDebts">
+            <End Role="CustomersDebt" EntitySet="CustomersDebts" />
+            <End Role="CustomerPayment" EntitySet="CustomerPayments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CustomerDebts_Customer" Association="KhanposDbModel.FK_CustomerDebts_Customer">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="CustomersDebt" EntitySet="CustomersDebts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Customers_Users" Association="KhanposDbModel.FK_Customers_Users">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Customer" EntitySet="Customers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InvoiceDetails_Invoices" Association="KhanposDbModel.FK_InvoiceDetails_Invoices">
+            <End Role="Invoice" EntitySet="Invoices" />
+            <End Role="InvoiceDetail" EntitySet="InvoiceDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InvoiceRollbackDetails_InvoiceRollbacks" Association="KhanposDbModel.FK_InvoiceRollbackDetails_InvoiceRollbacks">
+            <End Role="InvoiceRollback" EntitySet="InvoiceRollbacks" />
+            <End Role="InvoiceRollbackDetail" EntitySet="InvoiceRollbackDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InvoiceRollbacks_Invoices" Association="KhanposDbModel.FK_InvoiceRollbacks_Invoices">
+            <End Role="Invoice" EntitySet="Invoices" />
+            <End Role="InvoiceRollback" EntitySet="InvoiceRollbacks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InvoiceRollbacks_PaymentTypes" Association="KhanposDbModel.FK_InvoiceRollbacks_PaymentTypes">
+            <End Role="PaymentType" EntitySet="PaymentTypes" />
+            <End Role="InvoiceRollback" EntitySet="InvoiceRollbacks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InvoiceRollbacks_Users" Association="KhanposDbModel.FK_InvoiceRollbacks_Users">
+            <End Role="User" EntitySet="Users" />
+            <End Role="InvoiceRollback" EntitySet="InvoiceRollbacks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InvoiceRollbacks_Warehouses" Association="KhanposDbModel.FK_InvoiceRollbacks_Warehouses">
+            <End Role="Warehouse" EntitySet="Warehouses" />
+            <End Role="InvoiceRollback" EntitySet="InvoiceRollbacks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Invoices_PaymentTypes" Association="KhanposDbModel.FK_Invoices_PaymentTypes">
+            <End Role="PaymentType" EntitySet="PaymentTypes" />
+            <End Role="Invoice" EntitySet="Invoices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Invoices_Users" Association="KhanposDbModel.FK_Invoices_Users">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Invoice" EntitySet="Invoices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Invoices_Warehouses" Association="KhanposDbModel.FK_Invoices_Warehouses">
+            <End Role="Warehouse" EntitySet="Warehouses" />
+            <End Role="Invoice" EntitySet="Invoices" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Logs__UserID__6477ECF3" Association="KhanposDbModel.FK__Logs__UserID__6477ECF3">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Log" EntitySet="Logs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Products_TaxType" Association="KhanposDbModel.FK_Products_TaxType">
+            <End Role="TaxType" EntitySet="TaxTypes" />
+            <End Role="Product" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Products_UnitType" Association="KhanposDbModel.FK_Products_UnitType">
+            <End Role="UnitType" EntitySet="UnitTypes" />
+            <End Role="Product" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Products_Users" Association="KhanposDbModel.FK_Products_Users">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Product" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Users_RoleID" Association="KhanposDbModel.FK_Users_RoleID">
+            <End Role="Role" EntitySet="Roles" />
+            <End Role="User" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Stores_Warehouses" Association="KhanposDbModel.FK_Stores_Warehouses">
+            <End Role="Warehouse" EntitySet="Warehouses" />
+            <End Role="Store" EntitySet="Stores" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Terminals_Stores" Association="KhanposDbModel.FK_Terminals_Stores">
+            <End Role="Store" EntitySet="Stores" />
+            <End Role="Terminal" EntitySet="Terminals" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Users_Stores" Association="KhanposDbModel.FK_Users_Stores">
+            <End Role="Store" EntitySet="Stores" />
+            <End Role="User" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SupplierPayments_SuppliersDebts" Association="KhanposDbModel.FK_SupplierPayments_SuppliersDebts">
+            <End Role="SuppliersDebt" EntitySet="SuppliersDebts" />
+            <End Role="SupplierPayment" EntitySet="SupplierPayments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SupplierDebts_Supplier" Association="KhanposDbModel.FK_SupplierDebts_Supplier">
+            <End Role="Supplier" EntitySet="Suppliers" />
+            <End Role="SuppliersDebt" EntitySet="SuppliersDebts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Terminals_To_User" Association="KhanposDbModel.FK_Terminals_To_User">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Terminal" EntitySet="Terminals" />
+          </AssociationSet>
+          <EntitySet Name="PosSaleItems" EntityType="KhanposDbModel.PosSaleItem" />
+          <EntitySet Name="PosSales" EntityType="KhanposDbModel.PosSale" />
+          <AssociationSet Name="FK_PosSales_Customer" Association="KhanposDbModel.FK_PosSales_Customer">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="PosSale" EntitySet="PosSales" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PosSaleItems_PosSales" Association="KhanposDbModel.FK_PosSaleItems_PosSales">
+            <End Role="PosSale" EntitySet="PosSales" />
+            <End Role="PosSaleItem" EntitySet="PosSaleItems" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PosSales_User" Association="KhanposDbModel.FK_PosSales_User">
+            <End Role="User" EntitySet="Users" />
+            <End Role="PosSale" EntitySet="PosSales" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Category">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
@@ -1056,10 +1084,20 @@ warning 6002: The table/view 'NextposDB.dbo.view_InvoiceRollbackList' does not h
           <Property Name="CategoryName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Status" Type="Boolean" />
           <Property Name="IsDeleted" Type="Int32" />
-          <NavigationProperty Name="AqtaProducts" Relationship="NextposDBModel.FK_AqtaProducts_Category" FromRole="Categories" ToRole="AqtaProducts" />
-          <NavigationProperty Name="Products" Relationship="NextposDBModel.FK_Products_Category" FromRole="Categories" ToRole="Products" />
+          <NavigationProperty Name="Products" Relationship="KhanposDbModel.FK_Products_Category" FromRole="Category" ToRole="Product" />
         </EntityType>
-        <EntityType Name="Colors">
+        <EntityType Name="CloseShiftReport">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OpenShiftDate" Type="DateTime" Precision="3" />
+          <Property Name="CloseShiftDate" Type="DateTime" Precision="3" />
+          <Property Name="FiskalID" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="JsonResponse" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="UserId" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Color">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
@@ -1067,367 +1105,19 @@ warning 6002: The table/view 'NextposDB.dbo.view_InvoiceRollbackList' does not h
           <Property Name="ColorName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="IsDeleted" Type="Int32" />
         </EntityType>
-        <EntityType Name="Logs">
+        <EntityType Name="CustomerGroup">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="UserID" Type="Int32" />
-          <Property Name="Operation" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Date" Type="DateTime" Precision="0" />
-          <NavigationProperty Name="Users" Relationship="NextposDBModel.FK__Logs__UserID__6477ECF3" FromRole="Logs" ToRole="Users" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Discount" Type="Double" Nullable="false" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="User" Relationship="KhanposDbModel.FK_CustomerGroups_Users" FromRole="CustomerGroup" ToRole="User" />
+          <NavigationProperty Name="Customers" Relationship="KhanposDbModel.FK_Customers_CustomerGroups" FromRole="CustomerGroup" ToRole="Customer" />
         </EntityType>
-        <EntityType Name="Sizes">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="SizeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="IsDeleted" Type="Int32" />
-        </EntityType>
-        <EntityType Name="Warehouses">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="IsDeleted" Type="Int32" />
-          <NavigationProperty Name="AqtaProducts" Relationship="NextposDBModel.FK_AqtaProducts_Warehouse" FromRole="Warehouses" ToRole="AqtaProducts" />
-          <Property Name="Status" Type="Boolean" />
-          <NavigationProperty Name="Invoices" Relationship="NextposDBModel.FK_Invoices_Warehouses" FromRole="Warehouses" ToRole="Invoice" />
-          <NavigationProperty Name="InvoiceRollbacks" Relationship="NextposDBModel.FK_InvoiceRollbacks_Warehouses" FromRole="Warehouses" ToRole="InvoiceRollback" />
-          <NavigationProperty Name="Stores" Relationship="NextposDBModel.FK_Stores_Warehouses" FromRole="Warehouses" ToRole="Store" />
-        </EntityType>
-        <EntityContainer Name="NextposDBEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Categories" EntityType="Self.Categories" />
-          <EntitySet Name="Colors" EntityType="Self.Colors" />
-          <EntitySet Name="Logs" EntityType="Self.Logs" />
-          <EntitySet Name="Sizes" EntityType="Self.Sizes" />
-          <EntitySet Name="Warehouses" EntityType="Self.Warehouses" />
-          <EntitySet Name="Suppliers" EntityType="NextposDBModel.Suppliers" />
-          <EntitySet Name="Roles" EntityType="NextposDBModel.Roles" />
-          <EntitySet Name="Company" EntityType="NextposDBModel.Company" />
-          <EntitySet Name="AqtaProducts" EntityType="NextposDBModel.AqtaProducts" />
-          <AssociationSet Name="FK_AqtaProducts_Category" Association="NextposDBModel.FK_AqtaProducts_Category">
-            <End Role="Categories" EntitySet="Categories" />
-            <End Role="AqtaProducts" EntitySet="AqtaProducts" />
-          </AssociationSet>
-          <AssociationSet Name="FK_AqtaProducts_Warehouse" Association="NextposDBModel.FK_AqtaProducts_Warehouse">
-            <End Role="Warehouses" EntitySet="Warehouses" />
-            <End Role="AqtaProducts" EntitySet="AqtaProducts" />
-          </AssociationSet>
-          <EntitySet Name="SupplierPayments" EntityType="NextposDBModel.SupplierPayment" />
-          <EntitySet Name="SuppliersDebts" EntityType="NextposDBModel.SuppliersDebt" />
-          <AssociationSet Name="FK_SupplierPayments_SuppliersDebts" Association="NextposDBModel.FK_SupplierPayments_SuppliersDebts">
-            <End Role="SuppliersDebt" EntitySet="SuppliersDebts" />
-            <End Role="SupplierPayment" EntitySet="SupplierPayments" />
-          </AssociationSet>
-          <AssociationSet Name="FK_SupplierDebts_Supplier" Association="NextposDBModel.FK_SupplierDebts_Supplier">
-            <End Role="Suppliers" EntitySet="Suppliers" />
-            <End Role="SuppliersDebt" EntitySet="SuppliersDebts" />
-          </AssociationSet>
-          <EntitySet Name="CustomerPayments" EntityType="NextposDBModel.CustomerPayment" />
-          <EntitySet Name="CustomersDebts" EntityType="NextposDBModel.CustomersDebt" />
-          <AssociationSet Name="FK_CustomerPayments_CustomersDebts" Association="NextposDBModel.FK_CustomerPayments_CustomersDebts">
-            <End Role="CustomersDebt" EntitySet="CustomersDebts" />
-            <End Role="CustomerPayment" EntitySet="CustomerPayments" />
-          </AssociationSet>
-          <EntitySet Name="SalesDatas" EntityType="NextposDBModel.SalesData" />
-          <EntitySet Name="TerminalIncomesAndExpenses" EntityType="NextposDBModel.TerminalIncomesAndExpens" />
-          <EntitySet Name="CloseShiftReports" EntityType="NextposDBModel.CloseShiftReport" />
-          <EntitySet Name="ReturnPos" EntityType="NextposDBModel.ReturnPos" />
-          <EntitySet Name="ReturnPosDetails" EntityType="NextposDBModel.ReturnPosDetail" />
-          <EntitySet Name="TaxTypes" EntityType="NextposDBModel.TaxType" />
-          <EntitySet Name="PaymentTypes" EntityType="NextposDBModel.PaymentType" />
-          <EntitySet Name="Invoices" EntityType="NextposDBModel.Invoice" />
-          <EntitySet Name="UnitTypes" EntityType="NextposDBModel.UnitType" />
-          <AssociationSet Name="FK_Invoices_PaymentTypes" Association="NextposDBModel.FK_Invoices_PaymentTypes">
-            <End Role="PaymentType" EntitySet="PaymentTypes" />
-            <End Role="Invoice" EntitySet="Invoices" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Invoices_Warehouses" Association="NextposDBModel.FK_Invoices_Warehouses">
-            <End Role="Warehouses" EntitySet="Warehouses" />
-            <End Role="Invoice" EntitySet="Invoices" />
-          </AssociationSet>
-          <EntitySet Name="InvoiceDetails" EntityType="NextposDBModel.InvoiceDetail" />
-          <AssociationSet Name="FK_InvoiceDetails_Invoices" Association="NextposDBModel.FK_InvoiceDetails_Invoices">
-            <End Role="Invoice" EntitySet="Invoices" />
-            <End Role="InvoiceDetail" EntitySet="InvoiceDetails" />
-          </AssociationSet>
-          <EntitySet Name="SalesDataDetail" EntityType="NextposDBModel.SalesDataDetail" />
-          <AssociationSet Name="FK_SalesDataDetail_ToSalesData" Association="NextposDBModel.FK_SalesDataDetail_ToSalesData">
-            <End Role="SalesData" EntitySet="SalesDatas" />
-            <End Role="SalesDataDetail" EntitySet="SalesDataDetail" />
-          </AssociationSet>
-          <EntitySet Name="Products" EntityType="NextposDBModel.Products" />
-          <AssociationSet Name="FK_Products_Category" Association="NextposDBModel.FK_Products_Category">
-            <End Role="Categories" EntitySet="Categories" />
-            <End Role="Products" EntitySet="Products" />
-          </AssociationSet>
-          <AssociationSet Name="FK_InvoiceDetails_Product" Association="NextposDBModel.FK_InvoiceDetails_Product">
-            <End Role="Products" EntitySet="Products" />
-            <End Role="InvoiceDetail" EntitySet="InvoiceDetails" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Products_Suppliers" Association="NextposDBModel.FK_Products_Suppliers">
-            <End Role="Suppliers" EntitySet="Suppliers" />
-            <End Role="Products" EntitySet="Products" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Products_TaxType" Association="NextposDBModel.FK_Products_TaxType">
-            <End Role="TaxType" EntitySet="TaxTypes" />
-            <End Role="Products" EntitySet="Products" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Products_UnitType" Association="NextposDBModel.FK_Products_UnitType">
-            <End Role="UnitType" EntitySet="UnitTypes" />
-            <End Role="Products" EntitySet="Products" />
-          </AssociationSet>
-          <AssociationSet Name="FK_SalesDataDetail_Products" Association="NextposDBModel.FK_SalesDataDetail_Products">
-            <End Role="Products" EntitySet="Products" />
-            <End Role="SalesDataDetail" EntitySet="SalesDataDetail" />
-          </AssociationSet>
-          <EntitySet Name="InvoiceRollbackDetails" EntityType="NextposDBModel.InvoiceRollbackDetail" />
-          <EntitySet Name="InvoiceRollbacks" EntityType="NextposDBModel.InvoiceRollback" />
-          <AssociationSet Name="FK_InvoiceRollbackDetails_InvoiceRollbacks" Association="NextposDBModel.FK_InvoiceRollbackDetails_InvoiceRollbacks">
-            <End Role="InvoiceRollback" EntitySet="InvoiceRollbacks" />
-            <End Role="InvoiceRollbackDetail" EntitySet="InvoiceRollbackDetails" />
-          </AssociationSet>
-          <AssociationSet Name="FK_InvoiceRollbacks_Invoices" Association="NextposDBModel.FK_InvoiceRollbacks_Invoices">
-            <End Role="Invoice" EntitySet="Invoices" />
-            <End Role="InvoiceRollback" EntitySet="InvoiceRollbacks" />
-          </AssociationSet>
-          <AssociationSet Name="FK_InvoiceRollbacks_PaymentTypes" Association="NextposDBModel.FK_InvoiceRollbacks_PaymentTypes">
-            <End Role="PaymentType" EntitySet="PaymentTypes" />
-            <End Role="InvoiceRollback" EntitySet="InvoiceRollbacks" />
-          </AssociationSet>
-          <AssociationSet Name="FK_InvoiceRollbacks_Warehouses" Association="NextposDBModel.FK_InvoiceRollbacks_Warehouses">
-            <End Role="Warehouses" EntitySet="Warehouses" />
-            <End Role="InvoiceRollback" EntitySet="InvoiceRollbacks" />
-          </AssociationSet>
-          <EntitySet Name="view_InvoiceRollbackList" EntityType="NextposDBModel.view_InvoiceRollbackList" />
-          <EntitySet Name="Stores" EntityType="NextposDBModel.Store" />
-          <AssociationSet Name="FK_Stores_Warehouses" Association="NextposDBModel.FK_Stores_Warehouses">
-            <End Role="Warehouses" EntitySet="Warehouses" />
-            <End Role="Store" EntitySet="Stores" />
-          </AssociationSet>
-          <EntitySet Name="Terminals" EntityType="NextposDBModel.Terminals" />
-          <AssociationSet Name="FK_Terminals_Stores" Association="NextposDBModel.FK_Terminals_Stores">
-            <End Role="Store" EntitySet="Stores" />
-            <End Role="Terminals" EntitySet="Terminals" />
-          </AssociationSet>
-          <EntitySet Name="Users" EntityType="NextposDBModel.Users" />
-          <AssociationSet Name="FK_InvoiceRollbacks_Users" Association="NextposDBModel.FK_InvoiceRollbacks_Users">
-            <End Role="Users" EntitySet="Users" />
-            <End Role="InvoiceRollback" EntitySet="InvoiceRollbacks" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Invoices_Users" Association="NextposDBModel.FK_Invoices_Users">
-            <End Role="Users" EntitySet="Users" />
-            <End Role="Invoice" EntitySet="Invoices" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Logs__UserID__6477ECF3" Association="NextposDBModel.FK__Logs__UserID__6477ECF3">
-            <End Role="Users" EntitySet="Users" />
-            <End Role="Logs" EntitySet="Logs" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Products_Users" Association="NextposDBModel.FK_Products_Users">
-            <End Role="Users" EntitySet="Users" />
-            <End Role="Products" EntitySet="Products" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Users_RoleID" Association="NextposDBModel.FK_Users_RoleID">
-            <End Role="Roles" EntitySet="Roles" />
-            <End Role="Users" EntitySet="Users" />
-          </AssociationSet>
-          <AssociationSet Name="FK_SalesData_ToUser" Association="NextposDBModel.FK_SalesData_ToUser">
-            <End Role="Users" EntitySet="Users" />
-            <End Role="SalesData" EntitySet="SalesDatas" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Users_Stores" Association="NextposDBModel.FK_Users_Stores">
-            <End Role="Store" EntitySet="Stores" />
-            <End Role="Users" EntitySet="Users" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Terminals_To_User" Association="NextposDBModel.FK_Terminals_To_User">
-            <End Role="Users" EntitySet="Users" />
-            <End Role="Terminals" EntitySet="Terminals" />
-          </AssociationSet>
-          <EntitySet Name="CustomerGroups" EntityType="NextposDBModel.CustomerGroup" />
-          <EntitySet Name="Customers" EntityType="NextposDBModel.Customer" />
-          <AssociationSet Name="FK_CustomerGroups_Users" Association="NextposDBModel.FK_CustomerGroups_Users">
-            <End Role="Users" EntitySet="Users" />
-            <End Role="CustomerGroup" EntitySet="CustomerGroups" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Customers_CustomerGroups" Association="NextposDBModel.FK_Customers_CustomerGroups">
-            <End Role="CustomerGroup" EntitySet="CustomerGroups" />
-            <End Role="Customer" EntitySet="Customers" />
-          </AssociationSet>
-          <AssociationSet Name="FK_CustomerDebts_Customer" Association="NextposDBModel.FK_CustomerDebts_Customer">
-            <End Role="Customer" EntitySet="Customers" />
-            <End Role="CustomersDebt" EntitySet="CustomersDebts" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Customers_Users" Association="NextposDBModel.FK_Customers_Users">
-            <End Role="Users" EntitySet="Users" />
-            <End Role="Customer" EntitySet="Customers" />
-          </AssociationSet>
-          <AssociationSet Name="FK_SalesData_ToCustomer" Association="NextposDBModel.FK_SalesData_ToCustomer">
-            <End Role="Customer" EntitySet="Customers" />
-            <End Role="SalesData" EntitySet="SalesDatas" />
-          </AssociationSet>
-          </EntityContainer>
-        <EntityType Name="Suppliers">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="SupplierName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="Voen" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="Debt" Type="Double" />
-          <Property Name="Status" Type="Boolean" />
-          <Property Name="IsDeleted" Type="Int32" />
-          <Property Name="BankName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="BankVoen" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="BankAccountNumber" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="BankKOD" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="BankSwift" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="SuppliersDebts" Relationship="NextposDBModel.FK_SupplierDebts_Supplier" FromRole="Suppliers" ToRole="SuppliersDebt" />
-          <NavigationProperty Name="Products" Relationship="NextposDBModel.FK_Products_Suppliers" FromRole="Suppliers" ToRole="Products" />
-        </EntityType>
-        <EntityType Name="Roles">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="IsDeleted" Type="Int32" />
-          <Property Name="RoleName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="PosSales" Type="Boolean" />
-          <Property Name="PosReturn" Type="Boolean" />
-          <Property Name="Bank" Type="Boolean" />
-          <Property Name="Reports" Type="Boolean" />
-          <Property Name="Settings" Type="Boolean" />
-          <Property Name="User" Type="Boolean" />
-          <Property Name="Credit" Type="Boolean" />
-          <Property Name="MoneyBox" Type="Boolean" />
-          <Property Name="Admin" Type="Boolean" />
-          <Property Name="Cashier" Type="Boolean" />
-          <NavigationProperty Name="Users" Relationship="NextposDBModel.FK_Users_RoleID" FromRole="Roles" ToRole="Users" />
-        </EntityType>
-        <EntityType Name="Company">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="CompanyName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="Voen" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
-          <Property Name="CompanyCode" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
-          <Property Name="Address" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="Phone" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
-          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="RegistrationDate" Type="DateTime" Precision="0" />
-          <Property Name="Logo" Type="Binary" MaxLength="Max" FixedLength="false" />
-        </EntityType>
-        <EntityType Name="AqtaProducts">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="WarehousesID" Type="Int32" />
-          <Property Name="StoreID" Type="Int32" />
-          <Property Name="CategoryID" Type="Int32" />
-          <Property Name="ProductName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Barcode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="PurchasePrice" Type="Double" />
-          <Property Name="SalePrice" Type="Double" />
-          <Property Name="Unit" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Name="Tax" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Ingredients" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="ReleaseDate" Type="DateTime" Precision="0" />
-          <Property Name="RetentionPeriod" Type="Int32" />
-          <Property Name="StorageConditions" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="CreateDate" Type="DateTime" Precision="0" />
-          <Property Name="ShowPosScreen" Type="Boolean" />
-          <Property Name="AmountNotification" Type="Boolean" />
-          <Property Name="EndDateNotification" Type="Boolean" />
-          <Property Name="Status" Type="Boolean" />
-          <Property Name="IsDeleted" Type="Int32" />
-          <NavigationProperty Name="Categories" Relationship="NextposDBModel.FK_AqtaProducts_Category" FromRole="AqtaProducts" ToRole="Categories" />
-          <NavigationProperty Name="Warehouses" Relationship="NextposDBModel.FK_AqtaProducts_Warehouse" FromRole="AqtaProducts" ToRole="Warehouses" />
-        </EntityType>
-        <Association Name="FK_AqtaProducts_Category">
-          <End Type="NextposDBModel.Categories" Role="Categories" Multiplicity="0..1" />
-          <End Type="NextposDBModel.AqtaProducts" Role="AqtaProducts" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Categories">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="AqtaProducts">
-              <PropertyRef Name="CategoryID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_AqtaProducts_Warehouse">
-          <End Type="NextposDBModel.Warehouses" Role="Warehouses" Multiplicity="0..1" />
-          <End Type="NextposDBModel.AqtaProducts" Role="AqtaProducts" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Warehouses">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="AqtaProducts">
-              <PropertyRef Name="WarehousesID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityType Name="SupplierPayment">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="SupplierDebtId" Type="Int32" />
-          <Property Name="DebtPaid" Type="Double" />
-          <Property Name="TaxPaid" Type="Double" />
-          <Property Name="IsDeleted" Type="Int32" />
-          <Property Name="Comment" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="SuppliersDebt" Relationship="NextposDBModel.FK_SupplierPayments_SuppliersDebts" FromRole="SupplierPayment" ToRole="SuppliersDebt" />
-          <Property Name="PaymentType" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="PayDate" Type="DateTime" Precision="0" />
-          <Property Name="LogDate" Type="DateTime" Precision="3" />
-        </EntityType>
-        <EntityType Name="SuppliersDebt">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="SupplierId" Type="Int32" />
-          <Property Name="Debt" Type="Double" />
-          <Property Name="TaxDebt" Type="Double" />
-          <Property Name="Comment" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="IsDeleted" Type="Int32" />
-          <NavigationProperty Name="SupplierPayments" Relationship="NextposDBModel.FK_SupplierPayments_SuppliersDebts" FromRole="SuppliersDebt" ToRole="SupplierPayment" />
-          <NavigationProperty Name="Supplier" Relationship="NextposDBModel.FK_SupplierDebts_Supplier" FromRole="SuppliersDebt" ToRole="Suppliers" />
-          <Property Name="DebtDate" Type="DateTime" Precision="0" />
-        </EntityType>
-        <Association Name="FK_SupplierPayments_SuppliersDebts">
-          <End Type="NextposDBModel.SuppliersDebt" Role="SuppliersDebt" Multiplicity="0..1" />
-          <End Type="NextposDBModel.SupplierPayment" Role="SupplierPayment" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="SuppliersDebt">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="SupplierPayment">
-              <PropertyRef Name="SupplierDebtId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_SupplierDebts_Supplier">
-          <End Type="NextposDBModel.Suppliers" Role="Suppliers" Multiplicity="0..1" />
-          <End Type="NextposDBModel.SuppliersDebt" Role="SuppliersDebt" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Suppliers">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="SuppliersDebt">
-              <PropertyRef Name="SupplierId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityType Name="CustomerPayment">
           <Key>
             <PropertyRef Name="Id" />
@@ -1440,7 +1130,37 @@ warning 6002: The table/view 'NextposDB.dbo.view_InvoiceRollbackList' does not h
           <Property Name="Comment" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Name="IsDeleted" Type="Int32" />
           <Property Name="LogDate" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="CustomersDebt" Relationship="NextposDBModel.FK_CustomerPayments_CustomersDebts" FromRole="CustomerPayment" ToRole="CustomersDebt" />
+          <NavigationProperty Name="CustomersDebt" Relationship="KhanposDbModel.FK_CustomerPayments_CustomersDebts" FromRole="CustomerPayment" ToRole="CustomersDebt" />
+        </EntityType>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IsDeleted" Type="Int32" />
+          <Property Name="NameSurname" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="CompanyName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="DateBirth" Type="DateTime" Precision="0" />
+          <Property Name="Gender" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
+          <Property Name="Phone" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Voen" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+          <Property Name="Debt" Type="Double" />
+          <Property Name="Balance" Type="Double" />
+          <Property Name="BankName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="BankVoen" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BankAccountNumber" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="BankKOD" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BankSwift" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="Boolean" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="UserId" Type="Int32" />
+          <Property Name="CustomerGroupId" Type="Int32" />
+          <NavigationProperty Name="CustomerGroup" Relationship="KhanposDbModel.FK_Customers_CustomerGroups" FromRole="Customer" ToRole="CustomerGroup" />
+          <NavigationProperty Name="CustomersDebts" Relationship="KhanposDbModel.FK_CustomerDebts_Customer" FromRole="Customer" ToRole="CustomersDebt" />
+          <NavigationProperty Name="User" Relationship="KhanposDbModel.FK_Customers_Users" FromRole="Customer" ToRole="User" />
+          <NavigationProperty Name="PosSales" Relationship="KhanposDbModel.FK_PosSales_Customer" FromRole="Customer" ToRole="PosSale" />
         </EntityType>
         <EntityType Name="CustomersDebt">
           <Key>
@@ -1453,64 +1173,116 @@ warning 6002: The table/view 'NextposDB.dbo.view_InvoiceRollbackList' does not h
           <Property Name="DebtDate" Type="DateTime" Precision="0" />
           <Property Name="Comment" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Name="IsDeleted" Type="Int32" />
-          <NavigationProperty Name="CustomerPayments" Relationship="NextposDBModel.FK_CustomerPayments_CustomersDebts" FromRole="CustomersDebt" ToRole="CustomerPayment" />
-          <NavigationProperty Name="Customer" Relationship="NextposDBModel.FK_CustomerDebts_Customer" FromRole="CustomersDebt" ToRole="Customer" />
+          <NavigationProperty Name="CustomerPayments" Relationship="KhanposDbModel.FK_CustomerPayments_CustomersDebts" FromRole="CustomersDebt" ToRole="CustomerPayment" />
+          <NavigationProperty Name="Customer" Relationship="KhanposDbModel.FK_CustomerDebts_Customer" FromRole="CustomersDebt" ToRole="Customer" />
         </EntityType>
-        <Association Name="FK_CustomerPayments_CustomersDebts">
-          <End Type="NextposDBModel.CustomersDebt" Role="CustomersDebt" Multiplicity="0..1" />
-          <End Type="NextposDBModel.CustomerPayment" Role="CustomerPayment" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="CustomersDebt">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="CustomerPayment">
-              <PropertyRef Name="CustomerDebtId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityType Name="SalesData">
+        <EntityType Name="InvoiceDetail">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="UserId" Type="Int32" />
-          <Property Name="ReceiptNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="LongFiscalId" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="ShortFiscalId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Rrn" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="SaleDate" Type="DateTime" Precision="0" />
-          <Property Name="SaleDatetime" Type="DateTime" Precision="3" />
-          <Property Name="Total" Type="Double" />
-          <Property Name="Cash" Type="Double" />
-          <Property Name="Card" Type="Double" />
-          <Property Name="IncomingSum" Type="Double" />
-          <Property Name="CustomerId" Type="Int32" />
-          <Property Name="Note" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="SalesDataDetail" Relationship="NextposDBModel.FK_SalesDataDetail_ToSalesData" FromRole="SalesData" ToRole="SalesDataDetail" />
-          <NavigationProperty Name="Users" Relationship="NextposDBModel.FK_SalesData_ToUser" FromRole="SalesData" ToRole="Users" />
-          <NavigationProperty Name="Customer" Relationship="NextposDBModel.FK_SalesData_ToCustomer" FromRole="SalesData" ToRole="Customer" />
-        </EntityType>
-        <EntityType Name="TerminalIncomesAndExpens">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="OperationType" Type="Byte" />
-          <Property Name="UserId" Type="Int32" />
+          <Property Name="InvoiceId" Type="Int32" />
+          <Property Name="ProductId" Type="Int32" />
           <Property Name="Amount" Type="Double" />
-          <Property Name="Date" Type="DateTime" Precision="0" />
-          <Property Name="Time" Type="Time" Precision="7" />
+          <Property Name="PurchasePrice" Type="Double" />
+          <Property Name="Discount" Type="Double" />
+          <Property Name="TotalPurchasePrice" Type="Double" />
+          <Property Name="SalePrice" Type="Double" />
+          <NavigationProperty Name="Invoice" Relationship="KhanposDbModel.FK_InvoiceDetails_Invoices" FromRole="InvoiceDetail" ToRole="Invoice" />
         </EntityType>
-        <EntityType Name="CloseShiftReport">
+        <EntityType Name="InvoiceRollbackDetail">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="OpenShiftDate" Type="DateTime" Precision="3" />
-          <Property Name="CloseShiftDate" Type="DateTime" Precision="3" />
-          <Property Name="FiskalID" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="JsonResponse" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="InvoiceRollbackId" Type="Int32" />
+          <Property Name="ProductId" Type="Int32" />
+          <Property Name="Quantity" Type="Double" />
+          <NavigationProperty Name="InvoiceRollback" Relationship="KhanposDbModel.FK_InvoiceRollbackDetails_InvoiceRollbacks" FromRole="InvoiceRollbackDetail" ToRole="InvoiceRollback" />
+        </EntityType>
+        <EntityType Name="InvoiceRollback">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="InvoiceId" Type="Int32" />
+          <Property Name="RollbackDate" Type="DateTime" Precision="0" />
+          <Property Name="WarehouseId" Type="Int32" />
+          <Property Name="TotalPurchasePrice" Type="Double" />
+          <Property Name="PaymentTypeId" Type="Int32" />
+          <Property Name="Commnet" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="UserId" Type="Int32" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <NavigationProperty Name="InvoiceRollbackDetails" Relationship="KhanposDbModel.FK_InvoiceRollbackDetails_InvoiceRollbacks" FromRole="InvoiceRollback" ToRole="InvoiceRollbackDetail" />
+          <NavigationProperty Name="Invoice" Relationship="KhanposDbModel.FK_InvoiceRollbacks_Invoices" FromRole="InvoiceRollback" ToRole="Invoice" />
+          <NavigationProperty Name="PaymentType" Relationship="KhanposDbModel.FK_InvoiceRollbacks_PaymentTypes" FromRole="InvoiceRollback" ToRole="PaymentType" />
+          <NavigationProperty Name="User" Relationship="KhanposDbModel.FK_InvoiceRollbacks_Users" FromRole="InvoiceRollback" ToRole="User" />
+          <NavigationProperty Name="Warehouse" Relationship="KhanposDbModel.FK_InvoiceRollbacks_Warehouses" FromRole="InvoiceRollback" ToRole="Warehouse" />
+        </EntityType>
+        <EntityType Name="Invoice">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="InvoiceNo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="InvoiceDate" Type="DateTime" Precision="0" />
+          <Property Name="WarehouseId" Type="Int32" Nullable="false" />
+          <Property Name="TotalPurchasePrice" Type="Double" />
+          <Property Name="PaymentTypeId" Type="Int32" />
+          <Property Name="Comment" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="IsDeleted" Type="Int32" />
+          <NavigationProperty Name="InvoiceDetails" Relationship="KhanposDbModel.FK_InvoiceDetails_Invoices" FromRole="Invoice" ToRole="InvoiceDetail" />
+          <NavigationProperty Name="InvoiceRollbacks" Relationship="KhanposDbModel.FK_InvoiceRollbacks_Invoices" FromRole="Invoice" ToRole="InvoiceRollback" />
+          <NavigationProperty Name="PaymentType" Relationship="KhanposDbModel.FK_Invoices_PaymentTypes" FromRole="Invoice" ToRole="PaymentType" />
+          <NavigationProperty Name="User" Relationship="KhanposDbModel.FK_Invoices_Users" FromRole="Invoice" ToRole="User" />
+          <NavigationProperty Name="Warehouse" Relationship="KhanposDbModel.FK_Invoices_Warehouses" FromRole="Invoice" ToRole="Warehouse" />
+        </EntityType>
+        <EntityType Name="Log">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="Int32" />
+          <Property Name="Operation" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Date" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="User" Relationship="KhanposDbModel.FK__Logs__UserID__6477ECF3" FromRole="Log" ToRole="User" />
+        </EntityType>
+        <EntityType Name="PaymentType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsDeleted" Type="Int32" />
+          <NavigationProperty Name="InvoiceRollbacks" Relationship="KhanposDbModel.FK_InvoiceRollbacks_PaymentTypes" FromRole="PaymentType" ToRole="InvoiceRollback" />
+          <NavigationProperty Name="Invoices" Relationship="KhanposDbModel.FK_Invoices_PaymentTypes" FromRole="PaymentType" ToRole="Invoice" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Type" Type="Byte" Nullable="false" />
+          <Property Name="CategoryId" Type="Int32" Nullable="false" />
+          <Property Name="ProductName" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="ProductCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Barcode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Quantity" Type="Decimal" Nullable="false" Precision="18" Scale="3" />
+          <Property Name="PurchasePrice" Type="Decimal" Nullable="false" Precision="18" Scale="3" />
+          <Property Name="SalePrice" Type="Decimal" Nullable="false" Precision="18" Scale="3" />
+          <Property Name="UnitId" Type="Int32" Nullable="false" />
+          <Property Name="TaxId" Type="Int32" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="CreatedUserId" Type="Int32" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Category" Relationship="KhanposDbModel.FK_Products_Category" FromRole="Product" ToRole="Category" />
+          <NavigationProperty Name="TaxType" Relationship="KhanposDbModel.FK_Products_TaxType" FromRole="Product" ToRole="TaxType" />
+          <NavigationProperty Name="UnitType" Relationship="KhanposDbModel.FK_Products_UnitType" FromRole="Product" ToRole="UnitType" />
+          <NavigationProperty Name="User" Relationship="KhanposDbModel.FK_Products_Users" FromRole="Product" ToRole="User" />
         </EntityType>
         <EntityType Name="ReturnPos">
           <Key>
@@ -1544,43 +1316,129 @@ warning 6002: The table/view 'NextposDB.dbo.view_InvoiceRollbackList' does not h
           <Property Name="SalePrice" Type="Double" />
           <Property Name="Discount" Type="Double" />
         </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IsDeleted" Type="Int32" />
+          <Property Name="RoleName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PosSales" Type="Boolean" />
+          <Property Name="PosReturn" Type="Boolean" />
+          <Property Name="Bank" Type="Boolean" />
+          <Property Name="Reports" Type="Boolean" />
+          <Property Name="Settings" Type="Boolean" />
+          <Property Name="User" Type="Boolean" />
+          <Property Name="Credit" Type="Boolean" />
+          <Property Name="MoneyBox" Type="Boolean" />
+          <Property Name="Admin" Type="Boolean" />
+          <Property Name="Cashier" Type="Boolean" />
+          <NavigationProperty Name="Users" Relationship="KhanposDbModel.FK_Users_RoleID" FromRole="Role" ToRole="User" />
+        </EntityType>
+        <EntityType Name="Size">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SizeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsDeleted" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Store">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="WarehouseId" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="Boolean" Nullable="false" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Warehouse" Relationship="KhanposDbModel.FK_Stores_Warehouses" FromRole="Store" ToRole="Warehouse" />
+          <NavigationProperty Name="Terminals" Relationship="KhanposDbModel.FK_Terminals_Stores" FromRole="Store" ToRole="Terminal" />
+          <NavigationProperty Name="Users" Relationship="KhanposDbModel.FK_Users_Stores" FromRole="Store" ToRole="User" />
+        </EntityType>
+        <EntityType Name="SupplierPayment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SupplierDebtId" Type="Int32" />
+          <Property Name="DebtPaid" Type="Double" />
+          <Property Name="TaxPaid" Type="Double" />
+          <Property Name="Comment" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="IsDeleted" Type="Int32" />
+          <Property Name="PaymentType" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="PayDate" Type="DateTime" Precision="0" />
+          <Property Name="LogDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="SuppliersDebt" Relationship="KhanposDbModel.FK_SupplierPayments_SuppliersDebts" FromRole="SupplierPayment" ToRole="SuppliersDebt" />
+        </EntityType>
+        <EntityType Name="Supplier">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SupplierName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Voen" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Debt" Type="Double" />
+          <Property Name="Status" Type="Boolean" />
+          <Property Name="IsDeleted" Type="Int32" />
+          <Property Name="BankName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="BankVoen" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BankAccountNumber" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="BankKOD" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BankSwift" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="SuppliersDebts" Relationship="KhanposDbModel.FK_SupplierDebts_Supplier" FromRole="Supplier" ToRole="SuppliersDebt" />
+        </EntityType>
+        <EntityType Name="SuppliersDebt">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="SupplierId" Type="Int32" />
+          <Property Name="Debt" Type="Double" />
+          <Property Name="TaxDebt" Type="Double" />
+          <Property Name="Comment" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="IsDeleted" Type="Int32" />
+          <Property Name="DebtDate" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="SupplierPayments" Relationship="KhanposDbModel.FK_SupplierPayments_SuppliersDebts" FromRole="SuppliersDebt" ToRole="SupplierPayment" />
+          <NavigationProperty Name="Supplier" Relationship="KhanposDbModel.FK_SupplierDebts_Supplier" FromRole="SuppliersDebt" ToRole="Supplier" />
+        </EntityType>
         <EntityType Name="TaxType">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Products" Relationship="NextposDBModel.FK_Products_TaxType" FromRole="TaxType" ToRole="Products" />
+          <NavigationProperty Name="Products" Relationship="KhanposDbModel.FK_Products_TaxType" FromRole="TaxType" ToRole="Product" />
         </EntityType>
-        <EntityType Name="PaymentType">
+        <EntityType Name="TerminalIncomesAndExpens">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="IsDeleted" Type="Int32" />
-          <NavigationProperty Name="Invoices" Relationship="NextposDBModel.FK_Invoices_PaymentTypes" FromRole="PaymentType" ToRole="Invoice" />
-          <NavigationProperty Name="InvoiceRollbacks" Relationship="NextposDBModel.FK_InvoiceRollbacks_PaymentTypes" FromRole="PaymentType" ToRole="InvoiceRollback" />
+          <Property Name="OperationType" Type="Byte" />
+          <Property Name="UserId" Type="Int32" />
+          <Property Name="Amount" Type="Double" />
+          <Property Name="Date" Type="DateTime" Precision="0" />
+          <Property Name="Time" Type="Time" Precision="7" />
         </EntityType>
-        <EntityType Name="Invoice">
+        <EntityType Name="Terminal">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="InvoiceNo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="InvoiceDate" Type="DateTime" Precision="0" />
-          <Property Name="WarehouseId" Type="Int32" Nullable="false" />
-          <Property Name="TotalPurchasePrice" Type="Double" />
-          <Property Name="PaymentTypeId" Type="Int32" />
-          <Property Name="Comment" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="UserId" Type="Int32" Nullable="false" />
-          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IpAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MerchantId" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="StoreID" Type="Int32" />
+          <Property Name="Status" Type="Boolean" />
           <Property Name="IsDeleted" Type="Int32" />
-          <NavigationProperty Name="PaymentType" Relationship="NextposDBModel.FK_Invoices_PaymentTypes" FromRole="Invoice" ToRole="PaymentType" />
-          <NavigationProperty Name="Warehouse" Relationship="NextposDBModel.FK_Invoices_Warehouses" FromRole="Invoice" ToRole="Warehouses" />
-          <NavigationProperty Name="InvoiceDetails" Relationship="NextposDBModel.FK_InvoiceDetails_Invoices" FromRole="Invoice" ToRole="InvoiceDetail" />
-          <NavigationProperty Name="InvoiceRollbacks" Relationship="NextposDBModel.FK_InvoiceRollbacks_Invoices" FromRole="Invoice" ToRole="InvoiceRollback" />
-          <NavigationProperty Name="Users" Relationship="NextposDBModel.FK_Invoices_Users" FromRole="Invoice" ToRole="Users" />
+          <Property Name="UserId" Type="Int32" />
+          <NavigationProperty Name="Store" Relationship="KhanposDbModel.FK_Terminals_Stores" FromRole="Terminal" ToRole="Store" />
+          <NavigationProperty Name="User" Relationship="KhanposDbModel.FK_Terminals_To_User" FromRole="Terminal" ToRole="User" />
         </EntityType>
         <EntityType Name="UnitType">
           <Key>
@@ -1588,262 +1446,46 @@ warning 6002: The table/view 'NextposDB.dbo.view_InvoiceRollbackList' does not h
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Products" Relationship="NextposDBModel.FK_Products_UnitType" FromRole="UnitType" ToRole="Products" />
+          <NavigationProperty Name="Products" Relationship="KhanposDbModel.FK_Products_UnitType" FromRole="UnitType" ToRole="Product" />
         </EntityType>
-        <Association Name="FK_Invoices_PaymentTypes">
-          <End Type="NextposDBModel.PaymentType" Role="PaymentType" Multiplicity="0..1" />
-          <End Type="NextposDBModel.Invoice" Role="Invoice" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="PaymentType">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Invoice">
-              <PropertyRef Name="PaymentTypeId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Invoices_Warehouses">
-          <End Type="NextposDBModel.Warehouses" Role="Warehouses" Multiplicity="1" />
-          <End Type="NextposDBModel.Invoice" Role="Invoice" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Warehouses">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Invoice">
-              <PropertyRef Name="WarehouseId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityType Name="InvoiceDetail">
+        <EntityType Name="User">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="InvoiceId" Type="Int32" />
-          <Property Name="ProductId" Type="Int32" />
-          <Property Name="Amount" Type="Double" />
-          <Property Name="PurchasePrice" Type="Double" />
-          <Property Name="Discount" Type="Double" />
-          <Property Name="TotalPurchasePrice" Type="Double" />
-          <NavigationProperty Name="Invoice" Relationship="NextposDBModel.FK_InvoiceDetails_Invoices" FromRole="InvoiceDetail" ToRole="Invoice" />
-          <NavigationProperty Name="Products" Relationship="NextposDBModel.FK_InvoiceDetails_Product" FromRole="InvoiceDetail" ToRole="Products" />
-          <Property Name="SalePrice" Type="Double" />
-        </EntityType>
-        <Association Name="FK_InvoiceDetails_Invoices">
-          <End Type="NextposDBModel.Invoice" Role="Invoice" Multiplicity="0..1" />
-          <End Type="NextposDBModel.InvoiceDetail" Role="InvoiceDetail" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Invoice">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="InvoiceDetail">
-              <PropertyRef Name="InvoiceId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityType Name="SalesDataDetail">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="SaleDataId" Type="Int32" />
-          <Property Name="ProductId" Type="Int32" />
-          <Property Name="Quantity" Type="Double" />
-          <Property Name="SalePrice" Type="Double" />
-          <Property Name="Discount" Type="Double" />
-          <NavigationProperty Name="SalesData" Relationship="NextposDBModel.FK_SalesDataDetail_ToSalesData" FromRole="SalesDataDetail" ToRole="SalesData" />
-          <NavigationProperty Name="Products" Relationship="NextposDBModel.FK_SalesDataDetail_Products" FromRole="SalesDataDetail" ToRole="Products" />
-        </EntityType>
-        <Association Name="FK_SalesDataDetail_ToSalesData">
-          <End Type="NextposDBModel.SalesData" Role="SalesData" Multiplicity="0..1" />
-          <End Type="NextposDBModel.SalesDataDetail" Role="SalesDataDetail" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="SalesData">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="SalesDataDetail">
-              <PropertyRef Name="SaleDataId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityType Name="Products">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Type" Type="Byte" />
-          <Property Name="SupplierId" Type="Int32" />
-          <Property Name="CategoryId" Type="Int32" />
-          <Property Name="ProductName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="ProductCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Barcode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Amount" Type="Double" />
-          <Property Name="PurchasePrice" Type="Double" />
-          <Property Name="SalePrice" Type="Double" />
-          <Property Name="UnitId" Type="Int32" />
-          <Property Name="TaxId" Type="Int32" />
+          <Property Name="StoreID" Type="Int32" />
+          <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NameSurname" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="TerminalID" Type="Int32" />
           <Property Name="Status" Type="Boolean" />
+          <Property Name="RoleID" Type="Int32" />
           <Property Name="IsDeleted" Type="Int32" />
-          <Property Name="CreatedUserId" Type="Int32" Nullable="false" />
-          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="Categories" Relationship="NextposDBModel.FK_Products_Category" FromRole="Products" ToRole="Categories" />
-          <NavigationProperty Name="InvoiceDetails" Relationship="NextposDBModel.FK_InvoiceDetails_Product" FromRole="Products" ToRole="InvoiceDetail" />
-          <NavigationProperty Name="Suppliers" Relationship="NextposDBModel.FK_Products_Suppliers" FromRole="Products" ToRole="Suppliers" />
-          <NavigationProperty Name="TaxTypes" Relationship="NextposDBModel.FK_Products_TaxType" FromRole="Products" ToRole="TaxType" />
-          <NavigationProperty Name="UnitTypes" Relationship="NextposDBModel.FK_Products_UnitType" FromRole="Products" ToRole="UnitType" />
-          <NavigationProperty Name="SalesDataDetail" Relationship="NextposDBModel.FK_SalesDataDetail_Products" FromRole="Products" ToRole="SalesDataDetail" />
-          <NavigationProperty Name="Users" Relationship="NextposDBModel.FK_Products_Users" FromRole="Products" ToRole="Users" />
+          <NavigationProperty Name="CustomerGroups" Relationship="KhanposDbModel.FK_CustomerGroups_Users" FromRole="User" ToRole="CustomerGroup" />
+          <NavigationProperty Name="Customers" Relationship="KhanposDbModel.FK_Customers_Users" FromRole="User" ToRole="Customer" />
+          <NavigationProperty Name="InvoiceRollbacks" Relationship="KhanposDbModel.FK_InvoiceRollbacks_Users" FromRole="User" ToRole="InvoiceRollback" />
+          <NavigationProperty Name="Invoices" Relationship="KhanposDbModel.FK_Invoices_Users" FromRole="User" ToRole="Invoice" />
+          <NavigationProperty Name="Logs" Relationship="KhanposDbModel.FK__Logs__UserID__6477ECF3" FromRole="User" ToRole="Log" />
+          <NavigationProperty Name="Products" Relationship="KhanposDbModel.FK_Products_Users" FromRole="User" ToRole="Product" />
+          <NavigationProperty Name="Role" Relationship="KhanposDbModel.FK_Users_RoleID" FromRole="User" ToRole="Role" />
+          <NavigationProperty Name="Store" Relationship="KhanposDbModel.FK_Users_Stores" FromRole="User" ToRole="Store" />
+          <NavigationProperty Name="Terminals" Relationship="KhanposDbModel.FK_Terminals_To_User" FromRole="User" ToRole="Terminal" />
+          <NavigationProperty Name="PosSales" Relationship="KhanposDbModel.FK_PosSales_User" FromRole="User" ToRole="PosSale" />
         </EntityType>
-        <Association Name="FK_Products_Category">
-          <End Type="NextposDBModel.Categories" Role="Categories" Multiplicity="0..1" />
-          <End Type="NextposDBModel.Products" Role="Products" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Categories">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Products">
-              <PropertyRef Name="CategoryId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_InvoiceDetails_Product">
-          <End Type="NextposDBModel.Products" Role="Products" Multiplicity="0..1" />
-          <End Type="NextposDBModel.InvoiceDetail" Role="InvoiceDetail" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Products">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="InvoiceDetail">
-              <PropertyRef Name="ProductId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Products_Suppliers">
-          <End Type="NextposDBModel.Suppliers" Role="Suppliers" Multiplicity="0..1" />
-          <End Type="NextposDBModel.Products" Role="Products" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Suppliers">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Products">
-              <PropertyRef Name="SupplierId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Products_TaxType">
-          <End Type="NextposDBModel.TaxType" Role="TaxType" Multiplicity="0..1" />
-          <End Type="NextposDBModel.Products" Role="Products" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TaxType">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Products">
-              <PropertyRef Name="TaxId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Products_UnitType">
-          <End Type="NextposDBModel.UnitType" Role="UnitType" Multiplicity="0..1" />
-          <End Type="NextposDBModel.Products" Role="Products" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="UnitType">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Products">
-              <PropertyRef Name="UnitId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_SalesDataDetail_Products">
-          <End Type="NextposDBModel.Products" Role="Products" Multiplicity="0..1" />
-          <End Type="NextposDBModel.SalesDataDetail" Role="SalesDataDetail" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Products">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="SalesDataDetail">
-              <PropertyRef Name="ProductId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityType Name="InvoiceRollbackDetail">
+        <EntityType Name="Warehouse">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="InvoiceRollbackId" Type="Int32" />
-          <Property Name="ProductId" Type="Int32" />
-          <Property Name="Quantity" Type="Double" />
-          <NavigationProperty Name="InvoiceRollback" Relationship="NextposDBModel.FK_InvoiceRollbackDetails_InvoiceRollbacks" FromRole="InvoiceRollbackDetail" ToRole="InvoiceRollback" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsDeleted" Type="Int32" />
+          <Property Name="Status" Type="Boolean" />
+          <NavigationProperty Name="InvoiceRollbacks" Relationship="KhanposDbModel.FK_InvoiceRollbacks_Warehouses" FromRole="Warehouse" ToRole="InvoiceRollback" />
+          <NavigationProperty Name="Invoices" Relationship="KhanposDbModel.FK_Invoices_Warehouses" FromRole="Warehouse" ToRole="Invoice" />
+          <NavigationProperty Name="Stores" Relationship="KhanposDbModel.FK_Stores_Warehouses" FromRole="Warehouse" ToRole="Store" />
         </EntityType>
-        <EntityType Name="InvoiceRollback">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="InvoiceId" Type="Int32" />
-          <Property Name="RollbackDate" Type="DateTime" Precision="0" />
-          <Property Name="WarehouseId" Type="Int32" />
-          <Property Name="TotalPurchasePrice" Type="Double" />
-          <Property Name="PaymentTypeId" Type="Int32" />
-          <Property Name="Commnet" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="UserId" Type="Int32" />
-          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
-          <Property Name="IsDeleted" Type="Boolean" />
-          <NavigationProperty Name="InvoiceRollbackDetails" Relationship="NextposDBModel.FK_InvoiceRollbackDetails_InvoiceRollbacks" FromRole="InvoiceRollback" ToRole="InvoiceRollbackDetail" />
-          <NavigationProperty Name="Invoice" Relationship="NextposDBModel.FK_InvoiceRollbacks_Invoices" FromRole="InvoiceRollback" ToRole="Invoice" />
-          <NavigationProperty Name="PaymentType" Relationship="NextposDBModel.FK_InvoiceRollbacks_PaymentTypes" FromRole="InvoiceRollback" ToRole="PaymentType" />
-          <NavigationProperty Name="Warehouse" Relationship="NextposDBModel.FK_InvoiceRollbacks_Warehouses" FromRole="InvoiceRollback" ToRole="Warehouses" />
-          <NavigationProperty Name="Users" Relationship="NextposDBModel.FK_InvoiceRollbacks_Users" FromRole="InvoiceRollback" ToRole="Users" />
-        </EntityType>
-        <Association Name="FK_InvoiceRollbackDetails_InvoiceRollbacks">
-          <End Type="NextposDBModel.InvoiceRollback" Role="InvoiceRollback" Multiplicity="0..1" />
-          <End Type="NextposDBModel.InvoiceRollbackDetail" Role="InvoiceRollbackDetail" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="InvoiceRollback">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="InvoiceRollbackDetail">
-              <PropertyRef Name="InvoiceRollbackId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_InvoiceRollbacks_Invoices">
-          <End Type="NextposDBModel.Invoice" Role="Invoice" Multiplicity="0..1" />
-          <End Type="NextposDBModel.InvoiceRollback" Role="InvoiceRollback" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Invoice">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="InvoiceRollback">
-              <PropertyRef Name="InvoiceId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_InvoiceRollbacks_PaymentTypes">
-          <End Type="NextposDBModel.PaymentType" Role="PaymentType" Multiplicity="0..1" />
-          <End Type="NextposDBModel.InvoiceRollback" Role="InvoiceRollback" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="PaymentType">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="InvoiceRollback">
-              <PropertyRef Name="PaymentTypeId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_InvoiceRollbacks_Warehouses">
-          <End Type="NextposDBModel.Warehouses" Role="Warehouses" Multiplicity="0..1" />
-          <End Type="NextposDBModel.InvoiceRollback" Role="InvoiceRollback" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Warehouses">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="InvoiceRollback">
-              <PropertyRef Name="WarehouseId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityType Name="view_InvoiceRollbackList">
           <Key>
             <PropertyRef Name="WarehouseId" />
@@ -1859,231 +1501,26 @@ warning 6002: The table/view 'NextposDB.dbo.view_InvoiceRollbackList' does not h
           <Property Name="ProductId" Type="Int32" />
           <Property Name="ProductName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Barcode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Amount" Type="Double" />
           <Property Name="PurchasePrice" Type="Double" />
+          <Property Name="Amount" Type="Double" />
         </EntityType>
-        <EntityType Name="Store">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="WarehouseId" Type="Int32" Nullable="false" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Status" Type="Boolean" Nullable="false" />
-          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="Warehouse" Relationship="NextposDBModel.FK_Stores_Warehouses" FromRole="Store" ToRole="Warehouses" />
-          <NavigationProperty Name="Terminals" Relationship="NextposDBModel.FK_Terminals_Stores" FromRole="Store" ToRole="Terminals" />
-          <NavigationProperty Name="Users" Relationship="NextposDBModel.FK_Users_Stores" FromRole="Store" ToRole="Users" />
-        </EntityType>
-        <Association Name="FK_Stores_Warehouses">
-          <End Type="NextposDBModel.Warehouses" Role="Warehouses" Multiplicity="1" />
-          <End Type="NextposDBModel.Store" Role="Store" Multiplicity="*" />
+        <Association Name="FK_Products_Category">
+          <End Type="KhanposDbModel.Category" Role="Category" Multiplicity="1" />
+          <End Type="KhanposDbModel.Product" Role="Product" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Warehouses">
+            <Principal Role="Category">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="Store">
-              <PropertyRef Name="WarehouseId" />
+            <Dependent Role="Product">
+              <PropertyRef Name="CategoryId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="Terminals">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="IpAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="MerchantId" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="StoreID" Type="Int32" />
-          <Property Name="Status" Type="Boolean" />
-          <Property Name="IsDeleted" Type="Int32" />
-          <Property Name="UserId" Type="Int32" />
-          <NavigationProperty Name="Stores" Relationship="NextposDBModel.FK_Terminals_Stores" FromRole="Terminals" ToRole="Store" />
-          <NavigationProperty Name="Users" Relationship="NextposDBModel.FK_Terminals_To_User" FromRole="Terminals" ToRole="Users" />
-        </EntityType>
-        <Association Name="FK_Terminals_Stores">
-          <End Type="NextposDBModel.Store" Role="Store" Multiplicity="0..1" />
-          <End Type="NextposDBModel.Terminals" Role="Terminals" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Store">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Terminals">
-              <PropertyRef Name="StoreID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityType Name="Users">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="StoreID" Type="Int32" />
-          <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="NameSurname" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="TerminalID" Type="Int32" />
-          <Property Name="Status" Type="Boolean" />
-          <Property Name="RoleID" Type="Int32" />
-          <Property Name="IsDeleted" Type="Int32" />
-          <NavigationProperty Name="InvoiceRollbacks" Relationship="NextposDBModel.FK_InvoiceRollbacks_Users" FromRole="Users" ToRole="InvoiceRollback" />
-          <NavigationProperty Name="Invoices" Relationship="NextposDBModel.FK_Invoices_Users" FromRole="Users" ToRole="Invoice" />
-          <NavigationProperty Name="Logs" Relationship="NextposDBModel.FK__Logs__UserID__6477ECF3" FromRole="Users" ToRole="Logs" />
-          <NavigationProperty Name="Products" Relationship="NextposDBModel.FK_Products_Users" FromRole="Users" ToRole="Products" />
-          <NavigationProperty Name="Roles" Relationship="NextposDBModel.FK_Users_RoleID" FromRole="Users" ToRole="Roles" />
-          <NavigationProperty Name="SalesData" Relationship="NextposDBModel.FK_SalesData_ToUser" FromRole="Users" ToRole="SalesData" />
-          <NavigationProperty Name="Stores" Relationship="NextposDBModel.FK_Users_Stores" FromRole="Users" ToRole="Store" />
-          <NavigationProperty Name="Terminals" Relationship="NextposDBModel.FK_Terminals_To_User" FromRole="Users" ToRole="Terminals" />
-          <NavigationProperty Name="CustomerGroups" Relationship="NextposDBModel.FK_CustomerGroups_Users" FromRole="Users" ToRole="CustomerGroup" />
-          <NavigationProperty Name="Customers" Relationship="NextposDBModel.FK_Customers_Users" FromRole="Users" ToRole="Customer" />
-        </EntityType>
-        <Association Name="FK_InvoiceRollbacks_Users">
-          <End Type="NextposDBModel.Users" Role="Users" Multiplicity="0..1" />
-          <End Type="NextposDBModel.InvoiceRollback" Role="InvoiceRollback" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Users">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="InvoiceRollback">
-              <PropertyRef Name="UserId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Invoices_Users">
-          <End Type="NextposDBModel.Users" Role="Users" Multiplicity="1" />
-          <End Type="NextposDBModel.Invoice" Role="Invoice" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Users">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Invoice">
-              <PropertyRef Name="UserId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Logs__UserID__6477ECF3">
-          <End Type="NextposDBModel.Users" Role="Users" Multiplicity="0..1" />
-          <End Type="NextposDBModel.Logs" Role="Logs" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Users">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Logs">
-              <PropertyRef Name="UserID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Products_Users">
-          <End Type="NextposDBModel.Users" Role="Users" Multiplicity="1" />
-          <End Type="NextposDBModel.Products" Role="Products" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Users">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Products">
-              <PropertyRef Name="CreatedUserId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Users_RoleID">
-          <End Type="NextposDBModel.Roles" Role="Roles" Multiplicity="0..1" />
-          <End Type="NextposDBModel.Users" Role="Users" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Roles">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Users">
-              <PropertyRef Name="RoleID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_SalesData_ToUser">
-          <End Type="NextposDBModel.Users" Role="Users" Multiplicity="0..1" />
-          <End Type="NextposDBModel.SalesData" Role="SalesData" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Users">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="SalesData">
-              <PropertyRef Name="UserId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Users_Stores">
-          <End Type="NextposDBModel.Store" Role="Store" Multiplicity="0..1" />
-          <End Type="NextposDBModel.Users" Role="Users" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Store">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Users">
-              <PropertyRef Name="StoreID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Terminals_To_User">
-          <End Type="NextposDBModel.Users" Role="Users" Multiplicity="0..1" />
-          <End Type="NextposDBModel.Terminals" Role="Terminals" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Users">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Terminals">
-              <PropertyRef Name="UserId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityType Name="CustomerGroup">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Discount" Type="Double" Nullable="false" />
-          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
-          <Property Name="UserId" Type="Int32" Nullable="false" />
-          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
-          <NavigationProperty Name="User" Relationship="NextposDBModel.FK_CustomerGroups_Users" FromRole="CustomerGroup" ToRole="Users" />
-          <NavigationProperty Name="Customers" Relationship="NextposDBModel.FK_Customers_CustomerGroups" FromRole="CustomerGroup" ToRole="Customer" />
-        </EntityType>
-        <EntityType Name="Customer">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="IsDeleted" Type="Int32" />
-          <Property Name="NameSurname" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="CompanyName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="DateBirth" Type="DateTime" Precision="0" />
-          <Property Name="Gender" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
-          <Property Name="Phone" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="Voen" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
-          <Property Name="Debt" Type="Double" />
-          <Property Name="Balance" Type="Double" />
-          <Property Name="BankName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="BankVoen" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="BankAccountNumber" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="BankKOD" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="BankSwift" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Email" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Status" Type="Boolean" />
-          <Property Name="CreateDate" Type="DateTime" Precision="3" />
-          <Property Name="UserId" Type="Int32" />
-          <Property Name="CustomerGroupId" Type="Int32" />
-          <NavigationProperty Name="CustomerGroup" Relationship="NextposDBModel.FK_Customers_CustomerGroups" FromRole="Customer" ToRole="CustomerGroup" />
-          <NavigationProperty Name="CustomersDebts" Relationship="NextposDBModel.FK_CustomerDebts_Customer" FromRole="Customer" ToRole="CustomersDebt" />
-          <NavigationProperty Name="User" Relationship="NextposDBModel.FK_Customers_Users" FromRole="Customer" ToRole="Users" />
-          <NavigationProperty Name="SalesDatas" Relationship="NextposDBModel.FK_SalesData_ToCustomer" FromRole="Customer" ToRole="SalesData" />
-        </EntityType>
         <Association Name="FK_CustomerGroups_Users">
-          <End Type="NextposDBModel.Users" Role="Users" Multiplicity="1" />
-          <End Type="NextposDBModel.CustomerGroup" Role="CustomerGroup" Multiplicity="*" />
+          <End Type="KhanposDbModel.User" Role="User" Multiplicity="1" />
+          <End Type="KhanposDbModel.CustomerGroup" Role="CustomerGroup" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Users">
+            <Principal Role="User">
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="CustomerGroup">
@@ -2092,8 +1529,8 @@ warning 6002: The table/view 'NextposDB.dbo.view_InvoiceRollbackList' does not h
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Customers_CustomerGroups">
-          <End Type="NextposDBModel.CustomerGroup" Role="CustomerGroup" Multiplicity="0..1" />
-          <End Type="NextposDBModel.Customer" Role="Customer" Multiplicity="*" />
+          <End Type="KhanposDbModel.CustomerGroup" Role="CustomerGroup" Multiplicity="0..1" />
+          <End Type="KhanposDbModel.Customer" Role="Customer" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="CustomerGroup">
               <PropertyRef Name="Id" />
@@ -2103,9 +1540,21 @@ warning 6002: The table/view 'NextposDB.dbo.view_InvoiceRollbackList' does not h
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_CustomerPayments_CustomersDebts">
+          <End Type="KhanposDbModel.CustomersDebt" Role="CustomersDebt" Multiplicity="0..1" />
+          <End Type="KhanposDbModel.CustomerPayment" Role="CustomerPayment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CustomersDebt">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CustomerPayment">
+              <PropertyRef Name="CustomerDebtId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_CustomerDebts_Customer">
-          <End Type="NextposDBModel.Customer" Role="Customer" Multiplicity="0..1" />
-          <End Type="NextposDBModel.CustomersDebt" Role="CustomersDebt" Multiplicity="*" />
+          <End Type="KhanposDbModel.Customer" Role="Customer" Multiplicity="0..1" />
+          <End Type="KhanposDbModel.CustomersDebt" Role="CustomersDebt" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Customer">
               <PropertyRef Name="Id" />
@@ -2116,10 +1565,10 @@ warning 6002: The table/view 'NextposDB.dbo.view_InvoiceRollbackList' does not h
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Customers_Users">
-          <End Type="NextposDBModel.Users" Role="Users" Multiplicity="0..1" />
-          <End Type="NextposDBModel.Customer" Role="Customer" Multiplicity="*" />
+          <End Type="KhanposDbModel.User" Role="User" Multiplicity="0..1" />
+          <End Type="KhanposDbModel.Customer" Role="Customer" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Users">
+            <Principal Role="User">
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="Customer">
@@ -2127,15 +1576,314 @@ warning 6002: The table/view 'NextposDB.dbo.view_InvoiceRollbackList' does not h
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_SalesData_ToCustomer">
-          <End Type="NextposDBModel.Customer" Role="Customer" Multiplicity="0..1" />
-          <End Type="NextposDBModel.SalesData" Role="SalesData" Multiplicity="*" />
+        <Association Name="FK_InvoiceDetails_Invoices">
+          <End Type="KhanposDbModel.Invoice" Role="Invoice" Multiplicity="0..1" />
+          <End Type="KhanposDbModel.InvoiceDetail" Role="InvoiceDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Invoice">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="InvoiceDetail">
+              <PropertyRef Name="InvoiceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InvoiceRollbackDetails_InvoiceRollbacks">
+          <End Type="KhanposDbModel.InvoiceRollback" Role="InvoiceRollback" Multiplicity="0..1" />
+          <End Type="KhanposDbModel.InvoiceRollbackDetail" Role="InvoiceRollbackDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InvoiceRollback">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="InvoiceRollbackDetail">
+              <PropertyRef Name="InvoiceRollbackId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InvoiceRollbacks_Invoices">
+          <End Type="KhanposDbModel.Invoice" Role="Invoice" Multiplicity="0..1" />
+          <End Type="KhanposDbModel.InvoiceRollback" Role="InvoiceRollback" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Invoice">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="InvoiceRollback">
+              <PropertyRef Name="InvoiceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InvoiceRollbacks_PaymentTypes">
+          <End Type="KhanposDbModel.PaymentType" Role="PaymentType" Multiplicity="0..1" />
+          <End Type="KhanposDbModel.InvoiceRollback" Role="InvoiceRollback" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PaymentType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="InvoiceRollback">
+              <PropertyRef Name="PaymentTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InvoiceRollbacks_Users">
+          <End Type="KhanposDbModel.User" Role="User" Multiplicity="0..1" />
+          <End Type="KhanposDbModel.InvoiceRollback" Role="InvoiceRollback" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="InvoiceRollback">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InvoiceRollbacks_Warehouses">
+          <End Type="KhanposDbModel.Warehouse" Role="Warehouse" Multiplicity="0..1" />
+          <End Type="KhanposDbModel.InvoiceRollback" Role="InvoiceRollback" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Warehouse">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="InvoiceRollback">
+              <PropertyRef Name="WarehouseId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Invoices_PaymentTypes">
+          <End Type="KhanposDbModel.PaymentType" Role="PaymentType" Multiplicity="0..1" />
+          <End Type="KhanposDbModel.Invoice" Role="Invoice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PaymentType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Invoice">
+              <PropertyRef Name="PaymentTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Invoices_Users">
+          <End Type="KhanposDbModel.User" Role="User" Multiplicity="1" />
+          <End Type="KhanposDbModel.Invoice" Role="Invoice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Invoice">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Invoices_Warehouses">
+          <End Type="KhanposDbModel.Warehouse" Role="Warehouse" Multiplicity="1" />
+          <End Type="KhanposDbModel.Invoice" Role="Invoice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Warehouse">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Invoice">
+              <PropertyRef Name="WarehouseId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Logs__UserID__6477ECF3">
+          <End Type="KhanposDbModel.User" Role="User" Multiplicity="0..1" />
+          <End Type="KhanposDbModel.Log" Role="Log" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Log">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Products_TaxType">
+          <End Type="KhanposDbModel.TaxType" Role="TaxType" Multiplicity="1" />
+          <End Type="KhanposDbModel.Product" Role="Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TaxType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="TaxId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Products_UnitType">
+          <End Type="KhanposDbModel.UnitType" Role="UnitType" Multiplicity="1" />
+          <End Type="KhanposDbModel.Product" Role="Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UnitType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="UnitId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Products_Users">
+          <End Type="KhanposDbModel.User" Role="User" Multiplicity="1" />
+          <End Type="KhanposDbModel.Product" Role="Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="CreatedUserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Users_RoleID">
+          <End Type="KhanposDbModel.Role" Role="Role" Multiplicity="0..1" />
+          <End Type="KhanposDbModel.User" Role="User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="RoleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Stores_Warehouses">
+          <End Type="KhanposDbModel.Warehouse" Role="Warehouse" Multiplicity="1" />
+          <End Type="KhanposDbModel.Store" Role="Store" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Warehouse">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Store">
+              <PropertyRef Name="WarehouseId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Terminals_Stores">
+          <End Type="KhanposDbModel.Store" Role="Store" Multiplicity="0..1" />
+          <End Type="KhanposDbModel.Terminal" Role="Terminal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Store">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Terminal">
+              <PropertyRef Name="StoreID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Users_Stores">
+          <End Type="KhanposDbModel.Store" Role="Store" Multiplicity="0..1" />
+          <End Type="KhanposDbModel.User" Role="User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Store">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="StoreID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SupplierPayments_SuppliersDebts">
+          <End Type="KhanposDbModel.SuppliersDebt" Role="SuppliersDebt" Multiplicity="0..1" />
+          <End Type="KhanposDbModel.SupplierPayment" Role="SupplierPayment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SuppliersDebt">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SupplierPayment">
+              <PropertyRef Name="SupplierDebtId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SupplierDebts_Supplier">
+          <End Type="KhanposDbModel.Supplier" Role="Supplier" Multiplicity="0..1" />
+          <End Type="KhanposDbModel.SuppliersDebt" Role="SuppliersDebt" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Supplier">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SuppliersDebt">
+              <PropertyRef Name="SupplierId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Terminals_To_User">
+          <End Type="KhanposDbModel.User" Role="User" Multiplicity="0..1" />
+          <End Type="KhanposDbModel.Terminal" Role="Terminal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Terminal">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="PosSaleItem">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PosSaleId" Type="Int32" Nullable="false" />
+          <Property Name="ProductId" Type="Int32" Nullable="false" />
+          <Property Name="Quantity" Type="Decimal" Nullable="false" Precision="18" Scale="3" />
+          <Property Name="SalePrice" Type="Decimal" Nullable="false" Precision="18" Scale="3" />
+          <Property Name="Discount" Type="Decimal" Nullable="false" Precision="18" Scale="3" />
+          <NavigationProperty Name="PosSale" Relationship="KhanposDbModel.FK_PosSaleItems_PosSales" FromRole="PosSaleItem" ToRole="PosSale" />
+        </EntityType>
+        <EntityType Name="PosSale">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="SaleDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="SaleDatetime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ReceiptNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LongFiscalId" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="ShortFiscalId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Rrn" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Total" Type="Decimal" Nullable="false" Precision="18" Scale="3" />
+          <Property Name="Cash" Type="Decimal" Nullable="false" Precision="18" Scale="3" />
+          <Property Name="Card" Type="Decimal" Nullable="false" Precision="18" Scale="3" />
+          <Property Name="IncomingSum" Type="Decimal" Nullable="false" Precision="18" Scale="3" />
+          <Property Name="Residue" Type="Decimal" Nullable="false" Precision="18" Scale="3" />
+          <Property Name="CustomerId" Type="Int32" />
+          <Property Name="Note" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Customer" Relationship="KhanposDbModel.FK_PosSales_Customer" FromRole="PosSale" ToRole="Customer" />
+          <NavigationProperty Name="PosSaleItems" Relationship="KhanposDbModel.FK_PosSaleItems_PosSales" FromRole="PosSale" ToRole="PosSaleItem" />
+          <NavigationProperty Name="User" Relationship="KhanposDbModel.FK_PosSales_User" FromRole="PosSale" ToRole="User" />
+        </EntityType>
+        <Association Name="FK_PosSales_Customer">
+          <End Type="KhanposDbModel.Customer" Role="Customer" Multiplicity="0..1" />
+          <End Type="KhanposDbModel.PosSale" Role="PosSale" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Customer">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="SalesData">
+            <Dependent Role="PosSale">
               <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PosSaleItems_PosSales">
+          <End Type="KhanposDbModel.PosSale" Role="PosSale" Multiplicity="1" />
+          <End Type="KhanposDbModel.PosSaleItem" Role="PosSaleItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PosSale">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PosSaleItem">
+              <PropertyRef Name="PosSaleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PosSales_User">
+          <End Type="KhanposDbModel.User" Role="User" Multiplicity="1" />
+          <End Type="KhanposDbModel.PosSale" Role="PosSale" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PosSale">
+              <PropertyRef Name="UserId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -2144,166 +1892,52 @@ warning 6002: The table/view 'NextposDB.dbo.view_InvoiceRollbackList' does not h
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="NextposDBModelStoreContainer" CdmEntityContainer="NextposDBEntities">
+        <EntityContainerMapping StorageEntityContainer="NextposDBModelStoreContainer" CdmEntityContainer="KhanposDbEntities">
           <EntitySetMapping Name="Categories">
-            <EntityTypeMapping TypeName="NextposDBModel.Categories">
+            <EntityTypeMapping TypeName="KhanposDbModel.Category">
               <MappingFragment StoreEntitySet="Categories">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
-                <ScalarProperty Name="Status" ColumnName="Status" />
                 <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CloseShiftReports">
+            <EntityTypeMapping TypeName="KhanposDbModel.CloseShiftReport">
+              <MappingFragment StoreEntitySet="CloseShiftReports">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="JsonResponse" ColumnName="JsonResponse" />
+                <ScalarProperty Name="FiskalID" ColumnName="FiskalID" />
+                <ScalarProperty Name="CloseShiftDate" ColumnName="CloseShiftDate" />
+                <ScalarProperty Name="OpenShiftDate" ColumnName="OpenShiftDate" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Colors">
-            <EntityTypeMapping TypeName="NextposDBModel.Colors">
+            <EntityTypeMapping TypeName="KhanposDbModel.Color">
               <MappingFragment StoreEntitySet="Colors">
-                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
                 <ScalarProperty Name="ColorName" ColumnName="ColorName" />
-                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Logs">
-            <EntityTypeMapping TypeName="NextposDBModel.Logs">
-              <MappingFragment StoreEntitySet="Logs">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="UserID" ColumnName="UserID" />
-                <ScalarProperty Name="Operation" ColumnName="Operation" />
-                <ScalarProperty Name="Date" ColumnName="Date" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Sizes">
-            <EntityTypeMapping TypeName="NextposDBModel.Sizes">
-              <MappingFragment StoreEntitySet="Sizes">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="SizeName" ColumnName="SizeName" />
-                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Warehouses">
-            <EntityTypeMapping TypeName="NextposDBModel.Warehouses">
-              <MappingFragment StoreEntitySet="Warehouses">
-                <ScalarProperty Name="Status" ColumnName="Status" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Suppliers">
-            <EntityTypeMapping TypeName="NextposDBModel.Suppliers">
-              <MappingFragment StoreEntitySet="Suppliers">
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="BankSwift" ColumnName="BankSwift" />
-                <ScalarProperty Name="BankKOD" ColumnName="BankKOD" />
-                <ScalarProperty Name="BankAccountNumber" ColumnName="BankAccountNumber" />
-                <ScalarProperty Name="BankVoen" ColumnName="BankVoen" />
-                <ScalarProperty Name="BankName" ColumnName="BankName" />
-                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
-                <ScalarProperty Name="Status" ColumnName="Status" />
-                <ScalarProperty Name="Debt" ColumnName="Debt" />
-                <ScalarProperty Name="Phone" ColumnName="Phone" />
-                <ScalarProperty Name="Address" ColumnName="Address" />
-                <ScalarProperty Name="Voen" ColumnName="Voen" />
-                <ScalarProperty Name="SupplierName" ColumnName="SupplierName" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Roles">
-            <EntityTypeMapping TypeName="NextposDBModel.Roles">
-              <MappingFragment StoreEntitySet="Roles">
-                <ScalarProperty Name="Cashier" ColumnName="Cashier" />
-                <ScalarProperty Name="Admin" ColumnName="Admin" />
-                <ScalarProperty Name="MoneyBox" ColumnName="MoneyBox" />
-                <ScalarProperty Name="Credit" ColumnName="Credit" />
-                <ScalarProperty Name="User" ColumnName="User" />
-                <ScalarProperty Name="Settings" ColumnName="Settings" />
-                <ScalarProperty Name="Reports" ColumnName="Reports" />
-                <ScalarProperty Name="Bank" ColumnName="Bank" />
-                <ScalarProperty Name="PosReturn" ColumnName="PosReturn" />
-                <ScalarProperty Name="PosSales" ColumnName="PosSales" />
-                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+          <EntitySetMapping Name="CustomerGroups">
+            <EntityTypeMapping TypeName="KhanposDbModel.CustomerGroup">
+              <MappingFragment StoreEntitySet="CustomerGroups">
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
                 <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Company">
-            <EntityTypeMapping TypeName="NextposDBModel.Company">
-              <MappingFragment StoreEntitySet="Company">
-                <ScalarProperty Name="Logo" ColumnName="Logo" />
-                <ScalarProperty Name="RegistrationDate" ColumnName="RegistrationDate" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="Phone" ColumnName="Phone" />
-                <ScalarProperty Name="Address" ColumnName="Address" />
-                <ScalarProperty Name="CompanyCode" ColumnName="CompanyCode" />
-                <ScalarProperty Name="Voen" ColumnName="Voen" />
-                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="AqtaProducts">
-            <EntityTypeMapping TypeName="NextposDBModel.AqtaProducts">
-              <MappingFragment StoreEntitySet="AqtaProducts">
-                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
-                <ScalarProperty Name="Status" ColumnName="Status" />
-                <ScalarProperty Name="EndDateNotification" ColumnName="EndDateNotification" />
-                <ScalarProperty Name="AmountNotification" ColumnName="AmountNotification" />
-                <ScalarProperty Name="ShowPosScreen" ColumnName="ShowPosScreen" />
-                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
-                <ScalarProperty Name="StorageConditions" ColumnName="StorageConditions" />
-                <ScalarProperty Name="RetentionPeriod" ColumnName="RetentionPeriod" />
-                <ScalarProperty Name="ReleaseDate" ColumnName="ReleaseDate" />
-                <ScalarProperty Name="Ingredients" ColumnName="Ingredients" />
-                <ScalarProperty Name="Tax" ColumnName="Tax" />
-                <ScalarProperty Name="Unit" ColumnName="Unit" />
-                <ScalarProperty Name="SalePrice" ColumnName="SalePrice" />
-                <ScalarProperty Name="PurchasePrice" ColumnName="PurchasePrice" />
-                <ScalarProperty Name="Barcode" ColumnName="Barcode" />
-                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
-                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
-                <ScalarProperty Name="StoreID" ColumnName="StoreID" />
-                <ScalarProperty Name="WarehousesID" ColumnName="WarehousesID" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="SupplierPayments">
-            <EntityTypeMapping TypeName="NextposDBModel.SupplierPayment">
-              <MappingFragment StoreEntitySet="SupplierPayments">
-                <ScalarProperty Name="LogDate" ColumnName="LogDate" />
-                <ScalarProperty Name="PayDate" ColumnName="PayDate" />
-                <ScalarProperty Name="PaymentType" ColumnName="PaymentType" />
-                <ScalarProperty Name="Comment" ColumnName="Comment" />
-                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
-                <ScalarProperty Name="TaxPaid" ColumnName="TaxPaid" />
-                <ScalarProperty Name="DebtPaid" ColumnName="DebtPaid" />
-                <ScalarProperty Name="SupplierDebtId" ColumnName="SupplierDebtId" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="SuppliersDebts">
-            <EntityTypeMapping TypeName="NextposDBModel.SuppliersDebt">
-              <MappingFragment StoreEntitySet="SuppliersDebts">
-                <ScalarProperty Name="DebtDate" ColumnName="DebtDate" />
-                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
-                <ScalarProperty Name="Comment" ColumnName="Comment" />
-                <ScalarProperty Name="TaxDebt" ColumnName="TaxDebt" />
-                <ScalarProperty Name="Debt" ColumnName="Debt" />
-                <ScalarProperty Name="SupplierId" ColumnName="SupplierId" />
+                <ScalarProperty Name="Discount" ColumnName="Discount" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="CustomerPayments">
-            <EntityTypeMapping TypeName="NextposDBModel.CustomerPayment">
+            <EntityTypeMapping TypeName="KhanposDbModel.CustomerPayment">
               <MappingFragment StoreEntitySet="CustomerPayments">
                 <ScalarProperty Name="LogDate" ColumnName="LogDate" />
                 <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
@@ -2316,285 +1950,8 @@ warning 6002: The table/view 'NextposDB.dbo.view_InvoiceRollbackList' does not h
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="CustomersDebts">
-            <EntityTypeMapping TypeName="NextposDBModel.CustomersDebt">
-              <MappingFragment StoreEntitySet="CustomersDebts">
-                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
-                <ScalarProperty Name="Comment" ColumnName="Comment" />
-                <ScalarProperty Name="DebtDate" ColumnName="DebtDate" />
-                <ScalarProperty Name="Debt" ColumnName="Debt" />
-                <ScalarProperty Name="Type" ColumnName="Type" />
-                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="SalesDatas">
-            <EntityTypeMapping TypeName="NextposDBModel.SalesData">
-              <MappingFragment StoreEntitySet="SalesData">
-                <ScalarProperty Name="Note" ColumnName="Note" />
-                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
-                <ScalarProperty Name="IncomingSum" ColumnName="IncomingSum" />
-                <ScalarProperty Name="Card" ColumnName="Card" />
-                <ScalarProperty Name="Cash" ColumnName="Cash" />
-                <ScalarProperty Name="Total" ColumnName="Total" />
-                <ScalarProperty Name="SaleDatetime" ColumnName="SaleDatetime" />
-                <ScalarProperty Name="SaleDate" ColumnName="SaleDate" />
-                <ScalarProperty Name="Rrn" ColumnName="Rrn" />
-                <ScalarProperty Name="ShortFiscalId" ColumnName="ShortFiscalId" />
-                <ScalarProperty Name="LongFiscalId" ColumnName="LongFiscalId" />
-                <ScalarProperty Name="ReceiptNo" ColumnName="ReceiptNo" />
-                <ScalarProperty Name="UserId" ColumnName="UserId" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="TerminalIncomesAndExpenses">
-            <EntityTypeMapping TypeName="NextposDBModel.TerminalIncomesAndExpens">
-              <MappingFragment StoreEntitySet="TerminalIncomesAndExpenses">
-                <ScalarProperty Name="Time" ColumnName="Time" />
-                <ScalarProperty Name="Date" ColumnName="Date" />
-                <ScalarProperty Name="Amount" ColumnName="Amount" />
-                <ScalarProperty Name="UserId" ColumnName="UserId" />
-                <ScalarProperty Name="OperationType" ColumnName="OperationType" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="CloseShiftReports">
-            <EntityTypeMapping TypeName="NextposDBModel.CloseShiftReport">
-              <MappingFragment StoreEntitySet="CloseShiftReports">
-                <ScalarProperty Name="UserId" ColumnName="UserId" />
-                <ScalarProperty Name="JsonResponse" ColumnName="JsonResponse" />
-                <ScalarProperty Name="FiskalID" ColumnName="FiskalID" />
-                <ScalarProperty Name="CloseShiftDate" ColumnName="CloseShiftDate" />
-                <ScalarProperty Name="OpenShiftDate" ColumnName="OpenShiftDate" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="ReturnPos">
-            <EntityTypeMapping TypeName="NextposDBModel.ReturnPos">
-              <MappingFragment StoreEntitySet="ReturnPos">
-                <ScalarProperty Name="Note" ColumnName="Note" />
-                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
-                <ScalarProperty Name="IncomingSum" ColumnName="IncomingSum" />
-                <ScalarProperty Name="Card" ColumnName="Card" />
-                <ScalarProperty Name="Cash" ColumnName="Cash" />
-                <ScalarProperty Name="Total" ColumnName="Total" />
-                <ScalarProperty Name="ReturnDatetime" ColumnName="ReturnDatetime" />
-                <ScalarProperty Name="ReturnDate" ColumnName="ReturnDate" />
-                <ScalarProperty Name="Rrn" ColumnName="Rrn" />
-                <ScalarProperty Name="ShortFiscalId" ColumnName="ShortFiscalId" />
-                <ScalarProperty Name="LongFiscalId" ColumnName="LongFiscalId" />
-                <ScalarProperty Name="ReceiptNo" ColumnName="ReceiptNo" />
-                <ScalarProperty Name="UserId" ColumnName="UserId" />
-                <ScalarProperty Name="SaleDataId" ColumnName="SaleDataId" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="ReturnPosDetails">
-            <EntityTypeMapping TypeName="NextposDBModel.ReturnPosDetail">
-              <MappingFragment StoreEntitySet="ReturnPosDetails">
-                <ScalarProperty Name="Discount" ColumnName="Discount" />
-                <ScalarProperty Name="SalePrice" ColumnName="SalePrice" />
-                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
-                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
-                <ScalarProperty Name="SalesDataDetailId" ColumnName="SalesDataDetailId" />
-                <ScalarProperty Name="ReturnDataId" ColumnName="ReturnDataId" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="TaxTypes">
-            <EntityTypeMapping TypeName="NextposDBModel.TaxType">
-              <MappingFragment StoreEntitySet="TaxTypes">
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="PaymentTypes">
-            <EntityTypeMapping TypeName="NextposDBModel.PaymentType">
-              <MappingFragment StoreEntitySet="PaymentTypes">
-                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Invoices">
-            <EntityTypeMapping TypeName="NextposDBModel.Invoice">
-              <MappingFragment StoreEntitySet="Invoices">
-                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
-                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
-                <ScalarProperty Name="UserId" ColumnName="UserId" />
-                <ScalarProperty Name="Comment" ColumnName="Comment" />
-                <ScalarProperty Name="PaymentTypeId" ColumnName="PaymentTypeId" />
-                <ScalarProperty Name="TotalPurchasePrice" ColumnName="TotalPurchasePrice" />
-                <ScalarProperty Name="WarehouseId" ColumnName="WarehouseId" />
-                <ScalarProperty Name="InvoiceDate" ColumnName="InvoiceDate" />
-                <ScalarProperty Name="InvoiceNo" ColumnName="InvoiceNo" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="UnitTypes">
-            <EntityTypeMapping TypeName="NextposDBModel.UnitType">
-              <MappingFragment StoreEntitySet="UnitTypes">
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="InvoiceDetails">
-            <EntityTypeMapping TypeName="NextposDBModel.InvoiceDetail">
-              <MappingFragment StoreEntitySet="InvoiceDetails">
-                <ScalarProperty Name="SalePrice" ColumnName="SalePrice" />
-                <ScalarProperty Name="TotalPurchasePrice" ColumnName="TotalPurchasePrice" />
-                <ScalarProperty Name="Discount" ColumnName="Discount" />
-                <ScalarProperty Name="PurchasePrice" ColumnName="PurchasePrice" />
-                <ScalarProperty Name="Amount" ColumnName="Amount" />
-                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
-                <ScalarProperty Name="InvoiceId" ColumnName="InvoiceId" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="SalesDataDetail">
-            <EntityTypeMapping TypeName="NextposDBModel.SalesDataDetail">
-              <MappingFragment StoreEntitySet="SalesDataDetail">
-                <ScalarProperty Name="Discount" ColumnName="Discount" />
-                <ScalarProperty Name="SalePrice" ColumnName="SalePrice" />
-                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
-                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
-                <ScalarProperty Name="SaleDataId" ColumnName="SaleDataId" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Products">
-            <EntityTypeMapping TypeName="NextposDBModel.Products">
-              <MappingFragment StoreEntitySet="Products">
-                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
-                <ScalarProperty Name="CreatedUserId" ColumnName="CreatedUserId" />
-                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
-                <ScalarProperty Name="Status" ColumnName="Status" />
-                <ScalarProperty Name="TaxId" ColumnName="TaxId" />
-                <ScalarProperty Name="UnitId" ColumnName="UnitId" />
-                <ScalarProperty Name="SalePrice" ColumnName="SalePrice" />
-                <ScalarProperty Name="PurchasePrice" ColumnName="PurchasePrice" />
-                <ScalarProperty Name="Amount" ColumnName="Amount" />
-                <ScalarProperty Name="Barcode" ColumnName="Barcode" />
-                <ScalarProperty Name="ProductCode" ColumnName="ProductCode" />
-                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
-                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
-                <ScalarProperty Name="SupplierId" ColumnName="SupplierId" />
-                <ScalarProperty Name="Type" ColumnName="Type" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="InvoiceRollbackDetails">
-            <EntityTypeMapping TypeName="NextposDBModel.InvoiceRollbackDetail">
-              <MappingFragment StoreEntitySet="InvoiceRollbackDetails">
-                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
-                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
-                <ScalarProperty Name="InvoiceRollbackId" ColumnName="InvoiceRollbackId" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="InvoiceRollbacks">
-            <EntityTypeMapping TypeName="NextposDBModel.InvoiceRollback">
-              <MappingFragment StoreEntitySet="InvoiceRollbacks">
-                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
-                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
-                <ScalarProperty Name="UserId" ColumnName="UserId" />
-                <ScalarProperty Name="Commnet" ColumnName="Commnet" />
-                <ScalarProperty Name="PaymentTypeId" ColumnName="PaymentTypeId" />
-                <ScalarProperty Name="TotalPurchasePrice" ColumnName="TotalPurchasePrice" />
-                <ScalarProperty Name="WarehouseId" ColumnName="WarehouseId" />
-                <ScalarProperty Name="RollbackDate" ColumnName="RollbackDate" />
-                <ScalarProperty Name="InvoiceId" ColumnName="InvoiceId" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="view_InvoiceRollbackList">
-            <EntityTypeMapping TypeName="NextposDBModel.view_InvoiceRollbackList">
-              <MappingFragment StoreEntitySet="view_InvoiceRollbackList">
-                <ScalarProperty Name="PurchasePrice" ColumnName="PurchasePrice" />
-                <ScalarProperty Name="Amount" ColumnName="Amount" />
-                <ScalarProperty Name="Barcode" ColumnName="Barcode" />
-                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
-                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
-                <ScalarProperty Name="SupplierName" ColumnName="SupplierName" />
-                <ScalarProperty Name="InvoiceDate" ColumnName="InvoiceDate" />
-                <ScalarProperty Name="InvoiceNo" ColumnName="InvoiceNo" />
-                <ScalarProperty Name="InvoiceId" ColumnName="InvoiceId" />
-                <ScalarProperty Name="WarehouseName" ColumnName="WarehouseName" />
-                <ScalarProperty Name="WarehouseId" ColumnName="WarehouseId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Stores">
-            <EntityTypeMapping TypeName="NextposDBModel.Store">
-              <MappingFragment StoreEntitySet="Stores">
-                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
-                <ScalarProperty Name="Status" ColumnName="Status" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="WarehouseId" ColumnName="WarehouseId" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Terminals">
-            <EntityTypeMapping TypeName="NextposDBModel.Terminals">
-              <MappingFragment StoreEntitySet="Terminals">
-                <ScalarProperty Name="UserId" ColumnName="UserId" />
-                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
-                <ScalarProperty Name="Status" ColumnName="Status" />
-                <ScalarProperty Name="StoreID" ColumnName="StoreID" />
-                <ScalarProperty Name="MerchantId" ColumnName="MerchantId" />
-                <ScalarProperty Name="IpAddress" ColumnName="IpAddress" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Users">
-            <EntityTypeMapping TypeName="NextposDBModel.Users">
-              <MappingFragment StoreEntitySet="Users">
-                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
-                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
-                <ScalarProperty Name="Status" ColumnName="Status" />
-                <ScalarProperty Name="TerminalID" ColumnName="TerminalID" />
-                <ScalarProperty Name="Phone" ColumnName="Phone" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="NameSurname" ColumnName="NameSurname" />
-                <ScalarProperty Name="Password" ColumnName="Password" />
-                <ScalarProperty Name="Username" ColumnName="Username" />
-                <ScalarProperty Name="StoreID" ColumnName="StoreID" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="CustomerGroups">
-            <EntityTypeMapping TypeName="NextposDBModel.CustomerGroup">
-              <MappingFragment StoreEntitySet="CustomerGroups">
-                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
-                <ScalarProperty Name="UserId" ColumnName="UserId" />
-                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
-                <ScalarProperty Name="Discount" ColumnName="Discount" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Customers">
-            <EntityTypeMapping TypeName="NextposDBModel.Customer">
+            <EntityTypeMapping TypeName="KhanposDbModel.Customer">
               <MappingFragment StoreEntitySet="Customers">
                 <ScalarProperty Name="CustomerGroupId" ColumnName="CustomerGroupId" />
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
@@ -2616,6 +1973,356 @@ warning 6002: The table/view 'NextposDB.dbo.view_InvoiceRollbackList' does not h
                 <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
                 <ScalarProperty Name="NameSurname" ColumnName="NameSurname" />
                 <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CustomersDebts">
+            <EntityTypeMapping TypeName="KhanposDbModel.CustomersDebt">
+              <MappingFragment StoreEntitySet="CustomersDebts">
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="DebtDate" ColumnName="DebtDate" />
+                <ScalarProperty Name="Debt" ColumnName="Debt" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InvoiceDetails">
+            <EntityTypeMapping TypeName="KhanposDbModel.InvoiceDetail">
+              <MappingFragment StoreEntitySet="InvoiceDetails">
+                <ScalarProperty Name="SalePrice" ColumnName="SalePrice" />
+                <ScalarProperty Name="TotalPurchasePrice" ColumnName="TotalPurchasePrice" />
+                <ScalarProperty Name="Discount" ColumnName="Discount" />
+                <ScalarProperty Name="PurchasePrice" ColumnName="PurchasePrice" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="InvoiceId" ColumnName="InvoiceId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InvoiceRollbackDetails">
+            <EntityTypeMapping TypeName="KhanposDbModel.InvoiceRollbackDetail">
+              <MappingFragment StoreEntitySet="InvoiceRollbackDetails">
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="InvoiceRollbackId" ColumnName="InvoiceRollbackId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InvoiceRollbacks">
+            <EntityTypeMapping TypeName="KhanposDbModel.InvoiceRollback">
+              <MappingFragment StoreEntitySet="InvoiceRollbacks">
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Commnet" ColumnName="Commnet" />
+                <ScalarProperty Name="PaymentTypeId" ColumnName="PaymentTypeId" />
+                <ScalarProperty Name="TotalPurchasePrice" ColumnName="TotalPurchasePrice" />
+                <ScalarProperty Name="WarehouseId" ColumnName="WarehouseId" />
+                <ScalarProperty Name="RollbackDate" ColumnName="RollbackDate" />
+                <ScalarProperty Name="InvoiceId" ColumnName="InvoiceId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Invoices">
+            <EntityTypeMapping TypeName="KhanposDbModel.Invoice">
+              <MappingFragment StoreEntitySet="Invoices">
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="PaymentTypeId" ColumnName="PaymentTypeId" />
+                <ScalarProperty Name="TotalPurchasePrice" ColumnName="TotalPurchasePrice" />
+                <ScalarProperty Name="WarehouseId" ColumnName="WarehouseId" />
+                <ScalarProperty Name="InvoiceDate" ColumnName="InvoiceDate" />
+                <ScalarProperty Name="InvoiceNo" ColumnName="InvoiceNo" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Logs">
+            <EntityTypeMapping TypeName="KhanposDbModel.Log">
+              <MappingFragment StoreEntitySet="Logs">
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Operation" ColumnName="Operation" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PaymentTypes">
+            <EntityTypeMapping TypeName="KhanposDbModel.PaymentType">
+              <MappingFragment StoreEntitySet="PaymentTypes">
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Products">
+            <EntityTypeMapping TypeName="KhanposDbModel.Product">
+              <MappingFragment StoreEntitySet="Products">
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedUserId" ColumnName="CreatedUserId" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="TaxId" ColumnName="TaxId" />
+                <ScalarProperty Name="UnitId" ColumnName="UnitId" />
+                <ScalarProperty Name="SalePrice" ColumnName="SalePrice" />
+                <ScalarProperty Name="PurchasePrice" ColumnName="PurchasePrice" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Barcode" ColumnName="Barcode" />
+                <ScalarProperty Name="ProductCode" ColumnName="ProductCode" />
+                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ReturnPos">
+            <EntityTypeMapping TypeName="KhanposDbModel.ReturnPos">
+              <MappingFragment StoreEntitySet="ReturnPos">
+                <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+                <ScalarProperty Name="IncomingSum" ColumnName="IncomingSum" />
+                <ScalarProperty Name="Card" ColumnName="Card" />
+                <ScalarProperty Name="Cash" ColumnName="Cash" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="ReturnDatetime" ColumnName="ReturnDatetime" />
+                <ScalarProperty Name="ReturnDate" ColumnName="ReturnDate" />
+                <ScalarProperty Name="Rrn" ColumnName="Rrn" />
+                <ScalarProperty Name="ShortFiscalId" ColumnName="ShortFiscalId" />
+                <ScalarProperty Name="LongFiscalId" ColumnName="LongFiscalId" />
+                <ScalarProperty Name="ReceiptNo" ColumnName="ReceiptNo" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="SaleDataId" ColumnName="SaleDataId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ReturnPosDetails">
+            <EntityTypeMapping TypeName="KhanposDbModel.ReturnPosDetail">
+              <MappingFragment StoreEntitySet="ReturnPosDetails">
+                <ScalarProperty Name="Discount" ColumnName="Discount" />
+                <ScalarProperty Name="SalePrice" ColumnName="SalePrice" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="SalesDataDetailId" ColumnName="SalesDataDetailId" />
+                <ScalarProperty Name="ReturnDataId" ColumnName="ReturnDataId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Roles">
+            <EntityTypeMapping TypeName="KhanposDbModel.Role">
+              <MappingFragment StoreEntitySet="Roles">
+                <ScalarProperty Name="Cashier" ColumnName="Cashier" />
+                <ScalarProperty Name="Admin" ColumnName="Admin" />
+                <ScalarProperty Name="MoneyBox" ColumnName="MoneyBox" />
+                <ScalarProperty Name="Credit" ColumnName="Credit" />
+                <ScalarProperty Name="User" ColumnName="User" />
+                <ScalarProperty Name="Settings" ColumnName="Settings" />
+                <ScalarProperty Name="Reports" ColumnName="Reports" />
+                <ScalarProperty Name="Bank" ColumnName="Bank" />
+                <ScalarProperty Name="PosReturn" ColumnName="PosReturn" />
+                <ScalarProperty Name="PosSales" ColumnName="PosSales" />
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sizes">
+            <EntityTypeMapping TypeName="KhanposDbModel.Size">
+              <MappingFragment StoreEntitySet="Sizes">
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="SizeName" ColumnName="SizeName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Stores">
+            <EntityTypeMapping TypeName="KhanposDbModel.Store">
+              <MappingFragment StoreEntitySet="Stores">
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="WarehouseId" ColumnName="WarehouseId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SupplierPayments">
+            <EntityTypeMapping TypeName="KhanposDbModel.SupplierPayment">
+              <MappingFragment StoreEntitySet="SupplierPayments">
+                <ScalarProperty Name="LogDate" ColumnName="LogDate" />
+                <ScalarProperty Name="PayDate" ColumnName="PayDate" />
+                <ScalarProperty Name="PaymentType" ColumnName="PaymentType" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="TaxPaid" ColumnName="TaxPaid" />
+                <ScalarProperty Name="DebtPaid" ColumnName="DebtPaid" />
+                <ScalarProperty Name="SupplierDebtId" ColumnName="SupplierDebtId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Suppliers">
+            <EntityTypeMapping TypeName="KhanposDbModel.Supplier">
+              <MappingFragment StoreEntitySet="Suppliers">
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="BankSwift" ColumnName="BankSwift" />
+                <ScalarProperty Name="BankKOD" ColumnName="BankKOD" />
+                <ScalarProperty Name="BankAccountNumber" ColumnName="BankAccountNumber" />
+                <ScalarProperty Name="BankVoen" ColumnName="BankVoen" />
+                <ScalarProperty Name="BankName" ColumnName="BankName" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Debt" ColumnName="Debt" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Voen" ColumnName="Voen" />
+                <ScalarProperty Name="SupplierName" ColumnName="SupplierName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SuppliersDebts">
+            <EntityTypeMapping TypeName="KhanposDbModel.SuppliersDebt">
+              <MappingFragment StoreEntitySet="SuppliersDebts">
+                <ScalarProperty Name="DebtDate" ColumnName="DebtDate" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="TaxDebt" ColumnName="TaxDebt" />
+                <ScalarProperty Name="Debt" ColumnName="Debt" />
+                <ScalarProperty Name="SupplierId" ColumnName="SupplierId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TaxTypes">
+            <EntityTypeMapping TypeName="KhanposDbModel.TaxType">
+              <MappingFragment StoreEntitySet="TaxTypes">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TerminalIncomesAndExpenses">
+            <EntityTypeMapping TypeName="KhanposDbModel.TerminalIncomesAndExpens">
+              <MappingFragment StoreEntitySet="TerminalIncomesAndExpenses">
+                <ScalarProperty Name="Time" ColumnName="Time" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="OperationType" ColumnName="OperationType" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Terminals">
+            <EntityTypeMapping TypeName="KhanposDbModel.Terminal">
+              <MappingFragment StoreEntitySet="Terminals">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="StoreID" ColumnName="StoreID" />
+                <ScalarProperty Name="MerchantId" ColumnName="MerchantId" />
+                <ScalarProperty Name="IpAddress" ColumnName="IpAddress" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UnitTypes">
+            <EntityTypeMapping TypeName="KhanposDbModel.UnitType">
+              <MappingFragment StoreEntitySet="UnitTypes">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="KhanposDbModel.User">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="TerminalID" ColumnName="TerminalID" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="NameSurname" ColumnName="NameSurname" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="StoreID" ColumnName="StoreID" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Warehouses">
+            <EntityTypeMapping TypeName="KhanposDbModel.Warehouse">
+              <MappingFragment StoreEntitySet="Warehouses">
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="view_InvoiceRollbackList">
+            <EntityTypeMapping TypeName="KhanposDbModel.view_InvoiceRollbackList">
+              <MappingFragment StoreEntitySet="view_InvoiceRollbackList">
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="PurchasePrice" ColumnName="PurchasePrice" />
+                <ScalarProperty Name="Barcode" ColumnName="Barcode" />
+                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="SupplierName" ColumnName="SupplierName" />
+                <ScalarProperty Name="InvoiceDate" ColumnName="InvoiceDate" />
+                <ScalarProperty Name="InvoiceNo" ColumnName="InvoiceNo" />
+                <ScalarProperty Name="InvoiceId" ColumnName="InvoiceId" />
+                <ScalarProperty Name="WarehouseName" ColumnName="WarehouseName" />
+                <ScalarProperty Name="WarehouseId" ColumnName="WarehouseId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PosSaleItems">
+            <EntityTypeMapping TypeName="KhanposDbModel.PosSaleItem">
+              <MappingFragment StoreEntitySet="PosSaleItems">
+                <ScalarProperty Name="Discount" ColumnName="Discount" />
+                <ScalarProperty Name="SalePrice" ColumnName="SalePrice" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="PosSaleId" ColumnName="PosSaleId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PosSales">
+            <EntityTypeMapping TypeName="KhanposDbModel.PosSale">
+              <MappingFragment StoreEntitySet="PosSales">
+                <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+                <ScalarProperty Name="Residue" ColumnName="Residue" />
+                <ScalarProperty Name="IncomingSum" ColumnName="IncomingSum" />
+                <ScalarProperty Name="Card" ColumnName="Card" />
+                <ScalarProperty Name="Cash" ColumnName="Cash" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="Rrn" ColumnName="Rrn" />
+                <ScalarProperty Name="ShortFiscalId" ColumnName="ShortFiscalId" />
+                <ScalarProperty Name="LongFiscalId" ColumnName="LongFiscalId" />
+                <ScalarProperty Name="ReceiptNo" ColumnName="ReceiptNo" />
+                <ScalarProperty Name="SaleDatetime" ColumnName="SaleDatetime" />
+                <ScalarProperty Name="SaleDate" ColumnName="SaleDate" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

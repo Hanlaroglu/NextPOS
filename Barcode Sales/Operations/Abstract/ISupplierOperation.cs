@@ -3,12 +3,7 @@ using System.Threading.Tasks;
 
 namespace Barcode_Sales.Operations.Abstract
 {
-    public interface ISupplierOperation:IBaseOperation<Suppliers>
+    public interface ISupplierOperation:IBaseOperation<Supplier>
     {
-        string Blocked(Suppliers item);
-        Task BlockedAsync(List<Suppliers> items);
-        string Active(Suppliers item);
-        Task ActiveAsync(List<Suppliers> items);
-
     }
 }

@@ -1,5 +1,4 @@
 ﻿using Barcode_Sales.Forms;
-using Barcode_Sales.Helpers.Messages;
 using Barcode_Sales.Operations.Abstract;
 using System;
 using System.Collections.Generic;
@@ -13,9 +12,9 @@ namespace Barcode_Sales.Operations.Concrete
 {
     public class CustomerManager : ICustomerOperation
     {
-        NextposDBEntities db = new NextposDBEntities();
+        KhanposDbEntities db = new KhanposDbEntities();
 
-        public bool Add(Customer item)
+        public async Task<int> Add(Customer item)
         {
             try
             {
@@ -25,89 +24,100 @@ namespace Barcode_Sales.Operations.Concrete
                 item.Status = true;
                 item.IsDeleted = 0;
                 item.CreateDate = DateTime.Now;
-                db.Customers.Add(item);
-                db.SaveChanges();
-                return true;
+                db.Set<Customer>().Add(item);
+                await db.SaveChangesAsync();
+                return item.Id;
             }
             catch (Exception ex)
             {
                 fAddCustomer form = Application.OpenForms.OfType<fAddCustomer>().FirstOrDefault();
                 NotificationHelpers.Messages.ErrorMessage(form, $"{ex.Message}");
+                return 0;
+            }
+        }
+
+        public async Task<bool> Add(List<Customer> items)
+        {
+            if (items == null || items.Count == 0)
+                return false;
+
+
+            try
+            {
+                db.Set<Customer>().AddRange(items);
+                return await db.SaveChangesAsync() > 0;
+            }
+            catch
+            {
                 return false;
             }
-
         }
 
-        public async Task AddAsync(Customer item)
+        public async Task<bool> Update(Customer item, params Expression<Func<Customer, object>>[] updateProperties)
         {
-            db.Customers.Add(item);
-            await db.SaveChangesAsync();
-        }
-
-        public Customer GetById(int id)
-        {
-            return db.Customers.FirstOrDefault(x => x.Id == id);
-        }
-
-        public async Task<Customer> GetByIdAsync(int id)
-        {
-            return await db.Customers.AsNoTracking().FirstOrDefaultAsync(x => x.Id == id);
-        }
-
-        public void Remove(Customer item)
-        {
-            item.IsDeleted = item.Id;
-            db.Customers.Attach(item);
-            db.Entry(item).Property(x => x.IsDeleted).IsModified = true;
-            db.SaveChanges();
-        }
-
-        public async Task RemoveAsync(Customer item)
-        {
-            if (CommonMessageBox.QuestionDialogResult($"{item.NameSurname} müştərisini silmək istədiyinizə əminsiniz ?"))
+            try
             {
-                var data = await db.Customers.FindAsync(item.Id);
-                data.IsDeleted = data.Id;
-                await db.SaveChangesAsync();
+                item.Phone = item.Phone is "(___)___-__-__" ? null : item.Phone;
+                db.Set<Customer>().Attach(item);
+
+                foreach (var property in updateProperties)
+                    db.Entry(item).Property(property).IsModified = true;
+
+                return await db.SaveChangesAsync() > 0;
+            }
+            catch
+            {
+                return false;
             }
         }
 
-        public void Update(Customer item)
+        public async Task<bool> Update(List<Customer> items, params Expression<Func<Customer, object>>[] updateProperties)
         {
-            item.Phone = item.Phone == "(___)___-__-__" ? null : item.Phone;
-            db.Customers.Attach(item);
-            db.Entry(item).Property(x => x.DateBirth).IsModified = true;
-            db.Entry(item).Property(x => x.Gender).IsModified = true;
-            db.Entry(item).Property(x => x.Phone).IsModified = true;
-            db.Entry(item).Property(x => x.Email).IsModified = true;
-            db.Entry(item).Property(x => x.Voen).IsModified = true;
-            db.Entry(item).Property(x => x.CustomerGroupId).IsModified = true;
-            db.Entry(item).Property(x => x.Comment).IsModified = true;
-            db.Entry(item).Property(x => x.BankName).IsModified = true;
-            db.Entry(item).Property(x => x.BankVoen).IsModified = true;
-            db.Entry(item).Property(x => x.BankAccountNumber).IsModified = true;
-            db.Entry(item).Property(x => x.BankKOD).IsModified = true;
-            db.Entry(item).Property(x => x.BankSwift).IsModified = true;
-            db.SaveChanges();
+            if (items == null || items.Count == 0)
+                return false;
+
+            using (var transaction = db.Database.BeginTransaction())
+            {
+                try
+                {
+                    foreach (var entity in items)
+                    {
+                        db.Set<Customer>().Attach(entity);
+
+                        foreach (var property in updateProperties)
+                            db.Entry(entity).Property(property).IsModified = true;
+                    }
+
+                    await db.SaveChangesAsync();
+                    transaction.Commit();
+                    return true;
+                }
+                catch
+                {
+                    transaction.Rollback();
+                    return false;
+                }
+            }
         }
 
-        public async Task UpdateAsync(Customer item)
+        public async Task<bool> Remove(Customer item)
         {
-            item.Phone = item.Phone == "(___)___-__-__" ? null : item.Phone;
-            db.Customers.Attach(item);
-            db.Entry(item).Property(x => x.DateBirth).IsModified = true;
-            db.Entry(item).Property(x => x.Gender).IsModified = true;
-            db.Entry(item).Property(x => x.Phone).IsModified = true;
-            db.Entry(item).Property(x => x.Email).IsModified = true;
-            db.Entry(item).Property(x => x.Voen).IsModified = true;
-            db.Entry(item).Property(x => x.CustomerGroupId).IsModified = true;
-            db.Entry(item).Property(x => x.Comment).IsModified = true;
-            db.Entry(item).Property(x => x.BankName).IsModified = true;
-            db.Entry(item).Property(x => x.BankVoen).IsModified = true;
-            db.Entry(item).Property(x => x.BankAccountNumber).IsModified = true;
-            db.Entry(item).Property(x => x.BankKOD).IsModified = true;
-            db.Entry(item).Property(x => x.BankSwift).IsModified = true;
-            await db.SaveChangesAsync();
+            try
+            {
+                item.IsDeleted = item.Id;
+                db.Customers.Attach(item);
+                db.Entry(item).Property(x => x.IsDeleted).IsModified = true;
+                return await db.SaveChangesAsync() > 0;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        public async Task<Customer> Get(Expression<Func<Customer, bool>> expression)
+        {
+            return await db.Customers.FirstOrDefaultAsync(expression);
         }
 
         public IQueryable<Customer> Where(Expression<Func<Customer, bool>> expression)
@@ -115,52 +125,22 @@ namespace Barcode_Sales.Operations.Concrete
             return db.Customers.Where(expression);
         }
 
-        public async Task<List<Customer>> WhereAsync(Expression<Func<Customer, bool>> expression)
+        public async Task<List<Customer>> ToListAsync(Expression<Func<Customer, bool>> expression = null)
         {
-            return await db.Customers.AsNoTracking().Where(expression).ToListAsync();
+            if (expression is null)
+                return await db.Customers.AsNoTracking().ToListAsync();
+            else
+                return await db.Customers.AsNoTracking().Where(expression).ToListAsync();
         }
 
-        public string Active(Customer item)
-        {
-            if (item is null) return null;
-
-            item.Status = true;
-            db.SaveChanges();
-
-            return $"{item.NameSurname} müştərisi aktiv edildi";
-        }
-
-        public async Task ActiveAsync(List<Customer> items)
-        {
-            foreach (var item in items)
-            {
-                //var data = await GetByIdAsync(item.Id);
-                if (item is null || item.Status is true) continue;
-
-                item.Status = true;
-            }
-            await db.SaveChangesAsync();
-        }
-
-        public string Blocked(Customer item)
-        {
-            if (item is null) return null;
-
-            item.Status = false;
-            db.SaveChanges();
-
-            return $"{item.NameSurname} müştərisi deaktiv edildi";
-        }
-
-        public async Task BlockedAsync(List<Customer> items)
-        {
-            foreach (var item in items)
-            {
-                if (item is null || item.Status is false) continue;
-
-                item.Status = false;
-            }
-            await db.SaveChangesAsync();
-        }
+        //public async Task RemoveAsync(Customer item)
+        //{
+        //    if (CommonMessageBox.QuestionDialogResult($"{item.NameSurname} müştərisini silmək istədiyinizə əminsiniz ?"))
+        //    {
+        //        var data = await db.Customers.FindAsync(item.Id);
+        //        data.IsDeleted = data.Id;
+        //        await db.SaveChangesAsync();
+        //    }
+        //}
     }
 }

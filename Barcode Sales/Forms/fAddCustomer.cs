@@ -39,7 +39,7 @@ namespace Barcode_Sales.Forms
 
         private async Task CustomerGroupsLoad()
         {
-            var data = await customerGroupOperation.WhereAsync(x => x.IsDeleted == false);
+            var data = await customerGroupOperation.ToListAsync(x => x.IsDeleted == false);
             FormHelpers.ControlLoad(data, lookCustomerGroup);
         }
 
@@ -64,7 +64,7 @@ namespace Barcode_Sales.Forms
             tBankSwift.Text = _customer.BankSwift;
         }
 
-        private void Add()
+        private async void Add()
         {
             var gender = groupCustomer.Controls.OfType<CheckEdit>().FirstOrDefault(x => x.Checked);
             _customer = new Customer()
@@ -91,7 +91,7 @@ namespace Barcode_Sales.Forms
                 return;
             }
 
-            if (customerOperation.Add(_customer))
+            if (await customerOperation.Add(_customer) > 0)
             {
                 NotificationHelpers.Messages.SuccessMessage(this, $"{_customer.NameSurname} müştərisi uğurla yaradıldı");
                 Clear();
@@ -115,7 +115,19 @@ namespace Barcode_Sales.Forms
             _customer.BankKOD = tBankKod.Text.Trim();
             _customer.BankSwift = tBankSwift.Text.Trim();
 
-            await customerOperation.UpdateAsync(_customer);
+            await customerOperation.Update(_customer,
+                x=> x.DateBirth,
+                x => x.Gender,
+                x => x.Phone,
+                x => x.Email,
+                x => x.Voen,
+                x => x.CustomerGroupId,
+                x => x.Comment,
+                x => x.BankName,
+                x => x.BankVoen,
+                x => x.BankAccountNumber,
+                x => x.BankKOD,
+                x => x.BankSwift);
             Close();
         }
 

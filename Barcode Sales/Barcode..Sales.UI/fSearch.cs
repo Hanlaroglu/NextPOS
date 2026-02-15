@@ -8,7 +8,7 @@ namespace Barcode_Sales.Barcode.Sales.UI
 {
     public partial class fSearch : DevExpress.XtraEditors.XtraForm
     {
-        NextposDBEntities db = new NextposDBEntities();
+        KhanposDbEntities db = new KhanposDbEntities();
 
         public fSearch()
         {

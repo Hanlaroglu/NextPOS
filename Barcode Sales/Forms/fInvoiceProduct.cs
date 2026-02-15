@@ -113,7 +113,7 @@ namespace Barcode_Sales.Forms
             AddInvoice();
         }
 
-        private void AddInvoice()
+        private async void AddInvoice()
         {
             try
             {
@@ -138,7 +138,7 @@ namespace Barcode_Sales.Forms
                 }
 
 
-                var invoiceId = invoiceOperation.AddInvoice(invoice);
+                var invoiceId = await invoiceOperation.Add(invoice);
 
                 List<InvoiceDetail> details = new List<InvoiceDetail>();
                 details.AddRange(_dataList.Select(x => new InvoiceDetail
@@ -151,7 +151,7 @@ namespace Barcode_Sales.Forms
                     Discount = 0,
                     TotalPurchasePrice = x.Quantity * x.PurchasePrice,
                 }));
-                invoiceDetailOperation.AddRange(details);
+              await  invoiceDetailOperation.Add(details);
                 NotificationHelpers.Messages.SuccessMessage(this, "Məhsul alışı tamamlandı");
                 Reset();
             }

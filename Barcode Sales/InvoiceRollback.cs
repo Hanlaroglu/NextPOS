@@ -35,7 +35,7 @@ namespace Barcode_Sales
         public virtual ICollection<InvoiceRollbackDetail> InvoiceRollbackDetails { get; set; }
         public virtual Invoice Invoice { get; set; }
         public virtual PaymentType PaymentType { get; set; }
-        public virtual Warehouses Warehouse { get; set; }
-        public virtual Users Users { get; set; }
+        public virtual User User { get; set; }
+        public virtual Warehouse Warehouse { get; set; }
     }
 }

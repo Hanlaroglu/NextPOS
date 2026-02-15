@@ -1,6 +1,6 @@
 ﻿namespace Barcode_Sales.Operations.Abstract
 {
-    public interface IWarehouseOperation : IBaseOperation<Warehouses>
+    public interface IWarehouseOperation : IBaseOperation<Warehouse>
     {
     }
 }

@@ -17,7 +17,7 @@ namespace Barcode_Sales.Forms
         private object _data = null;
         ISaleDataOperation saleDataOperation = new SalesDataManager();
         IReturnPosOperation returnPosOperation = new ReturnPosManager();
-        NextposDBEntities db = new NextposDBEntities();
+        KhanposDbEntities db = new KhanposDbEntities();
         public fPosRollback()
         {
             InitializeComponent();

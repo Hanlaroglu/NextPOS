@@ -61,11 +61,11 @@ namespace Barcode_Sales.Forms
                     object data = null;
                     if (_parentForm.Name == "fAqtaReport")
                     {
-                        data = await aqtaProductsOperation.GetByIdAsync(Id);
+                        data = await aqtaProductsOperation.Get(x => x.Id == Id);
                     }
                     else
                     {
-                        data = await productOperation.GetByIdAsync(Id);
+                        data = await productOperation.Get(x=> x.Id == Id);
                     }
                     var method = _parentForm.GetType().GetMethod("ReceiveData");
                     if (method != null)

@@ -4,75 +4,68 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="b5cf45043ef04e46bed5e42906862e99" Name="Diagram1" ZoomLevel="69">
-        <EntityTypeShape EntityType="NextposDBModel.Categories" Width="1.5" PointX="0.75" PointY="0.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="NextposDBModel.Colors" Width="1.5" PointX="0.75" PointY="6.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="NextposDBModel.Logs" Width="1.5" PointX="8" PointY="1.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="NextposDBModel.Sizes" Width="1.5" PointX="0.75" PointY="9.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="NextposDBModel.Warehouses" Width="1.5" PointX="0.75" PointY="14.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="NextposDBModel.Suppliers" Width="1.5" PointX="8.375" PointY="4.375" />
-        <EntityTypeShape EntityType="NextposDBModel.Roles" Width="1.5" PointX="3.375" PointY="0.75" FillColor="Red" />
-        <EntityTypeShape EntityType="NextposDBModel.Company" Width="1.5" PointX="10.375" PointY="0.75" />
-        <EntityTypeShape EntityType="NextposDBModel.AqtaProducts" Width="1.5" PointX="8" PointY="14.125" />
-        <AssociationConnector Association="NextposDBModel.FK_AqtaProducts_Category" />
-        <AssociationConnector Association="NextposDBModel.FK_AqtaProducts_Warehouse" />
-        <EntityTypeShape EntityType="NextposDBModel.SupplierPayment" Width="1.5" PointX="12.875" PointY="5.375" />
-        <EntityTypeShape EntityType="NextposDBModel.SuppliersDebt" Width="1.5" PointX="10.625" PointY="5" />
-        <AssociationConnector Association="NextposDBModel.FK_SupplierPayments_SuppliersDebts" />
-        <AssociationConnector Association="NextposDBModel.FK_SupplierDebts_Supplier" />
-        <EntityTypeShape EntityType="NextposDBModel.CustomerPayment" Width="1.5" PointX="14.875" PointY="15.75" />
-        <EntityTypeShape EntityType="NextposDBModel.CustomersDebt" Width="1.5" PointX="12.625" PointY="15.75" />
-        <AssociationConnector Association="NextposDBModel.FK_CustomerPayments_CustomersDebts" />
-        <EntityTypeShape EntityType="NextposDBModel.SalesData" Width="1.5" PointX="13.375" PointY="0.75" />
-        <EntityTypeShape EntityType="NextposDBModel.TerminalIncomesAndExpens" Width="1.5" PointX="15.375" PointY="0.75" />
-        <EntityTypeShape EntityType="NextposDBModel.CloseShiftReport" Width="1.5" PointX="15.375" PointY="3.75" />
-        <EntityTypeShape EntityType="NextposDBModel.ReturnPos" Width="1.5" PointX="15.375" PointY="9.5" />
-        <EntityTypeShape EntityType="NextposDBModel.ReturnPosDetail" Width="1.5" PointX="15.375" PointY="6.75" />
-        <EntityTypeShape EntityType="NextposDBModel.TaxType" Width="1.5" PointX="3.375" PointY="15.75" />
-        <EntityTypeShape EntityType="NextposDBModel.PaymentType" Width="1.5" PointX="3.375" PointY="8.75" />
-        <EntityTypeShape EntityType="NextposDBModel.Invoice" Width="1.5" PointX="9.875" PointY="9" FillColor="Orange" />
-        <EntityTypeShape EntityType="NextposDBModel.UnitType" Width="1.5" PointX="3.375" PointY="11.75" />
-        <AssociationConnector Association="NextposDBModel.FK_Invoices_PaymentTypes" />
-        <AssociationConnector Association="NextposDBModel.FK_Invoices_Warehouses" />
-        <EntityTypeShape EntityType="NextposDBModel.InvoiceDetail" Width="1.5" PointX="19.875" PointY="8.25" />
-        <AssociationConnector Association="NextposDBModel.FK_InvoiceDetails_Invoices" />
-        <EntityTypeShape EntityType="NextposDBModel.SalesDataDetail" Width="1.5" PointX="19.875" PointY="4.125" />
-        <AssociationConnector Association="NextposDBModel.FK_SalesDataDetail_ToSalesData" />
-        <EntityTypeShape EntityType="NextposDBModel.Products" Width="1.5" PointX="17.625" PointY="6.375" FillColor="Green" />
-        <AssociationConnector Association="NextposDBModel.FK_Products_Category" />
-        <AssociationConnector Association="NextposDBModel.FK_InvoiceDetails_Product" />
-        <AssociationConnector Association="NextposDBModel.FK_Products_Suppliers" />
-        <AssociationConnector Association="NextposDBModel.FK_Products_TaxType" />
-        <AssociationConnector Association="NextposDBModel.FK_Products_UnitType" />
-        <AssociationConnector Association="NextposDBModel.FK_SalesDataDetail_Products" />
-        <EntityTypeShape EntityType="NextposDBModel.InvoiceRollbackDetail" Width="1.5" PointX="19.375" PointY="15.875" />
-        <EntityTypeShape EntityType="NextposDBModel.InvoiceRollback" Width="1.5" PointX="17.125" PointY="14.875" />
-        <AssociationConnector Association="NextposDBModel.FK_InvoiceRollbackDetails_InvoiceRollbacks" />
-        <AssociationConnector Association="NextposDBModel.FK_InvoiceRollbacks_Invoices" />
-        <AssociationConnector Association="NextposDBModel.FK_InvoiceRollbacks_PaymentTypes" />
-        <AssociationConnector Association="NextposDBModel.FK_InvoiceRollbacks_Warehouses" />
-        <EntityTypeShape EntityType="NextposDBModel.view_InvoiceRollbackList" Width="1.5" PointX="0.75" PointY="18.75" />
-        <EntityTypeShape EntityType="NextposDBModel.Store" Width="1.5" PointX="3" PointY="18.875" />
-        <AssociationConnector Association="NextposDBModel.FK_Stores_Warehouses" />
-        <EntityTypeShape EntityType="NextposDBModel.Terminals" Width="1.5" PointX="12.875" PointY="11.5" />
-        <AssociationConnector Association="NextposDBModel.FK_Terminals_Stores" />
-        <EntityTypeShape EntityType="NextposDBModel.Users" Width="1.5" PointX="5.625" PointY="8.75" FillColor="Red" />
-        <AssociationConnector Association="NextposDBModel.FK_InvoiceRollbacks_Users" />
-        <AssociationConnector Association="NextposDBModel.FK_Invoices_Users" />
-        <AssociationConnector Association="NextposDBModel.FK__Logs__UserID__6477ECF3" />
-        <AssociationConnector Association="NextposDBModel.FK_Products_Users" />
-        <AssociationConnector Association="NextposDBModel.FK_Users_RoleID" />
-        <AssociationConnector Association="NextposDBModel.FK_SalesData_ToUser" />
-        <AssociationConnector Association="NextposDBModel.FK_Users_Stores" />
-        <AssociationConnector Association="NextposDBModel.FK_Terminals_To_User" />
-        <EntityTypeShape EntityType="NextposDBModel.CustomerGroup" Width="1.5" PointX="7.875" PointY="21" />
-        <EntityTypeShape EntityType="NextposDBModel.Customer" Width="1.5" PointX="11.125" PointY="19.25" />
-        <AssociationConnector Association="NextposDBModel.FK_CustomerGroups_Users" />
-        <AssociationConnector Association="NextposDBModel.FK_Customers_CustomerGroups" />
-        <AssociationConnector Association="NextposDBModel.FK_CustomerDebts_Customer" />
-        <AssociationConnector Association="NextposDBModel.FK_Customers_Users" />
-        <AssociationConnector Association="NextposDBModel.FK_SalesData_ToCustomer" />
-        </Diagram>
+      <Diagram DiagramId="b5cf45043ef04e46bed5e42906862e99" Name="Diagram1" ZoomLevel="77">
+        <EntityTypeShape EntityType="KhanposDbModel.Category" Width="1.5" PointX="0.75" PointY="13.75" />
+        <EntityTypeShape EntityType="KhanposDbModel.CloseShiftReport" Width="1.5" PointX="0.75" PointY="5.75" />
+        <EntityTypeShape EntityType="KhanposDbModel.Color" Width="1.5" PointX="2.75" PointY="5.75" />
+        <EntityTypeShape EntityType="KhanposDbModel.CustomerGroup" Width="1.5" PointX="7.5" PointY="39.625" />
+        <EntityTypeShape EntityType="KhanposDbModel.CustomerPayment" Width="1.5" PointX="17.25" PointY="35.625" />
+        <EntityTypeShape EntityType="KhanposDbModel.Customer" Width="1.5" PointX="12.75" PointY="34.125" />
+        <EntityTypeShape EntityType="KhanposDbModel.CustomersDebt" Width="1.5" PointX="15" PointY="35.625" />
+        <EntityTypeShape EntityType="KhanposDbModel.InvoiceDetail" Width="1.5" PointX="8.25" PointY="12.5" />
+        <EntityTypeShape EntityType="KhanposDbModel.InvoiceRollbackDetail" Width="1.5" PointX="8.25" PointY="17.875" />
+        <EntityTypeShape EntityType="KhanposDbModel.InvoiceRollback" Width="1.5" PointX="6" PointY="16.875" />
+        <EntityTypeShape EntityType="KhanposDbModel.Invoice" Width="1.5" PointX="6" PointY="11.875" />
+        <EntityTypeShape EntityType="KhanposDbModel.Log" Width="1.5" PointX="7.5" PointY="37" />
+        <EntityTypeShape EntityType="KhanposDbModel.PaymentType" Width="1.5" PointX="3.75" PointY="10.625" />
+        <EntityTypeShape EntityType="KhanposDbModel.Product" Width="1.5" PointX="10.5" PointY="31.875" />
+        <EntityTypeShape EntityType="KhanposDbModel.ReturnPos" Width="1.5" PointX="4.75" PointY="5.75" />
+        <EntityTypeShape EntityType="KhanposDbModel.ReturnPosDetail" Width="1.5" PointX="6.75" PointY="5.75" />
+        <EntityTypeShape EntityType="KhanposDbModel.Role" Width="1.5" PointX="3" PointY="28.25" />
+        <EntityTypeShape EntityType="KhanposDbModel.Size" Width="1.5" PointX="7.75" PointY="0.75" />
+        <EntityTypeShape EntityType="KhanposDbModel.Store" Width="1.5" PointX="3" PointY="32.875" />
+        <EntityTypeShape EntityType="KhanposDbModel.SupplierPayment" Width="1.5" PointX="5.25" PointY="1.5" />
+        <EntityTypeShape EntityType="KhanposDbModel.Supplier" Width="1.5" PointX="0.75" PointY="1" />
+        <EntityTypeShape EntityType="KhanposDbModel.SuppliersDebt" Width="1.5" PointX="3" PointY="1.5" />
+        <EntityTypeShape EntityType="KhanposDbModel.TaxType" Width="1.5" PointX="8.25" PointY="27.5" />
+        <EntityTypeShape EntityType="KhanposDbModel.TerminalIncomesAndExpens" Width="1.5" PointX="0.75" PointY="8.75" />
+        <EntityTypeShape EntityType="KhanposDbModel.Terminal" Width="1.5" PointX="7.5" PointY="32.75" />
+        <EntityTypeShape EntityType="KhanposDbModel.UnitType" Width="1.5" PointX="8.25" PointY="30.25" />
+        <EntityTypeShape EntityType="KhanposDbModel.User" Width="1.5" PointX="5.25" PointY="31.75" />
+        <EntityTypeShape EntityType="KhanposDbModel.Warehouse" Width="1.5" PointX="0.75" PointY="17.625" />
+        <EntityTypeShape EntityType="KhanposDbModel.view_InvoiceRollbackList" Width="1.5" PointX="8.75" PointY="3.75" />
+        <AssociationConnector Association="KhanposDbModel.FK_Products_Category" />
+        <AssociationConnector Association="KhanposDbModel.FK_CustomerGroups_Users" />
+        <AssociationConnector Association="KhanposDbModel.FK_Customers_CustomerGroups" />
+        <AssociationConnector Association="KhanposDbModel.FK_CustomerPayments_CustomersDebts" />
+        <AssociationConnector Association="KhanposDbModel.FK_CustomerDebts_Customer" />
+        <AssociationConnector Association="KhanposDbModel.FK_Customers_Users" />
+        <AssociationConnector Association="KhanposDbModel.FK_InvoiceDetails_Invoices" />
+        <AssociationConnector Association="KhanposDbModel.FK_InvoiceRollbackDetails_InvoiceRollbacks" />
+        <AssociationConnector Association="KhanposDbModel.FK_InvoiceRollbacks_Invoices" />
+        <AssociationConnector Association="KhanposDbModel.FK_InvoiceRollbacks_PaymentTypes" />
+        <AssociationConnector Association="KhanposDbModel.FK_InvoiceRollbacks_Users" />
+        <AssociationConnector Association="KhanposDbModel.FK_InvoiceRollbacks_Warehouses" />
+        <AssociationConnector Association="KhanposDbModel.FK_Invoices_PaymentTypes" />
+        <AssociationConnector Association="KhanposDbModel.FK_Invoices_Users" />
+        <AssociationConnector Association="KhanposDbModel.FK_Invoices_Warehouses" />
+        <AssociationConnector Association="KhanposDbModel.FK__Logs__UserID__6477ECF3" />
+        <AssociationConnector Association="KhanposDbModel.FK_Products_TaxType" />
+        <AssociationConnector Association="KhanposDbModel.FK_Products_UnitType" />
+        <AssociationConnector Association="KhanposDbModel.FK_Products_Users" />
+        <AssociationConnector Association="KhanposDbModel.FK_Users_RoleID" />
+        <AssociationConnector Association="KhanposDbModel.FK_Stores_Warehouses" />
+        <AssociationConnector Association="KhanposDbModel.FK_Terminals_Stores" />
+        <AssociationConnector Association="KhanposDbModel.FK_Users_Stores" />
+        <AssociationConnector Association="KhanposDbModel.FK_SupplierPayments_SuppliersDebts" />
+        <AssociationConnector Association="KhanposDbModel.FK_SupplierDebts_Supplier" />
+        <AssociationConnector Association="KhanposDbModel.FK_Terminals_To_User" />
+        <EntityTypeShape EntityType="KhanposDbModel.PosSaleItem" Width="1.5" PointX="17.25" PointY="30.625" />
+        <EntityTypeShape EntityType="KhanposDbModel.PosSale" Width="1.5" PointX="15" PointY="29.625" />
+        <AssociationConnector Association="KhanposDbModel.FK_PosSales_Customer" />
+        <AssociationConnector Association="KhanposDbModel.FK_PosSaleItems_PosSales" />
+        <AssociationConnector Association="KhanposDbModel.FK_PosSales_User" />
+      </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
 </edmx:Edmx>

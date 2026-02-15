@@ -1,6 +1,7 @@
 ﻿using Barcode_Sales.Operations.Abstract;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
@@ -10,65 +11,114 @@ namespace Barcode_Sales.Operations.Concrete
 {
     internal class CloseShiftManager : ICloseShiftOperation
     {
-        NextposDBEntities db = new NextposDBEntities();
+        KhanposDbEntities db = new KhanposDbEntities();
 
-        public bool Add(CloseShiftReport item)
+        public async Task<int> Add(CloseShiftReport item)
         {
             try
             {
-                db.CloseShiftReports.Add(item);
-                db.SaveChanges();
-                return true;
+                db.Set<CloseShiftReport>().Add(item);
+                await db.SaveChangesAsync();
+                return item.Id;
             }
-            catch (Exception)
+            catch
+            {
+                return 0;
+            }
+        }
+
+        public async Task<bool> Add(List<CloseShiftReport> items)
+        {
+            if (items == null || items.Count == 0)
+                return false;
+
+
+            try
+            {
+                db.Set<CloseShiftReport>().AddRange(items);
+                return await db.SaveChangesAsync() > 0;
+            }
+            catch
             {
                 return false;
             }
         }
 
-        public Task AddAsync(CloseShiftReport item)
+        public async Task<bool> Update(CloseShiftReport item, params Expression<Func<CloseShiftReport, object>>[] updateProperties)
         {
-            throw new NotImplementedException();
+            try
+            {
+                db.Set<CloseShiftReport>().Attach(item);
+
+                foreach (var property in updateProperties)
+                    db.Entry(item).Property(property).IsModified = true;
+
+                return await db.SaveChangesAsync() > 0;
+            }
+            catch
+            {
+                return false;
+            }
         }
 
-        public CloseShiftReport GetById(int id)
+        public async Task<bool> Update(List<CloseShiftReport> items, params Expression<Func<CloseShiftReport, object>>[] updateProperties)
         {
-            throw new NotImplementedException();
+            if (items == null || items.Count == 0)
+                return false;
+
+            using (var transaction = db.Database.BeginTransaction())
+            {
+                try
+                {
+                    foreach (var entity in items)
+                    {
+                        db.Set<CloseShiftReport>().Attach(entity);
+
+                        foreach (var property in updateProperties)
+                            db.Entry(entity).Property(property).IsModified = true;
+                    }
+
+                    await db.SaveChangesAsync();
+                    transaction.Commit();
+                    return true;
+                }
+                catch
+                {
+                    transaction.Rollback();
+                    return false;
+                }
+            }
         }
 
-        public Task<CloseShiftReport> GetByIdAsync(int id)
+        public async Task<bool> Remove(CloseShiftReport item)
         {
-            throw new NotImplementedException();
+            try
+            {
+                db.Set<CloseShiftReport>().Remove(item);
+                return await db.SaveChangesAsync() > 0;
+            }
+            catch
+            {
+                return false;
+            }
         }
 
-        public void Remove(CloseShiftReport item)
+        public async Task<CloseShiftReport> Get(Expression<Func<CloseShiftReport, bool>> expression)
         {
-            throw new NotImplementedException();
-        }
-
-        public Task RemoveAsync(CloseShiftReport item)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Update(CloseShiftReport item)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task UpdateAsync(CloseShiftReport item)
-        {
-            throw new NotImplementedException();
+            return await db.CloseShiftReports.FirstOrDefaultAsync(expression);
         }
 
         public IQueryable<CloseShiftReport> Where(Expression<Func<CloseShiftReport, bool>> expression)
         {
-            throw new NotImplementedException();
+            return db.CloseShiftReports.Where(expression);
         }
 
-        public Task<List<CloseShiftReport>> WhereAsync(Expression<Func<CloseShiftReport, bool>> expression = null)
+        public async Task<List<CloseShiftReport>> ToListAsync(Expression<Func<CloseShiftReport, bool>> expression = null)
         {
-            throw new NotImplementedException();
+            if (expression is null)
+                return await db.CloseShiftReports.AsNoTracking().ToListAsync();
+            else
+                return await db.CloseShiftReports.AsNoTracking().Where(expression).ToListAsync();
         }
     }
 }

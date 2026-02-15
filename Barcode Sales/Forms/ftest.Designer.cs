@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ftest));
             this.behaviorManager1 = new DevExpress.Utils.Behaviors.BehaviorManager(this.components);
             this.tSearch = new DevExpress.XtraEditors.SearchLookUpEdit();
             this.searchView = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -80,6 +81,7 @@
             this.gridColumn44 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn45 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemCheckEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
+            this.htmlContentControl2 = new DevExpress.XtraEditors.HtmlContentControl();
             ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tSearch.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchView)).BeginInit();
@@ -100,13 +102,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridControlCustomers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridCustomers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.htmlContentControl2)).BeginInit();
             this.SuspendLayout();
             // 
             // tSearch
             // 
             this.tSearch.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tSearch.Location = new System.Drawing.Point(10, 10);
+            this.tSearch.Location = new System.Drawing.Point(10, 8);
             this.tSearch.Margin = new System.Windows.Forms.Padding(1);
             this.tSearch.Name = "tSearch";
             this.tSearch.Properties.AllowButtonNavigation = DevExpress.Utils.DefaultBoolean.False;
@@ -123,7 +126,7 @@
             this.tSearch.Properties.PopupView = this.searchView;
             this.tSearch.Properties.ShowClearButton = false;
             this.tSearch.Properties.ShowFooter = false;
-            this.tSearch.Size = new System.Drawing.Size(1266, 32);
+            this.tSearch.Size = new System.Drawing.Size(1373, 32);
             this.tSearch.TabIndex = 18;
             this.tSearch.EditValueChanged += new System.EventHandler(this.tSearch_EditValueChanged);
             // 
@@ -134,6 +137,7 @@
             this.gridColumn2,
             this.gridColumn3,
             this.gridColumn4});
+            this.searchView.DetailHeight = 272;
             this.searchView.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
             this.searchView.Name = "searchView";
             this.searchView.OptionsMenu.EnableColumnMenu = false;
@@ -197,8 +201,8 @@
             this.gridControlBasket.AllowRestoreSelectionAndFocusedRow = DevExpress.Utils.DefaultBoolean.False;
             this.gridControlBasket.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.gridControlBasket.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4);
-            this.gridControlBasket.Location = new System.Drawing.Point(10, 472);
+            this.gridControlBasket.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.gridControlBasket.Location = new System.Drawing.Point(10, 503);
             this.gridControlBasket.LookAndFeel.SkinName = "WXI";
             this.gridControlBasket.LookAndFeel.UseDefaultLookAndFeel = false;
             this.gridControlBasket.MainView = this.gridProducts;
@@ -206,7 +210,7 @@
             this.gridControlBasket.Name = "gridControlBasket";
             this.gridControlBasket.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.chCustomerStatus});
-            this.gridControlBasket.Size = new System.Drawing.Size(1266, 280);
+            this.gridControlBasket.Size = new System.Drawing.Size(1373, 218);
             this.gridControlBasket.TabIndex = 19;
             this.gridControlBasket.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridProducts});
@@ -223,7 +227,7 @@
             this.gridProducts.Appearance.HeaderPanel.Options.UseFont = true;
             this.gridProducts.Appearance.Row.Font = new System.Drawing.Font("Nunito", 12F);
             this.gridProducts.Appearance.Row.Options.UseFont = true;
-            this.gridProducts.ColumnPanelRowHeight = 48;
+            this.gridProducts.ColumnPanelRowHeight = 37;
             this.gridProducts.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.gridColumn6,
             this.gridColumn5,
@@ -233,7 +237,7 @@
             this.colUnit,
             this.colSPrice,
             this.colTotals});
-            this.gridProducts.DetailHeight = 485;
+            this.gridProducts.DetailHeight = 377;
             this.gridProducts.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFullFocus;
             this.gridProducts.GridControl = this.gridControlBasket;
             this.gridProducts.Name = "gridProducts";
@@ -243,7 +247,7 @@
             this.gridProducts.OptionsView.ColumnHeaderAutoHeight = DevExpress.Utils.DefaultBoolean.True;
             this.gridProducts.OptionsView.ShowGroupPanel = false;
             this.gridProducts.OptionsView.ShowIndicator = false;
-            this.gridProducts.RowHeight = 48;
+            this.gridProducts.RowHeight = 37;
             // 
             // gridColumn6
             // 
@@ -417,9 +421,10 @@
             this.tabPane1.Controls.Add(this.pageStock);
             this.tabPane1.Controls.Add(this.tabNavigationPage2);
             this.tabPane1.Controls.Add(this.pageBestSeller);
-            this.tabPane1.Location = new System.Drawing.Point(791, 76);
+            this.tabPane1.Location = new System.Drawing.Point(791, 59);
             this.tabPane1.LookAndFeel.SkinName = "WXI";
             this.tabPane1.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.tabPane1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPane1.Name = "tabPane1";
             this.tabPane1.PageProperties.AppearanceCaption.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
             this.tabPane1.PageProperties.AppearanceCaption.Font = new System.Drawing.Font("Nunito", 12F);
@@ -429,9 +434,9 @@
             this.pageStock,
             this.tabNavigationPage2,
             this.pageBestSeller});
-            this.tabPane1.RegularSize = new System.Drawing.Size(485, 366);
+            this.tabPane1.RegularSize = new System.Drawing.Size(485, 285);
             this.tabPane1.SelectedPage = this.pageStock;
-            this.tabPane1.Size = new System.Drawing.Size(485, 366);
+            this.tabPane1.Size = new System.Drawing.Size(485, 285);
             this.tabPane1.TabIndex = 20;
             this.tabPane1.Text = "tabPane1";
             // 
@@ -439,21 +444,24 @@
             // 
             this.pageStock.Caption = "Anbar qalığı";
             this.pageStock.Controls.Add(this.gridControlDashboardStock);
+            this.pageStock.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pageStock.Name = "pageStock";
-            this.pageStock.Size = new System.Drawing.Size(485, 321);
+            this.pageStock.Size = new System.Drawing.Size(485, 240);
             // 
             // gridControlDashboardStock
             // 
             this.gridControlDashboardStock.AllowRestoreSelectionAndFocusedRow = DevExpress.Utils.DefaultBoolean.False;
             this.gridControlDashboardStock.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridControlDashboardStock.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gridControlDashboardStock.Location = new System.Drawing.Point(0, 0);
             this.gridControlDashboardStock.LookAndFeel.SkinName = "WXI";
             this.gridControlDashboardStock.LookAndFeel.UseDefaultLookAndFeel = false;
             this.gridControlDashboardStock.MainView = this.gridStock;
+            this.gridControlDashboardStock.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gridControlDashboardStock.Name = "gridControlDashboardStock";
             this.gridControlDashboardStock.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemCheckEdit9});
-            this.gridControlDashboardStock.Size = new System.Drawing.Size(485, 321);
+            this.gridControlDashboardStock.Size = new System.Drawing.Size(485, 240);
             this.gridControlDashboardStock.TabIndex = 10;
             this.gridControlDashboardStock.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridStock});
@@ -469,13 +477,14 @@
             this.gridStock.Appearance.OddRow.BackColor = System.Drawing.Color.White;
             this.gridStock.Appearance.OddRow.Options.UseBackColor = true;
             this.gridStock.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.gridStock.ColumnPanelRowHeight = 35;
+            this.gridStock.ColumnPanelRowHeight = 27;
             this.gridStock.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.gridColumn34,
             this.gridColumn35,
             this.gridColumn78,
             this.gridColumn79,
             this.gridColumn82});
+            this.gridStock.DetailHeight = 272;
             this.gridStock.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFullFocus;
             this.gridStock.GridControl = this.gridControlDashboardStock;
             this.gridStock.Name = "gridStock";
@@ -487,7 +496,7 @@
             this.gridStock.OptionsView.ShowGroupPanel = false;
             this.gridStock.OptionsView.ShowIndicator = false;
             this.gridStock.PaintStyleName = "Skin";
-            this.gridStock.RowHeight = 35;
+            this.gridStock.RowHeight = 27;
             // 
             // gridColumn34
             // 
@@ -559,20 +568,23 @@
             // 
             this.tabNavigationPage2.Caption = "Müştərilər";
             this.tabNavigationPage2.Controls.Add(this.gridControlDashboardCustomers);
+            this.tabNavigationPage2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabNavigationPage2.Name = "tabNavigationPage2";
-            this.tabNavigationPage2.Size = new System.Drawing.Size(904, 615);
+            this.tabNavigationPage2.Size = new System.Drawing.Size(904, 478);
             // 
             // gridControlDashboardCustomers
             // 
             this.gridControlDashboardCustomers.AllowRestoreSelectionAndFocusedRow = DevExpress.Utils.DefaultBoolean.False;
             this.gridControlDashboardCustomers.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridControlDashboardCustomers.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gridControlDashboardCustomers.Location = new System.Drawing.Point(0, 0);
             this.gridControlDashboardCustomers.MainView = this.gridView2;
+            this.gridControlDashboardCustomers.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gridControlDashboardCustomers.Name = "gridControlDashboardCustomers";
             this.gridControlDashboardCustomers.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemCheckEdit10,
             this.repositoryItemButtonEdit2});
-            this.gridControlDashboardCustomers.Size = new System.Drawing.Size(904, 615);
+            this.gridControlDashboardCustomers.Size = new System.Drawing.Size(904, 478);
             this.gridControlDashboardCustomers.TabIndex = 11;
             this.gridControlDashboardCustomers.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
@@ -586,13 +598,14 @@
             this.gridView2.Appearance.OddRow.BackColor = System.Drawing.Color.White;
             this.gridView2.Appearance.OddRow.Options.UseBackColor = true;
             this.gridView2.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.gridView2.ColumnPanelRowHeight = 35;
+            this.gridView2.ColumnPanelRowHeight = 27;
             this.gridView2.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.gridColumn83,
             this.gridColumn84,
             this.gridColumn85,
             this.gridColumn86,
             this.gridColumn87});
+            this.gridView2.DetailHeight = 272;
             this.gridView2.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFullFocus;
             this.gridView2.GridControl = this.gridControlDashboardCustomers;
             this.gridView2.Name = "gridView2";
@@ -601,7 +614,7 @@
             this.gridView2.OptionsView.ColumnHeaderAutoHeight = DevExpress.Utils.DefaultBoolean.True;
             this.gridView2.OptionsView.ShowGroupPanel = false;
             this.gridView2.OptionsView.ShowIndicator = false;
-            this.gridView2.RowHeight = 35;
+            this.gridView2.RowHeight = 27;
             // 
             // gridColumn83
             // 
@@ -677,18 +690,21 @@
             // pageBestSeller
             // 
             this.pageBestSeller.Caption = "Ən çox satılanlar";
+            this.pageBestSeller.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pageBestSeller.Name = "pageBestSeller";
-            this.pageBestSeller.Size = new System.Drawing.Size(1275, 701);
+            this.pageBestSeller.Size = new System.Drawing.Size(1275, 545);
             // 
             // gridControlCustomers
             // 
             this.gridControlCustomers.AllowRestoreSelectionAndFocusedRow = DevExpress.Utils.DefaultBoolean.False;
-            this.gridControlCustomers.Location = new System.Drawing.Point(36, 76);
+            this.gridControlCustomers.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.gridControlCustomers.Location = new System.Drawing.Point(36, 59);
             this.gridControlCustomers.MainView = this.gridCustomers;
+            this.gridControlCustomers.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gridControlCustomers.Name = "gridControlCustomers";
             this.gridControlCustomers.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemCheckEdit1});
-            this.gridControlCustomers.Size = new System.Drawing.Size(690, 271);
+            this.gridControlCustomers.Size = new System.Drawing.Size(514, 126);
             this.gridControlCustomers.TabIndex = 21;
             this.gridControlCustomers.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridCustomers});
@@ -699,7 +715,7 @@
             this.gridCustomers.Appearance.EvenRow.Options.UseBackColor = true;
             this.gridCustomers.Appearance.OddRow.BackColor = System.Drawing.Color.White;
             this.gridCustomers.Appearance.OddRow.Options.UseBackColor = true;
-            this.gridCustomers.ColumnPanelRowHeight = 35;
+            this.gridCustomers.ColumnPanelRowHeight = 27;
             this.gridCustomers.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.gridColumn48,
             this.gridColumn39,
@@ -710,6 +726,7 @@
             this.gridColumn73,
             this.gridColumn44,
             this.gridColumn45});
+            this.gridCustomers.DetailHeight = 272;
             this.gridCustomers.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFullFocus;
             this.gridCustomers.GridControl = this.gridControlCustomers;
             this.gridCustomers.Name = "gridCustomers";
@@ -717,7 +734,7 @@
             this.gridCustomers.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.gridCustomers.OptionsView.ColumnHeaderAutoHeight = DevExpress.Utils.DefaultBoolean.True;
             this.gridCustomers.OptionsView.ShowIndicator = false;
-            this.gridCustomers.RowHeight = 35;
+            this.gridCustomers.RowHeight = 27;
             // 
             // gridColumn48
             // 
@@ -895,15 +912,28 @@
             this.repositoryItemCheckEdit1.CheckBoxOptions.SvgImageSize = new System.Drawing.Size(32, 32);
             this.repositoryItemCheckEdit1.Name = "repositoryItemCheckEdit1";
             // 
+            // htmlContentControl2
+            // 
+            this.htmlContentControl2.AutoScroll = false;
+            this.htmlContentControl2.Cursor = System.Windows.Forms.Cursors.Default;
+            this.htmlContentControl2.HtmlTemplate.Styles = resources.GetString("htmlContentControl2.HtmlTemplate.Styles");
+            this.htmlContentControl2.HtmlTemplate.Template = resources.GetString("htmlContentControl2.HtmlTemplate.Template");
+            this.htmlContentControl2.Location = new System.Drawing.Point(135, 214);
+            this.htmlContentControl2.Name = "htmlContentControl2";
+            this.htmlContentControl2.Size = new System.Drawing.Size(650, 130);
+            this.htmlContentControl2.TabIndex = 22;
+            // 
             // ftest
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1288, 780);
+            this.ClientSize = new System.Drawing.Size(1395, 743);
+            this.Controls.Add(this.htmlContentControl2);
             this.Controls.Add(this.gridControlCustomers);
             this.Controls.Add(this.gridControlBasket);
             this.Controls.Add(this.tabPane1);
             this.Controls.Add(this.tSearch);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "ftest";
             this.Text = "ftest";
             this.Load += new System.EventHandler(this.ftest_Load);
@@ -927,6 +957,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridControlCustomers)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridCustomers)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.htmlContentControl2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -983,5 +1014,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn44;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn45;
         private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit repositoryItemCheckEdit1;
+        private DevExpress.XtraEditors.HtmlContentControl htmlContentControl2;
     }
 }

@@ -2,18 +2,20 @@
 using Barcode_Sales.Operations.Abstract;
 using Barcode_Sales.Operations.Concrete;
 using Barcode_Sales.Validations;
+using DevExpress.XtraEditors;
 using System;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace Barcode_Sales.Forms
 {
-    public partial class fSupplier : FormBase
+    public partial class fSupplier : XtraForm
     {
         ISupplierOperation supplierOperation = new SupplierManager();
         private Enums.Operation Operation { get; }
-        private Suppliers Supplier { get; set; }
+        private Supplier Supplier { get; set; }
 
-        public fSupplier(Enums.Operation _operation, Suppliers _suppliers = null)
+        public fSupplier(Enums.Operation _operation, Supplier _suppliers = null)
         {
             InitializeComponent();
             Operation = _operation;
@@ -37,7 +39,7 @@ namespace Barcode_Sales.Forms
                 tName.ReadOnly = true;
                 tVoen.ReadOnly = true;
                 tAddress.ReadOnly = true;
-                tDebt.ReadOnly= true;
+                tDebt.ReadOnly = true;
                 tEmail.ReadOnly = true;
                 tPhone.ReadOnly = true;
                 tBankAccountNumber.ReadOnly = true;
@@ -67,7 +69,7 @@ namespace Barcode_Sales.Forms
 
         void AddSupplier()
         {
-            Supplier = new Suppliers
+            Supplier = new Supplier
             {
                 SupplierName = tName.Text,
                 Voen = tVoen.Text,
@@ -77,20 +79,22 @@ namespace Barcode_Sales.Forms
                 Debt = Convert.ToDouble(tDebt.Text),
                 BankName = tBankName.Text,
                 BankAccountNumber = tBankAccountNumber.Text,
-                BankKOD  = tBankKod.Text,
+                BankKOD = tBankKod.Text,
                 BankVoen = tBankVoen.Text,
                 BankSwift = tBankSwift.Text,
                 Status = true,
                 IsDeleted = 0
             };
-            
+
             var validateResult = ValidationHelpers.ValidateMessage(Supplier, new SupplierValidation(), this);
-            if (!validateResult.IsValid){
+            if (!validateResult.IsValid)
+            {
                 return;
             }
 
-            bool valueUnique = ValidationHelpers.Any<Suppliers>(x => x.SupplierName.ToLower() == Supplier.SupplierName.ToLower());
-            if (valueUnique){
+            bool valueUnique = ValidationHelpers.Any<Supplier>(x => x.SupplierName.ToLower() == Supplier.SupplierName.ToLower());
+            if (valueUnique)
+            {
                 NotificationHelpers.Messages.WarningMessage(this, $"{Supplier.SupplierName} təchizatçısı sistemdə mövcuddur");
                 return;
             }
@@ -133,7 +137,7 @@ namespace Barcode_Sales.Forms
             tEmail.Text = Supplier.Email;
             tBankName.Text = Supplier.BankName;
             tBankKod.Text = Supplier.BankKOD;
-            tBankAccountNumber.Text  = Supplier.BankAccountNumber;
+            tBankAccountNumber.Text = Supplier.BankAccountNumber;
             tBankVoen.Text = Supplier.BankVoen;
             tBankSwift.Text = Supplier.BankSwift;
         }
@@ -158,12 +162,20 @@ namespace Barcode_Sales.Forms
             Close();
         }
 
-        private void bDelete_Click(object sender, EventArgs e)
+        private async void bDelete_Click(object sender, EventArgs e)
         {
-            var data = supplierOperation.GetById(Supplier.Id);
-            supplierOperation.Remove(data);
-            NotificationHelpers.Messages.SuccessMessage(this,$"{data.SupplierName} təchizatçısı uğurla silindi");
-            Close();
+            var supplier = await supplierOperation.Get(x => x.Id == Supplier.Id);
+
+            var args = NotificationHelpers.Dialogs.DialogResultYesNo($"{supplier.SupplierName} təchizatçısını silmək istədiyinizə əminsiniz ?");
+            var result = XtraMessageBox.Show(args);
+            if (result is DialogResult.Yes)
+            {
+                supplier.IsDeleted = supplier.Id;
+                await supplierOperation.Update(supplier, x => x.IsDeleted);
+
+                NotificationHelpers.Messages.SuccessMessage(this, $"{supplier.SupplierName} təchizatçısı uğurla silindi");
+                Close();
+            }
         }
     }
 }

@@ -11,7 +11,7 @@ namespace Barcode_Sales.Forms
     public partial class fPosPay : DevExpress.XtraEditors.XtraForm
     {
         private SaleData _data;
-        private readonly Terminals _terminals = CommonData.terminal;
+        private readonly Terminal _terminals = CommonData.terminal;
         public fPosPay(SaleData data)
         {
             InitializeComponent();

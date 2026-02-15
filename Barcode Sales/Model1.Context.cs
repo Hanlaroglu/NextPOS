@@ -13,10 +13,10 @@ namespace Barcode_Sales
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class NextposDBEntities : DbContext
+    public partial class KhanposDbEntities : DbContext
     {
-        public NextposDBEntities()
-            : base("name=NextposDBEntities")
+        public KhanposDbEntities()
+            : base("name=KhanposDbEntities")
         {
         }
     
@@ -25,38 +25,36 @@ namespace Barcode_Sales
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Categories> Categories { get; set; }
-        public virtual DbSet<Colors> Colors { get; set; }
-        public virtual DbSet<Logs> Logs { get; set; }
-        public virtual DbSet<Sizes> Sizes { get; set; }
-        public virtual DbSet<Warehouses> Warehouses { get; set; }
-        public virtual DbSet<Suppliers> Suppliers { get; set; }
-        public virtual DbSet<Roles> Roles { get; set; }
-        public virtual DbSet<Company> Company { get; set; }
-        public virtual DbSet<AqtaProducts> AqtaProducts { get; set; }
-        public virtual DbSet<SupplierPayment> SupplierPayments { get; set; }
-        public virtual DbSet<SuppliersDebt> SuppliersDebts { get; set; }
-        public virtual DbSet<CustomerPayment> CustomerPayments { get; set; }
-        public virtual DbSet<CustomersDebt> CustomersDebts { get; set; }
-        public virtual DbSet<SalesData> SalesDatas { get; set; }
-        public virtual DbSet<TerminalIncomesAndExpens> TerminalIncomesAndExpenses { get; set; }
+        public virtual DbSet<Category> Categories { get; set; }
         public virtual DbSet<CloseShiftReport> CloseShiftReports { get; set; }
-        public virtual DbSet<ReturnPos> ReturnPos { get; set; }
-        public virtual DbSet<ReturnPosDetail> ReturnPosDetails { get; set; }
-        public virtual DbSet<TaxType> TaxTypes { get; set; }
-        public virtual DbSet<PaymentType> PaymentTypes { get; set; }
-        public virtual DbSet<Invoice> Invoices { get; set; }
-        public virtual DbSet<UnitType> UnitTypes { get; set; }
+        public virtual DbSet<Color> Colors { get; set; }
+        public virtual DbSet<CustomerGroup> CustomerGroups { get; set; }
+        public virtual DbSet<CustomerPayment> CustomerPayments { get; set; }
+        public virtual DbSet<Customer> Customers { get; set; }
+        public virtual DbSet<CustomersDebt> CustomersDebts { get; set; }
         public virtual DbSet<InvoiceDetail> InvoiceDetails { get; set; }
-        public virtual DbSet<SalesDataDetail> SalesDataDetail { get; set; }
-        public virtual DbSet<Products> Products { get; set; }
         public virtual DbSet<InvoiceRollbackDetail> InvoiceRollbackDetails { get; set; }
         public virtual DbSet<InvoiceRollback> InvoiceRollbacks { get; set; }
-        public virtual DbSet<view_InvoiceRollbackList> view_InvoiceRollbackList { get; set; }
+        public virtual DbSet<Invoice> Invoices { get; set; }
+        public virtual DbSet<Log> Logs { get; set; }
+        public virtual DbSet<PaymentType> PaymentTypes { get; set; }
+        public virtual DbSet<Product> Products { get; set; }
+        public virtual DbSet<ReturnPos> ReturnPos { get; set; }
+        public virtual DbSet<ReturnPosDetail> ReturnPosDetails { get; set; }
+        public virtual DbSet<Role> Roles { get; set; }
+        public virtual DbSet<Size> Sizes { get; set; }
         public virtual DbSet<Store> Stores { get; set; }
-        public virtual DbSet<Terminals> Terminals { get; set; }
-        public virtual DbSet<Users> Users { get; set; }
-        public virtual DbSet<CustomerGroup> CustomerGroups { get; set; }
-        public virtual DbSet<Customer> Customers { get; set; }
+        public virtual DbSet<SupplierPayment> SupplierPayments { get; set; }
+        public virtual DbSet<Supplier> Suppliers { get; set; }
+        public virtual DbSet<SuppliersDebt> SuppliersDebts { get; set; }
+        public virtual DbSet<TaxType> TaxTypes { get; set; }
+        public virtual DbSet<TerminalIncomesAndExpens> TerminalIncomesAndExpenses { get; set; }
+        public virtual DbSet<Terminal> Terminals { get; set; }
+        public virtual DbSet<UnitType> UnitTypes { get; set; }
+        public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<Warehouse> Warehouses { get; set; }
+        public virtual DbSet<view_InvoiceRollbackList> view_InvoiceRollbackList { get; set; }
+        public virtual DbSet<PosSaleItem> PosSaleItems { get; set; }
+        public virtual DbSet<PosSale> PosSales { get; set; }
     }
 }

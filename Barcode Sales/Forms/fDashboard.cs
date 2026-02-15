@@ -2,6 +2,7 @@
 using Barcode_Sales.Helpers;
 using Barcode_Sales.Operations.Abstract;
 using Barcode_Sales.Operations.Concrete;
+using DevExpress.XtraBars.ToolbarForm;
 using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Controls;
 using System;
@@ -27,7 +28,8 @@ namespace Barcode_Sales.Forms
         ICustomerGroupOperation customerGroupOperation = new CustomerGroupManager();
         ISaleDataOperation saleDataOperation = new SalesDataManager();
         IReturnPosOperation returnPosOperation = new ReturnPosManager();
-        ISalesDataDetailOperation salesDataDetailOperation = new SalesDataDetailManager();
+        IPosSaleOperation posSaleOperation = new PosSaleManager();
+        IPosSaleItemOperation posSaleItemOperation = new PosSaleItemManager();
 
         public fDashboard()
         {
@@ -78,21 +80,45 @@ namespace Barcode_Sales.Forms
 
         private async Task CurrentSalesDataAsync()
         {
-            lSalesAmount.Text = await saleDataOperation.CurrentSalesDataAsync();
-            lSalesCount.Text = await saleDataOperation.CurrentSalesCountAsync();
+            var today = DateTime.Today;
+            var tomorrow = today.AddDays(1);
+
+            var query = posSaleOperation.Where(x => x.SaleDate >= today && x.SaleDate < tomorrow);
+
+            var result = await query.GroupBy(x=> 1)
+                .Select(c=> new
+                {
+                    Amount = c.Sum(x=>  (decimal?)x.Total) ??0,
+                    Count = c.Count()
+                })
+                .FirstOrDefaultAsync();
+
+            lSalesAmount.Text = result?.Amount.ToString("C2");
+            lSalesCount.Text = result?.Count.ToString("N0");
         }
 
-        private  void CurrentRefundDataAsync()
+        private void CurrentRefundDataAsync()
         {
-            lRollbackAmount.Text =  returnPosOperation.CurrentAmountTotal().ToString();
+            lRollbackAmount.Text = returnPosOperation.CurrentAmountTotal().ToString();
             lRollbackCount.Text = returnPosOperation.CurrentCountTotal().ToString();
         }
 
         private async Task CurrentPaymentTypeLoadsAsync()
         {
-            var totals = await saleDataOperation.CurrentPaymentTypeDataAsync();
-            lCashAmount.Text = totals.TotalCash.ToString("C2");
-            lCardAmount.Text = totals.TotalCard.ToString("C2");
+            var today = DateTime.Today;
+            var tomorrow = today.AddDays(1);
+
+            var data = await posSaleOperation.Where(x=> x.SaleDate >= today && x.SaleDate < tomorrow)
+                .GroupBy(x=> 1)
+                .Select(c=> new
+                {
+                    TotalCash = c.Sum(x=> (decimal?)x.Cash) ?? 0,
+                    TotalCard = c.Sum(x=> (decimal?)x.Card) ?? 0
+                })
+                .FirstOrDefaultAsync();
+
+            lCashAmount.Text = data?.TotalCash.ToString("C2");
+            lCardAmount.Text = data?.TotalCard.ToString("C2");
         }
 
         private async Task WeeklyEarningLoadAsync()
@@ -168,7 +194,7 @@ namespace Barcode_Sales.Forms
             // Növbəti ayın 1-i (00:00:00)
             DateTime nextMonthStart = monthStart.AddMonths(1);
 
-            using (NextposDBEntities db = new NextposDBEntities())
+            using (KhanposDbEntities db = new KhanposDbEntities())
             {
                 var list = await (
                     from sd in db.SalesDatas
@@ -396,7 +422,8 @@ namespace Barcode_Sales.Forms
             var result = XtraMessageBox.Show(args);
             if (result is DialogResult.Yes)
             {
-                productOperation.Remove(row);
+                row.Status = false;
+                productOperation.Update(row);
                 await ProductDataList();
                 NotificationHelpers.Messages.SuccessMessage(this, $"{row.ProductName} məhsulu uğurla silindi");
             }
@@ -506,7 +533,7 @@ namespace Barcode_Sales.Forms
             var Id = gridCustomers.GetFocusedRowCellValue("Id");
             if (Id != null)
             {
-                var data = await customerOperation.GetByIdAsync((int)Id);
+                var data = await customerOperation.Get(x => x.Id == (int)Id);
                 fAddCustomer f = new fAddCustomer(Enums.Operation.Edit, data);
                 f.FormClosed += async (s, x) =>
                 {
@@ -520,7 +547,7 @@ namespace Barcode_Sales.Forms
         {
             var Id = gridCustomers.GetFocusedRowCellValue("Id");
             if (Id == null) return;
-            var data = await customerOperation.GetByIdAsync((int)Id);
+            var data = await customerOperation.Get(x => x.Id == (int)Id);
 
             var args = NotificationHelpers.Dialogs.DialogResultYesNo(
                 $"{data.NameSurname} müştərisini silmək istədiyinizə əminsiniz ?", String.Empty);
@@ -528,7 +555,7 @@ namespace Barcode_Sales.Forms
 
             if (result is DialogResult.Yes)
             {
-                customerOperation.Remove(data);
+                await customerOperation.Remove(data);
                 await CustomerDataListAsync();
                 NotificationHelpers.Messages.SuccessMessage(this, $"{data.NameSurname} müştərisi uğurla silindi");
             }
@@ -540,7 +567,7 @@ namespace Barcode_Sales.Forms
 
         private async Task CustomerGroupDataListAsync()
         {
-            var data = await customerGroupOperation.WhereAsync(x => x.IsDeleted == false);
+            var data = await customerGroupOperation.ToListAsync(x => x.IsDeleted == false);
             FormHelpers.ControlLoad(data, gridControlCustomerGroups);
         }
 
@@ -567,7 +594,7 @@ namespace Barcode_Sales.Forms
                 $"({row.Name}) qrupunu silmək istədiyinizə əminsiniz ?", String.Empty);
             if (XtraMessageBox.Show(args) == DialogResult.Yes)
             {
-                customerGroupOperation.Remove(row);
+                await customerGroupOperation.Remove(row);
                 NotificationHelpers.Messages.SuccessMessage(this, $"{row.Name} qrupu uğurla silindi");
                 await CustomerGroupDataListAsync();
             }

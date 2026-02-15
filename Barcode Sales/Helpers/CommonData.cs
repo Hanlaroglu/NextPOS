@@ -11,12 +11,12 @@ namespace Barcode_Sales.Helpers
 {
     public static class CommonData
     {
-        public static Terminals terminal;
+        public static Terminal terminal;
 
         public static readonly string DEFAULT_INT_TOSTRING = 0.ToString();
         public static readonly string TODAY_DATE = DateTime.Now.ToString("dd.MM.yyyy");
         public static readonly string DATE_AND_TIME = DateTime.Now.ToString("dd.MM.yyyy HH:mm:ss");
-        public static Users CURRENT_USER;
+        public static User CURRENT_USER;
         public static readonly string TsName = Registry.CurrentUser.OpenSubKey("NGT").GetValue("NKASerialNumber").ToString();
         public static readonly string Address = Registry.CurrentUser.OpenSubKey("NGT").GetValue("Address").ToString();
         public static readonly string CompanyName = Registry.CurrentUser.OpenSubKey("NGT").GetValue("CompanyName").ToString();

@@ -18,8 +18,8 @@ namespace Barcode_Sales.NKA
 {
     public class Sunmi
     {
-        static ISaleDataOperation _saleDataOperation = new SalesDataManager();
-        static ISalesDataDetailOperation _salesDataDetailOperation = new SalesDataDetailManager();
+        static IPosSaleOperation posSaleOperation = new PosSaleManager();
+        static IPosSaleItemOperation posSaleItemOperation = new PosSaleItemManager();
         static ITerminalIncomeAndExpenseOperation incomeAndExpenseOperation = new IncomeAndExpenseManager();
         static fPosSales _form = Application.OpenForms.OfType<fPosSales>().FirstOrDefault();
 
@@ -251,7 +251,7 @@ namespace Barcode_Sales.NKA
             }
         }
 
-        public static bool Sale(SaleClasses.SaleData data)
+        public static async Task<bool> Sale(SaleClasses.SaleData data)
         {
             List<SaleRequest.Item> items = new List<SaleRequest.Item>();
             foreach (var _item in data.Items)
@@ -304,7 +304,7 @@ namespace Barcode_Sales.NKA
                 {
                     NotificationHelpers.Messages.SuccessMessage(_form, $"Satış uğurla tamamlandı");
 
-                    int SaleId = _saleDataOperation.InsertSaleData(new SalesData
+                    int SaleId = await posSaleOperation.Add(new PosSale
                     {
                         UserId = Properties.Settings.Default.UserID,
                         ReceiptNo = responseData.data.number,
@@ -323,17 +323,18 @@ namespace Barcode_Sales.NKA
 
                     if (SaleId != -1)
                     {
-                        List<SalesDataDetail> dataDetails = new List<SalesDataDetail>();
+                        List<PosSaleItem> dataDetails = new List<PosSaleItem>();
 
-                        dataDetails.AddRange(data.Items.Select(x => new SalesDataDetail
+                        dataDetails.AddRange(data.Items.Select(x => new PosSaleItem
                         {
                             ProductId = x.Id,
                             Quantity = x.Amount,
                             SalePrice = x.SalePrice,
                             Discount = x.Discount,
-                            SaleDataId = SaleId,
+                            PosSaleId = SaleId,
                         }));
-                        _salesDataDetailOperation.InsertRangeSalesDataDetail(dataDetails);
+
+                        await posSaleItemOperation.Add(dataDetails);
                     }
 
                     return true;
@@ -397,7 +398,7 @@ namespace Barcode_Sales.NKA
         {
             public class Data
             {
-                public double sum { get; set; } = 0;
+                public decimal sum { get; set; } = 0;
             }
             public Data data { get; set; }
             public string cashierName { get; set; }
@@ -416,7 +417,7 @@ namespace Barcode_Sales.NKA
         public class DepositRequest
         {
             public string documentUUID { get; set; } = Guid.NewGuid().ToString();
-            public double sum { get; set; }
+            public decimal sum { get; set; }
             public string cashierName { get; set; }
             public string currency { get; set; } = "AZN";
         }
@@ -424,7 +425,7 @@ namespace Barcode_Sales.NKA
         public class WithdrawRequest
         {
             public string documentUUID { get; set; } = Guid.NewGuid().ToString();
-            public double sum { get; set; }
+            public decimal sum { get; set; }
             public string cashierName { get; set; }
             public string currency { get; set; } = "AZN";
         }
@@ -432,15 +433,15 @@ namespace Barcode_Sales.NKA
         public class SaleRequest
         {
             public string documentUUID { get; set; } = Guid.NewGuid().ToString();
-            public double cashPayment { get; set; }
-            public double creditPayment { get; set; }
-            public double depositPayment { get; set; }
-            public double cardPayment { get; set; }
-            public double bonusPayment { get; set; }
+            public decimal cashPayment { get; set; }
+            public decimal creditPayment { get; set; }
+            public decimal depositPayment { get; set; }
+            public decimal cardPayment { get; set; }
+            public decimal bonusPayment { get; set; }
             public List<Item> items { get; set; }
             public string clientName { get; set; }
-            public double clientTotalBonus { get; set; }
-            public double clientEarnedBonus { get; set; }
+            public decimal clientTotalBonus { get; set; }
+            public decimal clientEarnedBonus { get; set; }
             public string clientBonusCardNumber { get; set; }
             public string cashierName { get; set; }
             public string note { get; set; } = null;
@@ -450,14 +451,14 @@ namespace Barcode_Sales.NKA
             {
                 public string name { get; set; }
                 public string code { get; set; }
-                public double quantity { get; set; }
-                public double salePrice { get; set; }
-                public double? purchasePrice { get; set; }
+                public decimal quantity { get; set; }
+                public decimal salePrice { get; set; }
+                public decimal? purchasePrice { get; set; }
                 public int codeType { get; set; }
                 public int quantityType { get; set; }
                 public int vatType { get; set; }
                 public string itemUuid { get; set; }
-                public double discountAmount { get; set; }
+                public decimal discountAmount { get; set; }
                 public List<string> markingCodes { get; set; }
             }
         }
@@ -514,7 +515,7 @@ namespace Barcode_Sales.NKA
                 public string document_number { get; set; }
                 public string shift_document_number { get; set; }
                 public string short_document_id { get; set; }
-                //public double totalSum { get; set; }
+                //public decimal totalSum { get; set; }
             }
         }
 
@@ -527,7 +528,7 @@ namespace Barcode_Sales.NKA
                 public string document_number { get; set; }
                 public string shift_document_number { get; set; }
                 public string short_document_id { get; set; }
-                //public double totalSum { get; set; }
+                //public decimal totalSum { get; set; }
             }
         }
 
@@ -543,7 +544,7 @@ namespace Barcode_Sales.NKA
                 public string rrn { get; set; }
                 public int shift_document_number { get; set; }
                 public string short_document_id { get; set; }
-                public double totalSum { get; set; }
+                public decimal totalSum { get; set; }
                 public string transaction_id { get; set; }
                 public string transaction_number { get; set; }
             }

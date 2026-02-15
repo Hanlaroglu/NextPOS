@@ -17,8 +17,8 @@ namespace Barcode_Sales
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Store()
         {
-            this.Terminals = new HashSet<Terminals>();
-            this.Users = new HashSet<Users>();
+            this.Terminals = new HashSet<Terminal>();
+            this.Users = new HashSet<User>();
         }
     
         public int Id { get; set; }
@@ -27,10 +27,10 @@ namespace Barcode_Sales
         public bool Status { get; set; }
         public bool IsDeleted { get; set; }
     
-        public virtual Warehouses Warehouse { get; set; }
+        public virtual Warehouse Warehouse { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Terminals> Terminals { get; set; }
+        public virtual ICollection<Terminal> Terminals { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Users> Users { get; set; }
+        public virtual ICollection<User> Users { get; set; }
     }
 }

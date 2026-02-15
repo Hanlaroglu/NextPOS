@@ -23,10 +23,10 @@ namespace Barcode_Sales.Forms
 
 
         private Enums.Operation Operation { get; }
-        private Products Product { get; set; }
+        private Product Product { get; set; }
         private BindingList<ProductInvoiceDto> dataList = new BindingList<ProductInvoiceDto>();
 
-        public fAddProduct(Enums.Operation _operation, Products _product = null)
+        public fAddProduct(Enums.Operation _operation, Product _product = null)
         {
             InitializeComponent();
             Operation = _operation;
@@ -50,7 +50,6 @@ namespace Barcode_Sales.Forms
             ClearProduct();
             await UnitDataLoad();
             await TaxDataLoad();
-            await SupplierDataLoad();
             await CategoryDataLoad();
             gridControlProducts.DataSource = dataList;
             gridProducts.RowCountChanged += (s, x) =>
@@ -81,15 +80,9 @@ namespace Barcode_Sales.Forms
             FormHelpers.ControlLoad(data, lookTax);
         }
 
-        private async Task SupplierDataLoad()
-        {
-            var data = await supplierOperation.WhereAsync(x => x.IsDeleted == 0);
-            FormHelpers.ControlLoad(data, lookSuppliers, "SupplierName");
-        }
-
         private async Task CategoryDataLoad()
         {
-            var data = await categoryOperation.WhereAsync(x => x.IsDeleted == 0 && x.Status == true);
+            var data = await categoryOperation.ToListAsync(x => x.IsDeleted == 0 && x.Status == true);
             FormHelpers.ControlLoad(data, lookCategory, "CategoryName");
         }
 
@@ -121,9 +114,8 @@ namespace Barcode_Sales.Forms
 
         private async Task AddProduct()
         {
-            Product = new Products();
-            Product.Type = (byte)Enums.ProductType.Product;
-            Product.SupplierId = lookSuppliers.EditValue == null ? 0 : (int)lookSuppliers.EditValue;
+            Product = new Product();
+            Product.Type  = (byte)Enums.ProductType.Product;
             Product.ProductName = tProductName.Text.Trim();
             Product.CategoryId = lookCategory.EditValue == null ? 0 : (int)lookCategory.EditValue;
             Product.Barcode = tBarcode.Text.Trim();
@@ -152,7 +144,7 @@ namespace Barcode_Sales.Forms
                 return;
             }
 
-            var productId = productOperation.AddProduct(Product);
+            var productId = await productOperation.Add(Product);
             ProductAddGrid(productId);
             ClearProduct();
         }
@@ -163,7 +155,6 @@ namespace Barcode_Sales.Forms
             ProductInvoiceDto grid = new ProductInvoiceDto();
             //grid.No = rowNo;
             grid.Id = productId;
-            grid.SupplierName = lookSuppliers.Text;
             grid.Category = lookCategory.Text;
             grid.ProductName = tProductName.Text.Trim();
             grid.Barcode = tBarcode.Text.Trim();
@@ -212,10 +203,10 @@ namespace Barcode_Sales.Forms
         private void bAddSupplier_Click(object sender, EventArgs e)
         {
             fSupplier f = new fSupplier(Enums.Operation.Add, null);
-            f.FormClosed += async (s, args) =>
-            {
-                await SupplierDataLoad();
-            };
+            //f.FormClosed += async (s, args) =>
+            //{
+            //    await SupplierDataLoad();
+            //};
             f.ShowDialog();
         }
 

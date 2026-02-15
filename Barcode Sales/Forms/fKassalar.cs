@@ -18,7 +18,7 @@ namespace Barcode_Sales.Forms
     {
         IUserOperation userOperation = new UserManager();
         ITerminalOperation terminalOperation = new TerminalManager();
-        private Terminals _terminal { get; set; }
+        private Terminal _terminal { get; set; }
 
         public fKassalar()
         {
@@ -88,14 +88,14 @@ namespace Barcode_Sales.Forms
 
         private void Add()
         {
-       
+
 
 
             int? userId = (int?)lookUser.EditValue;
 
             var ipAdress = $"{tIpAdress.Text.TrimStart().Trim()}:{tPort.Text.TrimStart().Trim()}";
 
-            _terminal = new Terminals()
+            _terminal = new Terminal()
             {
                 Name = lookKassa.Text,
                 IpAddress = ipAdress,
@@ -138,7 +138,11 @@ namespace Barcode_Sales.Forms
                 return;
             }
 
-            await terminalOperation.UpdateAsync(_terminal);
+            await terminalOperation.Update(_terminal,
+                x => x.Name,
+                x => x.UserId,
+                x => x.MerchantId,
+                x => x.IpAddress);
             bSave.Text = Enums.GetEnumDescription(Enums.Operation.Add);
             Clear();
         }
@@ -159,7 +163,7 @@ namespace Barcode_Sales.Forms
             {
 
                 Cursor.Current = Cursors.WaitCursor;
-                var data = await terminalOperation.WhereAsync();
+                var data = await terminalOperation.ToListAsync();
 
                 gridControl1.Invoke(new Action(() => FormHelpers.ControlLoad(data, gridControl1)));
             }
@@ -173,7 +177,7 @@ namespace Barcode_Sales.Forms
             }
         }
 
-        private void bEdit_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        private async void bEdit_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
             if (gridView1.GetFocusedRow() == null)
             {
@@ -183,11 +187,11 @@ namespace Barcode_Sales.Forms
             else
             {
                 int Id = Convert.ToInt32(gridView1.GetFocusedRowCellValue("Id").ToString());
-                var item = terminalOperation.GetById(Id);
-                _terminal = item;
+                var terminal = await terminalOperation.Get(x => x.Id == Id);
+                _terminal = terminal;
 
 
-                KassaOperator kassa = (KassaOperator)Enum.Parse(typeof(KassaOperator), item.Name);
+                KassaOperator kassa = (KassaOperator)Enum.Parse(typeof(KassaOperator), terminal.Name);
 
                 lookKassa.EditValue = kassa;
                 lookUser.EditValue = _terminal.UserId;
@@ -235,8 +239,10 @@ namespace Barcode_Sales.Forms
             else
             {
                 int Id = Convert.ToInt32(gridView1.GetFocusedRowCellValue("Id").ToString());
-                var item = terminalOperation.GetById(Id);
-                terminalOperation.Remove(item);
+                var terminal = await terminalOperation.Get(x => x.Id == Id);
+                terminal.IsDeleted = terminal.Id;
+
+                await terminalOperation.Update(terminal, x => x.IsDeleted);
                 await TerminalsDataLoad();
             }
         }

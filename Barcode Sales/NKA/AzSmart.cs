@@ -25,6 +25,8 @@ namespace Barcode_Sales.NKA
     public class AzSmart
     {
         private static readonly RestClient _restClient = new RestClient();
+        static IPosSaleOperation posSaleOperation = new PosSaleManager();
+        static IPosSaleItemOperation posSaleItemOperation = new PosSaleItemManager();
         static ISaleDataOperation _saleDataOperation = new SalesDataManager();
         static ISalesDataDetailOperation _salesDataDetailOperation = new SalesDataDetailManager();
         static IReturnPosOperation _returnPosOperation = new ReturnPosManager();
@@ -155,7 +157,7 @@ namespace Barcode_Sales.NKA
             return false;
         }
 
-        public static bool Sale(SaleClasses.SaleData _data)
+        public static async bool Sale(SaleClasses.SaleData _data)
         {
             List<RequestSale.Item> items = new List<RequestSale.Item>();
             foreach (var _item in _data.Items)
@@ -227,7 +229,7 @@ namespace Barcode_Sales.NKA
                 {
                     NotificationHelpers.Messages.SuccessMessage(_form, $"Satış uğurla tamamlandı");
 
-                    int SaleId = _saleDataOperation.InsertSaleData(new SalesData
+                    int SaleId = await posSaleOperation.Add(new PosSale
                     {
                         UserId = CommonData.CURRENT_USER.Id,
                         ReceiptNo = responseData.fiscalNum,
@@ -245,19 +247,21 @@ namespace Barcode_Sales.NKA
 
                     if (SaleId != -1)
                     {
-                        List<SalesDataDetail> dataDetails = new List<SalesDataDetail>();
+                        List<PosSaleItem> dataDetails = new List<PosSaleItem>();
 
-                        dataDetails.AddRange(_data.Items.Select(x => new SalesDataDetail
+                        dataDetails.AddRange(_data.Items.Select(x => new PosSaleItem
                         {
                             ProductId = x.Id,
                             Quantity = x.Amount,
                             SalePrice = x.SalePrice,
                             Discount = x.Discount,
-                            SaleDataId = SaleId,
+                            PosSaleId = SaleId,
                         }));
-                        _salesDataDetailOperation.InsertRangeSalesDataDetail(dataDetails);
+
+                        if (await posSaleItemOperation.Add(dataDetails))
+                            return true;
                     }
-                    return true;
+                    return false;
                 }
                 else
                 {
@@ -346,7 +350,7 @@ namespace Barcode_Sales.NKA
                     {
                         SaleDataId = _data.SaleDataId,
                         LongFiscalId = response.fiscalID,
-                        ShortFiscalId = response.fiscalID.Substring(0,12),
+                        ShortFiscalId = response.fiscalID.Substring(0, 12),
                         ReceiptNo = response.fiscalNum.ToString(),
                         Note = _data.Note,
                         ReturnDate = DateTime.Now,

@@ -1,7 +1,6 @@
 ﻿namespace Barcode_Sales.Operations.Abstract
 {
-    public interface ICategoryOperation : IBaseOperation<Categories>
+    public interface ICategoryOperation : IBaseOperation<Category>
     {
-        void StatusUpdate(Categories item);
     }
 }

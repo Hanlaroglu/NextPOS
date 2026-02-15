@@ -1,6 +1,5 @@
 ﻿using Barcode_Sales.Forms;
 using Barcode_Sales.Helpers;
-using Barcode_Sales.Helpers.Messages;
 using Barcode_Sales.Operations.Abstract;
 using System;
 using System.Collections.Generic;
@@ -15,89 +14,119 @@ namespace Barcode_Sales.Operations.Concrete
 {
     public class TerminalManager : ITerminalOperation
     {
-        NextposDBEntities db = new NextposDBEntities();
-        public bool Add(Terminals item)
+        KhanposDbEntities db = new KhanposDbEntities();
+
+        public async Task<int> Add(Terminal item)
         {
             try
             {
-                db.Terminals.Add(item);
-                db.SaveChanges();
-                return true;
+                db.Set<Terminal>().Add(item);
+                await db.SaveChangesAsync();
+                return item.Id;
             }
-            catch (Exception)
+            catch
+            {
+                return 0;
+            }
+        }
+
+        public async Task<bool> Add(List<Terminal> items)
+        {
+            if (items == null || items.Count == 0)
+                return false;
+
+
+            try
+            {
+                db.Set<Terminal>().AddRange(items);
+                return await db.SaveChangesAsync() > 0;
+            }
+            catch
             {
                 return false;
             }
         }
 
-        public async Task AddAsync(Terminals item)
+        public async Task<Terminal> Get(Expression<Func<Terminal, bool>> expression)
         {
-            db.Terminals.Add(item);
-            await db.SaveChangesAsync();
+            return await db.Terminals.FirstOrDefaultAsync(expression);
         }
 
-        public Terminals GetById(int id)
+        public async Task<bool> Update(Terminal item, params Expression<Func<Terminal, object>>[] updateProperties)
         {
-            return db.Terminals.FirstOrDefault(x => x.Id == id);
-        }
-
-        public async Task<Terminals> GetByIdAsync(int id)
-        {
-            return await db.Terminals.AsNoTracking().FirstOrDefaultAsync(x => x.Id == id);
-        }
-
-        public void Remove(Terminals item)
-        {
-            item.IsDeleted = item.Id;
-            db.SaveChanges();
-        }
-
-        public async Task RemoveAsync(Terminals item)
-        {
-            if (CommonMessageBox.QuestionDialogResult($"{item.Name} kassasını silmək istədiyinizə əminsiniz ?"))
+            try
             {
-                var data = await db.Terminals.FindAsync(item.Id);
-                data.IsDeleted = data.Id;
-                await db.SaveChangesAsync();
+                db.Set<Terminal>().Attach(item);
+
+                foreach (var property in updateProperties)
+                    db.Entry(item).Property(property).IsModified = true;
+
+                return await db.SaveChangesAsync() > 0;
+            }
+            catch
+            {
+                return false;
             }
         }
 
-        public void Update(Terminals item)
+        public async Task<bool> Update(List<Terminal> items, params Expression<Func<Terminal, object>>[] updateProperties)
         {
-            var existingItem = db.Terminals.Find(item.Id);
-            if (existingItem != null)
+            if (items == null || items.Count == 0)
+                return false;
+
+            using (var transaction = db.Database.BeginTransaction())
             {
-                db.Entry(existingItem).CurrentValues.SetValues(item);
-                db.SaveChanges();
+                try
+                {
+                    foreach (var entity in items)
+                    {
+                        db.Set<Terminal>().Attach(entity);
+
+                        foreach (var property in updateProperties)
+                            db.Entry(entity).Property(property).IsModified = true;
+                    }
+
+                    await db.SaveChangesAsync();
+                    transaction.Commit();
+                    return true;
+                }
+                catch
+                {
+                    transaction.Rollback();
+                    return false;
+                }
             }
         }
 
-        public async Task UpdateAsync(Terminals item)
+        public async Task<bool> Remove(Terminal item)
         {
-            var existingItem = await db.Terminals.FindAsync(item.Id);
-            if (existingItem != null)
+            try
             {
-                db.Entry(existingItem).CurrentValues.SetValues(item);
-                await db.SaveChangesAsync();
+                db.Set<Terminal>().Remove(item);
+                return await db.SaveChangesAsync() > 0;
             }
+            catch { return false; }
         }
 
-        public IQueryable<Terminals> Where(Expression<Func<Terminals, bool>> expression)
+        public IQueryable<Terminal> Where(Expression<Func<Terminal, bool>> expression)
         {
             return db.Terminals.AsNoTracking().Where(expression);
         }
 
-        public async Task<List<Terminals>> WhereAsync(Expression<Func<Terminals, bool>> expression = null)
+        public async Task<List<Terminal>> ToListAsync(Expression<Func<Terminal, bool>> expression = null)
         {
-            expression = expression ?? (x => x.IsDeleted == 0);
-
-            return await db.Terminals.AsNoTracking()
-                                     .Where(expression)
-                                     .ToListAsync()
-                                     .ConfigureAwait(false);
+            if (expression is null)
+                return await db.Terminals.AsNoTracking()
+                                         .Where(x => x.IsDeleted == 0)
+                                         .ToListAsync();
+            else
+                return await db.Terminals.AsNoTracking()
+                                         .Where(x => x.IsDeleted == 0)
+                                         .Where(expression)
+                                         .ToListAsync();
         }
 
-        public Terminals GetIpAddress()
+        public Terminal GetIpAddress()
         {
             var terminal = Where(x => x.UserId == CommonData.CURRENT_USER.Id && x.IsDeleted == 0).FirstOrDefault();
             fPosSales _form = Application.OpenForms.OfType<fPosSales>().FirstOrDefault();
