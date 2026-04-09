@@ -11,9 +11,9 @@ namespace Barcode_Sales.Forms
     {
         IRoleOperation roleOperation = new RoleManager();
         private Enums.Operation Operation { get; }
-        private Roles Role { get; set; }
+        private Role Role { get; set; }
 
-        public fRole(Enums.Operation _operation, Roles _roles)
+        public fRole(Enums.Operation _operation, Role _roles)
         {
             InitializeComponent();
             Operation = _operation;
@@ -66,7 +66,7 @@ namespace Barcode_Sales.Forms
                 return;
             }
 
-            Role = new Roles();
+            Role = new Role();
             Role.RoleName = tRoleName.Text;
             Role.PosSales = chPosSales.Checked;
             Role.PosReturn = chPosReturn.Checked;

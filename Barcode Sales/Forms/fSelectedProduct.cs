@@ -22,7 +22,7 @@ namespace Barcode_Sales.Forms
         /// Anbar seçiminə görə məhsullar filtrələnmir
         /// </summary>
         IProductOperation productOperation = new ProductManager();
-        IAqtaProductsOperation aqtaProductsOperation = new AqtaProductsManager();
+        //IAqtaProductsOperation aqtaProductsOperation = new AqtaProductsManager();
 
         private TParent _parentForm;
         public fSelectedProduct(TParent parentForm)
@@ -33,15 +33,15 @@ namespace Barcode_Sales.Forms
 
         private void ProductDataLoad()
         {
-            if (_parentForm.Name == "fAqtaReport")
-            {
-                gridControlProducts.DataSource = aqtaProductsOperation.WhereAsync(x => x.IsDeleted == 0).Result;
-                gridProducts.Columns["ProductCode"].Visible = false;
-            }
-            else
-            {
-                gridControlProducts.DataSource = productOperation.WhereAsync(x=> x.IsDeleted == 0).Result;
-            }
+            //if (_parentForm.Name == "fAqtaReport")
+            //{
+            //    gridControlProducts.DataSource = aqtaProductsOperation.WhereAsync(x => x.IsDeleted == 0).Result;
+            //    gridProducts.Columns["ProductCode"].Visible = false;
+            //}
+            //else
+            //{
+            //    gridControlProducts.DataSource = productOperation.WhereAsync(x=> x.IsDeleted == 0).Result;
+            //}
         }
 
         private void fSelectedProduct_Load(object sender, EventArgs e)
@@ -61,7 +61,7 @@ namespace Barcode_Sales.Forms
                     object data = null;
                     if (_parentForm.Name == "fAqtaReport")
                     {
-                        data = await aqtaProductsOperation.Get(x => x.Id == Id);
+                        //data = await aqtaProductsOperation.Get(x => x.Id == Id);
                     }
                     else
                     {

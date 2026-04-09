@@ -5,6 +5,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
+using Barcode_Sales.DTOs;
 
 namespace Barcode_Sales.Operations.Concrete
 {
@@ -17,7 +18,7 @@ namespace Barcode_Sales.Operations.Concrete
         {
             try
             {
-                db.Set<Categories>().Add(item);
+                db.Set<Category>().Add(item);
                 await db.SaveChangesAsync();
                 return item.Id;
             }
@@ -35,7 +36,7 @@ namespace Barcode_Sales.Operations.Concrete
 
             try
             {
-                db.Set<Categories>().AddRange(items);
+                db.Set<Category>().AddRange(items);
                 return await db.SaveChangesAsync() > 0;
             }
             catch
@@ -46,22 +47,23 @@ namespace Barcode_Sales.Operations.Concrete
 
         public async Task<Category> Get(Expression<Func<Category, bool>> expression)
         {
-            return await db.Categories.FirstOrDefaultAsync(expression);
+            return await db.Categories.AsNoTracking().FirstOrDefaultAsync(expression);
         }
 
         public async Task<bool> Update(Category item, params Expression<Func<Category, object>>[] updateProperties)
         {
             try
             {
-                db.Set<Categories>().Attach(item);
+                db.Set<Category>().Attach(item);
 
                 foreach (var property in updateProperties)
                     db.Entry(item).Property(property).IsModified = true;
 
                 return await db.SaveChangesAsync() > 0;
             }
-            catch
+            catch (Exception ex)
             {
+                throw ex;
                 return false;
             }
         }
@@ -77,7 +79,7 @@ namespace Barcode_Sales.Operations.Concrete
                 {
                     foreach (var entity in items)
                     {
-                        db.Set<Categories>().Attach(entity);
+                        db.Set<Category>().Attach(entity);
 
                         foreach (var property in updateProperties)
                             db.Entry(entity).Property(property).IsModified = true;
@@ -99,11 +101,15 @@ namespace Barcode_Sales.Operations.Concrete
         {
             try
             {
-                db.Set<Categories>().Remove(item);
-                return await db.SaveChangesAsync() > 0;
+                item.IsDeleted = true;
+
+                var result = await Update(item, x => x.IsDeleted);
+
+                return result;
             }
-            catch
+            catch (Exception ex)
             {
+                throw ex;
                 return false;
             }
         }
@@ -119,6 +125,18 @@ namespace Barcode_Sales.Operations.Concrete
                 return await db.Categories.AsNoTracking().ToListAsync();
             else
                 return await db.Categories.AsNoTracking().Where(expression).OrderBy(x => x.Id).ToListAsync();
+        }
+
+        public async Task<List<CategoryDto>> CategoriesList()
+        {
+            const string query = @"SELECT c.Id,c.CategoryName,c.[Status], c.IsDeleted, COUNT(p.Id) AS ProductsCount FROM Categories c
+LEFT JOIN Products p ON p.CategoryId = c.Id
+WHERE c.IsDeleted = 0
+GROUP BY c.Id,c.CategoryName,c.[Status],c.IsDeleted";
+
+            var data = await db.Database.SqlQuery<CategoryDto>(query).ToListAsync();
+
+            return data;
         }
     }
 }

@@ -9,23 +9,23 @@
         public string ProductName { get; set; }
         public string UnitName { get; set; }
         public string TaxName { get; set; }
-        public double? PurchasePrice { get; set; }
-        public double SalePrice { get; set; }
+        public decimal PurchasePrice { get; set; }
+        public decimal SalePrice { get; set; }
         public string Barcode { get; set; }
-        public double? Stock { get; set; } = 0; //Anbar qalığı
-        public double Quantity { get; set; } = 1;
-        public double TotalPurchaseAmount { get => Quantity * (double)PurchasePrice; }
-        public double TotalSaleAmount { get => Quantity * SalePrice; }
-        private double _percent;
-        public double Percent
+        public decimal? Stock { get; set; } = 0; //Anbar qalığı
+        public decimal Quantity { get; set; } = 1;
+        public decimal TotalPurchaseAmount { get => Quantity * (decimal)PurchasePrice; }
+        public decimal TotalSaleAmount { get => Quantity * SalePrice; }
+        private decimal _percent;
+        public decimal Percent
         {
             get => _percent;
             set
             {
                 _percent = value;
-                SalePrice = (double)PurchasePrice * (1 + (_percent / 100));
+                SalePrice = (decimal)PurchasePrice * (1 + (_percent / 100));
             }
         }
-        public double GainAmount { get => TotalSaleAmount - TotalPurchaseAmount; }
+        public decimal GainAmount { get => TotalSaleAmount - TotalPurchaseAmount; }
     }
 }

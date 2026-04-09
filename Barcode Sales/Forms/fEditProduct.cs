@@ -12,10 +12,10 @@ namespace Barcode_Sales.Forms
         IWarehouseOperation warehouseOperation = new WarehouseManager();
         ITaxTypeOperation taxTypeOperation = new TaxTypeManager();
         IProductOperation productOperation = new ProductManager();
-        private readonly List<Product> _products;
+        private readonly List<Products> _products;
 
 
-        public fEditProduct(List<Product> products)
+        public fEditProduct(List<Products> products)
         {
             InitializeComponent();
             _products = products;
@@ -39,7 +39,7 @@ namespace Barcode_Sales.Forms
                 //product.SupplierId = (int)lookWarehouse.EditValue;
                 product.CategoryId = (int)lookCategory.EditValue;
                 product.TaxId = (int)lookTax.EditValue;
-                product.Status = (bool)lookStatus.EditValue;
+                product.IsActive = (bool)lookStatus.EditValue;
                 productOperation.Update(product);
             }
             Close();
@@ -47,14 +47,14 @@ namespace Barcode_Sales.Forms
 
         private async Task TaxDataLoad()
         {
-            var data = await taxTypeOperation.WhereAsync(null);
+            var data = await taxTypeOperation.ToListAsync();
 
             FormHelpers.ControlLoad(data, lookTax);
         }
 
         private async Task WarehouseDataLoad()
         {
-            var data = await warehouseOperation.WhereAsync();
+            var data = await warehouseOperation.ToListAsync();
 
             FormHelpers.ControlLoad(data, lookWarehouse, "Name", "Id");
         }

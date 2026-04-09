@@ -71,18 +71,18 @@ namespace Barcode_Sales.Forms
             }
         }
 
-        private void Pay()
+        private async void Pay()
         {
             var selectedPaymentType = groupControl1.Controls.OfType<CheckEdit>().FirstOrDefault(x => x.Checked);
 
             SupplierPayment payment = new SupplierPayment();
             payment.SupplierDebtId = _supplierDebt.Id;
             payment.PayDate = (DateTime)tDate.EditValue;
-            payment.DebtPaid = Double.Parse(tMainDebt.Text);
-            payment.TaxPaid = Double.Parse(tTaxDebt.Text);
+            payment.DebtPaid = Decimal.Parse(tMainDebt.Text);
+            payment.TaxPaid = Decimal.Parse(tTaxDebt.Text);
             payment.Comment = tComment.Text;
-            payment.PaymentType = selectedPaymentType.Text;
-            payment.IsDeleted = 0;
+            payment.PaymentTypeId = (int)selectedPaymentType.EditValue;
+            payment.IsDeleted = false;
             payment.LogDate = DateTime.Now;
 
             var validator = ValidationHelpers.ValidateMessage(payment, new SupplierPaymentValidation(), this);
@@ -92,8 +92,8 @@ namespace Barcode_Sales.Forms
                 return;
             }
 
-            bool IsSuccess = supplierPaymentOperation.Add(payment);
-            if (IsSuccess)
+            var IsSuccess = await supplierPaymentOperation.Add(payment);
+            if (IsSuccess > 0)
             {
                 fDashboard form = Application.OpenForms.OfType<fDashboard>().FirstOrDefault();
                 NotificationHelpers.Messages.SuccessMessage(form, "Ödəniş uğurla tamamlandı");
@@ -108,10 +108,10 @@ namespace Barcode_Sales.Forms
         private void SupplierDataLoad()
         {
             groupControl2.Text = $"{_supplierDebt.Supplier.SupplierName} təchizatçısının ümumi yekun borcu";
-            lSupplierTotalDebt.Text = supplierDebtOperation.SupplierTotalDebt(_supplierDebt.SupplierId ?? 0).ToString("C2");
-            tTotal.Text = (_supplierDebt.Debt + _supplierDebt.TaxDebt).Value.ToString();
-            tMainDebt.Text = _supplierDebt.Debt.Value.ToString();
-            tTaxDebt.Text = _supplierDebt.TaxDebt.Value.ToString();
+            lSupplierTotalDebt.Text = supplierDebtOperation.SupplierTotalDebt(_supplierDebt?.SupplierId ?? 0).ToString("C2");
+            tTotal.Text = (_supplierDebt.Debt + _supplierDebt.TaxDebt).ToString();
+            tMainDebt.Text = _supplierDebt.Debt.ToString();
+            tTaxDebt.Text = _supplierDebt.TaxDebt.ToString();
         }
     }
 }

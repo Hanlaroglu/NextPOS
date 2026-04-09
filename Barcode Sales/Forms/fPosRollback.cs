@@ -4,7 +4,6 @@ using Barcode_Sales.Operations.Abstract;
 using Barcode_Sales.Operations.Concrete;
 using Barcode_Sales.Tools;
 using DevExpress.XtraEditors;
-using DevExpress.XtraGrid.Views.Grid;
 using System;
 using System.Drawing;
 using System.Linq;
@@ -15,8 +14,7 @@ namespace Barcode_Sales.Forms
     public partial class fPosRollback : DevExpress.XtraEditors.XtraForm
     {
         private object _data = null;
-        ISaleDataOperation saleDataOperation = new SalesDataManager();
-        IReturnPosOperation returnPosOperation = new ReturnPosManager();
+        IPosSaleOperation posSaleOperation = new PosSaleManager();
         KhanposDbEntities db = new KhanposDbEntities();
         public fPosRollback()
         {

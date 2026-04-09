@@ -255,7 +255,7 @@ namespace Barcode_Sales.Helpers
                 Cursor.Current = Cursors.WaitCursor;
                 if (string.IsNullOrWhiteSpace(ipAddress))
                 {
-                    XtraMessageBox.Show("Kassa ip adresi daxil edilməmiştir", "Xəta", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    XtraMessageBox.Show("IP adresi boşdur", "Xəta", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return null;
                 }
                 using (RestClient client = new RestClient())

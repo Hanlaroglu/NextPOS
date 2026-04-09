@@ -87,7 +87,7 @@ namespace Barcode_Sales
             #endregion [..Licence..]
 
             CultureInfoData();
-            Application.Run(new fAddProductImport());
+            Application.Run(new fLogin());
 
         }
 

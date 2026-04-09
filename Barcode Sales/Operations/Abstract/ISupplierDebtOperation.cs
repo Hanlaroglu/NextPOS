@@ -2,6 +2,6 @@
 {
     public interface ISupplierDebtOperation : IBaseOperation<SuppliersDebt>
     {
-        double SupplierTotalDebt(int supplierId);
+        decimal SupplierTotalDebt(int supplierId);
     }
 }

@@ -21,18 +21,18 @@ namespace Barcode_Sales
         }
     
         public int Id { get; set; }
-        public Nullable<int> IsDeleted { get; set; }
+        public bool IsDeleted { get; set; }
         public string RoleName { get; set; }
-        public Nullable<bool> PosSales { get; set; }
-        public Nullable<bool> PosReturn { get; set; }
-        public Nullable<bool> Bank { get; set; }
-        public Nullable<bool> Reports { get; set; }
-        public Nullable<bool> Settings { get; set; }
-        public Nullable<bool> User { get; set; }
-        public Nullable<bool> Credit { get; set; }
-        public Nullable<bool> MoneyBox { get; set; }
-        public Nullable<bool> Admin { get; set; }
-        public Nullable<bool> Cashier { get; set; }
+        public bool PosSales { get; set; }
+        public bool PosReturn { get; set; }
+        public bool Bank { get; set; }
+        public bool Reports { get; set; }
+        public bool Settings { get; set; }
+        public bool User { get; set; }
+        public bool Credit { get; set; }
+        public bool MoneyBox { get; set; }
+        public bool Admin { get; set; }
+        public bool Cashier { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<User> Users { get; set; }

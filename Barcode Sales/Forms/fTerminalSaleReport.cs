@@ -11,8 +11,9 @@ namespace Barcode_Sales.Forms
 {
     public partial class fTerminalSaleReport : DevExpress.XtraEditors.XtraForm
     {
-        ISaleDataOperation saleDataOperation = new SalesDataManager();
-        ISalesDataDetailOperation salesDataDetailOperation = new SalesDataDetailManager();
+        private IPosSaleOperation posSaleOperation = new PosSaleManager();
+        private IPosSaleItemOperation posSaleItemOperation = new PosSaleItemManager();
+
         private IUserOperation userOperation = new UserManager();
 
         public fTerminalSaleReport()
@@ -39,7 +40,7 @@ namespace Barcode_Sales.Forms
 
         private async Task CashiersLoad()
         {
-            var data = await userOperation.WhereAsync(x => x.IsDeleted == 0);
+            var data = await userOperation.ToListAsync(x => x.IsDeleted == 0);
             FormHelpers.ControlLoad(data, lookCashier, "NameSurname");
         }
 
@@ -62,12 +63,12 @@ namespace Barcode_Sales.Forms
             var data = new List<SaleDataDto>();
             if (chDate.Checked)
             {
-                data = saleDataOperation.Where(x => x.SaleDate >= dateStart.DateTime &&
-                                                        x.SaleDate <= dateEnd.DateTime)
+                data = posSaleOperation.Where(x => x.SaleDate >= dateStart.DateTime &&
+                                                   x.SaleDate <= dateEnd.DateTime)
                     .Select(x => new SaleDataDto()
                     {
                         Id = x.Id,
-                        Cashier = x.Users.NameSurname,
+                        Cashier = x.User.NameSurname,
                         CustomerName = x.Customer.NameSurname,
                         SaleDate = x.SaleDate,
                         SaleDatetime = x.SaleDatetime,
@@ -86,11 +87,11 @@ namespace Barcode_Sales.Forms
             else if (chFiscal.Checked)
             {
                 string fiscal = textEdit1.Text.TrimStart().Trim();
-                data = saleDataOperation.Where(x => x.ShortFiscalId == fiscal)
+                data = posSaleOperation.Where(x => x.ShortFiscalId == fiscal)
                     .Select(x => new SaleDataDto()
                     {
                         Id = x.Id,
-                        Cashier = x.Users.NameSurname,
+                        Cashier = x.User.NameSurname,
                         CustomerName = x.Customer.NameSurname,
                         SaleDate = x.SaleDate,
                         SaleDatetime = x.SaleDatetime,
@@ -109,11 +110,11 @@ namespace Barcode_Sales.Forms
             else if (chReceipt.Checked)
             {
                 string receipt = textEdit1.Text.TrimStart().Trim();
-                data = saleDataOperation.Where(x => x.ReceiptNo == receipt)
+                data = posSaleOperation.Where(x => x.ReceiptNo == receipt)
                     .Select(x => new SaleDataDto()
                     {
                         Id = x.Id,
-                        Cashier = x.Users.NameSurname,
+                        Cashier = x.User.NameSurname,
                         CustomerName = x.Customer.NameSurname,
                         SaleDate = x.SaleDate,
                         SaleDatetime = x.SaleDatetime,
@@ -137,16 +138,16 @@ namespace Barcode_Sales.Forms
             var data = (SaleDataDto)gridView1.GetRow(e.RowHandle);
             if (data != null)
             {
-                var dataSource = salesDataDetailOperation.Where(x => x.SaleDataId == data.Id)
+                var dataSource = posSaleItemOperation.Where(x => x.PosSaleId == data.Id)
                     .Select(x => new SalesDataDetailDto()
                     {
                         Id = x.Id,
-                        SaleDataId = x.SaleDataId,
+                        PosSaleId = x.PosSaleId,
                         ProductId = x.ProductId,
-                        ProductName = x.Products.ProductName,
-                        Barcode = x.Products.Barcode,
-                        Unit = x.Products.UnitTypes.Name,
-                        Tax = x.Products.TaxTypes.Name,
+                        ProductName = x.Product.ProductName,
+                        Barcode = x.Product.Barcode,
+                        Unit = x.Product.UnitTypes.Name,
+                        Tax = x.Product.TaxTypes.Name,
                         Quantity = x.Quantity,
                         SalePrice = x.SalePrice,
                         Discount = x.Discount,
@@ -174,14 +175,14 @@ namespace Barcode_Sales.Forms
                 gridView1.ActiveFilterString = $"Contains([Cashier], '{lookCashier.Text}')";
         }
 
-        private class SaleDataDto : SalesData
+        private class SaleDataDto : PosSale
         {
             public string PaymentType { get; set; }
             public string Cashier { get; set; }
             public string CustomerName { get; set; }
         }
 
-        private class SalesDataDetailDto : SalesDataDetail
+        private class SalesDataDetailDto : PosSaleItem
         {
             public string ProductName { get; set; }
             public string Barcode { get; set; }

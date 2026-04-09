@@ -60,8 +60,8 @@ namespace Barcode_Sales.Forms
 
         private void tCash_Paid_EditValueChanged(object sender, EventArgs e)
         {
-            double Paid = Convert.ToDouble(tCash_Paid.Text);
-            double balance = Paid - _data.Total;
+            decimal Paid = Convert.ToDecimal(tCash_Paid.Text);
+            decimal balance = Paid - _data.Total;
             if (balance > 0)
             {
                 tCash_Balance.Text = balance.ToString("N2");
@@ -96,7 +96,7 @@ namespace Barcode_Sales.Forms
                 _data.IpAddress = _terminals.IpAddress;
                 _data.Cash = _data.Total;
                 _data.Card = 0;
-                _data.IncomingSum = double.Parse(tCash_Paid.Text);
+                _data.IncomingSum = decimal.Parse(tCash_Paid.Text);
 
                 if (_data.IncomingSum < _data.Total)
                 {
@@ -109,16 +109,16 @@ namespace Barcode_Sales.Forms
                 switch (kassa)
                 {
                     case KassaOperator.CASPOS:
-                        if (NKA.Sunmi.Sale(_data))
-                            DialogResult = DialogResult.OK;
+                        //if (NKA.Sunmi.Sale(_data))
+                        //    DialogResult = DialogResult.OK;
                         break;
                     case KassaOperator.OMNITECH:
-                        if (NKA.Omnitech.Sale(_data))
-                            DialogResult = DialogResult.OK;
+                        //if (NKA.Omnitech.Sale(_data))
+                        //    DialogResult = DialogResult.OK;
                         break;
                     case KassaOperator.AZSMART:
-                        if (NKA.AzSmart.Sale(_data))
-                            DialogResult = DialogResult.OK;
+                        //if (NKA.AzSmart.Sale(_data))
+                        //    DialogResult = DialogResult.OK;
                         break;
                     case KassaOperator.NBA:
                         break;
@@ -133,7 +133,7 @@ namespace Barcode_Sales.Forms
         private void CardPaid()
         {
             _data.IpAddress = _terminals.IpAddress;
-            _data.Card = double.Parse(tTotal.Text);
+            _data.Card = decimal.Parse(tTotal.Text);
             _data.Cash = 0;
 
             if (_terminals != null)
@@ -142,16 +142,16 @@ namespace Barcode_Sales.Forms
                 switch (kassa)
                 {
                     case KassaOperator.CASPOS:
-                        if (NKA.Sunmi.Sale(_data))
-                            DialogResult = DialogResult.OK;
+                        //if (NKA.Sunmi.Sale(_data))
+                        //    DialogResult = DialogResult.OK;
                         break;
                     case KassaOperator.OMNITECH:
-                        if (NKA.Omnitech.Sale(_data))
-                            DialogResult = DialogResult.OK;
+                        //if (NKA.Omnitech.Sale(_data))
+                        //    DialogResult = DialogResult.OK;
                         break;
                     case KassaOperator.AZSMART:
-                        if (NKA.AzSmart.Sale(_data))
-                            DialogResult = DialogResult.OK;
+                        //if (NKA.AzSmart.Sale(_data))
+                        //    DialogResult = DialogResult.OK;
                         break;
                     case KassaOperator.NBA:
                         break;
@@ -166,9 +166,9 @@ namespace Barcode_Sales.Forms
         private void CashCardPaid()
         {
             _data.IpAddress = _terminals.IpAddress;
-            _data.Card = double.Parse(tCashCard_Card.Text);
+            _data.Card = decimal.Parse(tCashCard_Card.Text);
             _data.Cash = _data.Total - _data.Card;
-            _data.IncomingSum = double.Parse(tCashCard_Cash.Text);
+            _data.IncomingSum = decimal.Parse(tCashCard_Cash.Text);
 
             if ((_data.IncomingSum + _data.Card) < _data.Total)
             {
@@ -197,16 +197,16 @@ namespace Barcode_Sales.Forms
                 switch (kassa)
                 {
                     case KassaOperator.CASPOS:
-                        if (NKA.Sunmi.Sale(_data))
-                            DialogResult = DialogResult.OK;
+                        //if (NKA.Sunmi.Sale(_data))
+                        //    DialogResult = DialogResult.OK;
                         break;
                     case KassaOperator.OMNITECH:
-                        if (NKA.Omnitech.Sale(_data))
-                            DialogResult = DialogResult.OK;
+                        //if (NKA.Omnitech.Sale(_data))
+                        //    DialogResult = DialogResult.OK;
                         break;
                     case KassaOperator.AZSMART:
-                        if (NKA.AzSmart.Sale(_data))
-                            DialogResult = DialogResult.OK;
+                        //if (NKA.AzSmart.Sale(_data))
+                        //    DialogResult = DialogResult.OK;
                         break;
                     case KassaOperator.NBA:
                         break;

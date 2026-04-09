@@ -1,14 +1,11 @@
-﻿using Barcode_Sales.Helpers.Messages;
-using Barcode_Sales.Operations.Abstract;
+﻿using Barcode_Sales.Operations.Abstract;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Data.Entity;
+using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
-using DevExpress.XtraEditors;
-using System.Windows.Forms;
-using Barcode_Sales.Barcode.Sales.Admin;
+using Barcode_Sales.DTOs;
 
 namespace Barcode_Sales.Operations.Concrete
 {
@@ -49,18 +46,22 @@ namespace Barcode_Sales.Operations.Concrete
 
         public async Task<Supplier> Get(Expression<Func<Supplier, bool>> expression)
         {
-            return await db.Suppliers.FirstOrDefaultAsync(expression);
+            return await db.Suppliers.AsNoTracking().FirstOrDefaultAsync(expression);
         }
 
         public async Task<bool> Remove(Supplier item)
         {
             try
             {
-                db.Set<Supplier>().Remove(item);
-                return await db.SaveChangesAsync() > 0;
+                item.IsDeleted = true;
+
+                var result = await Update(item, x => x.IsDeleted);
+
+                return result;
             }
-            catch
+            catch (Exception ex)
             {
+                throw ex;
                 return false;
             }
         }
@@ -76,8 +77,9 @@ namespace Barcode_Sales.Operations.Concrete
 
                 return await db.SaveChangesAsync() > 0;
             }
-            catch
+            catch (Exception ex)
             {
+                throw ex;
                 return false;
             }
         }

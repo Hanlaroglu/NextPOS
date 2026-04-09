@@ -113,6 +113,16 @@ namespace Barcode_Sales.Properties {
         /// <summary>
         ///   Looks up a localized resource of type DevExpress.Utils.Svg.SvgImage.
         /// </summary>
+        internal static DevExpress.Utils.Svg.SvgImage dots_three_circle_vertical_light {
+            get {
+                object obj = ResourceManager.GetObject("dots-three-circle-vertical-light", resourceCulture);
+                return ((DevExpress.Utils.Svg.SvgImage)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type DevExpress.Utils.Svg.SvgImage.
+        /// </summary>
         internal static DevExpress.Utils.Svg.SvgImage info_fill {
             get {
                 object obj = ResourceManager.GetObject("info-fill", resourceCulture);

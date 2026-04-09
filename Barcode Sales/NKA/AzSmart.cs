@@ -10,15 +10,10 @@ using RestSharp;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Xml.Linq;
-using static Barcode_Sales.Helpers.Classes.RefundClassess;
-using static Barcode_Sales.Helpers.Classes.SaleClasses;
-using static Barcode_Sales.NKA.Sunmi;
 
 namespace Barcode_Sales.NKA
 {
@@ -27,10 +22,6 @@ namespace Barcode_Sales.NKA
         private static readonly RestClient _restClient = new RestClient();
         static IPosSaleOperation posSaleOperation = new PosSaleManager();
         static IPosSaleItemOperation posSaleItemOperation = new PosSaleItemManager();
-        static ISaleDataOperation _saleDataOperation = new SalesDataManager();
-        static ISalesDataDetailOperation _salesDataDetailOperation = new SalesDataDetailManager();
-        static IReturnPosOperation _returnPosOperation = new ReturnPosManager();
-        static IReturnPosDetailOperation _returnPosDetailOperation = new ReturnPosDetailManager();
         static ITerminalIncomeAndExpenseOperation incomeAndExpenseOperation = new IncomeAndExpenseManager();
         static ICloseShiftOperation closeShiftOperation = new CloseShiftManager();
         static fPosSales _form = Application.OpenForms.OfType<fPosSales>().FirstOrDefault();
@@ -157,7 +148,7 @@ namespace Barcode_Sales.NKA
             return false;
         }
 
-        public static async bool Sale(SaleClasses.SaleData _data)
+        public static async Task<bool> Sale(SaleClasses.SaleData _data)
         {
             List<RequestSale.Item> items = new List<RequestSale.Item>();
             foreach (var _item in _data.Items)
@@ -346,37 +337,37 @@ namespace Barcode_Sales.NKA
                     NotificationHelpers.Messages.SuccessMessage(_form, $"{response.fiscalNum} №-li çek uğurla geri qaytarıldı");
 
 
-                    int refundId = _returnPosOperation.InsertReturnData(new ReturnPos
-                    {
-                        SaleDataId = _data.SaleDataId,
-                        LongFiscalId = response.fiscalID,
-                        ShortFiscalId = response.fiscalID.Substring(0, 12),
-                        ReceiptNo = response.fiscalNum.ToString(),
-                        Note = _data.Note,
-                        ReturnDate = DateTime.Now,
-                        ReturnDatetime = DateTime.Now,
-                        UserId = CommonData.CURRENT_USER.Id,
-                        CustomerId = _data.Customer?.Id,
-                        Cash = _data.Cash,
-                        Card = _data.Card,
-                        Total = _data.Total
-                    });
+                    //int refundId = _returnPosOperation.InsertReturnData(new ReturnPos
+                    //{
+                    //    SaleDataId = _data.SaleDataId,
+                    //    LongFiscalId = response.fiscalID,
+                    //    ShortFiscalId = response.fiscalID.Substring(0, 12),
+                    //    ReceiptNo = response.fiscalNum.ToString(),
+                    //    Note = _data.Note,
+                    //    ReturnDate = DateTime.Now,
+                    //    ReturnDatetime = DateTime.Now,
+                    //    UserId = CommonData.CURRENT_USER.Id,
+                    //    CustomerId = _data.Customer?.Id,
+                    //    Cash = _data.Cash,
+                    //    Card = _data.Card,
+                    //    Total = _data.Total
+                    //});
 
-                    if (refundId != -1)
-                    {
-                        List<ReturnPosDetail> dataDetails = new List<ReturnPosDetail>();
+                    //if (refundId != -1)
+                    //{
+                    //    List<ReturnPosDetail> dataDetails = new List<ReturnPosDetail>();
 
-                        dataDetails.AddRange(_data.Items.Select(x => new ReturnPosDetail
-                        {
-                            ProductId = x.Id,
-                            Quantity = x.Amount,
-                            SalePrice = x.SalePrice,
-                            Discount = x.Discount,
-                            ReturnDataId = refundId,
-                        }));
-                        _returnPosDetailOperation.InsertRangeReturnDataDetail(dataDetails);
-                        return true;
-                    }
+                    //    dataDetails.AddRange(_data.Items.Select(x => new ReturnPosDetail
+                    //    {
+                    //        ProductId = x.Id,
+                    //        Quantity = x.Amount,
+                    //        SalePrice = x.SalePrice,
+                    //        Discount = x.Discount,
+                    //        ReturnDataId = refundId,
+                    //    }));
+                    //    _returnPosDetailOperation.InsertRangeReturnDataDetail(dataDetails);
+                    //    return true;
+                    //}
                     return true;
                 }
                 else

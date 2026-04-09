@@ -17,8 +17,8 @@ namespace Barcode_Sales
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public PaymentType()
         {
+            this.SupplierPayments = new HashSet<SupplierPayment>();
             this.InvoiceRollbacks = new HashSet<InvoiceRollback>();
-            this.Invoices = new HashSet<Invoice>();
         }
     
         public int Id { get; set; }
@@ -26,8 +26,8 @@ namespace Barcode_Sales
         public Nullable<int> IsDeleted { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<InvoiceRollback> InvoiceRollbacks { get; set; }
+        public virtual ICollection<SupplierPayment> SupplierPayments { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Invoice> Invoices { get; set; }
+        public virtual ICollection<InvoiceRollback> InvoiceRollbacks { get; set; }
     }
 }

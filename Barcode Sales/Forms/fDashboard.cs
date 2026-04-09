@@ -5,6 +5,7 @@ using Barcode_Sales.Operations.Concrete;
 using DevExpress.XtraBars.ToolbarForm;
 using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Controls;
+using DevExpress.XtraGrid.Columns;
 using System;
 using System.Data;
 using System.Data.Entity;
@@ -26,8 +27,6 @@ namespace Barcode_Sales.Forms
         ICategoryOperation categoryOperation = new CategoryManager();
         ICustomerOperation customerOperation = new CustomerManager();
         ICustomerGroupOperation customerGroupOperation = new CustomerGroupManager();
-        ISaleDataOperation saleDataOperation = new SalesDataManager();
-        IReturnPosOperation returnPosOperation = new ReturnPosManager();
         IPosSaleOperation posSaleOperation = new PosSaleManager();
         IPosSaleItemOperation posSaleItemOperation = new PosSaleItemManager();
 
@@ -40,7 +39,7 @@ namespace Barcode_Sales.Forms
         {
             await WeeklyEarningLoadAsync();
             await Top5SellingProductAsync();
-            await CurrentSalesDataAsync();
+            CurrentSalesDataAsync();
             await CurrentPaymentTypeLoadsAsync();
             CurrentRefundDataAsync();
         }
@@ -62,6 +61,53 @@ namespace Barcode_Sales.Forms
             popupMainMenu.ShowPopup(mousePosition);
         }
 
+        private void bPopupEdit_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            try
+            {
+                if (navigationMenu.SelectedPage == pageWarehouse)
+                    WarehouseEdit();
+                else if (navigationMenu.SelectedPage == pageStore)
+                    StoreEdit();
+                else if (navigationMenu.SelectedPage == pageSupplier)
+                    SupplierEdit();
+                else if (navigationMenu.SelectedPage == pageProduct && tabPane3.SelectedPage == tabCategory)
+                    CategoryEdit();
+                else if (navigationMenu.SelectedPage == pageCustomers)
+                    CustomerEdit();
+                else if (navigationMenu.SelectedPage == pageCustomerGroups)
+                    CustomerGroupEdit();
+            }
+            catch (Exception ex)
+            {
+                NotificationHelpers.Messages.ErrorMessage(this, ex.Message);
+            }
+        }
+
+        private async void bPopupDelete_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            try
+            {
+                if (navigationMenu.SelectedPage == pageWarehouse)
+                    WarehouseDelete();
+                else if (navigationMenu.SelectedPage == pageStore)
+                    StoreDelete();
+                else if (navigationMenu.SelectedPage == pageSupplier)
+                    SupplierDelete();
+                else if (navigationMenu.SelectedPage == pageProduct && tabPane3.SelectedPage == tabCategory)
+                    await CategoryDelete();
+                else if (navigationMenu.SelectedPage == pageCustomers)
+                    await CustomerDelete();
+                else if (navigationMenu.SelectedPage == pageCustomerGroups)
+                    await CustomerGroupDelete();
+
+            }
+            catch (Exception ex)
+            {
+                NotificationHelpers.Messages.ErrorMessage(this, ex.Message);
+            }
+        }
+
         private void bAddProduct_Click(object sender, EventArgs e)
         {
             FormHelpers.OpenForm<fAddProduct>(Enums.Operation.Add, null);
@@ -78,29 +124,32 @@ namespace Barcode_Sales.Forms
 
         #region [.. DASHBOARD ..]
 
-        private async Task CurrentSalesDataAsync()
+        /// <summary>
+        /// Cari satış məbləği
+        /// </summary>
+        private async void CurrentSalesDataAsync()
         {
             var today = DateTime.Today;
             var tomorrow = today.AddDays(1);
 
             var query = posSaleOperation.Where(x => x.SaleDate >= today && x.SaleDate < tomorrow);
 
-            var result = await query.GroupBy(x=> 1)
-                .Select(c=> new
+            var result = await query.GroupBy(x => 1)
+                .Select(c => new
                 {
-                    Amount = c.Sum(x=>  (decimal?)x.Total) ??0,
+                    Amount = c.Sum(x => (decimal?)x.Total) ?? 0,
                     Count = c.Count()
                 })
                 .FirstOrDefaultAsync();
 
-            lSalesAmount.Text = result?.Amount.ToString("C2");
-            lSalesCount.Text = result?.Count.ToString("N0");
+            lSalesAmount.Text = result?.Amount.ToString("C2") ?? 0.ToString("C2");
+            lSalesCount.Text = result?.Count.ToString("N0") ?? "0";
         }
 
         private void CurrentRefundDataAsync()
         {
-            lRollbackAmount.Text = returnPosOperation.CurrentAmountTotal().ToString();
-            lRollbackCount.Text = returnPosOperation.CurrentCountTotal().ToString();
+            //lRollbackAmount.Text = returnPosOperation.CurrentAmountTotal().ToString();
+            //lRollbackCount.Text = returnPosOperation.CurrentCountTotal().ToString();
         }
 
         private async Task CurrentPaymentTypeLoadsAsync()
@@ -108,17 +157,17 @@ namespace Barcode_Sales.Forms
             var today = DateTime.Today;
             var tomorrow = today.AddDays(1);
 
-            var data = await posSaleOperation.Where(x=> x.SaleDate >= today && x.SaleDate < tomorrow)
-                .GroupBy(x=> 1)
-                .Select(c=> new
+            var data = await posSaleOperation.Where(x => x.SaleDate >= today && x.SaleDate < tomorrow)
+                .GroupBy(x => 1)
+                .Select(c => new
                 {
-                    TotalCash = c.Sum(x=> (decimal?)x.Cash) ?? 0,
-                    TotalCard = c.Sum(x=> (decimal?)x.Card) ?? 0
+                    TotalCash = c.Sum(x => (decimal?)x.Cash) ?? 0,
+                    TotalCard = c.Sum(x => (decimal?)x.Card) ?? 0
                 })
                 .FirstOrDefaultAsync();
 
-            lCashAmount.Text = data?.TotalCash.ToString("C2");
-            lCardAmount.Text = data?.TotalCard.ToString("C2");
+            lCashAmount.Text = data?.TotalCash.ToString("C2") ?? 0.ToString("C2");
+            lCardAmount.Text = data?.TotalCard.ToString("C2") ?? 0.ToString("C2");
         }
 
         private async Task WeeklyEarningLoadAsync()
@@ -141,9 +190,7 @@ namespace Barcode_Sales.Forms
                     {
                         Day = Enums.GetEnumDescription(name),
                         Date = day,
-                        TotalGain = saleDataOperation
-                            .Where(x => x.SaleDate.HasValue && DbFunctions.TruncateTime(x.SaleDate) == day)
-                            .Sum(x => x.Total) ?? 0
+                        //TotalGain = posSaleOperation.Where(x => x.SaleDate == day).Sum(x => x.Total),
                     };
                 })
                 .ToList();
@@ -172,9 +219,9 @@ namespace Barcode_Sales.Forms
                     {
                         Day = Enums.GetEnumDescription(name),
                         Date = monthDate,
-                        TotalGain = saleDataOperation
-                            .Where(x => x.SaleDate.Value.Year == monthDate.Year && x.SaleDate.Value.Month == monthDate.Month)
-                            .Sum(x => x.Total) ?? 0
+                        TotalGain = posSaleOperation
+                            .Where(x => x.SaleDate.Year == monthDate.Year && x.SaleDate.Month == monthDate.Month)
+                            .Sum(x => x.Total)
                     };
                 }).ToList();
             });
@@ -197,8 +244,8 @@ namespace Barcode_Sales.Forms
             using (KhanposDbEntities db = new KhanposDbEntities())
             {
                 var list = await (
-                    from sd in db.SalesDatas
-                    join sdd in db.SalesDataDetail on sd.Id equals sdd.SaleDataId
+                    from sd in db.PosSales
+                    join sdd in db.PosSaleItems on sd.Id equals sdd.PosSaleId
                     join p in db.Products on sdd.ProductId equals p.Id
                     where sd.SaleDate >= monthStart
                        && sd.SaleDate < nextMonthStart   // <<< kritik nöqtə
@@ -207,7 +254,7 @@ namespace Barcode_Sales.Forms
                     select new DashboardStatisticsDto
                     {
                         ProductName = g.Key ?? "Adsız",
-                        TotalQuantity = g.Sum(x => x.Quantity) ?? 0
+                        TotalQuantity = g.Sum(x => x.Quantity)
                     }
                 )
                 .Take(5)
@@ -234,7 +281,52 @@ namespace Barcode_Sales.Forms
 
         private void bAddWarehouse_Click(object sender, EventArgs e)
         {
-            FormHelpers.OpenForm<fWarehouse>(Enums.Operation.Add, null);
+            fWarehouse f = new fWarehouse(Enums.Operation.Add, null);
+            f.FormClosed += async (s, x) =>
+            {
+                await WarehouseDataList();
+            };
+            f.ShowDialog();
+        }
+
+        private async void WarehouseEdit()
+        {
+            var row = gridWarehouse.GetFocusedRow() as WarehousesDto;
+            if (row is null) return;
+
+            var data = await warehouseOperation.Get(x => x.Id == row.Id);
+            if (data is null)
+                return;
+
+            fWarehouse f = new fWarehouse(Enums.Operation.Edit, data);
+            f.FormClosed += async (s, x) =>
+            {
+                await WarehouseDataList();
+            };
+            f.ShowDialog();
+        }
+
+        private async void WarehouseDelete()
+        {
+            var row = gridWarehouse.GetFocusedRow() as WarehousesDto;
+            if (row is null) return;
+
+            var data = await warehouseOperation.Get(x => x.Id == row.Id);
+
+            var args = NotificationHelpers.Dialogs.DialogResultYesNo(
+                $"({data.Name}) anbarını silmək istədiyinizə əminsiniz ?", String.Empty);
+
+            var dialog = XtraMessageBox.Show(args);
+
+            if (dialog is DialogResult.Yes)
+            {
+                var result = await warehouseOperation.Remove(data);
+                if (result)
+                {
+                    await WarehouseDataList();
+                    NotificationHelpers.Messages.SuccessMessage(this, $"{data.Name} anbarı uğurla silindi");
+                }
+            }
         }
 
         private async void bRefreshWarehouse_Click(object sender, EventArgs e)
@@ -261,35 +353,6 @@ namespace Barcode_Sales.Forms
             PopupShow();
         }
 
-        private void WarehouseEdit()
-        {
-            var row = gridWarehouse.GetFocusedRow() as WarehousesDto;
-            if (row is null) return;
-
-            fWarehouse f = new fWarehouse(Enums.Operation.Edit, row);
-            f.FormClosed += async (s, x) =>
-            {
-                await WarehouseDataList();
-            };
-            f.ShowDialog();
-        }
-
-        private async Task WarehouseDelete()
-        {
-            var row = gridWarehouse.GetFocusedRow() as WarehousesDto;
-            if (row is null) return;
-
-            var args = NotificationHelpers.Dialogs.DialogResultYesNo(
-                $"({row.Name}) anbarını silmək istədiyinizə əminsiniz ?", String.Empty);
-            var result = XtraMessageBox.Show(args);
-            if (result is DialogResult.Yes)
-            {
-                warehouseOperation.Remove(row);
-                await WarehouseDataList();
-                NotificationHelpers.Messages.SuccessMessage(this, $"{row.Name} anbarı uğurla silindi");
-            }
-        }
-
         private void gridWarehouse_RowCellStyle(object sender, DevExpress.XtraGrid.Views.Grid.RowCellStyleEventArgs e)
         {
             GridViewStatusDisplayColor(gridColumn93, "Aktiv", "Deaktiv", e);
@@ -299,6 +362,61 @@ namespace Barcode_Sales.Forms
 
 
         #region [.. STORE ..]
+
+        private void bStoreAdd_Click(object sender, EventArgs e)
+        {
+            fStoreAdd f = new fStoreAdd(Enums.Operation.Add, null);
+            f.FormClosed += async (s, x) =>
+            {
+                await StoreDataList();
+            };
+            f.ShowDialog();
+        }
+
+        private async void StoreEdit()
+        {
+            var row = gridStore.GetFocusedRow() as StoresDto;
+            if (row is null) return;
+
+            var data = await storeOperation.Get(x => x.Id == row.Id);
+            if (data is null)
+                return;
+
+            fStoreAdd f = new fStoreAdd(Enums.Operation.Edit, data);
+            f.FormClosed += async (s, x) =>
+            {
+                await StoreDataList();
+            };
+            f.ShowDialog();
+        }
+
+        private async void StoreDelete()
+        {
+            var row = gridStore.GetFocusedRow() as StoresDto;
+            if (row is null) return;
+
+            var data = await storeOperation.Get(x => x.Id == row.Id);
+
+            var args = NotificationHelpers.Dialogs.DialogResultYesNo(
+                $"({data.Name}) flialını silmək istədiyinizə əminsiniz ?", String.Empty);
+
+            var dialog = XtraMessageBox.Show(args);
+
+            if (dialog is DialogResult.Yes)
+            {
+                var result = await storeOperation.Remove(data);
+                if (result)
+                {
+                    await StoreDataList();
+                    NotificationHelpers.Messages.SuccessMessage(this, $"{data.Name} flialı uğurla silindi");
+                }
+            }
+        }
+
+        private async void bStoreRefresh_Click(object sender, EventArgs e)
+        {
+            await StoreDataList();
+        }
 
         private async Task StoreDataList()
         {
@@ -315,6 +433,16 @@ namespace Barcode_Sales.Forms
             FormHelpers.ControlLoad(data, gridControlStore);
         }
 
+        private void bStoreSetting_ButtonClick(object sender, ButtonPressedEventArgs e)
+        {
+            PopupShow();
+        }
+
+        private void gridStore_RowCellStyle(object sender, DevExpress.XtraGrid.Views.Grid.RowCellStyleEventArgs e)
+        {
+            GridViewStatusDisplayColor(gridColumn109, "Aktiv", "Deaktiv", e);
+        }
+
         #endregion [.. STORE ..]
 
 
@@ -322,12 +450,14 @@ namespace Barcode_Sales.Forms
 
         private async Task SupplierDataList()
         {
-            var data = await supplierOperation.Where(x => x.IsDeleted == 0).Select(x => new
+            var data = await supplierOperation.Where(x => x.IsDeleted == false).Select(x => new SupplierDto
             {
                 Id = x.Id,
                 SupplierName = x.SupplierName,
                 Voen = x.Voen,
+                Debt = x.Debt,
                 Status = x.Status == true ? "Aktiv" : "Deaktiv",
+                StatusType = x.Status
             }).ToListAsync();
 
             FormHelpers.ControlLoad(data, gridControlSuppliers);
@@ -335,12 +465,85 @@ namespace Barcode_Sales.Forms
 
         private void bSupplierAdd_Click(object sender, EventArgs e)
         {
-            OpenForm<fSupplier>(Enums.Operation.Add, null);
+            fSupplier f = new fSupplier(Enums.Operation.Add, null);
+            f.FormClosed += async (s, x) =>
+            {
+                await SupplierDataList();
+            };
+            f.ShowDialog();
+        }
+
+        private void bSupplierDebtAdd_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private async void gridSuppliers_DoubleClick(object sender, EventArgs e)
+        {
+            var row = gridSuppliers.GetFocusedRow() as SupplierDto;
+            if (row is null) return;
+
+            var data = await supplierOperation.Get(x => x.Id == row.Id);
+            if (data is null)
+                return;
+
+            fSupplier f = new fSupplier(Enums.Operation.Show, data);
+            f.ShowDialog();
+        }
+
+        private async void bSupplierRefresh_Click(object sender, EventArgs e)
+        {
+            await SupplierDataList();
+        }
+
+        private async void SupplierEdit()
+        {
+            var row = gridSuppliers.GetFocusedRow() as SupplierDto;
+            if (row is null) return;
+
+            var data = await supplierOperation.Get(x => x.Id == row.Id);
+            if (data is null)
+                return;
+
+            fSupplier f = new fSupplier(Enums.Operation.Edit, data);
+            f.FormClosed += async (s, x) =>
+            {
+                await SupplierDataList();
+            };
+            f.ShowDialog();
+        }
+
+        private async void SupplierDelete()
+        {
+            var row = gridSuppliers.GetFocusedRow() as SupplierDto;
+            if (row is null) return;
+
+            var data = await supplierOperation.Get(x => x.Id == row.Id);
+
+            var args = NotificationHelpers.Dialogs.DialogResultYesNo(
+                $"({data.SupplierName}) təchizatçısını silmək istədiyinizə əminsiniz ?", String.Empty);
+
+            var dialog = XtraMessageBox.Show(args);
+
+            if (dialog is DialogResult.Yes)
+            {
+                var result = await supplierOperation.Remove(data);
+                if (result)
+                {
+                    await SupplierDataList();
+                    NotificationHelpers.Messages.SuccessMessage(this, $"{data.SupplierName} təchizatçısı uğurla silindi");
+                }
+            }
         }
 
         private void gridSuppliers_RowCellStyle(object sender, DevExpress.XtraGrid.Views.Grid.RowCellStyleEventArgs e)
         {
-            GridViewStatusDisplayColor(gridColumn89, "Aktiv", "Deaktiv", e);
+            GridViewStatusDisplayColor(gridColumn79, "Aktiv", "Deaktiv", e);
+        }
+
+        private void bSupplierSettings_ButtonClick(object sender, ButtonPressedEventArgs e)
+        {
+            PopupShow();
         }
 
         #endregion [.. SUPPLIERS ..]
@@ -350,7 +553,7 @@ namespace Barcode_Sales.Forms
 
         private async Task ProductDataList()
         {
-            var data = await productOperation.Where(x => x.IsDeleted == 0)
+            var data = await productOperation.Where(x => x.IsDeleted == false)
                                         .Select(x => new ProductDto()
                                         {
                                             Id = x.Id,
@@ -361,8 +564,8 @@ namespace Barcode_Sales.Forms
                                             TaxName = x.TaxTypes.Name,
                                             TaxId = x.TaxId,
                                             SalePrice = x.SalePrice,
-                                            Amount = x.Amount,
-                                            Status = x.Status,
+                                            Quantity = x.Quantity,
+                                            IsActive = x.IsActive,
                                             IsDeleted = x.IsDeleted,
                                         }).ToListAsync();
 
@@ -422,7 +625,7 @@ namespace Barcode_Sales.Forms
             var result = XtraMessageBox.Show(args);
             if (result is DialogResult.Yes)
             {
-                row.Status = false;
+                row.IsActive = false;
                 productOperation.Update(row);
                 await ProductDataList();
                 NotificationHelpers.Messages.SuccessMessage(this, $"{row.ProductName} məhsulu uğurla silindi");
@@ -444,24 +647,30 @@ namespace Barcode_Sales.Forms
 
         private async Task CategoryDataListAsync()
         {
-            var data = await categoryOperation.Where(x => x.IsDeleted == 0)
-                .Select(x => new CategoryDto()
-                {
-                    Id = x.Id,
-                    CategoryName = x.CategoryName,
-                    Status = x.Status,
-                    IsDeleted = x.IsDeleted
-                }).ToListAsync();
+            var data = await categoryOperation.CategoriesList();
+            ControlLoad(data, gridControlCategory);
 
-            FormHelpers.ControlLoad(data, gridControlCategory);
+            //var data = await categoryOperation.Where(x => x.IsDeleted == false)
+            //    .Select(x => new CategoryDto()
+            //    {
+            //        Id = x.Id,
+            //        CategoryName = x.CategoryName,
+            //        Status = x.Status,
+            //        IsDeleted = x.IsDeleted
+            //    }).ToListAsync();
+
         }
 
-        private void CategoryEdit()
+        private async void CategoryEdit()
         {
             var row = gridCategory.GetFocusedRow() as CategoryDto;
             if (row is null) return;
 
-            fAddCategory f = new fAddCategory(Enums.Operation.Edit, row);
+            var data = await categoryOperation.Get(x => x.Id == row.Id);
+            if (data is null)
+                return;
+
+            fAddCategory f = new fAddCategory(Enums.Operation.Edit, data);
             f.FormClosed += async (s, x) =>
             {
                 await CategoryDataListAsync();
@@ -474,8 +683,22 @@ namespace Barcode_Sales.Forms
             var row = gridCategory.GetFocusedRow() as CategoryDto;
             if (row is null) return;
 
-            categoryOperation.Remove(row);
-            await CategoryDataListAsync();
+            var data = await categoryOperation.Get(x => x.Id == row.Id);
+
+            var args = NotificationHelpers.Dialogs.DialogResultYesNo(
+                $"({data.CategoryName}) kateqoriyasını silmək istədiyinizə əminsiniz ?", String.Empty);
+
+            var dialog = XtraMessageBox.Show(args);
+
+            if (dialog is DialogResult.Yes)
+            {
+                var result = await categoryOperation.Remove(data);
+                if (result)
+                {
+                    await CategoryDataListAsync();
+                    NotificationHelpers.Messages.SuccessMessage(this, $"{data.CategoryName} kateqoriyası uğurla silindi");
+                }
+            }
         }
 
         private void gridCategory_RowCellStyle(object sender, DevExpress.XtraGrid.Views.Grid.RowCellStyleEventArgs e)
@@ -640,12 +863,12 @@ namespace Barcode_Sales.Forms
             }
         }
 
-        private async void accordionControlElement29_Click(object sender, EventArgs e)
+        private void accordionControlElement29_Click(object sender, EventArgs e)
         {
             if (navigationMenu.SelectedPage != pageStore)
             {
                 navigationMenu.SelectedPage = pageStore;
-                await StoreDataList();
+                StoreDataList();
             }
         }
 
@@ -724,45 +947,6 @@ namespace Barcode_Sales.Forms
                 tablePanel24.Columns[3].Visible = false;
             else
                 tablePanel24.Columns[3].Visible = true;
-        }
-
-        private void bPopupEdit_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            try
-            {
-                if (navigationMenu.SelectedPage == pageWarehouse)
-                    WarehouseEdit();
-                else if (navigationMenu.SelectedPage == pageProduct && tabPane3.SelectedPage == tabCategory)
-                    CategoryEdit();
-                else if (navigationMenu.SelectedPage == pageCustomers)
-                    CustomerEdit();
-                else if (navigationMenu.SelectedPage == pageCustomerGroups)
-                    CustomerGroupEdit();
-            }
-            catch (Exception ex)
-            {
-                NotificationHelpers.Messages.ErrorMessage(this, ex.Message);
-            }
-        }
-
-        private async void bPopupDelete_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            try
-            {
-                if (navigationMenu.SelectedPage == pageWarehouse)
-                    await WarehouseDelete();
-                else if (navigationMenu.SelectedPage == pageProduct && tabPane3.SelectedPage == tabCategory)
-                    await CategoryDelete();
-                else if (navigationMenu.SelectedPage == pageCustomers)
-                    await CustomerDelete();
-                else if (navigationMenu.SelectedPage == pageCustomerGroups)
-                    await CustomerGroupDelete();
-
-            }
-            catch (Exception ex)
-            {
-                NotificationHelpers.Messages.ErrorMessage(this, ex.Message);
-            }
         }
 
         private void accordionControlElement11_Click(object sender, EventArgs e)

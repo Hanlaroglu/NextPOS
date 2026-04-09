@@ -29,7 +29,7 @@ namespace Barcode_Sales.Forms
             gridControlBasket.DataSource = dataList;
         }
 
-        private class ProductSearchData : Product
+        private class ProductSearchData : Products
         {
             public int Id { get; set; }
             public string ProductName { get; set; }
@@ -54,7 +54,7 @@ namespace Barcode_Sales.Forms
 
         private async Task SearchProductList()
         {
-            var data = await productOperation.ToListAsync(x => x.IsDeleted == 0 || x.Status == true);
+            var data = await productOperation.ToListAsync(x => x.IsDeleted == false || x.IsActive == true);
             var product = data.Select(x => new ProductSearchData
             {
                 Id = x.Id,

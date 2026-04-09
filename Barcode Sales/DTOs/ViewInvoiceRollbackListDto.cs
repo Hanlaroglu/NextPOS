@@ -2,6 +2,6 @@
 {
     public class ViewInvoiceRollbackListDto: view_InvoiceRollbackList
     {
-        public double RollbackQuantity { get; set; }
+        public decimal RollbackQuantity { get; set; }
     }
 }

@@ -27,7 +27,7 @@ namespace Barcode_Sales.Forms
 
         private async void DataLoad()
         {
-            var data = await supplierPaymentOperation.WhereAsync(x => x.IsDeleted == 0);
+            var data = await supplierPaymentOperation.ToListAsync(x => x.IsDeleted == false);
 
             FormHelpers.ControlLoad(data, gridControlSupplierDebt);
             gridSupplierDebt.GroupPanelText = $"Ödənişlərin sayı: {gridSupplierDebt.RowCount}";
@@ -37,7 +37,7 @@ namespace Barcode_Sales.Forms
 
         private async void PeriodicDataLoad(DateTime start, DateTime finish)
         {
-            var data = await supplierPaymentOperation.WhereAsync(x=> x.PayDate > start && x.PayDate <= finish);
+            var data = await supplierPaymentOperation.ToListAsync(x=> x.PayDate > start && x.PayDate <= finish);
 
             FormHelpers.ControlLoad(data, gridControlSupplierDebt);
             gridSupplierDebt.GroupPanelText = $"Ödənişlərin sayı: {gridSupplierDebt.RowCount}";

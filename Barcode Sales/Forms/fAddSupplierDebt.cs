@@ -1,17 +1,10 @@
-﻿using Barcode_Sales.Barcode.Sales.Admin;
-using Barcode_Sales.Helpers;
+﻿using Barcode_Sales.Helpers;
 using Barcode_Sales.Operations.Abstract;
 using Barcode_Sales.Operations.Concrete;
 using Barcode_Sales.Validations;
-using DevExpress.XtraEditors;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Barcode_Sales.Forms
@@ -81,11 +74,6 @@ namespace Barcode_Sales.Forms
             }
         }
 
-        private void controlFooterButton1_CancelClick(object sender, EventArgs e)
-        {
-            Close();
-        }
-
         private void DataLoad()
         {
             if (_operation is Enums.Operation.Edit)
@@ -93,23 +81,23 @@ namespace Barcode_Sales.Forms
                 tDate.EditValue = _supplierDebt.DebtDate;
                 tName.Text = _supplierDebt.Name;
                 lookSupplier.EditValue = _supplierDebt.SupplierId;
-                tMainPrice.EditValue = _supplierDebt.Debt.Value;
-                tTaxPrice.EditValue = _supplierDebt.TaxDebt.Value;
-                tPrice.EditValue = _supplierDebt.Debt.Value + _supplierDebt.TaxDebt.Value;
+                tMainPrice.EditValue = _supplierDebt.Debt;
+                tTaxPrice.EditValue = _supplierDebt.TaxDebt;
+                tPrice.EditValue = _supplierDebt.Debt + _supplierDebt.TaxDebt;
                 tComment.Text = _supplierDebt.Comment;
             }
         }
 
-        private void Add()
+        private async void Add()
         {
             _supplierDebt = new SuppliersDebt();
             _supplierDebt.DebtDate = (DateTime)tDate.EditValue;
-            _supplierDebt.SupplierId = lookSupplier.EditValue == null ? default(int) : (int)lookSupplier.EditValue;
+            _supplierDebt.SupplierId = lookSupplier.EditValue == null ? default : (int)lookSupplier.EditValue;
             _supplierDebt.Name = tName.Text.Trim();
-            _supplierDebt.Debt = Double.Parse(tMainPrice.Text);
-            _supplierDebt.TaxDebt = Double.Parse(tTaxPrice.Text);
+            _supplierDebt.Debt = Decimal.Parse(tMainPrice.Text);
+            _supplierDebt.TaxDebt = Decimal.Parse(tTaxPrice.Text);
             _supplierDebt.Comment = tComment.Text.Trim();
-            _supplierDebt.IsDeleted = 0;
+            _supplierDebt.IsDeleted = false;
 
             var validator = ValidationHelpers.ValidateMessage(_supplierDebt, new SupplierDebtValidation(), this);
 
@@ -118,8 +106,8 @@ namespace Barcode_Sales.Forms
                 return;
             }
 
-            bool IsSuccess = supplierDebtOperation.Add(_supplierDebt);
-            if (IsSuccess)
+            var IsSuccess = await supplierDebtOperation.Add(_supplierDebt);
+            if (IsSuccess > 0)
             {
                 fDashboard form = Application.OpenForms.OfType<fDashboard>().FirstOrDefault();
                 NotificationHelpers.Messages.SuccessMessage(form, $"{tName.Text} borcu uğurla yaradıldı");
@@ -141,7 +129,7 @@ namespace Barcode_Sales.Forms
 
         private void SupplierDataLoad()
         {
-            var data = supplierOperation.Where(x => x.IsDeleted == 0)
+            var data = supplierOperation.Where(x => x.IsDeleted == false)
                                         .Select(x => new
                                         {
                                             x.SupplierName,
@@ -149,12 +137,12 @@ namespace Barcode_Sales.Forms
                                         }).ToList();
 
 
-            FormHelpers.ControlLoad(data, lookSupplier, "SupplierName", "Id");
+            FormHelpers.ControlLoad(data, lookSupplier, "SupplierName");
         }
 
         private async void TaxTypeLoad()
         {
-            var data = await taxTypeOperation.WhereAsync(null);
+            var data = await taxTypeOperation.ToListAsync();
 
             FormHelpers.ControlLoad(data, lookTaxType);
         }

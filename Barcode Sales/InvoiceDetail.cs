@@ -15,14 +15,15 @@ namespace Barcode_Sales
     public partial class InvoiceDetail
     {
         public int Id { get; set; }
-        public Nullable<int> InvoiceId { get; set; }
-        public Nullable<int> ProductId { get; set; }
-        public Nullable<double> Amount { get; set; }
-        public Nullable<double> PurchasePrice { get; set; }
-        public Nullable<double> Discount { get; set; }
-        public Nullable<double> TotalPurchasePrice { get; set; }
-        public Nullable<double> SalePrice { get; set; }
+        public int InvoiceId { get; set; }
+        public int ProductId { get; set; }
+        public decimal Amount { get; set; }
+        public decimal PurchasePrice { get; set; }
+        public decimal Discount { get; set; }
+        public decimal TotalPurchasePrice { get; set; }
+        public decimal SalePrice { get; set; }
     
         public virtual Invoice Invoice { get; set; }
+        public virtual Products Product { get; set; }
     }
 }

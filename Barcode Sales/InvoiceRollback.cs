@@ -21,15 +21,15 @@ namespace Barcode_Sales
         }
     
         public int Id { get; set; }
-        public Nullable<int> InvoiceId { get; set; }
-        public Nullable<System.DateTime> RollbackDate { get; set; }
-        public Nullable<int> WarehouseId { get; set; }
-        public Nullable<double> TotalPurchasePrice { get; set; }
+        public int InvoiceId { get; set; }
+        public System.DateTime RollbackDate { get; set; }
+        public int WarehouseId { get; set; }
+        public decimal TotalPurchasePrice { get; set; }
         public Nullable<int> PaymentTypeId { get; set; }
         public string Commnet { get; set; }
-        public Nullable<int> UserId { get; set; }
-        public Nullable<System.DateTime> CreatedDate { get; set; }
-        public Nullable<bool> IsDeleted { get; set; }
+        public int UserId { get; set; }
+        public System.DateTime CreatedDate { get; set; }
+        public bool IsDeleted { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<InvoiceRollbackDetail> InvoiceRollbackDetails { get; set; }

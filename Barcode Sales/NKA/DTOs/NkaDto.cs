@@ -27,7 +27,7 @@ namespace Barcode_Sales.NKA.DTOs
 
         public class DepositDto: BaseDto
         {
-            public double Amount { get; set; }
+            public decimal Amount { get; set; }
             public string Cashier { get; set; }
         }
     }

@@ -23,20 +23,19 @@ namespace Barcode_Sales
     
         public int Id { get; set; }
         public string InvoiceNo { get; set; }
-        public Nullable<System.DateTime> InvoiceDate { get; set; }
+        public System.DateTime InvoiceDate { get; set; }
+        public int SupplierId { get; set; }
         public int WarehouseId { get; set; }
-        public Nullable<double> TotalPurchasePrice { get; set; }
-        public Nullable<int> PaymentTypeId { get; set; }
+        public decimal TotalPurchasePrice { get; set; }
         public string Comment { get; set; }
         public int UserId { get; set; }
-        public Nullable<System.DateTime> CreatedDate { get; set; }
-        public Nullable<int> IsDeleted { get; set; }
+        public System.DateTime CreatedDate { get; set; }
+        public bool IsDeleted { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<InvoiceDetail> InvoiceDetails { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<InvoiceRollback> InvoiceRollbacks { get; set; }
-        public virtual PaymentType PaymentType { get; set; }
         public virtual User User { get; set; }
         public virtual Warehouse Warehouse { get; set; }
     }

@@ -44,7 +44,7 @@ namespace Barcode_Sales.Forms
 
         private async Task AutoComplete()
         {
-            var data = await productOperation.WhereAsync(x => x.IsDeleted == 0);
+            var data = await productOperation.ToListAsync(x => x.IsDeleted == false);
             var product = data.Select(x => new SearchData
             {
                Id = x.Id,
@@ -61,14 +61,14 @@ namespace Barcode_Sales.Forms
 
         private async Task DashboardStockList()
         {
-            var data = await productOperation.Where(x => x.IsDeleted == 0)
+            var data = await productOperation.Where(x => x.IsDeleted == false)
                                         .Select(x => new
                                         {
                                             Id = x.Id,
                                             ProductName = x.ProductName,
                                             Barcode = x.Barcode,
                                             SalePrice = x.SalePrice,
-                                            Quantity = x.Amount,
+                                            Quantity = x.Quantity,
                                         }).ToListAsync();
 
             FormHelpers.ControlLoad(data, gridControlDashboardStock);
@@ -109,7 +109,7 @@ namespace Barcode_Sales.Forms
         {
             public int Id { get; set; }
             public string ProductName { get; set; }
-            public double? SalePrice { get; set; }
+            public decimal? SalePrice { get; set; }
             public string Barcode { get; set; }
             public string Unit { get; set; }
         }

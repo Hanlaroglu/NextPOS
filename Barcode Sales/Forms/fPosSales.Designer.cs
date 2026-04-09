@@ -460,7 +460,6 @@
             this.gridBasket.OptionsView.ShowGroupPanel = false;
             this.gridBasket.OptionsView.ShowIndicator = false;
             this.gridBasket.RowHeight = 40;
-            this.gridBasket.DoubleClick += new System.EventHandler(this.gridBasket_DoubleClick);
             // 
             // colId
             // 

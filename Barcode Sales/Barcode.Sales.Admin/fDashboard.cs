@@ -36,7 +36,6 @@ namespace Barcode_Sales.Barcode.Sales.Admin
         IUserOperation userOperation = new UserManager();
         IRoleOperation roleOperation = new RoleManager();
         ICustomerDebtOperation customerDebtOperation = new CustomerDebtManager();
-        IReturnPosOperation returnPosOperation = new ReturnPosManager();
 
         private readonly User CurrentUser;
         public fDashboard(User _user)
@@ -108,7 +107,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
 
         private async void ProductStockLoad()
         {
-            var data = await productOperation.ToListAsync(x => x.IsDeleted == 0);
+            var data = await productOperation.ToListAsync(x => x.IsDeleted == false);
             gridControlDashboardStock.DataSource = data;
         }
 
@@ -120,25 +119,25 @@ namespace Barcode_Sales.Barcode.Sales.Admin
 
         private async void AqtaProductFill()
         {
-            var data = await aqtaProductsOperation.ToListAsync(x => x.IsDeleted == 0);
+            //var data = await aqtaProductsOperation.ToListAsync(x => x.IsDeleted == 0);
 
-            FormHelpers.ControlLoad(data, gridControlProducts);
+            //FormHelpers.ControlLoad(data, gridControlProducts);
 
-            gridProducts.RefreshData();
-            FormHelpers.GridCustomRowNumber(gridProducts);
-            tablePanelProductCount.Visible = false;
+            //gridProducts.RefreshData();
+            //FormHelpers.GridCustomRowNumber(gridProducts);
+            //tablePanelProductCount.Visible = false;
         }
 
         private async void ProductFill()
         {
-            var data = await productOperation.ToListAsync(x => x.IsDeleted == 0);
+            var data = await productOperation.ToListAsync(x => x.IsDeleted == false);
 
             FormHelpers.ControlLoad(data, gridControlProducts);
             gridProducts.RefreshData();
 
-            lPlusProduct_Count.Text = data.Count(x => x.Amount > 0).ToString();
-            lNegativeProduct_Count.Text = data.Count(x => x.Amount < 0).ToString();
-            lZeroProduct_Count.Text = data.Count(x => x.Amount == 0).ToString();
+            lPlusProduct_Count.Text = data.Count(x => x.Quantity > 0).ToString();
+            lNegativeProduct_Count.Text = data.Count(x => x.Quantity < 0).ToString();
+            lZeroProduct_Count.Text = data.Count(x => x.Quantity == 0).ToString();
 
             FormHelpers.GridCustomRowNumber(gridProducts);
         }
@@ -158,8 +157,8 @@ namespace Barcode_Sales.Barcode.Sales.Admin
                 return;
             }
             var edit = (CheckEdit)sender;
-            var product = (Product)gridProducts.GetFocusedRow();
-            product.Status = (bool)edit.EditValue;
+            var product = (Products)gridProducts.GetFocusedRow();
+            product.IsActive = (bool)edit.EditValue;
             //todo status codunu yaz
             //productOperation.StatusUpdate(products, (bool)edit.EditValue);
         }
@@ -238,7 +237,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
 
         private async void CategoryFill()
         {
-            var data = await categoryOperation.ToListAsync(x => x.IsDeleted == 0);
+            var data = await categoryOperation.ToListAsync(x => x.IsDeleted == false);
             FormHelpers.ControlLoad(data, gridControlCategory);
             gridCategory.GroupPanelText = $"Kateqoriya sayı: {data.Count()}";
             gridCategory.RefreshData();
@@ -272,7 +271,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
                 Category category = new Category
                 {
                     CategoryName = value,
-                    IsDeleted = 0,
+                    IsDeleted = false,
                     Status = true,
                 };
 
@@ -344,7 +343,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
                 bool result = false;
 
                 var category = await categoryOperation.Get(x => x.Id == categorytId);
-                var products = await productOperation.ToListAsync(x => x.IsDeleted == 0 && x.CategoryId == categorytId);
+                var products = await productOperation.ToListAsync(x => x.IsDeleted == false && x.CategoryId == categorytId);
 
                 if (products.Count is 0)
                 {
@@ -354,7 +353,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
 
                     if (result)
                     {
-                        products.ForEach(x => x.IsDeleted = x.Id);
+                        products.ForEach(x => x.IsDeleted = true);
                         await productOperation.Update(products, x => x.IsDeleted);
                     }
                 }
@@ -367,7 +366,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
 
                 if (result)
                 {
-                    category.IsDeleted = category.Id;
+                    category.IsDeleted = true;
 
                     if (await categoryOperation.Update(category, x => x.IsDeleted))
                         CategoryFill();
@@ -389,7 +388,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             }
             var edit = (CheckEdit)sender;
             var category = (Category)gridCategory.GetFocusedRow();
-            var products = productOperation.Where(x => x.IsDeleted == 0 && x.CategoryId == category.Id).ToList();
+            var products = productOperation.Where(x => x.IsDeleted == false && x.CategoryId == category.Id).ToList();
 
             category.Status = (bool)edit.EditValue;
             string boolMessage = (bool)category.Status ? "aktiv" : "deaktiv";
@@ -407,9 +406,9 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             if (message)
             {
                 foreach (var x in products)
-                    x.Status = category.Status;
+                    x.IsActive = (bool)category.Status;
 
-                await productOperation.Update(products, x => x.Status);
+                await productOperation.Update(products, x => x.IsActive);
             }
 
             await categoryOperation.Update(category, x => x.Status);
@@ -424,7 +423,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
 
         private async void SupplierDataLoad()
         {
-            var data = await supplierOperation.ToListAsync(x => x.IsDeleted == 0);
+            var data = await supplierOperation.ToListAsync(x => x.IsDeleted == false);
             FormHelpers.ControlLoad(data, gridControlSupplier);
             gridSupplier.GroupPanelText = $"Təchizatçı sayı: {gridSupplier.RowCount}";
             gridSupplier.RefreshData();
@@ -531,9 +530,9 @@ namespace Barcode_Sales.Barcode.Sales.Admin
                     int Id = Convert.ToInt32(gridSupplier.GetFocusedRowCellValue("Id").ToString());
                     var supplier = await supplierOperation.Get(x => x.Id == Id);
 
-                    supplier.IsDeleted = supplier.Id;
+                    var result = await supplierOperation.Remove(supplier);
 
-                    if (await supplierOperation.Update(supplier, x => x.IsDeleted))
+                    if (result)
                         SupplierDataLoad();
                 }
             }
@@ -756,7 +755,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
                     foreach (var item in selectedRows)
                     {
                         var supplierDebt = gridSupplierDebt.GetRow(item) as SuppliersDebt;
-                        supplierDebt.IsDeleted = supplierDebt.Id;
+                        supplierDebt.IsDeleted = false;
                         suppliersDebts.Add(supplierDebt);
                     }
                     await supplierDebtOperation.Update(suppliersDebts, x => x.IsDeleted);
@@ -769,9 +768,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
                 int Id = Convert.ToInt32(gridSupplierDebt.GetFocusedRowCellValue("Id").ToString());
                 var supplierDebt = await supplierDebtOperation.Get(x => x.Id == Id);
 
-                supplierDebt.IsDeleted = supplierDebt.Id;
-
-                if (await supplierDebtOperation.Update(supplierDebt, x => x.IsDeleted))
+                if (await supplierDebtOperation.Remove(supplierDebt))
                 {
                     NotificationHelpers.Messages.SuccessMessage(this, $"{supplierDebt.Supplier.SupplierName} təchizatçısının borcu uğurla silindi");
                     SuppliersDebtsLoad();
@@ -1107,9 +1104,9 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             var edit = (CheckEdit)sender;
             var user = (User)gridUsers.GetFocusedRow();
 
-            user.Status = (bool)edit.EditValue;
+            user.IsActive = (bool)edit.EditValue;
 
-            userOperation.Update(user, x => x.Status);
+            userOperation.Update(user, x => x.IsActive);
         }
 
         #endregion [...Users...]
@@ -1125,7 +1122,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
 
         async void RolesDataLoad()
         {
-            var data = await roleOperation.ToListAsync(x => x.IsDeleted == 0);
+            var data = await roleOperation.ToListAsync(x => x.IsDeleted == false);
             FormHelpers.ControlLoad(data, gridControlRole);
             GridCustomRowNumber(gridRole);
 

@@ -44,15 +44,15 @@ namespace Barcode_Sales.Forms
         async void AddUser()
         {
             User = new User();
-            User.StoreID = await GetByIdStore(lookStore.Text);
+            User.StoreId = await GetByIdStore(lookStore.Text);
             User.Username = tUsername.Text;
             User.Password = tPassword.Text;
             User.NameSurname = tNameSurname.Text;
             User.Email = tEmail.Text;
             User.Phone = tPhone.Text;
-            User.RoleID = await GetByIdRole(lookRole.Text);
+            User.RoleId = await GetByIdRole(lookRole.Text);
             User.IsDeleted = 0;
-            User.Status = true;
+            User.IsActive = true;
 
             bool uniqueData = userOperation.Where(x => x.Username == tUsername.Text.Trim()).Any();
             if (!uniqueData)
@@ -75,12 +75,12 @@ namespace Barcode_Sales.Forms
 
         async void EditUser()
         {
-            User.StoreID = await GetByIdStore(lookStore.Text);
+            User.StoreId = await GetByIdStore(lookStore.Text);
             User.Password = tPassword.Text;
             User.NameSurname = tNameSurname.Text;
             User.Email = tEmail.Text;
             User.Phone = tPhone.Text;
-            User.RoleID = await GetByIdRole(lookRole.Text);
+            User.RoleId = await GetByIdRole(lookRole.Text);
 
             var validator = ValidationHelpers.ValidateMessage(User, new UserValidation(), this);
 
@@ -90,12 +90,12 @@ namespace Barcode_Sales.Forms
             }
 
           await  userOperation.Update(User, 
-              x=> x.StoreID,
+              x=> x.StoreId,
               x => x.Password,
               x => x.NameSurname,
               x => x.Email,
               x => x.Phone,
-              x => x.RoleID);
+              x => x.RoleId);
             Close();
         }
 
@@ -119,7 +119,7 @@ namespace Barcode_Sales.Forms
 
         private async Task<int> GetByIdRole(string roleName)
         {
-            var role = await roleOperation.Get(x => x.Name == roleName);
+            var role = await roleOperation.Get(x => x.RoleName == roleName);
             return role != null ? role.Id : throw new NullReferenceException(UserValidation.RoleNotSelected);
         }
 
@@ -167,7 +167,7 @@ namespace Barcode_Sales.Forms
 
         void RoleDataLoad()
         {
-            var data = roleOperation.Where(x => x.IsDeleted == 0)
+            var data = roleOperation.Where(x => x.IsDeleted == false)
                                      .Select(x => new
                                      {
                                          x.RoleName

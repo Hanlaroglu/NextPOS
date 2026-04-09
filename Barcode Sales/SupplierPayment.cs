@@ -15,15 +15,16 @@ namespace Barcode_Sales
     public partial class SupplierPayment
     {
         public int Id { get; set; }
-        public Nullable<int> SupplierDebtId { get; set; }
-        public Nullable<double> DebtPaid { get; set; }
-        public Nullable<double> TaxPaid { get; set; }
+        public int SupplierDebtId { get; set; }
+        public decimal DebtPaid { get; set; }
+        public decimal TaxPaid { get; set; }
         public string Comment { get; set; }
-        public Nullable<int> IsDeleted { get; set; }
-        public string PaymentType { get; set; }
-        public Nullable<System.DateTime> PayDate { get; set; }
-        public Nullable<System.DateTime> LogDate { get; set; }
+        public bool IsDeleted { get; set; }
+        public int PaymentTypeId { get; set; }
+        public System.DateTime PayDate { get; set; }
+        public System.DateTime LogDate { get; set; }
     
+        public virtual PaymentType PaymentType { get; set; }
         public virtual SuppliersDebt SuppliersDebt { get; set; }
     }
 }

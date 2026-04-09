@@ -22,12 +22,12 @@ namespace Barcode_Sales
     
         public int Id { get; set; }
         public string Name { get; set; }
-        public Nullable<int> SupplierId { get; set; }
-        public Nullable<double> Debt { get; set; }
-        public Nullable<double> TaxDebt { get; set; }
+        public int SupplierId { get; set; }
+        public decimal Debt { get; set; }
+        public decimal TaxDebt { get; set; }
         public string Comment { get; set; }
-        public Nullable<int> IsDeleted { get; set; }
-        public Nullable<System.DateTime> DebtDate { get; set; }
+        public bool IsDeleted { get; set; }
+        public System.DateTime DebtDate { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<SupplierPayment> SupplierPayments { get; set; }

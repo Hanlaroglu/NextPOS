@@ -46,7 +46,7 @@ namespace Barcode_Sales.Operations.Concrete
         public async Task<List<Invoice>> InvoiceReport(DateTime start, DateTime end)
         {
             return await db.Invoices.AsNoTracking()
-                .Where(x => x.IsDeleted == 0 && x.InvoiceDate >= start.Date && x.InvoiceDate <= end.Date)
+                .Where(x => x.IsDeleted == false && x.InvoiceDate >= start.Date && x.InvoiceDate <= end.Date)
                 .OrderBy(x=> x.InvoiceDate)
                 .ToListAsync();
         }

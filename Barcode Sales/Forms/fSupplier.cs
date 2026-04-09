@@ -4,7 +4,6 @@ using Barcode_Sales.Operations.Concrete;
 using Barcode_Sales.Validations;
 using DevExpress.XtraEditors;
 using System;
-using System.Linq;
 using System.Windows.Forms;
 
 namespace Barcode_Sales.Forms
@@ -12,34 +11,33 @@ namespace Barcode_Sales.Forms
     public partial class fSupplier : XtraForm
     {
         ISupplierOperation supplierOperation = new SupplierManager();
-        private Enums.Operation Operation { get; }
-        private Supplier Supplier { get; set; }
+        IProductOperation productOperation = new ProductManager();
+        private Enums.Operation _operation { get; }
+        private Supplier _supplier { get; set; }
 
-        public fSupplier(Enums.Operation _operation, Supplier _suppliers = null)
+        public fSupplier(Enums.Operation operation, Supplier supplier = null)
         {
             InitializeComponent();
-            Operation = _operation;
-            Supplier = _suppliers;
+            _operation = operation;
+            _supplier = supplier;
         }
 
         private void fSupplier_Load(object sender, EventArgs e)
         {
-            if (Operation is Enums.Operation.Edit)
+            if (_operation is Enums.Operation.Edit)
             {
                 tName.ReadOnly = true;
-                tDebt.ReadOnly = true;
-                userSaveFooter1.SaveButtonText = Enums.GetEnumDescription(Operation);
+                tStock.ReadOnly = true;
                 SupplierDataLoad();
+                bDelete.Visible = true;
             }
-            else if (Operation is Enums.Operation.Show)
+            else if (_operation is Enums.Operation.Show)
             {
-                userSaveFooter1.SaveButtonText = Enums.GetEnumDescription(Enums.Operation.Close);
-                userSaveFooter1.CancelVisible = false;
                 bDelete.Visible = true;
                 tName.ReadOnly = true;
                 tVoen.ReadOnly = true;
                 tAddress.ReadOnly = true;
-                tDebt.ReadOnly = true;
+                tStock.ReadOnly = true;
                 tEmail.ReadOnly = true;
                 tPhone.ReadOnly = true;
                 tBankAccountNumber.ReadOnly = true;
@@ -51,103 +49,103 @@ namespace Barcode_Sales.Forms
             }
         }
 
-        private void userSaveFooter1_SaveClick(object sender, EventArgs e)
+        private async void AddSupplier()
         {
-            if (Operation is Enums.Operation.Add)
+            _supplier = new Supplier
             {
-                AddSupplier();
-            }
-            else if (Operation is Enums.Operation.Edit)
-            {
-                EditSupplier();
-            }
-            else if (Operation is Enums.Operation.Show)
-            {
-                Close();
-            }
-        }
-
-        void AddSupplier()
-        {
-            Supplier = new Supplier
-            {
-                SupplierName = tName.Text,
-                Voen = tVoen.Text,
-                Phone = tPhone.Text,
-                Email = tEmail.Text,
-                Address = tAddress.Text,
-                Debt = Convert.ToDouble(tDebt.Text),
-                BankName = tBankName.Text,
-                BankAccountNumber = tBankAccountNumber.Text,
-                BankKOD = tBankKod.Text,
-                BankVoen = tBankVoen.Text,
-                BankSwift = tBankSwift.Text,
+                SupplierName = tName.Text.TrimStart().Trim(),
+                Voen = tVoen.Text.TrimStart().Trim(),
+                Phone = tPhone.Text.TrimStart().Trim(),
+                Email = tEmail.Text.TrimStart().Trim(),
+                Address = tAddress.Text.TrimStart().Trim(),
+                Debt = Convert.ToDecimal(tStock.EditValue),
+                BankName = tBankName.Text.TrimStart().Trim(),
+                BankAccountNumber = tBankAccountNumber.Text.TrimStart().Trim(),
+                BankKOD = tBankKod.Text.TrimStart().Trim(),
+                BankVoen = tBankVoen.Text.TrimStart().Trim(),
+                BankSwift = tBankSwift.Text.TrimStart().Trim(),
                 Status = true,
-                IsDeleted = 0
+                IsDeleted = false
             };
 
-            var validateResult = ValidationHelpers.ValidateMessage(Supplier, new SupplierValidation(), this);
+            var validateResult = ValidationHelpers.ValidateMessage(_supplier, new SupplierValidation(), this);
             if (!validateResult.IsValid)
             {
                 return;
             }
 
-            bool valueUnique = ValidationHelpers.Any<Supplier>(x => x.SupplierName.ToLower() == Supplier.SupplierName.ToLower());
-            if (valueUnique)
+            var valueUnique = await supplierOperation.Get(x => x.SupplierName.ToLower() == _supplier.SupplierName.ToLower());
+            if (valueUnique != null)
             {
-                NotificationHelpers.Messages.WarningMessage(this, $"{Supplier.SupplierName} təchizatçısı sistemdə mövcuddur");
+                NotificationHelpers.Messages.WarningMessage(this, $"{_supplier.SupplierName} təchizatçısı sistemdə mövcuddur");
                 return;
             }
 
-            supplierOperation.Add(Supplier);
-            NotificationHelpers.Messages.SuccessMessage(this, $"{Supplier.SupplierName} təchizatçısı uğurla yaradıldı");
-            Clear();
+            if (await supplierOperation.Add(_supplier) > 0)
+            {
+                NotificationHelpers.Messages.SuccessMessage(this, $"{_supplier.SupplierName} təchizatçısı uğurla yaradıldı");
+                Clear();
+            }
         }
 
-        void EditSupplier()
+        private async void EditSupplier()
         {
-            Supplier.SupplierName = tName.Text;
-            Supplier.Voen = tVoen.Text;
-            Supplier.Phone = tPhone.Text;
-            Supplier.Address = tAddress.Text;
-            Supplier.Email = tEmail.Text;
-            Supplier.BankVoen = tBankVoen.Text;
-            Supplier.BankKOD = tBankKod.Text;
-            Supplier.BankSwift = tBankSwift.Text;
-            Supplier.BankAccountNumber = tBankAccountNumber.Text;
-            Supplier.BankName = tBankName.Text;
+            _supplier.SupplierName = tName.Text.TrimStart().Trim();
+            _supplier.Voen = tVoen.Text.TrimStart().Trim();
+            _supplier.Address = tAddress.Text.TrimStart().Trim();
+            _supplier.Email = tEmail.Text.TrimStart().Trim();
+            _supplier.Phone = tPhone.Text.TrimStart().Trim();
+            _supplier.BankName = tBankName.Text.TrimStart().Trim();
+            _supplier.BankAccountNumber = tBankAccountNumber.Text.TrimStart().Trim();
+            _supplier.BankKOD = tBankKod.Text.TrimStart().Trim();
+            _supplier.BankVoen = tBankVoen.Text.TrimStart().Trim();
+            _supplier.BankSwift = tBankSwift.Text.TrimStart().Trim();
 
-            var validateResult = ValidationHelpers.ValidateMessage(Supplier, new SupplierValidation(), this);
+            var validateResult = ValidationHelpers.ValidateMessage(_supplier, new SupplierValidation(), this);
             if (!validateResult.IsValid)
-            {
                 return;
+
+
+            var result = await supplierOperation.Update(_supplier,
+                x => x.SupplierName,
+                x => x.Voen,
+                x => x.Address,
+                x => x.Email,
+                x => x.Phone,
+                x => x.BankName,
+                x => x.BankVoen,
+                x => x.BankAccountNumber,
+                x => x.BankKOD,
+                x => x.BankSwift);
+
+            if (result)
+            {
+                NotificationHelpers.Messages.SuccessMessage(this, "Uğurla düzəliş edildi");
+                this.Dispose();
             }
-
-            supplierOperation.Update(Supplier);
-            DialogResult = DialogResult.OK;
         }
 
-        void SupplierDataLoad()
+        private void SupplierDataLoad()
         {
-            tName.Text = Supplier.SupplierName;
-            tVoen.Text = Supplier.Voen;
-            tPhone.Text = Supplier.Phone;
-            tDebt.Text = Supplier.Debt.ToString();
-            tAddress.Text = Supplier.Address;
-            tEmail.Text = Supplier.Email;
-            tBankName.Text = Supplier.BankName;
-            tBankKod.Text = Supplier.BankKOD;
-            tBankAccountNumber.Text = Supplier.BankAccountNumber;
-            tBankVoen.Text = Supplier.BankVoen;
-            tBankSwift.Text = Supplier.BankSwift;
+            tName.Text = _supplier.SupplierName;
+            tVoen.Text = _supplier.Voen;
+            tPhone.Text = _supplier.Phone;
+            tStock.EditValue = _supplier.Debt;
+            tAddress.Text = _supplier.Address;
+            tEmail.Text = _supplier.Email;
+            tBankName.Text = _supplier.BankName;
+            tBankKod.Text = _supplier.BankKOD;
+            tBankAccountNumber.Text = _supplier.BankAccountNumber;
+            tBankVoen.Text = _supplier.BankVoen;
+            tBankSwift.Text = _supplier.BankSwift;
         }
 
-        void Clear()
+        private void Clear()
         {
             tName.Text = null;
             tVoen.Text = null;
             tAddress.Text = null;
-            tDebt.EditValue = 0;
+            tStock.EditValue = 0;
             tPhone.Text = null;
             tEmail.Text = null;
             tBankName.Text = null;
@@ -157,25 +155,25 @@ namespace Barcode_Sales.Forms
             tBankSwift.Text = null;
         }
 
-        private void userSaveFooter1_CancelClick(object sender, EventArgs e)
-        {
-            Close();
-        }
-
         private async void bDelete_Click(object sender, EventArgs e)
         {
-            var supplier = await supplierOperation.Get(x => x.Id == Supplier.Id);
-
-            var args = NotificationHelpers.Dialogs.DialogResultYesNo($"{supplier.SupplierName} təchizatçısını silmək istədiyinizə əminsiniz ?");
+            var args = NotificationHelpers.Dialogs.DialogResultYesNo($"{_supplier.SupplierName} təchizatçısını silmək istədiyinizə əminsiniz ?");
             var result = XtraMessageBox.Show(args);
-            if (result is DialogResult.Yes)
-            {
-                supplier.IsDeleted = supplier.Id;
-                await supplierOperation.Update(supplier, x => x.IsDeleted);
 
-                NotificationHelpers.Messages.SuccessMessage(this, $"{supplier.SupplierName} təchizatçısı uğurla silindi");
-                Close();
-            }
+            if (result is DialogResult.Yes)
+                if (await supplierOperation.Remove(_supplier))
+                {
+                    NotificationHelpers.Messages.SuccessMessage(this, $"{_supplier.SupplierName} təchizatçısı uğurla silindi");
+                    this.Dispose();
+                }
+        }
+
+        private void bSave_Click(object sender, EventArgs e)
+        {
+            if (_operation is Enums.Operation.Add)
+                AddSupplier();
+            else
+                EditSupplier();
         }
     }
 }

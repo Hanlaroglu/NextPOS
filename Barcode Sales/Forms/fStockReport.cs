@@ -28,7 +28,7 @@ namespace Barcode_Sales.Forms
 
         private void GetReport()
         {
-            using (var db = new NextposDBEntities())
+            using (var db = new KhanposDbEntities())
             {
                 var test = db.Database.SqlQuery<StockReportDto>(@"SELECT
     s.SupplierName        AS SupplierName,

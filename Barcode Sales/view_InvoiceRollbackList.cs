@@ -18,12 +18,11 @@ namespace Barcode_Sales
         public string WarehouseName { get; set; }
         public int InvoiceId { get; set; }
         public string InvoiceNo { get; set; }
-        public Nullable<System.DateTime> InvoiceDate { get; set; }
-        public string SupplierName { get; set; }
+        public System.DateTime InvoiceDate { get; set; }
         public Nullable<int> ProductId { get; set; }
         public string ProductName { get; set; }
         public string Barcode { get; set; }
-        public Nullable<double> PurchasePrice { get; set; }
-        public Nullable<double> Amount { get; set; }
+        public Nullable<decimal> PurchasePrice { get; set; }
+        public Nullable<decimal> Amount { get; set; }
     }
 }

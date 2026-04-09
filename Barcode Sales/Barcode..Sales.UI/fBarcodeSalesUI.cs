@@ -26,9 +26,9 @@ namespace Barcode_Sales.Barcode.Sales.UI
     public partial class fBarcodeSalesUI : FormBase
     {
         KhanposDbEntities db = new KhanposDbEntities();
-        private readonly Users CurrentUser;
+        private readonly User CurrentUser;
 
-        public fBarcodeSalesUI(Users _user)
+        public fBarcodeSalesUI(User _user)
         {
             InitializeComponent();
             CurrentUser = _user;
@@ -86,7 +86,7 @@ namespace Barcode_Sales.Barcode.Sales.UI
                         if (db.Products.AsNoTracking().Any(a => a.Barcode == barcode))
                         {
                             var product = db.Products.FirstOrDefault(x => x.Barcode == barcode);
-                            if (product.Amount >= 0)
+                            if (product.Quantity >= 0)
                             {
                                 // MehsulGetirEkrana(urun, barkod, Convert.ToInt32(tAmount.Text));
                                 ProductsAddGrid(product, Convert.ToDouble(tAmount.Text));
@@ -123,7 +123,7 @@ namespace Barcode_Sales.Barcode.Sales.UI
                     }
                     else
                     {
-                        using (var db = new NextposDBEntities())
+                        using (var db = new KhanposDbEntities())
                         {
                             if (db.Products.Any(a => a.Barcode == barcode))
                             {
@@ -279,7 +279,7 @@ namespace Barcode_Sales.Barcode.Sales.UI
             public double Total { get; set; }
         }
 
-        void ProductsAddGrid(Product _product, double _amount)
+        void ProductsAddGrid(Products _product, double _amount)
         {
             short rowNo = 1;
             try
@@ -335,7 +335,7 @@ namespace Barcode_Sales.Barcode.Sales.UI
         }
 
 
-        private void UrunGetirListeye(Product urun, string barkod, double miktar)
+        private void UrunGetirListeye(Products urun, string barkod, double miktar)
         {
             try
             {
@@ -359,7 +359,7 @@ namespace Barcode_Sales.Barcode.Sales.UI
                     gridSatisListesi.Rows[satirsayisi].Cells["colid"].Value = urun.Id;
                     gridSatisListesi.Rows[satirsayisi].Cells["colProductName"].Value = urun.ProductName;
                     gridSatisListesi.Rows[satirsayisi].Cells["colBarcode"].Value = barkod;
-                    gridSatisListesi.Rows[satirsayisi].Cells["colCategory"].Value = urun.Categories.CategoryName;
+                    gridSatisListesi.Rows[satirsayisi].Cells["colCategory"].Value = urun.Category.CategoryName;
                     //gridSatisListesi.Rows[satirsayisi].Cells["colVahid"].Value = urun.Unit;
                     gridSatisListesi.Rows[satirsayisi].Cells["colPrice"].Value = urun.SalePrice;
                     gridSatisListesi.Rows[satirsayisi].Cells["colAmount"].Value = miktar;
@@ -691,7 +691,7 @@ namespace Barcode_Sales.Barcode.Sales.UI
                     Name = item.Id.ToString(),
                     MehsulAdi = item.ProductName,
                     Barcode = item.Barcode,
-                    ProductGroup = item.Categories.CategoryName,
+                    ProductGroup = item.Category.CategoryName,
                     Height = 220,
                     Width = 200,
                     ProductPrice = item.SalePrice.ToString(),

@@ -1,12 +1,10 @@
 ﻿using Barcode_Sales.Operations.Abstract;
-using Barcode_Sales.Validations;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Data.Entity;
+using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
-using Barcode_Sales.Helpers.Messages;
 
 namespace Barcode_Sales.Operations.Concrete
 {
@@ -47,7 +45,7 @@ namespace Barcode_Sales.Operations.Concrete
 
         public async Task<Company> Get(Expression<Func<Company, bool>> expression)
         {
-            return await db.Company.FirstOrDefaultAsync(expression);
+            return await db.Companies.FirstOrDefaultAsync(expression);
         }
 
         public async Task<bool> Remove(Company item)
@@ -67,7 +65,7 @@ namespace Barcode_Sales.Operations.Concrete
         {
             try
             {
-                db.Set<Invoice>().Attach(item);
+                db.Set<Company>().Attach(item);
 
                 foreach (var property in updateProperties)
                     db.Entry(item).Property(property).IsModified = true;
@@ -91,7 +89,7 @@ namespace Barcode_Sales.Operations.Concrete
                 {
                     foreach (var entity in items)
                     {
-                        db.Set<Invoice>().Attach(entity);
+                        db.Set<Company>().Attach(entity);
 
                         foreach (var property in updateProperties)
                             db.Entry(entity).Property(property).IsModified = true;
@@ -111,15 +109,15 @@ namespace Barcode_Sales.Operations.Concrete
 
         public IQueryable<Company> Where(Expression<Func<Company, bool>> expression)
         {
-            return db.Company.Where(expression);
+            return db.Companies.Where(expression);
         }
 
         public async Task<List<Company>> ToListAsync(Expression<Func<Company, bool>> expression = null)
         {
             if (expression is null)
-                return await db.Company.AsNoTracking().ToListAsync();
+                return await db.Companies.AsNoTracking().ToListAsync();
             else
-                return await db.Company.AsNoTracking().Where(expression).ToListAsync();
+                return await db.Companies.AsNoTracking().Where(expression).ToListAsync();
         }
     }
 }

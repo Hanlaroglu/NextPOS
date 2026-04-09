@@ -54,8 +54,9 @@ namespace Barcode_Sales.Operations.Concrete
 
                 return await db.SaveChangesAsync() > 0;
             }
-            catch
+            catch (Exception e)
             {
+                throw e;
                 return false;
             }
         }
@@ -93,18 +94,21 @@ namespace Barcode_Sales.Operations.Concrete
         {
             try
             {
-                db.Set<Warehouse>().Remove(item);
-                return await db.SaveChangesAsync() > 0;
+                item.IsDeleted = item.Id;
+                var result = await Update(item, x => x.IsDeleted);
+
+                return result;
             }
-            catch
+            catch (Exception e)
             {
+                throw e;
                 return false;
             }
         }
 
         public async Task<Warehouse> Get(Expression<Func<Warehouse, bool>> expression)
         {
-            return await db.Warehouses.FirstOrDefaultAsync(expression);
+            return await db.Warehouses.AsNoTracking().FirstOrDefaultAsync(expression);
         }
 
         public IQueryable<Warehouse> Where(Expression<Func<Warehouse, bool>> expression)

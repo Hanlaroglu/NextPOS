@@ -147,7 +147,7 @@ namespace Barcode_Sales
 
         public static void StokHareket(string barkod, string urunad, string birim, double miktar, string urungrup, string kullanici)
         {
-            using (var db = new NextposDBEntities())
+            using (var db = new KhanposDbEntities())
             {
                 //StokHareket sh = new StokHareket();
                 //sh.Barkod = barkod;
@@ -200,7 +200,7 @@ namespace Barcode_Sales
                 File.Delete(save.FileName);
             }
             var dbhedef = Application.StartupPath + @"\Backup\" + save.FileName;
-            using (var db = new NextposDBEntities())
+            using (var db = new KhanposDbEntities())
             {
                 var query = @"BACKUP DATABASE Kassadb TO DISK='" + dbhedef + "'";
                 db.Database.ExecuteSqlCommand(TransactionalBehavior.DoNotEnsureTransaction, query);

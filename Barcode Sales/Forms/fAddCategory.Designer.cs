@@ -42,22 +42,25 @@
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.bSave = new DevExpress.XtraEditors.SimpleButton();
             this.tName = new DevExpress.XtraEditors.ButtonEdit();
+            this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.chStatus = new DevExpress.XtraEditors.CheckEdit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tName.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
+            this.panelControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chStatus.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // panelControl1
             // 
-            this.panelControl1.Controls.Add(this.bSave);
-            this.panelControl1.Controls.Add(this.tName);
             this.panelControl1.Controls.Add(this.chStatus);
+            this.panelControl1.Controls.Add(this.panelControl2);
+            this.panelControl1.Controls.Add(this.tName);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(493, 101);
+            this.panelControl1.Size = new System.Drawing.Size(493, 141);
             this.panelControl1.TabIndex = 0;
             // 
             // bSave
@@ -75,13 +78,13 @@
             this.bSave.AppearanceHovered.Options.UseBackColor = true;
             this.bSave.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bSave.ImageOptions.SvgImage")));
             this.bSave.ImageOptions.SvgImageSize = new System.Drawing.Size(28, 28);
-            this.bSave.Location = new System.Drawing.Point(368, 56);
+            this.bSave.Location = new System.Drawing.Point(342, 7);
             this.bSave.LookAndFeel.SkinName = "WXI";
             this.bSave.LookAndFeel.UseDefaultLookAndFeel = false;
             this.bSave.Name = "bSave";
             this.bSave.Padding = new System.Windows.Forms.Padding(3);
             this.bSave.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
-            this.bSave.Size = new System.Drawing.Size(120, 35);
+            this.bSave.Size = new System.Drawing.Size(140, 35);
             this.bSave.TabIndex = 2;
             this.bSave.TabStop = false;
             this.bSave.Text = "Saxla";
@@ -91,7 +94,7 @@
             // 
             this.tName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tName.Location = new System.Drawing.Point(12, 12);
+            this.tName.Location = new System.Drawing.Point(3, 12);
             this.tName.Name = "tName";
             this.tName.Properties.AllowFocused = false;
             this.tName.Properties.Appearance.Font = new System.Drawing.Font("Nunito", 12F);
@@ -111,16 +114,26 @@
             this.tName.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Kateqoriya adı : ", -1, false, true, true, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default),
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "*", -1, false, true, true, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
-            this.tName.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.tName.Size = new System.Drawing.Size(476, 36);
+            this.tName.Size = new System.Drawing.Size(481, 36);
             this.tName.TabIndex = 0;
             this.tName.TabStop = false;
             this.tName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tName_KeyDown);
             // 
+            // panelControl2
+            // 
+            this.panelControl2.Controls.Add(this.bSave);
+            this.panelControl2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panelControl2.Location = new System.Drawing.Point(2, 91);
+            this.panelControl2.LookAndFeel.SkinName = "WXI";
+            this.panelControl2.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.panelControl2.Name = "panelControl2";
+            this.panelControl2.Size = new System.Drawing.Size(489, 48);
+            this.panelControl2.TabIndex = 29;
+            // 
             // chStatus
             // 
             this.chStatus.EditValue = true;
-            this.chStatus.Location = new System.Drawing.Point(12, 54);
+            this.chStatus.Location = new System.Drawing.Point(3, 54);
             this.chStatus.Name = "chStatus";
             this.chStatus.Properties.AllowFocused = false;
             this.chStatus.Properties.Appearance.Font = new System.Drawing.Font("Nunito", 12F, System.Drawing.FontStyle.Bold);
@@ -130,8 +143,8 @@
             this.chStatus.Properties.CheckBoxOptions.SvgColorChecked = DevExpress.LookAndFeel.DXSkinColors.ForeColors.Information;
             this.chStatus.Properties.CheckBoxOptions.SvgImageSize = new System.Drawing.Size(36, 30);
             this.chStatus.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Far;
-            this.chStatus.Size = new System.Drawing.Size(129, 34);
-            this.chStatus.TabIndex = 1;
+            this.chStatus.Size = new System.Drawing.Size(110, 34);
+            this.chStatus.TabIndex = 30;
             this.chStatus.TabStop = false;
             // 
             // fAddCategory
@@ -139,12 +152,10 @@
             this.AcceptButton = this.bSave;
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(493, 101);
+            this.ClientSize = new System.Drawing.Size(493, 141);
             this.Controls.Add(this.panelControl1);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(495, 135);
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(495, 135);
             this.Name = "fAddCategory";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Kateqoriya";
@@ -152,6 +163,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.tName.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
+            this.panelControl2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.chStatus.Properties)).EndInit();
             this.ResumeLayout(false);
 
@@ -160,8 +173,9 @@
         #endregion
 
         private DevExpress.XtraEditors.PanelControl panelControl1;
-        private DevExpress.XtraEditors.CheckEdit chStatus;
         private DevExpress.XtraEditors.ButtonEdit tName;
         private DevExpress.XtraEditors.SimpleButton bSave;
+        private DevExpress.XtraEditors.PanelControl panelControl2;
+        private DevExpress.XtraEditors.CheckEdit chStatus;
     }
 }

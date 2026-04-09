@@ -11,9 +11,9 @@ namespace Barcode_Sales.Forms
     public partial class fWarehouse : XtraForm
     {
         IWarehouseOperation warehouseOperation = new WarehouseManager();
-        private Warehouses _warehouses;
+        private Warehouse _warehouses;
         private Enums.Operation _operation;
-        public fWarehouse(Enums.Operation operation, Warehouses warehouses)
+        public fWarehouse(Enums.Operation operation, Warehouse warehouses)
         {
             InitializeComponent();
             _warehouses = warehouses;
@@ -52,9 +52,9 @@ namespace Barcode_Sales.Forms
             }
         }
 
-        private void Add()
+        private async void Add()
         {
-            _warehouses = new Warehouses
+            _warehouses = new Warehouse
             {
                 Name = tName.Text.Trim(),
                 Status = chStatus.Checked,
@@ -66,7 +66,7 @@ namespace Barcode_Sales.Forms
             if (!validator.IsValid)
                 return;
 
-            if (warehouseOperation.Add(_warehouses))
+            if (await warehouseOperation.Add(_warehouses) > 0)
             {
                 NotificationHelpers.Messages.SuccessMessage(this, "Anbar uğurla yaradıldı");
                 Clear();
@@ -75,7 +75,7 @@ namespace Barcode_Sales.Forms
                 NotificationHelpers.Messages.ErrorMessage(this, "Anbar yaradılarkən xəta yarandı");
         }
 
-        private void Edit()
+        private async void Edit()
         {
             _warehouses.Name = tName.Text.Trim();
             _warehouses.Status = chStatus.Checked;
@@ -85,8 +85,12 @@ namespace Barcode_Sales.Forms
             if (!validator.IsValid)
                 return;
 
-            warehouseOperation.Update(_warehouses);
-            Close();
+            var result = await warehouseOperation.Update(_warehouses,
+                   x => x.Name,
+                   x => x.Status);
+
+            if (result)
+                Close();
         }
 
         private void tName_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)

@@ -9,7 +9,6 @@ using System.ComponentModel;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
-using static NextPOS.UserControls.userSaveFooter;
 
 namespace Barcode_Sales.Forms
 {
@@ -23,10 +22,10 @@ namespace Barcode_Sales.Forms
 
 
         private Enums.Operation Operation { get; }
-        private Product Product { get; set; }
+        private Products Product { get; set; }
         private BindingList<ProductInvoiceDto> dataList = new BindingList<ProductInvoiceDto>();
 
-        public fAddProduct(Enums.Operation _operation, Product _product = null)
+        public fAddProduct(Enums.Operation _operation, Products _product = null)
         {
             InitializeComponent();
             Operation = _operation;
@@ -69,20 +68,20 @@ namespace Barcode_Sales.Forms
 
         private async Task UnitDataLoad()
         {
-            var data = await unitTypeOperation.WhereAsync();
+            var data = await unitTypeOperation.ToListAsync();
             FormHelpers.ControlLoad(data, lookUnit);
             lookUnit.EditValue = 0;
         }
 
         private async Task TaxDataLoad()
         {
-            var data = await taxTypeOperation.WhereAsync(null);
+            var data = await taxTypeOperation.ToListAsync();
             FormHelpers.ControlLoad(data, lookTax);
         }
 
         private async Task CategoryDataLoad()
         {
-            var data = await categoryOperation.ToListAsync(x => x.IsDeleted == 0 && x.Status == true);
+            var data = await categoryOperation.ToListAsync(x => x.IsDeleted == false && x.Status == true);
             FormHelpers.ControlLoad(data, lookCategory, "CategoryName");
         }
 
@@ -114,23 +113,23 @@ namespace Barcode_Sales.Forms
 
         private async Task AddProduct()
         {
-            Product = new Product();
+            Product = new Products();
             Product.Type  = (byte)Enums.ProductType.Product;
             Product.ProductName = tProductName.Text.Trim();
             Product.CategoryId = lookCategory.EditValue == null ? 0 : (int)lookCategory.EditValue;
             Product.Barcode = tBarcode.Text.Trim();
-            Product.Amount = 0;
-            Product.PurchasePrice = Convert.ToDouble(tPurchasePrice.EditValue);
-            Product.SalePrice = Convert.ToDouble(tSalePrice.EditValue);
+            Product.Quantity = 0;
+            Product.PurchasePrice = Convert.ToDecimal(tPurchasePrice.EditValue);
+            Product.SalePrice = Convert.ToDecimal(tSalePrice.EditValue);
             Product.UnitId = lookUnit.EditValue == null ? 0 : (int)lookUnit.EditValue;
             Product.TaxId = lookTax.EditValue == null ? 0 : (int)lookTax.EditValue;
             Product.ProductCode = string.IsNullOrWhiteSpace(tProductCode.Text) ? null : tProductCode.Text.Trim();
-            Product.Status = true;
-            Product.IsDeleted = 0;
+            Product.IsActive = true;
+            Product.IsDeleted = false;
             Product.CreatedDate = DateTime.Now;
             Product.CreatedUserId = 3;
 
-            var barcodeCheck = await productOperation.BarcodeCheckAsync(Product.Barcode, (int)Product.SupplierId);
+            var barcodeCheck = await productOperation.BarcodeCheckAsync(Product.Barcode,0);
             if (barcodeCheck)
             {
                 NotificationHelpers.Messages.InfoMessage(this, "Daxil edilən barkod sistemdə mövcuddur");
@@ -160,8 +159,8 @@ namespace Barcode_Sales.Forms
             grid.Barcode = tBarcode.Text.Trim();
             grid.UnitName = lookUnit.Text;
             grid.TaxName = lookTax.Text;
-            grid.PurchasePrice = Double.Parse(tPurchasePrice.EditValue.ToString());
-            grid.SalePrice = Double.Parse(tSalePrice.EditValue.ToString());
+            grid.PurchasePrice = Decimal.Parse(tPurchasePrice.EditValue.ToString());
+            grid.SalePrice = Decimal.Parse(tSalePrice.EditValue.ToString());
             dataList.Add(grid);
             rowNo++;
 

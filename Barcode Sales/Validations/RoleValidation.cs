@@ -2,7 +2,7 @@
 
 namespace Barcode_Sales.Validations
 {
-    public class RoleValidation : AbstractValidator<Roles>
+    public class RoleValidation : AbstractValidator<Role>
     {
         public static readonly string ExistingRole = "Rol adı sistemdə mövcuddur";
 

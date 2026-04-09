@@ -17,7 +17,7 @@ namespace Barcode_Sales.Forms
 {
     public partial class fPosRollbackProduct : DevExpress.XtraEditors.XtraForm
     {
-        ISalesDataDetailOperation salesDataDetailOperation = new SalesDataDetailManager();
+        private IPosSaleItemOperation posSaleItemOperation = new PosSaleItemManager();
         ICustomerOperation customerOperation = new CustomerManager();
         private readonly PosReturnType _type;
         RepositoryItemTextEdit repositoryN3;
@@ -33,11 +33,12 @@ namespace Barcode_Sales.Forms
             InitializeComponent();
             _type = type;
             _salesDataSummary = items;
-            _customer = _salesDataSummary?.CustomerId is null ? null : customerOperation.GetById((int)_salesDataSummary.CustomerId);
         }
 
-        private void fPosRollbackProduct_Load(object sender, EventArgs e)
+        private async void fPosRollbackProduct_Load(object sender, EventArgs e)
         {
+            _customer = _salesDataSummary?.CustomerId is null ? null : await customerOperation.Get(x => x.Id == (int)_salesDataSummary.CustomerId);
+
             GridRepoAdd();
             SaleDataLoad();
             if (_salesDataSummary != null)
@@ -65,20 +66,19 @@ namespace Barcode_Sales.Forms
 
         private void SaleDataLoad()
         {
-            var data = salesDataDetailOperation
-                      .Where(x => x.SaleDataId == _salesDataSummary.Id)
-                      .Select(x => new SalesDataWrapper
-                      {
-                          Detail = x,
-                          ReturnQuantity = 1
-                      })
-                      .ToList();
+            var data = posSaleItemOperation.Where(x => x.PosSaleId == _salesDataSummary.Id)
+                .Select(x => new SalesDataWrapper
+                {
+                    Detail = x,
+                    ReturnQuantity = 1
+                })
+                .ToList();
             
             if (_type is PosReturnType.Rollback)
             {
                 foreach (var item in data)
                 {
-                    item.ReturnQuantity = (double)item.Detail.Quantity;
+                    item.ReturnQuantity = (decimal)item.Detail.Quantity;
                 }
             }
 
@@ -88,8 +88,8 @@ namespace Barcode_Sales.Forms
 
         private class SalesDataWrapper
         {
-            public SalesDataDetail Detail { get; set; }
-            public double ReturnQuantity { get; set; }
+            public PosSaleItem Detail { get; set; }
+            public decimal ReturnQuantity { get; set; }
         }
 
         private void gridSalesData_ShownEditor(object sender, EventArgs e)
@@ -161,14 +161,14 @@ namespace Barcode_Sales.Forms
                         RefundClassess.DataItem dataItem = new RefundClassess.DataItem()
                         {
                             Id = (int)rowData.Detail.ProductId,
-                            ProductName = rowData.Detail.Products.ProductName,
-                            Barcode = rowData.Detail.Products.Barcode,
-                            Amount = (double)rowData.ReturnQuantity,
-                            PurchasePrice = (double)rowData.Detail.Products.PurchasePrice,
-                            SalePrice = (double)rowData.Detail.SalePrice,
-                            Discount = (double)rowData.Detail.Discount,
-                            UnitId = (int)rowData.Detail.Products.UnitId,
-                            TaxId = (int)rowData.Detail.Products.TaxId,
+                            ProductName = rowData.Detail.Product.ProductName,
+                            Barcode = rowData.Detail.Product.Barcode,
+                            Amount = rowData.ReturnQuantity,
+                            PurchasePrice = rowData.Detail.Product.PurchasePrice,
+                            SalePrice =rowData.Detail.SalePrice,
+                            Discount = rowData.Detail.Discount,
+                            UnitId = rowData.Detail.Product.UnitId,
+                            TaxId = rowData.Detail.Product.TaxId,
                         };
                         RefundDataItem.Add(dataItem);
                     }
@@ -179,8 +179,8 @@ namespace Barcode_Sales.Forms
                     IpAddress = CommonData.terminal.IpAddress,
                     Items = RefundDataItem,
                     Cashier = tCashier.Text,
-                    Cash = (double)_salesDataSummary.Cash - RefundDataItem.Sum(x=> x.SalePrice),
-                    Card = (double)_salesDataSummary.Card,
+                    Cash = (decimal)_salesDataSummary.Cash - RefundDataItem.Sum(x=> x.SalePrice),
+                    Card = (decimal)_salesDataSummary.Card,
                     LongFiskalId = _salesDataSummary.LongFiscalId,
                     ShortFiskalId = _salesDataSummary.ShortFiscalId,
                     document_number = _salesDataSummary.ReceiptNo,
@@ -209,8 +209,8 @@ namespace Barcode_Sales.Forms
                             DialogResult = DialogResult.OK;
                         break;
                     case KassaOperator.OMNITECH:
-                        if (NKA.Omnitech.Refund(_refundData))
-                            DialogResult = DialogResult.OK;
+                        //if (NKA.Omnitech.Refund(_refundData))
+                        //    DialogResult = DialogResult.OK;
                         break;
                     case KassaOperator.AZSMART:
                         if (NKA.AzSmart.Refund(_refundData))
@@ -227,7 +227,7 @@ namespace Barcode_Sales.Forms
             }
         }
 
-        private void Rollback()
+        private async void Rollback()
         {
             if (CommonData.terminal != null)
             {
@@ -235,17 +235,17 @@ namespace Barcode_Sales.Forms
                 switch (kassa)
                 {
                     case KassaOperator.CASPOS:
-                        if (NKA.Sunmi.Sale(null))
+                        if (await NKA.Sunmi.Sale(null))
                         {
                             DialogResult = DialogResult.OK;
                         }
                         break;
                     case KassaOperator.OMNITECH:
-                        if (NKA.Omnitech.Rollback(_refundData))
-                        {
-                            RefundDataItem.Clear();
-                            DialogResult = DialogResult.OK;
-                        }
+                        //if ( NKA.Omnitech.Rollback(_refundData))
+                        //{
+                        //    RefundDataItem.Clear();
+                        //    DialogResult = DialogResult.OK;
+                        //}
                         break;
                     case KassaOperator.AZSMART:
                         break;

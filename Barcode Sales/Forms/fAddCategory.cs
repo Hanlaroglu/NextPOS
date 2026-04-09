@@ -24,7 +24,7 @@ namespace Barcode_Sales.Forms
             if (_operation is Enums.Operation.Edit)
             {
                 tName.Text = _category.CategoryName;
-                chStatus.Checked = (bool)_category.Status;
+                chStatus.Checked = _category.Status;
                 tName.Focus();
             }
         }
@@ -39,11 +39,17 @@ namespace Barcode_Sales.Forms
 
         private async void Add()
         {
+            if (string.IsNullOrWhiteSpace(tName.Text))
+            {
+                NotificationHelpers.Messages.WarningMessage(this, $"Kateqoriya adı boş buraxıla bilməz !");
+                return;
+            }
+
             _category = new Category()
             {
                 CategoryName = tName.Text.TrimStart().Trim(),
                 Status = chStatus.Checked,
-                IsDeleted = 0
+                IsDeleted = false
             };
 
             if (!CheckName(_category.CategoryName))
@@ -59,7 +65,16 @@ namespace Barcode_Sales.Forms
             _category.CategoryName = tName.Text.TrimStart().Trim();
             _category.Status = chStatus.Checked;
 
-            if (!CheckName(_category.CategoryName) && await categoryOperation.Update(_category, x => x.CategoryName, x => x.Status))
+            if (string.IsNullOrWhiteSpace(tName.Text))
+            {
+                NotificationHelpers.Messages.WarningMessage(this, $"Kateqoriya adı boş buraxıla bilməz !");
+                return;
+            }
+
+            if (!CheckName(_category.CategoryName) && await categoryOperation.Update(
+                    _category, 
+                    x => x.CategoryName, 
+                    x => x.Status))
                 Close();
         }
 
@@ -69,7 +84,7 @@ namespace Barcode_Sales.Forms
                 .Where(x =>
                     x.CategoryName == name &&
                     x.Status == chStatus.Checked &&
-                    x.IsDeleted == 0)
+                    x.IsDeleted == false)
                 .Any();
 
             if (check)

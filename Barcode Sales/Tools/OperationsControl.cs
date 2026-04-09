@@ -1,11 +1,7 @@
 ﻿using NextPOS.UserControls;
 using System;
-using System.Windows.Forms;
 using System.Drawing;
-using System.Linq;
-using System.IO;
-using System.Data.SqlClient;
-using Microsoft.Win32;
+using System.Windows.Forms;
 
 namespace Barcode_Sales.Tools
 {
@@ -65,7 +61,7 @@ namespace Barcode_Sales.Tools
         public static void AdminExists()
         {
             Cursor.Current = Cursors.WaitCursor;
-            using (var db = new NextposDBEntities())
+            using (var db = new KhanposDbEntities())
             {
                 //if (!db.Users.Any())
                 //{

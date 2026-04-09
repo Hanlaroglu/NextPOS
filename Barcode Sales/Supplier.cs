@@ -24,16 +24,16 @@ namespace Barcode_Sales
         public string SupplierName { get; set; }
         public string Voen { get; set; }
         public string Address { get; set; }
+        public string Email { get; set; }
         public string Phone { get; set; }
-        public Nullable<double> Debt { get; set; }
-        public Nullable<bool> Status { get; set; }
-        public Nullable<int> IsDeleted { get; set; }
+        public decimal Debt { get; set; }
+        public bool Status { get; set; }
+        public bool IsDeleted { get; set; }
         public string BankName { get; set; }
         public string BankVoen { get; set; }
         public string BankAccountNumber { get; set; }
         public string BankKOD { get; set; }
         public string BankSwift { get; set; }
-        public string Email { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<SuppliersDebt> SuppliersDebts { get; set; }

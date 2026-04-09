@@ -93,18 +93,21 @@ namespace Barcode_Sales.Operations.Concrete
         {
             try
             {
-                db.Set<Store>().Remove(item);
-                return await db.SaveChangesAsync() > 0;
+                item.IsDeleted = true;
+                var result = await Update(item, x => x.IsDeleted);
+
+                return result;
             }
-            catch
+            catch (Exception e)
             {
+                throw e;
                 return false;
             }
         }
 
         public async Task<Store> Get(Expression<Func<Store, bool>> expression)
         {
-            return await db.Stores.FirstOrDefaultAsync(expression);
+            return await db.Stores.AsNoTracking().FirstOrDefaultAsync(expression);
         }
 
         public IQueryable<Store> Where(Expression<Func<Store, bool>> expression)

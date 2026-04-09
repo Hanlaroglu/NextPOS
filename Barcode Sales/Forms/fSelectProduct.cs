@@ -11,13 +11,13 @@ namespace Barcode_Sales.Product
 {
     public partial class fSelectProduct : FormBase
     {
-        private readonly Warehouses Warehouse ;
+        private readonly Warehouse _warehouse ;
         IProductOperation productOperation = new ProductManager();
 
-        public fSelectProduct(Warehouses _warehouse)
+        public fSelectProduct(Warehouse warehouse)
         {
             InitializeComponent();
-            Warehouse = _warehouse;
+            _warehouse = warehouse;
         }
 
         private void fSelectProduct_Load(object sender, EventArgs e)
@@ -25,10 +25,9 @@ namespace Barcode_Sales.Product
             ProductDataLoad();
         }
 
-        private void ProductDataLoad()
+        private async void ProductDataLoad()
         {
-            var data = productOperation.WhereAsync(x => x.IsDeleted == 0).Result;
-            gridControlProducts.DataSource = data.ToList();
+            gridControlProducts.DataSource = await productOperation.ToListAsync(x => x.IsDeleted == false);
         }
 
         private void gridProducts_RowClick(object sender, RowClickEventArgs e)

@@ -22,5 +22,6 @@ namespace Barcode_Sales
         public decimal Discount { get; set; }
     
         public virtual PosSale PosSale { get; set; }
+        public virtual Products Product { get; set; }
     }
 }

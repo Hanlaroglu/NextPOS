@@ -1,6 +1,4 @@
-﻿using Barcode_Sales.Helpers;
-using Barcode_Sales.Helpers.Messages;
-using Barcode_Sales.Operations.Abstract;
+﻿using Barcode_Sales.Operations.Abstract;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -120,6 +118,40 @@ namespace Barcode_Sales.Operations.Concrete
                 return await db.Users.AsNoTracking().ToListAsync();
             else
                 return await db.Users.AsNoTracking().Where(expression).ToListAsync();
+        }
+
+        public Tuple<bool, User, string> Authentication(string username, string password, bool saveMe = false)
+        {
+            var control = db.Users.AsNoTracking()
+                .Include(u=> u.Role)
+                .FirstOrDefault(x => x.Username == username && x.Password == password);
+
+            if (control is null)
+            {
+                return new Tuple<bool, User, string>(false, null, "İstifadəçi adı vəya şifrəsi yanlışdır");
+            }
+
+            if (control.IsActive is false)
+            {
+                return new Tuple<bool, User, string>(false, control, "İstifadəçi deaktiv edilib");
+            }
+
+            if (saveMe)
+            {
+                Properties.Settings.Default.Username = username;
+                Properties.Settings.Default.Password = password;
+                Properties.Settings.Default.SaveMe = true;
+            }
+            else
+            {
+                Properties.Settings.Default.Username = null;
+                Properties.Settings.Default.Password = null;
+                Properties.Settings.Default.SaveMe = false;
+            }
+
+            Properties.Settings.Default.UserID = control.Id;
+            Properties.Settings.Default.Save();
+            return new Tuple<bool, User, string>(true, control, null);
         }
     }
 }

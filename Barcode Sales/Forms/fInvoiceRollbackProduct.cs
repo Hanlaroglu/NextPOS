@@ -48,7 +48,7 @@ namespace Barcode_Sales.Forms
 
         private async Task SupplierDataLoad()
         {
-            var data = await supplierOperation.WhereAsync(x => x.IsDeleted == 0);
+            var data = await supplierOperation.ToListAsync(x => x.IsDeleted == false);
             FormHelpers.ControlLoad(data, lookSuppliers, "SupplierName");
         }
 
@@ -96,7 +96,6 @@ namespace Barcode_Sales.Forms
                             InvoiceId = x.InvoiceId,
                             InvoiceNo = x.InvoiceNo,
                             InvoiceDate = x.InvoiceDate,
-                            SupplierName = x.SupplierName,
                             ProductId = x.ProductId,
                             ProductName = x.ProductName,
                             Barcode = x.Barcode,
@@ -109,8 +108,6 @@ namespace Barcode_Sales.Forms
                 else
                 {
                     _dataList = db.view_InvoiceRollbackList
-                        .Where(x =>
-                            x.SupplierName == supplierName)
                         .Select(x => new ViewInvoiceRollbackListDto()
                         {
                             WarehouseId = x.WarehouseId,
@@ -118,7 +115,6 @@ namespace Barcode_Sales.Forms
                             InvoiceId = x.InvoiceId,
                             InvoiceNo = x.InvoiceNo,
                             InvoiceDate = x.InvoiceDate,
-                            SupplierName = x.SupplierName,
                             ProductId = x.ProductId,
                             ProductName = x.ProductName,
                             Barcode = x.Barcode,
@@ -220,7 +216,7 @@ namespace Barcode_Sales.Forms
                         var details = group.Select(x => new InvoiceRollbackDetail
                         {
                             InvoiceRollbackId = result,
-                            ProductId = x.ProductId,
+                            ProductId = (int)x.ProductId,
                             Quantity = x.RollbackQuantity
                         }).ToList();
 

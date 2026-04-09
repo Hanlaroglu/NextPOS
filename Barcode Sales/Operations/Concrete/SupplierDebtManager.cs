@@ -12,7 +12,6 @@ namespace Barcode_Sales.Operations.Concrete
     {
         KhanposDbEntities db = new KhanposDbEntities();
 
-
         public async Task<int> Add(SuppliersDebt item)
         {
             try
@@ -94,18 +93,22 @@ namespace Barcode_Sales.Operations.Concrete
         {
             try
             {
-                db.Set<SuppliersDebt>().Remove(item);
-                return await db.SaveChangesAsync() > 0;
+                item.IsDeleted = true;
+
+                var result = await Update(item, x => x.IsDeleted);
+
+                return result;
             }
-            catch
+            catch (Exception ex)
             {
+                throw ex;
                 return false;
             }
         }
 
         public async Task<SuppliersDebt> Get(Expression<Func<SuppliersDebt, bool>> expression)
         {
-            return await db.SuppliersDebts.FirstOrDefaultAsync(expression);
+            return await db.SuppliersDebts.AsNoTracking().FirstOrDefaultAsync(expression);
         }
 
         public IQueryable<SuppliersDebt> Where(Expression<Func<SuppliersDebt, bool>> expression)
@@ -136,11 +139,11 @@ namespace Barcode_Sales.Operations.Concrete
         //    }
         //}
 
-        public double SupplierTotalDebt(int supplierId)
+        public decimal SupplierTotalDebt(int supplierId)
         {
             var debtTotal = db.SuppliersDebts
-                              .Where(x => x.SupplierId == supplierId && x.IsDeleted == 0)
-                              .Sum(x => (x.Debt ?? 0) + (x.TaxDebt ?? 0));
+                              .Where(x => x.SupplierId == supplierId && x.IsDeleted == false)
+                              .Sum(x => (x.Debt) + (x.TaxDebt));
 
             return debtTotal;
         }

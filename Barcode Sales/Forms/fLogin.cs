@@ -10,11 +10,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Barcode_Sales.Operations.Abstract;
+using Barcode_Sales.Operations.Concrete;
 
 namespace Barcode_Sales.Forms
 {
     public partial class fLogin : DevExpress.XtraEditors.XtraForm
     {
+        IUserOperation userOperation = new UserManager();
         public fLogin()
         {
             InitializeComponent();
@@ -39,7 +42,7 @@ namespace Barcode_Sales.Forms
 
         private void Login()
         {
-            var control = UserValidation.AuthenticationControl(tUsername.Text.Trim(), tPassword.Text.Trim(), chSaveMe.Checked);
+            var control = userOperation.Authentication(tUsername.Text.Trim(), tPassword.Text.Trim(), chSaveMe.Checked);
             if (control.Item1)
             {
                 CommonData.CURRENT_USER = control.Item2;

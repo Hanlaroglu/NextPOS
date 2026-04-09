@@ -1,25 +1,18 @@
-﻿using Barcode_Sales.Barcode.Sales.UI.Kassa;
-using Barcode_Sales.Helpers;
-using Barcode_Sales.Operations.Abstract;
-using Barcode_Sales.Operations.Concrete;
-using DevExpress.XtraEditors;
+﻿using Barcode_Sales.Helpers;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using Barcode_Sales.Terminals.Omnitech;
 using static Barcode_Sales.Helpers.Enums;
+using Enums = Barcode_Sales.Helpers.Enums;
 
 namespace Barcode_Sales.Forms
 {
     public partial class fPosSalesControlPanel : DevExpress.XtraEditors.XtraForm
     {
 
-        private static readonly Terminals _terminals = CommonData.terminal;
+        private static readonly Terminal _terminals = CommonData.terminal;
+        KassaOperator kassa = (KassaOperator)Enum.Parse(typeof(KassaOperator), _terminals.Name);
+
         public fPosSalesControlPanel()
         {
             InitializeComponent();
@@ -46,9 +39,8 @@ namespace Barcode_Sales.Forms
                 });
                 if (f.ShowDialog() is DialogResult.OK)
                 {
-                    double _amount = f.Amount;
+                    decimal _amount = f.Amount;
 
-                    KassaOperator kassa = (KassaOperator)Enum.Parse(typeof(KassaOperator), _terminals.Name);
                     switch (kassa)
                     {
                         case KassaOperator.CASPOS:
@@ -81,13 +73,12 @@ namespace Barcode_Sales.Forms
                 this.Close();
                 fPriceChange f = new fPriceChange(new Helpers.Classes.SaleClasses.PosChangeType
                 {
-                    ChangeType = Enums.PosChangeType.Withdraw,
+                    ChangeType = PosChangeType.Withdraw,
                 });
                 if (f.ShowDialog() is DialogResult.OK)
                 {
-                    double _amount = f.Amount;
+                    decimal _amount = f.Amount;
 
-                    KassaOperator kassa = (KassaOperator)Enum.Parse(typeof(KassaOperator), _terminals.Name);
                     switch (kassa)
                     {
                         case KassaOperator.CASPOS:
@@ -126,15 +117,14 @@ namespace Barcode_Sales.Forms
                     MerchantId = _terminals.MerchantId,
                 };
 
-                KassaOperator kassa = (KassaOperator)Enum.Parse(typeof(KassaOperator), _terminals.Name);
-               
                 switch (kassa)
                 {
                     case KassaOperator.CASPOS:
                         NKA.Sunmi.GetShiftStatus(item);
                         break;
                     case KassaOperator.OMNITECH:
-                        NKA.Omnitech.GetShiftStatus(item);
+                        OmnnitechTerminal omnnitech = new OmnnitechTerminal();
+                        var result = omnnitech.Login(_terminals.IpAddress);
                         break;
                     case KassaOperator.AZSMART:
                         NKA.AzSmart.GetShiftStatus(item);
@@ -160,14 +150,13 @@ namespace Barcode_Sales.Forms
                     MerchantId = _terminals.MerchantId,
                 };
 
-                KassaOperator kassa = (KassaOperator)Enum.Parse(typeof(KassaOperator), _terminals.Name);
                 switch (kassa)
                 {
                     case KassaOperator.CASPOS:
                         NKA.Sunmi.CloseShift(item);
                         break;
                     case KassaOperator.OMNITECH:
-                        NKA.Omnitech.CloseShift(item);
+                        //NKA.Omnitech.CloseShift(item);
                         break;
                     case KassaOperator.AZSMART:
                         NKA.AzSmart.CloseShift(item);

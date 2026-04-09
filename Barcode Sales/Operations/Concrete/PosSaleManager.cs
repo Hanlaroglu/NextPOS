@@ -146,5 +146,10 @@ AND DATEADD(DAY,1,CAST(GETDATE() AS DATE))")
         {
             return db.PosSales.Where(expression);
         }
+
+        public Task<TopSellingProductDto> TopSellingProducts()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

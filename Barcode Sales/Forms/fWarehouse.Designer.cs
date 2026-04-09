@@ -51,21 +51,19 @@
             // 
             // panelControl1
             // 
-            this.panelControl1.Controls.Add(this.chStatus);
-            this.panelControl1.Controls.Add(this.tName);
             this.panelControl1.Controls.Add(this.bSave);
-            this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl1.Location = new System.Drawing.Point(0, 0);
+            this.panelControl1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panelControl1.Location = new System.Drawing.Point(0, 88);
             this.panelControl1.LookAndFeel.SkinName = "WXI";
             this.panelControl1.LookAndFeel.UseDefaultLookAndFeel = false;
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(493, 101);
+            this.panelControl1.Size = new System.Drawing.Size(493, 48);
             this.panelControl1.TabIndex = 0;
             // 
             // chStatus
             // 
             this.chStatus.EditValue = true;
-            this.chStatus.Location = new System.Drawing.Point(12, 54);
+            this.chStatus.Location = new System.Drawing.Point(5, 54);
             this.chStatus.Name = "chStatus";
             this.chStatus.Properties.AllowFocused = false;
             this.chStatus.Properties.Appearance.Font = new System.Drawing.Font("Nunito", 12F, System.Drawing.FontStyle.Bold);
@@ -75,7 +73,7 @@
             this.chStatus.Properties.CheckBoxOptions.SvgColorChecked = DevExpress.LookAndFeel.DXSkinColors.ForeColors.Information;
             this.chStatus.Properties.CheckBoxOptions.SvgImageSize = new System.Drawing.Size(36, 30);
             this.chStatus.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Far;
-            this.chStatus.Size = new System.Drawing.Size(129, 34);
+            this.chStatus.Size = new System.Drawing.Size(110, 34);
             this.chStatus.TabIndex = 27;
             this.chStatus.TabStop = false;
             // 
@@ -83,7 +81,7 @@
             // 
             this.tName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tName.Location = new System.Drawing.Point(12, 12);
+            this.tName.Location = new System.Drawing.Point(5, 10);
             this.tName.Name = "tName";
             this.tName.Properties.AllowFocused = false;
             this.tName.Properties.Appearance.Font = new System.Drawing.Font("Nunito", 12F);
@@ -93,9 +91,7 @@
             serializableAppearanceObject1.Font = new System.Drawing.Font("Nunito", 12F, System.Drawing.FontStyle.Bold);
             serializableAppearanceObject1.Options.UseFont = true;
             serializableAppearanceObject4.Font = new System.Drawing.Font("Nunito", 12F, System.Drawing.FontStyle.Bold);
-            serializableAppearanceObject4.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.ControlText;
             serializableAppearanceObject4.Options.UseFont = true;
-            serializableAppearanceObject4.Options.UseForeColor = true;
             serializableAppearanceObject8.Font = new System.Drawing.Font("Nunito", 12F, System.Drawing.FontStyle.Bold);
             serializableAppearanceObject8.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.Critical;
             serializableAppearanceObject8.Options.UseFont = true;
@@ -104,7 +100,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Anbar adı : ", -1, false, true, true, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default),
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "*", -1, false, true, true, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.tName.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.tName.Size = new System.Drawing.Size(479, 36);
+            this.tName.Size = new System.Drawing.Size(483, 36);
             this.tName.TabIndex = 26;
             this.tName.TabStop = false;
             this.tName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tName_KeyDown);
@@ -124,7 +120,7 @@
             this.bSave.AppearanceHovered.Options.UseBackColor = true;
             this.bSave.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bSave.ImageOptions.SvgImage")));
             this.bSave.ImageOptions.SvgImageSize = new System.Drawing.Size(28, 28);
-            this.bSave.Location = new System.Drawing.Point(346, 57);
+            this.bSave.Location = new System.Drawing.Point(346, 7);
             this.bSave.LookAndFeel.SkinName = "WXI";
             this.bSave.LookAndFeel.UseDefaultLookAndFeel = false;
             this.bSave.Name = "bSave";
@@ -140,12 +136,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(493, 101);
+            this.ClientSize = new System.Drawing.Size(493, 136);
+            this.Controls.Add(this.chStatus);
             this.Controls.Add(this.panelControl1);
+            this.Controls.Add(this.tName);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(495, 135);
+            this.MaximumSize = new System.Drawing.Size(495, 170);
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(495, 135);
+            this.MinimumSize = new System.Drawing.Size(495, 170);
             this.Name = "fWarehouse";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Anbar";

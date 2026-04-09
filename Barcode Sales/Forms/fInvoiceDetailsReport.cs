@@ -26,12 +26,11 @@ namespace Barcode_Sales.Forms
         {
             if (_invoice is null) return;
 
-            tDate.Text = _invoice.InvoiceDate.Value.ToShortDateString();
+            tDate.Text = _invoice.InvoiceDate.ToShortDateString();
             tContractNo.Text = _invoice.InvoiceNo;
             tWarehouse.Text = _invoice.Warehouse.Name;
-            tUser.Text = _invoice.Users.NameSurname;
-            tPaymentType.Text = _invoice.PaymentType.Name;
-            tTotalPurchase.Text = _invoice.TotalPurchasePrice.Value.ToString("C2");
+            tUser.Text = _invoice.User.NameSurname;
+            tTotalPurchase.Text = _invoice.TotalPurchasePrice.ToString("C2");
             tNote.Text = _invoice.Comment;
 
 
@@ -39,11 +38,11 @@ namespace Barcode_Sales.Forms
                 .Where(x => x.InvoiceId == _invoice.Id)
                 .Select(x=> new InvoiceDetailsDto()
                 {
-                    ProductName = x.Products.ProductName,
-                    Barcode = x.Products.Barcode,
-                    Quantity = x.Amount ??0,
-                    PurchasePrice = x.PurchasePrice ?? 0,
-                    SalePrice = x.SalePrice ?? 0
+                    ProductName = x.Product.ProductName,
+                    Barcode = x.Product.Barcode,
+                    Quantity = x.Amount,
+                    PurchasePrice = x.PurchasePrice,
+                    SalePrice = x.SalePrice
                 })
                 .ToList();
 
@@ -56,15 +55,15 @@ namespace Barcode_Sales.Forms
         {
             public string ProductName { get; set; }
             public string Barcode { get; set; }
-            public double PurchasePrice { get; set; }
-            public double Quantity { get; set; }
-            public double TotalPurchasePrice { get => PurchasePrice * Quantity; }
-            public double SalePrice { get; set; }
-            public double TotalSalePrice
+            public decimal PurchasePrice { get; set; }
+            public decimal Quantity { get; set; }
+            public decimal TotalPurchasePrice { get => PurchasePrice * Quantity; }
+            public decimal SalePrice { get; set; }
+            public decimal TotalSalePrice
             {
                 get => SalePrice * Quantity;
             }
-            public double Gain
+            public decimal Gain
             {
                 get => TotalSalePrice - TotalPurchasePrice;
             }

@@ -30,7 +30,7 @@ namespace Barcode_Sales.Forms
                 panelControl1.Visible = false;
                 gridControlCategories.DataSource = db.Categories.AsNoTracking()
                                                                 .Where(x => x.Status == true)
-                                                                .Where(x => x.IsDeleted == 0)
+                                                                .Where(x => x.IsDeleted == false)
                                                                 .ToList();
             }
         }

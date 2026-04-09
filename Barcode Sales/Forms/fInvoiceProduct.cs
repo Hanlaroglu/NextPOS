@@ -71,17 +71,15 @@ namespace Barcode_Sales.Forms
         private async Task ProductsLoadAsync()
         {
             var data = await productOperation
-                .Where(x => x.IsDeleted == 0 && x.Status == true)
+                .Where(x => x.IsDeleted == false && x.IsActive == true)
                 .Select(x => new ProductInvoiceDto
                 {
                     Id = x.Id,
-                    SupplierId = (int)x.SupplierId,
-                    SupplierName = x.Suppliers.SupplierName,
                     ProductName = x.ProductName,
-                    SalePrice = x.SalePrice ?? 0,
-                    PurchasePrice = x.PurchasePrice ?? 0,
+                    SalePrice = x.SalePrice,
+                    PurchasePrice = x.PurchasePrice,
                     Barcode = x.Barcode,
-                    Stock = x.Amount
+                    Stock = x.Quantity
                 }).ToListAsync();
             lookProductName.Properties.DataSource = data;
             lookProductName.Properties.DisplayMember = "ProductName";
@@ -123,10 +121,9 @@ namespace Barcode_Sales.Forms
                     InvoiceNo = tContractNo.Text.Trim(),
                     TotalPurchasePrice = _dataList.Sum(x => x.PurchasePrice),
                     WarehouseId = lookWarehouse.EditValue == null ? 0 : (int)lookWarehouse.EditValue,
-                    PaymentTypeId = lookPaymentType.EditValue == null ? 0 : (int)lookPaymentType.EditValue,
                     Comment = tComment.Text.Trim(),
                     UserId = 3,
-                    IsDeleted = 0,
+                    IsDeleted = false,
                     CreatedDate = DateTime.Now
                 };
 
@@ -201,7 +198,7 @@ namespace Barcode_Sales.Forms
                     existingData.Quantity += 1;
                 else
                 {
-                    var data = productOperation.Where(x => x.Barcode == barcode && x.IsDeleted == 0).FirstOrDefault();
+                    var data = productOperation.Where(x => x.Barcode == barcode && x.IsDeleted == false).FirstOrDefault();
                     if (data is null)
                     {
                         NotificationHelpers.Messages.WarningMessage(this, $"({barcode}) barkoduna aid məhsul sistemdə tapılmadı", "Məhsul tapılmadı");
@@ -212,13 +209,11 @@ namespace Barcode_Sales.Forms
                         _dataList.Add(new ProductInvoiceDto()
                         {
                             Id = data.Id,
-                            SupplierId = data.SupplierId ?? default,
-                            SupplierName = data.Suppliers.SupplierName,
                             Barcode = data.Barcode,
                             ProductName = data.ProductName,
                             PurchasePrice = data.PurchasePrice,
-                            SalePrice = data.SalePrice ?? default,
-                            Stock = data.Amount
+                            SalePrice = data.SalePrice,
+                            Stock = data.Quantity
                         });
                     }
                 }

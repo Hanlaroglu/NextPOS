@@ -181,7 +181,7 @@ namespace Barcode_Sales.NKA
                 {
                     incomeAndExpenseOperation.Add(new TerminalIncomesAndExpens
                     {
-                        Amount = item.Amount,
+                        Amount = Convert.ToDouble(item.Amount),
                         Date = DateTime.Now,
                         Time = DateTime.Now.TimeOfDay,
                         UserId = CommonData.CURRENT_USER.Id,
@@ -229,7 +229,7 @@ namespace Barcode_Sales.NKA
                 {
                     incomeAndExpenseOperation.Add(new TerminalIncomesAndExpens
                     {
-                        Amount = item.Amount,
+                        Amount = Convert.ToDouble(item.Amount),
                         Date = DateTime.Now,
                         Time = DateTime.Now.TimeOfDay,
                         UserId = CommonData.CURRENT_USER.Id,

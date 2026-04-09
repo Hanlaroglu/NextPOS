@@ -19,7 +19,7 @@ namespace Barcode_Sales
         public Yazdir(string proccesNo, bool type)
         {
             ProccesNo = proccesNo;
-            using (var db = new NextposDBEntities())
+            using (var db = new KhanposDbEntities())
             {
                 //switch (type)
                 //{

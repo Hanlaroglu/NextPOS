@@ -484,7 +484,6 @@
             this.controlFooterButton1.Size = new System.Drawing.Size(835, 45);
             this.controlFooterButton1.TabIndex = 8;
             this.controlFooterButton1.SaveClick += new System.EventHandler(this.controlFooterButton1_SaveClick);
-            this.controlFooterButton1.CancelClick += new System.EventHandler(this.controlFooterButton1_CancelClick);
             // 
             // fAddSupplierDebt
             // 
