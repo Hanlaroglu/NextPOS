@@ -1,5 +1,4 @@
-﻿using Barcode_Sales.Helpers.Messages;
-using Barcode_Sales.Operations.Abstract;
+﻿using Barcode_Sales.Operations.Abstract;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -22,8 +21,9 @@ namespace Barcode_Sales.Operations.Concrete
                 await db.SaveChangesAsync();
                 return item.Id;
             }
-            catch
+            catch (Exception ex)
             {
+                throw ex;
                 return 0;
             }
         }
@@ -56,8 +56,9 @@ namespace Barcode_Sales.Operations.Concrete
 
                 return await db.SaveChangesAsync() > 0;
             }
-            catch
+            catch (Exception e)
             {
+                throw e;
                 return false;
             }
         }
@@ -106,7 +107,7 @@ namespace Barcode_Sales.Operations.Concrete
 
         public async Task<Products> Get(Expression<Func<Products, bool>> expression)
         {
-            return await db.Products.FirstOrDefaultAsync(expression);
+            return await db.Products.AsNoTracking().FirstOrDefaultAsync(expression);
         }
 
         public IQueryable<Products> Where(Expression<Func<Products, bool>> expression)
@@ -122,68 +123,13 @@ namespace Barcode_Sales.Operations.Concrete
                 return await db.Products.AsNoTracking().Where(expression).ToListAsync();
         }
 
-
-
-
-
-
-
-
-
-
-
-
-
-        //public void Remove(Product item)
-        //{
-        //    if (CommonMessageBox.QuestionDialogResult($"{item.ProductName} məhsulunu silmək istədiyinizə əminsiniz ?"))
-        //    {
-        //        Product product = db.Products.FirstOrDefault(x => x.Id == item.Id);
-        //        product.IsDeleted = product.Id;
-        //        db.SaveChanges();
-        //    }
-        //}
-
-        //public void Update(Product item)
-        //{
-        //    var existingItem = db.Products.Find(item.Id);
-        //    if (existingItem != null)
-        //    {
-        //        db.Entry(existingItem).CurrentValues.SetValues(item);
-        //        db.SaveChanges();
-        //    }
-        //}
-
-        //public void StatusChanged(Product item)
-        //{
-        //    //Məhsulun status dəyərini dəyişdirmək üçün
-        //    throw new NotImplementedException();
-        //}
-
-        //public async Task<Product> GetByBarcodeAsync(string barcode)
-        //{
-        //    return await db.Products.AsNoTracking().FirstOrDefaultAsync(x => x.Barcode == barcode.Trim() && x.IsDeleted == 0);
-        //}
-
-        public async Task<bool> BarcodeCheckAsync(string barcode, int supplierId)
+        public async Task<bool> Remove(Products item)
         {
-            return await db.Products.AsNoTracking().AnyAsync(x => x.Barcode == barcode.Trim()
-                                                                  && x.IsDeleted == true);
-        }
+            item.IsDeleted = true;
+            if (await db.SaveChangesAsync() > 0)
+                return true;
 
-        public void StatusChanged(Products item)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<Products> GetByBarcodeAsync(string barcode)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<bool> Remove(Products item)
-        {
-            throw new NotImplementedException();
+            return false;
         }
     }
 }

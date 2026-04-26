@@ -1,6 +1,7 @@
 ﻿using Barcode_Sales.Helpers;
 using Barcode_Sales.Operations.Abstract;
 using Barcode_Sales.Operations.Concrete;
+using Barcode_Sales.Services.CacheServices;
 using DevExpress.XtraGrid.Localization;
 using DevExpress.XtraGrid.Views.Grid.ViewInfo;
 using System;
@@ -48,7 +49,7 @@ namespace Barcode_Sales.Forms
             var saleCount = await posSaleOperation.CurrentSaleCount();
             tSaleCount.Text = saleCount.ToString();
             tToday.Properties.Buttons[1].Caption = CommonData.TODAY_DATE;
-            tCashier.Properties.Buttons[1].Caption = CommonData.CURRENT_USER?.NameSurname;
+            tCashier.Properties.Buttons[1].Caption = UserCacheService.User?.NameSurname;
             await SearchProductList();
         }
 
@@ -326,6 +327,12 @@ namespace Barcode_Sales.Forms
         private void fPosSales_FormClosed(object sender, FormClosedEventArgs e)
         {
             //Application.Exit();
+        }
+
+        private void bCustomers_Click(object sender, EventArgs e)
+        {
+            fSelectCustomer f = new fSelectCustomer();
+            f.ShowDialog();
         }
     }
 }

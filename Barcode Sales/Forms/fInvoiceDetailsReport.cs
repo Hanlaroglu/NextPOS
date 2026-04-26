@@ -2,7 +2,6 @@
 using Barcode_Sales.Operations.Abstract;
 using Barcode_Sales.Operations.Concrete;
 using System;
-using System.Data;
 using System.Linq;
 
 namespace Barcode_Sales.Forms
@@ -17,7 +16,7 @@ namespace Barcode_Sales.Forms
             _invoice = invoice;
         }
 
-        private async void fInvoiceDetailsReport_Load(object sender, EventArgs e)
+        private void fInvoiceDetailsReport_Load(object sender, EventArgs e)
         {
             DataLoad();
         }
@@ -29,6 +28,7 @@ namespace Barcode_Sales.Forms
             tDate.Text = _invoice.InvoiceDate.ToShortDateString();
             tContractNo.Text = _invoice.InvoiceNo;
             tWarehouse.Text = _invoice.Warehouse.Name;
+            tSupplierName.Text = _invoice.Supplier.SupplierName;
             tUser.Text = _invoice.User.NameSurname;
             tTotalPurchase.Text = _invoice.TotalPurchasePrice.ToString("C2");
             tNote.Text = _invoice.Comment;
@@ -41,6 +41,7 @@ namespace Barcode_Sales.Forms
                     ProductName = x.Product.ProductName,
                     Barcode = x.Product.Barcode,
                     Quantity = x.Amount,
+                    UnitName = x.Product.UnitTypes.Name,
                     PurchasePrice = x.PurchasePrice,
                     SalePrice = x.SalePrice
                 })
@@ -57,6 +58,7 @@ namespace Barcode_Sales.Forms
             public string Barcode { get; set; }
             public decimal PurchasePrice { get; set; }
             public decimal Quantity { get; set; }
+            public string UnitName { get; set; }
             public decimal TotalPurchasePrice { get => PurchasePrice * Quantity; }
             public decimal SalePrice { get; set; }
             public decimal TotalSalePrice

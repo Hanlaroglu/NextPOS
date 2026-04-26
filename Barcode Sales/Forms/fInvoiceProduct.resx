@@ -207,4 +207,46 @@
         djU2YTgsOCwwLDAsMS0xNiwwVjg4YTgsOCwwLDAsMSwxNiwwWiIgLz4NCjwvc3ZnPgs=
 </value>
   </data>
+  <data name="bAddWarehouse.ImageOptions.SvgImage" type="DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v24.1" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        AAEAAAD/////AQAAAAAAAAAMAgAAAFlEZXZFeHByZXNzLkRhdGEudjI0LjEsIFZlcnNpb249MjQuMS4z
+        LjAsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49Yjg4ZDE3NTRkNzAwZTQ5YQUBAAAAHURl
+        dkV4cHJlc3MuVXRpbHMuU3ZnLlN2Z0ltYWdlAQAAAAREYXRhBwICAAAACQMAAAAPAwAAAJgBAAAC77u/
+        PD94bWwgdmVyc2lvbj0nMS4wJyBlbmNvZGluZz0nVVRGLTgnPz4NCjxzdmcgd2lkdGg9IjFlbSIgaGVp
+        Z2h0PSIxZW0iIHZpZXdCb3g9IjAgMCAyNTYgMjU2IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAw
+        MC9zdmciPg0KICA8cGF0aCBkPSJNMjQwIDE4NmgtMTBWNTYuMjhsMTEuMjYtMi40MWE2IDYgMCAxIDAt
+        Mi41Mi0xMS43NGwtMjI0IDQ4YTYgNiAwIDAgMCAyLjUyIDExLjc0TDI2IDEwMHY4NkgxNmE2IDYgMCAw
+        IDAgMCAxMmgyMjRhNiA2IDAgMCAwIDAtMTJNMzggOTcuNDJsMTgwLTM4LjU3VjE4NmgtMjh2LTU4YTYg
+        NiAwIDAgMC02LTZINzJhNiA2IDAgMCAwLTYgNnY1OEgzOFpNMTc4IDE1NEg3OHYtMjBoMTAwWk03OCAx
+        NjZoMTAwdjIwSDc4WiIgZmlsbD0iY3VycmVudENvbG9yIiAvPg0KPC9zdmc+Cw==
+</value>
+  </data>
+  <data name="bAddSupplier.ImageOptions.SvgImage" type="DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v24.1" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        AAEAAAD/////AQAAAAAAAAAMAgAAAFlEZXZFeHByZXNzLkRhdGEudjI0LjEsIFZlcnNpb249MjQuMS4z
+        LjAsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49Yjg4ZDE3NTRkNzAwZTQ5YQUBAAAAHURl
+        dkV4cHJlc3MuVXRpbHMuU3ZnLlN2Z0ltYWdlAQAAAAREYXRhBwICAAAACQMAAAAPAwAAAIQDAAAC77u/
+        PD94bWwgdmVyc2lvbj0nMS4wJyBlbmNvZGluZz0nVVRGLTgnPz4NCjxzdmcgd2lkdGg9IjFlbSIgaGVp
+        Z2h0PSIxZW0iIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAv
+        c3ZnIj4NCiAgPGcgZmlsbD0ibm9uZSI+DQogICAgPHBhdGggZD0iTTEzLjkxMyA4LjY1MmEuOTU3Ljk1
+        NyAwIDAgMC0uOTU3LS45NTZIMy4zOTFhLjk1Ny45NTcgMCAwIDAtLjk1Ni45NTZ2OC42MDloMTEuNDc4
+        eiIgc3Ryb2tlPSIjMTkxOTE5IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0i
+        cm91bmQiIC8+DQogICAgPHBhdGggZD0iTTIzIDFoLTIuMjY3YTEuOTEgMS45MSAwIDAgMC0xLjg3NCAx
+        LjUzbC0yLjcxOCAxMy4yYTEuOTE0IDEuOTE0IDAgMCAxLTEuODc0IDEuNTNIMSIgc3Ryb2tlPSIjMTkx
+        OTE5IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIC8+DQogICAg
+        PHBhdGggZD0iTTYuMjYgNy42OTZ2NS4yNmwxLjkxNC0xLjQzNGwxLjkxMyAxLjQzNVY3LjY5NiIgZmls
+        bD0iI2ZmZiIgLz4NCiAgICA8cGF0aCBkPSJNNC44MjYgNy42OTZWMi45MTNhLjk1Ny45NTcgMCAwIDEg
+        Ljk1Ni0uOTU2aDQuNzgzYS45NTcuOTU3IDAgMCAxIC45NTYuOTU2djQuNzgzek00LjM0OCAyM2ExLjkx
+        MyAxLjkxMyAwIDEgMCAwLTMuODI2YTEuOTEzIDEuOTEzIDAgMCAwIDAgMy44MjZtOS41NjUgMGExLjkx
+        MyAxLjkxMyAwIDEgMCAwLTMuODI1YTEuOTEzIDEuOTEzIDAgMCAwIDAgMy44MjVNNi4yNiA3LjY5NnY1
+        LjI2bDEuOTE0LTEuNDM0bDEuOTEzIDEuNDM1VjcuNjk2IiBzdHJva2U9IiMxOTE5MTkiIHN0cm9rZS1s
+        aW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgLz4NCiAgPC9nPg0KPC9zdmc+Cw==
+</value>
+  </data>
+  <metadata name="barManager1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>143, 17</value>
+  </metadata>
+  <metadata name="popupMenu1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
 </root>

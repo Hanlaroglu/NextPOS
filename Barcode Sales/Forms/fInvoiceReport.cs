@@ -1,12 +1,10 @@
 ﻿using Barcode_Sales.Helpers;
 using Barcode_Sales.Operations.Abstract;
 using Barcode_Sales.Operations.Concrete;
+using Barcode_Sales.Validations;
 using System;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using FluentValidation;
-using Barcode_Sales.Validations;
 
 namespace Barcode_Sales.Forms
 {

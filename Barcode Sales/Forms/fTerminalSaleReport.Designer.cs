@@ -78,12 +78,12 @@
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.lookCashier = new DevExpress.XtraEditors.LookUpEdit();
             this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
+            this.chReceipt = new DevExpress.XtraEditors.CheckEdit();
             this.chFiscal = new DevExpress.XtraEditors.CheckEdit();
             this.chDate = new DevExpress.XtraEditors.CheckEdit();
             this.bSearch = new DevExpress.XtraEditors.SimpleButton();
             this.dateEnd = new DevExpress.XtraEditors.DateEdit();
             this.dateStart = new DevExpress.XtraEditors.DateEdit();
-            this.chReceipt = new DevExpress.XtraEditors.CheckEdit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
@@ -94,13 +94,13 @@
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lookCashier.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chReceipt.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chFiscal.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chDate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEnd.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEnd.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateStart.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateStart.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chReceipt.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // gridView2
@@ -526,7 +526,7 @@
             this.lookCashier.Properties.NullValuePrompt = "Kassir";
             this.lookCashier.Properties.ShowFooter = false;
             this.lookCashier.Properties.ShowHeader = false;
-            this.lookCashier.Size = new System.Drawing.Size(319, 32);
+            this.lookCashier.Size = new System.Drawing.Size(319, 28);
             this.lookCashier.TabIndex = 4;
             this.lookCashier.TextChanged += new System.EventHandler(this.lookCashier_TextChanged);
             // 
@@ -535,10 +535,23 @@
             this.textEdit1.Location = new System.Drawing.Point(11, 5);
             this.textEdit1.Name = "textEdit1";
             this.textEdit1.Properties.MaxLength = 12;
-            this.textEdit1.Size = new System.Drawing.Size(424, 32);
+            this.textEdit1.Size = new System.Drawing.Size(424, 28);
             this.textEdit1.TabIndex = 3;
             this.textEdit1.Visible = false;
             this.textEdit1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Search_KeyDown);
+            // 
+            // chReceipt
+            // 
+            this.chReceipt.Location = new System.Drawing.Point(238, 43);
+            this.chReceipt.Name = "chReceipt";
+            this.chReceipt.Properties.AllowFocused = false;
+            this.chReceipt.Properties.AutoWidth = true;
+            this.chReceipt.Properties.Caption = "Çek №";
+            this.chReceipt.Properties.RadioGroupIndex = 1;
+            this.chReceipt.Size = new System.Drawing.Size(70, 22);
+            this.chReceipt.TabIndex = 2;
+            this.chReceipt.TabStop = false;
+            this.chReceipt.CheckedChanged += new System.EventHandler(this.CheckedSearchType);
             // 
             // chFiscal
             // 
@@ -548,7 +561,7 @@
             this.chFiscal.Properties.AutoWidth = true;
             this.chFiscal.Properties.Caption = "Fiskal ID";
             this.chFiscal.Properties.RadioGroupIndex = 1;
-            this.chFiscal.Size = new System.Drawing.Size(78, 22);
+            this.chFiscal.Size = new System.Drawing.Size(81, 22);
             this.chFiscal.TabIndex = 2;
             this.chFiscal.TabStop = false;
             this.chFiscal.CheckedChanged += new System.EventHandler(this.CheckedSearchType);
@@ -562,7 +575,7 @@
             this.chDate.Properties.AutoWidth = true;
             this.chDate.Properties.Caption = "Dövrü hesabat";
             this.chDate.Properties.RadioGroupIndex = 1;
-            this.chDate.Size = new System.Drawing.Size(114, 22);
+            this.chDate.Size = new System.Drawing.Size(121, 22);
             this.chDate.TabIndex = 2;
             this.chDate.CheckedChanged += new System.EventHandler(this.CheckedSearchType);
             // 
@@ -572,7 +585,7 @@
             this.bSearch.Appearance.Options.UseBackColor = true;
             this.bSearch.Location = new System.Drawing.Point(441, 5);
             this.bSearch.Name = "bSearch";
-            this.bSearch.Size = new System.Drawing.Size(138, 32);
+            this.bSearch.Size = new System.Drawing.Size(115, 28);
             this.bSearch.TabIndex = 1;
             this.bSearch.Text = "Axtar";
             this.bSearch.Click += new System.EventHandler(this.bSearch_Click);
@@ -590,7 +603,7 @@
             this.dateEnd.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dateEnd.Properties.ShowToday = false;
-            this.dateEnd.Size = new System.Drawing.Size(209, 32);
+            this.dateEnd.Size = new System.Drawing.Size(209, 28);
             this.dateEnd.TabIndex = 0;
             this.dateEnd.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Search_KeyDown);
             // 
@@ -608,22 +621,9 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dateStart.Properties.ShowOk = DevExpress.Utils.DefaultBoolean.False;
             this.dateStart.Properties.ShowToday = false;
-            this.dateStart.Size = new System.Drawing.Size(209, 32);
+            this.dateStart.Size = new System.Drawing.Size(209, 28);
             this.dateStart.TabIndex = 0;
             this.dateStart.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Search_KeyDown);
-            // 
-            // chReceipt
-            // 
-            this.chReceipt.Location = new System.Drawing.Point(238, 43);
-            this.chReceipt.Name = "chReceipt";
-            this.chReceipt.Properties.AllowFocused = false;
-            this.chReceipt.Properties.AutoWidth = true;
-            this.chReceipt.Properties.Caption = "Çek №";
-            this.chReceipt.Properties.RadioGroupIndex = 1;
-            this.chReceipt.Size = new System.Drawing.Size(68, 22);
-            this.chReceipt.TabIndex = 2;
-            this.chReceipt.TabStop = false;
-            this.chReceipt.CheckedChanged += new System.EventHandler(this.CheckedSearchType);
             // 
             // fTerminalSaleReport
             // 
@@ -647,13 +647,13 @@
             this.panelControl1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lookCashier.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chReceipt.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chFiscal.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chDate.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEnd.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEnd.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateStart.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateStart.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chReceipt.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }

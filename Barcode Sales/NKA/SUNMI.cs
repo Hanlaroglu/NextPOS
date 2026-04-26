@@ -6,6 +6,7 @@ using Barcode_Sales.NKA.Base;
 using Barcode_Sales.NKA.DTOs;
 using Barcode_Sales.Operations.Abstract;
 using Barcode_Sales.Operations.Concrete;
+using Barcode_Sales.Services.CacheServices;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -184,7 +185,7 @@ namespace Barcode_Sales.NKA
                         Amount = Convert.ToDouble(item.Amount),
                         Date = DateTime.Now,
                         Time = DateTime.Now.TimeOfDay,
-                        UserId = CommonData.CURRENT_USER.Id,
+                        UserId = UserCacheService.User.Id,
                         OperationType = (byte)Enums.PosChangeType.Deposit,
                     });
 
@@ -232,7 +233,7 @@ namespace Barcode_Sales.NKA
                         Amount = Convert.ToDouble(item.Amount),
                         Date = DateTime.Now,
                         Time = DateTime.Now.TimeOfDay,
-                        UserId = CommonData.CURRENT_USER.Id,
+                        UserId = UserCacheService.User.Id,
                         OperationType = (byte)Enums.PosChangeType.Withdraw,
                     });
                     NotificationHelpers.Messages.SuccessMessage(_form, $"Kassadan {item.Amount.ToString("C2")} məbləği məxaric edildi");

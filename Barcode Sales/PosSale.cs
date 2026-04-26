@@ -37,11 +37,11 @@ namespace Barcode_Sales
         public Nullable<int> CustomerId { get; set; }
         public string Note { get; set; }
     
-        public virtual Customer Customer { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PosSaleItem> PosSaleItems { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PosRefund> PosRefunds { get; set; }
         public virtual User User { get; set; }
+        public virtual Customer Customer { get; set; }
     }
 }

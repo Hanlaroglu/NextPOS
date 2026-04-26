@@ -1055,6 +1055,7 @@
             this.bCustomers.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.bCustomers.Text = "Müştərilər";
             this.bCustomers.VisibleInFooter = false;
+            this.bCustomers.Click += new System.EventHandler(this.bCustomers_Click);
             // 
             // accordionControlSeparator1
             // 
@@ -1163,10 +1164,9 @@
             this.Controls.Add(this.accordionControl1);
             this.Font = new System.Drawing.Font("Nunito", 10F);
             this.FormBorderEffect = DevExpress.XtraEditors.FormBorderEffect.None;
-            this.IconOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("fPosSales.IconOptions.SvgImage")));
             this.Name = "fPosSales";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "NextPOS";
+            this.Text = "KhanPOS";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.fPosSales_FormClosed);
             this.Load += new System.EventHandler(this.fPosSales_Load);

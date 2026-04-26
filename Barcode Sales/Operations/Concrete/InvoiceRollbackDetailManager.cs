@@ -2,9 +2,11 @@
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
+using Barcode_Sales.DTOs;
 
 namespace Barcode_Sales.Operations.Concrete
 {
@@ -116,8 +118,33 @@ namespace Barcode_Sales.Operations.Concrete
         {
             if (expression is null)
                 return await db.InvoiceRollbackDetails.AsNoTracking().ToListAsync();
-            else
-                return await db.InvoiceRollbackDetails.AsNoTracking().Where(expression).ToListAsync();
+
+            return await db.InvoiceRollbackDetails.AsNoTracking().Where(expression).ToListAsync();
+        }
+
+        public List<InvoiceRollbackDetailDto> InvoiceRollbackDetailReport(int rollbackId)
+        {
+            string query = @"SELECT p.ProductName,
+       p.Barcode,
+       p.ProductCode,
+       id.TotalPurchasePrice,
+       ut.Name as UnitName,
+       ird.Quantity
+FROM   invoicerollbackdetails ird
+       INNER JOIN invoicerollbacks ir ON ir.id = @rollbackId
+       INNER JOIN invoices i ON i.id = ir.invoiceid
+       INNER JOIN invoicedetails id ON id.invoiceid = i.id
+       INNER JOIN products p ON p.id = id.productid
+       INNER JOIN unittypes ut ON ut.id = p.unitid ";
+
+            var parameters = new[]
+            {
+                new SqlParameter("@rollbackId", rollbackId)
+            };
+
+            var result =  db.Database.SqlQuery<InvoiceRollbackDetailDto>(query, parameters).ToList();
+
+            return result;
         }
     }
 }

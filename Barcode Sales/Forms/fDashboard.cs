@@ -7,6 +7,7 @@ using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Controls;
 using DevExpress.XtraGrid.Columns;
 using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
 using System.Drawing;
@@ -71,6 +72,8 @@ namespace Barcode_Sales.Forms
                     StoreEdit();
                 else if (navigationMenu.SelectedPage == pageSupplier)
                     SupplierEdit();
+                else if (navigationMenu.SelectedPage == pageProduct)
+                    ProductEdit();
                 else if (navigationMenu.SelectedPage == pageProduct && tabPane3.SelectedPage == tabCategory)
                     CategoryEdit();
                 else if (navigationMenu.SelectedPage == pageCustomers)
@@ -94,6 +97,8 @@ namespace Barcode_Sales.Forms
                     StoreDelete();
                 else if (navigationMenu.SelectedPage == pageSupplier)
                     SupplierDelete();
+                else if (navigationMenu.SelectedPage == pageProduct)
+                    ProductDelete();
                 else if (navigationMenu.SelectedPage == pageProduct && tabPane3.SelectedPage == tabCategory)
                     await CategoryDelete();
                 else if (navigationMenu.SelectedPage == pageCustomers)
@@ -106,11 +111,6 @@ namespace Barcode_Sales.Forms
             {
                 NotificationHelpers.Messages.ErrorMessage(this, ex.Message);
             }
-        }
-
-        private void bAddProduct_Click(object sender, EventArgs e)
-        {
-            FormHelpers.OpenForm<fAddProduct>(Enums.Operation.Add, null);
         }
 
         private async void tabPane3_SelectedPageChanged(object sender, DevExpress.XtraBars.Navigation.SelectedPageChangedEventArgs e)
@@ -551,12 +551,19 @@ namespace Barcode_Sales.Forms
 
         #region [.. PRODUCTS ..]
 
-        private async Task ProductDataList()
+        private void bAddProduct_Click(object sender, EventArgs e)
         {
-            var data = await productOperation.Where(x => x.IsDeleted == false)
+            FormHelpers.OpenForm<fAddProduct>(Enums.Operation.Add, null);
+        }
+
+        private List<ProductDto> _productList;
+        private async void ProductDataList()
+        {
+            _productList = await productOperation.Where(x => x.IsDeleted == false)
                                         .Select(x => new ProductDto()
                                         {
                                             Id = x.Id,
+                                            CategoryName = x.Category.CategoryName,
                                             ProductName = x.ProductName,
                                             Barcode = x.Barcode,
                                             UnitName = x.UnitTypes.Name,
@@ -569,7 +576,12 @@ namespace Barcode_Sales.Forms
                                             IsDeleted = x.IsDeleted,
                                         }).ToListAsync();
 
-            FormHelpers.ControlLoad(data, gridControlProducts);
+            FormHelpers.ControlLoad(_productList, gridControlProducts);
+        }
+
+        private void bProductRefresh_Click(object sender, EventArgs e)
+        {
+            ProductDataList();
         }
 
         private void bEditProduct_Click(object sender, EventArgs e)
@@ -602,34 +614,46 @@ namespace Barcode_Sales.Forms
             PopupShow();
         }
 
-        private void ProductEdit()
+        private async void ProductEdit()
         {
             var row = gridProducts.GetFocusedRow() as ProductDto;
             if (row is null) return;
 
-            //fWarehouse f = new fWarehouse(Enums.Operation.Edit, row);
-            //f.FormClosed += async (s, x) =>
-            //{
-            //    await ProductDataList();
-            //};
-            //f.ShowDialog();
+            var data = await productOperation.Get(x => x.Id == row.Id);
+
+            fAddProduct f = new fAddProduct(Enums.Operation.Edit, data);
+            f.FormClosed += (s, x) =>
+            {
+                ProductDataList();
+            };
+            f.ShowDialog();
         }
 
-        private async Task ProductDelete()
+        private async void ProductDelete()
         {
             var row = gridProducts.GetFocusedRow() as ProductDto;
             if (row is null) return;
 
             var args = NotificationHelpers.Dialogs.DialogResultYesNo(
                 $"({row.ProductName}) məhsulunu silmək istədiyinizə əminsiniz ?", String.Empty);
+
             var result = XtraMessageBox.Show(args);
             if (result is DialogResult.Yes)
             {
-                row.IsActive = false;
-                productOperation.Update(row);
-                await ProductDataList();
-                NotificationHelpers.Messages.SuccessMessage(this, $"{row.ProductName} məhsulu uğurla silindi");
+                var product = await productOperation.Get(x => x.Id == row.Id);
+                var remove = await productOperation.Remove(product);
+                if (remove)
+                {
+                    _productList.Remove(row);
+                    gridControlProducts.RefreshDataSource();
+                    NotificationHelpers.Messages.SuccessMessage(this, $"{row.ProductName} məhsulu uğurla silindi");
+                }
             }
+        }
+
+        private void bAddInvoice_Click(object sender, EventArgs e)
+        {
+            FormHelpers.OpenForm<fInvoiceProduct>();
         }
 
         #endregion [.. PRODUCTS ..]
@@ -736,7 +760,7 @@ namespace Barcode_Sales.Forms
 
         private async Task CustomerDataListAsync()
         {
-            var data = await customerOperation.Where(x => x.IsDeleted == 0)
+            var data = await customerOperation.Where(x => x.IsDeleted == false)
                 .Select(x => new CustomerDto
                 {
                     Id = x.Id,
@@ -848,10 +872,10 @@ namespace Barcode_Sales.Forms
             }
         }
 
-        private async void accordionControlElement7_Click(object sender, EventArgs e)
+        private void accordionControlElement7_Click(object sender, EventArgs e)
         {
             navigationMenu.SelectedPage = pageProduct;
-            await ProductDataList();
+            ProductDataList();
         }
 
         private async void accordionControlElement22_Click(object sender, EventArgs e)
@@ -916,11 +940,6 @@ namespace Barcode_Sales.Forms
         {
             fPosSales f = new fPosSales();
             f.ShowDialog();
-        }
-
-        private void bAddInvoice_Click(object sender, EventArgs e)
-        {
-            FormHelpers.OpenForm<fInvoiceProduct>((object[])null);
         }
 
         private void bCustomerSettings_ButtonClick(object sender, ButtonPressedEventArgs e)

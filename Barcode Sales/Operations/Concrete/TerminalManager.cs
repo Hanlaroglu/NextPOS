@@ -1,6 +1,7 @@
 ﻿using Barcode_Sales.Forms;
 using Barcode_Sales.Helpers;
 using Barcode_Sales.Operations.Abstract;
+using Barcode_Sales.Services.CacheServices;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -128,7 +129,7 @@ namespace Barcode_Sales.Operations.Concrete
 
         public Terminal GetIpAddress()
         {
-            var terminal = Where(x => x.UserId == CommonData.CURRENT_USER.Id && x.IsDeleted == 0).FirstOrDefault();
+            var terminal = Where(x => x.UserId == UserCacheService.User.Id && x.IsDeleted == 0).FirstOrDefault();
             fPosSales _form = Application.OpenForms.OfType<fPosSales>().FirstOrDefault();
 
             if (terminal is null || terminal?.IsDeleted != 0)

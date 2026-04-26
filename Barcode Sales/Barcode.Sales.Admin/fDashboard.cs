@@ -798,7 +798,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
 
         private async void CustomerLoadData()
         {
-            var data = await customerOperation.Where(x => x.IsDeleted == 0)
+            var data = await customerOperation.Where(x => x.IsDeleted == false)
                 .Select(x => new CustomerDto
                 {
                     Id = x.Id,

@@ -20,6 +20,7 @@ namespace Barcode_Sales
             this.PosRefundItems = new HashSet<PosRefundItem>();
             this.PosSaleItems = new HashSet<PosSaleItem>();
             this.InvoiceDetails = new HashSet<InvoiceDetail>();
+            this.InvoiceRollbackDetails = new HashSet<InvoiceRollbackDetail>();
         }
     
         public int Id { get; set; }
@@ -37,6 +38,9 @@ namespace Barcode_Sales
         public int CreatedUserId { get; set; }
         public System.DateTime CreatedDate { get; set; }
         public bool IsDeleted { get; set; }
+        public bool CanEditSalePrice { get; set; }
+        public bool CanSellWithoutStock { get; set; }
+        public bool CanApplyDiscount { get; set; }
     
         public virtual TaxType TaxTypes { get; set; }
         public virtual UnitType UnitTypes { get; set; }
@@ -48,5 +52,7 @@ namespace Barcode_Sales
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<InvoiceDetail> InvoiceDetails { get; set; }
         public virtual Category Category { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<InvoiceRollbackDetail> InvoiceRollbackDetails { get; set; }
     }
 }

@@ -6,6 +6,7 @@ namespace Barcode_Sales.Operations.Abstract
 {
     public interface IInvoiceRollbackOperation:IBaseOperation<InvoiceRollback>
     {
-        Task<List<InvoiceRollback>> Report(DateTime start, DateTime end);
+        Task<List<view_InvoiceRollbackList>> RollbackList(int supplierId, DateTime? start = null,
+            DateTime? end = null);
     }
 }

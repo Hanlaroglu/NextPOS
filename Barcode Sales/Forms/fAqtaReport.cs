@@ -161,7 +161,6 @@ namespace Barcode_Sales.Forms
 
         private void tBarcode_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
-            tBarcode.Text = FormHelpers.ConvertToEAN13(Guid.NewGuid());
         }
 
         private void bPrint_Click(object sender, EventArgs e)

@@ -1,17 +1,9 @@
-﻿using Barcode_Sales.Helpers;
-using Barcode_Sales.Validations;
-using DevExpress.XtraEditors;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using Barcode_Sales.Operations.Abstract;
+﻿using Barcode_Sales.Operations.Abstract;
 using Barcode_Sales.Operations.Concrete;
+using Barcode_Sales.Services.CacheServices;
+using Barcode_Sales.Validations;
+using System;
+using System.Windows.Forms;
 
 namespace Barcode_Sales.Forms
 {
@@ -26,7 +18,7 @@ namespace Barcode_Sales.Forms
         private void fLoginDemo_Load(object sender, EventArgs e)
         {
             lVersion.Text = $"V{Application.ProductVersion}";
-            if (Properties.Settings.Default.SaveMe is true)
+            if (Properties.Settings.Default.SaveMe)
             {
                 chSaveMe.Checked = Properties.Settings.Default.SaveMe;
                 tUsername.Text = Properties.Settings.Default.Username;
@@ -45,8 +37,8 @@ namespace Barcode_Sales.Forms
             var control = userOperation.Authentication(tUsername.Text.Trim(), tPassword.Text.Trim(), chSaveMe.Checked);
             if (control.Item1)
             {
-                CommonData.CURRENT_USER = control.Item2;
-                if (UserValidation.AuthorizationControl(CommonData.CURRENT_USER, role => role.Admin))
+                UserCacheService.User = control.Item2;
+                if (UserValidation.AuthorizationControl(UserCacheService.User, role => role.Admin))
                 {
                     this.Hide();
                     fDashboard f = new fDashboard();
@@ -58,7 +50,7 @@ namespace Barcode_Sales.Forms
                     };
 
                 }
-                else if (UserValidation.AuthorizationControl(CommonData.CURRENT_USER, role => role.Cashier))
+                else if (UserValidation.AuthorizationControl(UserCacheService.User, role => role.Cashier))
                 {
                     this.Hide();
                     fPosSales f = new fPosSales();

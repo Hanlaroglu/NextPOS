@@ -2,7 +2,9 @@
 using Barcode_Sales.Helpers;
 using Barcode_Sales.Operations.Abstract;
 using Barcode_Sales.Operations.Concrete;
+using Barcode_Sales.Services.CacheServices;
 using Barcode_Sales.Validations;
+using DevExpress.XtraEditors.Repository;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,16 +21,17 @@ namespace Barcode_Sales.Forms
         ISupplierOperation supplierOperation = new SupplierManager();
         IInvoiceRollbackOperation invoiceRollbackOperation = new InvoiceRollbackManager();
         IInvoiceRollbackDetailOperation invoiceRollbackDetailOperation = new InvoiceRollbackDetailManager();
-        List<ViewInvoiceRollbackListDto> _dataList = new List<ViewInvoiceRollbackListDto>();
+        private List<view_InvoiceRollbackList> _dataListData = new List<view_InvoiceRollbackList>();
 
         public fInvoiceRollbackProduct()
         {
             InitializeComponent();
         }
 
-        private async void fInvoiceRollbackProduct_Load(object sender, EventArgs e)
+        private async void fInvoiceRollbackProduct_Shown(object sender, EventArgs e)
         {
-            tDate.Text = DateTime.Now.ToShortDateString();
+            GridRepoAdd();
+            tDate.Text = DatetimeService.CurrentDateString;
             await SupplierDataLoad();
             gridView1.SelectionChanged += (s, x) =>
             {
@@ -59,6 +62,11 @@ namespace Barcode_Sales.Forms
             DateTime start = dateStart.DateTime;
             DateTime end = dateEnd.DateTime;
 
+            if (string.IsNullOrWhiteSpace(lookSuppliers.Text))
+            {
+                NotificationHelpers.Messages.WarningMessage(this, "Təchizatçı seçimi edilmədi");
+                return;
+            }
 
             if (!ValidationHelpers.IsValidDate(start.ToString()) ||
                 !ValidationHelpers.IsValidDate(end.ToString()))
@@ -70,73 +78,31 @@ namespace Barcode_Sales.Forms
             if (start > end)
             {
                 NotificationHelpers.Messages.ErrorMessage(this, "Başlanğıc tarixi bitiş tarixindən böyük ola bilməz!");
+                dateStart.EditValue = null;
+                dateEnd.EditValue = null;
                 return;
             }
 
-            lookSuppliers.EditValue = null;
-            DataLoad(start, end);
+            LoadData(start, end);
         }
 
-        private void DataLoad(DateTime? start = null, DateTime? end = null, string supplierName = null)
+        private async void LoadData(DateTime? start = null, DateTime? end = null)
         {
             gridView1.ShowLoadingPanel();
-            using (var db = new KhanposDbEntities())
-            {
-                if (supplierName is null)
-                {
 
-                    _dataList = db.view_InvoiceRollbackList
-                        .Where(x =>
-                           x.InvoiceDate >= DbFunctions.TruncateTime(start) &&
-                           x.InvoiceDate <= DbFunctions.TruncateTime(end))
-                        .Select(x => new ViewInvoiceRollbackListDto()
-                        {
-                            WarehouseId = x.WarehouseId,
-                            WarehouseName = x.WarehouseName,
-                            InvoiceId = x.InvoiceId,
-                            InvoiceNo = x.InvoiceNo,
-                            InvoiceDate = x.InvoiceDate,
-                            ProductId = x.ProductId,
-                            ProductName = x.ProductName,
-                            Barcode = x.Barcode,
-                            Amount = x.Amount,
-                            PurchasePrice = x.PurchasePrice,
-                            RollbackQuantity = 0
-                        })
-                        .ToList();
-                }
-                else
-                {
-                    _dataList = db.view_InvoiceRollbackList
-                        .Select(x => new ViewInvoiceRollbackListDto()
-                        {
-                            WarehouseId = x.WarehouseId,
-                            WarehouseName = x.WarehouseName,
-                            InvoiceId = x.InvoiceId,
-                            InvoiceNo = x.InvoiceNo,
-                            InvoiceDate = x.InvoiceDate,
-                            ProductId = x.ProductId,
-                            ProductName = x.ProductName,
-                            Barcode = x.Barcode,
-                            Amount = x.Amount,
-                            PurchasePrice = x.PurchasePrice,
-                            RollbackQuantity = 0
-                        })
-                        .ToList();
-                }
+            _dataListData = await invoiceRollbackOperation.RollbackList((int)lookSuppliers.EditValue, start, end);
 
-                var bindingList = new BindingList<ViewInvoiceRollbackListDto>(_dataList);
-                FormHelpers.ControlLoad(bindingList, gridControl1);
+            var bindingList = new BindingList<view_InvoiceRollbackList>(_dataListData);
+            FormHelpers.ControlLoad(bindingList, gridControl1);
 
-            }
             gridView1.HideLoadingPanel();
         }
 
         private void Clear()
         {
-            _dataList.Clear();
+            _dataListData.Clear();
             gridView1.RefreshData();
-            tDate.Text = DateTime.Now.ToShortDateString();
+            tDate.Text = DatetimeService.CurrentDateString;
             lookSuppliers.EditValue = null;
             dateStart.EditValue = null;
             dateEnd.EditValue = null;
@@ -151,11 +117,7 @@ namespace Barcode_Sales.Forms
         private void lookSuppliers_TextChanged(object sender, EventArgs e)
         {
             if (!string.IsNullOrWhiteSpace(lookSuppliers.Text))
-            {
-                DataLoad(null, null, lookSuppliers.Text);
-                dateStart.EditValue = null;
-                dateEnd.EditValue = null;
-            }
+                LoadData();
         }
 
         private void bSave_Click(object sender, EventArgs e)
@@ -167,21 +129,21 @@ namespace Barcode_Sales.Forms
             gridView1.UpdateCurrentRow();
 
             var selectedRows = gridView1.GetSelectedRows();
-            var selectedItems = new List<ViewInvoiceRollbackListDto>();
+            var selectedItems = new List<view_InvoiceRollbackList>();
             foreach (var item in selectedRows)
             {
                 if (item >= 0)
                 {
-                    var row = gridView1.GetRow(item) as ViewInvoiceRollbackListDto;
+                    var row = gridView1.GetRow(item) as view_InvoiceRollbackList;
                     if (row != null)
                     {
-                        if (row.RollbackQuantity > row.Amount)
+                        if (row.ReturnQuantity > row.Amount)
                         {
                             NotificationHelpers.Messages.ErrorMessage(this, "Qaytarılacaq miqdar alış miqdarından çox ola bilməz");
                             return;
                         }
 
-                        if (row.RollbackQuantity > 0)
+                        if (row.ReturnQuantity > 0)
                             selectedItems.Add(row);
                     }
                 }
@@ -191,54 +153,88 @@ namespace Barcode_Sales.Forms
                 AddRollback(selectedItems);
         }
 
-        private async void AddRollback(List<ViewInvoiceRollbackListDto> list)
+        private async void AddRollback(List<view_InvoiceRollbackList> list)
         {
-            using (var db = new KhanposDbEntities())
-            using (var tran = db.Database.BeginTransaction())
+            List<InvoiceRollback> rollbackList = new List<InvoiceRollback>();
+            /*
+             * List yaradıb view də ki dataları listə göndər daha sonra manager classına gönder.
+             *
+             *
+             *
+             */
+
+            try
             {
-                try
+                var grouped = list.GroupBy(x => x.InvoiceId);
+                foreach (var group in grouped)
                 {
-                    var grouped = list.GroupBy(x => x.InvoiceId);
-                    foreach (var group in grouped)
+                    InvoiceRollback rollback = new InvoiceRollback()
                     {
-                        InvoiceRollback rollback = new InvoiceRollback()
-                        {
-                            InvoiceId = group.Key,
-                            RollbackDate = Convert.ToDateTime(tDate.Text),
-                            Commnet = tComment.Text.Trim(),
-                            UserId = CommonData.CURRENT_USER.Id,
-                            CreatedDate = DateTime.Now,
-                            IsDeleted = false,
-                        };
+                        InvoiceId = group.Key,
+                        WarehouseId = group.First().WarehouseId,
+                        RollbackDate = Convert.ToDateTime(tDate.Text),
+                        Commnet = tComment.Text.TrimStart().Trim(),
+                        UserId = UserCacheService.User.Id,
+                        CreatedDate = DatetimeService.CurrentDateTime,
+                        IsDeleted = false,
+                    };
 
-                        var result = await invoiceRollbackOperation.Add(rollback);
-
+                    var result = await invoiceRollbackOperation.Add(rollback);
+                    if (result > 0)
+                    {
                         var details = group.Select(x => new InvoiceRollbackDetail
                         {
                             InvoiceRollbackId = result,
                             ProductId = (int)x.ProductId,
-                            Quantity = x.RollbackQuantity
+                            Quantity = x.ReturnQuantity
                         }).ToList();
 
-
                         await invoiceRollbackDetailOperation.Add(details);
+                        Clear();
+                        NotificationHelpers.Messages.SuccessMessage(this, $"{list.Count} məhsul uğurla qaytarıldı");
                     }
-                    tran.Commit();
-                    Clear();
-                    NotificationHelpers.Messages.SuccessMessage(this, $"{list.Count} məhsul uğurla qaytarıldı");
-                }
-                catch (Exception e)
-                {
-                    tran.Rollback();
-                    NotificationHelpers.Messages.ErrorMessage(this, e.Message);
                 }
             }
-
+            catch (Exception e)
+            {
+                NotificationHelpers.Messages.ErrorMessage(this, e.Message);
+            }
         }
 
         private void bReport_Click(object sender, EventArgs e)
         {
             FormHelpers.OpenForm<fInvoiceRollbackReport>();
+        }
+
+        private void gridView1_CustomRowCellEdit(object sender, DevExpress.XtraGrid.Views.Grid.CustomRowCellEditEventArgs e)
+        {
+            if (e.Column.FieldName is "ReturnQuantity")
+            {
+                var unitName = gridView1.GetRowCellValue(e.RowHandle, "UnitName")?.ToString();
+
+                if (unitName is "Kq")
+                    e.RepositoryItem = repositoryN3;
+                else
+                    e.RepositoryItem = repositoryN0;
+            }
+        }
+
+        RepositoryItemTextEdit repositoryN3;
+        RepositoryItemTextEdit repositoryN0;
+        private void GridRepoAdd()
+        {
+            repositoryN3 = new RepositoryItemTextEdit();
+            repositoryN3.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            repositoryN3.Mask.EditMask = "n3";
+            repositoryN3.Mask.UseMaskAsDisplayFormat = true;
+
+            repositoryN0 = new RepositoryItemTextEdit();
+            repositoryN0.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            repositoryN0.Mask.EditMask = "n0";
+            repositoryN0.Mask.UseMaskAsDisplayFormat = true;
+
+            gridControl1.RepositoryItems.Add(repositoryN3);
+            gridControl1.RepositoryItems.Add(repositoryN0);
         }
     }
 }

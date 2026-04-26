@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Barcode_Sales.Services.CacheServices;
 
 namespace Barcode_Sales.Forms
 {
@@ -28,9 +29,8 @@ namespace Barcode_Sales.Forms
 
         private async void fTerminalSaleReport_Load(object sender, EventArgs e)
         {
-            DateTime today = DateTime.Today;
-            dateStart.DateTime = today;
-            dateEnd.DateTime = today;
+            dateStart.DateTime = DatetimeService.FirstDayOfCurrentMonth;
+            dateEnd.DateTime = DatetimeService.CurrentDateTime;
             dateStart.Focus();
             await CashiersLoad();
 
@@ -156,7 +156,6 @@ namespace Barcode_Sales.Forms
                     .ToList();
                 e.ChildList = dataSource;
             }
-
         }
 
         private void gridView1_MasterRowGetRelationName(object sender, DevExpress.XtraGrid.Views.Grid.MasterRowGetRelationNameEventArgs e)

@@ -1,80 +1,42 @@
 ﻿using Barcode_Sales.Helpers;
 using Barcode_Sales.Operations.Abstract;
 using Barcode_Sales.Operations.Concrete;
-using DevExpress.XtraEditors;
-using DevExpress.XtraGrid.Views.Grid;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
+using System.Data.Entity;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+using Barcode_Sales.DTOs;
 
 namespace Barcode_Sales.Forms
 {
-    public partial class fSelectedProduct<TParent> : FormBase where TParent:FormBase
+    public partial class fSelectedProduct : FormBase
     {
-        /// <summary>
-        /// lookWarehouse kodları yazılmayıb.
-        /// Anbar seçiminə görə məhsullar filtrələnmir
-        /// </summary>
-        IProductOperation productOperation = new ProductManager();
-        //IAqtaProductsOperation aqtaProductsOperation = new AqtaProductsManager();
+        private IProductOperation productOperation = new ProductManager();
 
-        private TParent _parentForm;
-        public fSelectedProduct(TParent parentForm)
+        public fSelectedProduct()
         {
             InitializeComponent();
-            _parentForm = parentForm;
         }
 
-        private void ProductDataLoad()
+        private void fSelectedProduct_Shown(object sender, EventArgs e)
         {
-            //if (_parentForm.Name == "fAqtaReport")
-            //{
-            //    gridControlProducts.DataSource = aqtaProductsOperation.WhereAsync(x => x.IsDeleted == 0).Result;
-            //    gridProducts.Columns["ProductCode"].Visible = false;
-            //}
-            //else
-            //{
-            //    gridControlProducts.DataSource = productOperation.WhereAsync(x=> x.IsDeleted == 0).Result;
-            //}
+            DataLoad();
         }
 
-        private void fSelectedProduct_Load(object sender, EventArgs e)
+        private async void DataLoad()
         {
-            ProductDataLoad();
-        }
-
-
-        private async void gridProducts_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left && e.Clicks == 1) // Sol klikdə və tək klikdə işə düşür
-            {
-                GridView view = sender as GridView;
-                if (view != null && view.FocusedRowHandle >= 0)
+            var data = await productOperation
+                .Where(x => x.IsDeleted == false && x.IsActive == true)
+                .Select(x => new ProductDto
                 {
-                    int Id = Convert.ToInt32(gridProducts.GetFocusedRowCellValue("Id").ToString());
-                    object data = null;
-                    if (_parentForm.Name == "fAqtaReport")
-                    {
-                        //data = await aqtaProductsOperation.Get(x => x.Id == Id);
-                    }
-                    else
-                    {
-                        data = await productOperation.Get(x=> x.Id == Id);
-                    }
-                    var method = _parentForm.GetType().GetMethod("ReceiveData");
-                    if (method != null)
-                    {
-                        method.MakeGenericMethod(data.GetType()).Invoke(_parentForm, new object[] { data });
-                        this.Close();
-                    }
-                }
-            }
+                    CategoryName = x.Category.CategoryName,
+                    ProductName = x.ProductName,
+                    Barcode = x.Barcode,
+                    UnitName = x.UnitTypes.Name,
+                    SalePrice = x.SalePrice
+                })
+                .ToListAsync();
+
+            FormHelpers.ControlLoad(data, gridControlProducts);
         }
     }
 }

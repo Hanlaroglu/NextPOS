@@ -3,36 +3,39 @@ using Barcode_Sales.Helpers;
 using Barcode_Sales.Helpers.Messages;
 using Barcode_Sales.Operations.Abstract;
 using Barcode_Sales.Operations.Concrete;
+using Barcode_Sales.Services.CacheServices;
 using Barcode_Sales.Validations;
 using System;
 using System.ComponentModel;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using DevExpress.XtraEditors;
 
 namespace Barcode_Sales.Forms
 {
     public partial class fAddProduct : DevExpress.XtraBars.FluentDesignSystem.FluentDesignForm
     {
-        ISupplierOperation supplierOperation = new SupplierManager();
         IUnitTypeOperation unitTypeOperation = new UnitTypeManager();
         ITaxTypeOperation taxTypeOperation = new TaxTypeManager();
         ICategoryOperation categoryOperation = new CategoryManager();
         IProductOperation productOperation = new ProductManager();
 
 
-        private Enums.Operation Operation { get; }
-        private Products Product { get; set; }
+        private Enums.Operation _operation { get; }
+        private Products _product { get; set; }
+        private string _barcode { get; set; }
+
         private BindingList<ProductInvoiceDto> dataList = new BindingList<ProductInvoiceDto>();
 
-        public fAddProduct(Enums.Operation _operation, Products _product = null)
+        public fAddProduct(Enums.Operation operation, Products product = null)
         {
             InitializeComponent();
-            Operation = _operation;
-            Product = _product;
+            _operation = operation;
+            _product = product;
+            _barcode = product?.Barcode;
         }
 
-        private async void fAddProduct_Load(object sender, EventArgs e)
+        private void fAddProduct_Load(object sender, EventArgs e)
         {
             #region Mask
 
@@ -46,24 +49,35 @@ namespace Barcode_Sales.Forms
             #endregion Mask
 
 
-            ClearProduct();
+            Clear();
+            
+            gridControlProducts.DataSource = dataList;
+        }
+
+        private async void fAddProduct_Shown(object sender, EventArgs e)
+        {
             await UnitDataLoad();
             await TaxDataLoad();
             await CategoryDataLoad();
-            gridControlProducts.DataSource = dataList;
-            gridProducts.RowCountChanged += (s, x) =>
-            {
-                if (gridProducts.RowCount > 0)
-                {
-                    bSave.Cursor = Cursors.Hand;
-                    bSave.Text = $"Saxla ({dataList.Count})";
-                }
-                else
-                {
-                    bSave.Cursor = Cursors.No;
-                    bSave.Text = "Saxla (0)";
-                }
-            };
+
+            if (_operation == Enums.Operation.Edit)
+                ProductDataLoad();
+        }
+
+        private void ProductDataLoad()
+        {
+            tProductName.Text = _product.ProductName;
+            lookCategory.EditValue = _product.CategoryId;
+            tBarcode.Text = _product.Barcode;
+            tQuantity.Enabled = false;
+            tPurchasePrice.EditValue = _product.PurchasePrice;
+            tSalePrice.EditValue = _product.SalePrice;
+            lookUnit.EditValue = _product.UnitId;
+            lookTax.EditValue = _product.TaxId;
+            tProductCode.Text = _product.ProductCode;
+            chEditSalePrice.Checked = _product.CanEditSalePrice;
+            chSellWithoutStock.Checked = _product.CanSellWithoutStock;
+            chApplyDiscount.Checked = _product.CanApplyDiscount;
         }
 
         private async Task UnitDataLoad()
@@ -85,74 +99,110 @@ namespace Barcode_Sales.Forms
             FormHelpers.ControlLoad(data, lookCategory, "CategoryName");
         }
 
-        private async void bAddProduct_Click(object sender, EventArgs e)
+        private void bAddProduct_Click(object sender, EventArgs e)
         {
-            if (Operation is Enums.Operation.Add)
-            {
-                await AddProduct();
-            }
-            else if (Operation is Enums.Operation.Edit)
-            {
-                //EditProduct();
-            }
+            if (_operation is Enums.Operation.Add)
+                Add();
         }
 
-        //private void EditProduct()
-        //{
-        //    Product.CategoryId = (int)lookCategory.EditValue;
-        //    Product.ProductName = tProductName.Text;
-        //    Product.Barcode = tBarcode.Text;
-        //    Product.ProductCode = tProductCode.Text;
-        //    Product.PurchasePrice = ParseHelpers.GetConvertStringToDouble(tPurchasePrice.EditValue.ToString());
-        //    Product.SalePrice = ParseHelpers.GetConvertStringToDouble(tSalesPrice.EditValue.ToString());
-        //    Product.UnitId = lookUnit.EditValue == null ? 0 : (int)lookUnit.EditValue;
-        //    Product.TaxId = lookTax.EditValue == null ? 0 : (int)lookTax.EditValue;
-        //    productOperation.Update(Product);
-        //    DialogResult = DialogResult.OK;
-        //}
-
-        private async Task AddProduct()
+        private async void Add()
         {
-            Product = new Products();
-            Product.Type  = (byte)Enums.ProductType.Product;
-            Product.ProductName = tProductName.Text.Trim();
-            Product.CategoryId = lookCategory.EditValue == null ? 0 : (int)lookCategory.EditValue;
-            Product.Barcode = tBarcode.Text.Trim();
-            Product.Quantity = 0;
-            Product.PurchasePrice = Convert.ToDecimal(tPurchasePrice.EditValue);
-            Product.SalePrice = Convert.ToDecimal(tSalePrice.EditValue);
-            Product.UnitId = lookUnit.EditValue == null ? 0 : (int)lookUnit.EditValue;
-            Product.TaxId = lookTax.EditValue == null ? 0 : (int)lookTax.EditValue;
-            Product.ProductCode = string.IsNullOrWhiteSpace(tProductCode.Text) ? null : tProductCode.Text.Trim();
-            Product.IsActive = true;
-            Product.IsDeleted = false;
-            Product.CreatedDate = DateTime.Now;
-            Product.CreatedUserId = 3;
+            _product = new Products();
+            _product.Type = (byte)Enums.ProductType.Product;
+            _product.ProductName = tProductName.Text.Trim();
+            _product.CategoryId = lookCategory.EditValue == null ? 0 : (int)lookCategory.EditValue;
+            _product.Barcode = tBarcode.Text.Trim();
+            _product.Quantity = Convert.ToDecimal(tQuantity.EditValue);
+            _product.PurchasePrice = Convert.ToDecimal(tPurchasePrice.EditValue);
+            _product.SalePrice = Convert.ToDecimal(tSalePrice.EditValue);
+            _product.UnitId = lookUnit.EditValue == null ? 0 : (int)lookUnit.EditValue;
+            _product.TaxId = lookTax.EditValue == null ? 0 : (int)lookTax.EditValue;
+            _product.ProductCode = string.IsNullOrWhiteSpace(tProductCode.Text) ? null : tProductCode.Text.Trim();
+            _product.CanEditSalePrice = chEditSalePrice.Checked;
+            _product.CanSellWithoutStock = chSellWithoutStock.Checked;
+            _product.CanApplyDiscount = chApplyDiscount.Checked;
+            _product.IsActive = true;
+            _product.IsDeleted = false;
+            _product.CreatedDate = DateTime.Now;
+            _product.CreatedUserId = UserCacheService.User.Id;
 
-            var barcodeCheck = await productOperation.BarcodeCheckAsync(Product.Barcode,0);
-            if (barcodeCheck)
+            var barcodeCheck = await productOperation.Get(x => x.Barcode == _product.Barcode);
+            if (barcodeCheck != null)
             {
                 NotificationHelpers.Messages.InfoMessage(this, "Daxil edilən barkod sistemdə mövcuddur");
                 return;
             }
 
-            var validator = ValidationHelpers.ValidateMessage(Product, new ProductValidation(), this);
+            var validator = ValidationHelpers.ValidateMessage(_product, new ProductValidation(), this);
 
             if (!validator.IsValid)
             {
                 return;
             }
 
-            var productId = await productOperation.Add(Product);
-            ProductAddGrid(productId);
-            ClearProduct();
+            var resultProductId = await productOperation.Add(_product);
+
+            if (resultProductId > 0)
+            {
+                ProductAddGrid(resultProductId);
+                Clear();
+            }
         }
 
-        short rowNo = 1;
+        private async void Edit()
+        {
+            _product.ProductName = tProductName.Text.Trim();
+            _product.CategoryId = (int)lookCategory.EditValue;
+            _product.Barcode = tBarcode.Text.TrimStart().Trim();
+            _product.PurchasePrice = Convert.ToDecimal(tPurchasePrice.EditValue);
+            _product.SalePrice = Convert.ToDecimal(tSalePrice.EditValue);
+            _product.UnitId = lookUnit.EditValue == null ? 0 : (int)lookUnit.EditValue;
+            _product.TaxId = lookTax.EditValue == null ? 0 : (int)lookTax.EditValue;
+            _product.ProductCode = string.IsNullOrWhiteSpace(tProductCode.Text) ? null : tProductCode.Text.Trim();
+            _product.CanEditSalePrice = chEditSalePrice.Checked;
+            _product.CanSellWithoutStock = chSellWithoutStock.Checked;
+            _product.CanApplyDiscount = chApplyDiscount.Checked;
+
+            if (_barcode != tBarcode.Text.TrimStart().Trim())
+            {
+                var barcodeCheck = await productOperation.Get(x => x.Barcode == _product.Barcode);
+                if (barcodeCheck != null)
+                {
+                    NotificationHelpers.Messages.InfoMessage(this, "Daxil edilən barkod sistemdə mövcuddur");
+                    return;
+                }
+            }
+
+            var validator = ValidationHelpers.ValidateMessage(_product, new ProductValidation(), this);
+
+            if (!validator.IsValid)
+            {
+                return;
+            }
+            
+            var resultUpdate = await productOperation.Update(_product, 
+                x=> x.ProductName,
+                x=> x.CategoryId,
+                x=> x.Barcode,
+                x=> x.PurchasePrice,
+                x=> x.SalePrice,
+                x=> x.UnitId,
+                x=> x.TaxId,
+                x=> x.ProductCode,
+                x=> x.CanEditSalePrice,
+                x=> x.CanSellWithoutStock,
+                x=> x.CanApplyDiscount);
+
+            if (resultUpdate)
+            {
+                Clear();
+                NotificationHelpers.Messages.SuccessMessage(this, "Uğurla düzəliş edildi");
+            }
+        }
+
         private void ProductAddGrid(int productId)
         {
             ProductInvoiceDto grid = new ProductInvoiceDto();
-            //grid.No = rowNo;
             grid.Id = productId;
             grid.Category = lookCategory.Text;
             grid.ProductName = tProductName.Text.Trim();
@@ -162,28 +212,27 @@ namespace Barcode_Sales.Forms
             grid.PurchasePrice = Decimal.Parse(tPurchasePrice.EditValue.ToString());
             grid.SalePrice = Decimal.Parse(tSalePrice.EditValue.ToString());
             dataList.Add(grid);
-            rowNo++;
-
         }
 
-        private void ClearProduct()
+        private void Clear()
         {
             tProductName.Text = null;
+            lookCategory.SelectedText = null; 
             tBarcode.Text = null;
             tProductCode.Text = null;
-            tPurchasePrice.EditValue = CommonData.DEFAULT_INT_TOSTRING;
-            tSalePrice.Text = CommonData.DEFAULT_INT_TOSTRING;
+            tPurchasePrice.EditValue = 0;
+            tSalePrice.EditValue = 0;
             tProductName.Focus();
         }
 
         private void tBarcode_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
-            tBarcode.Text = FormHelpers.ConvertToEAN13(Guid.NewGuid());
+            tBarcode.Text = ConvertToEAN13();
         }
 
         private void bClear_Click(object sender, EventArgs e)
         {
-            ClearProduct();
+            Clear();
         }
 
         private void bProductDelete_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
@@ -234,19 +283,45 @@ namespace Barcode_Sales.Forms
 
         private void bSave_Click(object sender, EventArgs e)
         {
-            if (bSave.Cursor == Cursors.No)
-                return;
+            if (_operation is Enums.Operation.Add)
+                Add();
+            else
+                Edit();
 
-            this.Hide();
-            FormHelpers.OpenForm<fInvoiceProduct>(dataList);
+
+            //if (bSave.Cursor == Cursors.No)
+            //    return;
+
+            //this.Hide();
+            //FormHelpers.OpenForm<fInvoiceProduct>(dataList);
         }
 
         private void fAddProduct_FormClosing(object sender, FormClosingEventArgs e)
         {
-            var dialog = NotificationHelpers.Dialogs.DialogResultYesNo("Səhifədən çıxış etmək istədiyinizə əminsiniz ?", "Xəbərdarlıq");
-            var result = XtraMessageBox.Show(dialog);
-            if (result is DialogResult.No)
-                e.Cancel = true;
+            //var dialog = NotificationHelpers.Dialogs.DialogResultYesNo("Səhifədən çıxış etmək istədiyinizə əminsiniz ?", "Xəbərdarlıq");
+            //var result = XtraMessageBox.Show(dialog);
+            //if (result is DialogResult.No)
+            //    e.Cancel = true;
+        }
+
+        private string ConvertToEAN13()
+        {
+            string guidString = Guid.NewGuid().ToString("N");
+            string barcodeContent = new String(guidString.Where(Char.IsDigit).ToArray());
+            barcodeContent = barcodeContent.Substring(0, Math.Min(barcodeContent.Length, 9));
+
+            int sum = barcodeContent.Select((c, index) => int.Parse(c.ToString()) * (index % 2 == 0 ? 1 : 3)).Sum();
+            int checksum = (10 - (sum % 10)) % 10;
+
+            barcodeContent += checksum.ToString();
+
+            return $"994{barcodeContent}";
+        }
+
+        private void bProducts_Click(object sender, EventArgs e)
+        {
+            fSelectedProduct f = new fSelectedProduct();
+            f.ShowDialog();
         }
     }
 }

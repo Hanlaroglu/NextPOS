@@ -62,7 +62,6 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="IsDeleted" Type="int" />
     <Property Name="NameSurname" Type="nvarchar" MaxLength="250" />
     <Property Name="CompanyName" Type="nvarchar" MaxLength="100" />
     <Property Name="DateBirth" Type="date" />
@@ -82,6 +81,7 @@
     <Property Name="CreateDate" Type="datetime" />
     <Property Name="UserId" Type="int" />
     <Property Name="CustomerGroupId" Type="int" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="CustomersDebts">
     <Key>
@@ -126,7 +126,6 @@
     <Property Name="RollbackDate" Type="date" Nullable="false" />
     <Property Name="WarehouseId" Type="int" Nullable="false" />
     <Property Name="TotalPurchasePrice" Type="decimal" Precision="18" Scale="3" Nullable="false" />
-    <Property Name="PaymentTypeId" Type="int" />
     <Property Name="Commnet" Type="nvarchar" MaxLength="200" />
     <Property Name="UserId" Type="int" Nullable="false" />
     <Property Name="CreatedDate" Type="datetime" Nullable="false" />
@@ -246,6 +245,9 @@
     <Property Name="CreatedUserId" Type="int" Nullable="false" />
     <Property Name="CreatedDate" Type="datetime2" Precision="3" Nullable="false" />
     <Property Name="IsDeleted" Type="bit" Nullable="false" />
+    <Property Name="CanEditSalePrice" Type="bit" Nullable="false" />
+    <Property Name="CanSellWithoutStock" Type="bit" Nullable="false" />
+    <Property Name="CanApplyDiscount" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="Roles">
     <Key>
@@ -389,20 +391,25 @@ warning 6002: The table/view 'KhanposDb.dbo.view_InvoiceRollbackList' does not h
   <EntityType Name="view_InvoiceRollbackList">
     <Key>
       <PropertyRef Name="WarehouseId" />
+      <PropertyRef Name="SupplierId" />
       <PropertyRef Name="InvoiceId" />
       <PropertyRef Name="InvoiceNo" />
       <PropertyRef Name="InvoiceDate" />
+      <PropertyRef Name="ReturnQuantity" />
     </Key>
     <Property Name="WarehouseId" Type="int" Nullable="false" />
     <Property Name="WarehouseName" Type="nvarchar" MaxLength="50" />
+    <Property Name="SupplierId" Type="int" Nullable="false" />
     <Property Name="InvoiceId" Type="int" Nullable="false" />
     <Property Name="InvoiceNo" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="InvoiceDate" Type="date" Nullable="false" />
     <Property Name="ProductId" Type="int" />
     <Property Name="ProductName" Type="nvarchar" MaxLength="250" />
     <Property Name="Barcode" Type="nvarchar" MaxLength="50" />
+    <Property Name="UnitName" Type="nvarchar" MaxLength="50" />
     <Property Name="PurchasePrice" Type="decimal" Precision="18" Scale="3" />
-    <Property Name="Amount" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Amount" Type="decimal" Precision="18" Scale="3" />
+    <Property Name="ReturnQuantity" Type="int" Nullable="false" />
   </EntityType>
   <Association Name="FK_CustomerDebts_Customer">
     <End Role="Customers" Type="Self.Customers" Multiplicity="0..1" />
@@ -500,6 +507,18 @@ warning 6002: The table/view 'KhanposDb.dbo.view_InvoiceRollbackList' does not h
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_InvoiceRollbackDetails_Products">
+    <End Role="Products" Type="Self.Products" Multiplicity="1" />
+    <End Role="InvoiceRollbackDetails" Type="Self.InvoiceRollbackDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="InvoiceRollbackDetails">
+        <PropertyRef Name="ProductId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_InvoiceRollbacks_Invoices">
     <End Role="Invoices" Type="Self.Invoices" Multiplicity="1" />
     <End Role="InvoiceRollbacks" Type="Self.InvoiceRollbacks" Multiplicity="*" />
@@ -509,18 +528,6 @@ warning 6002: The table/view 'KhanposDb.dbo.view_InvoiceRollbackList' does not h
       </Principal>
       <Dependent Role="InvoiceRollbacks">
         <PropertyRef Name="InvoiceId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_InvoiceRollbacks_PaymentTypes">
-    <End Role="PaymentTypes" Type="Self.PaymentTypes" Multiplicity="0..1" />
-    <End Role="InvoiceRollbacks" Type="Self.InvoiceRollbacks" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="PaymentTypes">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="InvoiceRollbacks">
-        <PropertyRef Name="PaymentTypeId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -545,6 +552,18 @@ warning 6002: The table/view 'KhanposDb.dbo.view_InvoiceRollbackList' does not h
       </Principal>
       <Dependent Role="InvoiceRollbacks">
         <PropertyRef Name="WarehouseId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Invoices_Suppliers">
+    <End Role="Suppliers" Type="Self.Suppliers" Multiplicity="1" />
+    <End Role="Invoices" Type="Self.Invoices" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Suppliers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Invoices">
+        <PropertyRef Name="SupplierId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -870,14 +889,17 @@ warning 6002: The table/view 'KhanposDb.dbo.view_InvoiceRollbackList' does not h
       <DefiningQuery>SELECT 
     [view_InvoiceRollbackList].[WarehouseId] AS [WarehouseId], 
     [view_InvoiceRollbackList].[WarehouseName] AS [WarehouseName], 
+    [view_InvoiceRollbackList].[SupplierId] AS [SupplierId], 
     [view_InvoiceRollbackList].[InvoiceId] AS [InvoiceId], 
     [view_InvoiceRollbackList].[InvoiceNo] AS [InvoiceNo], 
     [view_InvoiceRollbackList].[InvoiceDate] AS [InvoiceDate], 
     [view_InvoiceRollbackList].[ProductId] AS [ProductId], 
     [view_InvoiceRollbackList].[ProductName] AS [ProductName], 
     [view_InvoiceRollbackList].[Barcode] AS [Barcode], 
+    [view_InvoiceRollbackList].[UnitName] AS [UnitName], 
     [view_InvoiceRollbackList].[PurchasePrice] AS [PurchasePrice], 
-    [view_InvoiceRollbackList].[Amount] AS [Amount]
+    [view_InvoiceRollbackList].[Amount] AS [Amount], 
+    [view_InvoiceRollbackList].[ReturnQuantity] AS [ReturnQuantity]
     FROM [dbo].[view_InvoiceRollbackList] AS [view_InvoiceRollbackList]</DefiningQuery>
     </EntitySet>
     <AssociationSet Name="FK_CustomerDebts_Customer" Association="Self.FK_CustomerDebts_Customer">
@@ -912,12 +934,12 @@ warning 6002: The table/view 'KhanposDb.dbo.view_InvoiceRollbackList' does not h
       <End Role="InvoiceRollbacks" EntitySet="InvoiceRollbacks" />
       <End Role="InvoiceRollbackDetails" EntitySet="InvoiceRollbackDetails" />
     </AssociationSet>
+    <AssociationSet Name="FK_InvoiceRollbackDetails_Products" Association="Self.FK_InvoiceRollbackDetails_Products">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="InvoiceRollbackDetails" EntitySet="InvoiceRollbackDetails" />
+    </AssociationSet>
     <AssociationSet Name="FK_InvoiceRollbacks_Invoices" Association="Self.FK_InvoiceRollbacks_Invoices">
       <End Role="Invoices" EntitySet="Invoices" />
-      <End Role="InvoiceRollbacks" EntitySet="InvoiceRollbacks" />
-    </AssociationSet>
-    <AssociationSet Name="FK_InvoiceRollbacks_PaymentTypes" Association="Self.FK_InvoiceRollbacks_PaymentTypes">
-      <End Role="PaymentTypes" EntitySet="PaymentTypes" />
       <End Role="InvoiceRollbacks" EntitySet="InvoiceRollbacks" />
     </AssociationSet>
     <AssociationSet Name="FK_InvoiceRollbacks_Users" Association="Self.FK_InvoiceRollbacks_Users">
@@ -927,6 +949,10 @@ warning 6002: The table/view 'KhanposDb.dbo.view_InvoiceRollbackList' does not h
     <AssociationSet Name="FK_InvoiceRollbacks_Warehouses" Association="Self.FK_InvoiceRollbacks_Warehouses">
       <End Role="Warehouses" EntitySet="Warehouses" />
       <End Role="InvoiceRollbacks" EntitySet="InvoiceRollbacks" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Invoices_Suppliers" Association="Self.FK_Invoices_Suppliers">
+      <End Role="Suppliers" EntitySet="Suppliers" />
+      <End Role="Invoices" EntitySet="Invoices" />
     </AssociationSet>
     <AssociationSet Name="FK_Invoices_Users" Association="Self.FK_Invoices_Users">
       <End Role="Users" EntitySet="Users" />

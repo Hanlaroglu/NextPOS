@@ -28,7 +28,6 @@ namespace Barcode_Sales
         public virtual DbSet<CloseShiftReport> CloseShiftReports { get; set; }
         public virtual DbSet<CustomerGroup> CustomerGroups { get; set; }
         public virtual DbSet<CustomerPayment> CustomerPayments { get; set; }
-        public virtual DbSet<Customer> Customers { get; set; }
         public virtual DbSet<CustomersDebt> CustomersDebts { get; set; }
         public virtual DbSet<Log> Logs { get; set; }
         public virtual DbSet<PaymentType> PaymentTypes { get; set; }
@@ -46,14 +45,15 @@ namespace Barcode_Sales
         public virtual DbSet<PosRefund> PosRefunds { get; set; }
         public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<Role> Roles { get; set; }
-        public virtual DbSet<view_InvoiceRollbackList> view_InvoiceRollbackList { get; set; }
         public virtual DbSet<SupplierPayment> SupplierPayments { get; set; }
         public virtual DbSet<Supplier> Suppliers { get; set; }
         public virtual DbSet<SuppliersDebt> SuppliersDebts { get; set; }
         public virtual DbSet<InvoiceDetail> InvoiceDetails { get; set; }
         public virtual DbSet<InvoiceRollbackDetail> InvoiceRollbackDetails { get; set; }
-        public virtual DbSet<InvoiceRollback> InvoiceRollbacks { get; set; }
         public virtual DbSet<Invoice> Invoices { get; set; }
         public virtual DbSet<Category> Categories { get; set; }
+        public virtual DbSet<view_InvoiceRollbackList> view_InvoiceRollbackList { get; set; }
+        public virtual DbSet<InvoiceRollback> InvoiceRollbacks { get; set; }
+        public virtual DbSet<Customer> Customers { get; set; }
     }
 }

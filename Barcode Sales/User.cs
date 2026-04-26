@@ -18,14 +18,14 @@ namespace Barcode_Sales
         public User()
         {
             this.CustomerGroups = new HashSet<CustomerGroup>();
-            this.Customers = new HashSet<Customer>();
             this.Logs = new HashSet<Log>();
             this.PosRefunds = new HashSet<PosRefund>();
             this.PosSales = new HashSet<PosSale>();
             this.Products = new HashSet<Products>();
             this.Terminals = new HashSet<Terminal>();
-            this.InvoiceRollbacks = new HashSet<InvoiceRollback>();
             this.Invoices = new HashSet<Invoice>();
+            this.InvoiceRollbacks = new HashSet<InvoiceRollback>();
+            this.Customers = new HashSet<Customer>();
         }
     
         public int Id { get; set; }
@@ -43,8 +43,6 @@ namespace Barcode_Sales
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CustomerGroup> CustomerGroups { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Customer> Customers { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Log> Logs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PosRefund> PosRefunds { get; set; }
@@ -57,8 +55,10 @@ namespace Barcode_Sales
         public virtual ICollection<Terminal> Terminals { get; set; }
         public virtual Role Role { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Invoice> Invoices { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<InvoiceRollback> InvoiceRollbacks { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Invoice> Invoices { get; set; }
+        public virtual ICollection<Customer> Customers { get; set; }
     }
 }

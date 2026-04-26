@@ -1,6 +1,7 @@
 ﻿using Barcode_Sales.Helpers;
 using Barcode_Sales.Operations.Abstract;
 using Barcode_Sales.Operations.Concrete;
+using Barcode_Sales.Services.CacheServices;
 using Barcode_Sales.Validations;
 using System;
 using System.Linq;
@@ -41,7 +42,7 @@ namespace Barcode_Sales.Forms
             {
                 Name = tName.Text.Trim(),
                 Discount = Convert.ToDouble(tDiscount.Text),
-                UserId = CommonData.CURRENT_USER.Id,
+                UserId = UserCacheService.User.Id,
                 CreatedDate = DateTime.Now,
                 IsDeleted = false
             };

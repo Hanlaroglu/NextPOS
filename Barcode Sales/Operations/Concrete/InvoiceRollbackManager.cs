@@ -20,8 +20,9 @@ namespace Barcode_Sales.Operations.Concrete
                 await db.SaveChangesAsync();
                 return item.Id;
             }
-            catch
+            catch (Exception ex)
             {
+                throw ex;
                 return 0;
             }
         }
@@ -37,8 +38,9 @@ namespace Barcode_Sales.Operations.Concrete
                 db.Set<InvoiceRollback>().AddRange(items);
                 return await db.SaveChangesAsync() > 0;
             }
-            catch
+            catch (Exception ex)
             {
+                throw ex;
                 return false;
             }
         }
@@ -117,18 +119,26 @@ namespace Barcode_Sales.Operations.Concrete
             if (expression is null)
                 return await db.InvoiceRollbacks.AsNoTracking().ToListAsync();
             else
-                return await db.InvoiceRollbacks.AsNoTracking().Where(expression).ToListAsync();
+                return await db.InvoiceRollbacks
+                    .AsNoTracking()
+                    .Where(expression)
+                    .OrderBy(x => x.RollbackDate)
+                    .ToListAsync();
         }
 
-        public async Task<List<InvoiceRollback>> Report(DateTime start, DateTime end)
+        public async Task<List<view_InvoiceRollbackList>> RollbackList(int supplierId, DateTime? start = null, DateTime? end = null)
         {
-            return await db.InvoiceRollbacks.AsNoTracking()
-                .Where(x =>
-                    x.IsDeleted == false &&
-                    x.RollbackDate >= start.Date &&
-                    x.RollbackDate <= end.Date)
-                .OrderBy(x => x.RollbackDate)
-                .ToListAsync();
+            var query = db.view_InvoiceRollbackList.AsNoTracking()
+                .Where(x => x.SupplierId == supplierId)
+                .AsQueryable();
+
+            if (start.HasValue)
+                query = query.Where(x => x.InvoiceDate >= start.Value);
+
+            if (end.HasValue)
+                query = query.Where(x => x.InvoiceDate <= end.Value);
+
+            return await query.ToListAsync();
         }
     }
 }

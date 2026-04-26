@@ -4,6 +4,7 @@ using Barcode_Sales.Helpers.Classes;
 using Barcode_Sales.NKA.DTOs;
 using Barcode_Sales.Operations.Abstract;
 using Barcode_Sales.Operations.Concrete;
+using Barcode_Sales.Services.CacheServices;
 using DevExpress.XtraEditors;
 using Newtonsoft.Json;
 using RestSharp;
@@ -129,7 +130,7 @@ namespace Barcode_Sales.NKA
                     NotificationHelpers.Messages.SuccessMessage(_form, $"Günsonu (Z) hesabatı uğurla çıxarıldı");
                     CloseShiftReport closeShift = new CloseShiftReport
                     {
-                        UserId = CommonData.CURRENT_USER.Id,
+                        UserId = UserCacheService.User.Id,
                         JsonResponse = response.Content,
                         FiskalID = responseData.document_id,
                         OpenShiftDate = Convert.ToDateTime(responseData.shiftOpenAt),
@@ -222,7 +223,7 @@ namespace Barcode_Sales.NKA
 
                     int SaleId = await posSaleOperation.Add(new PosSale
                     {
-                        UserId = CommonData.CURRENT_USER.Id,
+                        UserId = UserCacheService.User.Id,
                         ReceiptNo = responseData.fiscalNum,
                         LongFiscalId = responseData.fiscalID,
                         ShortFiscalId = responseData.fiscalID.Substring(0, 12) ?? null,

@@ -18,6 +18,7 @@ namespace Barcode_Sales
         public Supplier()
         {
             this.SuppliersDebts = new HashSet<SuppliersDebt>();
+            this.Invoices = new HashSet<Invoice>();
         }
     
         public int Id { get; set; }
@@ -37,5 +38,7 @@ namespace Barcode_Sales
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<SuppliersDebt> SuppliersDebts { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Invoice> Invoices { get; set; }
     }
 }

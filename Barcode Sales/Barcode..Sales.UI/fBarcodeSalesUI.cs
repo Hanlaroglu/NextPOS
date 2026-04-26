@@ -1,25 +1,14 @@
 ﻿using Barcode_Sales.Barcode.Sales.UI.Kassa;
 using Barcode_Sales.Helpers;
-using Barcode_Sales.Tools;
 using Barcode_Sales.UserControls;
-using DevExpress.XtraEditors;
+using Barcode_Sales.Validations;
 using NextPOS.UserControls;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Data.Entity;
 using System.Drawing;
-using System.IO;
 using System.Linq;
-using System.Net;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using DevExpress.XtraEditors.Controls;
-using static Barcode_Sales.Barcode.Sales.UI.Kassa.fPOS;
-using Barcode_Sales.Forms;
-using Barcode_Sales.Validations;
 
 namespace Barcode_Sales.Barcode.Sales.UI
 {

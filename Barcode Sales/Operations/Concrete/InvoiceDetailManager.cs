@@ -20,8 +20,9 @@ namespace Barcode_Sales.Operations.Concrete
                 await db.SaveChangesAsync();
                 return item.Id;
             }
-            catch
+            catch (Exception e)
             {
+                throw e;
                 return 0;
             }
         }
@@ -31,14 +32,14 @@ namespace Barcode_Sales.Operations.Concrete
             if (items == null || items.Count == 0)
                 return false;
 
-
             try
             {
                 db.Set<InvoiceDetail>().AddRange(items);
                 return await db.SaveChangesAsync() > 0;
             }
-            catch
+            catch (Exception e)
             {
+                throw e;
                 return false;
             }
         }

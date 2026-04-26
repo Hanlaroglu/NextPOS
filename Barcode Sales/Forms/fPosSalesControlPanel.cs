@@ -4,6 +4,7 @@ using System.Windows.Forms;
 using Barcode_Sales.Terminals.Omnitech;
 using static Barcode_Sales.Helpers.Enums;
 using Enums = Barcode_Sales.Helpers.Enums;
+using Barcode_Sales.Services.CacheServices;
 
 namespace Barcode_Sales.Forms
 {
@@ -48,7 +49,7 @@ namespace Barcode_Sales.Forms
                             {
                                 IpAddress = _terminals.IpAddress,
                                 Amount = _amount,
-                                Cashier = CommonData.CURRENT_USER?.NameSurname,
+                                Cashier = UserCacheService.User?.NameSurname,
                             });
                             break;
                         case KassaOperator.OMNITECH:
@@ -86,7 +87,7 @@ namespace Barcode_Sales.Forms
                             {
                                 IpAddress = _terminals.IpAddress,
                                 Amount = _amount,
-                                Cashier = CommonData.CURRENT_USER?.NameSurname,
+                                Cashier = UserCacheService.User?.NameSurname,
                             });
                             break;
                         case KassaOperator.OMNITECH:
@@ -112,7 +113,7 @@ namespace Barcode_Sales.Forms
             {
                 NKA.DTOs.NkaDto.ShiftDto item = new NKA.DTOs.NkaDto.ShiftDto
                 {
-                    Cashier = CommonData.CURRENT_USER.NameSurname,
+                    Cashier = UserCacheService.User.NameSurname,
                     IpAddress = _terminals.IpAddress,
                     MerchantId = _terminals.MerchantId,
                 };
@@ -145,7 +146,7 @@ namespace Barcode_Sales.Forms
             {
                 NKA.DTOs.NkaDto.ShiftDto item = new NKA.DTOs.NkaDto.ShiftDto
                 {
-                    Cashier = CommonData.CURRENT_USER.NameSurname,
+                    Cashier = UserCacheService.User.NameSurname,
                     IpAddress = _terminals.IpAddress,
                     MerchantId = _terminals.MerchantId,
                 };

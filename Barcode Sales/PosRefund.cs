@@ -36,10 +36,10 @@ namespace Barcode_Sales
         public string Note { get; set; }
         public int UserId { get; set; }
     
-        public virtual Customer Customer { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PosRefundItem> PosRefundItems { get; set; }
         public virtual PosSale PosSale { get; set; }
         public virtual User User { get; set; }
+        public virtual Customer Customer { get; set; }
     }
 }

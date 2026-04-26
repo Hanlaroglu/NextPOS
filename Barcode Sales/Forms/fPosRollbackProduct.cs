@@ -134,7 +134,7 @@ namespace Barcode_Sales.Forms
         {
             if (e.Column.FieldName is "ReturnQuantity")
             {
-                var unitName = gridSalesData.GetRowCellValue(e.RowHandle, "Detail.Product.Unit")?.ToString();
+                var unitName = gridSalesData.GetRowCellValue(e.RowHandle, "Detail.Products.UnitTypes.Name")?.ToString();
 
                 if (unitName is "Kq")
                     e.RepositoryItem = repositoryN3;

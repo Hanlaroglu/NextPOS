@@ -18,12 +18,11 @@ namespace Barcode_Sales
         public Customer()
         {
             this.CustomersDebts = new HashSet<CustomersDebt>();
-            this.PosSales = new HashSet<PosSale>();
             this.PosRefunds = new HashSet<PosRefund>();
+            this.PosSales = new HashSet<PosSale>();
         }
     
         public int Id { get; set; }
-        public Nullable<int> IsDeleted { get; set; }
         public string NameSurname { get; set; }
         public string CompanyName { get; set; }
         public Nullable<System.DateTime> DateBirth { get; set; }
@@ -43,14 +42,15 @@ namespace Barcode_Sales
         public Nullable<System.DateTime> CreateDate { get; set; }
         public Nullable<int> UserId { get; set; }
         public Nullable<int> CustomerGroupId { get; set; }
+        public bool IsDeleted { get; set; }
     
         public virtual CustomerGroup CustomerGroup { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CustomersDebt> CustomersDebts { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PosSale> PosSales { get; set; }
+        public virtual User User { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PosRefund> PosRefunds { get; set; }
-        public virtual User User { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<PosSale> PosSales { get; set; }
     }
 }

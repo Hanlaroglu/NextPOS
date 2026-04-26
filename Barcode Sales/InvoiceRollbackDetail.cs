@@ -20,5 +20,6 @@ namespace Barcode_Sales
         public decimal Quantity { get; set; }
     
         public virtual InvoiceRollback InvoiceRollback { get; set; }
+        public virtual Products Product { get; set; }
     }
 }

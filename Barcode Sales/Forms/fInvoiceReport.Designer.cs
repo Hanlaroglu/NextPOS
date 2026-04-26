@@ -221,8 +221,8 @@
             // 
             // gridColumn8
             // 
-            this.gridColumn8.Caption = "Ödəniş növü";
-            this.gridColumn8.FieldName = "PaymentType.Name";
+            this.gridColumn8.Caption = "Təchizatçı";
+            this.gridColumn8.FieldName = "Supplier.SupplierName";
             this.gridColumn8.Name = "gridColumn8";
             this.gridColumn8.OptionsColumn.AllowEdit = false;
             this.gridColumn8.Visible = true;
@@ -352,7 +352,9 @@
             // 
             this.bSearch.AllowFocus = false;
             this.bSearch.Appearance.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Question;
+            this.bSearch.Appearance.Font = new System.Drawing.Font("Nunito", 12F);
             this.bSearch.Appearance.Options.UseBackColor = true;
+            this.bSearch.Appearance.Options.UseFont = true;
             this.bSearch.Location = new System.Drawing.Point(441, 8);
             this.bSearch.Name = "bSearch";
             this.bSearch.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;

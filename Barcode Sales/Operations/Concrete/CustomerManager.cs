@@ -22,7 +22,7 @@ namespace Barcode_Sales.Operations.Concrete
                 item.Debt = 0;
                 item.Balance = 0;
                 item.Status = true;
-                item.IsDeleted = 0;
+                item.IsDeleted = false;
                 item.CreateDate = DateTime.Now;
                 db.Set<Customer>().Add(item);
                 await db.SaveChangesAsync();
@@ -104,7 +104,7 @@ namespace Barcode_Sales.Operations.Concrete
         {
             try
             {
-                item.IsDeleted = item.Id;
+                item.IsDeleted = true;
                 db.Customers.Attach(item);
                 db.Entry(item).Property(x => x.IsDeleted).IsModified = true;
                 return await db.SaveChangesAsync() > 0;

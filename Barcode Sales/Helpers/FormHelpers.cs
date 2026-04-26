@@ -202,19 +202,7 @@ namespace Barcode_Sales.Helpers
             }
         }
 
-        public static string ConvertToEAN13(Guid guid)
-        {
-            string guidString = guid.ToString("N");
-            string barcodeContent = new String(guidString.Where(Char.IsDigit).ToArray());
-            barcodeContent = barcodeContent.Substring(0, Math.Min(barcodeContent.Length, 9));
-
-            int sum = barcodeContent.Select((c, index) => int.Parse(c.ToString()) * (index % 2 == 0 ? 1 : 3)).Sum();
-            int checksum = (10 - (sum % 10)) % 10;
-
-            barcodeContent += checksum.ToString();
-
-            return $"994{barcodeContent}";
-        }
+       
 
         public static bool PingHostAsync(string host)
         {

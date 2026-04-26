@@ -172,6 +172,9 @@
         c3ZnPgs=
 </value>
   </data>
+  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>33</value>
+  </metadata>
   <data name="bAddSupplier.ImageOptions.SvgImage" type="DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v24.1" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAEAAAD/////AQAAAAAAAAAMAgAAAFlEZXZFeHByZXNzLkRhdGEudjI0LjEsIFZlcnNpb249MjQuMS4z
@@ -203,6 +206,23 @@
         Wm0tNTYtNTZhOCw4LDAsMCwxLTgsOEgxMzZ2MTZhOCw4LDAsMCwxLTE2LDBWMTUySDEwNGE4LDgsMCww
         LDEsMC0xNmgxNlYxMjBhOCw4LDAsMCwxLDE2LDB2MTZoMTZBOCw4LDAsMCwxLDE2MCwxNDRaIiAvPg0K
         PC9zdmc+Cw==
+</value>
+  </data>
+  <data name="bProducts.ImageOptions.SvgImage" type="DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v24.1" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        AAEAAAD/////AQAAAAAAAAAMAgAAAFlEZXZFeHByZXNzLkRhdGEudjI0LjEsIFZlcnNpb249MjQuMS4z
+        LjAsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49Yjg4ZDE3NTRkNzAwZTQ5YQUBAAAAHURl
+        dkV4cHJlc3MuVXRpbHMuU3ZnLlN2Z0ltYWdlAQAAAAREYXRhBwICAAAACQMAAAAPAwAAAC4CAAAC77u/
+        PD94bWwgdmVyc2lvbj0nMS4wJyBlbmNvZGluZz0nVVRGLTgnPz4NCjxzdmcgd2lkdGg9IjMycHgiIGhl
+        aWdodD0iMzJweCIgdmlld0JveD0iMCAwIDI1NiAyNTYiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8y
+        MDAwL3N2ZyIgZmlsbD0iIzAwMDAwMCI+DQogIDxwYXRoIGQ9Ik0yMjMuNjgsNjYuMTUsMTM1LjY4LDE4
+        YTE1Ljg4LDE1Ljg4LDAsMCwwLTE1LjM2LDBsLTg4LDQ4LjE3YTE2LDE2LDAsMCwwLTguMzIsMTR2OTUu
+        NjRhMTYsMTYsMCwwLDAsOC4zMiwxNGw4OCw0OC4xN2ExNS44OCwxNS44OCwwLDAsMCwxNS4zNiwwbDg4
+        LTQ4LjE3YTE2LDE2LDAsMCwwLDguMzItMTRWODAuMThBMTYsMTYsMCwwLDAsMjIzLjY4LDY2LjE1Wk0x
+        MjgsMzJsODAuMzQsNDQtMjkuNzcsMTYuMy04MC4zNS00NFpNMTI4LDEyMCw0Ny42Niw3NmwzMy45LTE4
+        LjU2LDgwLjM0LDQ0Wk00MCw5MGw4MCw0My43OHY4NS43OUw0MCwxNzUuODJabTE3Niw4NS43OGgwbC04
+        MCw0My43OVYxMzMuODJsMzItMTcuNTFWMTUyYTgsOCwwLDAsMCwxNiwwVjEwNy41NUwyMTYsOTB2ODUu
+        NzdaIiAvPg0KPC9zdmc+Cw==
 </value>
   </data>
   <metadata name="behaviorManager1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">

@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fAddCustomer));
             this.tabPane1 = new DevExpress.XtraBars.Navigation.TabPane();
             this.tabNavigationPage1 = new DevExpress.XtraBars.Navigation.TabNavigationPage();
@@ -46,6 +46,7 @@
             this.lookCustomerGroup = new DevExpress.XtraEditors.LookUpEdit();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.tComment = new DevExpress.XtraEditors.MemoEdit();
+            this.chOther = new DevExpress.XtraEditors.CheckEdit();
             this.chWoman = new DevExpress.XtraEditors.CheckEdit();
             this.chMan = new DevExpress.XtraEditors.CheckEdit();
             this.tVoen = new DevExpress.XtraEditors.TextEdit();
@@ -78,7 +79,6 @@
             this.bDebtHistory = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.bAddCustomerGroup = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControl1 = new DevExpress.XtraBars.Navigation.AccordionControl();
-            this.chOther = new DevExpress.XtraEditors.CheckEdit();
             ((System.ComponentModel.ISupportInitialize)(this.tabPane1)).BeginInit();
             this.tabPane1.SuspendLayout();
             this.tabNavigationPage1.SuspendLayout();
@@ -90,6 +90,7 @@
             this.groupCustomer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lookCustomerGroup.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tComment.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chOther.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chWoman.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chMan.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tVoen.Properties)).BeginInit();
@@ -108,7 +109,6 @@
             this.fluentDesignFormContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fluentDesignFormControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.accordionControl1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chOther.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // tabPane1
@@ -158,11 +158,11 @@
             this.groupControl2.Controls.Add(this.tEmail);
             this.groupControl2.Controls.Add(this.labelControl12);
             this.groupControl2.Controls.Add(this.labelControl11);
-            this.groupControl2.Location = new System.Drawing.Point(10, 336);
+            this.groupControl2.Location = new System.Drawing.Point(3, 336);
             this.groupControl2.LookAndFeel.SkinName = "WXI";
             this.groupControl2.LookAndFeel.UseDefaultLookAndFeel = false;
             this.groupControl2.Name = "groupControl2";
-            this.groupControl2.Size = new System.Drawing.Size(731, 126);
+            this.groupControl2.Size = new System.Drawing.Size(743, 126);
             this.groupControl2.TabIndex = 99;
             this.groupControl2.Text = "Əlaqə məlumatları";
             // 
@@ -171,7 +171,7 @@
             this.tPhone.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tPhone.EditValue = "<Null>";
-            this.tPhone.Location = new System.Drawing.Point(132, 80);
+            this.tPhone.Location = new System.Drawing.Point(116, 80);
             this.tPhone.Name = "tPhone";
             this.tPhone.Properties.Appearance.Font = new System.Drawing.Font("Nunito", 12F);
             this.tPhone.Properties.Appearance.Options.UseFont = true;
@@ -182,21 +182,21 @@
             this.tPhone.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.tPhone.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.SimpleMaskManager));
             this.tPhone.Properties.MaskSettings.Set("mask", "(000)000-00-00");
-            this.tPhone.Size = new System.Drawing.Size(594, 36);
+            this.tPhone.Size = new System.Drawing.Size(622, 36);
             this.tPhone.TabIndex = 1;
             // 
             // tEmail
             // 
             this.tEmail.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tEmail.Location = new System.Drawing.Point(132, 38);
+            this.tEmail.Location = new System.Drawing.Point(116, 38);
             this.tEmail.Name = "tEmail";
             this.tEmail.Properties.Appearance.Font = new System.Drawing.Font("Nunito", 12F);
             this.tEmail.Properties.Appearance.Options.UseFont = true;
             this.tEmail.Properties.LookAndFeel.SkinName = "WXI";
             this.tEmail.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
             this.tEmail.Properties.Mask.UseMaskAsDisplayFormat = true;
-            this.tEmail.Size = new System.Drawing.Size(594, 36);
+            this.tEmail.Size = new System.Drawing.Size(622, 36);
             this.tEmail.TabIndex = 0;
             // 
             // labelControl12
@@ -250,11 +250,11 @@
             this.groupCustomer.Controls.Add(this.labelControl3);
             this.groupCustomer.Controls.Add(this.labelControl4);
             this.groupCustomer.Controls.Add(this.tNameSurname);
-            this.groupCustomer.Location = new System.Drawing.Point(10, 3);
+            this.groupCustomer.Location = new System.Drawing.Point(3, 3);
             this.groupCustomer.LookAndFeel.SkinName = "WXI";
             this.groupCustomer.LookAndFeel.UseDefaultLookAndFeel = false;
             this.groupCustomer.Name = "groupCustomer";
-            this.groupCustomer.Size = new System.Drawing.Size(731, 327);
+            this.groupCustomer.Size = new System.Drawing.Size(743, 327);
             this.groupCustomer.TabIndex = 12;
             this.groupCustomer.Text = "Müştəri məlumatları";
             // 
@@ -279,7 +279,7 @@
             this.lookCustomerGroup.Properties.ShowFooter = false;
             this.lookCustomerGroup.Properties.ShowHeader = false;
             this.lookCustomerGroup.Properties.ShowLines = false;
-            this.lookCustomerGroup.Size = new System.Drawing.Size(610, 34);
+            this.lookCustomerGroup.Size = new System.Drawing.Size(622, 34);
             this.lookCustomerGroup.TabIndex = 5;
             // 
             // labelControl1
@@ -287,7 +287,7 @@
             this.labelControl1.Appearance.Font = new System.Drawing.Font("Nunito", 11F);
             this.labelControl1.Appearance.Options.UseFont = true;
             this.labelControl1.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Horizontal;
-            this.labelControl1.Location = new System.Drawing.Point(8, 205);
+            this.labelControl1.Location = new System.Drawing.Point(5, 205);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
             this.labelControl1.Size = new System.Drawing.Size(41, 20);
@@ -304,8 +304,23 @@
             this.tComment.Name = "tComment";
             this.tComment.Properties.Appearance.Font = new System.Drawing.Font("Nunito", 12F);
             this.tComment.Properties.Appearance.Options.UseFont = true;
-            this.tComment.Size = new System.Drawing.Size(610, 77);
+            this.tComment.Size = new System.Drawing.Size(622, 77);
             this.tComment.TabIndex = 7;
+            // 
+            // chOther
+            // 
+            this.chOther.EditValue = true;
+            this.chOther.Location = new System.Drawing.Point(336, 125);
+            this.chOther.Name = "chOther";
+            this.chOther.Properties.AllowFocused = false;
+            this.chOther.Properties.Appearance.Font = new System.Drawing.Font("Nunito", 12F);
+            this.chOther.Properties.Appearance.Options.UseFont = true;
+            this.chOther.Properties.AutoWidth = true;
+            this.chOther.Properties.Caption = "DİGƏR";
+            this.chOther.Properties.RadioGroupIndex = 1;
+            this.chOther.Size = new System.Drawing.Size(79, 26);
+            this.chOther.TabIndex = 4;
+            this.chOther.Tag = "Other";
             // 
             // chWoman
             // 
@@ -346,7 +361,7 @@
             this.tVoen.Properties.Appearance.Font = new System.Drawing.Font("Nunito", 12F);
             this.tVoen.Properties.Appearance.Options.UseFont = true;
             this.tVoen.Properties.Mask.UseMaskAsDisplayFormat = true;
-            this.tVoen.Size = new System.Drawing.Size(610, 36);
+            this.tVoen.Size = new System.Drawing.Size(622, 36);
             this.tVoen.TabIndex = 6;
             // 
             // tDateBirth
@@ -365,7 +380,7 @@
             this.tDateBirth.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.tDateBirth.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.SimpleMaskManager));
             this.tDateBirth.Properties.MaskSettings.Set("mask", "99/99/0000");
-            this.tDateBirth.Size = new System.Drawing.Size(610, 36);
+            this.tDateBirth.Size = new System.Drawing.Size(622, 36);
             this.tDateBirth.TabIndex = 1;
             // 
             // labelControl5
@@ -441,16 +456,16 @@
             this.tNameSurname.Name = "tNameSurname";
             this.tNameSurname.Properties.Appearance.Font = new System.Drawing.Font("Nunito", 12F);
             this.tNameSurname.Properties.Appearance.Options.UseFont = true;
-            serializableAppearanceObject5.Font = new System.Drawing.Font("Nunito", 9.749998F, System.Drawing.FontStyle.Bold);
-            serializableAppearanceObject5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(72)))), ((int)(((byte)(86)))));
-            serializableAppearanceObject5.Options.UseFont = true;
-            serializableAppearanceObject5.Options.UseForeColor = true;
+            serializableAppearanceObject1.Font = new System.Drawing.Font("Nunito", 9.749998F, System.Drawing.FontStyle.Bold);
+            serializableAppearanceObject1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(72)))), ((int)(((byte)(86)))));
+            serializableAppearanceObject1.Options.UseFont = true;
+            serializableAppearanceObject1.Options.UseForeColor = true;
             this.tNameSurname.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "*", -1, false, true, true, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "*", -1, false, true, true, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.tNameSurname.Properties.LookAndFeel.SkinName = "WXI";
             this.tNameSurname.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
             this.tNameSurname.Properties.Mask.UseMaskAsDisplayFormat = true;
-            this.tNameSurname.Size = new System.Drawing.Size(610, 36);
+            this.tNameSurname.Size = new System.Drawing.Size(622, 36);
             this.tNameSurname.TabIndex = 0;
             // 
             // tabNavigationPage2
@@ -481,11 +496,11 @@
             this.groupControl1.Controls.Add(this.labelControl7);
             this.groupControl1.Controls.Add(this.tBankAccountNumber);
             this.groupControl1.Controls.Add(this.labelControl8);
-            this.groupControl1.Location = new System.Drawing.Point(10, 3);
+            this.groupControl1.Location = new System.Drawing.Point(3, 3);
             this.groupControl1.LookAndFeel.SkinName = "WXI";
             this.groupControl1.LookAndFeel.UseDefaultLookAndFeel = false;
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(731, 249);
+            this.groupControl1.Size = new System.Drawing.Size(743, 249);
             this.groupControl1.TabIndex = 13;
             this.groupControl1.Text = "Bank məlumatları";
             // 
@@ -493,40 +508,40 @@
             // 
             this.tBankVoen.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tBankVoen.Location = new System.Drawing.Point(137, 80);
+            this.tBankVoen.Location = new System.Drawing.Point(115, 80);
             this.tBankVoen.Name = "tBankVoen";
             this.tBankVoen.Properties.Appearance.Font = new System.Drawing.Font("Nunito", 12F);
             this.tBankVoen.Properties.Appearance.Options.UseFont = true;
             this.tBankVoen.Properties.Mask.UseMaskAsDisplayFormat = true;
-            this.tBankVoen.Size = new System.Drawing.Size(589, 36);
+            this.tBankVoen.Size = new System.Drawing.Size(623, 36);
             this.tBankVoen.TabIndex = 1;
             // 
             // tBankSwift
             // 
             this.tBankSwift.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tBankSwift.Location = new System.Drawing.Point(137, 206);
+            this.tBankSwift.Location = new System.Drawing.Point(115, 206);
             this.tBankSwift.Name = "tBankSwift";
             this.tBankSwift.Properties.Appearance.Font = new System.Drawing.Font("Nunito", 12F);
             this.tBankSwift.Properties.Appearance.Options.UseFont = true;
             this.tBankSwift.Properties.LookAndFeel.SkinName = "WXI";
             this.tBankSwift.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
             this.tBankSwift.Properties.Mask.UseMaskAsDisplayFormat = true;
-            this.tBankSwift.Size = new System.Drawing.Size(589, 36);
+            this.tBankSwift.Size = new System.Drawing.Size(623, 36);
             this.tBankSwift.TabIndex = 4;
             // 
             // tBankName
             // 
             this.tBankName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tBankName.Location = new System.Drawing.Point(137, 38);
+            this.tBankName.Location = new System.Drawing.Point(115, 38);
             this.tBankName.Name = "tBankName";
             this.tBankName.Properties.Appearance.Font = new System.Drawing.Font("Nunito", 12F);
             this.tBankName.Properties.Appearance.Options.UseFont = true;
             this.tBankName.Properties.LookAndFeel.SkinName = "WXI";
             this.tBankName.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
             this.tBankName.Properties.Mask.UseMaskAsDisplayFormat = true;
-            this.tBankName.Size = new System.Drawing.Size(589, 36);
+            this.tBankName.Size = new System.Drawing.Size(623, 36);
             this.tBankName.TabIndex = 0;
             // 
             // labelControl10
@@ -546,14 +561,14 @@
             // 
             this.tBankKod.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tBankKod.Location = new System.Drawing.Point(137, 164);
+            this.tBankKod.Location = new System.Drawing.Point(115, 164);
             this.tBankKod.Name = "tBankKod";
             this.tBankKod.Properties.Appearance.Font = new System.Drawing.Font("Nunito", 12F);
             this.tBankKod.Properties.Appearance.Options.UseFont = true;
             this.tBankKod.Properties.LookAndFeel.SkinName = "WXI";
             this.tBankKod.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
             this.tBankKod.Properties.Mask.UseMaskAsDisplayFormat = true;
-            this.tBankKod.Size = new System.Drawing.Size(589, 36);
+            this.tBankKod.Size = new System.Drawing.Size(623, 36);
             this.tBankKod.TabIndex = 3;
             // 
             // labelControl6
@@ -599,14 +614,14 @@
             // 
             this.tBankAccountNumber.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tBankAccountNumber.Location = new System.Drawing.Point(137, 122);
+            this.tBankAccountNumber.Location = new System.Drawing.Point(115, 122);
             this.tBankAccountNumber.Name = "tBankAccountNumber";
             this.tBankAccountNumber.Properties.Appearance.Font = new System.Drawing.Font("Nunito", 12F);
             this.tBankAccountNumber.Properties.Appearance.Options.UseFont = true;
             this.tBankAccountNumber.Properties.LookAndFeel.SkinName = "WXI";
             this.tBankAccountNumber.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
             this.tBankAccountNumber.Properties.Mask.UseMaskAsDisplayFormat = true;
-            this.tBankAccountNumber.Size = new System.Drawing.Size(589, 36);
+            this.tBankAccountNumber.Size = new System.Drawing.Size(623, 36);
             this.tBankAccountNumber.TabIndex = 2;
             // 
             // labelControl8
@@ -749,21 +764,6 @@
             this.accordionControl1.TabIndex = 16;
             this.accordionControl1.ViewType = DevExpress.XtraBars.Navigation.AccordionControlViewType.HamburgerMenu;
             // 
-            // chOther
-            // 
-            this.chOther.EditValue = true;
-            this.chOther.Location = new System.Drawing.Point(336, 125);
-            this.chOther.Name = "chOther";
-            this.chOther.Properties.AllowFocused = false;
-            this.chOther.Properties.Appearance.Font = new System.Drawing.Font("Nunito", 12F);
-            this.chOther.Properties.Appearance.Options.UseFont = true;
-            this.chOther.Properties.AutoWidth = true;
-            this.chOther.Properties.Caption = "DİGƏR";
-            this.chOther.Properties.RadioGroupIndex = 1;
-            this.chOther.Size = new System.Drawing.Size(79, 26);
-            this.chOther.TabIndex = 4;
-            this.chOther.Tag = "Other";
-            // 
             // fAddCustomer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -797,6 +797,7 @@
             this.groupCustomer.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lookCustomerGroup.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tComment.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chOther.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chWoman.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chMan.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tVoen.Properties)).EndInit();
@@ -816,7 +817,6 @@
             this.fluentDesignFormContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.fluentDesignFormControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.accordionControl1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chOther.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
