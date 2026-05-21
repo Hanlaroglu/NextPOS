@@ -1,15 +1,9 @@
 ﻿using Barcode_Sales.Helpers;
 using Barcode_Sales.Helpers.Classes;
-using DevExpress.XtraEditors;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using DevExpress.XtraEditors;
 
 namespace Barcode_Sales.Forms
 {
@@ -29,7 +23,7 @@ namespace Barcode_Sales.Forms
 
         private void fPriceChange_Load(object sender, EventArgs e)
         {
-            this.Text = string.IsNullOrWhiteSpace(_posChangeType.ProductName) ? Enums.GetEnumDescription(_posChangeType.ChangeType) : _posChangeType.ProductName;
+            this.Text = string.IsNullOrWhiteSpace(_posChangeType.ProductName) ? EnumExtensions.GetEnumDescription(_posChangeType.ChangeType) : _posChangeType.ProductName;
             switch (_posChangeType.ChangeType)
             {
                 case Enums.PosChangeType.PriceChange:
@@ -58,35 +52,66 @@ namespace Barcode_Sales.Forms
             }
         }
 
+        private bool _updating = false;
+        private bool _enteringDecimals = false;
+        private int _decimalCount = 0;
+        private decimal _value = 0;
         private void NumberButtons_Click(object sender, EventArgs e)
         {
-            SimpleButton b = (SimpleButton)sender;
+            string key = ((SimpleButton)sender).Text;
 
-            // Maskeyi geçici olarak devre dışı bırak
-            tTotal.Properties.MaskSettings.Set("MaskManagerType", null);
+            if (key == "," || key == ".")
+            {
+                _enteringDecimals = true;
+                _decimalCount = 0;
+                ShowValue();
+                return;
+            }
 
-            // Mevcut değeri al ve yeni metni ekle
-            tTotal.Text += b.Text;
+            int digit = int.Parse(key);
 
-            // Maskeyi tekrar etkinleştir
-            tTotal.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
-            tTotal.Properties.MaskSettings.Set("mask", "N2");
+            if (!_enteringDecimals)
+                _value = _value * 10 + digit;
+            else
+            {
+                if (_decimalCount < 2)
+                {
+                    decimal factor = _decimalCount == 0 ? 0.1m : 0.01m;
+                    _value = Math.Floor(_value) +
+                             (_value - Math.Floor(_value)) +
+                             digit * factor;
+                    _decimalCount++;
+                }
+            }
 
-
-            //if (b.Text is ",")
-            //{
-            //    short vergul = Convert.ToInt16(tTotal.Text.Count(x => x == ','));
-            //    if (vergul < 1) { tTotal.Text += b.Text; }
-            //}
-            //else
-            //{
-            //    tTotal.Text += b.Text;
-            //}
+            ShowValue();
         }
 
-        private void bBackspace_Click(object sender, EventArgs e)
+        private void ShowValue()
         {
+            _updating = true;
+            tTotal.Text = _value.ToString("N2");
+            tTotal.SelectionStart = tTotal.Text.Length;
+            _updating = false;
+        }
 
+        private void tTotal_TextChanged(object sender, EventArgs e)
+        {
+            if (_updating) return;
+
+            if (decimal.TryParse(tTotal.Text, out decimal val))
+            {
+                _value = val;
+                _enteringDecimals = tTotal.Text.Contains(",") || tTotal.Text.Contains(".");
+            }
+        }
+
+        private void bClear_Click(object sender, EventArgs e)
+        {
+            _value = 0;
+            _enteringDecimals = false;
+            _decimalCount = 0;
+            ShowValue();
         }
 
         private void bEnter_Click(object sender, EventArgs e)

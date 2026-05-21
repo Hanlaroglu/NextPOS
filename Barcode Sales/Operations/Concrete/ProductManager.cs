@@ -1,4 +1,5 @@
-﻿using Barcode_Sales.Operations.Abstract;
+﻿using Barcode_Sales.DTOs;
+using Barcode_Sales.Operations.Abstract;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -115,21 +116,44 @@ namespace Barcode_Sales.Operations.Concrete
             return db.Products.Where(expression);
         }
 
+        public async Task<bool> Remove(Products item)
+        {
+            item.IsDeleted = true;
+            if (await Update(item,x=> x.IsDeleted))
+                return true;
+
+            return false;
+        }
+
         public async Task<List<Products>> ToListAsync(Expression<Func<Products, bool>> expression = null)
         {
             if (expression is null)
                 return await db.Products.AsNoTracking().ToListAsync();
-            else
-                return await db.Products.AsNoTracking().Where(expression).ToListAsync();
+
+            return await db.Products.AsNoTracking().Where(expression).ToListAsync();
         }
 
-        public async Task<bool> Remove(Products item)
+        public async Task<List<StockReportDto>> StockReport()
         {
-            item.IsDeleted = true;
-            if (await db.SaveChangesAsync() > 0)
-                return true;
+            string query = @"SELECT
+    c.CategoryName        AS CategoryName,
+    p.ProductCode         AS ProductCode,
+    p.ProductName         AS ProductName,
+    p.Barcode             AS Barcode,
+    u.Name                AS UnitName,
+    t.Name                AS TaxName,
+    p.PurchasePrice       AS PurchasePrice,
+    p.SalePrice           AS SalePrice,
+    p.Quantity            AS Quantity
+FROM Products p
+INNER JOIN Categories c ON c.Id = p.CategoryId
+INNER JOIN UnitTypes  u ON u.Id = p.UnitId
+LEFT  JOIN TaxTypes   t ON t.Id = p.TaxId;
+";
 
-            return false;
+            var result = await db.Database.SqlQuery<StockReportDto>(query).ToListAsync();
+
+            return result;
         }
     }
 }

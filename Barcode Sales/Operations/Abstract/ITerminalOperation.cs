@@ -4,6 +4,6 @@ namespace Barcode_Sales.Operations.Abstract
 {
     public interface ITerminalOperation : IBaseOperation<Terminal>
     {
-        Terminal GetIpAddress();
+        Task<Terminal> GetIpAddress();
     }
 }

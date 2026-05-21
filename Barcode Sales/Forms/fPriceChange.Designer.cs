@@ -50,7 +50,12 @@
             this.chDiscountPercent = new DevExpress.XtraEditors.CheckButton();
             this.pageQuantity = new DevExpress.XtraBars.Navigation.NavigationPage();
             this.chQuantity = new DevExpress.XtraEditors.CheckButton();
+            this.pageDeposit = new DevExpress.XtraBars.Navigation.NavigationPage();
+            this.chDeposit = new DevExpress.XtraEditors.CheckButton();
+            this.pageWithdraw = new DevExpress.XtraBars.Navigation.NavigationPage();
+            this.chWithdraw = new DevExpress.XtraEditors.CheckButton();
             this.tablePanel2 = new DevExpress.Utils.Layout.TablePanel();
+            this.bDoth = new DevExpress.XtraEditors.SimpleButton();
             this.b1 = new DevExpress.XtraEditors.SimpleButton();
             this.b2 = new DevExpress.XtraEditors.SimpleButton();
             this.b3 = new DevExpress.XtraEditors.SimpleButton();
@@ -61,13 +66,8 @@
             this.b8 = new DevExpress.XtraEditors.SimpleButton();
             this.b9 = new DevExpress.XtraEditors.SimpleButton();
             this.b0 = new DevExpress.XtraEditors.SimpleButton();
-            this.bVergul = new DevExpress.XtraEditors.SimpleButton();
             this.bEnter = new DevExpress.XtraEditors.SimpleButton();
-            this.bBackspace = new DevExpress.XtraEditors.SimpleButton();
-            this.pageDeposit = new DevExpress.XtraBars.Navigation.NavigationPage();
-            this.pageWithdraw = new DevExpress.XtraBars.Navigation.NavigationPage();
-            this.chDeposit = new DevExpress.XtraEditors.CheckButton();
-            this.chWithdraw = new DevExpress.XtraEditors.CheckButton();
+            this.bClear = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel1)).BeginInit();
             this.tablePanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tTotal.Properties)).BeginInit();
@@ -78,10 +78,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel3)).BeginInit();
             this.tablePanel3.SuspendLayout();
             this.pageQuantity.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tablePanel2)).BeginInit();
-            this.tablePanel2.SuspendLayout();
             this.pageDeposit.SuspendLayout();
             this.pageWithdraw.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tablePanel2)).BeginInit();
+            this.tablePanel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // tablePanel1
@@ -134,10 +134,11 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "%", -1, false, false, false, editorButtonImageOptions4, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject13, serializableAppearanceObject14, serializableAppearanceObject15, serializableAppearanceObject16, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.tTotal.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.tTotal.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
-            this.tTotal.Properties.MaskSettings.Set("mask", "N2");
+            this.tTotal.Properties.MaskSettings.Set("mask", "F2");
             this.tablePanel1.SetRow(this.tTotal, 1);
             this.tTotal.Size = new System.Drawing.Size(470, 52);
             this.tTotal.TabIndex = 0;
+            this.tTotal.TextChanged += new System.EventHandler(this.tTotal_TextChanged);
             // 
             // navigationFrame1
             // 
@@ -166,6 +167,7 @@
             // 
             // pagePriceChange
             // 
+            this.pagePriceChange.Caption = "pagePriceChange";
             this.pagePriceChange.Controls.Add(this.chPriceChangeHeader);
             this.pagePriceChange.Name = "pagePriceChange";
             this.pagePriceChange.Size = new System.Drawing.Size(474, 55);
@@ -268,6 +270,50 @@
             this.chQuantity.TabStop = false;
             this.chQuantity.Text = "Miqdar dəyişikliyi";
             // 
+            // pageDeposit
+            // 
+            this.pageDeposit.Caption = "pageDeposit";
+            this.pageDeposit.Controls.Add(this.chDeposit);
+            this.pageDeposit.Name = "pageDeposit";
+            this.pageDeposit.Size = new System.Drawing.Size(474, 55);
+            // 
+            // chDeposit
+            // 
+            this.chDeposit.AllowFocus = false;
+            this.chDeposit.Appearance.Font = new System.Drawing.Font("Nunito", 18F, System.Drawing.FontStyle.Bold);
+            this.chDeposit.Appearance.Options.UseFont = true;
+            this.chDeposit.Checked = true;
+            this.chDeposit.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.chDeposit.Location = new System.Drawing.Point(0, 0);
+            this.chDeposit.Name = "chDeposit";
+            this.chDeposit.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
+            this.chDeposit.Size = new System.Drawing.Size(474, 55);
+            this.chDeposit.TabIndex = 1;
+            this.chDeposit.TabStop = false;
+            this.chDeposit.Text = "Mədaxil məbləği";
+            // 
+            // pageWithdraw
+            // 
+            this.pageWithdraw.Caption = "pageWithdraw";
+            this.pageWithdraw.Controls.Add(this.chWithdraw);
+            this.pageWithdraw.Name = "pageWithdraw";
+            this.pageWithdraw.Size = new System.Drawing.Size(474, 55);
+            // 
+            // chWithdraw
+            // 
+            this.chWithdraw.AllowFocus = false;
+            this.chWithdraw.Appearance.Font = new System.Drawing.Font("Nunito", 18F, System.Drawing.FontStyle.Bold);
+            this.chWithdraw.Appearance.Options.UseFont = true;
+            this.chWithdraw.Checked = true;
+            this.chWithdraw.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.chWithdraw.Location = new System.Drawing.Point(0, 0);
+            this.chWithdraw.Name = "chWithdraw";
+            this.chWithdraw.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
+            this.chWithdraw.Size = new System.Drawing.Size(474, 55);
+            this.chWithdraw.TabIndex = 2;
+            this.chWithdraw.TabStop = false;
+            this.chWithdraw.Text = "Məxaric məbləği";
+            // 
             // tablePanel2
             // 
             this.tablePanel1.SetColumn(this.tablePanel2, 0);
@@ -276,6 +322,7 @@
             new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 100F),
             new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 100F),
             new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 103F)});
+            this.tablePanel2.Controls.Add(this.bDoth);
             this.tablePanel2.Controls.Add(this.b1);
             this.tablePanel2.Controls.Add(this.b2);
             this.tablePanel2.Controls.Add(this.b3);
@@ -286,9 +333,8 @@
             this.tablePanel2.Controls.Add(this.b8);
             this.tablePanel2.Controls.Add(this.b9);
             this.tablePanel2.Controls.Add(this.b0);
-            this.tablePanel2.Controls.Add(this.bVergul);
             this.tablePanel2.Controls.Add(this.bEnter);
-            this.tablePanel2.Controls.Add(this.bBackspace);
+            this.tablePanel2.Controls.Add(this.bClear);
             this.tablePanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tablePanel2.Location = new System.Drawing.Point(4, 119);
             this.tablePanel2.Name = "tablePanel2";
@@ -298,9 +344,25 @@
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 100F),
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 100F),
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 100F)});
-            this.tablePanel2.ShowGrid = DevExpress.Utils.DefaultBoolean.False;
             this.tablePanel2.Size = new System.Drawing.Size(470, 328);
             this.tablePanel2.TabIndex = 19;
+            // 
+            // bDoth
+            // 
+            this.bDoth.AllowFocus = false;
+            this.bDoth.Appearance.Font = new System.Drawing.Font("Nunito", 20F, System.Drawing.FontStyle.Bold);
+            this.bDoth.Appearance.Options.UseFont = true;
+            this.tablePanel2.SetColumn(this.bDoth, 0);
+            this.bDoth.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.bDoth.Location = new System.Drawing.Point(2, 248);
+            this.bDoth.Margin = new System.Windows.Forms.Padding(2);
+            this.bDoth.Name = "bDoth";
+            this.tablePanel2.SetRow(this.bDoth, 3);
+            this.bDoth.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
+            this.bDoth.Size = new System.Drawing.Size(118, 78);
+            this.bDoth.TabIndex = 4;
+            this.bDoth.Text = ",";
+            this.bDoth.Click += new System.EventHandler(this.NumberButtons_Click);
             // 
             // b1
             // 
@@ -473,27 +535,10 @@
             this.b0.Text = "0";
             this.b0.Click += new System.EventHandler(this.NumberButtons_Click);
             // 
-            // bVergul
-            // 
-            this.bVergul.AllowFocus = false;
-            this.bVergul.Appearance.Font = new System.Drawing.Font("Nunito", 30F, System.Drawing.FontStyle.Bold);
-            this.bVergul.Appearance.Options.UseFont = true;
-            this.tablePanel2.SetColumn(this.bVergul, 0);
-            this.bVergul.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.bVergul.Location = new System.Drawing.Point(2, 248);
-            this.bVergul.Margin = new System.Windows.Forms.Padding(2);
-            this.bVergul.Name = "bVergul";
-            this.tablePanel2.SetRow(this.bVergul, 3);
-            this.bVergul.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
-            this.bVergul.Size = new System.Drawing.Size(118, 78);
-            this.bVergul.TabIndex = 3;
-            this.bVergul.Text = ",";
-            this.bVergul.Click += new System.EventHandler(this.NumberButtons_Click);
-            // 
             // bEnter
             // 
             this.bEnter.AllowFocus = false;
-            this.bEnter.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(221)))), ((int)(((byte)(146)))));
+            this.bEnter.Appearance.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Success;
             this.bEnter.Appearance.Font = new System.Drawing.Font("Nunito", 18F, System.Drawing.FontStyle.Bold);
             this.bEnter.Appearance.Options.UseBackColor = true;
             this.bEnter.Appearance.Options.UseFont = true;
@@ -513,68 +558,25 @@
             this.bEnter.TabIndex = 3;
             this.bEnter.Click += new System.EventHandler(this.bEnter_Click);
             // 
-            // bBackspace
+            // bClear
             // 
-            this.bBackspace.AllowFocus = false;
-            this.bBackspace.Appearance.Font = new System.Drawing.Font("Nunito", 18F, System.Drawing.FontStyle.Bold);
-            this.bBackspace.Appearance.Options.UseFont = true;
-            this.tablePanel2.SetColumn(this.bBackspace, 3);
-            this.bBackspace.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.bBackspace.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.TopCenter;
-            this.bBackspace.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bBackspace.ImageOptions.SvgImage")));
-            this.bBackspace.ImageOptions.SvgImageColorizationMode = DevExpress.Utils.SvgImageColorizationMode.None;
-            this.bBackspace.ImageOptions.SvgImageSize = new System.Drawing.Size(74, 74);
-            this.bBackspace.Location = new System.Drawing.Point(370, 0);
-            this.bBackspace.Margin = new System.Windows.Forms.Padding(3, 0, 0, 3);
-            this.bBackspace.Name = "bBackspace";
-            this.tablePanel2.SetRow(this.bBackspace, 0);
-            this.tablePanel2.SetRowSpan(this.bBackspace, 2);
-            this.bBackspace.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
-            this.bBackspace.Size = new System.Drawing.Size(100, 161);
-            this.bBackspace.TabIndex = 3;
-            this.bBackspace.Click += new System.EventHandler(this.bBackspace_Click);
-            // 
-            // pageDeposit
-            // 
-            this.pageDeposit.Controls.Add(this.chDeposit);
-            this.pageDeposit.Name = "pageDeposit";
-            this.pageDeposit.Size = new System.Drawing.Size(474, 55);
-            // 
-            // pageWithdraw
-            // 
-            this.pageWithdraw.Controls.Add(this.chWithdraw);
-            this.pageWithdraw.Name = "pageWithdraw";
-            this.pageWithdraw.Size = new System.Drawing.Size(474, 55);
-            // 
-            // chDeposit
-            // 
-            this.chDeposit.AllowFocus = false;
-            this.chDeposit.Appearance.Font = new System.Drawing.Font("Nunito", 18F, System.Drawing.FontStyle.Bold);
-            this.chDeposit.Appearance.Options.UseFont = true;
-            this.chDeposit.Checked = true;
-            this.chDeposit.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.chDeposit.Location = new System.Drawing.Point(0, 0);
-            this.chDeposit.Name = "chDeposit";
-            this.chDeposit.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
-            this.chDeposit.Size = new System.Drawing.Size(474, 55);
-            this.chDeposit.TabIndex = 1;
-            this.chDeposit.TabStop = false;
-            this.chDeposit.Text = "Mədaxil məbləği";
-            // 
-            // chWithdraw
-            // 
-            this.chWithdraw.AllowFocus = false;
-            this.chWithdraw.Appearance.Font = new System.Drawing.Font("Nunito", 18F, System.Drawing.FontStyle.Bold);
-            this.chWithdraw.Appearance.Options.UseFont = true;
-            this.chWithdraw.Checked = true;
-            this.chWithdraw.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.chWithdraw.Location = new System.Drawing.Point(0, 0);
-            this.chWithdraw.Name = "chWithdraw";
-            this.chWithdraw.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
-            this.chWithdraw.Size = new System.Drawing.Size(474, 55);
-            this.chWithdraw.TabIndex = 2;
-            this.chWithdraw.TabStop = false;
-            this.chWithdraw.Text = "Məxaric məbləği";
+            this.bClear.AllowFocus = false;
+            this.bClear.Appearance.Font = new System.Drawing.Font("Nunito", 40F);
+            this.bClear.Appearance.Options.UseFont = true;
+            this.tablePanel2.SetColumn(this.bClear, 3);
+            this.bClear.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.bClear.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.TopCenter;
+            this.bClear.ImageOptions.SvgImageColorizationMode = DevExpress.Utils.SvgImageColorizationMode.CommonPalette;
+            this.bClear.Location = new System.Drawing.Point(370, 0);
+            this.bClear.Margin = new System.Windows.Forms.Padding(3, 0, 0, 3);
+            this.bClear.Name = "bClear";
+            this.tablePanel2.SetRow(this.bClear, 0);
+            this.tablePanel2.SetRowSpan(this.bClear, 2);
+            this.bClear.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
+            this.bClear.Size = new System.Drawing.Size(100, 161);
+            this.bClear.TabIndex = 3;
+            this.bClear.Text = "C";
+            this.bClear.Click += new System.EventHandler(this.bClear_Click);
             // 
             // fPriceChange
             // 
@@ -598,10 +600,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel3)).EndInit();
             this.tablePanel3.ResumeLayout(false);
             this.pageQuantity.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.tablePanel2)).EndInit();
-            this.tablePanel2.ResumeLayout(false);
             this.pageDeposit.ResumeLayout(false);
             this.pageWithdraw.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.tablePanel2)).EndInit();
+            this.tablePanel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -620,9 +622,8 @@
         private DevExpress.XtraEditors.SimpleButton b8;
         private DevExpress.XtraEditors.SimpleButton b9;
         private DevExpress.XtraEditors.SimpleButton b0;
-        private DevExpress.XtraEditors.SimpleButton bVergul;
         private DevExpress.XtraEditors.SimpleButton bEnter;
-        private DevExpress.XtraEditors.SimpleButton bBackspace;
+        private DevExpress.XtraEditors.SimpleButton bClear;
         private DevExpress.XtraBars.Navigation.NavigationFrame navigationFrame1;
         private DevExpress.XtraBars.Navigation.NavigationPage pagePriceChange;
         private DevExpress.XtraBars.Navigation.NavigationPage pageDiscount;
@@ -637,5 +638,6 @@
         private DevExpress.XtraBars.Navigation.NavigationPage pageWithdraw;
         private DevExpress.XtraEditors.CheckButton chDeposit;
         private DevExpress.XtraEditors.CheckButton chWithdraw;
+        private DevExpress.XtraEditors.SimpleButton bDoth;
     }
 }

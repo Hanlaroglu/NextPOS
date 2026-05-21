@@ -43,18 +43,6 @@ namespace Barcode_Sales.Helpers.Messages
             MessageBoxManager.Unregister();
         }
 
-        public static bool QuestionDialogResult(string _message, string _title = nameof(Enums.MessageTitle.Mesaj))
-        {
-            MessageBoxManager.Register();
-            if (MessageBox.Show(_message, _title, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            {
-                MessageBoxManager.Unregister();
-                return true;
-            }
-            MessageBoxManager.Unregister();
-            return false;
-        }
-
         public static void Message(string msg, fMessage.enmType type)
         {
             fMessage frm = new fMessage();

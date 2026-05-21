@@ -1,18 +1,16 @@
-﻿using Barcode_Sales.Helpers;
+﻿using Barcode_Sales.Services.CacheServices;
+using Barcode_Sales.Terminals.Omnitech;
+using DevExpress.Internal.WinApi.Windows.UI.Notifications;
 using System;
 using System.Windows.Forms;
-using Barcode_Sales.Terminals.Omnitech;
 using static Barcode_Sales.Helpers.Enums;
 using Enums = Barcode_Sales.Helpers.Enums;
-using Barcode_Sales.Services.CacheServices;
 
 namespace Barcode_Sales.Forms
 {
     public partial class fPosSalesControlPanel : DevExpress.XtraEditors.XtraForm
     {
-
-        private static readonly Terminal _terminals = CommonData.terminal;
-        KassaOperator kassa = (KassaOperator)Enum.Parse(typeof(KassaOperator), _terminals.Name);
+        Enums.Terminal terminal = (Enums.Terminal)Enum.Parse(typeof(Enums.Terminal), TerminalCacheService.Terminal.Name);
 
         public fPosSalesControlPanel()
         {
@@ -31,9 +29,8 @@ namespace Barcode_Sales.Forms
 
         private void bDeposit_Click(object sender, EventArgs e)
         {
-            if (_terminals != null)
+            if (TerminalCacheService.Terminal != null)
             {
-                this.Close();
                 fPriceChange f = new fPriceChange(new Helpers.Classes.SaleClasses.PosChangeType
                 {
                     ChangeType = Enums.PosChangeType.Deposit,
@@ -42,25 +39,32 @@ namespace Barcode_Sales.Forms
                 {
                     decimal _amount = f.Amount;
 
-                    switch (kassa)
+                    switch (terminal)
                     {
-                        case KassaOperator.CASPOS:
+                        case Enums.Terminal.Caspos:
                             NKA.Sunmi.Deposit(new NKA.DTOs.NkaDto.DepositDto
                             {
-                                IpAddress = _terminals.IpAddress,
+                                IpAddress = TerminalCacheService.Terminal.IpAddress,
                                 Amount = _amount,
                                 Cashier = UserCacheService.User?.NameSurname,
                             });
                             break;
-                        case KassaOperator.OMNITECH:
+                        case Enums.Terminal.Omnitech:
+                            OmnnitechTerminal omnnitech = new OmnnitechTerminal(TerminalCacheService.Terminal.IpAddress);
+
+                            var result = omnnitech.Deposit(_amount);
+                            if (result.Success)
+                                NotificationHelpers.Messages.SuccessMessage(this, result.Message);
+                            else
+                                NotificationHelpers.Messages.ErrorMessage(this, result.Message);
                             break;
-                        case KassaOperator.AZSMART:
+                        case Enums.Terminal.AzSmart:
                             break;
-                        case KassaOperator.NBA:
+                        case Enums.Terminal.Nba:
                             break;
-                        case KassaOperator.DATAPAY:
+                        case Enums.Terminal.DataPay:
                             break;
-                        case KassaOperator.ONECLICK:
+                        case Enums.Terminal.OneClick:
                             break;
                     }
                 }
@@ -69,9 +73,8 @@ namespace Barcode_Sales.Forms
 
         private void bWithdraw_Click(object sender, EventArgs e)
         {
-            if (_terminals != null)
+            if (TerminalCacheService.Terminal != null)
             {
-                this.Close();
                 fPriceChange f = new fPriceChange(new Helpers.Classes.SaleClasses.PosChangeType
                 {
                     ChangeType = PosChangeType.Withdraw,
@@ -80,27 +83,32 @@ namespace Barcode_Sales.Forms
                 {
                     decimal _amount = f.Amount;
 
-                    switch (kassa)
+                    switch (terminal)
                     {
-                        case KassaOperator.CASPOS:
+                        case Enums.Terminal.Caspos:
                             NKA.Sunmi.Withdraw(new NKA.DTOs.NkaDto.DepositDto
                             {
-                                IpAddress = _terminals.IpAddress,
+                                IpAddress = TerminalCacheService.Terminal.IpAddress,
                                 Amount = _amount,
                                 Cashier = UserCacheService.User?.NameSurname,
                             });
                             break;
-                        case KassaOperator.OMNITECH:
+                        case Enums.Terminal.Omnitech:
+                            OmnnitechTerminal omnnitech = new OmnnitechTerminal(TerminalCacheService.Terminal.IpAddress);
+
+                            var result = omnnitech.Withdraw(_amount);
+                            if (result.Success)
+                                NotificationHelpers.Messages.SuccessMessage(this, result.Message);
+                            else
+                                NotificationHelpers.Messages.ErrorMessage(this, result.Message);
                             break;
-                        case KassaOperator.AZSMART:
+                        case Enums.Terminal.AzSmart:
                             break;
-                        case KassaOperator.NBA:
+                        case Enums.Terminal.Nba:
                             break;
-                        case KassaOperator.DATAPAY:
+                        case Enums.Terminal.DataPay:
                             break;
-                        case KassaOperator.ONECLICK:
-                            break;
-                        case KassaOperator.XPRINTER:
+                        case Enums.Terminal.OneClick:
                             break;
                     }
                 }
@@ -109,32 +117,37 @@ namespace Barcode_Sales.Forms
 
         private void bShift_Click(object sender, EventArgs e)
         {
-            if (_terminals != null)
+            if (TerminalCacheService.Terminal != null)
             {
                 NKA.DTOs.NkaDto.ShiftDto item = new NKA.DTOs.NkaDto.ShiftDto
                 {
                     Cashier = UserCacheService.User.NameSurname,
-                    IpAddress = _terminals.IpAddress,
-                    MerchantId = _terminals.MerchantId,
+                    IpAddress = TerminalCacheService.Terminal.IpAddress,
+                    MerchantId = TerminalCacheService.Terminal.MerchantId,
                 };
 
-                switch (kassa)
+                switch (terminal)
                 {
-                    case KassaOperator.CASPOS:
+                    case Enums.Terminal.Caspos:
                         NKA.Sunmi.GetShiftStatus(item);
                         break;
-                    case KassaOperator.OMNITECH:
-                        OmnnitechTerminal omnnitech = new OmnnitechTerminal();
-                        var result = omnnitech.Login(_terminals.IpAddress);
+                    case Enums.Terminal.Omnitech:
+                        OmnnitechTerminal omnnitech = new OmnnitechTerminal(TerminalCacheService.Terminal.IpAddress);
+
+                        var result = omnnitech.GetShiftStatus();
+                        if (result.Success)
+                            NotificationHelpers.Messages.InfoMessage(this, result.Message);
+                        else
+                            NotificationHelpers.Messages.ErrorMessage(this, result.Message);
                         break;
-                    case KassaOperator.AZSMART:
+                    case Enums.Terminal.AzSmart:
                         NKA.AzSmart.GetShiftStatus(item);
                         break;
-                    case KassaOperator.NBA:
+                    case Enums.Terminal.Nba:
                         break;
-                    case KassaOperator.DATAPAY:
+                    case Enums.Terminal.DataPay:
                         break;
-                    case KassaOperator.ONECLICK:
+                    case Enums.Terminal.OneClick:
                         break;
                 }
             }
@@ -142,31 +155,37 @@ namespace Barcode_Sales.Forms
 
         private void bCloseShift_Click(object sender, EventArgs e)
         {
-            if (_terminals != null)
+            if (TerminalCacheService.Terminal != null)
             {
                 NKA.DTOs.NkaDto.ShiftDto item = new NKA.DTOs.NkaDto.ShiftDto
                 {
                     Cashier = UserCacheService.User.NameSurname,
-                    IpAddress = _terminals.IpAddress,
-                    MerchantId = _terminals.MerchantId,
+                    IpAddress = TerminalCacheService.Terminal.IpAddress,
+                    MerchantId = TerminalCacheService.Terminal.MerchantId,
                 };
 
-                switch (kassa)
+                switch (terminal)
                 {
-                    case KassaOperator.CASPOS:
+                    case Enums.Terminal.Caspos:
                         NKA.Sunmi.CloseShift(item);
                         break;
-                    case KassaOperator.OMNITECH:
-                        //NKA.Omnitech.CloseShift(item);
+                    case Enums.Terminal.Omnitech:
+                        OmnnitechTerminal omnnitech = new OmnnitechTerminal(TerminalCacheService.Terminal.IpAddress);
+
+                        var result = omnnitech.CloseShift();
+                        if (result.Success)
+                            NotificationHelpers.Messages.SuccessMessage(this, result.Message);
+                        else
+                            NotificationHelpers.Messages.ErrorMessage(this, result.Message);
                         break;
-                    case KassaOperator.AZSMART:
+                    case Enums.Terminal.AzSmart:
                         NKA.AzSmart.CloseShift(item);
                         break;
-                    case KassaOperator.NBA:
+                    case Enums.Terminal.Nba:
                         break;
-                    case KassaOperator.DATAPAY:
+                    case Enums.Terminal.DataPay:
                         break;
-                    case KassaOperator.ONECLICK:
+                    case Enums.Terminal.OneClick:
                         break;
                 }
             }
@@ -178,11 +197,6 @@ namespace Barcode_Sales.Forms
         }
 
         private void bKassaEmeliyyatlari_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void bCustomer_Click(object sender, EventArgs e)
         {
 
         }
@@ -200,6 +214,44 @@ namespace Barcode_Sales.Forms
         private void bSupport_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void bXReport_Click(object sender, EventArgs e)
+        {
+            if (TerminalCacheService.Terminal != null)
+            {
+                NKA.DTOs.NkaDto.ShiftDto item = new NKA.DTOs.NkaDto.ShiftDto
+                {
+                    Cashier = UserCacheService.User.NameSurname,
+                    IpAddress = TerminalCacheService.Terminal.IpAddress,
+                    MerchantId = TerminalCacheService.Terminal.MerchantId,
+                };
+
+                switch (terminal)
+                {
+                    case Enums.Terminal.Caspos:
+                       
+                        break;
+                    case Enums.Terminal.Omnitech:
+                        OmnnitechTerminal omnnitech = new OmnnitechTerminal(TerminalCacheService.Terminal.IpAddress);
+
+                        var result = omnnitech.XReport();
+                        if (result.Success)
+                            NotificationHelpers.Messages.SuccessMessage(this, result.Message);
+                        else
+                            NotificationHelpers.Messages.ErrorMessage(this, result.Message);
+                        break;
+                    case Enums.Terminal.AzSmart:
+                        NKA.AzSmart.CloseShift(item);
+                        break;
+                    case Enums.Terminal.Nba:
+                        break;
+                    case Enums.Terminal.DataPay:
+                        break;
+                    case Enums.Terminal.OneClick:
+                        break;
+                }
+            }
         }
     }
 }

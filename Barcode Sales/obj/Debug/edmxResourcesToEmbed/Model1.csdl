@@ -271,6 +271,7 @@
     <Property Name="Id" Type="Int32" Nullable="false" />
     <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="Products" Relationship="KhanposDbModel.FK_Products_TaxType" FromRole="TaxType" ToRole="Products" />
+    <Property Name="VatPercent" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
   </EntityType>
   <EntityType Name="TerminalIncomesAndExpens">
     <Key>

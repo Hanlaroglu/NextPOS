@@ -120,9 +120,9 @@ namespace Barcode_Sales.Operations.Concrete
                 return await db.TaxTypes.AsNoTracking().ToListAsync();
         }
 
-        public Dictionary<int, string> Initialize()
+        public Dictionary<int, (string, decimal)> Initialize()
         {
-            return db.TaxTypes.ToDictionary(x => x.Id, x => x.Name);
+            return db.TaxTypes.ToDictionary(x => x.Id, x => (x.Name, x.VatPercent));
         }
     }
 }

@@ -1,7 +1,7 @@
-﻿using System;
+﻿using Barcode_Sales.Terminals.DTOs;
+using System;
 using System.ComponentModel;
 using System.Linq;
-using Barcode_Sales.DTOs;
 
 namespace Barcode_Sales.Helpers.Classes
 {

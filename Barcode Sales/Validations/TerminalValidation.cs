@@ -15,7 +15,7 @@ namespace Barcode_Sales.Validations
 
             RuleFor(x => x.MerchantId).NotEmpty()
                                      .WithMessage("MerchantID boş buraxılabilməz")
-                                     .When(x => x.Name == nameof(Enums.KassaOperator.AZSMART));
+                                     .When(x => x.Name == nameof(Enums.Terminal.AzSmart));
 
             RuleFor(x => x.UserId).NotEmpty().WithMessage("İstifadəçi seçimi edilmədi");
         }

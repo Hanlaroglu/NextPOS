@@ -254,7 +254,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             string value = "";
             DialogResult result = InputBox.Show("Yeni kateqoriya",
                                                 "Kateqoriyanın adını daxil edin:",
-                                                Enums.GetEnumDescription(Enums.Operation.Add),
+                                                EnumExtensions.GetEnumDescription(Enums.Operation.Add),
                                                 ref value);
 
 
@@ -300,7 +300,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             string value = "";
             DialogResult result = InputBox.Show($"{category.CategoryName} / kateqoriya düzəlişi",
                                                 "Yeni kateqoriya adını daxil edin:",
-                                                Enums.GetEnumDescription(Enums.Operation.Edit),
+                                                EnumExtensions.GetEnumDescription(Enums.Operation.Edit),
                                                 ref value);
 
 
@@ -391,22 +391,23 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             var products = productOperation.Where(x => x.IsDeleted == false && x.CategoryId == category.Id).ToList();
 
             category.Status = (bool)edit.EditValue;
-            string boolMessage = (bool)category.Status ? "aktiv" : "deaktiv";
+            string boolMessage = category.Status ? "aktiv" : "deaktiv";
             bool message = false;
 
             if (products.Count is 0)
                 message = true;
             else
             {
-                message = CommonMessageBox.QuestionDialogResult($"{category.CategoryName} kateqoriyasının daxilindəki '{products.Count}' məhsulun statusu da {boolMessage} ediləcəkdir.\n\n" +
-                   $"{category.CategoryName} kateqoriyasını deaktiv etmək istədiyinizə əminsiniz ?");
-            }
+                var args = NotificationHelpers.Dialogs.DialogResultYesNo(
+                    $"{category.CategoryName} kateqoriyasının daxilindəki '{products.Count}' məhsulun statusu da {boolMessage} ediləcəkdir.\n\n{category.CategoryName} kateqoriyasını deaktiv etmək istədiyinizə əminsiniz ?");
 
+                message = XtraMessageBox.Show(args) is DialogResult.Yes;
+            }
 
             if (message)
             {
                 foreach (var x in products)
-                    x.IsActive = (bool)category.Status;
+                    x.IsActive = category.Status;
 
                 await productOperation.Update(products, x => x.IsActive);
             }
@@ -1072,7 +1073,9 @@ namespace Barcode_Sales.Barcode.Sales.Admin
                 int Id = Convert.ToInt32(gridUsers.GetFocusedRowCellValue("Id").ToString());
                 var user = await userOperation.Get(x => x.Id == Id);
 
-                if (CommonMessageBox.QuestionDialogResult($"{user.Username} istifadəçisini silmək istədiyinizə əminsiniz ?"))
+                var args = NotificationHelpers.Dialogs.DialogResultYesNo($"{user.Username} istifadəçisini silmək istədiyinizə əminsiniz ?");
+
+                if (XtraMessageBox.Show(args) is DialogResult.Yes)
                 {
                     user.IsDeleted = user.Id;
 

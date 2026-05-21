@@ -10,6 +10,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DevExpress.XtraEditors;
 
 namespace Barcode_Sales.Forms
 {
@@ -37,20 +38,7 @@ namespace Barcode_Sales.Forms
 
         private void fAddProduct_Load(object sender, EventArgs e)
         {
-            #region Mask
-
-            //tPurchasePrice.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            //tPurchasePrice.Properties.Mask.EditMask = "f2";
-            //tPurchasePrice.Properties.Mask.UseMaskAsDisplayFormat = true;
-
-            //tSalesPrice.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            //tSalesPrice.Properties.Mask.EditMask = "f2";
-            //tSalesPrice.Properties.Mask.UseMaskAsDisplayFormat = true;
-            #endregion Mask
-
-
             Clear();
-            
             gridControlProducts.DataSource = dataList;
         }
 
@@ -84,7 +72,7 @@ namespace Barcode_Sales.Forms
         {
             var data = await unitTypeOperation.ToListAsync();
             FormHelpers.ControlLoad(data, lookUnit);
-            lookUnit.EditValue = 0;
+            //lookUnit.EditValue = 0;
         }
 
         private async Task TaxDataLoad()
@@ -112,9 +100,9 @@ namespace Barcode_Sales.Forms
             _product.ProductName = tProductName.Text.Trim();
             _product.CategoryId = lookCategory.EditValue == null ? 0 : (int)lookCategory.EditValue;
             _product.Barcode = tBarcode.Text.Trim();
-            _product.Quantity = Convert.ToDecimal(tQuantity.EditValue);
-            _product.PurchasePrice = Convert.ToDecimal(tPurchasePrice.EditValue);
-            _product.SalePrice = Convert.ToDecimal(tSalePrice.EditValue);
+            _product.Quantity = Convert.ToDecimal(tQuantity.Text);
+            _product.PurchasePrice = Convert.ToDecimal(tPurchasePrice.Text);
+            _product.SalePrice = Convert.ToDecimal(tSalePrice.Text);
             _product.UnitId = lookUnit.EditValue == null ? 0 : (int)lookUnit.EditValue;
             _product.TaxId = lookTax.EditValue == null ? 0 : (int)lookTax.EditValue;
             _product.ProductCode = string.IsNullOrWhiteSpace(tProductCode.Text) ? null : tProductCode.Text.Trim();
@@ -123,7 +111,7 @@ namespace Barcode_Sales.Forms
             _product.CanApplyDiscount = chApplyDiscount.Checked;
             _product.IsActive = true;
             _product.IsDeleted = false;
-            _product.CreatedDate = DateTime.Now;
+            _product.CreatedDate = DatetimeService.CurrentDateTime;
             _product.CreatedUserId = UserCacheService.User.Id;
 
             var barcodeCheck = await productOperation.Get(x => x.Barcode == _product.Barcode);
@@ -220,8 +208,8 @@ namespace Barcode_Sales.Forms
             lookCategory.SelectedText = null; 
             tBarcode.Text = null;
             tProductCode.Text = null;
-            tPurchasePrice.EditValue = 0;
-            tSalePrice.EditValue = 0;
+            tPurchasePrice.Text = "0";
+            tSalePrice.Text = "0";
             tProductName.Focus();
         }
 
@@ -235,16 +223,24 @@ namespace Barcode_Sales.Forms
             Clear();
         }
 
-        private void bProductDelete_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        private async void bProductDelete_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
-            if (gridProducts.GetFocusedRow() == null)
+            var row = gridProducts.GetFocusedRow() as ProductInvoiceDto;
+            if (row is null) return;
+
+            var args = NotificationHelpers.Dialogs.DialogResultYesNo("Seçili olan məhsulu silmək istədiyinizə əminsiniz ?");
+
+            if (XtraMessageBox.Show(args)  is DialogResult.Yes)
             {
-                CommonMessageBox.WarningMessageBox(CommonMessages.NOT_SELECTİON);
-                return;
-            }
-            if (CommonMessageBox.QuestionDialogResult("Seçili olan məhsulu silmək istədiyinizə əminsiniz ?"))
-            {
-                gridProducts.DeleteSelectedRows();
+                var product = await productOperation.Get(x => x.Id == row.Id);
+                var remove = await productOperation.Remove(product);
+                if (remove)
+                {
+                    dataList.Remove(row);
+                    gridControlProducts.RefreshDataSource();
+                    NotificationHelpers.Messages.SuccessMessage(this, $"{row.ProductName} məhsulu uğurla silindi");
+                }
+                //gridProducts.DeleteSelectedRows();
             }
         }
 
@@ -268,32 +264,12 @@ namespace Barcode_Sales.Forms
             f.ShowDialog();
         }
 
-        private class GridData
-        {
-            public short No { get; set; }
-            public string SupplierName { get; set; }
-            public string ProductName { get; set; }
-            public string Category { get; set; }
-            public string Barcode { get; set; }
-            public string UnitName { get; set; }
-            public string TaxName { get; set; }
-            public double PurchasePrice { get; set; }
-            public double SalePrice { get; set; }
-        }
-
         private void bSave_Click(object sender, EventArgs e)
         {
             if (_operation is Enums.Operation.Add)
                 Add();
             else
                 Edit();
-
-
-            //if (bSave.Cursor == Cursors.No)
-            //    return;
-
-            //this.Hide();
-            //FormHelpers.OpenForm<fInvoiceProduct>(dataList);
         }
 
         private void fAddProduct_FormClosing(object sender, FormClosingEventArgs e)
@@ -322,6 +298,14 @@ namespace Barcode_Sales.Forms
         {
             fSelectedProduct f = new fSelectedProduct();
             f.ShowDialog();
+        }
+
+        private void lookUnit_TextChanged(object sender, EventArgs e)
+        {
+            if (lookUnit.Text is "Ədəd")
+                tQuantity.Properties.MaskSettings.Set("mask", "f0");
+            else
+                tQuantity.Properties.MaskSettings.Set("mask", "f3");
         }
     }
 }

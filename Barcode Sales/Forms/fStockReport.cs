@@ -1,4 +1,9 @@
-﻿using DevExpress.XtraEditors;
+﻿using Barcode_Sales.DTOs;
+using Barcode_Sales.Helpers;
+using Barcode_Sales.Operations.Abstract;
+using Barcode_Sales.Operations.Concrete;
+using Barcode_Sales.Services.CacheServices;
+using DevExpress.XtraEditors;
 using DevExpress.XtraGrid;
 using System;
 using System.Collections.Generic;
@@ -14,91 +19,54 @@ namespace Barcode_Sales.Forms
 {
     public partial class fStockReport : DevExpress.XtraEditors.XtraForm
     {
+        IProductOperation productOperation = new ProductManager();
+
         public fStockReport()
         {
             InitializeComponent();
         }
 
-        private void fStockReport_Load(object sender, EventArgs e)
+        private void fStockReport_Shown(object sender, EventArgs e)
         {
-            dateStart.DateTime = DateTime.Now;
-            dateStart.Properties.MaxDate = DateTime.Now;
+            dateStart.DateTime = DatetimeService.CurrentDateTime;
+            dateStart.Properties.MaxDate = DatetimeService.CurrentDateTime;
             GetReport();
         }
 
-        private void GetReport()
+        private async void GetReport()
         {
-            using (var db = new KhanposDbEntities())
+            var data = await productOperation.StockReport();
+
+            FormHelpers.ControlLoad(data, gridControl1);
+
+            gridControl1.DataSource = data;
+
+            gridView1.Columns["Quantity"].Summary.Clear();
+            gridView1.Columns["PurchasePrice"].Summary.Clear();
+            gridView1.Columns["SalePrice"].Summary.Clear();
+            GridColumnSummaryItem stockSum = new GridColumnSummaryItem
             {
-                var test = db.Database.SqlQuery<StockReportDto>(@"SELECT
-    s.SupplierName        AS SupplierName,
-    c.CategoryName        AS CategoryName,
-    p.ProductCode         AS ProductCode,
-    p.ProductName         AS ProductName,
-    p.Barcode             AS Barcode,
-    u.Name                AS UnitName,
-    t.Name                AS TaxName,
-    p.PurchasePrice       AS PurchasePrice,
-    p.SalePrice           AS SalePrice,
-    p.Amount              AS Amount,
-    (p.SalePrice - p.PurchasePrice) * p.Amount AS Profit
-FROM Products p
-INNER JOIN Suppliers  s ON s.Id = p.SupplierId
-INNER JOIN Categories c ON c.Id = p.CategoryId
-INNER JOIN UnitTypes  u ON u.Id = p.UnitId
-LEFT  JOIN TaxTypes   t ON t.Id = p.TaxId;
-").ToList();
-                gridControl1.DataSource = test;
-                gridView1.Columns["Amount"].Summary.Clear();
-                gridView1.Columns["PurchasePrice"].Summary.Clear();
-                gridView1.Columns["SalePrice"].Summary.Clear();
-                gridView1.Columns["Profit"].Summary.Clear();
-                GridColumnSummaryItem stockSum = new GridColumnSummaryItem
-                {
-                    FieldName = "Amount",
-                    SummaryType = DevExpress.Data.SummaryItemType.Sum,
-                    DisplayFormat = "{0:N2}"
-                };
-                GridColumnSummaryItem PuchaseSum = new GridColumnSummaryItem
-                {
-                    FieldName = "PurchasePrice",
-                    SummaryType = DevExpress.Data.SummaryItemType.Sum,
-                    DisplayFormat = "{0:N2}",
+                FieldName = "Quantity",
+                SummaryType = DevExpress.Data.SummaryItemType.Sum,
+                DisplayFormat = "{0:N2}"
+            };
+            GridColumnSummaryItem PuchaseSum = new GridColumnSummaryItem
+            {
+                FieldName = "PurchasePrice",
+                SummaryType = DevExpress.Data.SummaryItemType.Sum,
+                DisplayFormat = "{0:N2}",
 
-                };
-                GridColumnSummaryItem SaleSum = new GridColumnSummaryItem
-                {
-                    FieldName = "SalePrice",
-                    SummaryType = DevExpress.Data.SummaryItemType.Sum,
-                    DisplayFormat = "{0:N2}",
-                };
-                GridColumnSummaryItem ProfitSum = new GridColumnSummaryItem
-                {
-                    FieldName = "Profit",
-                    SummaryType = DevExpress.Data.SummaryItemType.Sum,
-                    DisplayFormat = "{0:N2}",
+            };
+            GridColumnSummaryItem SaleSum = new GridColumnSummaryItem
+            {
+                FieldName = "SalePrice",
+                SummaryType = DevExpress.Data.SummaryItemType.Sum,
+                DisplayFormat = "{0:N2}",
+            };
 
-                };
-                gridView1.Columns["Amount"].Summary.Add(stockSum);
-                gridView1.Columns["PurchasePrice"].Summary.Add(PuchaseSum);
-                gridView1.Columns["SalePrice"].Summary.Add(SaleSum);
-                gridView1.Columns["Profit"].Summary.Add(ProfitSum);
-            }
-        }
-
-        private class StockReportDto
-        {
-            public string SupplierName { get; set; }
-            public string CategoryName { get; set; }
-            public string ProductCode { get; set; }
-            public string ProductName { get; set; }
-            public string Barcode { get; set; }
-            public string UnitName { get; set; }
-            public string TaxName { get; set; }
-            public double PurchasePrice { get; set; }
-            public double SalePrice { get; set; }
-            public double Amount { get; set; }
-            public double Profit { get; set; }
+            gridView1.Columns["Quantity"].Summary.Add(stockSum);
+            gridView1.Columns["PurchasePrice"].Summary.Add(PuchaseSum);
+            gridView1.Columns["SalePrice"].Summary.Add(SaleSum);
         }
 
         private void gridView1_CustomDrawFooterCell(object sender, DevExpress.XtraGrid.Views.Grid.FooterCellCustomDrawEventArgs e)
@@ -109,7 +77,7 @@ LEFT  JOIN TaxTypes   t ON t.Id = p.TaxId;
             decimal value = 0;
             if (e.Info.Value != null && decimal.TryParse(e.Info.Value.ToString(), out value))
             {
-                if (e.Column.FieldName != "Amount")
+                if (e.Column.FieldName != "Quantity")
                     e.Info.DisplayText = value.ToString("C2");
             }
             e.Handled = true;

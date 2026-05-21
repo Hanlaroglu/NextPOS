@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Barcode_Sales.Terminals.DTOs
+﻿namespace Barcode_Sales.Terminals.DTOs
 {
     public class PosSaleItemDto
     {
@@ -14,12 +12,19 @@ namespace Barcode_Sales.Terminals.DTOs
         }
         public decimal Quantity { get; set; }
         public int UnitId { get; set; }
+        public string UnitName => DefinitionDto.GetUnitName(UnitId);
         public int TaxId { get; set; }
+        public string TaxName => DefinitionDto.GetTaxName(TaxId);
+        public decimal TaxPercent => DefinitionDto.GetVatPercent(TaxId);
         public decimal SalePrice { get; set; }
         public decimal Discount { get; set; }
         public decimal Total
         {
-            get => Math.Floor((SalePrice * Quantity - Discount) / 100) / 100;
+            get
+            {
+                var result = SalePrice * Quantity - Discount;
+                return result;
+            }
         }
         public string Barcode { get; set; }
     }

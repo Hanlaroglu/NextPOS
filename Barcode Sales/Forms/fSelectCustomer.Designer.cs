@@ -1,6 +1,6 @@
 ﻿namespace Barcode_Sales.Forms
 {
-    partial class fSelectCustomer
+    partial class fSelectCustomer<T>
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fSelectCustomer));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fSelectCustomer<T>));
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
@@ -101,6 +101,7 @@
             this.layoutView1.Appearance.FieldCaption.Options.UseFont = true;
             this.layoutView1.Appearance.FieldValue.Font = new System.Drawing.Font("Nunito", 11F);
             this.layoutView1.Appearance.FieldValue.Options.UseFont = true;
+            this.layoutView1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.layoutView1.CardMinSize = new System.Drawing.Size(553, 100);
             this.layoutView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.LayoutViewColumn[] {
             this.gridColumn1,
@@ -114,6 +115,8 @@
             this.layoutView1.HiddenItems.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutViewField_gridColumn1});
             this.layoutView1.Name = "layoutView1";
+            this.layoutView1.OptionsBehavior.AutoSelectAllInEditor = false;
+            this.layoutView1.OptionsBehavior.ReadOnly = true;
             this.layoutView1.OptionsBehavior.ScrollVisibility = DevExpress.XtraGrid.Views.Base.ScrollVisibility.Auto;
             this.layoutView1.OptionsItemText.AlignMode = DevExpress.XtraGrid.Views.Layout.FieldTextAlignMode.AlignGlobal;
             this.layoutView1.OptionsView.AnimationType = DevExpress.XtraGrid.Views.Base.GridAnimationType.AnimateAllContent;
@@ -127,6 +130,7 @@
             this.layoutView1.OptionsView.ShowHeaderPanel = false;
             this.layoutView1.OptionsView.ViewMode = DevExpress.XtraGrid.Views.Layout.LayoutViewMode.Column;
             this.layoutView1.TemplateCard = this.layoutViewCard1;
+            this.layoutView1.CardClick += new DevExpress.XtraGrid.Views.Layout.Events.CardClickEventHandler(this.layoutView1_CardClick);
             // 
             // gridColumn1
             // 
@@ -144,7 +148,7 @@
             this.layoutViewField_gridColumn1.Location = new System.Drawing.Point(0, 0);
             this.layoutViewField_gridColumn1.Name = "layoutViewField_gridColumn1";
             this.layoutViewField_gridColumn1.Padding = new DevExpress.XtraLayout.Utils.Padding(1, 1, 1, 1);
-            this.layoutViewField_gridColumn1.Size = new System.Drawing.Size(606, 98);
+            this.layoutViewField_gridColumn1.Size = new System.Drawing.Size(551, 98);
             this.layoutViewField_gridColumn1.Spacing = new DevExpress.XtraLayout.Utils.Padding(1, 1, 1, 1);
             this.layoutViewField_gridColumn1.TextSize = new System.Drawing.Size(73, 14);
             // 
@@ -186,11 +190,11 @@
             // 
             // layoutViewField_gridColumn4
             // 
-            this.layoutViewField_gridColumn4.EditorPreferredWidth = 121;
+            this.layoutViewField_gridColumn4.EditorPreferredWidth = 147;
             this.layoutViewField_gridColumn4.Location = new System.Drawing.Point(0, 32);
             this.layoutViewField_gridColumn4.Name = "layoutViewField_gridColumn4";
             this.layoutViewField_gridColumn4.Padding = new DevExpress.XtraLayout.Utils.Padding(1, 1, 1, 1);
-            this.layoutViewField_gridColumn4.Size = new System.Drawing.Size(203, 34);
+            this.layoutViewField_gridColumn4.Size = new System.Drawing.Size(229, 34);
             this.layoutViewField_gridColumn4.Spacing = new DevExpress.XtraLayout.Utils.Padding(1, 1, 1, 1);
             this.layoutViewField_gridColumn4.TextSize = new System.Drawing.Size(73, 14);
             // 
@@ -209,10 +213,10 @@
             // 
             // layoutViewField_layoutViewColumn1
             // 
-            this.layoutViewField_layoutViewColumn1.EditorPreferredWidth = 120;
-            this.layoutViewField_layoutViewColumn1.Location = new System.Drawing.Point(203, 32);
+            this.layoutViewField_layoutViewColumn1.EditorPreferredWidth = 94;
+            this.layoutViewField_layoutViewColumn1.Location = new System.Drawing.Point(229, 32);
             this.layoutViewField_layoutViewColumn1.Name = "layoutViewField_layoutViewColumn1";
-            this.layoutViewField_layoutViewColumn1.Size = new System.Drawing.Size(204, 34);
+            this.layoutViewField_layoutViewColumn1.Size = new System.Drawing.Size(178, 34);
             this.layoutViewField_layoutViewColumn1.TextSize = new System.Drawing.Size(73, 14);
             // 
             // gridColumn5
@@ -322,7 +326,6 @@
             // bProductDelete
             // 
             this.bProductDelete.AutoHeight = false;
-            editorButtonImageOptions1.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("editorButtonImageOptions1.SvgImage")));
             editorButtonImageOptions1.SvgImageSize = new System.Drawing.Size(24, 24);
             this.bProductDelete.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
@@ -341,6 +344,7 @@
             this.tablePanel1.Rows.AddRange(new DevExpress.Utils.Layout.TablePanelRow[] {
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.AutoSize, 51F),
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 26F)});
+            this.tablePanel1.ShowGrid = DevExpress.Utils.DefaultBoolean.False;
             this.tablePanel1.Size = new System.Drawing.Size(568, 626);
             this.tablePanel1.TabIndex = 14;
             // 
@@ -359,7 +363,7 @@
             // 
             this.tSearchCustomer.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tSearchCustomer.Location = new System.Drawing.Point(3, 4);
+            this.tSearchCustomer.Location = new System.Drawing.Point(5, 5);
             this.tSearchCustomer.Name = "tSearchCustomer";
             this.tSearchCustomer.Properties.Appearance.Font = new System.Drawing.Font("Nunito", 12F);
             this.tSearchCustomer.Properties.Appearance.Options.UseFont = true;
@@ -367,7 +371,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Search)});
             this.tSearchCustomer.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.tSearchCustomer.Properties.NullValuePrompt = "Müştəri axtar...";
-            this.tSearchCustomer.Size = new System.Drawing.Size(554, 36);
+            this.tSearchCustomer.Size = new System.Drawing.Size(552, 36);
             this.tSearchCustomer.TabIndex = 7;
             // 
             // fSelectCustomer

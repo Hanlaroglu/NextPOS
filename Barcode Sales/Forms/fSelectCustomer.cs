@@ -1,25 +1,20 @@
-﻿using DevExpress.XtraEditors;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using Barcode_Sales.Helpers;
 using Barcode_Sales.Operations.Abstract;
 using Barcode_Sales.Operations.Concrete;
+using System;
+using System.Linq;
+using System.Windows.Forms;
 
 namespace Barcode_Sales.Forms
 {
-    public partial class fSelectCustomer : DevExpress.XtraEditors.XtraForm
+    public partial class fSelectCustomer<T> : FormBase where T : FormBase
     {
         private ICustomerOperation customerOperation = new CustomerManager();
-
-        public fSelectCustomer()
+        private T _parentForm;
+        public fSelectCustomer(T parentForm)
         {
             InitializeComponent();
+            _parentForm = parentForm;
         }
 
         private async void CustomerLoad()
@@ -31,6 +26,31 @@ namespace Barcode_Sales.Forms
         private void fSelectCustomer_Shown(object sender, EventArgs e)
         {
             CustomerLoad();
+            layoutView1.OptionsCustomization.AllowFilter = false;
+            layoutView1.OptionsCustomization.AllowSort = false;
+            layoutView1.OptionsView.ShowHeaderPanel = false;
+        }
+
+        private void layoutView1_CardClick(object sender, DevExpress.XtraGrid.Views.Layout.Events.CardClickEventArgs e)
+        {
+            var row = layoutView1.GetRow(e.RowHandle) as Customer;
+
+            if (row != null)
+            {
+                var method = _parentForm.GetType().GetMethod("ReceiveData");
+                if (method != null)
+                {
+                    method.MakeGenericMethod(row.GetType()).Invoke(_parentForm, new object[] { row });
+                    this.Close();
+                }
+            }
+
+            //var customer = layoutView1.GetFocusedRow() as Customer;
+            //MessageBox.Show(customer.NameSurname);
+
+
+
+           
         }
     }
 }

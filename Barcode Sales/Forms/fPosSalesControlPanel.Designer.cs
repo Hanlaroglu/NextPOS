@@ -31,7 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fPosSalesControlPanel));
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.bDevices = new DevExpress.XtraEditors.SimpleButton();
-            this.bCustomer = new DevExpress.XtraEditors.SimpleButton();
             this.bCloseShift = new DevExpress.XtraEditors.SimpleButton();
             this.bShift = new DevExpress.XtraEditors.SimpleButton();
             this.bSupport = new DevExpress.XtraEditors.SimpleButton();
@@ -41,6 +40,7 @@
             this.bWithdraw = new DevExpress.XtraEditors.SimpleButton();
             this.bDeposit = new DevExpress.XtraEditors.SimpleButton();
             this.bRefund = new DevExpress.XtraEditors.SimpleButton();
+            this.bXReport = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             this.SuspendLayout();
@@ -51,12 +51,12 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelControl1.Controls.Add(this.bDevices);
-            this.panelControl1.Controls.Add(this.bCustomer);
             this.panelControl1.Controls.Add(this.bCloseShift);
             this.panelControl1.Controls.Add(this.bShift);
             this.panelControl1.Controls.Add(this.bSupport);
             this.panelControl1.Controls.Add(this.bCashDrawerOpen);
             this.panelControl1.Controls.Add(this.bKassaEmeliyyatlari);
+            this.panelControl1.Controls.Add(this.bXReport);
             this.panelControl1.Controls.Add(this.bReport);
             this.panelControl1.Controls.Add(this.bWithdraw);
             this.panelControl1.Controls.Add(this.bDeposit);
@@ -75,30 +75,13 @@
             this.bDevices.Appearance.Options.UseFont = true;
             this.bDevices.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
             this.bDevices.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bDevices.ImageOptions.SvgImage")));
-            this.bDevices.Location = new System.Drawing.Point(191, 384);
+            this.bDevices.Location = new System.Drawing.Point(10, 384);
             this.bDevices.Name = "bDevices";
             this.bDevices.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
             this.bDevices.Size = new System.Drawing.Size(175, 65);
             this.bDevices.TabIndex = 0;
             this.bDevices.Text = "Cihazlar";
             this.bDevices.Click += new System.EventHandler(this.bDevices_Click);
-            // 
-            // bCustomer
-            // 
-            this.bCustomer.AllowFocus = false;
-            this.bCustomer.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(0)))), ((int)(((byte)(255)))));
-            this.bCustomer.Appearance.Font = new System.Drawing.Font("Nunito", 12F, System.Drawing.FontStyle.Bold);
-            this.bCustomer.Appearance.Options.UseBackColor = true;
-            this.bCustomer.Appearance.Options.UseFont = true;
-            this.bCustomer.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
-            this.bCustomer.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bCustomer.ImageOptions.SvgImage")));
-            this.bCustomer.Location = new System.Drawing.Point(10, 384);
-            this.bCustomer.Name = "bCustomer";
-            this.bCustomer.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
-            this.bCustomer.Size = new System.Drawing.Size(175, 65);
-            this.bCustomer.TabIndex = 0;
-            this.bCustomer.Text = "Müştərilər";
-            this.bCustomer.Click += new System.EventHandler(this.bCustomer_Click);
             // 
             // bCloseShift
             // 
@@ -108,7 +91,7 @@
             this.bCloseShift.Appearance.Options.UseBackColor = true;
             this.bCloseShift.Appearance.Options.UseFont = true;
             this.bCloseShift.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
-            this.bCloseShift.Location = new System.Drawing.Point(10, 81);
+            this.bCloseShift.Location = new System.Drawing.Point(553, 81);
             this.bCloseShift.Name = "bCloseShift";
             this.bCloseShift.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
             this.bCloseShift.Size = new System.Drawing.Size(175, 65);
@@ -142,7 +125,7 @@
             this.bSupport.Appearance.Options.UseFont = true;
             this.bSupport.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
             this.bSupport.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bSupport.ImageOptions.SvgImage")));
-            this.bSupport.Location = new System.Drawing.Point(553, 384);
+            this.bSupport.Location = new System.Drawing.Point(372, 384);
             this.bSupport.Name = "bSupport";
             this.bSupport.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
             this.bSupport.Size = new System.Drawing.Size(175, 65);
@@ -160,7 +143,7 @@
             this.bCashDrawerOpen.Appearance.Options.UseFont = true;
             this.bCashDrawerOpen.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
             this.bCashDrawerOpen.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bCashDrawerOpen.ImageOptions.SvgImage")));
-            this.bCashDrawerOpen.Location = new System.Drawing.Point(372, 384);
+            this.bCashDrawerOpen.Location = new System.Drawing.Point(191, 384);
             this.bCashDrawerOpen.Name = "bCashDrawerOpen";
             this.bCashDrawerOpen.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
             this.bCashDrawerOpen.Size = new System.Drawing.Size(175, 65);
@@ -253,6 +236,23 @@
             this.bRefund.Text = "Qaytarma";
             this.bRefund.Click += new System.EventHandler(this.bRefund_Click);
             // 
+            // bXReport
+            // 
+            this.bXReport.AllowFocus = false;
+            this.bXReport.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.bXReport.Appearance.Font = new System.Drawing.Font("Nunito", 12F, System.Drawing.FontStyle.Bold);
+            this.bXReport.Appearance.Options.UseBackColor = true;
+            this.bXReport.Appearance.Options.UseFont = true;
+            this.bXReport.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
+            this.bXReport.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton1.ImageOptions.SvgImage")));
+            this.bXReport.Location = new System.Drawing.Point(10, 81);
+            this.bXReport.Name = "bXReport";
+            this.bXReport.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
+            this.bXReport.Size = new System.Drawing.Size(175, 65);
+            this.bXReport.TabIndex = 0;
+            this.bXReport.Text = "X Hesabat";
+            this.bXReport.Click += new System.EventHandler(this.bXReport_Click);
+            // 
             // fPosSalesControlPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -279,7 +279,6 @@
         private DevExpress.XtraEditors.SimpleButton bRefund;
         private DevExpress.XtraEditors.SimpleButton bKassaEmeliyyatlari;
         private DevExpress.XtraEditors.SimpleButton bReport;
-        private DevExpress.XtraEditors.SimpleButton bCustomer;
         private DevExpress.XtraEditors.SimpleButton bShift;
         private DevExpress.XtraEditors.SimpleButton bDevices;
         private DevExpress.XtraEditors.SimpleButton bSupport;
@@ -287,5 +286,6 @@
         private DevExpress.XtraEditors.SimpleButton bWithdraw;
         private DevExpress.XtraEditors.SimpleButton bDeposit;
         private DevExpress.XtraEditors.SimpleButton bCloseShift;
+        private DevExpress.XtraEditors.SimpleButton bXReport;
     }
 }

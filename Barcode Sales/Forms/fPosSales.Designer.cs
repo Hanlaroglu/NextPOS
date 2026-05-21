@@ -208,6 +208,7 @@
             this.tablePanel1.Rows.AddRange(new DevExpress.Utils.Layout.TablePanelRow[] {
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 34F),
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 26F)});
+            this.tablePanel1.ShowGrid = DevExpress.Utils.DefaultBoolean.False;
             this.tablePanel1.Size = new System.Drawing.Size(1322, 812);
             this.tablePanel1.TabIndex = 1;
             this.tablePanel1.UseSkinIndents = true;
@@ -235,6 +236,7 @@
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.AutoSize, 26F),
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 11.04F),
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 54F)});
+            this.tablePanel3.ShowGrid = DevExpress.Utils.DefaultBoolean.False;
             this.tablePanel3.Size = new System.Drawing.Size(381, 774);
             this.tablePanel3.TabIndex = 2;
             this.tablePanel3.UseSkinIndents = true;
@@ -322,7 +324,7 @@
             // 
             this.tablePanel3.SetColumn(this.tSaleCount, 0);
             this.tSaleCount.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tSaleCount.EditValue = "26";
+            this.tSaleCount.EditValue = "0";
             this.tSaleCount.Location = new System.Drawing.Point(2, 36);
             this.tSaleCount.Margin = new System.Windows.Forms.Padding(1);
             this.tSaleCount.Name = "tSaleCount";
@@ -345,7 +347,7 @@
             // 
             this.tablePanel3.SetColumn(this.tCustomer, 0);
             this.tCustomer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tCustomer.EditValue = "İlham Əliyev (VİP)";
+            this.tCustomer.EditValue = "-";
             this.tCustomer.Location = new System.Drawing.Point(2, 70);
             this.tCustomer.Margin = new System.Windows.Forms.Padding(1);
             this.tCustomer.Name = "tCustomer";
@@ -376,12 +378,13 @@
             this.tablePanel2.Location = new System.Drawing.Point(2, 36);
             this.tablePanel2.Margin = new System.Windows.Forms.Padding(0);
             this.tablePanel2.Name = "tablePanel2";
-            this.tablePanel2.Padding = new System.Windows.Forms.Padding(1);
+            this.tablePanel2.Padding = new System.Windows.Forms.Padding(1, 1, 0, 1);
             this.tablePanel1.SetRow(this.tablePanel2, 1);
             this.tablePanel2.Rows.AddRange(new DevExpress.Utils.Layout.TablePanelRow[] {
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.AutoSize, 32.5F),
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 605.9F),
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 53.6F)});
+            this.tablePanel2.ShowGrid = DevExpress.Utils.DefaultBoolean.False;
             this.tablePanel2.Size = new System.Drawing.Size(937, 774);
             this.tablePanel2.TabIndex = 1;
             this.tablePanel2.UseSkinIndents = true;
@@ -393,7 +396,7 @@
             this.navigationFrame1.Controls.Add(this.pageBaskets);
             this.navigationFrame1.Controls.Add(this.pageHotSales);
             this.navigationFrame1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.navigationFrame1.Location = new System.Drawing.Point(1, 43);
+            this.navigationFrame1.Location = new System.Drawing.Point(1, 42);
             this.navigationFrame1.Margin = new System.Windows.Forms.Padding(0);
             this.navigationFrame1.Name = "navigationFrame1";
             this.navigationFrame1.Pages.AddRange(new DevExpress.XtraBars.Navigation.NavigationPageBase[] {
@@ -402,7 +405,7 @@
             this.pageHotSales});
             this.tablePanel2.SetRow(this.navigationFrame1, 1);
             this.navigationFrame1.SelectedPage = this.pageSaleScreen;
-            this.navigationFrame1.Size = new System.Drawing.Size(935, 676);
+            this.navigationFrame1.Size = new System.Drawing.Size(936, 677);
             this.navigationFrame1.TabIndex = 15;
             this.navigationFrame1.Text = "navigationFrame1";
             // 
@@ -411,7 +414,7 @@
             this.pageSaleScreen.Caption = "pageSaleScreen";
             this.pageSaleScreen.Controls.Add(this.gridControlBasket);
             this.pageSaleScreen.Name = "pageSaleScreen";
-            this.pageSaleScreen.Size = new System.Drawing.Size(935, 676);
+            this.pageSaleScreen.Size = new System.Drawing.Size(936, 677);
             // 
             // gridControlBasket
             // 
@@ -426,7 +429,7 @@
             this.gridControlBasket.Name = "gridControlBasket";
             this.gridControlBasket.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.bProductDelete});
-            this.gridControlBasket.Size = new System.Drawing.Size(935, 676);
+            this.gridControlBasket.Size = new System.Drawing.Size(936, 677);
             this.gridControlBasket.TabIndex = 12;
             this.gridControlBasket.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridBasket});
@@ -435,9 +438,14 @@
             // 
             this.gridBasket.Appearance.EvenRow.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.gridBasket.Appearance.EvenRow.Options.UseBackColor = true;
+            this.gridBasket.Appearance.HeaderPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.gridBasket.Appearance.HeaderPanel.Font = new System.Drawing.Font("Nunito", 10F, System.Drawing.FontStyle.Bold);
+            this.gridBasket.Appearance.HeaderPanel.Options.UseBackColor = true;
+            this.gridBasket.Appearance.HeaderPanel.Options.UseFont = true;
             this.gridBasket.Appearance.OddRow.BackColor = System.Drawing.Color.White;
             this.gridBasket.Appearance.OddRow.Options.UseBackColor = true;
-            this.gridBasket.ColumnPanelRowHeight = 40;
+            this.gridBasket.Appearance.Row.Font = new System.Drawing.Font("Poppins", 10F);
+            this.gridBasket.Appearance.Row.Options.UseFont = true;
             this.gridBasket.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colId,
             this.colBarcode,
@@ -460,23 +468,18 @@
             this.gridBasket.OptionsView.ShowGroupPanel = false;
             this.gridBasket.OptionsView.ShowIndicator = false;
             this.gridBasket.RowHeight = 40;
+            this.gridBasket.Click += new System.EventHandler(this.gridBasket_decimalClick);
             // 
             // colId
             // 
-            this.colId.AppearanceHeader.Font = new System.Drawing.Font("Nunito", 10F, System.Drawing.FontStyle.Bold);
-            this.colId.AppearanceHeader.Options.UseFont = true;
             this.colId.Caption = "Id";
             this.colId.FieldName = "Id";
             this.colId.Name = "colId";
             // 
             // colBarcode
             // 
-            this.colBarcode.AppearanceCell.Font = new System.Drawing.Font("Comfortaa", 10F);
-            this.colBarcode.AppearanceCell.Options.UseFont = true;
             this.colBarcode.AppearanceHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.colBarcode.AppearanceHeader.Font = new System.Drawing.Font("Nunito", 10F, System.Drawing.FontStyle.Bold);
             this.colBarcode.AppearanceHeader.Options.UseBackColor = true;
-            this.colBarcode.AppearanceHeader.Options.UseFont = true;
             this.colBarcode.AppearanceHeader.Options.UseTextOptions = true;
             this.colBarcode.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.colBarcode.Caption = "Barkod";
@@ -492,12 +495,8 @@
             // 
             // colName
             // 
-            this.colName.AppearanceCell.Font = new System.Drawing.Font("Comfortaa", 10F);
-            this.colName.AppearanceCell.Options.UseFont = true;
             this.colName.AppearanceHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.colName.AppearanceHeader.Font = new System.Drawing.Font("Nunito", 10F, System.Drawing.FontStyle.Bold);
             this.colName.AppearanceHeader.Options.UseBackColor = true;
-            this.colName.AppearanceHeader.Options.UseFont = true;
             this.colName.AppearanceHeader.Options.UseTextOptions = true;
             this.colName.AppearanceHeader.TextOptions.Trimming = DevExpress.Utils.Trimming.EllipsisCharacter;
             this.colName.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
@@ -514,20 +513,16 @@
             // 
             // colAmount
             // 
-            this.colAmount.AppearanceCell.Font = new System.Drawing.Font("Comfortaa", 10F);
-            this.colAmount.AppearanceCell.Options.UseFont = true;
             this.colAmount.AppearanceCell.Options.UseTextOptions = true;
             this.colAmount.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.colAmount.AppearanceHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.colAmount.AppearanceHeader.Font = new System.Drawing.Font("Nunito", 10F, System.Drawing.FontStyle.Bold);
             this.colAmount.AppearanceHeader.Options.UseBackColor = true;
-            this.colAmount.AppearanceHeader.Options.UseFont = true;
             this.colAmount.AppearanceHeader.Options.UseTextOptions = true;
             this.colAmount.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.colAmount.AppearanceHeader.TextOptions.Trimming = DevExpress.Utils.Trimming.EllipsisCharacter;
             this.colAmount.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.colAmount.Caption = "Miqdar";
-            this.colAmount.FieldName = "Amount";
+            this.colAmount.FieldName = "Quantity";
             this.colAmount.MinWidth = 27;
             this.colAmount.Name = "colAmount";
             this.colAmount.OptionsColumn.AllowEdit = false;
@@ -539,14 +534,10 @@
             // 
             // colUnit
             // 
-            this.colUnit.AppearanceCell.Font = new System.Drawing.Font("Comfortaa", 10F);
-            this.colUnit.AppearanceCell.Options.UseFont = true;
             this.colUnit.AppearanceCell.Options.UseTextOptions = true;
             this.colUnit.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.colUnit.AppearanceHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.colUnit.AppearanceHeader.Font = new System.Drawing.Font("Nunito", 10F, System.Drawing.FontStyle.Bold);
             this.colUnit.AppearanceHeader.Options.UseBackColor = true;
-            this.colUnit.AppearanceHeader.Options.UseFont = true;
             this.colUnit.AppearanceHeader.Options.UseTextOptions = true;
             this.colUnit.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.colUnit.AppearanceHeader.TextOptions.Trimming = DevExpress.Utils.Trimming.EllipsisCharacter;
@@ -564,8 +555,6 @@
             // 
             // colPurchasePrice
             // 
-            this.colPurchasePrice.AppearanceHeader.Font = new System.Drawing.Font("Nunito", 10F, System.Drawing.FontStyle.Bold);
-            this.colPurchasePrice.AppearanceHeader.Options.UseFont = true;
             this.colPurchasePrice.Caption = "Alış qiyməti";
             this.colPurchasePrice.FieldName = "PurchasePrice";
             this.colPurchasePrice.Name = "colPurchasePrice";
@@ -573,14 +562,10 @@
             // 
             // colSalePrice
             // 
-            this.colSalePrice.AppearanceCell.Font = new System.Drawing.Font("Comfortaa", 10F);
-            this.colSalePrice.AppearanceCell.Options.UseFont = true;
             this.colSalePrice.AppearanceCell.Options.UseTextOptions = true;
             this.colSalePrice.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.colSalePrice.AppearanceHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.colSalePrice.AppearanceHeader.Font = new System.Drawing.Font("Nunito", 10F, System.Drawing.FontStyle.Bold);
             this.colSalePrice.AppearanceHeader.Options.UseBackColor = true;
-            this.colSalePrice.AppearanceHeader.Options.UseFont = true;
             this.colSalePrice.AppearanceHeader.Options.UseTextOptions = true;
             this.colSalePrice.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.colSalePrice.AppearanceHeader.TextOptions.Trimming = DevExpress.Utils.Trimming.EllipsisCharacter;
@@ -600,14 +585,10 @@
             // 
             // colDiscount
             // 
-            this.colDiscount.AppearanceCell.Font = new System.Drawing.Font("Comfortaa", 10F);
-            this.colDiscount.AppearanceCell.Options.UseFont = true;
             this.colDiscount.AppearanceCell.Options.UseTextOptions = true;
             this.colDiscount.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.colDiscount.AppearanceHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.colDiscount.AppearanceHeader.Font = new System.Drawing.Font("Nunito", 10F, System.Drawing.FontStyle.Bold);
             this.colDiscount.AppearanceHeader.Options.UseBackColor = true;
-            this.colDiscount.AppearanceHeader.Options.UseFont = true;
             this.colDiscount.AppearanceHeader.Options.UseTextOptions = true;
             this.colDiscount.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.colDiscount.AppearanceHeader.TextOptions.Trimming = DevExpress.Utils.Trimming.EllipsisCharacter;
@@ -624,14 +605,10 @@
             // 
             // colTotal
             // 
-            this.colTotal.AppearanceCell.Font = new System.Drawing.Font("Comfortaa", 10F);
-            this.colTotal.AppearanceCell.Options.UseFont = true;
             this.colTotal.AppearanceCell.Options.UseTextOptions = true;
             this.colTotal.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.colTotal.AppearanceHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.colTotal.AppearanceHeader.Font = new System.Drawing.Font("Nunito", 10F, System.Drawing.FontStyle.Bold);
             this.colTotal.AppearanceHeader.Options.UseBackColor = true;
-            this.colTotal.AppearanceHeader.Options.UseFont = true;
             this.colTotal.AppearanceHeader.Options.UseTextOptions = true;
             this.colTotal.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.colTotal.Caption = "Toplam";
@@ -649,12 +626,8 @@
             // 
             // colDelete
             // 
-            this.colDelete.AppearanceCell.Font = new System.Drawing.Font("Comfortaa", 10F);
-            this.colDelete.AppearanceCell.Options.UseFont = true;
             this.colDelete.AppearanceHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.colDelete.AppearanceHeader.Font = new System.Drawing.Font("Nunito", 10F, System.Drawing.FontStyle.Bold);
             this.colDelete.AppearanceHeader.Options.UseBackColor = true;
-            this.colDelete.AppearanceHeader.Options.UseFont = true;
             this.colDelete.Caption = "Sil";
             this.colDelete.ColumnEdit = this.bProductDelete;
             this.colDelete.FieldName = "Delete";
@@ -681,33 +654,33 @@
             // 
             this.pageBaskets.Caption = "pageBaskets";
             this.pageBaskets.Name = "pageBaskets";
-            this.pageBaskets.Size = new System.Drawing.Size(935, 676);
+            this.pageBaskets.Size = new System.Drawing.Size(936, 677);
             // 
             // pageHotSales
             // 
             this.pageHotSales.Caption = "pageHotSales";
             this.pageHotSales.Name = "pageHotSales";
-            this.pageHotSales.Size = new System.Drawing.Size(935, 676);
+            this.pageHotSales.Size = new System.Drawing.Size(936, 677);
             // 
             // panelControl3
             // 
+            this.panelControl3.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.tablePanel2.SetColumn(this.panelControl3, 0);
             this.panelControl3.Controls.Add(this.tProductCount);
             this.panelControl3.Controls.Add(this.tTotal);
             this.panelControl3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl3.Location = new System.Drawing.Point(2, 720);
-            this.panelControl3.Margin = new System.Windows.Forms.Padding(1);
+            this.panelControl3.Location = new System.Drawing.Point(1, 722);
+            this.panelControl3.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
             this.panelControl3.Name = "panelControl3";
             this.tablePanel2.SetRow(this.panelControl3, 2);
-            this.panelControl3.Size = new System.Drawing.Size(933, 52);
+            this.panelControl3.Size = new System.Drawing.Size(936, 48);
             this.panelControl3.TabIndex = 14;
             // 
             // tProductCount
             // 
             this.tProductCount.Dock = System.Windows.Forms.DockStyle.Left;
             this.tProductCount.EditValue = "0";
-            this.tProductCount.Location = new System.Drawing.Point(2, 2);
-            this.tProductCount.Margin = new System.Windows.Forms.Padding(0);
+            this.tProductCount.Location = new System.Drawing.Point(0, 0);
             this.tProductCount.Name = "tProductCount";
             this.tProductCount.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
             this.tProductCount.Properties.Appearance.Font = new System.Drawing.Font("Nunito", 18F, System.Drawing.FontStyle.Bold);
@@ -727,8 +700,8 @@
             // 
             this.tTotal.Dock = System.Windows.Forms.DockStyle.Right;
             this.tTotal.EditValue = "0,00";
-            this.tTotal.Location = new System.Drawing.Point(571, 2);
-            this.tTotal.Margin = new System.Windows.Forms.Padding(1);
+            this.tTotal.Location = new System.Drawing.Point(576, 0);
+            this.tTotal.Margin = new System.Windows.Forms.Padding(1, 1, 0, 1);
             this.tTotal.Name = "tTotal";
             this.tTotal.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
             this.tTotal.Properties.Appearance.Font = new System.Drawing.Font("Nunito", 18F, System.Drawing.FontStyle.Bold);
@@ -763,7 +736,7 @@
             this.panelControl2.Margin = new System.Windows.Forms.Padding(1);
             this.panelControl2.Name = "panelControl2";
             this.tablePanel2.SetRow(this.panelControl2, 0);
-            this.panelControl2.Size = new System.Drawing.Size(933, 40);
+            this.panelControl2.Size = new System.Drawing.Size(934, 39);
             this.panelControl2.TabIndex = 13;
             // 
             // navigationSearchMode
@@ -780,7 +753,7 @@
             this.pageNameSearch,
             this.pageBarcodeSearch});
             this.navigationSearchMode.SelectedPage = this.pageNameSearch;
-            this.navigationSearchMode.Size = new System.Drawing.Size(840, 32);
+            this.navigationSearchMode.Size = new System.Drawing.Size(841, 32);
             this.navigationSearchMode.TabIndex = 14;
             this.navigationSearchMode.Text = "navigationFrame2";
             // 
@@ -790,13 +763,13 @@
             this.pageNameSearch.Controls.Add(this.tSearch);
             this.pageNameSearch.Margin = new System.Windows.Forms.Padding(0);
             this.pageNameSearch.Name = "pageNameSearch";
-            this.pageNameSearch.Size = new System.Drawing.Size(840, 32);
+            this.pageNameSearch.Size = new System.Drawing.Size(841, 32);
             // 
             // tSearch
             // 
             this.tSearch.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tSearch.Location = new System.Drawing.Point(0, 0);
-            this.tSearch.Margin = new System.Windows.Forms.Padding(1);
+            this.tSearch.Margin = new System.Windows.Forms.Padding(1, 1, 1, 0);
             this.tSearch.Name = "tSearch";
             this.tSearch.Properties.AllowButtonNavigation = DevExpress.Utils.DefaultBoolean.False;
             this.tSearch.Properties.AllowFocused = false;
@@ -812,7 +785,7 @@
             this.tSearch.Properties.PopupView = this.searchView;
             this.tSearch.Properties.ShowClearButton = false;
             this.tSearch.Properties.ShowFooter = false;
-            this.tSearch.Size = new System.Drawing.Size(840, 32);
+            this.tSearch.Size = new System.Drawing.Size(841, 32);
             this.tSearch.TabIndex = 19;
             this.tSearch.EditValueChanged += new System.EventHandler(this.tSearch_EditValueChanged);
             // 
@@ -891,7 +864,7 @@
             this.pageBarcodeSearch.Controls.Add(this.tBarcodeSearch);
             this.pageBarcodeSearch.Margin = new System.Windows.Forms.Padding(0);
             this.pageBarcodeSearch.Name = "pageBarcodeSearch";
-            this.pageBarcodeSearch.Size = new System.Drawing.Size(840, 32);
+            this.pageBarcodeSearch.Size = new System.Drawing.Size(841, 32);
             // 
             // tBarcodeSearch
             // 
@@ -904,7 +877,7 @@
             editorButtonImageOptions9.SvgImageSize = new System.Drawing.Size(24, 24);
             this.tBarcodeSearch.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions9, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject33, serializableAppearanceObject34, serializableAppearanceObject35, serializableAppearanceObject36, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
-            this.tBarcodeSearch.Size = new System.Drawing.Size(840, 32);
+            this.tBarcodeSearch.Size = new System.Drawing.Size(841, 32);
             this.tBarcodeSearch.TabIndex = 0;
             this.tBarcodeSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tBarcodeSearch_KeyDown);
             // 
@@ -917,7 +890,7 @@
             this.chName.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("chName.ImageOptions.SvgImage")));
             this.chName.ImageOptions.SvgImageSize = new System.Drawing.Size(22, 22);
             this.chName.Location = new System.Drawing.Point(9, 3);
-            this.chName.Margin = new System.Windows.Forms.Padding(1);
+            this.chName.Margin = new System.Windows.Forms.Padding(1, 1, 1, 0);
             this.chName.Name = "chName";
             this.chName.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
             this.chName.Size = new System.Drawing.Size(30, 32);
@@ -932,7 +905,7 @@
             this.chBarcode.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("chBarcode.ImageOptions.SvgImage")));
             this.chBarcode.ImageOptions.SvgImageSize = new System.Drawing.Size(22, 22);
             this.chBarcode.Location = new System.Drawing.Point(45, 3);
-            this.chBarcode.Margin = new System.Windows.Forms.Padding(1);
+            this.chBarcode.Margin = new System.Windows.Forms.Padding(1, 1, 1, 0);
             this.chBarcode.Name = "chBarcode";
             this.chBarcode.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
             this.chBarcode.Size = new System.Drawing.Size(34, 32);
@@ -1112,6 +1085,7 @@
             // bManagement
             // 
             this.bManagement.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bManagement.ImageOptions.SvgImage")));
+            this.bManagement.ImageOptions.SvgImageColorizationMode = DevExpress.Utils.SvgImageColorizationMode.None;
             this.bManagement.Name = "bManagement";
             this.bManagement.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.bManagement.Text = "İdarəetmə Paneli";

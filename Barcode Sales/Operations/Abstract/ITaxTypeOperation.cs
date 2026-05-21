@@ -2,8 +2,8 @@
 
 namespace Barcode_Sales.Operations.Abstract
 {
-    public interface ITaxTypeOperation:IBaseOperation<TaxType>
+    public interface ITaxTypeOperation : IBaseOperation<TaxType>
     {
-        Dictionary<int, string> Initialize();
+        Dictionary<int, (string, decimal)> Initialize();
     }
 }

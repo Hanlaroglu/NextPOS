@@ -11,6 +11,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Linq;
 using System.Windows.Forms;
+using Barcode_Sales.Services.CacheServices;
 using static Barcode_Sales.Helpers.Enums;
 
 namespace Barcode_Sales.Forms
@@ -78,7 +79,7 @@ namespace Barcode_Sales.Forms
             {
                 foreach (var item in data)
                 {
-                    item.ReturnQuantity = (decimal)item.Detail.Quantity;
+                    item.ReturnQuantity = item.Detail.Quantity;
                 }
             }
 
@@ -176,16 +177,16 @@ namespace Barcode_Sales.Forms
 
                 _refundData = new RefundClassess.Data()
                 {
-                    IpAddress = CommonData.terminal.IpAddress,
+                    IpAddress = TerminalCacheService.Terminal.IpAddress,
                     Items = RefundDataItem,
                     Cashier = tCashier.Text,
-                    Cash = (decimal)_salesDataSummary.Cash - RefundDataItem.Sum(x=> x.SalePrice),
-                    Card = (decimal)_salesDataSummary.Card,
+                    Cash = _salesDataSummary.Cash - RefundDataItem.Sum(x=> x.SalePrice),
+                    Card = _salesDataSummary.Card,
                     LongFiskalId = _salesDataSummary.LongFiscalId,
                     ShortFiskalId = _salesDataSummary.ShortFiscalId,
                     document_number = _salesDataSummary.ReceiptNo,
                     Note = tComment.Text.Trim(),
-                    RRN = _salesDataSummary.RRN,
+                    RRN = _salesDataSummary.BankRrn,
                     Customer = _customer,
                     SaleDataId = _salesDataSummary.Id,
                 };
@@ -199,28 +200,28 @@ namespace Barcode_Sales.Forms
 
         private void Refund()
         {
-            if (CommonData.terminal != null)
+            if (TerminalCacheService.Terminal != null)
             {
-                KassaOperator kassa = (KassaOperator)Enum.Parse(typeof(KassaOperator), CommonData.terminal.Name);
+               var kassa = (Enums.Terminal)Enum.Parse(typeof(Enums.Terminal), TerminalCacheService.Terminal.Name);
                 switch (kassa)
                 {
-                    case KassaOperator.CASPOS:
+                    case Enums.Terminal.Caspos:
                         if (NKA.Sunmi.Refund())
                             DialogResult = DialogResult.OK;
                         break;
-                    case KassaOperator.OMNITECH:
+                    case Enums.Terminal.Omnitech:
                         //if (NKA.Omnitech.Refund(_refundData))
                         //    DialogResult = DialogResult.OK;
                         break;
-                    case KassaOperator.AZSMART:
+                    case Enums.Terminal.AzSmart:
                         if (NKA.AzSmart.Refund(_refundData))
                             DialogResult = DialogResult.OK;
                         break;
-                    case KassaOperator.NBA:
+                    case Enums.Terminal.Nba:
                         break;
-                    case KassaOperator.DATAPAY:
+                    case Enums.Terminal.DataPay:
                         break;
-                    case KassaOperator.ONECLICK:
+                    case Enums.Terminal.OneClick:
                         break;
                 }
                 RefundDataItem.Clear();
@@ -229,31 +230,31 @@ namespace Barcode_Sales.Forms
 
         private async void Rollback()
         {
-            if (CommonData.terminal != null)
+            if (TerminalCacheService.Terminal != null)
             {
-                KassaOperator kassa = (KassaOperator)Enum.Parse(typeof(KassaOperator), CommonData.terminal.Name);
+                Enums.Terminal kassa = (Enums.Terminal)Enum.Parse(typeof(Enums.Terminal), TerminalCacheService.Terminal.Name);
                 switch (kassa)
                 {
-                    case KassaOperator.CASPOS:
+                    case Enums.Terminal.Caspos:
                         if (await NKA.Sunmi.Sale(null))
                         {
                             DialogResult = DialogResult.OK;
                         }
                         break;
-                    case KassaOperator.OMNITECH:
+                    case Enums.Terminal.Omnitech:
                         //if ( NKA.Omnitech.Rollback(_refundData))
                         //{
                         //    RefundDataItem.Clear();
                         //    DialogResult = DialogResult.OK;
                         //}
                         break;
-                    case KassaOperator.AZSMART:
+                    case Enums.Terminal.AzSmart:
                         break;
-                    case KassaOperator.NBA:
+                    case Enums.Terminal.Nba:
                         break;
-                    case KassaOperator.DATAPAY:
+                    case Enums.Terminal.DataPay:
                         break;
-                    case KassaOperator.ONECLICK:
+                    case Enums.Terminal.OneClick:
                         break;
                 }
             }

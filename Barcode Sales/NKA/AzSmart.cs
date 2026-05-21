@@ -30,7 +30,7 @@ namespace Barcode_Sales.NKA
 
         private static RestResponse RequestPOST(string ipAddress, string json)
         {
-            string data = GetJsonToBase64Encode(json, CommonData.terminal.MerchantId);
+            string data = GetJsonToBase64Encode(json, TerminalCacheService.Terminal.MerchantId);
 
             try
             {

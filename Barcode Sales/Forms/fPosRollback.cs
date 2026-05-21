@@ -64,59 +64,61 @@ namespace Barcode_Sales.Forms
                 case var page when page == pageDate:
                     query = $@"
 SELECT 
-	sd.Id,
-	sd.SaleDateTime,
+	ps.Id,
+	ps.SaleDateTime,
 	u.NameSurname AS Cashier,
 	c.NameSurname AS CustomerName,
     c.Id AS CustomerId,
-	sd.Total,
-	MAX(sd.Cash) AS Cash,
-	MAX(sd.Card) AS Card,
+	ps.Total,
+	MAX(ps.Cash) AS Cash,
+	MAX(ps.Card) AS Card,
 	MAX(CASE 
-        WHEN sd.Cash = 0 AND sd.Card > 0 THEN N'KART'
-        WHEN sd.Cash > 0 AND sd.Card = 0 THEN N'NAĞD'
-        WHEN sd.Cash > 0 AND sd.Card > 0 THEN N'NAĞD-KART'
+        WHEN ps.Cash = 0 AND ps.Card > 0 THEN N'KART'
+        WHEN ps.Cash > 0 AND ps.Card = 0 THEN N'NAĞD'
+        WHEN ps.Cash > 0 AND ps.Card > 0 THEN N'NAĞD-KART'
         ELSE NULL
     END) AS PaymentType,
-    sd.ReceiptNo,
-    sd.ShortFiscalId,
-    sd.LongFiscalId,
-    sd.Rrn,
+    ps.ReceiptNo,
+    ps.ShortFiscalId,
+    ps.LongFiscalId,
+    ps.BankRrn,
+    ps.BankTransactionID,
     COUNT(*) AS RemainingItemCount
 FROM 
-    SalesData sd
+    PosSales ps
 INNER JOIN 
-    SalesDataDetail sdd ON sdd.SaleDataId = sd.Id
+    PosSaleItems psi ON psi.PosSaleId = ps.Id
 LEFT JOIN 
-    ReturnPos rp ON rp.SaleDataId = sd.Id
+    PosRefunds pr ON pr.PosSaleId = ps.Id
 INNER JOIN
-	Users u ON u.Id = sd.UserId
+	Users u ON u.Id = ps.UserId
 LEFT JOIN
-	Customers c ON c.Id = sd.CustomerId
+	Customers c ON c.Id = ps.CustomerId
 LEFT JOIN 
-    ReturnPosDetails rpd ON rpd.ReturnDataId = rp.Id AND rpd.ProductId = sdd.ProductId
+    PosRefundItems pri ON pri.PosRefundId = pr.Id AND pri.ProductId = psi.ProductId
 WHERE 
-    rpd.ProductId IS NULL
+    pri.ProductId IS NULL
     AND EXISTS (
         SELECT 1
-        FROM SalesDataDetail sdd2
-        LEFT JOIN ReturnPos rp2 ON rp2.SaleDataId = sdd2.SaleDataId
-        LEFT JOIN ReturnPosDetails rpd2 ON rpd2.ReturnDataId = rp2.Id AND rpd2.ProductId = sdd2.ProductId
-        WHERE sdd2.SaleDataId = sd.Id
-        AND rpd2.ProductId IS NULL
+        FROM PosSaleItems psi2
+        LEFT JOIN PosRefunds pr2 ON pr2.PosSaleId = psi2.PosSaleId
+        LEFT JOIN PosRefundItems pri2 ON pri2.PosRefundId = pr2.Id AND pri2.ProductId = psi2.ProductId
+        WHERE psi2.PosSaleId = ps.Id
+        AND pri2.ProductId IS NULL
     )
-    AND sd.SaleDate BETWEEN '{start.ToString("yyyy.MM.dd")}' AND '{finish.ToString("yyyy.MM.dd")}'
+    AND ps.SaleDate BETWEEN '2026-05-01' AND '2026-05-14'
 GROUP BY 
-	sd.Id,
-    sd.ReceiptNo,
-	sd.SaleDateTime,
+	ps.Id,
+    ps.ReceiptNo,
+	ps.SaleDateTime,
 	u.NameSurname,
     c.Id,
 	c.NameSurname,
-	sd.Total,
-    sd.Rrn,
-    sd.ShortFiscalId,
-    sd.LongFiscalId
+	ps.Total,
+    ps.BankRrn,
+	ps.BankTransactionID,
+    ps.ShortFiscalId,
+    ps.LongFiscalId
 HAVING 
     COUNT(*) > 0
 ";

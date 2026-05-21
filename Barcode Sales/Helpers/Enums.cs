@@ -1,21 +1,9 @@
-﻿using System;
-using System.ComponentModel;
-using System.Reflection;
+﻿using System.ComponentModel;
 
 namespace Barcode_Sales.Helpers
 {
     public static class Enums
     {
-        /// <summary>
-        /// Enumların desctriptionlarında yazılan yazıları geri string olaraq qaytarır
-        /// </summary>
-        public static string GetEnumDescription(Enum value)
-        {
-            FieldInfo field = value.GetType().GetField(value.ToString());
-            DescriptionAttribute attribute = (DescriptionAttribute)Attribute.GetCustomAttribute(field, typeof(DescriptionAttribute));
-            return attribute == null ? value.ToString() : attribute.Description;
-        }
-
         public enum UnitTypes
         {
             [Description("Ədəd")]
@@ -78,15 +66,15 @@ namespace Barcode_Sales.Helpers
             Pay
         }
 
-        public enum KassaOperator
+        public enum Terminal
         {
-            CASPOS,
-            OMNITECH,
-            AZSMART,
-            NBA,
-            DATAPAY,
-            ONECLICK,
-            XPRINTER
+            Caspos,
+            Omnitech,
+            AzSmart,
+            Nba,
+            DataPay,
+            OneClick,
+            XPrinter
         }
 
         public enum BankTerminal

@@ -132,7 +132,7 @@ namespace Barcode_Sales.Forms
             if (Operation is Enums.Operation.Edit)
             {
                 tUsername.ReadOnly = true;
-                userSaveFooter1.SaveButtonText = Enums.GetEnumDescription(Operation);
+                userSaveFooter1.SaveButtonText = EnumExtensions.GetEnumDescription(Operation);
                 UserDataLoad();
             }
         }

@@ -49,9 +49,9 @@ namespace Barcode_Sales.Forms
 
         private void OperatorLoad()
         {
-            var kassa = Enum.GetValues(typeof(Enums.KassaOperator))
-                            .Cast<Enums.KassaOperator>()
-                            .ToDictionary(e => e, e => Enums.GetEnumDescription(e));
+            var kassa = Enum.GetValues(typeof(Enums.Terminal))
+                            .Cast<Enums.Terminal>()
+                            .ToDictionary(e => e, e => EnumExtensions.GetEnumDescription(e));
 
             FormHelpers.ControlLoad(new BindingSource(kassa, null), lookKassa, "Value", "Key");
         }
@@ -143,7 +143,7 @@ namespace Barcode_Sales.Forms
                 x => x.UserId,
                 x => x.MerchantId,
                 x => x.IpAddress);
-            bSave.Text = Enums.GetEnumDescription(Enums.Operation.Add);
+            bSave.Text = EnumExtensions.GetEnumDescription(Enums.Operation.Add);
             Clear();
         }
 
@@ -191,13 +191,13 @@ namespace Barcode_Sales.Forms
                 _terminal = terminal;
 
 
-                KassaOperator kassa = (KassaOperator)Enum.Parse(typeof(KassaOperator), terminal.Name);
+                var kassa = (Enums.Terminal)Enum.Parse(typeof(Enums.Terminal), terminal.Name);
 
                 lookKassa.EditValue = kassa;
                 lookUser.EditValue = _terminal.UserId;
                 tIpAdress.Text = _terminal.IpAddress;
                 tMerchantId.Text = _terminal.MerchantId;
-                bSave.Text = Enums.GetEnumDescription(Enums.Operation.Edit);
+                bSave.Text = EnumExtensions.GetEnumDescription(Enums.Operation.Edit);
             }
         }
 

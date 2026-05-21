@@ -116,8 +116,8 @@ namespace Barcode_Sales.Operations.Concrete
         {
             if (expression is null)
                 return await db.CustomerGroups.AsNoTracking().ToListAsync();
-            else
-                return await db.CustomerGroups.AsNoTracking().Where(expression).ToListAsync();
+
+            return await db.CustomerGroups.AsNoTracking().Where(expression).ToListAsync();
         }
 
 

@@ -85,6 +85,7 @@
     <EntitySetMapping Name="TaxTypes">
       <EntityTypeMapping TypeName="KhanposDbModel.TaxType">
         <MappingFragment StoreEntitySet="TaxTypes">
+          <ScalarProperty Name="VatPercent" ColumnName="VatPercent" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>

@@ -29,7 +29,6 @@ namespace Barcode_Sales.Forms
         ICustomerOperation customerOperation = new CustomerManager();
         ICustomerGroupOperation customerGroupOperation = new CustomerGroupManager();
         IPosSaleOperation posSaleOperation = new PosSaleManager();
-        IPosSaleItemOperation posSaleItemOperation = new PosSaleItemManager();
 
         public fDashboard()
         {
@@ -188,7 +187,7 @@ namespace Barcode_Sales.Forms
 
                     return new DashboardStatisticsDto
                     {
-                        Day = Enums.GetEnumDescription(name),
+                        Day = EnumExtensions.GetEnumDescription(name),
                         Date = day,
                         //TotalGain = posSaleOperation.Where(x => x.SaleDate == day).Sum(x => x.Total),
                     };
@@ -217,7 +216,7 @@ namespace Barcode_Sales.Forms
 
                     return new DashboardStatisticsDto
                     {
-                        Day = Enums.GetEnumDescription(name),
+                        Day = EnumExtensions.GetEnumDescription(name),
                         Date = monthDate,
                         TotalGain = posSaleOperation
                             .Where(x => x.SaleDate.Year == monthDate.Year && x.SaleDate.Month == monthDate.Month)

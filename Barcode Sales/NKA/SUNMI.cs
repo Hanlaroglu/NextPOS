@@ -1,17 +1,13 @@
-﻿using Barcode_Sales.Barcode.Sales.Admin;
-using Barcode_Sales.Forms;
+﻿using Barcode_Sales.Forms;
 using Barcode_Sales.Helpers;
 using Barcode_Sales.Helpers.Classes;
-using Barcode_Sales.NKA.Base;
 using Barcode_Sales.NKA.DTOs;
 using Barcode_Sales.Operations.Abstract;
 using Barcode_Sales.Operations.Concrete;
 using Barcode_Sales.Services.CacheServices;
-using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -312,8 +308,8 @@ namespace Barcode_Sales.NKA
                         LongFiscalId = responseData.data.document_id,
                         ShortFiscalId = responseData.data.short_document_id,
                         Rrn = string.IsNullOrWhiteSpace(data.RRN) ? responseData.data.rrn : data.RRN,
-                        SaleDate = DateTime.Now,
-                        SaleDatetime = DateTime.Now,
+                        SaleDate = DatetimeService.CurrentDateTime,
+                        SaleDatetime = DatetimeService.CurrentDateTime,
                         Total = data.Total,
                         Cash = data.Cash,
                         Card = data.Card,

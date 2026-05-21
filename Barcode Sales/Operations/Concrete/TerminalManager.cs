@@ -127,52 +127,47 @@ namespace Barcode_Sales.Operations.Concrete
                                          .ToListAsync();
         }
 
-        public Terminal GetIpAddress()
+        public async Task<Terminal> GetIpAddress()
         {
-            var terminal = Where(x => x.UserId == UserCacheService.User.Id && x.IsDeleted == 0).FirstOrDefault();
+            var terminal = await Get(x => x.UserId == UserCacheService.User.Id && x.IsDeleted == 0);
             fPosSales _form = Application.OpenForms.OfType<fPosSales>().FirstOrDefault();
 
-            if (terminal is null || terminal?.IsDeleted != 0)
+            if (terminal is null)
             {
                 NotificationHelpers.Messages.WarningMessage(_form, "İstifadəçiyə kassa təyin edilməmiştir");
                 return null;
             }
-            else if (terminal.Status is false)
+
+            if (terminal.Status is false)
             {
                 NotificationHelpers.Messages.WarningMessage(_form, "İstifadəçinin kassa statusu aktiv deyil");
                 return null;
             }
 
-            if (terminal != null)
+           var kassa = (Enums.Terminal)Enum.Parse(typeof(Enums.Terminal), terminal.Name);
+
+            switch (kassa)
             {
-                KassaOperator kassa = (KassaOperator)Enum.Parse(typeof(KassaOperator), terminal.Name);
-
-                switch (kassa)
-                {
-                    case KassaOperator.CASPOS:
-                        terminal.IpAddress = $"http://{terminal.IpAddress}";
-                        break;
-                    case KassaOperator.OMNITECH:
-                        terminal.IpAddress = $"http://{terminal.IpAddress}/v2";
-                        break;
-                    case KassaOperator.AZSMART:
-                        terminal.IpAddress = $"http://{terminal.IpAddress}";
-                        break;
-                    case KassaOperator.NBA:
-                        terminal.IpAddress = $"http://{terminal.IpAddress}/api/v1";
-                        break;
-                    case KassaOperator.DATAPAY:
-                        terminal.IpAddress = $"http://{terminal.IpAddress}";
-                        break;
-                    case KassaOperator.ONECLICK:
-                        terminal.IpAddress = $"http://{terminal.IpAddress}";
-                        break;
-                }
-                return terminal;
+                case Enums.Terminal.Caspos:
+                    terminal.IpAddress = $"http://{terminal.IpAddress}";
+                    break;
+                case Enums.Terminal.Omnitech:
+                    terminal.IpAddress = $"http://{terminal.IpAddress}/v2";
+                    break;
+                case Enums.Terminal.AzSmart:
+                    terminal.IpAddress = $"http://{terminal.IpAddress}";
+                    break;
+                case Enums.Terminal.Nba:
+                    terminal.IpAddress = $"http://{terminal.IpAddress}/api/v1";
+                    break;
+                case Enums.Terminal.DataPay:
+                    terminal.IpAddress = $"http://{terminal.IpAddress}";
+                    break;
+                case Enums.Terminal.OneClick:
+                    terminal.IpAddress = $"http://{terminal.IpAddress}";
+                    break;
             }
-            else
-                return null;
-
+            return terminal;
         }
     }
 }

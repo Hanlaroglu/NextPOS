@@ -2,7 +2,7 @@
 using Barcode_Sales.Operations.Abstract;
 using Barcode_Sales.Operations.Concrete;
 using Barcode_Sales.Services.CacheServices;
-using DevExpress.XtraGrid.Localization;
+using Barcode_Sales.Terminals.DTOs;
 using DevExpress.XtraGrid.Views.Grid.ViewInfo;
 using System;
 using System.ComponentModel;
@@ -11,17 +11,18 @@ using System.Drawing;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static Barcode_Sales.Helpers.Classes.SaleClasses;
-using static Barcode_Sales.Helpers.FormHelpers;
 
 namespace Barcode_Sales.Forms
 {
-    public partial class fPosSales : DevExpress.XtraEditors.XtraForm
+    public partial class fPosSales : FormBase
     {
+        public Customer _customer { get; set; }
+
         IPosSaleOperation posSaleOperation = new PosSaleManager();
         IProductOperation productOperation = new ProductManager();
-        private BindingList<SaleDataItem> dataList = new BindingList<SaleDataItem>();
-        private ITerminalOperation terminalOperation = new TerminalManager();
+
+        private BindingList<PosSaleItemDto> dataList = new BindingList<PosSaleItemDto>();
+
         short rowNo = 1;
 
         public fPosSales()
@@ -45,7 +46,7 @@ namespace Barcode_Sales.Forms
 
         private async void fPosSales_Load(object sender, EventArgs e)
         {
-            CommonData.terminal = terminalOperation.GetIpAddress();
+            TerminalCacheService.RefreshTerminal();
             var saleCount = await posSaleOperation.CurrentSaleCount();
             tSaleCount.Text = saleCount.ToString();
             tToday.Properties.Buttons[1].Caption = CommonData.TODAY_DATE;
@@ -55,16 +56,16 @@ namespace Barcode_Sales.Forms
 
         private async Task SearchProductList()
         {
-            var data = await productOperation.ToListAsync(x => x.IsDeleted == false || x.IsActive == true);
+            var data = await productOperation.ToListAsync(x => x.IsDeleted == false && x.IsActive == true);
             var product = data.Select(x => new ProductSearchData
             {
                 Id = x.Id,
                 ProductName = x.ProductName,
-                SalePrice = (decimal)x.SalePrice,
-                PurchasePrice = (decimal)x.PurchasePrice,
+                SalePrice = x.SalePrice,
+                PurchasePrice = x.PurchasePrice,
                 Barcode = x.Barcode,
-                UnitId = (int)x.UnitId,
-                TaxId = (int)x.TaxId
+                UnitId = x.UnitId,
+                TaxId = x.TaxId
             }).ToList();
 
             tSearch.Properties.DataSource = product;
@@ -81,12 +82,13 @@ namespace Barcode_Sales.Forms
         {
             if (dataList.Count > 0)
             {
-                fPosPay f = new fPosPay(new SaleData
+                fPosPay f = new fPosPay(new PosSaleDto
                 {
                     Cashier = tCashier.Properties.Buttons[1].Caption,
                     Items = dataList,
                     CustomerName = tCustomer.Text,
-                    Note = tComment.Text
+                    Customer = _customer,
+                    Note = tComment.Text,
                 });
                 if (f.ShowDialog() is DialogResult.OK)
                 {
@@ -99,7 +101,7 @@ namespace Barcode_Sales.Forms
         {
             dataList.Clear();
             tTotal.Text = 0.ToString("0.00");
-            tCustomer.Clear();
+            tCustomer.Text = "-";
             tComment.Clear();
             tProductCount.Text = CommonData.DEFAULT_INT_TOSTRING;
             // todo Növbə ərzindəki çek sayını artır
@@ -138,19 +140,19 @@ namespace Barcode_Sales.Forms
 
                 if (existingProduct != null)
                 {
-                    existingProduct.Amount += 1;
+                    existingProduct.Quantity += 1;
                 }
                 else
                 {
-                    SaleDataItem grid = new SaleDataItem
+                    PosSaleItemDto grid = new PosSaleItemDto
                     {
                         ProductName = selectedRow.ProductName,
-                        PurchasePrice = selectedRow.PurchasePrice,
+                        PurchasePrice = selectedRow.PurchasePrice.Value,
                         SalePrice = selectedRow.SalePrice,
                         Discount = selectedRow.Discount,
                         Id = selectedRow.Id,
-                        Amount = 1,
-                        RowNo = rowNo,
+                        Quantity = 1,
+                        No = rowNo,
                         Barcode = selectedRow.Barcode,
                         UnitId = selectedRow.UnitId,
                         TaxId = selectedRow.TaxId,
@@ -177,7 +179,7 @@ namespace Barcode_Sales.Forms
                 {
                     tSearch.EditValueChanged -= tSearch_EditValueChanged;
 
-                    var product = await productOperation.Get(x=> x.Barcode == tBarcodeSearch.Text.Trim());
+                    var product = await productOperation.Get(x => x.Barcode == tBarcodeSearch.Text.Trim());
 
                     if (product is null)
                     {
@@ -185,23 +187,23 @@ namespace Barcode_Sales.Forms
                         tBarcodeSearch.Clear();
                         return;
                     }
-                        
+
 
                     var existingProduct = dataList.FirstOrDefault(x => x.Id == product.Id);
 
                     if (existingProduct != null)
-                        existingProduct.Amount += 1;
+                        existingProduct.Quantity += 1;
                     else
                     {
-                        SaleDataItem grid = new SaleDataItem
+                        PosSaleItemDto grid = new PosSaleItemDto
                         {
                             ProductName = product.ProductName,
-                            SalePrice = (decimal)product.SalePrice,
+                            SalePrice = product.SalePrice,
                             Id = product.Id,
-                            Amount = 1,
-                            RowNo = rowNo,
+                            Quantity = 1,
+                            No = rowNo,
                             Barcode = product.Barcode,
-                            UnitId = (int)product.UnitId
+                            UnitId = product.UnitId
                         };
                         dataList.Add(grid);
                         rowNo++;
@@ -221,9 +223,7 @@ namespace Barcode_Sales.Forms
         private void TotalAmountCalculation()
         {
             gridBasket.RefreshData();
-            //tProductCount.Text = dataList.Count.ToString();
-            tProductCount.Text = dataList == null ? CommonData.DEFAULT_INT_TOSTRING : dataList.Count.ToString();
-            //tTotal.Text = dataList.Sum(x => x.Total).ToString("0.00");
+            tProductCount.Text = dataList == null ? 0.ToString() : dataList.Count.ToString();
             tTotal.Text = dataList == null ? 0.ToString("N2") : dataList.Sum(x => x.Total).ToString("0.00");
         }
 
@@ -282,7 +282,7 @@ namespace Barcode_Sales.Forms
                         });
                         if (amount.ShowDialog() is DialogResult.OK)
                         {
-                            selectedProduct.Amount = amount.Amount;
+                            selectedProduct.Quantity = amount.Amount;
                             TotalAmountCalculation();
                         }
                         break;
@@ -331,8 +331,17 @@ namespace Barcode_Sales.Forms
 
         private void bCustomers_Click(object sender, EventArgs e)
         {
-            fSelectCustomer f = new fSelectCustomer();
-            f.ShowDialog();
+            fSelectCustomer<fPosSales> ff = new fSelectCustomer<fPosSales>(this);
+            ff.ShowDialog();
+        }
+
+        public override void ReceiveData<T>(T data)
+        {
+            if (data is Customer customer)
+            {
+                tCustomer.Text = $"{customer.NameSurname} ({customer.CustomerGroup.Name})";
+                _customer = customer;
+            }
         }
     }
 }

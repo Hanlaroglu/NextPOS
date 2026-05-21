@@ -1,7 +1,5 @@
 ﻿using Barcode_Sales.Forms;
 using DevExpress.XtraGrid.Localization;
-using Licence;
-using Licence.Forms;
 using Licence.Services;
 using System;
 using System.Diagnostics;

@@ -1,28 +1,27 @@
-﻿using Barcode_Sales.Helpers;
-using Barcode_Sales.Operations.Abstract;
-using Barcode_Sales.Operations.Concrete;
+﻿using Barcode_Sales.Services.CacheServices;
+using Barcode_Sales.Terminals.DTOs;
+using Barcode_Sales.Terminals.Omnitech;
 using System;
+using System.Linq;
 using System.Windows.Forms;
-using static Barcode_Sales.Helpers.Classes.SaleClasses;
-using static Barcode_Sales.Helpers.Enums;
+using static DevExpress.Utils.Drawing.Helpers.NativeMethods;
 
 namespace Barcode_Sales.Forms
 {
     public partial class fPosPay : DevExpress.XtraEditors.XtraForm
     {
-        private SaleData _data;
-        private readonly Terminal _terminals = CommonData.terminal;
-        public fPosPay(SaleData data)
+        private PosSaleDto _data;
+        public fPosPay(PosSaleDto data)
         {
             InitializeComponent();
             _data = data;
-          
+
         }
 
         private void fPosPay_Load(object sender, EventArgs e)
         {
-            tTotal.Text = _data.Total.ToString("N2");
-            bCash_Click(sender,e);
+            tTotal.Text = _data.Total.ToString("F2");
+            bCash_Click(sender, e);
             this.tCash_Paid.SelectAll();
             this.tCash_Paid.Focus();
         }
@@ -63,13 +62,9 @@ namespace Barcode_Sales.Forms
             decimal Paid = Convert.ToDecimal(tCash_Paid.Text);
             decimal balance = Paid - _data.Total;
             if (balance > 0)
-            {
                 tCash_Balance.Text = balance.ToString("N2");
-            }
             else
-            {
                 tCash_Balance.Text = 0.ToString("N2");
-            }
         }
 
         private void bPay_Click(object sender, EventArgs e)
@@ -89,130 +84,139 @@ namespace Barcode_Sales.Forms
 
         }
 
-        private void CashPaid()
+        private async void CashPaid()
         {
-            if (_terminals != null)
+            if (TerminalCacheService.Terminal != null)
             {
-                _data.IpAddress = _terminals.IpAddress;
                 _data.Cash = _data.Total;
                 _data.Card = 0;
                 _data.IncomingSum = decimal.Parse(tCash_Paid.Text);
 
                 if (_data.IncomingSum < _data.Total)
                 {
-                    NotificationHelpers.Messages.WarningMessage(this, "Ödənilən məbləğ yekun məbləğdən kiçik olabilməz !", nameof(Enums.MessageTitle.Xəbərdarlıq));
+                    NotificationHelpers.Messages.WarningMessage(this, "Ödənilən məbləğ yekun məbləğdən kiçik olabilməz !", nameof(Helpers.Enums.MessageTitle.Xəbərdarlıq));
                     return;
                 }
 
-
-                KassaOperator kassa = (KassaOperator)Enum.Parse(typeof(KassaOperator), _terminals.Name);
-                switch (kassa)
+                var terminal = (Helpers.Enums.Terminal)Enum.Parse(typeof(Helpers.Enums.Terminal), TerminalCacheService.Terminal.Name);
+                switch (terminal)
                 {
-                    case KassaOperator.CASPOS:
+                    case Helpers.Enums.Terminal.Caspos:
                         //if (NKA.Sunmi.Sale(_data))
                         //    DialogResult = DialogResult.OK;
                         break;
-                    case KassaOperator.OMNITECH:
-                        //if (NKA.Omnitech.Sale(_data))
-                        //    DialogResult = DialogResult.OK;
+                    case Helpers.Enums.Terminal.Omnitech:
+                        OmnnitechTerminal omnitech = new OmnnitechTerminal(TerminalCacheService.Terminal.IpAddress);
+
+                        var result = await omnitech.Sale(_data);
+                        fPosSales _form = Application.OpenForms.OfType<fPosSales>().FirstOrDefault();
+                        if (result.Success)
+                            NotificationHelpers.Messages.SuccessMessage(_form, result.Message);
+                        else
+                            NotificationHelpers.Messages.ErrorMessage(_form, result.Message);
+                        DialogResult = DialogResult.OK;
                         break;
-                    case KassaOperator.AZSMART:
+                    case Helpers.Enums.Terminal.AzSmart:
                         //if (NKA.AzSmart.Sale(_data))
                         //    DialogResult = DialogResult.OK;
                         break;
-                    case KassaOperator.NBA:
+                    case Helpers.Enums.Terminal.Nba:
                         break;
-                    case KassaOperator.DATAPAY:
+                    case Helpers.Enums.Terminal.DataPay:
                         break;
-                    case KassaOperator.ONECLICK:
+                    case Helpers.Enums.Terminal.OneClick:
                         break;
                 }
             }
         }
 
-        private void CardPaid()
+        private async void CardPaid()
         {
-            _data.IpAddress = _terminals.IpAddress;
             _data.Card = decimal.Parse(tTotal.Text);
             _data.Cash = 0;
 
-            if (_terminals != null)
+            if (TerminalCacheService.Terminal != null)
             {
-                KassaOperator kassa = (KassaOperator)Enum.Parse(typeof(KassaOperator), _terminals.Name);
+                var kassa = (Helpers.Enums.Terminal)Enum.Parse(typeof(Helpers.Enums.Terminal), TerminalCacheService.Terminal.Name);
                 switch (kassa)
                 {
-                    case KassaOperator.CASPOS:
+                    case Helpers.Enums.Terminal.Caspos:
                         //if (NKA.Sunmi.Sale(_data))
                         //    DialogResult = DialogResult.OK;
                         break;
-                    case KassaOperator.OMNITECH:
-                        //if (NKA.Omnitech.Sale(_data))
-                        //    DialogResult = DialogResult.OK;
+                    case Helpers.Enums.Terminal.Omnitech:
+                        OmnnitechTerminal omnitech = new OmnnitechTerminal(TerminalCacheService.Terminal.IpAddress);
+
+                        var result = await omnitech.Sale(_data);
+                        fPosSales _form = Application.OpenForms.OfType<fPosSales>().FirstOrDefault();
+                        if (result.Success)
+                            NotificationHelpers.Messages.SuccessMessage(_form, result.Message);
+                        else
+                            NotificationHelpers.Messages.ErrorMessage(_form, result.Message);
+                        DialogResult = DialogResult.OK;
                         break;
-                    case KassaOperator.AZSMART:
+                    case Helpers.Enums.Terminal.AzSmart:
                         //if (NKA.AzSmart.Sale(_data))
                         //    DialogResult = DialogResult.OK;
                         break;
-                    case KassaOperator.NBA:
+                    case Helpers.Enums.Terminal.Nba:
                         break;
-                    case KassaOperator.DATAPAY:
+                    case Helpers.Enums.Terminal.DataPay:
                         break;
-                    case KassaOperator.ONECLICK:
+                    case Helpers.Enums.Terminal.OneClick:
                         break;
                 }
             }
         }
 
-        private void CashCardPaid()
+        private async void CashCardPaid()
         {
-            _data.IpAddress = _terminals.IpAddress;
             _data.Card = decimal.Parse(tCashCard_Card.Text);
             _data.Cash = _data.Total - _data.Card;
             _data.IncomingSum = decimal.Parse(tCashCard_Cash.Text);
 
-            if ((_data.IncomingSum + _data.Card) < _data.Total)
+            string warning = (_data.Card == 0) ? "Kart məbləğ '0' olabilməz !"
+                : (_data.Card > _data.Total) ? "Ödənilən kart məbləği yekun məbləğdən böyük olabilməz !"
+                : (_data.IncomingSum == 0) ? "Nağd məbləğ '0' olabilməz !"
+                : (_data.IncomingSum + _data.Card < _data.Total) ? "Ödənilən məbləğ yekun məbləğdən kiçik olabilməz !"
+                : null;
+
+            if (warning != null)
             {
-                NotificationHelpers.Messages.WarningMessage(this, "Ödənilən məbləğ yekun məbləğdən kiçik olabilməz !", nameof(Enums.MessageTitle.Xəbərdarlıq));
-                return;
-            }
-            else if (_data.Card >= _data.Total)
-            {
-                NotificationHelpers.Messages.WarningMessage(this, "Ödənilən kart məbləği yekun məbləğdən böyük olabilməz !", nameof(Enums.MessageTitle.Xəbərdarlıq));
-                return;
-            }
-            else if (_data.IncomingSum is 0)
-            {
-                NotificationHelpers.Messages.WarningMessage(this, "Nağd məbləğ '0' olabilməz !", nameof(Enums.MessageTitle.Xəbərdarlıq));
-                return;
-            }
-            else if (_data.Card is 0)
-            {
-                NotificationHelpers.Messages.WarningMessage(this, "Kart məbləğ '0' olabilməz !", nameof(Enums.MessageTitle.Xəbərdarlıq));
+                NotificationHelpers.Messages.WarningMessage(this, warning, nameof(Helpers.Enums.MessageTitle.Xəbərdarlıq));
                 return;
             }
 
-            if (_terminals != null)
+
+            if (TerminalCacheService.Terminal != null)
             {
-                KassaOperator kassa = (KassaOperator)Enum.Parse(typeof(KassaOperator), _terminals.Name);
+               var kassa = (Helpers.Enums.Terminal)Enum.Parse(typeof(Helpers.Enums.Terminal), TerminalCacheService.Terminal.Name);
                 switch (kassa)
                 {
-                    case KassaOperator.CASPOS:
+                    case Helpers.Enums.Terminal.Caspos:
                         //if (NKA.Sunmi.Sale(_data))
                         //    DialogResult = DialogResult.OK;
                         break;
-                    case KassaOperator.OMNITECH:
-                        //if (NKA.Omnitech.Sale(_data))
-                        //    DialogResult = DialogResult.OK;
+                    case Helpers.Enums.Terminal.Omnitech:
+                        OmnnitechTerminal omnitech = new OmnnitechTerminal(TerminalCacheService.Terminal.IpAddress);
+
+                        var result = await omnitech.Sale(_data);
+                        fPosSales _form = Application.OpenForms.OfType<fPosSales>().FirstOrDefault();
+                        if (result.Success)
+                            NotificationHelpers.Messages.SuccessMessage(_form, result.Message);
+                        else
+                            NotificationHelpers.Messages.ErrorMessage(_form, result.Message);
+                        DialogResult = DialogResult.OK;
                         break;
-                    case KassaOperator.AZSMART:
+                    case Helpers.Enums.Terminal.AzSmart:
                         //if (NKA.AzSmart.Sale(_data))
                         //    DialogResult = DialogResult.OK;
                         break;
-                    case KassaOperator.NBA:
+                    case Helpers.Enums.Terminal.Nba:
                         break;
-                    case KassaOperator.DATAPAY:
+                    case Helpers.Enums.Terminal.DataPay:
                         break;
-                    case KassaOperator.ONECLICK:
+                    case Helpers.Enums.Terminal.OneClick:
                         break;
                 }
             }
@@ -249,7 +253,7 @@ namespace Barcode_Sales.Forms
             double cashTotal = total - card;
             if (cashTotal < 0)
             {
-                NotificationHelpers.Messages.WarningMessage(this, "Kart məbləği yekun məbləğdən böyük olabilməz !", nameof(Enums.MessageTitle.Xəbərdarlıq));
+                NotificationHelpers.Messages.WarningMessage(this, "Kart məbləği yekun məbləğdən böyük olabilməz !", nameof(Helpers.Enums.MessageTitle.Xəbərdarlıq));
                 return;
             }
             if (cash >= cashTotal)

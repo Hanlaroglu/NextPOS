@@ -58,7 +58,7 @@ namespace Barcode_Sales.Forms
             {
                 SupplierDataLoad();
                 controlFooterButton1.CancelVisible = false;
-                controlFooterButton1.SaveButtonText = Enums.GetEnumDescription(Enums.Operation.Pay);
+                controlFooterButton1.SaveButtonText = EnumExtensions.GetEnumDescription(Enums.Operation.Pay);
                 controlFooterButton1.SaveButtonImage = Enums.Operation.Pay;
             }
         }

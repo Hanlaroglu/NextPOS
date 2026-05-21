@@ -28,7 +28,8 @@ namespace Barcode_Sales.Forms
 
         private void wizardControl1_CancelClick(object sender, CancelEventArgs e)
         {
-            if (CommonMessageBox.QuestionDialogResult("Çıxış etmək istədiyinizə əminsiniz ?", "Mesaj"))
+            var args = NotificationHelpers.Dialogs.DialogResultYesNo("Çıxış etmək istədiyinizə əminsiniz ?");
+            if (XtraMessageBox.Show(args) is DialogResult.Yes)
             {
                 Application.Exit();
             }

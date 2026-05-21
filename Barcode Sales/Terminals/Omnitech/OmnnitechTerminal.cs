@@ -1,52 +1,373 @@
-﻿using Barcode_Sales.Terminals.DTOs;
+﻿using Barcode_Sales.Operations.Abstract;
+using Barcode_Sales.Operations.Concrete;
+using Barcode_Sales.Services.CacheServices;
+using Barcode_Sales.Terminals.DTOs;
+using Barcode_Sales.Terminals.Omnitech.Models;
 using Barcode_Sales.Terminals.Omnitech.Requests;
 using Barcode_Sales.Terminals.Omnitech.Responses;
+using Barcode_Sales.Terminals.Services;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace Barcode_Sales.Terminals.Omnitech
 {
-    public class OmnnitechTerminal : IBaseTerminal
+    public class OmnnitechTerminal : IBaseTerminalService
     {
-        public string Login(string IpAddress)
+        private string _accessToken;
+        private readonly string _ipAddress;
+        IPosSaleOperation posSaleOperation = new PosSaleManager();
+        IPosSaleItemOperation posSaleItemOperation = new PosSaleItemManager();
+
+        private TerminalResult RefreshToken()
+        {
+            if (string.IsNullOrWhiteSpace(_accessToken))
+                return Login();
+
+            return TerminalResult.Ok();
+        }
+
+        private bool IsTokenExpired(TerminalResult result)
+        {
+            return result.Code == 401;
+        }
+
+        public OmnnitechTerminal(string ipAddress)
+        {
+            _ipAddress = ipAddress;
+        }
+
+        public TerminalResult Login()
         {
             var login = new LoginRequest();
 
             var request = BaseRequest<LoginRequest>.Create(login);
 
-            var response = TerminalHttpHelper.Post<
-                BaseRequest<LoginRequest>,
-                LoginResponse>(IpAddress, request);
+            var result = TerminalHttpHelper.Post<BaseRequest<LoginRequest>, LoginResponse>(_ipAddress, request);
 
-            return response.access_token;
+            if (!result.Success)
+                return result;
+
+            var response = result.GetData<LoginResponse>();
+
+            if (string.IsNullOrWhiteSpace(response?.access_token))
+                return TerminalResult.Fail(response.message, response);
+
+            _accessToken = response.access_token;
+            return TerminalResult.Ok(response.message, response);
         }
 
-        public bool OpenShift(ShiftDto item)
+        public TerminalResult OpenShift()
         {
-            throw new System.NotImplementedException();
+            var data = new OpenShiftRequest { access_token = _accessToken };
+
+            var request = BaseRequest<OpenShiftRequest>.Create(data);
+
+            var result = TerminalHttpHelper.Post<BaseRequest<OpenShiftRequest>, OpenShiftResponse>(_ipAddress, request);
+
+            if (!result.Success)
+                return result;
+
+            if (!result.Success && IsTokenExpired(result))
+                return TerminalResult.Fail(result.Message, result);
+
+            var response = result.GetData<OpenShiftResponse>();
+
+            if (response.message == "Successful operation")
+                return TerminalResult.Ok("Növbə uğurla açıldı");
+
+            return TerminalResult.Fail($"Növbə açma zamanı xəta yarandı.\n{response.message}");
         }
 
-        public void GetShiftStatus(ShiftDto item)
+        public TerminalResult GetShiftStatus()
         {
-            throw new System.NotImplementedException();
+            var tokenResult = RefreshToken();
+            if (!tokenResult.Success)
+                return tokenResult;
+
+            var data = new ShiftStatusRequest { access_token = _accessToken };
+
+            var request = BaseRequest<ShiftStatusRequest>.Create(data);
+
+            var result = TerminalHttpHelper.Post<BaseRequest<ShiftStatusRequest>, ShiftStatusResponse>(_ipAddress, request);
+
+            if (!result.Success && IsTokenExpired(result))
+            {
+                _accessToken = null;
+                var retryLogin = Login();
+                if (!retryLogin.Success)
+                    return TerminalResult.Fail("Yeni token əldə etmək uğursuz oldu", result);
+
+                GetShiftStatus();
+            }
+
+            if (!result.Success)
+                return result;
+
+            var response = result.GetData<ShiftStatusResponse>();
+            if (response.ShiftStatus)
+            {
+                string openTime = response.ShiftOpenTime.Value.ToString("dd.MM.yyyy HH:mm:ss");
+                return TerminalResult.Ok($"Növbə artıq açıqdır: {openTime}");
+            }
+
+            return OpenShift();
         }
 
-        public bool CloseShift(ShiftDto item)
+        public TerminalResult XReport()
         {
-            throw new System.NotImplementedException();
+            var tokenResult = RefreshToken();
+            if (!tokenResult.Success)
+                return tokenResult;
+
+            var data = new XReportRequest() { access_token = _accessToken };
+
+            var request = BaseRequest<XReportRequest>.Create(data);
+
+            var result = TerminalHttpHelper.Post<BaseRequest<XReportRequest>, XReportResponse>(_ipAddress, request);
+
+            if (!result.Success && IsTokenExpired(result))
+            {
+                _accessToken = null;
+                var retryLogin = Login();
+                if (!retryLogin.Success)
+                    return TerminalResult.Fail("Yeni token əldə etmək uğursuz oldu", result);
+
+                XReport();
+            }
+
+            if (!result.Success)
+                return result;
+
+            var response = result.GetData<XReportResponse>();
+
+            if (response.message == "Successful operation")
+                return TerminalResult.Ok("X - Hesabat uğurla çap edildi");
+
+            return TerminalResult.Fail($"X - Hesabatı çıxarılarkən xəta yarandı.\n{response.message}");
         }
 
-        public bool Deposit()
+        public TerminalResult CloseShift()
         {
-            throw new System.NotImplementedException();
+            var tokenResult = RefreshToken();
+            if (!tokenResult.Success)
+                return tokenResult;
+
+            var data = new CloseShiftRequest() { access_token = _accessToken };
+
+            var request = BaseRequest<CloseShiftRequest>.Create(data);
+
+            var result = TerminalHttpHelper.Post<BaseRequest<CloseShiftRequest>, CloseShiftResponse>(_ipAddress, request);
+
+            if (!result.Success && IsTokenExpired(result))
+            {
+                _accessToken = null;
+                var retryLogin = Login();
+                if (!retryLogin.Success)
+                    return TerminalResult.Fail("Yeni token əldə etmək uğursuz oldu", result);
+
+                CloseShift();
+            }
+
+            if (!result.Success)
+                return result;
+
+            var response = result.GetData<CloseShiftResponse>();
+            if (response.IsSuccess)
+                return TerminalResult.Ok("Günsonu (Z) hesabatı uğurla çıxarıldı", response);
+
+            return TerminalResult.Fail(response.message, response);
         }
 
-        public bool Withdraw()
+        public TerminalResult Deposit(decimal amount)
         {
-            throw new System.NotImplementedException();
+            var ensure = RefreshToken();
+            if (!ensure.Success)
+                return ensure;
+
+            var data = new DepositRequest
+            {
+                AccessToken = _accessToken,
+                tokenData = new TokenData
+                {
+                    parameters = new Parameters
+                    {
+                        data = new CashOperationData { cashSum = amount }
+                    }
+                }
+            };
+
+            var request = BaseRequest<DepositRequest>.Create(data);
+            var result = TerminalHttpHelper.Post<BaseRequest<DepositRequest>, DepositResponse>(_ipAddress, request);
+
+            if (!result.Success && IsTokenExpired(result))
+            {
+                _accessToken = null;
+                var retryLogin = Login();
+                if (!retryLogin.Success)
+                    return TerminalResult.Fail("Yeni token əldə etmək uğursuz oldu");
+
+                return Deposit(amount);
+            }
+
+            if (!result.Success)
+                return result;
+
+            var response = result.GetData<DepositResponse>();
+            if (response.IsSuccess)
+                return TerminalResult.Ok($"{amount} AZN uğurla mədaxil edildi", response);
+
+            return TerminalResult.Fail(response.message, response);
         }
 
-        public bool Sale()
+        public TerminalResult Withdraw(decimal amount)
         {
-            throw new System.NotImplementedException();
+            var ensure = RefreshToken();
+            if (!ensure.Success)
+                return ensure;
+
+            var data = new WithdrawRequest
+            {
+                access_token = _accessToken,
+                tokenData = new TokenData
+                {
+                    parameters = new Parameters
+                    {
+                        data = new CashOperationData { cashSum = amount }
+                    }
+                }
+            };
+
+            var request = BaseRequest<WithdrawRequest>.Create(data);
+            var result = TerminalHttpHelper.Post<BaseRequest<WithdrawRequest>, WithdrawResponse>(_ipAddress, request);
+
+            if (!result.Success && IsTokenExpired(result))
+            {
+                _accessToken = null;
+                var retryLogin = Login();
+                if (!retryLogin.Success)
+                    return TerminalResult.Fail("Yeni token əldə etmək uğursuz oldu");
+
+                return Withdraw(amount);
+            }
+
+            if (!result.Success)
+                return result;
+
+            var response = result.GetData<WithdrawResponse>();
+            if (response.IsSuccess)
+                return TerminalResult.Ok($"{amount} AZN uğurla məxaric edildi", response);
+
+            return TerminalResult.Fail(response.message, response);
+        }
+
+        public async Task<TerminalResult> Sale(PosSaleDto item)
+        {
+            var ensure = RefreshToken();
+            if (!ensure.Success)
+                return ensure;
+
+            var saleData = new Models.SaleData
+            {
+                Cashier = item.Cashier,
+                Sum = item.Total,
+                CashSum = item.Cash,
+                CashlessSum = item.Card,
+                IncomingSum = item.IncomingSum,
+                PrepaymentSum = 0, /*item.PrepaymentSum,*/
+                CreditSum = 0, /*item.CreditSum,*/
+                BonusSum = item.Bonus,
+                Items = item.Items.Select(i => new SaleItem
+                {
+                    ItemName = i.ProductName,
+                    ItemCode = i.Barcode,
+                    ItemCodeType = 0,
+                    ItemQuantity = i.Quantity,
+                    ItemQuantityType = i.UnitId,
+                    ItemPrice = i.SalePrice,
+                    ItemSum = i.Total,
+                    ItemVatPercent = i.TaxPercent,
+                    Discount = i.Discount
+                }).ToList(),
+                VatAmounts = item.Items
+                    .GroupBy(x => x.TaxPercent)
+                    .Select(g => new VatAmount
+                    {
+                        VatPercent = g.Key,
+                        VatSum = g.Sum(x => x.Total)
+                    }).ToList()
+            };
+
+            var data = new SaleRequest
+            {
+                AccessToken = _accessToken,
+                TokenData = new TokenData
+                {
+                    operationId = "createDocument",
+                    version = 1,
+                    parameters = new Parameters
+                    {
+                        DocType = "sale",
+                        data = saleData
+                    }
+                }
+            };
+
+            var request = BaseRequest<SaleRequest>.Create(data);
+            var result = TerminalHttpHelper.Post<BaseRequest<SaleRequest>, SaleResponse>(_ipAddress, request);
+
+            if (!result.Success && IsTokenExpired(result))
+            {
+                _accessToken = null;
+                var retryLogin = Login();
+                if (!retryLogin.Success)
+                    return TerminalResult.Fail("Yeni token əldə etmək uğursuz oldu");
+
+                return await Sale(item);
+            }
+
+            if (!result.Success)
+                return result;
+
+            var response = result.GetData<SaleResponse>();
+            if (response.IsSuccess)
+            {
+                int SaleId = await posSaleOperation.Add(new PosSale
+                {
+                    UserId = UserCacheService.User.Id,
+                    ReceiptNo = response.DocumentNumber,
+                    LongFiscalId = response.LongId,
+                    ShortFiscalId = response.ShortId,
+                    Rrn = string.IsNullOrWhiteSpace(item.Rrn) ? response.Rrn : item.Rrn,
+                    SaleDate = DatetimeService.CurrentDateTime,
+                    SaleDatetime = DatetimeService.CurrentDateTime,
+                    Total = item.Total,
+                    Cash = item.Cash,
+                    Card = item.Card,
+                    IncomingSum = item.IncomingSum,
+                    CustomerId = item.Customer?.Id,
+                    Note = item.Note,
+                });
+
+                if (SaleId != -1)
+                {
+                    List<PosSaleItem> dataDetails = new List<PosSaleItem>();
+
+                    dataDetails.AddRange(item.Items.Select(x => new PosSaleItem
+                    {
+                        PosSaleId = SaleId,
+                        ProductId = x.Id,
+                        Quantity = x.Quantity,
+                        SalePrice = x.SalePrice,
+                        Discount = x.Discount
+                    }));
+
+                    await posSaleItemOperation.Add(dataDetails);
+                }
+                return TerminalResult.Ok("Satış uğurla tamamlandı");
+            }
+
+            return TerminalResult.Fail("Satış uğursuz oldu");
         }
 
         public bool Rollback()

@@ -2,6 +2,6 @@
 {
     public class UserCacheService
     {
-        public static User User;
+        public static User User { get; set; }
     }
 }

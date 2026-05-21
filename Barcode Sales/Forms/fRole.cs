@@ -26,7 +26,7 @@ namespace Barcode_Sales.Forms
             {
                 RoleDataLoad();
                 tRoleName.ReadOnly = true;
-                userSaveFooter1.SaveButtonText = Enums.GetEnumDescription(Operation);
+                userSaveFooter1.SaveButtonText = EnumExtensions.GetEnumDescription(Operation);
             }
         }
 
