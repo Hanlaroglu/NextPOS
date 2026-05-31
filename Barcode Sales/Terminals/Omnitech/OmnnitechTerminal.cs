@@ -338,7 +338,7 @@ namespace Barcode_Sales.Terminals.Omnitech
                     ReceiptNo = response.DocumentNumber,
                     LongFiscalId = response.LongId,
                     ShortFiscalId = response.ShortId,
-                    Rrn = string.IsNullOrWhiteSpace(item.Rrn) ? response.Rrn : item.Rrn,
+                    BankRrn = string.IsNullOrWhiteSpace(item.Rrn) ? response.Rrn : item.Rrn,
                     SaleDate = DatetimeService.CurrentDateTime,
                     SaleDatetime = DatetimeService.CurrentDateTime,
                     Total = item.Total,

@@ -395,6 +395,7 @@
             this.bSearch.Size = new System.Drawing.Size(138, 32);
             this.bSearch.TabIndex = 2;
             this.bSearch.Text = "Axtar";
+            this.bSearch.Click += new System.EventHandler(this.bSearch_Click);
             // 
             // fStockReport
             // 

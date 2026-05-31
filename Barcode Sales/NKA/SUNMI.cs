@@ -307,7 +307,7 @@ namespace Barcode_Sales.NKA
                         ReceiptNo = responseData.data.number,
                         LongFiscalId = responseData.data.document_id,
                         ShortFiscalId = responseData.data.short_document_id,
-                        Rrn = string.IsNullOrWhiteSpace(data.RRN) ? responseData.data.rrn : data.RRN,
+                        BankRrn = string.IsNullOrWhiteSpace(data.RRN) ? responseData.data.rrn : data.RRN,
                         SaleDate = DatetimeService.CurrentDateTime,
                         SaleDatetime = DatetimeService.CurrentDateTime,
                         Total = data.Total,

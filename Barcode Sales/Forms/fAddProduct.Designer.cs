@@ -127,7 +127,6 @@ namespace Barcode_Sales.Forms
             this.colCategory = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colProductName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colBarcode = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colCode = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colUnit = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colAmount = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTax = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -135,7 +134,6 @@ namespace Barcode_Sales.Forms
             this.colSalesPrice = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDelete = new DevExpress.XtraGrid.Columns.GridColumn();
             this.bProductDelete = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
-            this.colImage = new DevExpress.XtraGrid.Columns.GridColumn();
             this.tabPane3 = new DevExpress.XtraBars.Navigation.TabPane();
             this.tabNavigationPage1 = new DevExpress.XtraBars.Navigation.TabNavigationPage();
             this.tablePanel2 = new DevExpress.Utils.Layout.TablePanel();
@@ -241,14 +239,12 @@ namespace Barcode_Sales.Forms
             this.colCategory,
             this.colProductName,
             this.colBarcode,
-            this.colCode,
             this.colUnit,
             this.colAmount,
             this.colTax,
             this.colPurchasePrice,
             this.colSalesPrice,
-            this.colDelete,
-            this.colImage});
+            this.colDelete});
             this.gridProducts.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFullFocus;
             this.gridProducts.GridControl = this.gridControlProducts;
             this.gridProducts.Name = "gridProducts";
@@ -286,7 +282,9 @@ namespace Barcode_Sales.Forms
             this.colCategory.FieldName = "Category";
             this.colCategory.Name = "colCategory";
             this.colCategory.OptionsColumn.AllowEdit = false;
-            this.colCategory.Width = 275;
+            this.colCategory.Visible = true;
+            this.colCategory.VisibleIndex = 0;
+            this.colCategory.Width = 207;
             // 
             // colProductName
             // 
@@ -299,8 +297,8 @@ namespace Barcode_Sales.Forms
             this.colProductName.Name = "colProductName";
             this.colProductName.OptionsColumn.AllowEdit = false;
             this.colProductName.Visible = true;
-            this.colProductName.VisibleIndex = 0;
-            this.colProductName.Width = 243;
+            this.colProductName.VisibleIndex = 1;
+            this.colProductName.Width = 196;
             // 
             // colBarcode
             // 
@@ -314,20 +312,8 @@ namespace Barcode_Sales.Forms
             this.colBarcode.Name = "colBarcode";
             this.colBarcode.OptionsColumn.AllowEdit = false;
             this.colBarcode.Visible = true;
-            this.colBarcode.VisibleIndex = 1;
-            this.colBarcode.Width = 123;
-            // 
-            // colCode
-            // 
-            this.colCode.AppearanceCell.Font = new System.Drawing.Font("Nunito", 10F);
-            this.colCode.AppearanceCell.Options.UseFont = true;
-            this.colCode.AppearanceHeader.Options.UseTextOptions = true;
-            this.colCode.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.colCode.Caption = "Məhsul kodu";
-            this.colCode.FieldName = "ProductCode";
-            this.colCode.Name = "colCode";
-            this.colCode.OptionsColumn.AllowEdit = false;
-            this.colCode.Width = 138;
+            this.colBarcode.VisibleIndex = 2;
+            this.colBarcode.Width = 145;
             // 
             // colUnit
             // 
@@ -342,8 +328,8 @@ namespace Barcode_Sales.Forms
             this.colUnit.Name = "colUnit";
             this.colUnit.OptionsColumn.AllowEdit = false;
             this.colUnit.Visible = true;
-            this.colUnit.VisibleIndex = 2;
-            this.colUnit.Width = 99;
+            this.colUnit.VisibleIndex = 3;
+            this.colUnit.Width = 68;
             // 
             // colAmount
             // 
@@ -368,8 +354,8 @@ namespace Barcode_Sales.Forms
             this.colTax.Name = "colTax";
             this.colTax.OptionsColumn.AllowEdit = false;
             this.colTax.Visible = true;
-            this.colTax.VisibleIndex = 3;
-            this.colTax.Width = 104;
+            this.colTax.VisibleIndex = 4;
+            this.colTax.Width = 78;
             // 
             // colPurchasePrice
             // 
@@ -386,8 +372,8 @@ namespace Barcode_Sales.Forms
             this.colPurchasePrice.Name = "colPurchasePrice";
             this.colPurchasePrice.OptionsColumn.AllowEdit = false;
             this.colPurchasePrice.Visible = true;
-            this.colPurchasePrice.VisibleIndex = 4;
-            this.colPurchasePrice.Width = 113;
+            this.colPurchasePrice.VisibleIndex = 5;
+            this.colPurchasePrice.Width = 73;
             // 
             // colSalesPrice
             // 
@@ -404,8 +390,8 @@ namespace Barcode_Sales.Forms
             this.colSalesPrice.Name = "colSalesPrice";
             this.colSalesPrice.OptionsColumn.AllowEdit = false;
             this.colSalesPrice.Visible = true;
-            this.colSalesPrice.VisibleIndex = 5;
-            this.colSalesPrice.Width = 126;
+            this.colSalesPrice.VisibleIndex = 6;
+            this.colSalesPrice.Width = 94;
             // 
             // colDelete
             // 
@@ -425,7 +411,7 @@ namespace Barcode_Sales.Forms
             this.colDelete.OptionsFilter.AllowAutoFilter = false;
             this.colDelete.OptionsFilter.AllowFilter = false;
             this.colDelete.Visible = true;
-            this.colDelete.VisibleIndex = 6;
+            this.colDelete.VisibleIndex = 7;
             this.colDelete.Width = 50;
             // 
             // bProductDelete
@@ -438,14 +424,6 @@ namespace Barcode_Sales.Forms
             this.bProductDelete.Name = "bProductDelete";
             this.bProductDelete.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.bProductDelete.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.bProductDelete_ButtonClick);
-            // 
-            // colImage
-            // 
-            this.colImage.AppearanceCell.Font = new System.Drawing.Font("Nunito", 10F);
-            this.colImage.AppearanceCell.Options.UseFont = true;
-            this.colImage.Caption = "Imge";
-            this.colImage.FieldName = "Imagebyte";
-            this.colImage.Name = "colImage";
             // 
             // tabPane3
             // 
@@ -520,7 +498,7 @@ namespace Barcode_Sales.Forms
             // 
             this.lookCategory.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.lookCategory.Location = new System.Drawing.Point(5, 48);
+            this.lookCategory.Location = new System.Drawing.Point(5, 6);
             this.lookCategory.Name = "lookCategory";
             this.lookCategory.Properties.AllowFocused = false;
             this.lookCategory.Properties.Appearance.Font = new System.Drawing.Font("Nunito", 12F);
@@ -555,7 +533,7 @@ namespace Barcode_Sales.Forms
             this.lookCategory.Properties.ShowFooter = false;
             this.lookCategory.Properties.ShowHeader = false;
             this.lookCategory.Size = new System.Drawing.Size(434, 36);
-            this.lookCategory.TabIndex = 2;
+            this.lookCategory.TabIndex = 1;
             // 
             // tQuantity
             // 
@@ -577,17 +555,16 @@ namespace Barcode_Sales.Forms
             this.tQuantity.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "İlkin stok : ", -1, false, true, true, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.tQuantity.Properties.Mask.UseMaskAsDisplayFormat = true;
-            this.tQuantity.Size = new System.Drawing.Size(434, 36);
             this.tQuantity.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
             this.tQuantity.Properties.MaskSettings.Set("mask", "f0");
-            this.tQuantity.Properties.UseMaskAsDisplayFormat = true;
-            this.tQuantity.TabIndex = 5;
+            this.tQuantity.Size = new System.Drawing.Size(434, 36);
+            this.tQuantity.TabIndex = 4;
             // 
             // tProductName
             // 
             this.tProductName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tProductName.Location = new System.Drawing.Point(5, 6);
+            this.tProductName.Location = new System.Drawing.Point(5, 48);
             this.tProductName.Name = "tProductName";
             this.tProductName.Properties.Appearance.Font = new System.Drawing.Font("Nunito", 12F);
             this.tProductName.Properties.Appearance.Options.UseFont = true;
@@ -607,7 +584,7 @@ namespace Barcode_Sales.Forms
             this.tProductName.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.tProductName.Properties.MaskSettings.Set("mask", "(999) 000-00-00");
             this.tProductName.Size = new System.Drawing.Size(434, 36);
-            this.tProductName.TabIndex = 1;
+            this.tProductName.TabIndex = 2;
             // 
             // tBarcode
             // 
@@ -684,7 +661,7 @@ namespace Barcode_Sales.Forms
             this.tPurchasePrice.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
             this.tPurchasePrice.Properties.MaskSettings.Set("mask", "F2");
             this.tPurchasePrice.Size = new System.Drawing.Size(447, 36);
-            this.tPurchasePrice.TabIndex = 4;
+            this.tPurchasePrice.TabIndex = 5;
             // 
             // tSalePrice
             // 
@@ -720,7 +697,7 @@ namespace Barcode_Sales.Forms
             this.tSalePrice.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
             this.tSalePrice.Properties.MaskSettings.Set("mask", "F2");
             this.tSalePrice.Size = new System.Drawing.Size(447, 36);
-            this.tSalePrice.TabIndex = 5;
+            this.tSalePrice.TabIndex = 6;
             // 
             // lookTax
             // 
@@ -762,7 +739,7 @@ namespace Barcode_Sales.Forms
             this.lookTax.Properties.ShowFooter = false;
             this.lookTax.Properties.ShowHeader = false;
             this.lookTax.Size = new System.Drawing.Size(447, 36);
-            this.lookTax.TabIndex = 7;
+            this.lookTax.TabIndex = 8;
             // 
             // lookUnit
             // 
@@ -803,7 +780,7 @@ namespace Barcode_Sales.Forms
             this.lookUnit.Properties.ShowFooter = false;
             this.lookUnit.Properties.ShowHeader = false;
             this.lookUnit.Size = new System.Drawing.Size(447, 36);
-            this.lookUnit.TabIndex = 6;
+            this.lookUnit.TabIndex = 7;
             this.lookUnit.TextChanged += new System.EventHandler(this.lookUnit_TextChanged);
             // 
             // tabNavigationPage2
@@ -831,7 +808,6 @@ namespace Barcode_Sales.Forms
             // 
             this.chApplyDiscount.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.chApplyDiscount.EditValue = true;
             this.chApplyDiscount.Location = new System.Drawing.Point(5, 112);
             this.chApplyDiscount.Name = "chApplyDiscount";
             this.chApplyDiscount.Properties.Appearance.Font = new System.Drawing.Font("Nunito", 12F);
@@ -845,7 +821,6 @@ namespace Barcode_Sales.Forms
             // 
             this.chSellWithoutStock.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.chSellWithoutStock.EditValue = true;
             this.chSellWithoutStock.Location = new System.Drawing.Point(5, 80);
             this.chSellWithoutStock.Name = "chSellWithoutStock";
             this.chSellWithoutStock.Properties.Appearance.Font = new System.Drawing.Font("Nunito", 12F);
@@ -859,7 +834,6 @@ namespace Barcode_Sales.Forms
             // 
             this.chEditSalePrice.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.chEditSalePrice.EditValue = true;
             this.chEditSalePrice.Location = new System.Drawing.Point(5, 48);
             this.chEditSalePrice.Name = "chEditSalePrice";
             this.chEditSalePrice.Properties.Appearance.Font = new System.Drawing.Font("Nunito", 12F);
@@ -1152,7 +1126,6 @@ namespace Barcode_Sales.Forms
         private DevExpress.XtraEditors.LookUpEdit lookUnit;
         private DevExpress.XtraGrid.Columns.GridColumn colCategory;
         private DevExpress.XtraGrid.Columns.GridColumn colProductName;
-        private DevExpress.XtraGrid.Columns.GridColumn colCode;
         private DevExpress.XtraGrid.Columns.GridColumn colBarcode;
         private DevExpress.XtraGrid.Columns.GridColumn colUnit;
         private DevExpress.XtraGrid.Columns.GridColumn colTax;
@@ -1162,7 +1135,6 @@ namespace Barcode_Sales.Forms
         private DevExpress.XtraGrid.Columns.GridColumn colPurchasePrice;
         private DevExpress.XtraGrid.Columns.GridColumn colSalesPrice;
         private DevExpress.XtraGrid.Columns.GridColumn colAmount;
-        private DevExpress.XtraGrid.Columns.GridColumn colImage;
         private DevExpress.XtraEditors.SimpleButton bAddProduct;
         private DevExpress.XtraEditors.SimpleButton bClear;
         private DevExpress.XtraBars.Navigation.TabPane tabPane3;

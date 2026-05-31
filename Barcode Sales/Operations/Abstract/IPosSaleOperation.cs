@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using Barcode_Sales.DTOs;
 using static Barcode_Sales.DTOs.DashboardUIDto;
 
@@ -11,5 +12,6 @@ namespace Barcode_Sales.Operations.Abstract
         Task<string> CurrentSalesCountAsync();
         Task<PaymentTypeTotal> CurrentPaymentTypeDataAsync();
         Task<TopSellingProductDto> TopSellingProducts();
+        Task<List<PosSaleSummaryDto>> PosSaleSummaryAsync(string filter);
     }
 }

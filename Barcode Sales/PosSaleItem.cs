@@ -9,9 +9,7 @@
 
 namespace Barcode_Sales
 {
-    using System;
-    using System.Collections.Generic;
-    
+
     public partial class PosSaleItem
     {
         public int Id { get; set; }
@@ -21,7 +19,7 @@ namespace Barcode_Sales
         public decimal SalePrice { get; set; }
         public decimal Discount { get; set; }
     
-        public virtual PosSale PosSale { get; set; }
         public virtual Products Product { get; set; }
+        public virtual PosSale PosSale { get; set; }
     }
 }

@@ -41,6 +41,7 @@ namespace Barcode_Sales
         public bool CanEditSalePrice { get; set; }
         public bool CanSellWithoutStock { get; set; }
         public bool CanApplyDiscount { get; set; }
+        public bool CanHotSaleProduct { get; set; }
     
         public virtual TaxType TaxTypes { get; set; }
         public virtual UnitType UnitTypes { get; set; }

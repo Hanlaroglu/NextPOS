@@ -31,7 +31,7 @@ namespace Barcode_Sales.Forms
         {
             if (TerminalCacheService.Terminal != null)
             {
-                fPriceChange f = new fPriceChange(new Helpers.Classes.SaleClasses.PosChangeType
+                fPriceChange f = new fPriceChange(new DTOs.PosChangeType
                 {
                     ChangeType = Enums.PosChangeType.Deposit,
                 });
@@ -75,7 +75,7 @@ namespace Barcode_Sales.Forms
         {
             if (TerminalCacheService.Terminal != null)
             {
-                fPriceChange f = new fPriceChange(new Helpers.Classes.SaleClasses.PosChangeType
+                fPriceChange f = new fPriceChange(new DTOs.PosChangeType
                 {
                     ChangeType = PosChangeType.Withdraw,
                 });

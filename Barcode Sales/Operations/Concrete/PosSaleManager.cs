@@ -150,5 +150,70 @@ AND DATEADD(DAY,1,CAST(GETDATE() AS DATE))")
         {
             throw new NotImplementedException();
         }
+
+        public async Task<List<PosSaleSummaryDto>> PosSaleSummaryAsync(string filter)
+        {
+            string query = $@"
+SELECT 
+	ps.Id,
+	ps.SaleDateTime,
+	u.NameSurname AS Cashier,
+	c.NameSurname AS CustomerName,
+    c.Id AS CustomerId,
+	ps.Total,
+	MAX(ps.Cash) AS Cash,
+	MAX(ps.Card) AS Card,
+	MAX(CASE 
+        WHEN ps.Cash = 0 AND ps.Card > 0 THEN N'KART'
+        WHEN ps.Cash > 0 AND ps.Card = 0 THEN N'NAĞD'
+        WHEN ps.Cash > 0 AND ps.Card > 0 THEN N'NAĞD-KART'
+        ELSE NULL
+    END) AS PaymentType,
+    ps.ReceiptNo,
+    ps.ShortFiscalId,
+    ps.LongFiscalId,
+    ps.BankRrn,
+    ps.BankTransactionID,
+    COUNT(*) AS RemainingItemCount
+FROM 
+    PosSales ps
+INNER JOIN 
+    PosSaleItems psi ON psi.PosSaleId = ps.Id
+LEFT JOIN 
+    PosRefunds pr ON pr.PosSaleId = ps.Id
+INNER JOIN
+	Users u ON u.Id = ps.UserId
+LEFT JOIN
+	Customers c ON c.Id = ps.CustomerId
+LEFT JOIN 
+    PosRefundItems pri ON pri.PosRefundId = pr.Id AND pri.ProductId = psi.ProductId
+WHERE 
+    pri.ProductId IS NULL
+    AND EXISTS (
+        SELECT 1
+        FROM PosSaleItems psi2
+        LEFT JOIN PosRefunds pr2 ON pr2.PosSaleId = psi2.PosSaleId
+        LEFT JOIN PosRefundItems pri2 ON pri2.PosRefundId = pr2.Id AND pri2.ProductId = psi2.ProductId
+        WHERE psi2.PosSaleId = ps.Id
+        AND pri2.ProductId IS NULL
+    )
+   {filter}
+GROUP BY 
+	ps.Id,
+    ps.ReceiptNo,
+	ps.SaleDateTime,
+	u.NameSurname,
+    c.Id,
+	c.NameSurname,
+	ps.Total,
+    ps.BankRrn,
+	ps.BankTransactionID,
+    ps.ShortFiscalId,
+    ps.LongFiscalId
+HAVING 
+    COUNT(*) > 0";
+
+            return await db.Database.SqlQuery<PosSaleSummaryDto>(query).ToListAsync();
+        }
     }
 }

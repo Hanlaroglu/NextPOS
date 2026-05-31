@@ -147,30 +147,10 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="PosSales">
-      <EntityTypeMapping TypeName="KhanposDbModel.PosSale">
-        <MappingFragment StoreEntitySet="PosSales">
-          <ScalarProperty Name="Note" ColumnName="Note" />
-          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
-          <ScalarProperty Name="Residue" ColumnName="Residue" />
-          <ScalarProperty Name="IncomingSum" ColumnName="IncomingSum" />
-          <ScalarProperty Name="Card" ColumnName="Card" />
-          <ScalarProperty Name="Cash" ColumnName="Cash" />
-          <ScalarProperty Name="Total" ColumnName="Total" />
-          <ScalarProperty Name="Rrn" ColumnName="Rrn" />
-          <ScalarProperty Name="ShortFiscalId" ColumnName="ShortFiscalId" />
-          <ScalarProperty Name="LongFiscalId" ColumnName="LongFiscalId" />
-          <ScalarProperty Name="ReceiptNo" ColumnName="ReceiptNo" />
-          <ScalarProperty Name="SaleDatetime" ColumnName="SaleDatetime" />
-          <ScalarProperty Name="SaleDate" ColumnName="SaleDate" />
-          <ScalarProperty Name="UserId" ColumnName="UserId" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Products">
       <EntityTypeMapping TypeName="KhanposDbModel.Products">
         <MappingFragment StoreEntitySet="Products">
+          <ScalarProperty Name="CanHotSaleProduct" ColumnName="CanHotSaleProduct" />
           <ScalarProperty Name="CanApplyDiscount" ColumnName="CanApplyDiscount" />
           <ScalarProperty Name="CanSellWithoutStock" ColumnName="CanSellWithoutStock" />
           <ScalarProperty Name="CanEditSalePrice" ColumnName="CanEditSalePrice" />
@@ -432,6 +412,30 @@
           <ScalarProperty Name="DateBirth" ColumnName="DateBirth" />
           <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
           <ScalarProperty Name="NameSurname" ColumnName="NameSurname" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PosSales">
+      <EntityTypeMapping TypeName="KhanposDbModel.PosSale">
+        <MappingFragment StoreEntitySet="PosSales">
+          <ScalarProperty Name="BankApprovelCode" ColumnName="BankApprovelCode" />
+          <ScalarProperty Name="BankTransactionNumber" ColumnName="BankTransactionNumber" />
+          <ScalarProperty Name="BankTransactionID" ColumnName="BankTransactionID" />
+          <ScalarProperty Name="BankRrn" ColumnName="BankRrn" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="Residue" ColumnName="Residue" />
+          <ScalarProperty Name="IncomingSum" ColumnName="IncomingSum" />
+          <ScalarProperty Name="Card" ColumnName="Card" />
+          <ScalarProperty Name="Cash" ColumnName="Cash" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+          <ScalarProperty Name="ShortFiscalId" ColumnName="ShortFiscalId" />
+          <ScalarProperty Name="LongFiscalId" ColumnName="LongFiscalId" />
+          <ScalarProperty Name="ReceiptNo" ColumnName="ReceiptNo" />
+          <ScalarProperty Name="SaleDatetime" ColumnName="SaleDatetime" />
+          <ScalarProperty Name="SaleDate" ColumnName="SaleDate" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>

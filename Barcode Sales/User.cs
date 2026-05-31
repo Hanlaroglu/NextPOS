@@ -20,12 +20,12 @@ namespace Barcode_Sales
             this.CustomerGroups = new HashSet<CustomerGroup>();
             this.Logs = new HashSet<Log>();
             this.PosRefunds = new HashSet<PosRefund>();
-            this.PosSales = new HashSet<PosSale>();
             this.Products = new HashSet<Products>();
             this.Terminals = new HashSet<Terminal>();
             this.Invoices = new HashSet<Invoice>();
             this.InvoiceRollbacks = new HashSet<InvoiceRollback>();
             this.Customers = new HashSet<Customer>();
+            this.PosSales = new HashSet<PosSale>();
         }
     
         public int Id { get; set; }
@@ -47,8 +47,6 @@ namespace Barcode_Sales
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PosRefund> PosRefunds { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PosSale> PosSales { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Products> Products { get; set; }
         public virtual Store Store { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
@@ -60,5 +58,7 @@ namespace Barcode_Sales
         public virtual ICollection<InvoiceRollback> InvoiceRollbacks { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Customer> Customers { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<PosSale> PosSales { get; set; }
     }
 }

@@ -197,8 +197,8 @@ namespace Barcode_Sales.Forms
             grid.Barcode = tBarcode.Text.Trim();
             grid.UnitName = lookUnit.Text;
             grid.TaxName = lookTax.Text;
-            grid.PurchasePrice = Decimal.Parse(tPurchasePrice.EditValue.ToString());
-            grid.SalePrice = Decimal.Parse(tSalePrice.EditValue.ToString());
+            grid.PurchasePrice = Convert.ToDecimal(tPurchasePrice.Text);
+            grid.SalePrice = Convert.ToDecimal(tSalePrice.Text);
             dataList.Add(grid);
         }
 
@@ -210,6 +210,7 @@ namespace Barcode_Sales.Forms
             tProductCode.Text = null;
             tPurchasePrice.Text = "0";
             tSalePrice.Text = "0";
+            tQuantity.Text = "0";
             tProductName.Focus();
         }
 

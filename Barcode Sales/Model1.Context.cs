@@ -38,7 +38,6 @@ namespace Barcode_Sales
         public virtual DbSet<UnitType> UnitTypes { get; set; }
         public virtual DbSet<Warehouse> Warehouses { get; set; }
         public virtual DbSet<PosSaleItem> PosSaleItems { get; set; }
-        public virtual DbSet<PosSale> PosSales { get; set; }
         public virtual DbSet<Products> Products { get; set; }
         public virtual DbSet<Company> Companies { get; set; }
         public virtual DbSet<PosRefundItem> PosRefundItems { get; set; }
@@ -55,5 +54,6 @@ namespace Barcode_Sales
         public virtual DbSet<view_InvoiceRollbackList> view_InvoiceRollbackList { get; set; }
         public virtual DbSet<InvoiceRollback> InvoiceRollbacks { get; set; }
         public virtual DbSet<Customer> Customers { get; set; }
+        public virtual DbSet<PosSale> PosSales { get; set; }
     }
 }

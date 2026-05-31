@@ -264,10 +264,12 @@
     <Compile Include="DTOs\CustomerDto.cs" />
     <Compile Include="DTOs\DashboardStatisticsDto.cs" />
     <Compile Include="DTOs\DashboardUIDto.cs" />
+    <Compile Include="DTOs\HotSaleProductDto.cs" />
     <Compile Include="DTOs\InvoiceRollbackDetailDto.cs" />
+    <Compile Include="DTOs\PosChangeType.cs" />
+    <Compile Include="DTOs\PosSaleSummaryDto.cs" />
     <Compile Include="DTOs\ProductDto.cs" />
     <Compile Include="DTOs\ProductInvoiceDto.cs" />
-    <Compile Include="DTOs\SalesDataSummary.cs" />
     <Compile Include="DTOs\StockReportDto.cs" />
     <Compile Include="DTOs\StoresDto.cs" />
     <Compile Include="DTOs\SupplierDto.cs" />
@@ -674,7 +676,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Islemler.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Role.cs">

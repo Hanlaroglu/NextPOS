@@ -7,5 +7,6 @@ namespace Barcode_Sales.Operations.Abstract
     public interface IProductOperation : IBaseOperation<Products>
     {
         Task<List<StockReportDto>> StockReport();
+        Task<List<HotSaleProductDto>> HotSaleProducts();
     }
 }

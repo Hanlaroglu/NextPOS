@@ -29,12 +29,21 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.XtraGrid.GridLevelNode gridLevelNode1 = new DevExpress.XtraGrid.GridLevelNode();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fPosRollback));
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
+            this.gridSaleDetail = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumn8 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn10 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn11 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn12 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn13 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn14 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridControlSalesData = new DevExpress.XtraGrid.GridControl();
             this.gridSalesData = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colId = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -43,6 +52,7 @@
             this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn15 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn7 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.bReturnSale = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
@@ -73,6 +83,7 @@
             this.barBtnReturn = new DevExpress.XtraBars.BarButtonItem();
             this.barBtnCancel = new DevExpress.XtraBars.BarButtonItem();
             this.popupMenu1 = new DevExpress.XtraBars.PopupMenu(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.gridSaleDetail)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlSalesData)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridSalesData)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bReturnSale)).BeginInit();
@@ -99,12 +110,123 @@
             ((System.ComponentModel.ISupportInitialize)(this.popupMenu1)).BeginInit();
             this.SuspendLayout();
             // 
+            // gridSaleDetail
+            // 
+            this.gridSaleDetail.Appearance.EvenRow.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.gridSaleDetail.Appearance.EvenRow.Options.UseBackColor = true;
+            this.gridSaleDetail.Appearance.HeaderPanel.Font = new System.Drawing.Font("Nunito", 11F, System.Drawing.FontStyle.Bold);
+            this.gridSaleDetail.Appearance.HeaderPanel.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.Hyperlink;
+            this.gridSaleDetail.Appearance.HeaderPanel.Options.UseFont = true;
+            this.gridSaleDetail.Appearance.HeaderPanel.Options.UseForeColor = true;
+            this.gridSaleDetail.Appearance.OddRow.BackColor = System.Drawing.Color.White;
+            this.gridSaleDetail.Appearance.OddRow.Options.UseBackColor = true;
+            this.gridSaleDetail.Appearance.Row.Font = new System.Drawing.Font("Nunito", 10F);
+            this.gridSaleDetail.Appearance.Row.Options.UseFont = true;
+            this.gridSaleDetail.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumn8,
+            this.gridColumn9,
+            this.gridColumn10,
+            this.gridColumn11,
+            this.gridColumn12,
+            this.gridColumn13,
+            this.gridColumn14});
+            this.gridSaleDetail.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFullFocus;
+            this.gridSaleDetail.GridControl = this.gridControlSalesData;
+            this.gridSaleDetail.Name = "gridSaleDetail";
+            this.gridSaleDetail.OptionsView.ShowGroupPanel = false;
+            this.gridSaleDetail.OptionsView.ShowIndicator = false;
+            // 
+            // gridColumn8
+            // 
+            this.gridColumn8.Caption = "Id";
+            this.gridColumn8.FieldName = "Id";
+            this.gridColumn8.Name = "gridColumn8";
+            this.gridColumn8.OptionsColumn.AllowEdit = false;
+            this.gridColumn8.OptionsFilter.AllowAutoFilter = false;
+            this.gridColumn8.OptionsFilter.AllowFilter = false;
+            // 
+            // gridColumn9
+            // 
+            this.gridColumn9.Caption = "Barkod";
+            this.gridColumn9.FieldName = "Product.Barcode";
+            this.gridColumn9.Name = "gridColumn9";
+            this.gridColumn9.OptionsColumn.AllowEdit = false;
+            this.gridColumn9.OptionsColumn.AllowFocus = false;
+            this.gridColumn9.OptionsFilter.AllowAutoFilter = false;
+            this.gridColumn9.OptionsFilter.AllowFilter = false;
+            this.gridColumn9.Visible = true;
+            this.gridColumn9.VisibleIndex = 0;
+            // 
+            // gridColumn10
+            // 
+            this.gridColumn10.Caption = "Məhsul adı";
+            this.gridColumn10.FieldName = "Product.ProductName";
+            this.gridColumn10.Name = "gridColumn10";
+            this.gridColumn10.OptionsColumn.AllowEdit = false;
+            this.gridColumn10.OptionsColumn.AllowFocus = false;
+            this.gridColumn10.OptionsFilter.AllowAutoFilter = false;
+            this.gridColumn10.OptionsFilter.AllowFilter = false;
+            this.gridColumn10.Visible = true;
+            this.gridColumn10.VisibleIndex = 1;
+            // 
+            // gridColumn11
+            // 
+            this.gridColumn11.Caption = "Miqdar";
+            this.gridColumn11.FieldName = "Quantity";
+            this.gridColumn11.Name = "gridColumn11";
+            this.gridColumn11.OptionsColumn.AllowEdit = false;
+            this.gridColumn11.OptionsColumn.AllowFocus = false;
+            this.gridColumn11.OptionsFilter.AllowAutoFilter = false;
+            this.gridColumn11.OptionsFilter.AllowFilter = false;
+            this.gridColumn11.Visible = true;
+            this.gridColumn11.VisibleIndex = 2;
+            // 
+            // gridColumn12
+            // 
+            this.gridColumn12.Caption = "Vahid";
+            this.gridColumn12.FieldName = "Product.UnitTypes.Name";
+            this.gridColumn12.Name = "gridColumn12";
+            this.gridColumn12.OptionsColumn.AllowEdit = false;
+            this.gridColumn12.OptionsColumn.AllowFocus = false;
+            this.gridColumn12.OptionsFilter.AllowAutoFilter = false;
+            this.gridColumn12.OptionsFilter.AllowFilter = false;
+            this.gridColumn12.Visible = true;
+            this.gridColumn12.VisibleIndex = 3;
+            // 
+            // gridColumn13
+            // 
+            this.gridColumn13.Caption = "Satış qiyməti";
+            this.gridColumn13.FieldName = "SalePrice";
+            this.gridColumn13.Name = "gridColumn13";
+            this.gridColumn13.OptionsColumn.AllowEdit = false;
+            this.gridColumn13.OptionsColumn.AllowFocus = false;
+            this.gridColumn13.OptionsFilter.AllowAutoFilter = false;
+            this.gridColumn13.OptionsFilter.AllowFilter = false;
+            this.gridColumn13.Visible = true;
+            this.gridColumn13.VisibleIndex = 4;
+            // 
+            // gridColumn14
+            // 
+            this.gridColumn14.Caption = "Ümumi məbləğ";
+            this.gridColumn14.FieldName = "TotalAmount";
+            this.gridColumn14.Name = "gridColumn14";
+            this.gridColumn14.OptionsColumn.AllowEdit = false;
+            this.gridColumn14.OptionsColumn.AllowFocus = false;
+            this.gridColumn14.OptionsFilter.AllowAutoFilter = false;
+            this.gridColumn14.OptionsFilter.AllowFilter = false;
+            this.gridColumn14.Visible = true;
+            this.gridColumn14.VisibleIndex = 5;
+            // 
             // gridControlSalesData
             // 
             this.gridControlSalesData.AllowRestoreSelectionAndFocusedRow = DevExpress.Utils.DefaultBoolean.False;
             this.tablePanel1.SetColumn(this.gridControlSalesData, 0);
             this.gridControlSalesData.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gridControlSalesData.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4);
+            gridLevelNode1.LevelTemplate = this.gridSaleDetail;
+            gridLevelNode1.RelationName = "Detail";
+            this.gridControlSalesData.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
+            gridLevelNode1});
             this.gridControlSalesData.Location = new System.Drawing.Point(2, 218);
             this.gridControlSalesData.LookAndFeel.SkinName = "WXI";
             this.gridControlSalesData.LookAndFeel.UseDefaultLookAndFeel = false;
@@ -117,20 +239,22 @@
             this.gridControlSalesData.Size = new System.Drawing.Size(1362, 599);
             this.gridControlSalesData.TabIndex = 13;
             this.gridControlSalesData.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridSalesData});
+            this.gridSalesData,
+            this.gridSaleDetail});
             // 
             // gridSalesData
             // 
             this.gridSalesData.Appearance.EvenRow.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.gridSalesData.Appearance.EvenRow.Options.UseBackColor = true;
             this.gridSalesData.Appearance.HeaderPanel.Font = new System.Drawing.Font("Nunito", 11F, System.Drawing.FontStyle.Bold);
+            this.gridSalesData.Appearance.HeaderPanel.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.Hyperlink;
             this.gridSalesData.Appearance.HeaderPanel.Options.UseFont = true;
+            this.gridSalesData.Appearance.HeaderPanel.Options.UseForeColor = true;
             this.gridSalesData.Appearance.OddRow.BackColor = System.Drawing.Color.White;
             this.gridSalesData.Appearance.OddRow.Options.UseBackColor = true;
             this.gridSalesData.Appearance.Row.Font = new System.Drawing.Font("Nunito", 10F);
             this.gridSalesData.Appearance.Row.Options.UseFont = true;
             this.gridSalesData.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.gridSalesData.ColumnPanelRowHeight = 40;
             this.gridSalesData.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colId,
             this.gridColumn1,
@@ -138,26 +262,27 @@
             this.gridColumn6,
             this.gridColumn2,
             this.gridColumn3,
+            this.gridColumn15,
             this.gridColumn4,
             this.gridColumn7});
-            this.gridSalesData.DetailHeight = 485;
             this.gridSalesData.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFullFocus;
             this.gridSalesData.GridControl = this.gridControlSalesData;
             this.gridSalesData.Name = "gridSalesData";
             this.gridSalesData.OptionsDetail.ShowDetailTabs = false;
-            this.gridSalesData.OptionsEditForm.PopupEditFormWidth = 1067;
             this.gridSalesData.OptionsMenu.EnableColumnMenu = false;
             this.gridSalesData.OptionsSelection.EnableAppearanceFocusedCell = false;
-            this.gridSalesData.OptionsView.BestFitMode = DevExpress.XtraGrid.Views.Grid.GridBestFitMode.Full;
             this.gridSalesData.OptionsView.ColumnHeaderAutoHeight = DevExpress.Utils.DefaultBoolean.True;
             this.gridSalesData.OptionsView.ShowGroupPanel = false;
-            this.gridSalesData.RowHeight = 40;
+            this.gridSalesData.MasterRowGetChildList += new DevExpress.XtraGrid.Views.Grid.MasterRowGetChildListEventHandler(this.gridSalesData_MasterRowGetChildList);
+            this.gridSalesData.MasterRowGetRelationName += new DevExpress.XtraGrid.Views.Grid.MasterRowGetRelationNameEventHandler(this.gridSalesData_MasterRowGetRelationName);
+            this.gridSalesData.MasterRowGetRelationCount += new DevExpress.XtraGrid.Views.Grid.MasterRowGetRelationCountEventHandler(this.gridSalesData_MasterRowGetRelationCount);
             // 
             // colId
             // 
             this.colId.Caption = "Id";
             this.colId.FieldName = "Id";
             this.colId.Name = "colId";
+            this.colId.OptionsColumn.AllowEdit = false;
             // 
             // gridColumn1
             // 
@@ -171,7 +296,7 @@
             this.gridColumn1.OptionsColumn.AllowEdit = false;
             this.gridColumn1.Visible = true;
             this.gridColumn1.VisibleIndex = 0;
-            this.gridColumn1.Width = 194;
+            this.gridColumn1.Width = 178;
             // 
             // gridColumn5
             // 
@@ -183,7 +308,7 @@
             this.gridColumn5.OptionsColumn.AllowEdit = false;
             this.gridColumn5.Visible = true;
             this.gridColumn5.VisibleIndex = 1;
-            this.gridColumn5.Width = 194;
+            this.gridColumn5.Width = 178;
             // 
             // gridColumn6
             // 
@@ -195,7 +320,7 @@
             this.gridColumn6.OptionsColumn.AllowEdit = false;
             this.gridColumn6.Visible = true;
             this.gridColumn6.VisibleIndex = 2;
-            this.gridColumn6.Width = 194;
+            this.gridColumn6.Width = 178;
             // 
             // gridColumn2
             // 
@@ -207,7 +332,7 @@
             this.gridColumn2.OptionsColumn.AllowEdit = false;
             this.gridColumn2.Visible = true;
             this.gridColumn2.VisibleIndex = 3;
-            this.gridColumn2.Width = 211;
+            this.gridColumn2.Width = 195;
             // 
             // gridColumn3
             // 
@@ -219,7 +344,18 @@
             this.gridColumn3.OptionsColumn.AllowEdit = false;
             this.gridColumn3.Visible = true;
             this.gridColumn3.VisibleIndex = 4;
-            this.gridColumn3.Width = 235;
+            this.gridColumn3.Width = 216;
+            // 
+            // gridColumn15
+            // 
+            this.gridColumn15.Caption = "Bank RRN";
+            this.gridColumn15.FieldName = "BankRrn";
+            this.gridColumn15.Name = "gridColumn15";
+            this.gridColumn15.OptionsColumn.AllowEdit = false;
+            this.gridColumn15.OptionsFilter.AllowFilter = false;
+            this.gridColumn15.Visible = true;
+            this.gridColumn15.VisibleIndex = 5;
+            this.gridColumn15.Width = 162;
             // 
             // gridColumn4
             // 
@@ -234,31 +370,34 @@
             this.gridColumn4.Name = "gridColumn4";
             this.gridColumn4.OptionsColumn.AllowEdit = false;
             this.gridColumn4.Visible = true;
-            this.gridColumn4.VisibleIndex = 5;
-            this.gridColumn4.Width = 215;
+            this.gridColumn4.VisibleIndex = 6;
+            this.gridColumn4.Width = 171;
             // 
             // gridColumn7
             // 
             this.gridColumn7.ColumnEdit = this.bReturnSale;
+            this.gridColumn7.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Right;
+            this.gridColumn7.MaxWidth = 50;
+            this.gridColumn7.MinWidth = 50;
             this.gridColumn7.Name = "gridColumn7";
             this.gridColumn7.OptionsColumn.ShowCaption = false;
             this.gridColumn7.OptionsFilter.AllowAutoFilter = false;
             this.gridColumn7.OptionsFilter.AllowFilter = false;
             this.gridColumn7.Visible = true;
-            this.gridColumn7.VisibleIndex = 6;
-            this.gridColumn7.Width = 119;
+            this.gridColumn7.VisibleIndex = 7;
+            this.gridColumn7.Width = 50;
             // 
             // bReturnSale
             // 
             this.bReturnSale.AutoHeight = false;
-            editorButtonImageOptions2.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("editorButtonImageOptions2.SvgImage")));
-            editorButtonImageOptions2.SvgImageSize = new System.Drawing.Size(24, 24);
-            serializableAppearanceObject5.Font = new System.Drawing.Font("Nunito", 11F, System.Drawing.FontStyle.Bold);
-            serializableAppearanceObject5.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.Critical;
-            serializableAppearanceObject5.Options.UseFont = true;
-            serializableAppearanceObject5.Options.UseForeColor = true;
+            editorButtonImageOptions1.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("editorButtonImageOptions1.SvgImage")));
+            editorButtonImageOptions1.SvgImageSize = new System.Drawing.Size(24, 24);
+            serializableAppearanceObject1.Font = new System.Drawing.Font("Nunito", 11F, System.Drawing.FontStyle.Bold);
+            serializableAppearanceObject1.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.Critical;
+            serializableAppearanceObject1.Options.UseFont = true;
+            serializableAppearanceObject1.Options.UseForeColor = true;
             this.bReturnSale.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.bReturnSale.Name = "bReturnSale";
             this.bReturnSale.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.bReturnSale.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.bReturnSale_ButtonClick);
@@ -319,7 +458,6 @@
             // 
             // pageDate
             // 
-            this.pageDate.Caption = "pageDate";
             this.pageDate.Controls.Add(this.dateFinish);
             this.pageDate.Controls.Add(this.dateStart);
             this.pageDate.Controls.Add(this.labelControl1);
@@ -379,7 +517,6 @@
             // 
             // pageFıscal
             // 
-            this.pageFıscal.Caption = "pageFıscal";
             this.pageFıscal.Controls.Add(this.tFiscalId);
             this.pageFıscal.Controls.Add(this.labelControl3);
             this.pageFıscal.Name = "pageFıscal";
@@ -410,7 +547,6 @@
             // 
             // pageReceiptNo
             // 
-            this.pageReceiptNo.Caption = "pageReceiptNo";
             this.pageReceiptNo.Controls.Add(this.tReceiptNo);
             this.pageReceiptNo.Controls.Add(this.labelControl4);
             this.pageReceiptNo.Name = "pageReceiptNo";
@@ -618,6 +754,8 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Qaytarma";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Shown += new System.EventHandler(this.fPosRollback_Shown);
+            ((System.ComponentModel.ISupportInitialize)(this.gridSaleDetail)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlSalesData)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridSalesData)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bReturnSale)).EndInit();
@@ -691,5 +829,14 @@
         private DevExpress.XtraBars.BarButtonItem barBtnReturn;
         private DevExpress.XtraBars.BarButtonItem barBtnCancel;
         private DevExpress.XtraBars.PopupMenu popupMenu1;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridSaleDetail;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn8;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn9;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn10;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn11;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn12;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn13;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn14;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn15;
     }
 }

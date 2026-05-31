@@ -1,30 +1,28 @@
 ﻿using Barcode_Sales.Helpers;
-using Barcode_Sales.Helpers.Classes;
+using DevExpress.XtraEditors;
 using System;
 using System.Linq;
 using System.Windows.Forms;
-using DevExpress.XtraEditors;
+using Barcode_Sales.DTOs;
 
 namespace Barcode_Sales.Forms
 {
     public partial class fPriceChange : DevExpress.XtraEditors.XtraForm
     {
-        private readonly SaleClasses.PosChangeType _posChangeType;
+        private readonly PosChangeType _changeType;
 
         public decimal Amount { get; set; }
-        //public double SalePrice { get; set; }
-        //public double DiscountPrice { get; set; }
-        //public double Quantity { get; set; }
-        public fPriceChange(SaleClasses.PosChangeType changeType)
+
+        public fPriceChange(PosChangeType changeType)
         {
             InitializeComponent();
-            _posChangeType = changeType;
+            _changeType = changeType;
         }
 
         private void fPriceChange_Load(object sender, EventArgs e)
         {
-            this.Text = string.IsNullOrWhiteSpace(_posChangeType.ProductName) ? EnumExtensions.GetEnumDescription(_posChangeType.ChangeType) : _posChangeType.ProductName;
-            switch (_posChangeType.ChangeType)
+            this.Text = EnumExtensions.GetEnumDescription(_changeType.ChangeType);
+            switch (_changeType.ChangeType)
             {
                 case Enums.PosChangeType.PriceChange:
                     navigationFrame1.SelectedPage = pagePriceChange;
@@ -37,8 +35,16 @@ namespace Barcode_Sales.Forms
                 case Enums.PosChangeType.Quantity:
                     navigationFrame1.SelectedPage = pageQuantity;
                     tTotal.Properties.Buttons.FirstOrDefault(x => x.Caption == "₼").Visible = false;
-                    tTotal.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
-                    tTotal.Properties.MaskSettings.Set("mask", "N3");
+                    if (_changeType.UnitName is "Ədəd")
+                    {
+                        tTotal.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
+                        tTotal.Properties.MaskSettings.Set("mask", "N0");
+                    }
+                    else
+                    {
+                        tTotal.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
+                        tTotal.Properties.MaskSettings.Set("mask", "N3");
+                    }
                     chQuantity.Checked = true;
                     break;
                 case Enums.PosChangeType.Deposit:
@@ -116,18 +122,31 @@ namespace Barcode_Sales.Forms
 
         private void bEnter_Click(object sender, EventArgs e)
         {
-            switch (_posChangeType.ChangeType)
+            decimal total = decimal.Parse(tTotal.Text);
+            switch (_changeType.ChangeType)
             {
                 case Enums.PosChangeType.Discount:
                     if (chDiscountPercent.Checked)
                     {
-                        decimal price = (_posChangeType.Amount * Decimal.Parse(tTotal.Text)) / 100;
+                        decimal price = (_changeType.Amount * total) / 100;
+
+                        if (price > _changeType.Amount)
+                        {
+                            NotificationHelpers.Messages.WarningMessage(this, "Endirim faizi endirim 100%-dən çox ola bilməz !");
+                            return;
+                        }
                         Amount = price;
                         DialogResult = DialogResult.OK;
                     }
                     else if (chDiscountCash.Checked)
                     {
-                        Amount = decimal.Parse(tTotal.Text);
+                        if (total > _changeType.Amount)
+                        {
+                            NotificationHelpers.Messages.WarningMessage(this, "Endirim məbləği satış qiymətindən çox ola bilməz !");
+                            return;
+                        }
+
+                        Amount = total;
                         DialogResult = DialogResult.OK;
                     }
                     break;

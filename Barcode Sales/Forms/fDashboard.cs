@@ -39,7 +39,7 @@ namespace Barcode_Sales.Forms
         {
             await WeeklyEarningLoadAsync();
             await Top5SellingProductAsync();
-            CurrentSalesDataAsync();
+           await CurrentSalesDataAsync();
             await CurrentPaymentTypeLoadsAsync();
             CurrentRefundDataAsync();
         }
@@ -126,7 +126,7 @@ namespace Barcode_Sales.Forms
         /// <summary>
         /// Cari satış məbləği
         /// </summary>
-        private async void CurrentSalesDataAsync()
+        private async Task CurrentSalesDataAsync()
         {
             var today = DateTime.Today;
             var tomorrow = today.AddDays(1);

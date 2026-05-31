@@ -24,12 +24,12 @@ namespace Barcode_Sales.Forms
         RepositoryItemTextEdit repositoryN3;
         RepositoryItemTextEdit repositoryN0;
         private BindingList<SalesDataWrapper> dataList;
-        private readonly SalesDataSummary _salesDataSummary;
+        private readonly PosSaleSummaryDto _salesDataSummary;
         private BindingList<RefundClassess.DataItem> RefundDataItem = new BindingList<RefundClassess.DataItem>();
         private RefundClassess.Data _refundData;
         private Customer _customer;
 
-        public fPosRollbackProduct(PosReturnType type, SalesDataSummary items)
+        public fPosRollbackProduct(PosReturnType type, PosSaleSummaryDto items)
         {
             InitializeComponent();
             _type = type;
@@ -61,6 +61,7 @@ namespace Barcode_Sales.Forms
                 bSubmit.Text = "Ləğv et";
                 groupControl1.Text = $"{_salesDataSummary.ReceiptNo} Nömrəli satış çekinin ləğv edilməsi";
                 gridSalesData.SelectAll();
+                //gridSalesData.OptionsBehavior.ReadOnly = true;
                 colReturnQuantity.Visible = false;
             }
         }

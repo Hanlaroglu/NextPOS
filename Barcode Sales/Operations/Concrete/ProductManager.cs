@@ -118,11 +118,11 @@ namespace Barcode_Sales.Operations.Concrete
 
         public async Task<bool> Remove(Products item)
         {
-            item.IsDeleted = true;
-            if (await Update(item,x=> x.IsDeleted))
-                return true;
+            var product = await db.Products.FirstOrDefaultAsync(x => x.Id == item.Id);
+            if (product == null) return false;
 
-            return false;
+            product.IsDeleted = true;
+            return await db.SaveChangesAsync() > 0;
         }
 
         public async Task<List<Products>> ToListAsync(Expression<Func<Products, bool>> expression = null)
@@ -148,10 +148,27 @@ namespace Barcode_Sales.Operations.Concrete
 FROM Products p
 INNER JOIN Categories c ON c.Id = p.CategoryId
 INNER JOIN UnitTypes  u ON u.Id = p.UnitId
-LEFT  JOIN TaxTypes   t ON t.Id = p.TaxId;
+LEFT  JOIN TaxTypes   t ON t.Id = p.TaxId
+WHERE
+	p.IsDeleted = 0;
 ";
 
             var result = await db.Database.SqlQuery<StockReportDto>(query).ToListAsync();
+
+            return result;
+        }
+
+        public async Task<List<HotSaleProductDto>> HotSaleProducts()
+        {
+            string query = @"SELECT
+    p.ProductName         AS ProductName,
+    p.SalePrice           AS SalePrice
+FROM Products p
+WHERE p.CanHotSaleProduct = 1
+AND p.IsDeleted = 0 
+AND p.IsActive = 1;";
+
+            var result = await db.Database.SqlQuery<HotSaleProductDto>(query).ToListAsync();
 
             return result;
         }

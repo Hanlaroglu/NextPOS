@@ -217,7 +217,6 @@
     <Property Name="ReceiptNo" Type="nvarchar" MaxLength="50" />
     <Property Name="LongFiscalId" Type="nvarchar" MaxLength="200" />
     <Property Name="ShortFiscalId" Type="nvarchar" MaxLength="50" />
-    <Property Name="Rrn" Type="nvarchar" MaxLength="50" />
     <Property Name="Total" Type="decimal" Precision="18" Scale="3" Nullable="false" />
     <Property Name="Cash" Type="decimal" Precision="18" Scale="3" Nullable="false" />
     <Property Name="Card" Type="decimal" Precision="18" Scale="3" Nullable="false" />
@@ -225,6 +224,10 @@
     <Property Name="Residue" Type="decimal" Precision="18" Scale="3" Nullable="false" />
     <Property Name="CustomerId" Type="int" />
     <Property Name="Note" Type="nvarchar" MaxLength="500" />
+    <Property Name="BankRrn" Type="nvarchar" MaxLength="20" />
+    <Property Name="BankTransactionID" Type="nvarchar" MaxLength="20" />
+    <Property Name="BankTransactionNumber" Type="nvarchar" MaxLength="20" />
+    <Property Name="BankApprovelCode" Type="nvarchar" MaxLength="20" />
   </EntityType>
   <EntityType Name="Products">
     <Key>
@@ -248,6 +251,7 @@
     <Property Name="CanEditSalePrice" Type="bit" Nullable="false" />
     <Property Name="CanSellWithoutStock" Type="bit" Nullable="false" />
     <Property Name="CanApplyDiscount" Type="bit" Nullable="false" />
+    <Property Name="CanHotSaleProduct" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="Roles">
     <Key>

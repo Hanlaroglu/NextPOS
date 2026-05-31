@@ -3,14 +3,19 @@ using Barcode_Sales.Operations.Abstract;
 using Barcode_Sales.Operations.Concrete;
 using Barcode_Sales.Services.CacheServices;
 using Barcode_Sales.Terminals.DTOs;
+using DevExpress.XtraBars.Navigation;
 using DevExpress.XtraGrid.Views.Grid.ViewInfo;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DevExpress.XtraEditors;
+using Barcode_Sales.Terminals.Omnitech.Models;
+using DevExpress.XtraCharts.Designer.Native;
 
 namespace Barcode_Sales.Forms
 {
@@ -22,6 +27,7 @@ namespace Barcode_Sales.Forms
         IProductOperation productOperation = new ProductManager();
 
         private BindingList<PosSaleItemDto> dataList = new BindingList<PosSaleItemDto>();
+        private List<Products> _productsList = new List<Products>();
 
         short rowNo = 1;
 
@@ -44,20 +50,21 @@ namespace Barcode_Sales.Forms
             public decimal Amount { get; set; }
         }
 
-        private async void fPosSales_Load(object sender, EventArgs e)
+        private async void fPosSales_Shown(object sender, EventArgs e)
         {
             TerminalCacheService.RefreshTerminal();
             var saleCount = await posSaleOperation.CurrentSaleCount();
             tSaleCount.Text = saleCount.ToString();
-            tToday.Properties.Buttons[1].Caption = CommonData.TODAY_DATE;
+            tToday.Properties.Buttons[1].Caption = DatetimeService.CurrentDateString;
             tCashier.Properties.Buttons[1].Caption = UserCacheService.User?.NameSurname;
+            await RefreshProductList();
             await SearchProductList();
+            HotSaleProducts();
         }
 
         private async Task SearchProductList()
         {
-            var data = await productOperation.ToListAsync(x => x.IsDeleted == false && x.IsActive == true);
-            var product = data.Select(x => new ProductSearchData
+            var products = _productsList.Select(x => new ProductSearchData
             {
                 Id = x.Id,
                 ProductName = x.ProductName,
@@ -68,9 +75,17 @@ namespace Barcode_Sales.Forms
                 TaxId = x.TaxId
             }).ToList();
 
-            tSearch.Properties.DataSource = product;
+            tSearch.Properties.DataSource = products;
             tSearch.Properties.DisplayMember = "ProductName";
             tSearch.Properties.ValueMember = "Id";
+        }
+
+        private async Task RefreshProductList()
+        {
+            var data = await productOperation.ToListAsync(x => x.IsDeleted == false && x.IsActive == true);
+
+            if (data != null)
+                _productsList = data;
         }
 
         private void bHelp_Click(object sender, EventArgs e)
@@ -97,14 +112,15 @@ namespace Barcode_Sales.Forms
             }
         }
 
-        private void Clear()
+        private async void Clear()
         {
             dataList.Clear();
             tTotal.Text = 0.ToString("0.00");
             tCustomer.Text = "-";
             tComment.Clear();
             tProductCount.Text = CommonData.DEFAULT_INT_TOSTRING;
-            // todo Növbə ərzindəki çek sayını artır
+            var saleCount = await posSaleOperation.CurrentSaleCount();
+            tSaleCount.Text = saleCount.ToString();
         }
 
         private void buttonEdit4_SizeChanged(object sender, EventArgs e)
@@ -197,13 +213,15 @@ namespace Barcode_Sales.Forms
                     {
                         PosSaleItemDto grid = new PosSaleItemDto
                         {
+                            Id = product.Id,
                             ProductName = product.ProductName,
                             SalePrice = product.SalePrice,
-                            Id = product.Id,
                             Quantity = 1,
                             No = rowNo,
                             Barcode = product.Barcode,
-                            UnitId = product.UnitId
+                            UnitId = product.UnitId,
+                            TaxId = product.TaxId,
+                            PurchasePrice = product.PurchasePrice
                         };
                         dataList.Add(grid);
                         rowNo++;
@@ -240,11 +258,10 @@ namespace Barcode_Sales.Forms
                 int focusedRow = Int32.Parse(gridBasket.GetFocusedRowCellValue(colId).ToString());
 
                 var selectedProduct = dataList.FirstOrDefault(x => x.Id == focusedRow);
-                fPriceChange f = new fPriceChange(new Helpers.Classes.SaleClasses.PosChangeType
+                fPriceChange f = new fPriceChange(new DTOs.PosChangeType
                 {
                     ChangeType = Enums.PosChangeType.Discount,
                     Amount = selectedProduct.SalePrice,
-                    ProductName = selectedProduct.ProductName,
                 });
                 if (f.ShowDialog() is DialogResult.OK)
                 {
@@ -274,24 +291,23 @@ namespace Barcode_Sales.Forms
 
                 switch (info.Column.FieldName)
                 {
-                    case "Amount":
-                        fPriceChange amount = new fPriceChange(new Helpers.Classes.SaleClasses.PosChangeType
+                    case "Quantity":
+                        fPriceChange quantity = new fPriceChange(new DTOs.PosChangeType
                         {
                             ChangeType = Enums.PosChangeType.Quantity,
-                            ProductName = selectedProduct.ProductName,
+                            UnitName = selectedProduct.UnitName
                         });
-                        if (amount.ShowDialog() is DialogResult.OK)
+                        if (quantity.ShowDialog() is DialogResult.OK)
                         {
-                            selectedProduct.Quantity = amount.Amount;
+                            selectedProduct.Quantity = quantity.Amount;
                             TotalAmountCalculation();
                         }
                         break;
                     case "SalePrice":
-                        fPriceChange price = new fPriceChange(new Helpers.Classes.SaleClasses.PosChangeType
+                        fPriceChange price = new fPriceChange(new DTOs.PosChangeType
                         {
                             ChangeType = Enums.PosChangeType.PriceChange,
                             Amount = selectedProduct.SalePrice,
-                            ProductName = selectedProduct.ProductName,
                         });
                         if (price.ShowDialog() is DialogResult.OK)
                         {
@@ -307,11 +323,10 @@ namespace Barcode_Sales.Forms
 
                         selectedProduct = dataList.FirstOrDefault(x => x.Id == focusedRow);
 
-                        fPriceChange discount = new fPriceChange(new Helpers.Classes.SaleClasses.PosChangeType
+                        fPriceChange discount = new fPriceChange(new DTOs.PosChangeType
                         {
                             ChangeType = Enums.PosChangeType.Discount,
                             Amount = selectedProduct.SalePrice,
-                            ProductName = selectedProduct.ProductName,
                         });
                         if (discount.ShowDialog() is DialogResult.OK)
                         {
@@ -342,6 +357,103 @@ namespace Barcode_Sales.Forms
                 tCustomer.Text = $"{customer.NameSurname} ({customer.CustomerGroup.Name})";
                 _customer = customer;
             }
+        }
+
+        private async void HotSaleProducts()
+        {
+            var products = await productOperation.HotSaleProducts();
+            tileControlProducts.Groups.Clear();
+            tileControlProducts.ItemSize = 150;
+            tileControlProducts.ItemPadding = new Padding(5);
+            TileBarGroup group1 = new TileBarGroup();
+            foreach (var item in products)
+            {
+                string productName = item.ProductName;
+                decimal price = item.SalePrice;
+
+                TileItem tile = new TileItem();
+                tile.ItemSize = TileItemSize.Default;
+                tile.AppearanceItem.Normal.BackColor = Color.FromArgb(0, 120, 212);
+                tile.AppearanceItem.Normal.ForeColor = Color.White;
+
+                //productName
+                TileItemElement productElement = new TileItemElement();
+                productElement.Text = productName;
+                productElement.TextAlignment = TileItemContentAlignment.TopLeft;
+                productElement.MaxWidth = 120;
+                productElement.Appearance.Normal.Font = new Font("Poppins", 11);
+
+                //price
+                TileItemElement priceElement = new TileItemElement();
+                priceElement.Text = price.ToString("N2") + " AZN";
+                priceElement.TextAlignment = TileItemContentAlignment.BottomRight;
+                priceElement.Appearance.Normal.Font = new Font("Nunito", 12, FontStyle.Bold);
+
+                tile.Elements.Add(productElement);
+                tile.Elements.Add(priceElement);
+
+                group1.Items.Add(tile);
+                tileControlProducts.Groups.Add(group1);
+            }
+        }
+
+        private void tileControlProducts_ItemClick(object sender, TileItemEventArgs e)
+        {
+            try
+            {
+                string productName = e.Item.Elements[0].Text;
+
+                var product = _productsList.Find(x => x.ProductName == productName);
+
+                if (product is null)
+                {
+                    NotificationHelpers.Messages.WarningMessage(this, "Məhsul tapılmadı");
+                    return;
+                }
+
+                var existingProduct = dataList.FirstOrDefault(x => x.Id == product.Id);
+
+                if (existingProduct != null)
+                    existingProduct.Quantity += 1;
+                else
+                {
+                    PosSaleItemDto grid = new PosSaleItemDto
+                    {
+                        Id = product.Id,
+                        ProductName = product.ProductName,
+                        SalePrice = product.SalePrice,
+                        Quantity = 1,
+                        No = rowNo,
+                        Barcode = product.Barcode,
+                        UnitId = product.UnitId,
+                        TaxId = product.TaxId,
+                        PurchasePrice = product.PurchasePrice
+                    };
+                    dataList.Add(grid);
+                    rowNo++;
+                }
+                gridControlBasket.RefreshDataSource();
+
+            }
+            finally
+            {
+                TotalAmountCalculation();
+            }
+        }
+
+        private void bHotSales_Click(object sender, EventArgs e)
+        {
+            navigationFrameRight.SelectedPage = pageHotProducts;
+        }
+
+        private void bBaskets_Click(object sender, EventArgs e)
+        {
+            navigationFrameRight.SelectedPage = pageBaskets;
+        }
+
+        private void bNumberKeyboard_Click(object sender, EventArgs e)
+        {
+            navigationFrameRight.SelectedPage = pageKeyboard;
         }
     }
 }

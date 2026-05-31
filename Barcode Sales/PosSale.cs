@@ -17,8 +17,8 @@ namespace Barcode_Sales
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public PosSale()
         {
-            this.PosSaleItems = new HashSet<PosSaleItem>();
             this.PosRefunds = new HashSet<PosRefund>();
+            this.PosSaleItems = new HashSet<PosSaleItem>();
         }
     
         public int Id { get; set; }
@@ -28,7 +28,6 @@ namespace Barcode_Sales
         public string ReceiptNo { get; set; }
         public string LongFiscalId { get; set; }
         public string ShortFiscalId { get; set; }
-        public string Rrn { get; set; }
         public decimal Total { get; set; }
         public decimal Cash { get; set; }
         public decimal Card { get; set; }
@@ -36,12 +35,16 @@ namespace Barcode_Sales
         public decimal Residue { get; set; }
         public Nullable<int> CustomerId { get; set; }
         public string Note { get; set; }
+        public string BankRrn { get; set; }
+        public string BankTransactionID { get; set; }
+        public string BankTransactionNumber { get; set; }
+        public string BankApprovelCode { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PosSaleItem> PosSaleItems { get; set; }
+        public virtual Customer Customer { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PosRefund> PosRefunds { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<PosSaleItem> PosSaleItems { get; set; }
         public virtual User User { get; set; }
-        public virtual Customer Customer { get; set; }
     }
 }

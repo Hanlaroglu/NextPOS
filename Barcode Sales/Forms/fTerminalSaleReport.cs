@@ -74,7 +74,7 @@ namespace Barcode_Sales.Forms
                         SaleDatetime = x.SaleDatetime,
                         ReceiptNo = x.ReceiptNo,
                         ShortFiscalId = x.ShortFiscalId,
-                        Rrn = x.Rrn,
+                        BankRrn = x.BankRrn,
                         PaymentType = x.Cash > 0 && x.Card == 0 ? "NAĞD"
                                                                 : x.Cash == 0 && x.Card > 0 ? "KART"
                                                                 : x.Cash > 0 && x.Card > 0 ? "NAĞD-KART"
@@ -97,7 +97,7 @@ namespace Barcode_Sales.Forms
                         SaleDatetime = x.SaleDatetime,
                         ReceiptNo = x.ReceiptNo,
                         ShortFiscalId = x.ShortFiscalId,
-                        Rrn = x.Rrn,
+                        BankRrn = x.BankRrn,
                         PaymentType = x.Cash > 0 && x.Card == 0 ? "NAĞD"
                             : x.Cash == 0 && x.Card > 0 ? "KART"
                             : x.Cash > 0 && x.Card > 0 ? "NAĞD-KART"
@@ -120,7 +120,7 @@ namespace Barcode_Sales.Forms
                         SaleDatetime = x.SaleDatetime,
                         ReceiptNo = x.ReceiptNo,
                         ShortFiscalId = x.ShortFiscalId,
-                        Rrn = x.Rrn,
+                        BankRrn = x.BankRrn,
                         PaymentType = x.Cash > 0 && x.Card == 0 ? "NAĞD"
                             : x.Cash == 0 && x.Card > 0 ? "KART"
                             : x.Cash > 0 && x.Card > 0 ? "NAĞD-KART"

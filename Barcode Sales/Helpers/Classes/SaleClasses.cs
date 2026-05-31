@@ -50,12 +50,5 @@ namespace Barcode_Sales.Helpers.Classes
             public string Note { get; set; } = null;
             public BindingList<SaleDataItem> Items { get; set; } = new BindingList<SaleDataItem>();
         }
-
-        public class PosChangeType
-        {
-            public string ProductName { get; set; }
-            public decimal Amount { get; set; }
-            public Enums.PosChangeType ChangeType { get; set; }
-        }
     }
 }

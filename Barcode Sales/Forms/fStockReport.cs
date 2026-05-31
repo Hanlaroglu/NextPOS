@@ -89,5 +89,10 @@ namespace Barcode_Sales.Forms
             e.Appearance.DrawBackground(e.Cache, e.Bounds);
             e.Appearance.DrawString(e.Cache, e.Info.DisplayText, e.Bounds);
         }
+
+        private void bSearch_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
