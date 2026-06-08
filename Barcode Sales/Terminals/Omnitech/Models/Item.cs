@@ -2,7 +2,7 @@
 
 namespace Barcode_Sales.Terminals.Omnitech.Models
 {
-    public class SaleItem
+    public class Item
     {
         [JsonProperty("itemName")]
         public string ItemName { get; set; }

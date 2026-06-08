@@ -3,8 +3,9 @@
     public class PosSaleItemDto
     {
         public short No { get; set; }
-        public int Id { get; set; }
+        public int Id { get; set; } //productId
         public string ProductName { get; set; }
+        public string Barcode { get; set; }
         public decimal PurchasePrice { get; set; }
         public decimal PurchaseSum
         {
@@ -26,6 +27,5 @@
                 return result;
             }
         }
-        public string Barcode { get; set; }
     }
 }

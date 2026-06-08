@@ -33,7 +33,6 @@ namespace Barcode_Sales.Operations.Concrete
             if (items == null || items.Count == 0)
                 return false;
 
-
             try
             {
                 db.Set<Category>().AddRange(items);

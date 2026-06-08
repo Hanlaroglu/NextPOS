@@ -111,7 +111,7 @@ namespace Barcode_Sales.Forms
         {
             if (gridSalesData.GetFocusedRow() == null)
             {
-                OperationsControl.Message(CommonMessages.NOT_SELECTİON, NextPOS.UserControls.fMessage.enmType.Warning);
+                NotificationHelpers.Messages.WarningMessage(this, CommonMessages.NOT_SELECTİON);
                 return;
             }
 
@@ -126,7 +126,7 @@ namespace Barcode_Sales.Forms
         {
             if (gridSalesData.GetFocusedRow() == null)
             {
-                OperationsControl.Message(CommonMessages.NOT_SELECTİON, NextPOS.UserControls.fMessage.enmType.Warning);
+                NotificationHelpers.Messages.WarningMessage(this, CommonMessages.NOT_SELECTİON);
                 return;
             }
 
@@ -150,11 +150,30 @@ namespace Barcode_Sales.Forms
         private void gridSalesData_MasterRowGetChildList(object sender, DevExpress.XtraGrid.Views.Grid.MasterRowGetChildListEventArgs e)
         {
             var item = (PosSaleSummaryDto)gridSalesData.GetRow(e.RowHandle);
-            var data = posSaleItemOperation.Where(x => x.PosSaleId == item.Id ).ToList();
+            var result = posSaleItemOperation.Where(x => x.PosSaleId == item.Id)
+                .Select(x => new PosSaleDetail
+                {
+                    Id = x.Id,
+                    Barcode = x.Product.Barcode,
+                    ProductName = x.Product.ProductName,
+                    Quantity = x.Quantity,
+                    UnitName = x.Product.UnitTypes.Name,
+                    SalePrice = x.SalePrice,
+                    TotalAmount = x.SalePrice * x.Quantity
+                }).ToList();
 
-            e.ChildList = data;
+            e.ChildList = result;
         }
 
-
+        private class PosSaleDetail
+        {
+            public int Id { get; set; }
+            public string Barcode { get; set; }
+            public string ProductName { get; set; }
+            public decimal Quantity { get; set; }
+            public string UnitName { get; set; }
+            public decimal SalePrice { get; set; }
+            public decimal TotalAmount { get; set; }
+        }
     }
 }

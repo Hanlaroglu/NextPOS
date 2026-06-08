@@ -12,12 +12,34 @@ namespace Barcode_Sales.Operations.Concrete
         KhanposDbEntities db = new KhanposDbEntities();
         public async Task<int> Add(PosRefund item)
         {
-            throw new NotImplementedException();
+            try
+            {
+                db.Set<PosRefund>().Add(item);
+                await db.SaveChangesAsync();
+                return item.Id;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+                return 0;
+            }
         }
 
-        public Task<bool> Add(List<PosRefund> items)
+        public async Task<bool> Add(List<PosRefund> items)
         {
-            throw new NotImplementedException();
+            if (items == null || items.Count == 0)
+                return false;
+
+            try
+            {
+                db.Set<PosRefund>().AddRange(items);
+                return await db.SaveChangesAsync() > 0;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+                return false;
+            }
         }
 
         public Task<bool> Update(PosRefund item, params Expression<Func<PosRefund, object>>[] updateProperties)

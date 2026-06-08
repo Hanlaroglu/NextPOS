@@ -12,18 +12,18 @@ namespace Barcode_Sales
     using System;
     using System.Collections.Generic;
     
-    public partial class PosRefundItem
+    public partial class PosBasketItem
     {
         public int Id { get; set; }
-        public int PosRefundId { get; set; }
-        public int PosSaleItemId { get; set; }
+        public int PosBasketId { get; set; }
         public int ProductId { get; set; }
         public decimal Quantity { get; set; }
+        public decimal PurchasePrice { get; set; }
         public decimal SalePrice { get; set; }
-        public decimal Discount { get; set; }
+        public decimal DiscountAmount { get; set; }
+        public decimal TotalAmount { get; set; }
     
-        public virtual PosRefund PosRefund { get; set; }
+        public virtual PosBasket PosBasket { get; set; }
         public virtual Products Product { get; set; }
-        public virtual PosSaleItem PosSaleItem { get; set; }
     }
 }

@@ -151,7 +151,7 @@ namespace Barcode_Sales.Forms
                         break;
                 }
             }
-        }
+         }
 
         private void bCloseShift_Click(object sender, EventArgs e)
         {

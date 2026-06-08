@@ -1,4 +1,5 @@
-﻿using Barcode_Sales.Operations.Abstract;
+﻿using Barcode_Sales.DTOs;
+using Barcode_Sales.Operations.Abstract;
 using Barcode_Sales.Operations.Concrete;
 using Barcode_Sales.Services.CacheServices;
 using Barcode_Sales.Terminals.DTOs;
@@ -18,6 +19,8 @@ namespace Barcode_Sales.Terminals.Omnitech
         private readonly string _ipAddress;
         IPosSaleOperation posSaleOperation = new PosSaleManager();
         IPosSaleItemOperation posSaleItemOperation = new PosSaleItemManager();
+        IPosRefundOperation posRefundOperation = new PosRefundManager();
+        IPosRefundItemOperation posRefundItemOperation = new PosRefundItemManager();
 
         private TerminalResult RefreshToken()
         {
@@ -277,7 +280,7 @@ namespace Barcode_Sales.Terminals.Omnitech
                 PrepaymentSum = 0, /*item.PrepaymentSum,*/
                 CreditSum = 0, /*item.CreditSum,*/
                 BonusSum = item.Bonus,
-                Items = item.Items.Select(i => new SaleItem
+                Items = item.Items.Select(i => new Item
                 {
                     ItemName = i.ProductName,
                     ItemCode = i.Barcode,
@@ -370,14 +373,189 @@ namespace Barcode_Sales.Terminals.Omnitech
             return TerminalResult.Fail("Satış uğursuz oldu");
         }
 
-        public bool Rollback()
+        public async Task<TerminalResult> Rollback(PosRefundDto item)
         {
-            throw new System.NotImplementedException();
+            var ensure = RefreshToken();
+            if (!ensure.Success)
+                return ensure;
+
+            var data = new RollbackRequest
+            {
+                AccessToken = _accessToken,
+                FiscalId = item.LongFiscalId
+            };
+
+            var request = BaseRequest<RollbackRequest>.Create(data);
+            var result = TerminalHttpHelper.Post<BaseRequest<RollbackRequest>, MoneyBackResponse>(_ipAddress, request);
+
+            if (!result.Success && IsTokenExpired(result))
+            {
+                _accessToken = null;
+                var retryLogin = Login();
+                if (!retryLogin.Success)
+                    return TerminalResult.Fail("Yeni token əldə etmək uğursuz oldu");
+
+                return await Rollback(item);
+            }
+
+            if (!result.Success)
+                return result;
+
+            var response = result.GetData<MoneyBackResponse>();
+            if (response.IsSuccess)
+            {
+                var refundId = await posRefundOperation.Add(new PosRefund
+                {
+                    OperationType = (int)Enums.OperationType.Rollback,
+                    PosSaleId = item.PosSaleId,
+                    ReceiptNo = response.DocumentNumber,
+                    LongFiscalId = response.LongId,
+                    ShortFiscalId = response.ShortId,
+                    BankRrn = string.IsNullOrWhiteSpace(item.BankRrn) ? response.Rrn : item.BankRrn,
+                    OperationDate = DatetimeService.CurrentDateTime,
+                    Cash = item.Cash,
+                    Card = item.Card,
+                    Total = item.Total,
+                    IncomingSum = item.Total,
+                    CustomerId = item.Customer?.Id,
+                    Note = item.Note,
+                    UserId = UserCacheService.User.Id,
+                });
+
+                if (refundId != -1)
+                {
+                    List<PosRefundItem> dataDetails = new List<PosRefundItem>();
+
+                    dataDetails.AddRange(item.Items.Select(x => new PosRefundItem
+                    {
+                        PosRefundId = refundId,
+                        PosSaleItemId = x.Id,
+                        ProductId = x.ProductId,
+                        Quantity = x.RefundQuantity,
+                        SalePrice = x.SalePrice,
+                        Discount = x.DiscountAmount
+                    }));
+
+                    await posRefundItemOperation.Add(dataDetails);
+                }
+                return TerminalResult.Ok("Ləğv etmə uğurla tamamlandı");
+            }
+
+            return TerminalResult.Fail("Ləğv etmə uğursuz oldu");
         }
 
-        public bool Refund()
+        public async Task<TerminalResult> Refund(PosRefundDto item)
         {
-            throw new System.NotImplementedException();
+            var ensure = RefreshToken();
+            if (!ensure.Success)
+                return ensure;
+
+            var refundData = new Models.RefundData
+            {
+                ParentDocument = item.LongFiscalId,
+                RefundShortDocumentId = item.ShortFiscalId,
+                RefundDocumentNumber = item.ReceiptNo,
+                Cashier = item.Cashier,
+                Sum = item.Total,
+                CashSum = item.Items.Sum(x=> x.SalePrice * x.RefundQuantity - x.DiscountAmount),
+                CashlessSum = 0,
+                IncomingSum = item.Total,
+                PrepaymentSum = 0,
+                CreditSum = 0,
+                BonusSum = item.Bonus,
+                Items = item.Items.Select(i => new Item
+                {
+                    ItemName = i.ProductName,
+                    ItemCode = i.Barcode,
+                    ItemCodeType = 0,
+                    ItemQuantity = i.RefundQuantity,
+                    ItemQuantityType = i.UnitId,
+                    ItemPrice = i.SalePrice,
+                    ItemSum = i.TotalAmount,
+                    ItemVatPercent = i.TaxPercent,
+                    Discount = i.DiscountAmount
+                }).ToList(),
+                VatAmounts = item.Items
+                    .GroupBy(x => x.TaxPercent)
+                    .Select(g => new VatAmount
+                    {
+                        VatPercent = g.Key,
+                        VatSum = g.Sum(x => x.TotalAmount)
+                    }).ToList()
+            };
+
+            var data = new MoneyBackRequest
+            {
+                AccessToken = _accessToken,
+                TokenData = new TokenData
+                {
+                    operationId = "createDocument",
+                    version = 1,
+                    parameters = new Parameters
+                    {
+                        DocType = "money_back",
+                        data = refundData
+                    }
+                }
+            };
+
+            var request = BaseRequest<MoneyBackRequest>.Create(data);
+            var result = TerminalHttpHelper.Post<BaseRequest<MoneyBackRequest>, MoneyBackResponse>(_ipAddress, request);
+
+            if (!result.Success && IsTokenExpired(result))
+            {
+                _accessToken = null;
+                var retryLogin = Login();
+                if (!retryLogin.Success)
+                    return TerminalResult.Fail("Yeni token əldə etmək uğursuz oldu");
+
+                return await Refund(item);
+            }
+
+            if (!result.Success)
+                return result;
+
+            var response = result.GetData<MoneyBackResponse>();
+            if (response.IsSuccess)
+            {
+                var refundId = await posRefundOperation.Add(new PosRefund
+                {
+                    OperationType = (int)Enums.OperationType.Refund,
+                    PosSaleId = item.PosSaleId,
+                    ReceiptNo = response.DocumentNumber,
+                    LongFiscalId = response.LongId,
+                    ShortFiscalId = response.ShortId,
+                    BankRrn = string.IsNullOrWhiteSpace(item.BankRrn) ? response.Rrn : item.BankRrn,
+                    OperationDate = DatetimeService.CurrentDateTime,
+                    Cash = item.Cash,
+                    Card = item.Card,
+                    Total = item.Total,
+                    IncomingSum = item.Total,
+                    CustomerId = item.Customer?.Id,
+                    Note = item.Note,
+                    UserId = UserCacheService.User.Id,
+                });
+
+                if (refundId != -1)
+                {
+                    List<PosRefundItem> dataDetails = new List<PosRefundItem>();
+
+                    dataDetails.AddRange(item.Items.Select(x => new PosRefundItem
+                    {
+                        PosRefundId = refundId,
+                        PosSaleItemId = x.Id,
+                        ProductId = x.ProductId,
+                        Quantity = x.RefundQuantity,
+                        SalePrice = x.SalePrice,
+                        Discount = x.DiscountAmount
+                    }));
+
+                    await posRefundItemOperation.Add(dataDetails);
+                }
+                return TerminalResult.Ok("Geri qaytarma uğurla tamamlandı");
+            }
+
+            return TerminalResult.Fail("Geri qaytarma uğursuz oldu");
         }
 
         public bool CreditSale()

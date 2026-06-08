@@ -12,24 +12,23 @@ namespace Barcode_Sales
     using System;
     using System.Collections.Generic;
     
-    public partial class PosSaleItem
+    public partial class PosBasket
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public PosSaleItem()
+        public PosBasket()
         {
-            this.PosRefundItems = new HashSet<PosRefundItem>();
+            this.PosBasketItems = new HashSet<PosBasketItem>();
         }
     
         public int Id { get; set; }
-        public int PosSaleId { get; set; }
-        public int ProductId { get; set; }
-        public decimal Quantity { get; set; }
-        public decimal SalePrice { get; set; }
-        public decimal Discount { get; set; }
+        public string BasketName { get; set; }
+        public Nullable<int> CustomerId { get; set; }
+        public System.DateTime CreatedDatetime { get; set; }
+        public int CreatedUserId { get; set; }
     
-        public virtual Products Product { get; set; }
-        public virtual PosSale PosSale { get; set; }
+        public virtual Customer Customer { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PosRefundItem> PosRefundItems { get; set; }
+        public virtual ICollection<PosBasketItem> PosBasketItems { get; set; }
+        public virtual User User { get; set; }
     }
 }

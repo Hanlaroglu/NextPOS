@@ -4,6 +4,6 @@
     {
         public Parameters parameters { get; set; }
         public string operationId { get; set; } = null;
-        public int? version { get; set; }
+        public int? version { get; set; } = null;
     }
 }

@@ -20,6 +20,7 @@ namespace Barcode_Sales
             this.CustomersDebts = new HashSet<CustomersDebt>();
             this.PosRefunds = new HashSet<PosRefund>();
             this.PosSales = new HashSet<PosSale>();
+            this.PosBaskets = new HashSet<PosBasket>();
         }
     
         public int Id { get; set; }
@@ -52,5 +53,7 @@ namespace Barcode_Sales
         public virtual ICollection<PosRefund> PosRefunds { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PosSale> PosSales { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<PosBasket> PosBaskets { get; set; }
     }
 }

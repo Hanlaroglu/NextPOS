@@ -163,6 +163,29 @@
     <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="IsDeleted" Type="int" />
   </EntityType>
+  <EntityType Name="PosBasketItems">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PosBasketId" Type="int" Nullable="false" />
+    <Property Name="ProductId" Type="int" Nullable="false" />
+    <Property Name="Quantity" Type="decimal" Precision="18" Scale="3" Nullable="false" />
+    <Property Name="PurchasePrice" Type="decimal" Precision="18" Scale="3" Nullable="false" />
+    <Property Name="SalePrice" Type="decimal" Precision="18" Scale="3" Nullable="false" />
+    <Property Name="DiscountAmount" Type="decimal" Precision="18" Scale="3" Nullable="false" />
+    <Property Name="TotalAmount" Type="decimal" Precision="18" Scale="3" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PosBaskets">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BasketName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CustomerId" Type="int" />
+    <Property Name="CreatedDatetime" Type="datetime" Nullable="false" />
+    <Property Name="CreatedUserId" Type="int" Nullable="false" />
+  </EntityType>
   <EntityType Name="PosRefundItems">
     <Key>
       <PropertyRef Name="Id" />
@@ -608,6 +631,90 @@ warning 6002: The table/view 'KhanposDb.dbo.view_InvoiceRollbackList' does not h
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_PosBasket_Customer">
+    <End Role="Customers" Type="Self.Customers" Multiplicity="0..1" />
+    <End Role="PosBaskets" Type="Self.PosBaskets" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PosBaskets">
+        <PropertyRef Name="CustomerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PosBasket_PosBasket">
+    <End Role="PosBaskets" Type="Self.PosBaskets" Multiplicity="1" />
+    <End Role="PosBasketItems" Type="Self.PosBasketItems" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PosBaskets">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PosBasketItems">
+        <PropertyRef Name="PosBasketId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PosBasket_Product">
+    <End Role="Products" Type="Self.Products" Multiplicity="1" />
+    <End Role="PosBasketItems" Type="Self.PosBasketItems" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PosBasketItems">
+        <PropertyRef Name="ProductId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PosBasket_User">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="PosBaskets" Type="Self.PosBaskets" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PosBaskets">
+        <PropertyRef Name="CreatedUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PosRefundItems_PosRefunds">
+    <End Role="PosRefunds" Type="Self.PosRefunds" Multiplicity="1" />
+    <End Role="PosRefundItems" Type="Self.PosRefundItems" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PosRefunds">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PosRefundItems">
+        <PropertyRef Name="PosRefundId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PosRefundItems_PosSaleItems">
+    <End Role="PosSaleItems" Type="Self.PosSaleItems" Multiplicity="1" />
+    <End Role="PosRefundItems" Type="Self.PosRefundItems" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PosSaleItems">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PosRefundItems">
+        <PropertyRef Name="PosSaleItemId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PosRefundItems_Products">
+    <End Role="Products" Type="Self.Products" Multiplicity="1" />
+    <End Role="PosRefundItems" Type="Self.PosRefundItems" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PosRefundItems">
+        <PropertyRef Name="ProductId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_PosRefunds_Customers">
     <End Role="Customers" Type="Self.Customers" Multiplicity="0..1" />
     <End Role="PosRefunds" Type="Self.PosRefunds" Multiplicity="*" />
@@ -620,18 +727,6 @@ warning 6002: The table/view 'KhanposDb.dbo.view_InvoiceRollbackList' does not h
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_PosRefunds_PosRefunds">
-    <End Role="PosRefunds" Type="Self.PosRefunds" Multiplicity="1" />
-    <End Role="PosRefundItems" Type="Self.PosRefundItems" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="PosRefunds">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="PosRefundItems">
-        <PropertyRef Name="PosRefundId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_PosRefunds_PosSales">
     <End Role="PosSales" Type="Self.PosSales" Multiplicity="1" />
     <End Role="PosRefunds" Type="Self.PosRefunds" Multiplicity="*" />
@@ -641,18 +736,6 @@ warning 6002: The table/view 'KhanposDb.dbo.view_InvoiceRollbackList' does not h
       </Principal>
       <Dependent Role="PosRefunds">
         <PropertyRef Name="PosSaleId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_PosRefunds_Products">
-    <End Role="Products" Type="Self.Products" Multiplicity="1" />
-    <End Role="PosRefundItems" Type="Self.PosRefundItems" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Products">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="PosRefundItems">
-        <PropertyRef Name="ProductId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -874,6 +957,8 @@ warning 6002: The table/view 'KhanposDb.dbo.view_InvoiceRollbackList' does not h
     <EntitySet Name="Invoices" EntityType="Self.Invoices" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Logs" EntityType="Self.Logs" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="PaymentTypes" EntityType="Self.PaymentTypes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PosBasketItems" EntityType="Self.PosBasketItems" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PosBaskets" EntityType="Self.PosBaskets" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="PosRefundItems" EntityType="Self.PosRefundItems" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="PosRefunds" EntityType="Self.PosRefunds" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="PosSaleItems" EntityType="Self.PosSaleItems" Schema="dbo" store:Type="Tables" />
@@ -971,21 +1056,41 @@ warning 6002: The table/view 'KhanposDb.dbo.view_InvoiceRollbackList' does not h
       <End Role="Users" EntitySet="Users" />
       <End Role="Logs" EntitySet="Logs" />
     </AssociationSet>
+    <AssociationSet Name="FK_PosBasket_Customer" Association="Self.FK_PosBasket_Customer">
+      <End Role="Customers" EntitySet="Customers" />
+      <End Role="PosBaskets" EntitySet="PosBaskets" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PosBasket_PosBasket" Association="Self.FK_PosBasket_PosBasket">
+      <End Role="PosBaskets" EntitySet="PosBaskets" />
+      <End Role="PosBasketItems" EntitySet="PosBasketItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PosBasket_Product" Association="Self.FK_PosBasket_Product">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="PosBasketItems" EntitySet="PosBasketItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PosBasket_User" Association="Self.FK_PosBasket_User">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="PosBaskets" EntitySet="PosBaskets" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PosRefundItems_PosRefunds" Association="Self.FK_PosRefundItems_PosRefunds">
+      <End Role="PosRefunds" EntitySet="PosRefunds" />
+      <End Role="PosRefundItems" EntitySet="PosRefundItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PosRefundItems_PosSaleItems" Association="Self.FK_PosRefundItems_PosSaleItems">
+      <End Role="PosSaleItems" EntitySet="PosSaleItems" />
+      <End Role="PosRefundItems" EntitySet="PosRefundItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PosRefundItems_Products" Association="Self.FK_PosRefundItems_Products">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="PosRefundItems" EntitySet="PosRefundItems" />
+    </AssociationSet>
     <AssociationSet Name="FK_PosRefunds_Customers" Association="Self.FK_PosRefunds_Customers">
       <End Role="Customers" EntitySet="Customers" />
       <End Role="PosRefunds" EntitySet="PosRefunds" />
     </AssociationSet>
-    <AssociationSet Name="FK_PosRefunds_PosRefunds" Association="Self.FK_PosRefunds_PosRefunds">
-      <End Role="PosRefunds" EntitySet="PosRefunds" />
-      <End Role="PosRefundItems" EntitySet="PosRefundItems" />
-    </AssociationSet>
     <AssociationSet Name="FK_PosRefunds_PosSales" Association="Self.FK_PosRefunds_PosSales">
       <End Role="PosSales" EntitySet="PosSales" />
       <End Role="PosRefunds" EntitySet="PosRefunds" />
-    </AssociationSet>
-    <AssociationSet Name="FK_PosRefunds_Products" Association="Self.FK_PosRefunds_Products">
-      <End Role="Products" EntitySet="Products" />
-      <End Role="PosRefundItems" EntitySet="PosRefundItems" />
     </AssociationSet>
     <AssociationSet Name="FK_PosRefunds_Users" Association="Self.FK_PosRefunds_Users">
       <End Role="Users" EntitySet="Users" />

@@ -4,6 +4,7 @@ using Barcode_Sales.Operations.Concrete;
 using Barcode_Sales.Services.CacheServices;
 using Barcode_Sales.Terminals.DTOs;
 using DevExpress.XtraBars.Navigation;
+using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.Grid.ViewInfo;
 using System;
 using System.Collections.Generic;
@@ -13,9 +14,6 @@ using System.Drawing;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using DevExpress.XtraEditors;
-using Barcode_Sales.Terminals.Omnitech.Models;
-using DevExpress.XtraCharts.Designer.Native;
 
 namespace Barcode_Sales.Forms
 {
@@ -25,6 +23,8 @@ namespace Barcode_Sales.Forms
 
         IPosSaleOperation posSaleOperation = new PosSaleManager();
         IProductOperation productOperation = new ProductManager();
+        IPosBasketOperation posBasketOperation = new PosBasketManager();
+        IPosBasketItemOperation posBasketItemOperation = new PosBasketItemManager();
 
         private BindingList<PosSaleItemDto> dataList = new BindingList<PosSaleItemDto>();
         private List<Products> _productsList = new List<Products>();
@@ -106,9 +106,7 @@ namespace Barcode_Sales.Forms
                     Note = tComment.Text,
                 });
                 if (f.ShowDialog() is DialogResult.OK)
-                {
                     Clear();
-                }
             }
         }
 
@@ -118,7 +116,7 @@ namespace Barcode_Sales.Forms
             tTotal.Text = 0.ToString("0.00");
             tCustomer.Text = "-";
             tComment.Clear();
-            tProductCount.Text = CommonData.DEFAULT_INT_TOSTRING;
+            tProductCount.Text = "0";
             var saleCount = await posSaleOperation.CurrentSaleCount();
             tSaleCount.Text = saleCount.ToString();
         }
@@ -448,12 +446,144 @@ namespace Barcode_Sales.Forms
 
         private void bBaskets_Click(object sender, EventArgs e)
         {
-            navigationFrameRight.SelectedPage = pageBaskets;
+            if (dataList.Count > 0)
+                AddBasket();
+            else
+                navigationFrameRight.SelectedPage = pageBaskets;
+
+            BasketLoad();
         }
 
         private void bNumberKeyboard_Click(object sender, EventArgs e)
         {
             navigationFrameRight.SelectedPage = pageKeyboard;
+        }
+
+        private async void AddBasket()
+        {
+            var basketName = posBasketOperation.LastBasketNumber();
+            var basket = new PosBasket
+            {
+                BasketName = basketName,
+                CustomerId = _customer != null ? _customer?.Id : null,
+                CreatedDatetime = DatetimeService.CurrentDateTime,
+                CreatedUserId = UserCacheService.User.Id,
+            };
+
+            List<PosBasketItem> baskets = new List<PosBasketItem>();
+            foreach (var item in dataList)
+            {
+                var data = new PosBasketItem
+                {
+                    PosBasket = basket,
+                    ProductId = item.Id,
+                    Quantity = item.Quantity,
+                    PurchasePrice = item.PurchasePrice,
+                    SalePrice = item.SalePrice,
+                    DiscountAmount = item.Discount,
+                    TotalAmount = item.Quantity * item.SalePrice - item.Discount
+                };
+                baskets.Add(data);
+            }
+
+            if (await posBasketItemOperation.Add(baskets))
+                Clear();
+        }
+
+        private async void BasketLoad()
+        {
+            var baskets = await posBasketOperation.GetBaskets();
+            tileControlBaskets.Groups.Clear();
+            tileControlBaskets.ItemSize = 150;
+            tileControlBaskets.ItemPadding = new Padding(5);
+            TileBarGroup group1 = new TileBarGroup();
+            foreach (var item in baskets)
+            {
+                string name = item.BasketName;
+                string Id = $"#{item.Id}";
+                string customerName = item.CustomerName;
+                decimal totalAmount = item.TotalAmount;
+
+                TileItem tile = new TileItem();
+                tile.ItemSize = TileItemSize.Default;
+                tile.AppearanceItem.Normal.BackColor = Color.FromArgb(231, 72, 86);
+                tile.AppearanceItem.Normal.ForeColor = Color.White;
+
+                //basketName
+                TileItemElement basketElement = new TileItemElement();
+                basketElement.Text = name;
+                basketElement.TextAlignment = TileItemContentAlignment.TopLeft;
+                basketElement.MaxWidth = 100;
+                basketElement.Appearance.Normal.Font = new Font("Poppins", 11);
+
+                //Id
+                TileItemElement IdElement = new TileItemElement();
+                IdElement.Text = Id;
+                IdElement.TextAlignment = TileItemContentAlignment.TopRight;
+                IdElement.MaxWidth = 100;
+                IdElement.Appearance.Normal.Font = new Font("Poppins", 9);
+
+                //customerName
+                TileItemElement customerElement = new TileItemElement();
+                customerElement.Text = customerName;
+                customerElement.TextAlignment = TileItemContentAlignment.MiddleCenter;
+                customerElement.Appearance.Normal.Font = new Font("Poppins", 10);
+
+                TileItemElement priceElement = new TileItemElement();
+                priceElement.Text = totalAmount.ToString("N2") + " AZN";
+                priceElement.TextAlignment = TileItemContentAlignment.BottomRight;
+                priceElement.Appearance.Normal.Font = new Font("Nunito", 12, FontStyle.Bold);
+
+                tile.Elements.Add(basketElement);
+                tile.Elements.Add(IdElement);
+                tile.Elements.Add(customerElement);
+                tile.Elements.Add(priceElement);
+
+                group1.Items.Add(tile);
+                tileControlBaskets.Groups.Add(group1);
+            }
+        }
+
+        private async void tileControlBaskets_ItemClick(object sender, TileItemEventArgs e)
+        {
+            try
+            {
+                if (gridBasket.RowCount > 0)
+                    return;
+
+                string basketName = e.Item.Elements[0].Text;
+
+                var basket = await posBasketOperation.Get(x => x.BasketName == basketName);
+                var items = await posBasketItemOperation.ToListAsync(x => x.PosBasketId == basket.Id);
+
+                foreach (var item in items)
+                {
+                    var product = _productsList.Find(x => x.Id == item.ProductId);
+
+                    PosSaleItemDto grid = new PosSaleItemDto
+                    {
+                        Id = item.ProductId,
+                        ProductName = product.ProductName,
+                        PurchasePrice = item.PurchasePrice,
+                        SalePrice = item.SalePrice,
+                        Discount = item.DiscountAmount,
+                        Quantity = item.Quantity,
+                        Barcode = product.Barcode,
+                        UnitId = product.UnitId,
+                        TaxId = product.TaxId,
+                        No = rowNo,
+                    };
+                    dataList.Add(grid);
+                    rowNo++;
+                }
+                gridControlBasket.RefreshDataSource();
+                await posBasketOperation.Remove(basket);
+                BasketLoad();
+            }
+            finally
+            {
+                TotalAmountCalculation();
+            }
         }
     }
 }

@@ -148,7 +148,7 @@
             // gridColumn9
             // 
             this.gridColumn9.Caption = "Barkod";
-            this.gridColumn9.FieldName = "Product.Barcode";
+            this.gridColumn9.FieldName = "Barcode";
             this.gridColumn9.Name = "gridColumn9";
             this.gridColumn9.OptionsColumn.AllowEdit = false;
             this.gridColumn9.OptionsColumn.AllowFocus = false;
@@ -160,7 +160,7 @@
             // gridColumn10
             // 
             this.gridColumn10.Caption = "Məhsul adı";
-            this.gridColumn10.FieldName = "Product.ProductName";
+            this.gridColumn10.FieldName = "ProductName";
             this.gridColumn10.Name = "gridColumn10";
             this.gridColumn10.OptionsColumn.AllowEdit = false;
             this.gridColumn10.OptionsColumn.AllowFocus = false;
@@ -172,6 +172,7 @@
             // gridColumn11
             // 
             this.gridColumn11.Caption = "Miqdar";
+            this.gridColumn11.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.gridColumn11.FieldName = "Quantity";
             this.gridColumn11.Name = "gridColumn11";
             this.gridColumn11.OptionsColumn.AllowEdit = false;
@@ -184,7 +185,7 @@
             // gridColumn12
             // 
             this.gridColumn12.Caption = "Vahid";
-            this.gridColumn12.FieldName = "Product.UnitTypes.Name";
+            this.gridColumn12.FieldName = "UnitName";
             this.gridColumn12.Name = "gridColumn12";
             this.gridColumn12.OptionsColumn.AllowEdit = false;
             this.gridColumn12.OptionsColumn.AllowFocus = false;
@@ -196,6 +197,8 @@
             // gridColumn13
             // 
             this.gridColumn13.Caption = "Satış qiyməti";
+            this.gridColumn13.DisplayFormat.FormatString = "C2";
+            this.gridColumn13.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.gridColumn13.FieldName = "SalePrice";
             this.gridColumn13.Name = "gridColumn13";
             this.gridColumn13.OptionsColumn.AllowEdit = false;
@@ -208,6 +211,8 @@
             // gridColumn14
             // 
             this.gridColumn14.Caption = "Ümumi məbləğ";
+            this.gridColumn14.DisplayFormat.FormatString = "C2";
+            this.gridColumn14.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.gridColumn14.FieldName = "TotalAmount";
             this.gridColumn14.Name = "gridColumn14";
             this.gridColumn14.OptionsColumn.AllowEdit = false;

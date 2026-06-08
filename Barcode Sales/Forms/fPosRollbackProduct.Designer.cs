@@ -45,6 +45,7 @@
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject11 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject12 = new DevExpress.Utils.SerializableAppearanceObject();
             this.tablePanel1 = new DevExpress.Utils.Layout.TablePanel();
+            this.bSubmit = new DevExpress.XtraEditors.SimpleButton();
             this.gridControlSalesData = new DevExpress.XtraGrid.GridControl();
             this.gridSalesData = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colId = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -54,10 +55,7 @@
             this.colUnitName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colSalePrice = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTotal = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colTaxName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colReturnQuantity = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
-            this.bSubmit = new DevExpress.XtraEditors.SimpleButton();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.tComment = new DevExpress.XtraEditors.MemoEdit();
             this.tTotal = new DevExpress.XtraEditors.ButtonEdit();
@@ -73,12 +71,11 @@
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.tCashier = new DevExpress.XtraEditors.ButtonEdit();
             this.tCustomer = new DevExpress.XtraEditors.ButtonEdit();
+            this.lCancelMessage = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel1)).BeginInit();
             this.tablePanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlSalesData)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridSalesData)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
-            this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tComment.Properties)).BeginInit();
@@ -93,10 +90,12 @@
             // tablePanel1
             // 
             this.tablePanel1.Columns.AddRange(new DevExpress.Utils.Layout.TablePanelColumn[] {
-            new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 55F)});
+            new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 14.59F),
+            new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 90.41F)});
+            this.tablePanel1.Controls.Add(this.bSubmit);
             this.tablePanel1.Controls.Add(this.gridControlSalesData);
-            this.tablePanel1.Controls.Add(this.panelControl1);
             this.tablePanel1.Controls.Add(this.groupControl1);
+            this.tablePanel1.Controls.Add(this.lCancelMessage);
             this.tablePanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tablePanel1.Location = new System.Drawing.Point(0, 0);
             this.tablePanel1.Margin = new System.Windows.Forms.Padding(1);
@@ -104,25 +103,55 @@
             this.tablePanel1.Padding = new System.Windows.Forms.Padding(1);
             this.tablePanel1.Rows.AddRange(new DevExpress.Utils.Layout.TablePanelRow[] {
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 231F),
-            new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 49F),
+            new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.AutoSize, 49F),
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 26F)});
+            this.tablePanel1.ShowGrid = DevExpress.Utils.DefaultBoolean.False;
             this.tablePanel1.Size = new System.Drawing.Size(1171, 711);
             this.tablePanel1.TabIndex = 1;
             this.tablePanel1.UseSkinIndents = true;
             // 
+            // bSubmit
+            // 
+            this.bSubmit.AllowFocus = false;
+            this.bSubmit.Appearance.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Question;
+            this.bSubmit.Appearance.Font = new System.Drawing.Font("Nunito", 12F, System.Drawing.FontStyle.Bold);
+            this.bSubmit.Appearance.ForeColor = System.Drawing.Color.Black;
+            this.bSubmit.Appearance.Options.UseBackColor = true;
+            this.bSubmit.Appearance.Options.UseFont = true;
+            this.bSubmit.Appearance.Options.UseForeColor = true;
+            this.bSubmit.AppearanceHovered.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(131)))), ((int)(((byte)(131)))));
+            this.bSubmit.AppearanceHovered.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(131)))), ((int)(((byte)(131)))));
+            this.bSubmit.AppearanceHovered.Options.UseBackColor = true;
+            this.tablePanel1.SetColumn(this.bSubmit, 0);
+            this.bSubmit.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.bSubmit.ImageOptions.SvgImageSize = new System.Drawing.Size(28, 28);
+            this.bSubmit.Location = new System.Drawing.Point(4, 235);
+            this.bSubmit.LookAndFeel.SkinName = "WXI";
+            this.bSubmit.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.bSubmit.Name = "bSubmit";
+            this.bSubmit.Padding = new System.Windows.Forms.Padding(3);
+            this.tablePanel1.SetRow(this.bSubmit, 1);
+            this.bSubmit.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
+            this.bSubmit.Size = new System.Drawing.Size(156, 34);
+            this.bSubmit.TabIndex = 25;
+            this.bSubmit.TabStop = false;
+            this.bSubmit.Text = "Qaytar";
+            this.bSubmit.Click += new System.EventHandler(this.bSubmit_Click);
+            // 
             // gridControlSalesData
             // 
             this.tablePanel1.SetColumn(this.gridControlSalesData, 0);
+            this.tablePanel1.SetColumnSpan(this.gridControlSalesData, 2);
             this.gridControlSalesData.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gridControlSalesData.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4);
-            this.gridControlSalesData.Location = new System.Drawing.Point(2, 282);
+            this.gridControlSalesData.Location = new System.Drawing.Point(2, 273);
             this.gridControlSalesData.LookAndFeel.SkinName = "WXI";
             this.gridControlSalesData.LookAndFeel.UseDefaultLookAndFeel = false;
             this.gridControlSalesData.MainView = this.gridSalesData;
             this.gridControlSalesData.Margin = new System.Windows.Forms.Padding(1);
             this.gridControlSalesData.Name = "gridControlSalesData";
             this.tablePanel1.SetRow(this.gridControlSalesData, 2);
-            this.gridControlSalesData.Size = new System.Drawing.Size(1167, 427);
+            this.gridControlSalesData.Size = new System.Drawing.Size(1167, 436);
             this.gridControlSalesData.TabIndex = 13;
             this.gridControlSalesData.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridSalesData});
@@ -137,8 +166,6 @@
             this.gridSalesData.Appearance.OddRow.Options.UseBackColor = true;
             this.gridSalesData.Appearance.Row.Font = new System.Drawing.Font("Nunito", 10F);
             this.gridSalesData.Appearance.Row.Options.UseFont = true;
-            this.gridSalesData.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.gridSalesData.ColumnPanelRowHeight = 40;
             this.gridSalesData.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colId,
             this.colBarcode,
@@ -147,9 +174,7 @@
             this.colUnitName,
             this.colSalePrice,
             this.colTotal,
-            this.colTaxName,
             this.colReturnQuantity});
-            this.gridSalesData.DetailHeight = 485;
             this.gridSalesData.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFullFocus;
             this.gridSalesData.GridControl = this.gridControlSalesData;
             this.gridSalesData.Name = "gridSalesData";
@@ -169,7 +194,7 @@
             // colId
             // 
             this.colId.Caption = "Detail.Id";
-            this.colId.FieldName = "Detail.Id";
+            this.colId.FieldName = "Id";
             this.colId.Name = "colId";
             this.colId.OptionsColumn.AllowEdit = false;
             // 
@@ -179,7 +204,7 @@
             this.colBarcode.AppearanceHeader.TextOptions.Trimming = DevExpress.Utils.Trimming.EllipsisCharacter;
             this.colBarcode.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.colBarcode.Caption = "Barkod";
-            this.colBarcode.FieldName = "Detail.Products.Barcode";
+            this.colBarcode.FieldName = "Barcode";
             this.colBarcode.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.MiddleLeft;
             this.colBarcode.Name = "colBarcode";
             this.colBarcode.OptionsColumn.AllowEdit = false;
@@ -193,7 +218,7 @@
             this.colProductName.AppearanceHeader.TextOptions.Trimming = DevExpress.Utils.Trimming.EllipsisCharacter;
             this.colProductName.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.colProductName.Caption = "Məhsul adı";
-            this.colProductName.FieldName = "Detail.Product.ProductName";
+            this.colProductName.FieldName = "ProductName";
             this.colProductName.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.MiddleLeft;
             this.colProductName.Name = "colProductName";
             this.colProductName.OptionsColumn.AllowEdit = false;
@@ -209,7 +234,7 @@
             this.colQuantity.Caption = "Miqdar";
             this.colQuantity.DisplayFormat.FormatString = "N3";
             this.colQuantity.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.colQuantity.FieldName = "Detail.Quantity";
+            this.colQuantity.FieldName = "Quantity";
             this.colQuantity.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.MiddleLeft;
             this.colQuantity.Name = "colQuantity";
             this.colQuantity.OptionsColumn.AllowEdit = false;
@@ -225,7 +250,7 @@
             this.colUnitName.AppearanceHeader.TextOptions.Trimming = DevExpress.Utils.Trimming.EllipsisCharacter;
             this.colUnitName.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.colUnitName.Caption = "Vahid";
-            this.colUnitName.FieldName = "Detail.Product.UnitTypes.Name";
+            this.colUnitName.FieldName = "UnitName";
             this.colUnitName.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.MiddleLeft;
             this.colUnitName.Name = "colUnitName";
             this.colUnitName.OptionsColumn.AllowEdit = false;
@@ -243,7 +268,7 @@
             this.colSalePrice.Caption = "Satış qiyməti";
             this.colSalePrice.DisplayFormat.FormatString = "C2";
             this.colSalePrice.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.colSalePrice.FieldName = "Detail.SalePrice";
+            this.colSalePrice.FieldName = "SalePrice";
             this.colSalePrice.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.MiddleLeft;
             this.colSalePrice.Name = "colSalePrice";
             this.colSalePrice.OptionsColumn.AllowEdit = false;
@@ -261,25 +286,13 @@
             this.colTotal.Caption = "Ümumi məbləğ";
             this.colTotal.DisplayFormat.FormatString = "C2";
             this.colTotal.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.colTotal.FieldName = "Detail.Total";
+            this.colTotal.FieldName = "TotalAmount";
             this.colTotal.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.MiddleLeft;
             this.colTotal.Name = "colTotal";
             this.colTotal.OptionsColumn.AllowEdit = false;
             this.colTotal.Visible = true;
             this.colTotal.VisibleIndex = 6;
             this.colTotal.Width = 140;
-            // 
-            // colTaxName
-            // 
-            this.colTaxName.AppearanceHeader.Options.UseTextOptions = true;
-            this.colTaxName.AppearanceHeader.TextOptions.Trimming = DevExpress.Utils.Trimming.EllipsisCharacter;
-            this.colTaxName.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.colTaxName.Caption = "Vergi dərəcəsi";
-            this.colTaxName.FieldName = "Detail.Products.Taxypes.Name";
-            this.colTaxName.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.MiddleLeft;
-            this.colTaxName.Name = "colTaxName";
-            this.colTaxName.OptionsColumn.AllowEdit = false;
-            this.colTaxName.Width = 128;
             // 
             // colReturnQuantity
             // 
@@ -296,7 +309,7 @@
             this.colReturnQuantity.Caption = "Qaytarılacaq miqdar";
             this.colReturnQuantity.DisplayFormat.FormatString = "N3";
             this.colReturnQuantity.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.colReturnQuantity.FieldName = "ReturnQuantity";
+            this.colReturnQuantity.FieldName = "RefundQuantity";
             this.colReturnQuantity.GroupFormat.FormatString = "N3";
             this.colReturnQuantity.GroupFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.colReturnQuantity.Name = "colReturnQuantity";
@@ -307,49 +320,10 @@
             this.colReturnQuantity.VisibleIndex = 7;
             this.colReturnQuantity.Width = 141;
             // 
-            // panelControl1
-            // 
-            this.panelControl1.Appearance.BackColor = System.Drawing.Color.Transparent;
-            this.panelControl1.Appearance.Options.UseBackColor = true;
-            this.tablePanel1.SetColumn(this.panelControl1, 0);
-            this.panelControl1.Controls.Add(this.bSubmit);
-            this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl1.Location = new System.Drawing.Point(4, 235);
-            this.panelControl1.Name = "panelControl1";
-            this.tablePanel1.SetRow(this.panelControl1, 1);
-            this.panelControl1.Size = new System.Drawing.Size(1163, 43);
-            this.panelControl1.TabIndex = 14;
-            // 
-            // bSubmit
-            // 
-            this.bSubmit.AllowFocus = false;
-            this.bSubmit.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.bSubmit.Appearance.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Question;
-            this.bSubmit.Appearance.Font = new System.Drawing.Font("Nunito", 12F, System.Drawing.FontStyle.Bold);
-            this.bSubmit.Appearance.ForeColor = System.Drawing.Color.Black;
-            this.bSubmit.Appearance.Options.UseBackColor = true;
-            this.bSubmit.Appearance.Options.UseFont = true;
-            this.bSubmit.Appearance.Options.UseForeColor = true;
-            this.bSubmit.AppearanceHovered.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(131)))), ((int)(((byte)(131)))));
-            this.bSubmit.AppearanceHovered.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(131)))), ((int)(((byte)(131)))));
-            this.bSubmit.AppearanceHovered.Options.UseBackColor = true;
-            this.bSubmit.ImageOptions.SvgImageSize = new System.Drawing.Size(28, 28);
-            this.bSubmit.Location = new System.Drawing.Point(8, 4);
-            this.bSubmit.LookAndFeel.SkinName = "WXI";
-            this.bSubmit.LookAndFeel.UseDefaultLookAndFeel = false;
-            this.bSubmit.Name = "bSubmit";
-            this.bSubmit.Padding = new System.Windows.Forms.Padding(3);
-            this.bSubmit.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
-            this.bSubmit.Size = new System.Drawing.Size(163, 34);
-            this.bSubmit.TabIndex = 25;
-            this.bSubmit.TabStop = false;
-            this.bSubmit.Text = "Qaytar";
-            this.bSubmit.Click += new System.EventHandler(this.bSubmit_Click);
-            // 
             // groupControl1
             // 
             this.tablePanel1.SetColumn(this.groupControl1, 0);
+            this.tablePanel1.SetColumnSpan(this.groupControl1, 2);
             this.groupControl1.Controls.Add(this.tComment);
             this.groupControl1.Controls.Add(this.tTotal);
             this.groupControl1.Controls.Add(this.tPaymentType);
@@ -366,9 +340,10 @@
             this.groupControl1.Controls.Add(this.tCustomer);
             this.groupControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupControl1.Location = new System.Drawing.Point(4, 4);
+            this.groupControl1.Margin = new System.Windows.Forms.Padding(3, 3, 3, 1);
             this.groupControl1.Name = "groupControl1";
             this.tablePanel1.SetRow(this.groupControl1, 0);
-            this.groupControl1.Size = new System.Drawing.Size(1163, 225);
+            this.groupControl1.Size = new System.Drawing.Size(1163, 227);
             this.groupControl1.TabIndex = 0;
             // 
             // tComment
@@ -540,6 +515,24 @@
             this.tCustomer.TabIndex = 24;
             this.tCustomer.TabStop = false;
             // 
+            // lCancelMessage
+            // 
+            this.lCancelMessage.AllowHtmlString = true;
+            this.lCancelMessage.Appearance.Font = new System.Drawing.Font("Poppins", 12F);
+            this.lCancelMessage.Appearance.Options.UseFont = true;
+            this.lCancelMessage.Appearance.Options.UseTextOptions = true;
+            this.lCancelMessage.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.lCancelMessage.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.tablePanel1.SetColumn(this.lCancelMessage, 1);
+            this.lCancelMessage.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lCancelMessage.Location = new System.Drawing.Point(166, 235);
+            this.lCancelMessage.Name = "lCancelMessage";
+            this.tablePanel1.SetRow(this.lCancelMessage, 1);
+            this.lCancelMessage.Size = new System.Drawing.Size(1001, 34);
+            this.lCancelMessage.TabIndex = 23;
+            this.lCancelMessage.Text = "Çekdə olan bütün məhsullar ləğv ediləcəkdir !";
+            this.lCancelMessage.Visible = false;
+            // 
             // fPosRollbackProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -553,10 +546,9 @@
             this.Load += new System.EventHandler(this.fPosRollbackProduct_Load);
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel1)).EndInit();
             this.tablePanel1.ResumeLayout(false);
+            this.tablePanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlSalesData)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridSalesData)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
-            this.panelControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             this.groupControl1.PerformLayout();
@@ -593,14 +585,13 @@
         private DevExpress.XtraEditors.LabelControl labelControl5;
         private DevExpress.XtraEditors.TextEdit tReceiptNo;
         private DevExpress.XtraEditors.LabelControl labelControl3;
-        private DevExpress.XtraGrid.Columns.GridColumn colTaxName;
         private DevExpress.XtraGrid.Columns.GridColumn colReturnQuantity;
-        private DevExpress.XtraEditors.PanelControl panelControl1;
         private DevExpress.XtraEditors.SimpleButton bSubmit;
         private DevExpress.XtraEditors.ButtonEdit tTotal;
         private DevExpress.XtraEditors.ButtonEdit tCashier;
         private DevExpress.XtraEditors.ButtonEdit tCustomer;
         private DevExpress.XtraEditors.MemoEdit tComment;
         private DevExpress.XtraEditors.LabelControl labelControl7;
+        private DevExpress.XtraEditors.LabelControl lCancelMessage;
     }
 }

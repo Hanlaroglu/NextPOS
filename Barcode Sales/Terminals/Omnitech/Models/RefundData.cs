@@ -3,16 +3,25 @@ using System.Collections.Generic;
 
 namespace Barcode_Sales.Terminals.Omnitech.Models
 {
-    public class SaleData
+    public class RefundData
     {
         [JsonProperty("cashier")]
         public string Cashier { get; set; }
 
-        [JsonProperty("currency")] 
+        [JsonProperty("currency")]
         public string Currency { get; set; } = "AZN";
 
         [JsonProperty("items")]
         public List<Item> Items { get; set; }
+
+        [JsonProperty("parentDocument")]
+        public string ParentDocument { get; set; }
+
+        [JsonProperty("refund_document_number")]
+        public string RefundDocumentNumber { get; set; }
+        
+        [JsonProperty("refund_short_document_id")]
+        public string RefundShortDocumentId { get; set; }
 
         [JsonProperty("sum")]
         public decimal Sum { get; set; }
@@ -35,7 +44,7 @@ namespace Barcode_Sales.Terminals.Omnitech.Models
         [JsonProperty("incomingSum")]
         public decimal IncomingSum { get; set; }
 
-        [JsonProperty("rrn")] 
+        [JsonProperty("rrn")]
         public string Rrn { get; set; }
 
         [JsonProperty("vatAmounts")]

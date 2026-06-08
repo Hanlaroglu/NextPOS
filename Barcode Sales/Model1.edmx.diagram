@@ -72,6 +72,13 @@
         <AssociationConnector Association="KhanposDbModel.FK_PosRefunds_PosSales" />
         <AssociationConnector Association="KhanposDbModel.FK_PosSaleItems_PosSales" />
         <AssociationConnector Association="KhanposDbModel.FK_PosSales_User" />
+        <AssociationConnector Association="KhanposDbModel.FK_PosRefundItems_PosSaleItems" />
+        <EntityTypeShape EntityType="KhanposDbModel.PosBasketItem" Width="1.5" PointX="14.25" PointY="25.75" />
+        <EntityTypeShape EntityType="KhanposDbModel.PosBasket" Width="1.5" PointX="12" PointY="34.625" />
+        <AssociationConnector Association="KhanposDbModel.FK_PosBasket_Customer" />
+        <AssociationConnector Association="KhanposDbModel.FK_PosBasket_PosBasket" />
+        <AssociationConnector Association="KhanposDbModel.FK_PosBasket_Product" />
+        <AssociationConnector Association="KhanposDbModel.FK_PosBasket_User" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

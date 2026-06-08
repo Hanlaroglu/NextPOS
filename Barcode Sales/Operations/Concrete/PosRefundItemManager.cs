@@ -9,14 +9,37 @@ namespace Barcode_Sales.Operations.Concrete
 {
     public class PosRefundItemManager : IPosRefundItemOperation
     {
-        public Task<int> Add(PosRefundItem item)
+        private KhanposDbEntities db = new KhanposDbEntities();
+        public async Task<int> Add(PosRefundItem item)
         {
-            throw new NotImplementedException();
+            try
+            {
+                db.Set<PosRefundItem>().Add(item);
+                await db.SaveChangesAsync();
+                return item.Id;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+                return 0;
+            }
         }
 
-        public Task<bool> Add(List<PosRefundItem> items)
+        public async Task<bool> Add(List<PosRefundItem> items)
         {
-            throw new NotImplementedException();
+            if (items == null || items.Count == 0)
+                return false;
+
+            try
+            {
+                db.Set<PosRefundItem>().AddRange(items);
+                return await db.SaveChangesAsync() > 0;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+                return false;
+            }
         }
 
         public Task<bool> Update(PosRefundItem item, params Expression<Func<PosRefundItem, object>>[] updateProperties)

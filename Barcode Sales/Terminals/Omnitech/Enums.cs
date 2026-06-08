@@ -12,6 +12,14 @@
             Withdraw = 8,
             XReport = 12,
             Sale = 1,
+            MoneyBack = 100,
+            Rollback = 10
+        }
+
+        public enum OperationType
+        {
+            Refund = 1,
+            Rollback
         }
     }
 }

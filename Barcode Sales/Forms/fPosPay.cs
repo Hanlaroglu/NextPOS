@@ -70,18 +70,11 @@ namespace Barcode_Sales.Forms
         private void bPay_Click(object sender, EventArgs e)
         {
             if (navigationFrame1.SelectedPage == pageCash)
-            {
                 CashPaid();
-            }
             else if (navigationFrame1.SelectedPage == pageCard)
-            {
                 CardPaid();
-            }
             else if (navigationFrame1.SelectedPage == pageCashCard)
-            {
                 CashCardPaid();
-            }
-
         }
 
         private async void CashPaid()
@@ -111,10 +104,12 @@ namespace Barcode_Sales.Forms
                         var result = await omnitech.Sale(_data);
                         fPosSales _form = Application.OpenForms.OfType<fPosSales>().FirstOrDefault();
                         if (result.Success)
+                        {
                             NotificationHelpers.Messages.SuccessMessage(_form, result.Message);
+                            DialogResult = DialogResult.OK;
+                        }
                         else
                             NotificationHelpers.Messages.ErrorMessage(_form, result.Message);
-                        DialogResult = DialogResult.OK;
                         break;
                     case Helpers.Enums.Terminal.AzSmart:
                         //if (NKA.AzSmart.Sale(_data))
@@ -150,10 +145,12 @@ namespace Barcode_Sales.Forms
                         var result = await omnitech.Sale(_data);
                         fPosSales _form = Application.OpenForms.OfType<fPosSales>().FirstOrDefault();
                         if (result.Success)
+                        {
                             NotificationHelpers.Messages.SuccessMessage(_form, result.Message);
+                            DialogResult = DialogResult.OK;
+                        }
                         else
                             NotificationHelpers.Messages.ErrorMessage(_form, result.Message);
-                        DialogResult = DialogResult.OK;
                         break;
                     case Helpers.Enums.Terminal.AzSmart:
                         //if (NKA.AzSmart.Sale(_data))
@@ -203,10 +200,12 @@ namespace Barcode_Sales.Forms
                         var result = await omnitech.Sale(_data);
                         fPosSales _form = Application.OpenForms.OfType<fPosSales>().FirstOrDefault();
                         if (result.Success)
+                        {
                             NotificationHelpers.Messages.SuccessMessage(_form, result.Message);
+                            DialogResult = DialogResult.OK;
+                        }
                         else
                             NotificationHelpers.Messages.ErrorMessage(_form, result.Message);
-                        DialogResult = DialogResult.OK;
                         break;
                     case Helpers.Enums.Terminal.AzSmart:
                         //if (NKA.AzSmart.Sale(_data))

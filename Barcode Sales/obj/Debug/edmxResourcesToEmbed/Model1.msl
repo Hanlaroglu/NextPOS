@@ -440,5 +440,30 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="PosBasketItems">
+      <EntityTypeMapping TypeName="KhanposDbModel.PosBasketItem">
+        <MappingFragment StoreEntitySet="PosBasketItems">
+          <ScalarProperty Name="TotalAmount" ColumnName="TotalAmount" />
+          <ScalarProperty Name="DiscountAmount" ColumnName="DiscountAmount" />
+          <ScalarProperty Name="SalePrice" ColumnName="SalePrice" />
+          <ScalarProperty Name="PurchasePrice" ColumnName="PurchasePrice" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <ScalarProperty Name="PosBasketId" ColumnName="PosBasketId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PosBaskets">
+      <EntityTypeMapping TypeName="KhanposDbModel.PosBasket">
+        <MappingFragment StoreEntitySet="PosBaskets">
+          <ScalarProperty Name="CreatedUserId" ColumnName="CreatedUserId" />
+          <ScalarProperty Name="CreatedDatetime" ColumnName="CreatedDatetime" />
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="BasketName" ColumnName="BasketName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

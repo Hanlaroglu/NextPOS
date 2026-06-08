@@ -1,4 +1,5 @@
-﻿using Barcode_Sales.Terminals.DTOs;
+﻿using Barcode_Sales.DTOs;
+using Barcode_Sales.Terminals.DTOs;
 using System.Threading.Tasks;
 
 namespace Barcode_Sales.Terminals.Services
@@ -13,8 +14,8 @@ namespace Barcode_Sales.Terminals.Services
         TerminalResult Deposit(decimal amount);
         TerminalResult Withdraw(decimal amount);
         Task<TerminalResult> Sale(PosSaleDto item);
-        bool Rollback();
-        bool Refund();
+        Task<TerminalResult> Rollback(PosRefundDto item);
+        Task<TerminalResult> Refund(PosRefundDto item);
         bool CreditSale();
         bool CreditPay();
         //Kredit satış qaytarmalarını və avans qaytarmalarını da əlavə et

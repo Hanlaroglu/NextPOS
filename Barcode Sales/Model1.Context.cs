@@ -55,5 +55,7 @@ namespace Barcode_Sales
         public virtual DbSet<InvoiceRollback> InvoiceRollbacks { get; set; }
         public virtual DbSet<Customer> Customers { get; set; }
         public virtual DbSet<PosSale> PosSales { get; set; }
+        public virtual DbSet<PosBasketItem> PosBasketItems { get; set; }
+        public virtual DbSet<PosBasket> PosBaskets { get; set; }
     }
 }

@@ -1,0 +1,39 @@
+﻿using Barcode_Sales.Terminals.DTOs;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Barcode_Sales.DTOs
+{
+    public class PosRefundItemDto
+    {
+        public int Id { get; set; }
+        public int ProductId { get; set; }
+        public string ProductName { get; set; }
+        public string Barcode { get; set; }
+        public decimal Quantity { get; set; }
+        public decimal PurchasePrice { get; set; }
+        public decimal PurchaseSum
+        {
+            get => PurchasePrice * RefundQuantity;
+        }
+        public decimal SalePrice { get; set; }
+        public decimal DiscountAmount { get; set; }
+        public decimal TotalAmount
+        {
+            get
+            {
+                var result = SalePrice * RefundQuantity - DiscountAmount;
+                return result;
+            }
+        }
+        public int UnitId { get; set; }
+        public string UnitName => DefinitionDto.GetUnitName(UnitId);
+        public int TaxId { get; set; }
+        public string TaxName => DefinitionDto.GetTaxName(TaxId);
+        public decimal TaxPercent => DefinitionDto.GetVatPercent(TaxId);
+        public decimal RefundQuantity { get; set; }
+    }
+}

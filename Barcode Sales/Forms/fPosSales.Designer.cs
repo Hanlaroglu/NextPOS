@@ -101,6 +101,8 @@
             this.tileControlProducts = new DevExpress.XtraEditors.TileControl();
             this.tileGroup1 = new DevExpress.XtraEditors.TileGroup();
             this.pageBaskets = new DevExpress.XtraBars.Navigation.NavigationPage();
+            this.tileControlBaskets = new DevExpress.XtraEditors.TileControl();
+            this.tileGroup2 = new DevExpress.XtraEditors.TileGroup();
             this.pageKeyboard = new DevExpress.XtraBars.Navigation.NavigationPage();
             this.tInternetStatus = new DevExpress.XtraEditors.ButtonEdit();
             this.tComment = new DevExpress.XtraEditors.ButtonEdit();
@@ -167,6 +169,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.navigationFrameRight)).BeginInit();
             this.navigationFrameRight.SuspendLayout();
             this.pageHotProducts.SuspendLayout();
+            this.pageBaskets.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tInternetStatus.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tComment.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tSaleCount.Properties)).BeginInit();
@@ -272,7 +275,7 @@
             this.navigationFrameRight.Size = new System.Drawing.Size(379, 582);
             this.navigationFrameRight.TabIndex = 18;
             this.navigationFrameRight.Text = "navigationFrame2";
-            this.navigationFrameRight.TransitionAnimationProperties.FrameInterval = 6000;
+            this.navigationFrameRight.TransitionAnimationProperties.FrameInterval = 5000;
             // 
             // pageHotProducts
             // 
@@ -313,8 +316,37 @@
             // pageBaskets
             // 
             this.pageBaskets.Caption = "pageBaskets";
+            this.pageBaskets.Controls.Add(this.tileControlBaskets);
             this.pageBaskets.Name = "pageBaskets";
             this.pageBaskets.Size = new System.Drawing.Size(379, 582);
+            // 
+            // tileControlBaskets
+            // 
+            this.tileControlBaskets.AllowDrag = false;
+            this.tileControlBaskets.AllowDragTilesBetweenGroups = false;
+            this.tileControlBaskets.AllowItemHover = true;
+            this.tileControlBaskets.AllowSelectedItemBorder = false;
+            this.tileControlBaskets.BackColor = System.Drawing.Color.Transparent;
+            this.tileControlBaskets.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Default;
+            this.tileControlBaskets.ContextButtonOptions.ItemCursor = System.Windows.Forms.Cursors.Hand;
+            this.tileControlBaskets.ContextButtonOptions.PanelCursor = System.Windows.Forms.Cursors.Arrow;
+            this.tileControlBaskets.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tileControlBaskets.Groups.Add(this.tileGroup2);
+            this.tileControlBaskets.Location = new System.Drawing.Point(0, 0);
+            this.tileControlBaskets.Margin = new System.Windows.Forms.Padding(1, 3, 1, 1);
+            this.tileControlBaskets.MaxId = 5;
+            this.tileControlBaskets.Name = "tileControlBaskets";
+            this.tileControlBaskets.Orientation = System.Windows.Forms.Orientation.Vertical;
+            this.tileControlBaskets.Padding = new System.Windows.Forms.Padding(3);
+            this.tileControlBaskets.Size = new System.Drawing.Size(379, 582);
+            this.tileControlBaskets.TabIndex = 69;
+            this.tileControlBaskets.TabStop = false;
+            this.tileControlBaskets.ItemClick += new DevExpress.XtraEditors.TileItemClickEventHandler(this.tileControlBaskets_ItemClick);
+            // 
+            // tileGroup2
+            // 
+            this.tileGroup2.Name = "tileGroup2";
+            this.tileGroup2.Text = "tileGroup1";
             // 
             // pageKeyboard
             // 
@@ -699,7 +731,7 @@
             this.colTotal.OptionsFilter.AllowFilter = false;
             this.colTotal.Visible = true;
             this.colTotal.VisibleIndex = 6;
-            this.colTotal.Width = 100;
+            this.colTotal.Width = 116;
             // 
             // colDelete
             // 
@@ -714,7 +746,7 @@
             this.colDelete.OptionsFilter.AllowFilter = false;
             this.colDelete.Visible = true;
             this.colDelete.VisibleIndex = 7;
-            this.colDelete.Width = 59;
+            this.colDelete.Width = 43;
             // 
             // bProductDelete
             // 
@@ -1036,7 +1068,7 @@
             serializableAppearanceObject41.Options.UseFont = true;
             this.tToday.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Tarix:", -1, false, true, true, editorButtonImageOptions10, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject37, serializableAppearanceObject38, serializableAppearanceObject39, serializableAppearanceObject40, "", null, null, DevExpress.Utils.ToolTipAnchor.Default),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "16.02.2025", -1, false, true, false, editorButtonImageOptions11, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject41, serializableAppearanceObject42, serializableAppearanceObject43, serializableAppearanceObject44, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "06.06.2026", -1, false, true, false, editorButtonImageOptions11, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject41, serializableAppearanceObject42, serializableAppearanceObject43, serializableAppearanceObject44, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.tToday.Properties.ReadOnly = true;
             this.tToday.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.tablePanel4.SetRow(this.tToday, 0);
@@ -1241,6 +1273,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.navigationFrameRight)).EndInit();
             this.navigationFrameRight.ResumeLayout(false);
             this.pageHotProducts.ResumeLayout(false);
+            this.pageBaskets.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.tInternetStatus.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tComment.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tSaleCount.Properties)).EndInit();
@@ -1345,5 +1378,7 @@
         private DevExpress.XtraBars.Navigation.NavigationPage pageHotProducts;
         private DevExpress.XtraBars.Navigation.NavigationPage pageBaskets;
         private DevExpress.XtraBars.Navigation.NavigationPage pageKeyboard;
+        private DevExpress.XtraEditors.TileControl tileControlBaskets;
+        private DevExpress.XtraEditors.TileGroup tileGroup2;
     }
 }

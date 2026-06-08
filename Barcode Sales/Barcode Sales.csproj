@@ -266,7 +266,10 @@
     <Compile Include="DTOs\DashboardUIDto.cs" />
     <Compile Include="DTOs\HotSaleProductDto.cs" />
     <Compile Include="DTOs\InvoiceRollbackDetailDto.cs" />
+    <Compile Include="DTOs\PosBasketDto.cs" />
     <Compile Include="DTOs\PosChangeType.cs" />
+    <Compile Include="DTOs\PosRefundDto.cs" />
+    <Compile Include="DTOs\PosRefundItemDto.cs" />
     <Compile Include="DTOs\PosSaleSummaryDto.cs" />
     <Compile Include="DTOs\ProductDto.cs" />
     <Compile Include="DTOs\ProductInvoiceDto.cs" />
@@ -604,6 +607,8 @@
     <Compile Include="Operations\Abstract\IInvoiceRollbackDetailOperation.cs" />
     <Compile Include="Operations\Abstract\IInvoiceRollbackOperation.cs" />
     <Compile Include="Operations\Abstract\IPaymentTypeOperation.cs" />
+    <Compile Include="Operations\Abstract\IPosBasketItemOperation.cs" />
+    <Compile Include="Operations\Abstract\IPosBasketOperation.cs" />
     <Compile Include="Operations\Abstract\IPosRefundItemOperation.cs" />
     <Compile Include="Operations\Abstract\IPosRefundOperation.cs" />
     <Compile Include="Operations\Abstract\IPosSaleItemOperation.cs" />
@@ -632,6 +637,8 @@
     <Compile Include="Operations\Concrete\InvoiceManager.cs" />
     <Compile Include="Operations\Concrete\InvoiceRollbackDetailManager.cs" />
     <Compile Include="Operations\Concrete\PaymentTypeManager.cs" />
+    <Compile Include="Operations\Concrete\PosBasketItemManager.cs" />
+    <Compile Include="Operations\Concrete\PosBasketManager.cs" />
     <Compile Include="Operations\Concrete\PosRefundItemManager.cs" />
     <Compile Include="Operations\Concrete\PosRefundManager.cs" />
     <Compile Include="Operations\Concrete\PosSaleItemManager.cs" />
@@ -654,6 +661,12 @@
     <Compile Include="Operations\Concrete\UserManager.cs" />
     <Compile Include="Operations\Concrete\WarehouseManager.cs" />
     <Compile Include="PaymentType.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PosBasket.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PosBasketItem.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="PosRefund.cs">
@@ -713,9 +726,10 @@
     <Compile Include="Terminals\Omnitech\Enums.cs" />
     <Compile Include="Terminals\Omnitech\Models\CashOperationData.cs" />
     <Compile Include="Terminals\Omnitech\Models\CheckData.cs" />
+    <Compile Include="Terminals\Omnitech\Models\Item.cs" />
     <Compile Include="Terminals\Omnitech\Models\Parameters.cs" />
+    <Compile Include="Terminals\Omnitech\Models\RefundData.cs" />
     <Compile Include="Terminals\Omnitech\Models\SaleData.cs" />
-    <Compile Include="Terminals\Omnitech\Models\SaleItem.cs" />
     <Compile Include="Terminals\Omnitech\Models\TokenData.cs" />
     <Compile Include="Terminals\Omnitech\Models\VatAmount.cs" />
     <Compile Include="Terminals\Omnitech\OmnnitechTerminal.cs" />
@@ -723,7 +737,9 @@
     <Compile Include="Terminals\Omnitech\Requests\CloseShiftRequest.cs" />
     <Compile Include="Terminals\Omnitech\Requests\DepositRequest.cs" />
     <Compile Include="Terminals\Omnitech\Requests\LoginRequest.cs" />
+    <Compile Include="Terminals\Omnitech\Requests\MoneyBackRequest.cs" />
     <Compile Include="Terminals\Omnitech\Requests\OpenShiftRequest.cs" />
+    <Compile Include="Terminals\Omnitech\Requests\RollbackRequest.cs" />
     <Compile Include="Terminals\Omnitech\Requests\SaleRequest.cs" />
     <Compile Include="Terminals\Omnitech\Requests\ShiftStatusRequest.cs" />
     <Compile Include="Terminals\Omnitech\Requests\WithdrawRequest.cs" />
@@ -732,6 +748,7 @@
     <Compile Include="Terminals\Omnitech\Responses\CloseShiftResponse.cs" />
     <Compile Include="Terminals\Omnitech\Responses\DepositResponse.cs" />
     <Compile Include="Terminals\Omnitech\Responses\LoginResponse.cs" />
+    <Compile Include="Terminals\Omnitech\Responses\MoneyBackResponse.cs" />
     <Compile Include="Terminals\Omnitech\Responses\OpenShiftResponse.cs" />
     <Compile Include="Terminals\Omnitech\Responses\SaleResponse.cs" />
     <Compile Include="Terminals\Omnitech\Responses\ShiftStatusResponse.cs" />
