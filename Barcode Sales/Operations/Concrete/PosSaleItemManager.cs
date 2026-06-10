@@ -1,7 +1,10 @@
-﻿using Barcode_Sales.Operations.Abstract;
+﻿using Barcode_Sales.DTOs;
+using Barcode_Sales.Operations.Abstract;
+using Microsoft.Reporting.WinForms;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
@@ -74,6 +77,72 @@ namespace Barcode_Sales.Operations.Concrete
                 return await db.PosSaleItems.AsNoTracking().ToListAsync();
 
             return await db.PosSaleItems.AsNoTracking().Where(expression).ToListAsync();
+        }
+
+        public List<PosSaleItemDto> GetRemainingSaleData(int posSaleId)
+        {
+//            var query = @"SELECT 
+//	ps.Id as PosSaleId,
+//    psi.Id as PosSaleItemId,
+//	p.Barcode,
+//	p.ProductName,
+//	ut.[Name] AS UnitName,
+//    psi.[SalePrice],
+//    psi.[Discount],
+//    psi.[Quantity] - ISNULL((
+//        SELECT SUM(pri.[Quantity])
+//        FROM [dbo].[PosRefundItems] pri
+//        WHERE pri.[PosSaleItemId] = psi.[Id]
+//    ), 0) AS [RemainingQuantity]
+//FROM [dbo].[PosSales] ps
+//INNER JOIN [dbo].[PosSaleItems] psi ON psi.[PosSaleId] = ps.[Id]
+//INNER JOIN Users u ON u.Id = ps.UserId
+//LEFT JOIN Customers c ON c.Id = ps.CustomerId
+//INNER JOIN Products p ON p.Id = psi.ProductId
+//INNER JOIN UnitTypes ut ON ut.Id = p.UnitId
+//WHERE (
+//    psi.[Quantity] - ISNULL((
+//        SELECT SUM(pri.[Quantity])
+//        FROM [dbo].[PosRefundItems] pri
+//        WHERE pri.[PosSaleItemId] = psi.[Id]
+//    ), 0)
+//) > 0 AND ps.Id = @posSaleId
+//ORDER BY ps.[SaleDate] DESC, ps.[Id] DESC";
+
+            var query = @"SELECT 
+	ps.Id as PosSaleId,
+    psi.Id as PosSaleItemId,
+	p.Id as ProductId,
+	p.Barcode,
+	p.ProductName,
+	p.UnitId,
+	p.TaxId,
+	p.PurchasePrice,
+    psi.[SalePrice],
+    psi.[Discount],
+    psi.[Quantity] - ISNULL((
+        SELECT SUM(pri.[Quantity])
+        FROM [dbo].[PosRefundItems] pri
+        WHERE pri.[PosSaleItemId] = psi.[Id]
+    ), 0) AS [RemainingQuantity]
+FROM [dbo].[PosSales] ps
+INNER JOIN [dbo].[PosSaleItems] psi ON psi.[PosSaleId] = ps.[Id]
+INNER JOIN Users u ON u.Id = ps.UserId
+LEFT JOIN Customers c ON c.Id = ps.CustomerId
+INNER JOIN Products p ON p.Id = psi.ProductId
+WHERE (
+    psi.[Quantity] - ISNULL((
+        SELECT SUM(pri.[Quantity])
+        FROM [dbo].[PosRefundItems] pri
+        WHERE pri.[PosSaleItemId] = psi.[Id]
+    ), 0)
+) > 0 AND ps.Id = @posSaleId
+ORDER BY ps.[SaleDate] DESC, ps.[Id] DESC";
+
+            var param = new SqlParameter("@posSaleId", posSaleId);
+
+
+            return db.Database.SqlQuery<PosSaleItemDto>(query,param).ToList();
         }
     }
 }

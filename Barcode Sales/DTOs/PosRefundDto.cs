@@ -18,6 +18,6 @@ namespace Barcode_Sales.DTOs
         public string BankRrn { get; set; } = null;
         public string BankTransactionId { get; set; }
         public Customer Customer { get; set; }
-        public BindingList<PosRefundItemDto> Items { get; set; } = new BindingList<PosRefundItemDto>();
+        public BindingList<PosSaleItemDto> Items { get; set; } = new BindingList<PosSaleItemDto>();
     }
 }

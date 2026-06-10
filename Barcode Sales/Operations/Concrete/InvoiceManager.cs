@@ -20,7 +20,7 @@ namespace Barcode_Sales.Operations.Concrete
                 await db.SaveChangesAsync();
                 return item.Id;
             }
-            catch 
+            catch
             {
                 return 0;
             }
@@ -47,7 +47,7 @@ namespace Barcode_Sales.Operations.Concrete
         {
             return await db.Invoices.AsNoTracking()
                 .Where(x => x.IsDeleted == false && x.InvoiceDate >= start.Date && x.InvoiceDate <= end.Date)
-                .OrderBy(x=> x.InvoiceDate)
+                .OrderBy(x => x.InvoiceDate)
                 .ToListAsync();
         }
 
@@ -124,8 +124,8 @@ namespace Barcode_Sales.Operations.Concrete
         {
             if (expression is null)
                 return await db.Invoices.AsNoTracking().ToListAsync();
-            else
-                return await db.Invoices.AsNoTracking().Where(expression).OrderBy(x=> x.InvoiceDate).ToListAsync();
+
+            return await db.Invoices.AsNoTracking().Where(expression).OrderBy(x => x.InvoiceDate).ToListAsync();
         }
     }
 }

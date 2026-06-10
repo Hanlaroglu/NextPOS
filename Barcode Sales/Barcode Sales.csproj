@@ -270,6 +270,7 @@
     <Compile Include="DTOs\PosChangeType.cs" />
     <Compile Include="DTOs\PosRefundDto.cs" />
     <Compile Include="DTOs\PosRefundItemDto.cs" />
+    <Compile Include="DTOs\PosSaleItemDto.cs" />
     <Compile Include="DTOs\PosSaleSummaryDto.cs" />
     <Compile Include="DTOs\ProductDto.cs" />
     <Compile Include="DTOs\ProductInvoiceDto.cs" />

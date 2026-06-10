@@ -150,30 +150,14 @@ namespace Barcode_Sales.Forms
         private void gridSalesData_MasterRowGetChildList(object sender, DevExpress.XtraGrid.Views.Grid.MasterRowGetChildListEventArgs e)
         {
             var item = (PosSaleSummaryDto)gridSalesData.GetRow(e.RowHandle);
-            var result = posSaleItemOperation.Where(x => x.PosSaleId == item.Id)
-                .Select(x => new PosSaleDetail
-                {
-                    Id = x.Id,
-                    Barcode = x.Product.Barcode,
-                    ProductName = x.Product.ProductName,
-                    Quantity = x.Quantity,
-                    UnitName = x.Product.UnitTypes.Name,
-                    SalePrice = x.SalePrice,
-                    TotalAmount = x.SalePrice * x.Quantity
-                }).ToList();
+            var result = posSaleItemOperation.GetRemainingSaleData(item.Id);
 
             e.ChildList = result;
         }
 
         private class PosSaleDetail
         {
-            public int Id { get; set; }
-            public string Barcode { get; set; }
-            public string ProductName { get; set; }
-            public decimal Quantity { get; set; }
-            public string UnitName { get; set; }
-            public decimal SalePrice { get; set; }
-            public decimal TotalAmount { get; set; }
+          
         }
     }
 }

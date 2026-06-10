@@ -37,6 +37,7 @@
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
             this.gridSaleDetail = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumn16 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn8 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn10 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -83,6 +84,7 @@
             this.barBtnReturn = new DevExpress.XtraBars.BarButtonItem();
             this.barBtnCancel = new DevExpress.XtraBars.BarButtonItem();
             this.popupMenu1 = new DevExpress.XtraBars.PopupMenu(this.components);
+            this.gridColumn17 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gridSaleDetail)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlSalesData)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridSalesData)).BeginInit();
@@ -123,12 +125,14 @@
             this.gridSaleDetail.Appearance.Row.Font = new System.Drawing.Font("Nunito", 10F);
             this.gridSaleDetail.Appearance.Row.Options.UseFont = true;
             this.gridSaleDetail.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumn16,
             this.gridColumn8,
             this.gridColumn9,
             this.gridColumn10,
             this.gridColumn11,
             this.gridColumn12,
             this.gridColumn13,
+            this.gridColumn17,
             this.gridColumn14});
             this.gridSaleDetail.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFullFocus;
             this.gridSaleDetail.GridControl = this.gridControlSalesData;
@@ -136,12 +140,23 @@
             this.gridSaleDetail.OptionsView.ShowGroupPanel = false;
             this.gridSaleDetail.OptionsView.ShowIndicator = false;
             // 
+            // gridColumn16
+            // 
+            this.gridColumn16.Caption = "PosSaleId";
+            this.gridColumn16.FieldName = "PosSaleId";
+            this.gridColumn16.Name = "gridColumn16";
+            this.gridColumn16.OptionsColumn.AllowEdit = false;
+            this.gridColumn16.OptionsColumn.AllowFocus = false;
+            this.gridColumn16.OptionsFilter.AllowAutoFilter = false;
+            this.gridColumn16.OptionsFilter.AllowFilter = false;
+            // 
             // gridColumn8
             // 
-            this.gridColumn8.Caption = "Id";
-            this.gridColumn8.FieldName = "Id";
+            this.gridColumn8.Caption = "PosSaleItemId";
+            this.gridColumn8.FieldName = "PosSaleItemId";
             this.gridColumn8.Name = "gridColumn8";
             this.gridColumn8.OptionsColumn.AllowEdit = false;
+            this.gridColumn8.OptionsColumn.AllowFocus = false;
             this.gridColumn8.OptionsFilter.AllowAutoFilter = false;
             this.gridColumn8.OptionsFilter.AllowFilter = false;
             // 
@@ -173,7 +188,7 @@
             // 
             this.gridColumn11.Caption = "Miqdar";
             this.gridColumn11.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.gridColumn11.FieldName = "Quantity";
+            this.gridColumn11.FieldName = "RemainingQuantity";
             this.gridColumn11.Name = "gridColumn11";
             this.gridColumn11.OptionsColumn.AllowEdit = false;
             this.gridColumn11.OptionsColumn.AllowFocus = false;
@@ -220,7 +235,7 @@
             this.gridColumn14.OptionsFilter.AllowAutoFilter = false;
             this.gridColumn14.OptionsFilter.AllowFilter = false;
             this.gridColumn14.Visible = true;
-            this.gridColumn14.VisibleIndex = 5;
+            this.gridColumn14.VisibleIndex = 6;
             // 
             // gridControlSalesData
             // 
@@ -745,6 +760,20 @@
             this.popupMenu1.Manager = this.barManager1;
             this.popupMenu1.Name = "popupMenu1";
             // 
+            // gridColumn17
+            // 
+            this.gridColumn17.Caption = "Endirim";
+            this.gridColumn17.DisplayFormat.FormatString = "C2";
+            this.gridColumn17.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.gridColumn17.FieldName = "Discount";
+            this.gridColumn17.Name = "gridColumn17";
+            this.gridColumn17.OptionsColumn.AllowEdit = false;
+            this.gridColumn17.OptionsColumn.AllowFocus = false;
+            this.gridColumn17.OptionsFilter.AllowAutoFilter = false;
+            this.gridColumn17.OptionsFilter.AllowFilter = false;
+            this.gridColumn17.Visible = true;
+            this.gridColumn17.VisibleIndex = 5;
+            // 
             // fPosRollback
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -843,5 +872,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn13;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn14;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn15;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn16;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn17;
     }
 }

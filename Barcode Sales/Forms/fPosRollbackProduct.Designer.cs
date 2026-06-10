@@ -234,7 +234,7 @@
             this.colQuantity.Caption = "Miqdar";
             this.colQuantity.DisplayFormat.FormatString = "N3";
             this.colQuantity.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.colQuantity.FieldName = "Quantity";
+            this.colQuantity.FieldName = "RemainingQuantity";
             this.colQuantity.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.MiddleLeft;
             this.colQuantity.Name = "colQuantity";
             this.colQuantity.OptionsColumn.AllowEdit = false;

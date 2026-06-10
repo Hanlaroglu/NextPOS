@@ -556,6 +556,9 @@ namespace Barcode_Sales.Forms
                 var basket = await posBasketOperation.Get(x => x.BasketName == basketName);
                 var items = await posBasketItemOperation.ToListAsync(x => x.PosBasketId == basket.Id);
 
+                _customer = basket?.Customer;
+                tCustomer.Text = basket?.Customer?.NameSurname;
+
                 foreach (var item in items)
                 {
                     var product = _productsList.Find(x => x.Id == item.ProductId);
@@ -578,7 +581,7 @@ namespace Barcode_Sales.Forms
                 }
                 gridControlBasket.RefreshDataSource();
                 await posBasketOperation.Remove(basket);
-                BasketLoad();
+                navigationFrameRight.SelectedPage = pageHotProducts;
             }
             finally
             {

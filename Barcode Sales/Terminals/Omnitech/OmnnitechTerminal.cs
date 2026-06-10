@@ -348,6 +348,7 @@ namespace Barcode_Sales.Terminals.Omnitech
                     Cash = item.Cash,
                     Card = item.Card,
                     IncomingSum = item.IncomingSum,
+                    Residue = item.IncomingSum - item.Cash,
                     CustomerId = item.Customer?.Id,
                     Note = item.Note,
                 });
@@ -429,11 +430,11 @@ namespace Barcode_Sales.Terminals.Omnitech
                     dataDetails.AddRange(item.Items.Select(x => new PosRefundItem
                     {
                         PosRefundId = refundId,
-                        PosSaleItemId = x.Id,
+                        PosSaleItemId = x.PosSaleItemId,
                         ProductId = x.ProductId,
                         Quantity = x.RefundQuantity,
                         SalePrice = x.SalePrice,
-                        Discount = x.DiscountAmount
+                        Discount = x.Discount
                     }));
 
                     await posRefundItemOperation.Add(dataDetails);
@@ -457,7 +458,7 @@ namespace Barcode_Sales.Terminals.Omnitech
                 RefundDocumentNumber = item.ReceiptNo,
                 Cashier = item.Cashier,
                 Sum = item.Total,
-                CashSum = item.Items.Sum(x=> x.SalePrice * x.RefundQuantity - x.DiscountAmount),
+                CashSum = item.Items.Sum(x=> x.SalePrice * x.RefundQuantity - x.Discount),
                 CashlessSum = 0,
                 IncomingSum = item.Total,
                 PrepaymentSum = 0,
@@ -473,7 +474,7 @@ namespace Barcode_Sales.Terminals.Omnitech
                     ItemPrice = i.SalePrice,
                     ItemSum = i.TotalAmount,
                     ItemVatPercent = i.TaxPercent,
-                    Discount = i.DiscountAmount
+                    Discount = i.Discount
                 }).ToList(),
                 VatAmounts = item.Items
                     .GroupBy(x => x.TaxPercent)
@@ -543,11 +544,11 @@ namespace Barcode_Sales.Terminals.Omnitech
                     dataDetails.AddRange(item.Items.Select(x => new PosRefundItem
                     {
                         PosRefundId = refundId,
-                        PosSaleItemId = x.Id,
+                        PosSaleItemId = x.PosSaleItemId,
                         ProductId = x.ProductId,
                         Quantity = x.RefundQuantity,
                         SalePrice = x.SalePrice,
-                        Discount = x.DiscountAmount
+                        Discount = x.Discount
                     }));
 
                     await posRefundItemOperation.Add(dataDetails);

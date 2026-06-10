@@ -1,15 +1,10 @@
 ﻿using Barcode_Sales.Terminals.DTOs;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Barcode_Sales.DTOs
 {
     public class PosRefundItemDto
     {
-        public int Id { get; set; }
+        public int Id { get; set; } //PosSaleItemId
         public int ProductId { get; set; }
         public string ProductName { get; set; }
         public string Barcode { get; set; }

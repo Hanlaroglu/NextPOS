@@ -27,8 +27,8 @@ namespace Barcode_Sales.Forms
         RepositoryItemTextEdit repositoryN3;
         RepositoryItemTextEdit repositoryN0;
 
-        private BindingList<PosRefundItemDto> dataList;
-        BindingList<PosRefundItemDto> _items = new BindingList<PosRefundItemDto>();
+        private BindingList<PosSaleItemDto> dataList;
+        BindingList<PosSaleItemDto> _items = new BindingList<PosSaleItemDto>();
 
         private RefundClassess.Data _refundData;
         private PosRefundDto _posRefundDto { get; set; }
@@ -75,28 +75,29 @@ namespace Barcode_Sales.Forms
 
         private void SaleDataLoad()
         {
-            var data = posSaleItemOperation.Where(x => x.PosSaleId == _salesDataSummary.Id)
-                .Select(x => new PosRefundItemDto
-                {
-                    Id = x.Id,
-                    ProductId = x.ProductId,
-                    Barcode = x.Product.Barcode,
-                    ProductName = x.Product.ProductName,
-                    Quantity = x.Quantity,
-                    TaxId = x.Product.TaxId,
-                    UnitId = x.Product.UnitId,
-                    PurchasePrice = x.Product.PurchasePrice,
-                    SalePrice = x.SalePrice,
-                    DiscountAmount = x.Discount,
-                }
-                )
-                .ToList();
+            //var data = posSaleItemOperation.Where(x => x.PosSaleId == _salesDataSummary.Id)
+            //    .Select(x => new PosRefundItemDto
+            //    {
+            //        Id = x.Id,
+            //        ProductId = x.ProductId,
+            //        Barcode = x.Product.Barcode,
+            //        ProductName = x.Product.ProductName,
+            //        Quantity = x.Quantity,
+            //        TaxId = x.Product.TaxId,
+            //        UnitId = x.Product.UnitId,
+            //        PurchasePrice = x.Product.PurchasePrice,
+            //        SalePrice = x.SalePrice,
+            //        DiscountAmount = x.Discount,
+            //    }).ToList();
+
+            var data = posSaleItemOperation.GetRemainingSaleData(_salesDataSummary.Id);
+
 
             if (_type is PosReturnType.Rollback)
                 foreach (var item in data)
-                    item.RefundQuantity = item.Quantity;
+                    item.RefundQuantity = item.RemainingQuantity;
 
-            dataList = new BindingList<PosRefundItemDto>(data);
+            dataList = new BindingList<PosSaleItemDto>(data);
             gridControlSalesData.DataSource = dataList;
         }
 
@@ -163,7 +164,7 @@ namespace Barcode_Sales.Forms
                 _items.Clear();
                 foreach (var item in selected)
                 {
-                    var rowData = gridSalesData.GetRow(item) as PosRefundItemDto;
+                    var rowData = gridSalesData.GetRow(item) as PosSaleItemDto;
                     if (rowData != null)
                     {
                         if (rowData.RefundQuantity <= 0)
