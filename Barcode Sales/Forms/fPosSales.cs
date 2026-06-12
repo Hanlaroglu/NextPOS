@@ -5,6 +5,7 @@ using Barcode_Sales.Services.CacheServices;
 using Barcode_Sales.Terminals.DTOs;
 using DevExpress.XtraBars.Navigation;
 using DevExpress.XtraEditors;
+using DevExpress.XtraEditors.Repository;
 using DevExpress.XtraGrid.Views.Grid.ViewInfo;
 using System;
 using System.Collections.Generic;
@@ -52,6 +53,7 @@ namespace Barcode_Sales.Forms
 
         private async void fPosSales_Shown(object sender, EventArgs e)
         {
+            GridRepoAdd();
             TerminalCacheService.RefreshTerminal();
             var saleCount = await posSaleOperation.CurrentSaleCount();
             tSaleCount.Text = saleCount.ToString();
@@ -586,6 +588,38 @@ namespace Barcode_Sales.Forms
             finally
             {
                 TotalAmountCalculation();
+            }
+        }
+
+        RepositoryItemTextEdit repositoryN3;
+        RepositoryItemTextEdit repositoryN0;
+
+        private void GridRepoAdd()
+        {
+            repositoryN3 = new RepositoryItemTextEdit();
+            repositoryN3.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            repositoryN3.Mask.EditMask = "n3";
+            repositoryN3.Mask.UseMaskAsDisplayFormat = true;
+
+            repositoryN0 = new RepositoryItemTextEdit();
+            repositoryN0.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            repositoryN0.Mask.EditMask = "n0";
+            repositoryN0.Mask.UseMaskAsDisplayFormat = true;
+
+            gridControlBasket.RepositoryItems.Add(repositoryN3);
+            gridControlBasket.RepositoryItems.Add(repositoryN0);
+        }
+
+        private void gridBasket_CustomRowCellEdit(object sender, DevExpress.XtraGrid.Views.Grid.CustomRowCellEditEventArgs e)
+        {
+            if (e.Column.FieldName is "Quantity")
+            {
+                var unitName = gridBasket.GetRowCellValue(e.RowHandle, "UnitName")?.ToString();
+
+                if (unitName is "Kq")
+                    e.RepositoryItem = repositoryN3;
+                else
+                    e.RepositoryItem = repositoryN0;
             }
         }
     }

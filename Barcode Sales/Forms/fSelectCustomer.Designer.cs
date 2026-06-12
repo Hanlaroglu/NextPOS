@@ -29,12 +29,11 @@
         private void InitializeComponent()
         {
             DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fSelectCustomer<T>));
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
-            this.gridControlBasket = new DevExpress.XtraGrid.GridControl();
+            this.gridControlCustomers = new DevExpress.XtraGrid.GridControl();
             this.layoutView1 = new DevExpress.XtraGrid.Views.Layout.LayoutView();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.LayoutViewColumn();
             this.layoutViewField_gridColumn1 = new DevExpress.XtraGrid.Views.Layout.LayoutViewField();
@@ -55,7 +54,7 @@
             this.tablePanel1 = new DevExpress.Utils.Layout.TablePanel();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.tSearchCustomer = new DevExpress.XtraEditors.ButtonEdit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControlBasket)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControlCustomers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutViewField_gridColumn1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutViewField_gridColumn2)).BeginInit();
@@ -74,24 +73,24 @@
             ((System.ComponentModel.ISupportInitialize)(this.tSearchCustomer.Properties)).BeginInit();
             this.SuspendLayout();
             // 
-            // gridControlBasket
+            // gridControlCustomers
             // 
-            this.gridControlBasket.AllowRestoreSelectionAndFocusedRow = DevExpress.Utils.DefaultBoolean.False;
-            this.tablePanel1.SetColumn(this.gridControlBasket, 0);
-            this.gridControlBasket.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControlBasket.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4);
-            this.gridControlBasket.Location = new System.Drawing.Point(1, 52);
-            this.gridControlBasket.LookAndFeel.SkinName = "WXI";
-            this.gridControlBasket.LookAndFeel.UseDefaultLookAndFeel = false;
-            this.gridControlBasket.MainView = this.layoutView1;
-            this.gridControlBasket.Margin = new System.Windows.Forms.Padding(1);
-            this.gridControlBasket.Name = "gridControlBasket";
-            this.gridControlBasket.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.gridControlCustomers.AllowRestoreSelectionAndFocusedRow = DevExpress.Utils.DefaultBoolean.False;
+            this.tablePanel1.SetColumn(this.gridControlCustomers, 0);
+            this.gridControlCustomers.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridControlCustomers.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4);
+            this.gridControlCustomers.Location = new System.Drawing.Point(1, 52);
+            this.gridControlCustomers.LookAndFeel.SkinName = "WXI";
+            this.gridControlCustomers.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.gridControlCustomers.MainView = this.layoutView1;
+            this.gridControlCustomers.Margin = new System.Windows.Forms.Padding(1);
+            this.gridControlCustomers.Name = "gridControlCustomers";
+            this.gridControlCustomers.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.bProductDelete});
-            this.tablePanel1.SetRow(this.gridControlBasket, 1);
-            this.gridControlBasket.Size = new System.Drawing.Size(566, 573);
-            this.gridControlBasket.TabIndex = 13;
-            this.gridControlBasket.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.tablePanel1.SetRow(this.gridControlCustomers, 1);
+            this.gridControlCustomers.Size = new System.Drawing.Size(566, 573);
+            this.gridControlCustomers.TabIndex = 13;
+            this.gridControlCustomers.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.layoutView1});
             // 
             // layoutView1
@@ -111,7 +110,7 @@
             this.gridColumn5,
             this.gridColumn3});
             this.layoutView1.DetailHeight = 437;
-            this.layoutView1.GridControl = this.gridControlBasket;
+            this.layoutView1.GridControl = this.gridControlCustomers;
             this.layoutView1.HiddenItems.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutViewField_gridColumn1});
             this.layoutView1.Name = "layoutView1";
@@ -337,7 +336,7 @@
             this.tablePanel1.Columns.AddRange(new DevExpress.Utils.Layout.TablePanelColumn[] {
             new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 55F)});
             this.tablePanel1.Controls.Add(this.panelControl1);
-            this.tablePanel1.Controls.Add(this.gridControlBasket);
+            this.tablePanel1.Controls.Add(this.gridControlCustomers);
             this.tablePanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tablePanel1.Location = new System.Drawing.Point(0, 0);
             this.tablePanel1.Name = "tablePanel1";
@@ -373,6 +372,7 @@
             this.tSearchCustomer.Properties.NullValuePrompt = "Müştəri axtar...";
             this.tSearchCustomer.Size = new System.Drawing.Size(552, 36);
             this.tSearchCustomer.TabIndex = 7;
+            this.tSearchCustomer.EditValueChanged += new System.EventHandler(this.tSearchCustomer_EditValueChanged);
             // 
             // fSelectCustomer
             // 
@@ -387,7 +387,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Müştəri seçimi";
             this.Shown += new System.EventHandler(this.fSelectCustomer_Shown);
-            ((System.ComponentModel.ISupportInitialize)(this.gridControlBasket)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControlCustomers)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutViewField_gridColumn1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutViewField_gridColumn2)).EndInit();
@@ -410,7 +410,7 @@
 
         #endregion
 
-        private DevExpress.XtraGrid.GridControl gridControlBasket;
+        private DevExpress.XtraGrid.GridControl gridControlCustomers;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit bProductDelete;
         private DevExpress.Utils.Layout.TablePanel tablePanel1;
         private DevExpress.XtraGrid.Views.Layout.LayoutView layoutView1;

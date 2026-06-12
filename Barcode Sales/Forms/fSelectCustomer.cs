@@ -1,9 +1,8 @@
-﻿using Barcode_Sales.Helpers;
+﻿using System;
+using Barcode_Sales.Helpers;
 using Barcode_Sales.Operations.Abstract;
 using Barcode_Sales.Operations.Concrete;
-using System;
-using System.Linq;
-using System.Windows.Forms;
+using DevExpress.XtraEditors;
 
 namespace Barcode_Sales.Forms
 {
@@ -20,7 +19,7 @@ namespace Barcode_Sales.Forms
         private async void CustomerLoad()
         {
             var data = await customerOperation.ToListAsync(x => x.IsDeleted == false && x.Status == true);
-            gridControlBasket.DataSource = data;
+            gridControlCustomers.DataSource = data;
         }
 
         private void fSelectCustomer_Shown(object sender, EventArgs e)
@@ -50,7 +49,18 @@ namespace Barcode_Sales.Forms
 
 
 
-           
+
+        }
+
+        private void tSearchCustomer_EditValueChanged(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(tSearchCustomer.Text))
+            {
+                //tSearchCustomer.Properties.Buttons[1].Visible = true;
+                layoutView1.ActiveFilterString = $"Contains([NameSurname], '{tSearchCustomer.Text.Trim()}')";
+            }
+            else
+                layoutView1.ActiveFilter.Clear();
         }
     }
 }

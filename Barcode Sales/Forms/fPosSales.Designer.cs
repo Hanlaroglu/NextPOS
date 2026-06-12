@@ -577,6 +577,7 @@
             this.gridBasket.OptionsView.ShowGroupPanel = false;
             this.gridBasket.OptionsView.ShowIndicator = false;
             this.gridBasket.RowHeight = 40;
+            this.gridBasket.CustomRowCellEdit += new DevExpress.XtraGrid.Views.Grid.CustomRowCellEditEventHandler(this.gridBasket_CustomRowCellEdit);
             this.gridBasket.Click += new System.EventHandler(this.gridBasket_decimalClick);
             // 
             // colId
@@ -1169,7 +1170,7 @@
             this.bHotSales.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bHotSales.ImageOptions.SvgImage")));
             this.bHotSales.Name = "bHotSales";
             this.bHotSales.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.bHotSales.Text = "İsti satışlar";
+            this.bHotSales.Text = "Məhsul qrupu";
             this.bHotSales.VisibleInFooter = false;
             this.bHotSales.Click += new System.EventHandler(this.bHotSales_Click);
             // 
