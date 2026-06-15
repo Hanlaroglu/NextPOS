@@ -4,7 +4,6 @@ using Barcode_Sales.Terminals.Omnitech;
 using System;
 using System.Linq;
 using System.Windows.Forms;
-using static DevExpress.Utils.Drawing.Helpers.NativeMethods;
 
 namespace Barcode_Sales.Forms
 {
@@ -20,7 +19,7 @@ namespace Barcode_Sales.Forms
 
         private void fPosPay_Load(object sender, EventArgs e)
         {
-            tTotal.Text = _data.Total.ToString("F2");
+            tTotal.Text = _data.Items.Sum(x=> x.Sum).ToString("F2");
             bCash_Click(sender, e);
             this.tCash_Paid.SelectAll();
             this.tCash_Paid.Focus();
@@ -29,7 +28,7 @@ namespace Barcode_Sales.Forms
         private void bCash_Click(object sender, EventArgs e)
         {
             navigationFrame1.SelectedPage = pageCash;
-            tCash_Paid.Text = _data.Total.ToString("N2");
+            tCash_Paid.Text = _data.Items.Sum(x => x.Sum).ToString("N2");
         }
 
         private void bCard_Click(object sender, EventArgs e)
@@ -60,7 +59,8 @@ namespace Barcode_Sales.Forms
         private void tCash_Paid_EditValueChanged(object sender, EventArgs e)
         {
             decimal Paid = Convert.ToDecimal(tCash_Paid.Text);
-            decimal balance = Paid - _data.Total;
+            decimal Total = Convert.ToDecimal(tTotal.Text);
+            decimal balance = Paid - Total;
             if (balance > 0)
                 tCash_Balance.Text = balance.ToString("N2");
             else
@@ -81,11 +81,11 @@ namespace Barcode_Sales.Forms
         {
             if (TerminalCacheService.Terminal != null)
             {
-                _data.Cash = _data.Total;
+                _data.Cash = _data.Items.Sum(x=> x.Sum);
                 _data.Card = 0;
                 _data.IncomingSum = decimal.Parse(tCash_Paid.Text);
 
-                if (_data.IncomingSum < _data.Total)
+                if (_data.IncomingSum < _data.Items.Sum(x => x.Sum))
                 {
                     NotificationHelpers.Messages.WarningMessage(this, "Ödənilən məbləğ yekun məbləğdən kiçik olabilməz !", nameof(Helpers.Enums.MessageTitle.Xəbərdarlıq));
                     return;
@@ -127,7 +127,7 @@ namespace Barcode_Sales.Forms
 
         private async void CardPaid()
         {
-            _data.Card = decimal.Parse(tTotal.Text);
+            _data.Card = _data.Items.Sum(x => x.Sum);
             _data.Cash = 0;
 
             if (TerminalCacheService.Terminal != null)
@@ -168,14 +168,15 @@ namespace Barcode_Sales.Forms
 
         private async void CashCardPaid()
         {
+            decimal total = _data.Items.Sum(x => x.Sum);
             _data.Card = decimal.Parse(tCashCard_Card.Text);
-            _data.Cash = _data.Total - _data.Card;
+            _data.Cash = total - _data.Card;
             _data.IncomingSum = decimal.Parse(tCashCard_Cash.Text);
 
             string warning = (_data.Card == 0) ? "Kart məbləğ '0' olabilməz !"
                 : (_data.Card > _data.Total) ? "Ödənilən kart məbləği yekun məbləğdən böyük olabilməz !"
                 : (_data.IncomingSum == 0) ? "Nağd məbləğ '0' olabilməz !"
-                : (_data.IncomingSum + _data.Card < _data.Total) ? "Ödənilən məbləğ yekun məbləğdən kiçik olabilməz !"
+                : (_data.IncomingSum + _data.Card < total) ? "Ödənilən məbləğ yekun məbləğdən kiçik olabilməz !"
                 : null;
 
             if (warning != null)

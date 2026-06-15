@@ -54,7 +54,7 @@ namespace Barcode_Sales.Forms
         private async void fPosSales_Shown(object sender, EventArgs e)
         {
             GridRepoAdd();
-            TerminalCacheService.RefreshTerminal();
+            //TerminalCacheService.RefreshTerminal();
             var saleCount = await posSaleOperation.CurrentSaleCount();
             tSaleCount.Text = saleCount.ToString();
             tToday.Properties.Buttons[1].Caption = DatetimeService.CurrentDateString;
@@ -242,7 +242,7 @@ namespace Barcode_Sales.Forms
         {
             gridBasket.RefreshData();
             tProductCount.Text = dataList == null ? 0.ToString() : dataList.Count.ToString();
-            tTotal.Text = dataList == null ? 0.ToString("N2") : dataList.Sum(x => x.Total).ToString("0.00");
+            tTotal.Text = dataList == null ? 0.ToString("N2") : dataList.Sum(x => x.Sum).ToString("0.00");
         }
 
         private void bProductDelete_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)

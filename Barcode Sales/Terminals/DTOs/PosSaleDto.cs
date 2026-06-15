@@ -6,7 +6,7 @@ namespace Barcode_Sales.Terminals.DTOs
     public class PosSaleDto
     {
         public string Cashier { get; set; }
-        public decimal Total => Items?.Sum(x => x.Total) ?? 0;
+        public decimal Total => Items?.Sum(x => x.Sum) ?? 0;
         public decimal Cash { get; set; }
         public decimal Card { get; set; }
         public decimal IncomingSum { get; set; }

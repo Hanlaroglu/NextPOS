@@ -10,8 +10,7 @@
 namespace Barcode_Sales
 {
     using System;
-    using System.Collections.Generic;
-    
+
     public partial class Terminal
     {
         public int Id { get; set; }

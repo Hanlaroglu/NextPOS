@@ -7,25 +7,23 @@
         public string ProductName { get; set; }
         public string Barcode { get; set; }
         public decimal PurchasePrice { get; set; }
-        public decimal PurchaseSum
-        {
-            get => PurchasePrice * Quantity;
-        }
+        public decimal PurchaseSum => PurchasePrice * Quantity;
         public decimal Quantity { get; set; }
         public int UnitId { get; set; }
         public string UnitName => DefinitionDto.GetUnitName(UnitId);
         public int TaxId { get; set; }
         public string TaxName => DefinitionDto.GetTaxName(TaxId);
         public decimal TaxPercent => DefinitionDto.GetVatPercent(TaxId);
-        public decimal SalePrice { get; set; }
-        public decimal Discount { get; set; }
-        public decimal Total
+        private decimal _salePrice;
+
+        public decimal SalePrice
         {
-            get
-            {
-                var result = SalePrice * Quantity - Discount;
-                return result;
-            }
+            get => Quantity == 0 ? 0 : (Total - Discount) / Quantity;
+            set => _salePrice = value;
         }
+
+        public decimal Discount { get; set; }
+        public decimal Total => _salePrice * Quantity; // Endirimsiz brutto cəm
+        public decimal Sum => Total - Discount; // Endirim çıxılmış son məbləğ
     }
 }

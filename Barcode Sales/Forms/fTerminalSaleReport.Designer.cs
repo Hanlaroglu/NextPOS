@@ -84,6 +84,7 @@
             this.bSearch = new DevExpress.XtraEditors.SimpleButton();
             this.dateEnd = new DevExpress.XtraEditors.DateEdit();
             this.dateStart = new DevExpress.XtraEditors.DateEdit();
+            this.gridColumn22 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
@@ -123,6 +124,7 @@
             this.gridColumn17,
             this.gridColumn18,
             this.gridColumn19,
+            this.gridColumn22,
             this.gridColumn20,
             this.gridColumn21});
             this.gridView2.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFullFocus;
@@ -146,7 +148,7 @@
             this.gridColumn15.OptionsFilter.AllowFilter = false;
             this.gridColumn15.Visible = true;
             this.gridColumn15.VisibleIndex = 0;
-            this.gridColumn15.Width = 233;
+            this.gridColumn15.Width = 215;
             // 
             // gridColumn16
             // 
@@ -157,7 +159,7 @@
             this.gridColumn16.OptionsFilter.AllowFilter = false;
             this.gridColumn16.Visible = true;
             this.gridColumn16.VisibleIndex = 1;
-            this.gridColumn16.Width = 345;
+            this.gridColumn16.Width = 319;
             // 
             // gridColumn17
             // 
@@ -198,11 +200,13 @@
             this.gridColumn19.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.gridColumn19.FieldName = "SalePrice";
             this.gridColumn19.Name = "gridColumn19";
+            this.gridColumn19.OptionsColumn.AllowEdit = false;
+            this.gridColumn19.OptionsColumn.AllowFocus = false;
             this.gridColumn19.OptionsFilter.AllowAutoFilter = false;
             this.gridColumn19.OptionsFilter.AllowFilter = false;
             this.gridColumn19.Visible = true;
             this.gridColumn19.VisibleIndex = 4;
-            this.gridColumn19.Width = 151;
+            this.gridColumn19.Width = 123;
             // 
             // gridColumn20
             // 
@@ -216,8 +220,8 @@
             this.gridColumn20.OptionsFilter.AllowAutoFilter = false;
             this.gridColumn20.OptionsFilter.AllowFilter = false;
             this.gridColumn20.Visible = true;
-            this.gridColumn20.VisibleIndex = 5;
-            this.gridColumn20.Width = 172;
+            this.gridColumn20.VisibleIndex = 6;
+            this.gridColumn20.Width = 124;
             // 
             // gridColumn21
             // 
@@ -229,8 +233,8 @@
             this.gridColumn21.OptionsFilter.AllowAutoFilter = false;
             this.gridColumn21.OptionsFilter.AllowFilter = false;
             this.gridColumn21.Visible = true;
-            this.gridColumn21.VisibleIndex = 6;
-            this.gridColumn21.Width = 156;
+            this.gridColumn21.VisibleIndex = 7;
+            this.gridColumn21.Width = 119;
             // 
             // gridControl1
             // 
@@ -625,6 +629,21 @@
             this.dateStart.TabIndex = 0;
             this.dateStart.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Search_KeyDown);
             // 
+            // gridColumn22
+            // 
+            this.gridColumn22.Caption = "Endirim məbləği";
+            this.gridColumn22.DisplayFormat.FormatString = "C2";
+            this.gridColumn22.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.gridColumn22.FieldName = "Discount";
+            this.gridColumn22.Name = "gridColumn22";
+            this.gridColumn22.OptionsColumn.AllowEdit = false;
+            this.gridColumn22.OptionsColumn.AllowFocus = false;
+            this.gridColumn22.OptionsFilter.AllowAutoFilter = false;
+            this.gridColumn22.OptionsFilter.AllowFilter = false;
+            this.gridColumn22.Visible = true;
+            this.gridColumn22.VisibleIndex = 5;
+            this.gridColumn22.Width = 147;
+            // 
             // fTerminalSaleReport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -695,5 +714,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn20;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn21;
         private DevExpress.XtraEditors.CheckEdit chReceipt;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn22;
     }
 }

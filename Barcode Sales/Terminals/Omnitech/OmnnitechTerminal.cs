@@ -16,7 +16,7 @@ namespace Barcode_Sales.Terminals.Omnitech
     public class OmnnitechTerminal : IBaseTerminalService
     {
         private string _accessToken;
-        private readonly string _ipAddress;
+        private string _ipAddress { get; set; }
         IPosSaleOperation posSaleOperation = new PosSaleManager();
         IPosSaleItemOperation posSaleItemOperation = new PosSaleItemManager();
         IPosRefundOperation posRefundOperation = new PosRefundManager();
@@ -288,7 +288,7 @@ namespace Barcode_Sales.Terminals.Omnitech
                     ItemQuantity = i.Quantity,
                     ItemQuantityType = i.UnitId,
                     ItemPrice = i.SalePrice,
-                    ItemSum = i.Total,
+                    ItemSum = i.Sum,
                     ItemVatPercent = i.TaxPercent,
                     Discount = i.Discount
                 }).ToList(),
@@ -297,7 +297,7 @@ namespace Barcode_Sales.Terminals.Omnitech
                     .Select(g => new VatAmount
                     {
                         VatPercent = g.Key,
-                        VatSum = g.Sum(x => x.Total)
+                        VatSum = g.Sum(x => x.Sum)
                     }).ToList()
             };
 
@@ -344,7 +344,7 @@ namespace Barcode_Sales.Terminals.Omnitech
                     BankRrn = string.IsNullOrWhiteSpace(item.Rrn) ? response.Rrn : item.Rrn,
                     SaleDate = DatetimeService.CurrentDateTime,
                     SaleDatetime = DatetimeService.CurrentDateTime,
-                    Total = item.Total,
+                    Total = item.Items.Sum(x=> x.Total),
                     Cash = item.Cash,
                     Card = item.Card,
                     IncomingSum = item.IncomingSum,
@@ -458,7 +458,7 @@ namespace Barcode_Sales.Terminals.Omnitech
                 RefundDocumentNumber = item.ReceiptNo,
                 Cashier = item.Cashier,
                 Sum = item.Total,
-                CashSum = item.Items.Sum(x=> x.SalePrice * x.RefundQuantity - x.Discount),
+                CashSum = item.Items.Sum(x => x.SalePrice * x.RefundQuantity - x.Discount),
                 CashlessSum = 0,
                 IncomingSum = item.Total,
                 PrepaymentSum = 0,
