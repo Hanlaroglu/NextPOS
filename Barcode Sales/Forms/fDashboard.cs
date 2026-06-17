@@ -29,6 +29,7 @@ namespace Barcode_Sales.Forms
         ICustomerOperation customerOperation = new CustomerManager();
         ICustomerGroupOperation customerGroupOperation = new CustomerGroupManager();
         IPosSaleOperation posSaleOperation = new PosSaleManager();
+        IUserOperation userOperation = new UserManager();
 
         public fDashboard()
         {
@@ -39,7 +40,7 @@ namespace Barcode_Sales.Forms
         {
             await WeeklyEarningLoadAsync();
             await Top5SellingProductAsync();
-           await CurrentSalesDataAsync();
+            await CurrentSalesDataAsync();
             await CurrentPaymentTypeLoadsAsync();
             CurrentRefundDataAsync();
         }
@@ -980,6 +981,27 @@ namespace Barcode_Sales.Forms
         private void accordionControlElement37_Click(object sender, EventArgs e)
         {
             FormHelpers.OpenForm<fStockReport>();
+        }
+
+        private void accordionControlElement25_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void accordionControlElement24_Click(object sender, EventArgs e)
+        {
+            //İstifadəçilər
+            fAddUser f = new fAddUser(Operation.Add);
+            f.FormClosed += async (s, x) =>
+            {
+                await GetUsers();
+            };
+            f.Show();
+        }
+
+        private async Task GetUsers()
+        {
+            var data = await userOperation.ToListAsync();
         }
     }
 }

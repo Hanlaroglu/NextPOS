@@ -118,7 +118,7 @@ namespace Barcode_Sales.Operations.Concrete
         public async Task<List<Store>> ToListAsync(Expression<Func<Store, bool>> expression = null)
         {
             if (expression is null)
-                return await db.Stores.AsNoTracking().ToListAsync();
+                return await db.Stores.AsNoTracking().Where(x => x.IsDeleted == false && x.Status == true).ToListAsync();
             else
                 return await db.Stores.AsNoTracking().Where(expression).ToListAsync();
         }

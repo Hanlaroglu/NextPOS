@@ -169,5 +169,10 @@ namespace Barcode_Sales.Forms
 
             FormHelpers.ControlLoad(data, lookRole, "RoleName", null);
         }
+
+        private void userSaveFooter1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

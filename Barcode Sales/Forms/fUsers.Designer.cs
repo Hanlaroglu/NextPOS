@@ -44,6 +44,7 @@ namespace Barcode_Sales.Forms
             this.tEmail = new DevExpress.XtraEditors.TextEdit();
             this.tNameSurname = new DevExpress.XtraEditors.TextEdit();
             this.tUsername = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl11 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
@@ -53,6 +54,10 @@ namespace Barcode_Sales.Forms
             this.treeListBand1 = new DevExpress.XtraTreeList.Columns.TreeListBand();
             this.treeListBand2 = new DevExpress.XtraTreeList.Columns.TreeListBand();
             this.tabAccess = new DevExpress.XtraBars.Navigation.TabNavigationPage();
+            this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
+            this.treeList1 = new DevExpress.XtraTreeList.TreeList();
+            this.treeListColumn3 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.treeListColumn4 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.tabUser = new DevExpress.XtraBars.Navigation.TabNavigationPage();
             this.tabPane1 = new DevExpress.XtraBars.Navigation.TabPane();
             this.gridControlDashboardStock = new DevExpress.XtraGrid.GridControl();
@@ -62,14 +67,9 @@ namespace Barcode_Sales.Forms
             this.gridColumn78 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn79 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn82 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.repositoryItemCheckEdit9 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
-            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
-            this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
-            this.treeList1 = new DevExpress.XtraTreeList.TreeList();
-            this.treeListColumn3 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
-            this.treeListColumn4 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryItemCheckEdit9 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             ((System.ComponentModel.ISupportInitialize)(this.tPassword.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookStore.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
@@ -80,15 +80,15 @@ namespace Barcode_Sales.Forms
             ((System.ComponentModel.ISupportInitialize)(this.tUsername.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookRole.Properties)).BeginInit();
             this.tabAccess.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
+            this.panelControl2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.treeList1)).BeginInit();
             this.tabUser.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tabPane1)).BeginInit();
             this.tabPane1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlDashboardStock)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridStock)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit9)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
-            this.panelControl2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.treeList1)).BeginInit();
             this.SuspendLayout();
             // 
             // tPassword
@@ -156,6 +156,7 @@ namespace Barcode_Sales.Forms
             this.userSaveFooter1.Size = new System.Drawing.Size(954, 53);
             this.userSaveFooter1.TabIndex = 14;
             this.userSaveFooter1.SaveClick += new System.EventHandler(this.userSaveFooter1_SaveClick);
+            this.userSaveFooter1.Load += new System.EventHandler(this.userSaveFooter1_Load);
             // 
             // panelControl1
             // 
@@ -219,6 +220,19 @@ namespace Barcode_Sales.Forms
             this.tUsername.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.tUsername.Size = new System.Drawing.Size(270, 36);
             this.tUsername.TabIndex = 6;
+            // 
+            // labelControl2
+            // 
+            this.labelControl2.Appearance.Font = new System.Drawing.Font("Nunito", 11F);
+            this.labelControl2.Appearance.Options.UseFont = true;
+            this.labelControl2.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Horizontal;
+            this.labelControl2.Location = new System.Drawing.Point(7, 266);
+            this.labelControl2.Name = "labelControl2";
+            this.labelControl2.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
+            this.labelControl2.Size = new System.Drawing.Size(29, 20);
+            this.labelControl2.TabIndex = 5;
+            this.labelControl2.Text = "Rol";
+            this.labelControl2.UseMnemonic = false;
             // 
             // labelControl11
             // 
@@ -324,6 +338,76 @@ namespace Barcode_Sales.Forms
             this.tabAccess.Controls.Add(this.panelControl2);
             this.tabAccess.Name = "tabAccess";
             this.tabAccess.Size = new System.Drawing.Size(954, 315);
+            // 
+            // panelControl2
+            // 
+            this.panelControl2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelControl2.Controls.Add(this.treeList1);
+            this.panelControl2.Location = new System.Drawing.Point(3, 3);
+            this.panelControl2.Name = "panelControl2";
+            this.panelControl2.Size = new System.Drawing.Size(948, 306);
+            this.panelControl2.TabIndex = 16;
+            // 
+            // treeList1
+            // 
+            this.treeList1.Columns.AddRange(new DevExpress.XtraTreeList.Columns.TreeListColumn[] {
+            this.treeListColumn3,
+            this.treeListColumn4});
+            this.treeList1.Location = new System.Drawing.Point(441, 9);
+            this.treeList1.Name = "treeList1";
+            this.treeList1.BeginUnboundLoad();
+            this.treeList1.AppendNode(new object[] {
+            "POS",
+            null}, -1);
+            this.treeList1.AppendNode(new object[] {
+            "Satış",
+            null}, 0, 0, 0, -1, System.Windows.Forms.CheckState.Unchecked, DevExpress.XtraTreeList.NodeCheckBoxStyle.Check, null);
+            this.treeList1.AppendNode(new object[] {
+            "Satış edəbilsin",
+            null}, 1);
+            this.treeList1.AppendNode(new object[] {
+            "Satış məbləği üzrə limit",
+            null}, 1, 0, 0, -1, System.Windows.Forms.CheckState.Unchecked, DevExpress.XtraTreeList.NodeCheckBoxStyle.Check, null);
+            this.treeList1.AppendNode(new object[] {
+            "Qaytarma",
+            null}, 0, 0, 0, -1, System.Windows.Forms.CheckState.Unchecked, DevExpress.XtraTreeList.NodeCheckBoxStyle.Check, null);
+            this.treeList1.AppendNode(new object[] {
+            "Qaytarma edəbilsin",
+            null}, 4);
+            this.treeList1.AppendNode(new object[] {
+            "Məhsul alışı",
+            null}, -1, 0, 0, -1, System.Windows.Forms.CheckState.Unchecked, DevExpress.XtraTreeList.NodeCheckBoxStyle.Check, null);
+            this.treeList1.AppendNode(new object[] {
+            "Məhsul alışı edə bilsin",
+            null}, 6);
+            this.treeList1.AppendNode(new object[] {
+            "Alınan məhsulu geri qaytara bilsin",
+            null}, 6);
+            this.treeList1.AppendNode(new object[] {
+            "Alınan məhsulların barkodunu çap etsin",
+            null}, 6);
+            this.treeList1.EndUnboundLoad();
+            this.treeList1.OptionsView.EnableAppearanceOddRow = true;
+            this.treeList1.OptionsView.ShowIndicator = false;
+            this.treeList1.Size = new System.Drawing.Size(437, 284);
+            this.treeList1.TabIndex = 7;
+            // 
+            // treeListColumn3
+            // 
+            this.treeListColumn3.Caption = "İstifadəçi hüquqları";
+            this.treeListColumn3.FieldName = "RoleName";
+            this.treeListColumn3.Name = "treeListColumn3";
+            this.treeListColumn3.Visible = true;
+            this.treeListColumn3.VisibleIndex = 0;
+            // 
+            // treeListColumn4
+            // 
+            this.treeListColumn4.Caption = "treeListColumn2";
+            this.treeListColumn4.FieldName = "treeListColumn2";
+            this.treeListColumn4.Name = "treeListColumn4";
+            this.treeListColumn4.Visible = true;
+            this.treeListColumn4.VisibleIndex = 1;
             // 
             // tabUser
             // 
@@ -465,96 +549,6 @@ namespace Barcode_Sales.Forms
             this.gridColumn82.VisibleIndex = 4;
             this.gridColumn82.Width = 224;
             // 
-            // repositoryItemCheckEdit9
-            // 
-            this.repositoryItemCheckEdit9.AutoHeight = false;
-            this.repositoryItemCheckEdit9.CheckBoxOptions.Style = DevExpress.XtraEditors.Controls.CheckBoxStyle.SvgToggle1;
-            this.repositoryItemCheckEdit9.CheckBoxOptions.SvgImageSize = new System.Drawing.Size(32, 32);
-            this.repositoryItemCheckEdit9.Name = "repositoryItemCheckEdit9";
-            // 
-            // labelControl2
-            // 
-            this.labelControl2.Appearance.Font = new System.Drawing.Font("Nunito", 11F);
-            this.labelControl2.Appearance.Options.UseFont = true;
-            this.labelControl2.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Horizontal;
-            this.labelControl2.Location = new System.Drawing.Point(7, 266);
-            this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
-            this.labelControl2.Size = new System.Drawing.Size(29, 20);
-            this.labelControl2.TabIndex = 5;
-            this.labelControl2.Text = "Rol";
-            this.labelControl2.UseMnemonic = false;
-            // 
-            // panelControl2
-            // 
-            this.panelControl2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelControl2.Controls.Add(this.treeList1);
-            this.panelControl2.Location = new System.Drawing.Point(3, 3);
-            this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(948, 306);
-            this.panelControl2.TabIndex = 16;
-            // 
-            // treeList1
-            // 
-            this.treeList1.Columns.AddRange(new DevExpress.XtraTreeList.Columns.TreeListColumn[] {
-            this.treeListColumn3,
-            this.treeListColumn4});
-            this.treeList1.Location = new System.Drawing.Point(441, 9);
-            this.treeList1.Name = "treeList1";
-            this.treeList1.BeginUnboundLoad();
-            this.treeList1.AppendNode(new object[] {
-            "POS",
-            null}, -1);
-            this.treeList1.AppendNode(new object[] {
-            "Satış",
-            null}, 0, 0, 0, -1, System.Windows.Forms.CheckState.Unchecked, DevExpress.XtraTreeList.NodeCheckBoxStyle.Check, null);
-            this.treeList1.AppendNode(new object[] {
-            "Satış edəbilsin",
-            null}, 1);
-            this.treeList1.AppendNode(new object[] {
-            "Satış məbləği üzrə limit",
-            null}, 1, 0, 0, -1, System.Windows.Forms.CheckState.Unchecked, DevExpress.XtraTreeList.NodeCheckBoxStyle.Check, null);
-            this.treeList1.AppendNode(new object[] {
-            "Qaytarma",
-            null}, 0, 0, 0, -1, System.Windows.Forms.CheckState.Unchecked, DevExpress.XtraTreeList.NodeCheckBoxStyle.Check, null);
-            this.treeList1.AppendNode(new object[] {
-            "Qaytarma edəbilsin",
-            null}, 4);
-            this.treeList1.AppendNode(new object[] {
-            "Məhsul alışı",
-            null}, -1, 0, 0, -1, System.Windows.Forms.CheckState.Unchecked, DevExpress.XtraTreeList.NodeCheckBoxStyle.Check, null);
-            this.treeList1.AppendNode(new object[] {
-            "Məhsul alışı edə bilsin",
-            null}, 6);
-            this.treeList1.AppendNode(new object[] {
-            "Alınan məhsulu geri qaytara bilsin",
-            null}, 6);
-            this.treeList1.AppendNode(new object[] {
-            "Alınan məhsulların barkodunu çap etsin",
-            null}, 6);
-            this.treeList1.EndUnboundLoad();
-            this.treeList1.OptionsView.EnableAppearanceOddRow = true;
-            this.treeList1.OptionsView.ShowIndicator = false;
-            this.treeList1.Size = new System.Drawing.Size(437, 284);
-            this.treeList1.TabIndex = 7;
-            // 
-            // treeListColumn3
-            // 
-            this.treeListColumn3.Caption = "İstifadəçi hüquqları";
-            this.treeListColumn3.FieldName = "RoleName";
-            this.treeListColumn3.Name = "treeListColumn3";
-            this.treeListColumn3.Visible = true;
-            this.treeListColumn3.VisibleIndex = 0;
-            // 
-            // treeListColumn4
-            // 
-            this.treeListColumn4.Caption = "treeListColumn2";
-            this.treeListColumn4.FieldName = "treeListColumn2";
-            this.treeListColumn4.Name = "treeListColumn4";
-            this.treeListColumn4.Visible = true;
-            this.treeListColumn4.VisibleIndex = 1;
-            // 
             // gridColumn1
             // 
             this.gridColumn1.Caption = "Edit";
@@ -583,6 +577,13 @@ namespace Barcode_Sales.Forms
             this.gridColumn2.VisibleIndex = 6;
             this.gridColumn2.Width = 50;
             // 
+            // repositoryItemCheckEdit9
+            // 
+            this.repositoryItemCheckEdit9.AutoHeight = false;
+            this.repositoryItemCheckEdit9.CheckBoxOptions.Style = DevExpress.XtraEditors.Controls.CheckBoxStyle.SvgToggle1;
+            this.repositoryItemCheckEdit9.CheckBoxOptions.SvgImageSize = new System.Drawing.Size(32, 32);
+            this.repositoryItemCheckEdit9.Name = "repositoryItemCheckEdit9";
+            // 
             // fUsers
             // 
             this.Appearance.BackColor = System.Drawing.Color.White;
@@ -609,15 +610,15 @@ namespace Barcode_Sales.Forms
             ((System.ComponentModel.ISupportInitialize)(this.tUsername.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookRole.Properties)).EndInit();
             this.tabAccess.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
+            this.panelControl2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.treeList1)).EndInit();
             this.tabUser.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.tabPane1)).EndInit();
             this.tabPane1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControlDashboardStock)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridStock)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit9)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
-            this.panelControl2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.treeList1)).EndInit();
             this.ResumeLayout(false);
 
         }

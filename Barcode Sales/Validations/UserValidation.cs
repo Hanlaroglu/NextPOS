@@ -5,7 +5,7 @@ namespace Barcode_Sales.Validations
 {
     public class UserValidation : AbstractValidator<User>
     {
-        public static readonly string StoreNotSelected = "Mağaza seçimi edilmədi";
+        public static readonly string StoreNotSelected = "Flial seçimi edilmədi";
         public static readonly string RoleNotSelected = "İstifadəçi rolu seçilmədi";
         public static readonly string ExistingUsername = "İstifadəçi adı sistemdə mövcuddur";
         public static readonly string ErrorUsernamePassword = "İstifadəçi adı vəya şifrəsi yanlışdır";
