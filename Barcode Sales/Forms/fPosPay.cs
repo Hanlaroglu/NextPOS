@@ -19,7 +19,7 @@ namespace Barcode_Sales.Forms
 
         private void fPosPay_Load(object sender, EventArgs e)
         {
-            tTotal.Text = _data.Items.Sum(x=> x.Sum).ToString("F2");
+            tTotal.Text = _data.Items.Sum(x => x.Sum).ToString("F2");
             bCash_Click(sender, e);
             this.tCash_Paid.SelectAll();
             this.tCash_Paid.Focus();
@@ -81,7 +81,7 @@ namespace Barcode_Sales.Forms
         {
             if (TerminalCacheService.Terminal != null)
             {
-                _data.Cash = _data.Items.Sum(x=> x.Sum);
+                _data.Cash = _data.Items.Sum(x => x.Sum);
                 _data.Card = 0;
                 _data.IncomingSum = decimal.Parse(tCash_Paid.Text);
 
@@ -188,7 +188,7 @@ namespace Barcode_Sales.Forms
 
             if (TerminalCacheService.Terminal != null)
             {
-               var kassa = (Helpers.Enums.Terminal)Enum.Parse(typeof(Helpers.Enums.Terminal), TerminalCacheService.Terminal.Name);
+                var kassa = (Helpers.Enums.Terminal)Enum.Parse(typeof(Helpers.Enums.Terminal), TerminalCacheService.Terminal.Name);
                 switch (kassa)
                 {
                     case Helpers.Enums.Terminal.Caspos:

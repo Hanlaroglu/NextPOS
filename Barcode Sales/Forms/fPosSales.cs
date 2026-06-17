@@ -54,7 +54,10 @@ namespace Barcode_Sales.Forms
         private async void fPosSales_Shown(object sender, EventArgs e)
         {
             GridRepoAdd();
-            //TerminalCacheService.RefreshTerminal();
+
+            if (TerminalCacheService.Terminal is null)
+                await TerminalCacheService.RefreshTerminal();
+
             var saleCount = await posSaleOperation.CurrentSaleCount();
             tSaleCount.Text = saleCount.ToString();
             tToday.Properties.Buttons[1].Caption = DatetimeService.CurrentDateString;

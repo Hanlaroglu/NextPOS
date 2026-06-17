@@ -1,4 +1,5 @@
-﻿using Barcode_Sales.Operations.Abstract;
+﻿using System.Threading.Tasks;
+using Barcode_Sales.Operations.Abstract;
 using Barcode_Sales.Operations.Concrete;
 
 namespace Barcode_Sales.Services.CacheServices
@@ -8,18 +9,9 @@ namespace Barcode_Sales.Services.CacheServices
         private static readonly ITerminalOperation terminalOperation = new TerminalManager();
 
         private static Terminal _terminal;
-        public static Terminal Terminal
-        {
-            get
-            {
-                if (_terminal == null)
-                    RefreshTerminal();
+        public static Terminal Terminal => _terminal;
 
-                return _terminal;
-            }
-        }
-
-        public static async void RefreshTerminal()
+        public static async Task RefreshTerminal()
         {
             _terminal = await terminalOperation.GetIpAddress();
         }

@@ -72,6 +72,7 @@
             this.tCashier = new DevExpress.XtraEditors.ButtonEdit();
             this.tCustomer = new DevExpress.XtraEditors.ButtonEdit();
             this.lCancelMessage = new DevExpress.XtraEditors.LabelControl();
+            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel1)).BeginInit();
             this.tablePanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlSalesData)).BeginInit();
@@ -173,6 +174,7 @@
             this.colQuantity,
             this.colUnitName,
             this.colSalePrice,
+            this.gridColumn1,
             this.colTotal,
             this.colReturnQuantity});
             this.gridSalesData.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFullFocus;
@@ -224,7 +226,7 @@
             this.colProductName.OptionsColumn.AllowEdit = false;
             this.colProductName.Visible = true;
             this.colProductName.VisibleIndex = 2;
-            this.colProductName.Width = 332;
+            this.colProductName.Width = 281;
             // 
             // colQuantity
             // 
@@ -291,8 +293,8 @@
             this.colTotal.Name = "colTotal";
             this.colTotal.OptionsColumn.AllowEdit = false;
             this.colTotal.Visible = true;
-            this.colTotal.VisibleIndex = 6;
-            this.colTotal.Width = 140;
+            this.colTotal.VisibleIndex = 7;
+            this.colTotal.Width = 124;
             // 
             // colReturnQuantity
             // 
@@ -317,7 +319,7 @@
             this.colReturnQuantity.OptionsFilter.AllowAutoFilter = false;
             this.colReturnQuantity.OptionsFilter.AllowFilter = false;
             this.colReturnQuantity.Visible = true;
-            this.colReturnQuantity.VisibleIndex = 7;
+            this.colReturnQuantity.VisibleIndex = 8;
             this.colReturnQuantity.Width = 141;
             // 
             // groupControl1
@@ -533,6 +535,18 @@
             this.lCancelMessage.Text = "Çekdə olan bütün məhsullar ləğv ediləcəkdir !";
             this.lCancelMessage.Visible = false;
             // 
+            // gridColumn1
+            // 
+            this.gridColumn1.Caption = "Endirim";
+            this.gridColumn1.DisplayFormat.FormatString = "C2";
+            this.gridColumn1.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.gridColumn1.FieldName = "Discount";
+            this.gridColumn1.Name = "gridColumn1";
+            this.gridColumn1.OptionsColumn.AllowEdit = false;
+            this.gridColumn1.Visible = true;
+            this.gridColumn1.VisibleIndex = 6;
+            this.gridColumn1.Width = 127;
+            // 
             // fPosRollbackProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -593,5 +607,6 @@
         private DevExpress.XtraEditors.MemoEdit tComment;
         private DevExpress.XtraEditors.LabelControl labelControl7;
         private DevExpress.XtraEditors.LabelControl lCancelMessage;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
     }
 }

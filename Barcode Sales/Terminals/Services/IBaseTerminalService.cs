@@ -6,6 +6,7 @@ namespace Barcode_Sales.Terminals.Services
 {
     public interface IBaseTerminalService
     {
+        TerminalResult GetInfo();
         TerminalResult Login();
         TerminalResult OpenShift();
         TerminalResult GetShiftStatus();

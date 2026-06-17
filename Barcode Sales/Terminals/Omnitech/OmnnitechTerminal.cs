@@ -40,6 +40,28 @@ namespace Barcode_Sales.Terminals.Omnitech
             _ipAddress = ipAddress;
         }
 
+        public TerminalResult GetInfo()
+        {
+            var info = new GetInfoRequest { access_token = _accessToken };
+
+            var request = BaseRequest<GetInfoRequest>.Create(info);
+
+            var result = TerminalHttpHelper.Post<BaseRequest<GetInfoRequest>, GetInfoResponse>(_ipAddress, request);
+
+            if (!result.Success)
+                return result;
+
+            if (!result.Success && IsTokenExpired(result))
+                return TerminalResult.Fail(result.Message, result);
+
+            var response = result.GetData<GetInfoResponse>();
+
+            if (response.message == "Successful operation")
+                return TerminalResult.Ok();
+
+            return TerminalResult.Fail($"Token məlumatları alınarkən xəta yarandı.\n{response.message}");
+        }
+
         public TerminalResult Login()
         {
             var login = new LoginRequest();
@@ -344,7 +366,7 @@ namespace Barcode_Sales.Terminals.Omnitech
                     BankRrn = string.IsNullOrWhiteSpace(item.Rrn) ? response.Rrn : item.Rrn,
                     SaleDate = DatetimeService.CurrentDateTime,
                     SaleDatetime = DatetimeService.CurrentDateTime,
-                    Total = item.Items.Sum(x=> x.Total),
+                    Total = item.Items.Sum(x => x.Total),
                     Cash = item.Cash,
                     Card = item.Card,
                     IncomingSum = item.IncomingSum,

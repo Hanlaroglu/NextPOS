@@ -154,23 +154,34 @@ namespace Barcode_Sales.Forms
 
         private void bSubmit_Click(object sender, EventArgs e)
         {
+            if (_type is PosReturnType.Rollback)
+                gridSalesData.SelectAll();
+
             if (gridSalesData.SelectedRowsCount > 0)
             {
                 gridSalesData.CloseEditor();
                 gridSalesData.UpdateCurrentRow();
 
-                int[] selected = gridSalesData.GetSelectedRows();
-
                 _items.Clear();
-                foreach (var item in selected)
+
+                if (_type is PosReturnType.Rollback)
                 {
-                    var rowData = gridSalesData.GetRow(item) as PosSaleItemDto;
-                    if (rowData != null)
+                    foreach (var item in dataList)
+                        _items.Add(item);
+                }
+                else
+                {
+                    int[] selected = gridSalesData.GetSelectedRows();
+                    foreach (var item in selected)
                     {
-                        if (rowData.RefundQuantity <= 0)
+                        var rowData = gridSalesData.GetRow(item) as PosSaleItemDto;
+                        if (rowData != null)
                         {
-                            NotificationHelpers.Messages.ErrorMessage(this,"Qaytarılacaq miqdar daxil edilmədi");
-                            return;
+                            if (rowData.RefundQuantity <= 0)
+                            {
+                                NotificationHelpers.Messages.ErrorMessage(this, "Qaytarılacaq miqdar daxil edilmədi");
+                                return;
+                            }
                         }
                         _items.Add(rowData);
                     }
@@ -192,7 +203,7 @@ namespace Barcode_Sales.Forms
                     //Card = tPaymentType.Text == "NAĞD-KART" ? _salesDataSummary.Card : 0,
                 };
 
-          
+
 
                 if (_type is PosReturnType.MoneyBack)
                     Refund();

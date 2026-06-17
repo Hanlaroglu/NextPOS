@@ -81,33 +81,37 @@ namespace Barcode_Sales.Operations.Concrete
 
         public List<PosSaleItemDto> GetRemainingSaleData(int posSaleId)
         {
-//            var query = @"SELECT 
-//	ps.Id as PosSaleId,
-//    psi.Id as PosSaleItemId,
-//	p.Barcode,
-//	p.ProductName,
-//	ut.[Name] AS UnitName,
-//    psi.[SalePrice],
-//    psi.[Discount],
-//    psi.[Quantity] - ISNULL((
-//        SELECT SUM(pri.[Quantity])
-//        FROM [dbo].[PosRefundItems] pri
-//        WHERE pri.[PosSaleItemId] = psi.[Id]
-//    ), 0) AS [RemainingQuantity]
-//FROM [dbo].[PosSales] ps
-//INNER JOIN [dbo].[PosSaleItems] psi ON psi.[PosSaleId] = ps.[Id]
-//INNER JOIN Users u ON u.Id = ps.UserId
-//LEFT JOIN Customers c ON c.Id = ps.CustomerId
-//INNER JOIN Products p ON p.Id = psi.ProductId
-//INNER JOIN UnitTypes ut ON ut.Id = p.UnitId
-//WHERE (
-//    psi.[Quantity] - ISNULL((
-//        SELECT SUM(pri.[Quantity])
-//        FROM [dbo].[PosRefundItems] pri
-//        WHERE pri.[PosSaleItemId] = psi.[Id]
-//    ), 0)
-//) > 0 AND ps.Id = @posSaleId
-//ORDER BY ps.[SaleDate] DESC, ps.[Id] DESC";
+
+            /*
+            var query = @"SELECT 
+	ps.Id as PosSaleId,
+    psi.Id as PosSaleItemId,
+	p.Barcode,
+	p.ProductName,
+	ut.[Name] AS UnitName,
+    psi.[SalePrice],
+    psi.[Discount],
+    psi.[Quantity] - ISNULL((
+        SELECT SUM(pri.[Quantity])
+        FROM [dbo].[PosRefundItems] pri
+        WHERE pri.[PosSaleItemId] = psi.[Id]
+    ), 0) AS [RemainingQuantity]
+FROM [dbo].[PosSales] ps
+INNER JOIN [dbo].[PosSaleItems] psi ON psi.[PosSaleId] = ps.[Id]
+INNER JOIN Users u ON u.Id = ps.UserId
+LEFT JOIN Customers c ON c.Id = ps.CustomerId
+INNER JOIN Products p ON p.Id = psi.ProductId
+INNER JOIN UnitTypes ut ON ut.Id = p.UnitId
+WHERE (
+    psi.[Quantity] - ISNULL((
+        SELECT SUM(pri.[Quantity])
+        FROM [dbo].[PosRefundItems] pri
+        WHERE pri.[PosSaleItemId] = psi.[Id]
+    ), 0)
+) > 0 AND ps.Id = @posSaleId
+ORDER BY ps.[SaleDate] DESC, ps.[Id] DESC";
+            */
+
 
             var query = @"SELECT 
 	ps.Id as PosSaleId,

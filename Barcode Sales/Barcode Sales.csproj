@@ -327,6 +327,12 @@
     <Compile Include="Forms\fAddSupplierDebt.Designer.cs">
       <DependentUpon>fAddSupplierDebt.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\fAddUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\fAddUser.Designer.cs">
+      <DependentUpon>fAddUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\fAqtaReport.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -737,6 +743,7 @@
     <Compile Include="Terminals\Omnitech\Requests\BaseRequest.cs" />
     <Compile Include="Terminals\Omnitech\Requests\CloseShiftRequest.cs" />
     <Compile Include="Terminals\Omnitech\Requests\DepositRequest.cs" />
+    <Compile Include="Terminals\Omnitech\Requests\GetInfoRequest.cs" />
     <Compile Include="Terminals\Omnitech\Requests\LoginRequest.cs" />
     <Compile Include="Terminals\Omnitech\Requests\MoneyBackRequest.cs" />
     <Compile Include="Terminals\Omnitech\Requests\OpenShiftRequest.cs" />
@@ -748,6 +755,7 @@
     <Compile Include="Terminals\Omnitech\Responses\BaseResponse.cs" />
     <Compile Include="Terminals\Omnitech\Responses\CloseShiftResponse.cs" />
     <Compile Include="Terminals\Omnitech\Responses\DepositResponse.cs" />
+    <Compile Include="Terminals\Omnitech\Responses\GetInfoResponse.cs" />
     <Compile Include="Terminals\Omnitech\Responses\LoginResponse.cs" />
     <Compile Include="Terminals\Omnitech\Responses\MoneyBackResponse.cs" />
     <Compile Include="Terminals\Omnitech\Responses\OpenShiftResponse.cs" />
@@ -832,6 +840,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\fAddSupplierDebt.resx">
       <DependentUpon>fAddSupplierDebt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\fAddUser.resx">
+      <DependentUpon>fAddUser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\fAqtaReport.resx">
       <DependentUpon>fAqtaReport.cs</DependentUpon>

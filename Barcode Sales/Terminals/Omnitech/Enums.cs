@@ -5,6 +5,7 @@
         public enum OmnitechCheckType
         {
             Login = 40,
+            GetInfo = 41,
             ShiftStatus = 14,
             OpenShift = 15,
             CloseShift = 13,
