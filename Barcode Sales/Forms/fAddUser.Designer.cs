@@ -132,11 +132,13 @@
             this.tabUser = new DevExpress.XtraBars.Navigation.TabNavigationPage();
             this.tabPermissions = new DevExpress.XtraBars.Navigation.TabNavigationPage();
             this.layoutControl2 = new DevExpress.XtraLayout.LayoutControl();
-            this.lookUpEdit1 = new DevExpress.XtraEditors.LookUpEdit();
+            this.lookRole = new DevExpress.XtraEditors.LookUpEdit();
             this.layoutControlGroup2 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.simpleSeparator4 = new DevExpress.XtraLayout.SimpleSeparator();
-            this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.simpleSeparator5 = new DevExpress.XtraLayout.SimpleSeparator();
+            this.layoutControlItem10 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.simpleSeparator6 = new DevExpress.XtraLayout.SimpleSeparator();
+            this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.fluentDesignFormContainer1 = new DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormContainer();
             this.accordionControl1 = new DevExpress.XtraBars.Navigation.AccordionControl();
             this.itemRole = new DevExpress.XtraBars.Navigation.AccordionControlElement();
@@ -171,11 +173,13 @@
             this.tabPermissions.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl2)).BeginInit();
             this.layoutControl2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lookRole.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.simpleSeparator4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.simpleSeparator5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.simpleSeparator6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.accordionControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fluentDesignFormControl1)).BeginInit();
             this.SuspendLayout();
@@ -193,7 +197,7 @@
             this.layoutControl1.Location = new System.Drawing.Point(0, 0);
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.Root = this.Root;
-            this.layoutControl1.Size = new System.Drawing.Size(763, 488);
+            this.layoutControl1.Size = new System.Drawing.Size(762, 488);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
@@ -224,7 +228,7 @@
             this.tPassword.Properties.MaskSettings.Set("mask", "(999) 000-00-00");
             this.tPassword.Properties.UseSystemPasswordChar = true;
             this.tPassword.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.tPassword_Properties_ButtonClick);
-            this.tPassword.Size = new System.Drawing.Size(743, 36);
+            this.tPassword.Size = new System.Drawing.Size(742, 36);
             this.tPassword.StyleController = this.layoutControl1;
             this.tPassword.TabIndex = 1;
             // 
@@ -241,7 +245,7 @@
             this.chIsStatus.Properties.CheckBoxOptions.Style = DevExpress.XtraEditors.Controls.CheckBoxStyle.SvgToggle1;
             this.chIsStatus.Properties.CheckBoxOptions.SvgImageSize = new System.Drawing.Size(28, 24);
             this.chIsStatus.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Far;
-            this.chIsStatus.Size = new System.Drawing.Size(751, 28);
+            this.chIsStatus.Size = new System.Drawing.Size(750, 28);
             this.chIsStatus.StyleController = this.layoutControl1;
             this.chIsStatus.TabIndex = 5;
             // 
@@ -283,7 +287,7 @@
             this.lookStores.Properties.NullValuePrompt = "Flial seçimini edin";
             this.lookStores.Properties.ShowFooter = false;
             this.lookStores.Properties.ShowHeader = false;
-            this.lookStores.Size = new System.Drawing.Size(751, 36);
+            this.lookStores.Size = new System.Drawing.Size(750, 36);
             this.lookStores.StyleController = this.layoutControl1;
             this.lookStores.TabIndex = 0;
             // 
@@ -310,7 +314,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "*", -1, false, false, true, editorButtonImageOptions7, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject25, serializableAppearanceObject26, serializableAppearanceObject27, serializableAppearanceObject28, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.tPhone.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.tPhone.Properties.MaskSettings.Set("mask", "(999) 000-00-00");
-            this.tPhone.Size = new System.Drawing.Size(743, 36);
+            this.tPhone.Size = new System.Drawing.Size(742, 36);
             this.tPhone.StyleController = this.layoutControl1;
             this.tPhone.TabIndex = 4;
             // 
@@ -337,7 +341,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "*", -1, false, false, true, editorButtonImageOptions9, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject33, serializableAppearanceObject34, serializableAppearanceObject35, serializableAppearanceObject36, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.tEmail.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.tEmail.Properties.MaskSettings.Set("mask", "(999) 000-00-00");
-            this.tEmail.Size = new System.Drawing.Size(743, 36);
+            this.tEmail.Size = new System.Drawing.Size(742, 36);
             this.tEmail.StyleController = this.layoutControl1;
             this.tEmail.TabIndex = 3;
             // 
@@ -364,7 +368,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "*", -1, false, true, true, editorButtonImageOptions11, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject41, serializableAppearanceObject42, serializableAppearanceObject43, serializableAppearanceObject44, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.tUsername.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.tUsername.Properties.MaskSettings.Set("mask", "(999) 000-00-00");
-            this.tUsername.Size = new System.Drawing.Size(743, 36);
+            this.tUsername.Size = new System.Drawing.Size(742, 36);
             this.tUsername.StyleController = this.layoutControl1;
             this.tUsername.TabIndex = 0;
             // 
@@ -391,7 +395,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "*", -1, false, true, true, editorButtonImageOptions13, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject49, serializableAppearanceObject50, serializableAppearanceObject51, serializableAppearanceObject52, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.tNameSurname.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.tNameSurname.Properties.MaskSettings.Set("mask", "(999) 000-00-00");
-            this.tNameSurname.Size = new System.Drawing.Size(743, 36);
+            this.tNameSurname.Size = new System.Drawing.Size(742, 36);
             this.tNameSurname.StyleController = this.layoutControl1;
             this.tNameSurname.TabIndex = 2;
             // 
@@ -408,7 +412,7 @@
             this.emptySpaceItem1});
             this.Root.Name = "Root";
             this.Root.Padding = new DevExpress.XtraLayout.Utils.Padding(3, 3, 3, 3);
-            this.Root.Size = new System.Drawing.Size(763, 488);
+            this.Root.Size = new System.Drawing.Size(762, 488);
             this.Root.TextVisible = false;
             // 
             // simpleSeparator1
@@ -416,14 +420,14 @@
             this.simpleSeparator1.AllowHotTrack = false;
             this.simpleSeparator1.Location = new System.Drawing.Point(0, 43);
             this.simpleSeparator1.Name = "simpleSeparator1";
-            this.simpleSeparator1.Size = new System.Drawing.Size(757, 1);
+            this.simpleSeparator1.Size = new System.Drawing.Size(756, 1);
             // 
             // layoutControlItem6
             // 
             this.layoutControlItem6.Control = this.lookStores;
             this.layoutControlItem6.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem6.Name = "layoutControlItem6";
-            this.layoutControlItem6.Size = new System.Drawing.Size(757, 42);
+            this.layoutControlItem6.Size = new System.Drawing.Size(756, 42);
             this.layoutControlItem6.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem6.TextVisible = false;
             // 
@@ -432,7 +436,7 @@
             this.simpleSeparator2.AllowHotTrack = false;
             this.simpleSeparator2.Location = new System.Drawing.Point(0, 42);
             this.simpleSeparator2.Name = "simpleSeparator2";
-            this.simpleSeparator2.Size = new System.Drawing.Size(757, 1);
+            this.simpleSeparator2.Size = new System.Drawing.Size(756, 1);
             // 
             // layoutControlGroup1
             // 
@@ -449,7 +453,7 @@
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 44);
             this.layoutControlGroup1.Name = "layoutControlGroup1";
             this.layoutControlGroup1.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
-            this.layoutControlGroup1.Size = new System.Drawing.Size(757, 240);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(756, 240);
             this.layoutControlGroup1.Text = "İstifadəçi məlumatları";
             // 
             // layoutControlItem5
@@ -457,7 +461,7 @@
             this.layoutControlItem5.Control = this.tPhone;
             this.layoutControlItem5.Location = new System.Drawing.Point(0, 169);
             this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(749, 42);
+            this.layoutControlItem5.Size = new System.Drawing.Size(748, 42);
             this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem5.TextVisible = false;
             // 
@@ -466,7 +470,7 @@
             this.layoutControlItem4.Control = this.tEmail;
             this.layoutControlItem4.Location = new System.Drawing.Point(0, 127);
             this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(749, 42);
+            this.layoutControlItem4.Size = new System.Drawing.Size(748, 42);
             this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem4.TextVisible = false;
             // 
@@ -475,7 +479,7 @@
             this.layoutControlItem3.Control = this.tNameSurname;
             this.layoutControlItem3.Location = new System.Drawing.Point(0, 85);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(749, 42);
+            this.layoutControlItem3.Size = new System.Drawing.Size(748, 42);
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem3.TextVisible = false;
             // 
@@ -484,7 +488,7 @@
             this.layoutControlItem1.Control = this.tUsername;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(749, 42);
+            this.layoutControlItem1.Size = new System.Drawing.Size(748, 42);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
@@ -493,14 +497,14 @@
             this.simpleSeparator3.AllowHotTrack = false;
             this.simpleSeparator3.Location = new System.Drawing.Point(0, 84);
             this.simpleSeparator3.Name = "simpleSeparator3";
-            this.simpleSeparator3.Size = new System.Drawing.Size(749, 1);
+            this.simpleSeparator3.Size = new System.Drawing.Size(748, 1);
             // 
             // layoutControlItem8
             // 
             this.layoutControlItem8.Control = this.tPassword;
             this.layoutControlItem8.Location = new System.Drawing.Point(0, 42);
             this.layoutControlItem8.Name = "layoutControlItem8";
-            this.layoutControlItem8.Size = new System.Drawing.Size(749, 42);
+            this.layoutControlItem8.Size = new System.Drawing.Size(748, 42);
             this.layoutControlItem8.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem8.TextVisible = false;
             // 
@@ -509,7 +513,7 @@
             this.layoutControlItem7.Control = this.chIsStatus;
             this.layoutControlItem7.Location = new System.Drawing.Point(0, 284);
             this.layoutControlItem7.Name = "layoutControlItem7";
-            this.layoutControlItem7.Size = new System.Drawing.Size(757, 34);
+            this.layoutControlItem7.Size = new System.Drawing.Size(756, 34);
             this.layoutControlItem7.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem7.TextVisible = false;
             // 
@@ -518,7 +522,7 @@
             this.emptySpaceItem1.AllowHotTrack = false;
             this.emptySpaceItem1.Location = new System.Drawing.Point(0, 318);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(757, 164);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(756, 164);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // bSave
@@ -536,7 +540,7 @@
             this.bSave.AppearanceHovered.Options.UseBackColor = true;
             this.bSave.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bSave.ImageOptions.SvgImage")));
             this.bSave.ImageOptions.SvgImageSize = new System.Drawing.Size(28, 28);
-            this.bSave.Location = new System.Drawing.Point(632, 5);
+            this.bSave.Location = new System.Drawing.Point(631, 5);
             this.bSave.LookAndFeel.SkinName = "WXI";
             this.bSave.LookAndFeel.UseDefaultLookAndFeel = false;
             this.bSave.Name = "bSave";
@@ -551,9 +555,9 @@
             // 
             this.panelControl1.Controls.Add(this.bSave);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelControl1.Location = new System.Drawing.Point(48, 568);
+            this.panelControl1.Location = new System.Drawing.Point(49, 568);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(763, 42);
+            this.panelControl1.Size = new System.Drawing.Size(762, 42);
             this.panelControl1.TabIndex = 27;
             // 
             // tabPane1
@@ -569,7 +573,7 @@
             this.tabPane1.Controls.Add(this.tabUser);
             this.tabPane1.Controls.Add(this.tabPermissions);
             this.tabPane1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabPane1.Location = new System.Drawing.Point(48, 33);
+            this.tabPane1.Location = new System.Drawing.Point(49, 33);
             this.tabPane1.Name = "tabPane1";
             this.tabPane1.PageProperties.AppearanceCaption.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
             this.tabPane1.PageProperties.AppearanceCaption.Font = new System.Drawing.Font("Nunito", 12F);
@@ -578,9 +582,9 @@
             this.tabPane1.Pages.AddRange(new DevExpress.XtraBars.Navigation.NavigationPageBase[] {
             this.tabUser,
             this.tabPermissions});
-            this.tabPane1.RegularSize = new System.Drawing.Size(763, 535);
+            this.tabPane1.RegularSize = new System.Drawing.Size(762, 535);
             this.tabPane1.SelectedPage = this.tabUser;
-            this.tabPane1.Size = new System.Drawing.Size(763, 535);
+            this.tabPane1.Size = new System.Drawing.Size(762, 535);
             this.tabPane1.TabIndex = 28;
             this.tabPane1.Text = "tabPane1";
             // 
@@ -589,45 +593,45 @@
             this.tabUser.Caption = "İstifadəçi məlumatları";
             this.tabUser.Controls.Add(this.layoutControl1);
             this.tabUser.Name = "tabUser";
-            this.tabUser.Size = new System.Drawing.Size(763, 488);
+            this.tabUser.Size = new System.Drawing.Size(762, 488);
             // 
             // tabPermissions
             // 
             this.tabPermissions.Caption = "Hüquqları";
             this.tabPermissions.Controls.Add(this.layoutControl2);
             this.tabPermissions.Name = "tabPermissions";
-            this.tabPermissions.Size = new System.Drawing.Size(763, 488);
+            this.tabPermissions.Size = new System.Drawing.Size(762, 488);
             // 
             // layoutControl2
             // 
-            this.layoutControl2.Controls.Add(this.lookUpEdit1);
+            this.layoutControl2.Controls.Add(this.lookRole);
             this.layoutControl2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl2.Location = new System.Drawing.Point(0, 0);
             this.layoutControl2.Name = "layoutControl2";
             this.layoutControl2.Root = this.layoutControlGroup2;
-            this.layoutControl2.Size = new System.Drawing.Size(763, 488);
+            this.layoutControl2.Size = new System.Drawing.Size(762, 488);
             this.layoutControl2.TabIndex = 1;
             this.layoutControl2.Text = "layoutControl2";
             // 
-            // lookUpEdit1
+            // lookRole
             // 
-            this.lookUpEdit1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.lookRole.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.lookUpEdit1.Location = new System.Drawing.Point(6, 6);
-            this.lookUpEdit1.Name = "lookUpEdit1";
-            this.lookUpEdit1.Properties.AllowFocused = false;
-            this.lookUpEdit1.Properties.Appearance.Font = new System.Drawing.Font("Nunito", 12F);
-            this.lookUpEdit1.Properties.Appearance.Options.UseFont = true;
-            this.lookUpEdit1.Properties.AppearanceDisabled.Font = new System.Drawing.Font("Nunito", 12F);
-            this.lookUpEdit1.Properties.AppearanceDisabled.Options.UseFont = true;
-            this.lookUpEdit1.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Nunito", 12F);
-            this.lookUpEdit1.Properties.AppearanceDropDown.Options.UseFont = true;
-            this.lookUpEdit1.Properties.AppearanceDropDownHeader.Font = new System.Drawing.Font("Nunito", 12F);
-            this.lookUpEdit1.Properties.AppearanceDropDownHeader.Options.UseFont = true;
-            this.lookUpEdit1.Properties.AppearanceFocused.Font = new System.Drawing.Font("Nunito", 12F);
-            this.lookUpEdit1.Properties.AppearanceFocused.Options.UseFont = true;
-            this.lookUpEdit1.Properties.AppearanceReadOnly.Font = new System.Drawing.Font("Nunito", 12F);
-            this.lookUpEdit1.Properties.AppearanceReadOnly.Options.UseFont = true;
+            this.lookRole.Location = new System.Drawing.Point(6, 8);
+            this.lookRole.Name = "lookRole";
+            this.lookRole.Properties.AllowFocused = false;
+            this.lookRole.Properties.Appearance.Font = new System.Drawing.Font("Nunito", 12F);
+            this.lookRole.Properties.Appearance.Options.UseFont = true;
+            this.lookRole.Properties.AppearanceDisabled.Font = new System.Drawing.Font("Nunito", 12F);
+            this.lookRole.Properties.AppearanceDisabled.Options.UseFont = true;
+            this.lookRole.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Nunito", 12F);
+            this.lookRole.Properties.AppearanceDropDown.Options.UseFont = true;
+            this.lookRole.Properties.AppearanceDropDownHeader.Font = new System.Drawing.Font("Nunito", 12F);
+            this.lookRole.Properties.AppearanceDropDownHeader.Options.UseFont = true;
+            this.lookRole.Properties.AppearanceFocused.Font = new System.Drawing.Font("Nunito", 12F);
+            this.lookRole.Properties.AppearanceFocused.Options.UseFont = true;
+            this.lookRole.Properties.AppearanceReadOnly.Font = new System.Drawing.Font("Nunito", 12F);
+            this.lookRole.Properties.AppearanceReadOnly.Options.UseFont = true;
             serializableAppearanceObject53.Font = new System.Drawing.Font("Nunito", 12F, System.Drawing.FontStyle.Bold);
             serializableAppearanceObject53.Options.UseFont = true;
             serializableAppearanceObject56.Font = new System.Drawing.Font("Nunito", 12F, System.Drawing.FontStyle.Bold);
@@ -638,18 +642,18 @@
             serializableAppearanceObject60.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.Critical;
             serializableAppearanceObject60.Options.UseFont = true;
             serializableAppearanceObject60.Options.UseForeColor = true;
-            this.lookUpEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.lookRole.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo),
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Rol : ", -1, false, true, true, editorButtonImageOptions14, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject53, serializableAppearanceObject54, serializableAppearanceObject55, serializableAppearanceObject56, "", null, null, DevExpress.Utils.ToolTipAnchor.Default),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "*", -1, false, false, true, editorButtonImageOptions15, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject57, serializableAppearanceObject58, serializableAppearanceObject59, serializableAppearanceObject60, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
-            this.lookUpEdit1.Properties.DropDownRows = 6;
-            this.lookUpEdit1.Properties.NullText = "";
-            this.lookUpEdit1.Properties.NullValuePrompt = "Rol seçimini edin";
-            this.lookUpEdit1.Properties.ShowFooter = false;
-            this.lookUpEdit1.Properties.ShowHeader = false;
-            this.lookUpEdit1.Size = new System.Drawing.Size(751, 36);
-            this.lookUpEdit1.StyleController = this.layoutControl2;
-            this.lookUpEdit1.TabIndex = 5;
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "*", -1, false, true, true, editorButtonImageOptions15, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject57, serializableAppearanceObject58, serializableAppearanceObject59, serializableAppearanceObject60, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            this.lookRole.Properties.DropDownRows = 6;
+            this.lookRole.Properties.NullText = "";
+            this.lookRole.Properties.NullValuePrompt = "Flial seçimini edin";
+            this.lookRole.Properties.ShowFooter = false;
+            this.lookRole.Properties.ShowHeader = false;
+            this.lookRole.Size = new System.Drawing.Size(750, 36);
+            this.lookRole.StyleController = this.layoutControl2;
+            this.lookRole.TabIndex = 7;
             // 
             // layoutControlGroup2
             // 
@@ -657,42 +661,59 @@
             this.layoutControlGroup2.GroupBordersVisible = false;
             this.layoutControlGroup2.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.simpleSeparator4,
-            this.layoutControlItem2,
-            this.simpleSeparator5});
+            this.simpleSeparator5,
+            this.layoutControlItem10,
+            this.simpleSeparator6,
+            this.emptySpaceItem2});
             this.layoutControlGroup2.Name = "Root";
             this.layoutControlGroup2.Padding = new DevExpress.XtraLayout.Utils.Padding(3, 3, 3, 3);
-            this.layoutControlGroup2.Size = new System.Drawing.Size(763, 488);
+            this.layoutControlGroup2.Size = new System.Drawing.Size(762, 488);
             this.layoutControlGroup2.TextVisible = false;
             // 
             // simpleSeparator4
             // 
             this.simpleSeparator4.AllowHotTrack = false;
-            this.simpleSeparator4.Location = new System.Drawing.Point(0, 43);
+            this.simpleSeparator4.Location = new System.Drawing.Point(0, 1);
             this.simpleSeparator4.Name = "simpleSeparator1";
-            this.simpleSeparator4.Size = new System.Drawing.Size(757, 439);
-            // 
-            // layoutControlItem2
-            // 
-            this.layoutControlItem2.Control = this.lookUpEdit1;
-            this.layoutControlItem2.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem2.Name = "layoutControlItem6";
-            this.layoutControlItem2.Size = new System.Drawing.Size(757, 42);
-            this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem2.TextVisible = false;
+            this.simpleSeparator4.Size = new System.Drawing.Size(756, 1);
             // 
             // simpleSeparator5
             // 
             this.simpleSeparator5.AllowHotTrack = false;
-            this.simpleSeparator5.Location = new System.Drawing.Point(0, 42);
+            this.simpleSeparator5.Location = new System.Drawing.Point(0, 0);
             this.simpleSeparator5.Name = "simpleSeparator2";
-            this.simpleSeparator5.Size = new System.Drawing.Size(757, 1);
+            this.simpleSeparator5.Size = new System.Drawing.Size(756, 1);
+            // 
+            // layoutControlItem10
+            // 
+            this.layoutControlItem10.Control = this.lookRole;
+            this.layoutControlItem10.Location = new System.Drawing.Point(0, 2);
+            this.layoutControlItem10.Name = "layoutControlItem10";
+            this.layoutControlItem10.Size = new System.Drawing.Size(756, 42);
+            this.layoutControlItem10.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem10.TextVisible = false;
+            // 
+            // simpleSeparator6
+            // 
+            this.simpleSeparator6.AllowHotTrack = false;
+            this.simpleSeparator6.Location = new System.Drawing.Point(0, 481);
+            this.simpleSeparator6.Name = "simpleSeparator6";
+            this.simpleSeparator6.Size = new System.Drawing.Size(756, 1);
+            // 
+            // emptySpaceItem2
+            // 
+            this.emptySpaceItem2.AllowHotTrack = false;
+            this.emptySpaceItem2.Location = new System.Drawing.Point(0, 44);
+            this.emptySpaceItem2.Name = "emptySpaceItem2";
+            this.emptySpaceItem2.Size = new System.Drawing.Size(756, 437);
+            this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
             // fluentDesignFormContainer1
             // 
             this.fluentDesignFormContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.fluentDesignFormContainer1.Location = new System.Drawing.Point(48, 33);
+            this.fluentDesignFormContainer1.Location = new System.Drawing.Point(49, 33);
             this.fluentDesignFormContainer1.Name = "fluentDesignFormContainer1";
-            this.fluentDesignFormContainer1.Size = new System.Drawing.Size(763, 577);
+            this.fluentDesignFormContainer1.Size = new System.Drawing.Size(762, 577);
             this.fluentDesignFormContainer1.TabIndex = 29;
             // 
             // accordionControl1
@@ -712,12 +733,13 @@
             this.accordionControl1.Name = "accordionControl1";
             this.accordionControl1.OptionsMinimizing.State = DevExpress.XtraBars.Navigation.AccordionControlState.Minimized;
             this.accordionControl1.ScrollBarMode = DevExpress.XtraBars.Navigation.ScrollBarMode.Touch;
-            this.accordionControl1.Size = new System.Drawing.Size(48, 577);
+            this.accordionControl1.Size = new System.Drawing.Size(49, 577);
             this.accordionControl1.TabIndex = 30;
             this.accordionControl1.ViewType = DevExpress.XtraBars.Navigation.AccordionControlViewType.HamburgerMenu;
             // 
             // itemRole
             // 
+            this.itemRole.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("itemRole.ImageOptions.SvgImage")));
             this.itemRole.Name = "itemRole";
             this.itemRole.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.itemRole.Text = "Yeni Rol";
@@ -778,11 +800,13 @@
             this.tabPermissions.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl2)).EndInit();
             this.layoutControl2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lookRole.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.simpleSeparator4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.simpleSeparator5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.simpleSeparator6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.accordionControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fluentDesignFormControl1)).EndInit();
             this.ResumeLayout(false);
@@ -822,10 +846,12 @@
         private DevExpress.XtraBars.Navigation.AccordionControlElement itemRole;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
         private DevExpress.XtraLayout.LayoutControl layoutControl2;
-        private DevExpress.XtraEditors.LookUpEdit lookUpEdit1;
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup2;
         private DevExpress.XtraLayout.SimpleSeparator simpleSeparator4;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
         private DevExpress.XtraLayout.SimpleSeparator simpleSeparator5;
+        private DevExpress.XtraEditors.LookUpEdit lookRole;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem10;
+        private DevExpress.XtraLayout.SimpleSeparator simpleSeparator6;
+        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem2;
     }
 }

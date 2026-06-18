@@ -988,20 +988,27 @@ namespace Barcode_Sales.Forms
 
         }
 
-        private void accordionControlElement24_Click(object sender, EventArgs e)
+        private async void accordionControlElement24_Click(object sender, EventArgs e)
         {
             //İstifadəçilər
+            navigationMenu.SelectedPage = pageUsers;
+            await GetUsers();
+        }
+
+        private async Task GetUsers()
+        {
+            var data = await userOperation.ToListAsync();
+            FormHelpers.ControlLoad(data,gridControlUsers);
+        }
+
+        private void bAddUser_Click(object sender, EventArgs e)
+        {
             fAddUser f = new fAddUser(Operation.Add);
             f.FormClosed += async (s, x) =>
             {
                 await GetUsers();
             };
             f.Show();
-        }
-
-        private async Task GetUsers()
-        {
-            var data = await userOperation.ToListAsync();
         }
     }
 }

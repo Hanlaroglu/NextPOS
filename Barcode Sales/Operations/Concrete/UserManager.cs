@@ -20,8 +20,9 @@ namespace Barcode_Sales.Operations.Concrete
                 await db.SaveChangesAsync();
                 return item.Id;
             }
-            catch
+            catch (Exception ex)
             {
+                throw ex;
                 return 0;
             }
         }
