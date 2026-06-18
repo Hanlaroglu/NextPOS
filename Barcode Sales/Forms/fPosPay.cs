@@ -4,11 +4,18 @@ using Barcode_Sales.Terminals.Omnitech;
 using System;
 using System.Linq;
 using System.Windows.Forms;
+using Barcode_Sales.Operations.Abstract;
+using Barcode_Sales.Operations.Concrete;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Threading.Tasks;
 
 namespace Barcode_Sales.Forms
 {
     public partial class fPosPay : DevExpress.XtraEditors.XtraForm
     {
+        IProductOperation productOperation = new ProductManager();
+
         private PosSaleDto _data;
         public fPosPay(PosSaleDto data)
         {
@@ -95,8 +102,6 @@ namespace Barcode_Sales.Forms
                 switch (terminal)
                 {
                     case Helpers.Enums.Terminal.Caspos:
-                        //if (NKA.Sunmi.Sale(_data))
-                        //    DialogResult = DialogResult.OK;
                         break;
                     case Helpers.Enums.Terminal.Omnitech:
                         OmnnitechTerminal omnitech = new OmnnitechTerminal(TerminalCacheService.Terminal.IpAddress);
@@ -105,6 +110,7 @@ namespace Barcode_Sales.Forms
                         fPosSales _form = Application.OpenForms.OfType<fPosSales>().FirstOrDefault();
                         if (result.Success)
                         {
+                            UpdateProducts(_data.Items);
                             NotificationHelpers.Messages.SuccessMessage(_form, result.Message);
                             DialogResult = DialogResult.OK;
                         }
@@ -123,6 +129,19 @@ namespace Barcode_Sales.Forms
                         break;
                 }
             }
+        }
+
+        private async void UpdateProducts(BindingList<PosSaleItemDto> items)
+        {
+            List<Products> products = new List<Products>();
+            foreach (var item in items)
+            {
+                var product = await productOperation.Get(x => x.Id == item.Id);
+                product.Quantity -= item.Quantity;
+                products.Add(product);
+            }
+
+            var result = await productOperation.Update(products, x => x.Quantity);
         }
 
         private async void CardPaid()
@@ -146,6 +165,7 @@ namespace Barcode_Sales.Forms
                         fPosSales _form = Application.OpenForms.OfType<fPosSales>().FirstOrDefault();
                         if (result.Success)
                         {
+                            UpdateProducts(_data.Items);
                             NotificationHelpers.Messages.SuccessMessage(_form, result.Message);
                             DialogResult = DialogResult.OK;
                         }
@@ -185,15 +205,12 @@ namespace Barcode_Sales.Forms
                 return;
             }
 
-
             if (TerminalCacheService.Terminal != null)
             {
                 var kassa = (Helpers.Enums.Terminal)Enum.Parse(typeof(Helpers.Enums.Terminal), TerminalCacheService.Terminal.Name);
                 switch (kassa)
                 {
                     case Helpers.Enums.Terminal.Caspos:
-                        //if (NKA.Sunmi.Sale(_data))
-                        //    DialogResult = DialogResult.OK;
                         break;
                     case Helpers.Enums.Terminal.Omnitech:
                         OmnnitechTerminal omnitech = new OmnnitechTerminal(TerminalCacheService.Terminal.IpAddress);
@@ -202,6 +219,7 @@ namespace Barcode_Sales.Forms
                         fPosSales _form = Application.OpenForms.OfType<fPosSales>().FirstOrDefault();
                         if (result.Success)
                         {
+                            UpdateProducts(_data.Items);
                             NotificationHelpers.Messages.SuccessMessage(_form, result.Message);
                             DialogResult = DialogResult.OK;
                         }
@@ -209,8 +227,6 @@ namespace Barcode_Sales.Forms
                             NotificationHelpers.Messages.ErrorMessage(_form, result.Message);
                         break;
                     case Helpers.Enums.Terminal.AzSmart:
-                        //if (NKA.AzSmart.Sale(_data))
-                        //    DialogResult = DialogResult.OK;
                         break;
                     case Helpers.Enums.Terminal.Nba:
                         break;

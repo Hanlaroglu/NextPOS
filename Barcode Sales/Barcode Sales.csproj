@@ -315,6 +315,12 @@
     <Compile Include="Forms\fAddProductImport.Designer.cs">
       <DependentUpon>fAddProductImport.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\fAddRole.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\fAddRole.Designer.cs">
+      <DependentUpon>fAddRole.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\fAddService.cs">
       <SubType>Form</SubType>
     </Compile>

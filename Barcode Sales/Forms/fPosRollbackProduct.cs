@@ -9,6 +9,7 @@ using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Repository;
 using DevExpress.XtraGrid.Views.Grid;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Linq;
@@ -19,8 +20,9 @@ namespace Barcode_Sales.Forms
 {
     public partial class fPosRollbackProduct : DevExpress.XtraEditors.XtraForm
     {
-        private IPosSaleItemOperation posSaleItemOperation = new PosSaleItemManager();
+        IPosSaleItemOperation posSaleItemOperation = new PosSaleItemManager();
         ICustomerOperation customerOperation = new CustomerManager();
+        IProductOperation productOperation = new ProductManager();
 
         private readonly PosReturnType _type;
 
@@ -233,7 +235,10 @@ namespace Barcode_Sales.Forms
 
                         fPosSales _form = Application.OpenForms.OfType<fPosSales>().FirstOrDefault();
                         if (result.Success)
+                        {
+                            UpdateProducts(_posRefundDto.Items);
                             NotificationHelpers.Messages.SuccessMessage(_form, result.Message);
+                        }
                         else
                             NotificationHelpers.Messages.ErrorMessage(_form, result.Message);
                         DialogResult = DialogResult.OK;
@@ -272,7 +277,10 @@ namespace Barcode_Sales.Forms
 
                         fPosSales _form = Application.OpenForms.OfType<fPosSales>().FirstOrDefault();
                         if (result.Success)
+                        {
+                            UpdateProducts(_posRefundDto.Items);
                             NotificationHelpers.Messages.SuccessMessage(_form, result.Message);
+                        }
                         else
                             NotificationHelpers.Messages.ErrorMessage(_form, result.Message);
                         DialogResult = DialogResult.OK;
@@ -287,6 +295,19 @@ namespace Barcode_Sales.Forms
                         break;
                 }
             }
+        }
+
+        private async void UpdateProducts(BindingList<PosSaleItemDto> items)
+        {
+            List<Products> products = new List<Products>();
+            foreach (var item in items)
+            {
+                var product = await productOperation.Get(x => x.Id == item.ProductId);
+                product.Quantity += item.RefundQuantity;
+                products.Add(product);
+            }
+
+            var result = await productOperation.Update(products, x => x.Quantity);
         }
 
         private void fPosRollbackProduct_FormClosed(object sender, FormClosedEventArgs e)

@@ -1545,6 +1545,7 @@
             // 
             // pageProduct
             // 
+            this.pageProduct.Caption = "pageProduct";
             this.pageProduct.Controls.Add(this.tabPane3);
             this.pageProduct.Name = "pageProduct";
             this.pageProduct.Size = new System.Drawing.Size(1215, 814);
@@ -2594,6 +2595,7 @@
             // 
             // pageUsers
             // 
+            this.pageUsers.Caption = "pageUsers";
             this.pageUsers.Controls.Add(this.tabPane8);
             this.pageUsers.Name = "pageUsers";
             this.pageUsers.Size = new System.Drawing.Size(1215, 814);
@@ -2900,6 +2902,7 @@
             // 
             // pageSettings
             // 
+            this.pageSettings.Caption = "pageSettings";
             this.pageSettings.Controls.Add(this.TabControlSettings);
             this.pageSettings.Name = "pageSettings";
             this.pageSettings.Size = new System.Drawing.Size(1215, 814);
@@ -3152,6 +3155,7 @@
             // 
             // pageReport
             // 
+            this.pageReport.Caption = "pageReport";
             this.pageReport.Controls.Add(this.TabControlReport);
             this.pageReport.Name = "pageReport";
             this.pageReport.Size = new System.Drawing.Size(1215, 814);
@@ -6256,6 +6260,7 @@
             // pageMain
             // 
             this.pageMain.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pageMain.Caption = "pageMain";
             this.pageMain.Controls.Add(this.tablePanel24);
             this.pageMain.Name = "pageMain";
             this.pageMain.Size = new System.Drawing.Size(1215, 814);
@@ -6416,7 +6421,7 @@
             this.tabMonth.Caption = "Aylıq";
             this.tabMonth.Controls.Add(this.chartControlMonth);
             this.tabMonth.Name = "tabMonth";
-            this.tabMonth.Size = new System.Drawing.Size(993, 338);
+            this.tabMonth.Size = new System.Drawing.Size(1211, 342);
             // 
             // chartControlMonth
             // 
@@ -6432,7 +6437,7 @@
             series4.SeriesID = 0;
             this.chartControlMonth.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
         series4};
-            this.chartControlMonth.Size = new System.Drawing.Size(993, 338);
+            this.chartControlMonth.Size = new System.Drawing.Size(1211, 342);
             this.chartControlMonth.TabIndex = 1;
             // 
             // tabYear
@@ -6899,6 +6904,7 @@
             // 
             // pageUpdate
             // 
+            this.pageUpdate.Caption = "pageUpdate";
             this.pageUpdate.Controls.Add(this.panelControl16);
             this.pageUpdate.Name = "pageUpdate";
             this.pageUpdate.Size = new System.Drawing.Size(1215, 814);
@@ -7095,6 +7101,7 @@
             // 
             // pageSupplier
             // 
+            this.pageSupplier.Caption = "pageSupplier";
             this.pageSupplier.Controls.Add(this.tabPane4);
             this.pageSupplier.Name = "pageSupplier";
             this.pageSupplier.Size = new System.Drawing.Size(1215, 814);
@@ -7728,6 +7735,7 @@
             // 
             // pageCustomers
             // 
+            this.pageCustomers.Caption = "pageCustomers";
             this.pageCustomers.Controls.Add(this.tabPane2);
             this.pageCustomers.Name = "pageCustomers";
             this.pageCustomers.Size = new System.Drawing.Size(1215, 814);
@@ -8036,6 +8044,7 @@
             // 
             // pageRole
             // 
+            this.pageRole.Caption = "pageRole";
             this.pageRole.Controls.Add(this.gridControlRole);
             this.pageRole.Controls.Add(this.panelControl4);
             this.pageRole.Name = "pageRole";
@@ -8306,6 +8315,7 @@
             // 
             // pageSupplierDebt
             // 
+            this.pageSupplierDebt.Caption = "pageSupplierDebt";
             this.pageSupplierDebt.Controls.Add(this.gridControlSupplierDebt);
             this.pageSupplierDebt.Controls.Add(this.panelControl6);
             this.pageSupplierDebt.Name = "pageSupplierDebt";
@@ -8741,6 +8751,7 @@
             // 
             // pageCustomerDebt
             // 
+            this.pageCustomerDebt.Caption = "pageCustomerDebt";
             this.pageCustomerDebt.Controls.Add(this.gridControlCustomerDebts);
             this.pageCustomerDebt.Controls.Add(this.panelControl20);
             this.pageCustomerDebt.Name = "pageCustomerDebt";
@@ -9046,6 +9057,7 @@
             // 
             // pageWarehouse
             // 
+            this.pageWarehouse.Caption = "pageWarehouse";
             this.pageWarehouse.Controls.Add(this.tabPane5);
             this.pageWarehouse.Name = "pageWarehouse";
             this.pageWarehouse.Size = new System.Drawing.Size(1215, 814);
@@ -9496,6 +9508,7 @@
             // 
             // pageStore
             // 
+            this.pageStore.Caption = "pageStore";
             this.pageStore.Controls.Add(this.tabPane6);
             this.pageStore.Name = "pageStore";
             this.pageStore.Size = new System.Drawing.Size(1215, 814);
@@ -9778,6 +9791,7 @@
             // 
             // pageCustomerGroups
             // 
+            this.pageCustomerGroups.Caption = "pageCustomerGroups";
             this.pageCustomerGroups.Controls.Add(this.tabPane7);
             this.pageCustomerGroups.Name = "pageCustomerGroups";
             this.pageCustomerGroups.Size = new System.Drawing.Size(1215, 814);

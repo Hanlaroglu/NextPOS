@@ -141,7 +141,7 @@
             this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.fluentDesignFormContainer1 = new DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormContainer();
             this.accordionControl1 = new DevExpress.XtraBars.Navigation.AccordionControl();
-            this.itemRole = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.itemAddRole = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.fluentDesignFormControl1 = new DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormControl();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
@@ -728,7 +728,7 @@
             this.accordionControl1.Appearance.Item.Pressed.Options.UseFont = true;
             this.accordionControl1.Dock = System.Windows.Forms.DockStyle.Left;
             this.accordionControl1.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
-            this.itemRole});
+            this.itemAddRole});
             this.accordionControl1.Location = new System.Drawing.Point(0, 33);
             this.accordionControl1.Name = "accordionControl1";
             this.accordionControl1.OptionsMinimizing.State = DevExpress.XtraBars.Navigation.AccordionControlState.Minimized;
@@ -737,12 +737,13 @@
             this.accordionControl1.TabIndex = 30;
             this.accordionControl1.ViewType = DevExpress.XtraBars.Navigation.AccordionControlViewType.HamburgerMenu;
             // 
-            // itemRole
+            // itemAddRole
             // 
-            this.itemRole.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("itemRole.ImageOptions.SvgImage")));
-            this.itemRole.Name = "itemRole";
-            this.itemRole.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.itemRole.Text = "Yeni Rol";
+            this.itemAddRole.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("itemRole.ImageOptions.SvgImage")));
+            this.itemAddRole.Name = "itemAddRole";
+            this.itemAddRole.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.itemAddRole.Text = "Yeni Rol";
+            this.itemAddRole.Click += new System.EventHandler(this.itemAddRole_Click);
             // 
             // fluentDesignFormControl1
             // 
@@ -843,7 +844,7 @@
         private DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormContainer fluentDesignFormContainer1;
         private DevExpress.XtraBars.Navigation.AccordionControl accordionControl1;
         private DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormControl fluentDesignFormControl1;
-        private DevExpress.XtraBars.Navigation.AccordionControlElement itemRole;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement itemAddRole;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
         private DevExpress.XtraLayout.LayoutControl layoutControl2;
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup2;

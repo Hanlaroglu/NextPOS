@@ -138,9 +138,9 @@ namespace Barcode_Sales.Operations.Concrete
         public async Task<List<Role>> ToListAsync(Expression<Func<Role, bool>> expression = null)
         {
             if (expression is null)
-                return await db.Roles.AsNoTracking().ToListAsync();
-            else
-                return await db.Roles.AsNoTracking().Where(expression).ToListAsync();
+                return await db.Roles.AsNoTracking().Where(x => x.IsDeleted == false).ToListAsync();
+
+            return await db.Roles.AsNoTracking().Where(expression).ToListAsync();
         }
     }
 }

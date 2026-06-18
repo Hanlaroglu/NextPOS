@@ -120,7 +120,7 @@ namespace Barcode_Sales.Forms
                     Comment = tComment.Text.TrimStart().Trim(),
                     UserId = UserCacheService.User.Id,
                     IsDeleted = false,
-                    CreatedDate = DateTime.Now
+                    CreatedDate = DatetimeService.CurrentDateTime
                 };
 
                 var validator = ValidationHelpers.ValidateMessage(invoice, new InvoiceValidation(), this);
@@ -145,8 +145,21 @@ namespace Barcode_Sales.Forms
 
                     if (await invoiceDetailOperation.Add(details))
                     {
-                        NotificationHelpers.Messages.SuccessMessage(this, "Məhsul alışı uğurla tamamlandı");
-                        Reset();
+                        List<Products> products = new List<Products>();
+
+                        foreach (var item in details)
+                        {
+                            var product = await productOperation.Get(x => x.Id == item.ProductId);
+                            product.Quantity += item.Amount;
+                            products.Add(product);
+                        }
+
+                        var result = await productOperation.Update(products, x => x.Quantity);
+                        if (result)
+                        {
+                            NotificationHelpers.Messages.SuccessMessage(this, "Məhsul alışı uğurla tamamlandı");
+                            Reset();
+                        }
                     }
                 }
                 else
@@ -198,7 +211,7 @@ namespace Barcode_Sales.Forms
                 var product = _dataList.FirstOrDefault(x => x.Barcode == barcode);
 
                 if (product != null)
-                    product.Quantity ++;
+                    product.Quantity++;
                 else
                 {
                     var data = await productOperation.Get(x => x.Barcode == barcode && x.IsDeleted == false);
@@ -241,6 +254,7 @@ namespace Barcode_Sales.Forms
             lookWarehouse.EditValue = null;
             lookSuppliers.EditValue = null;
             tComment.Clear();
+            _dataList.Clear();
         }
 
         private void bReport_Click(object sender, EventArgs e)

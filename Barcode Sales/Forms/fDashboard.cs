@@ -6,6 +6,7 @@ using DevExpress.XtraBars.ToolbarForm;
 using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Controls;
 using DevExpress.XtraGrid.Columns;
+using DevExpress.XtraGrid.Views.Grid;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -31,6 +32,7 @@ namespace Barcode_Sales.Forms
         IPosSaleOperation posSaleOperation = new PosSaleManager();
         IUserOperation userOperation = new UserManager();
 
+        private GridView _activeGridView;
         public fDashboard()
         {
             InitializeComponent();
@@ -221,7 +223,9 @@ namespace Barcode_Sales.Forms
                         Date = monthDate,
                         TotalGain = posSaleOperation
                             .Where(x => x.SaleDate.Year == monthDate.Year && x.SaleDate.Month == monthDate.Month)
-                            .Sum(x => x.Total)
+                            .Select(x => x.Total)
+                            .DefaultIfEmpty(0)
+                            .Sum()
                     };
                 }).ToList();
             });
@@ -998,7 +1002,7 @@ namespace Barcode_Sales.Forms
         private async Task GetUsers()
         {
             var data = await userOperation.ToListAsync();
-            FormHelpers.ControlLoad(data,gridControlUsers);
+            FormHelpers.ControlLoad(data, gridControlUsers);
         }
 
         private void bAddUser_Click(object sender, EventArgs e)
