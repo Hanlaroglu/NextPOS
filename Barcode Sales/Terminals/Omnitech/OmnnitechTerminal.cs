@@ -15,8 +15,8 @@ namespace Barcode_Sales.Terminals.Omnitech
 {
     public class OmnnitechTerminal : IBaseTerminalService
     {
-        private string _accessToken;
-        private string _ipAddress { get; set; }
+        private string _accessToken => Properties.Settings.Default.AccessToken;
+        private string _ipAddress { get; }
         IPosSaleOperation posSaleOperation = new PosSaleManager();
         IPosSaleItemOperation posSaleItemOperation = new PosSaleItemManager();
         IPosRefundOperation posRefundOperation = new PosRefundManager();
@@ -38,6 +38,26 @@ namespace Barcode_Sales.Terminals.Omnitech
         public OmnnitechTerminal(string ipAddress)
         {
             _ipAddress = ipAddress;
+        }
+
+        public TerminalResult Login()
+        {
+            var login = new LoginRequest();
+
+            var request = BaseRequest<LoginRequest>.Create(login);
+
+            var result = TerminalHttpHelper.Post<BaseRequest<LoginRequest>, LoginResponse>(_ipAddress, request);
+
+            if (!result.Success)
+                return result;
+
+            var response = result.GetData<LoginResponse>();
+
+            if (string.IsNullOrWhiteSpace(response?.access_token))
+                return TerminalResult.Fail(response.message, response);
+
+            Properties.Settings.Default.AccessToken = response.access_token;
+            return TerminalResult.Ok(response.message, response);
         }
 
         public TerminalResult GetInfo()
@@ -62,28 +82,12 @@ namespace Barcode_Sales.Terminals.Omnitech
             return TerminalResult.Fail($"Token məlumatları alınarkən xəta yarandı.\n{response.message}");
         }
 
-        public TerminalResult Login()
-        {
-            var login = new LoginRequest();
-
-            var request = BaseRequest<LoginRequest>.Create(login);
-
-            var result = TerminalHttpHelper.Post<BaseRequest<LoginRequest>, LoginResponse>(_ipAddress, request);
-
-            if (!result.Success)
-                return result;
-
-            var response = result.GetData<LoginResponse>();
-
-            if (string.IsNullOrWhiteSpace(response?.access_token))
-                return TerminalResult.Fail(response.message, response);
-
-            _accessToken = response.access_token;
-            return TerminalResult.Ok(response.message, response);
-        }
-
         public TerminalResult OpenShift()
         {
+            var tokenResult = RefreshToken();
+            if (!tokenResult.Success)
+                return tokenResult;
+
             var data = new OpenShiftRequest { access_token = _accessToken };
 
             var request = BaseRequest<OpenShiftRequest>.Create(data);
@@ -118,7 +122,7 @@ namespace Barcode_Sales.Terminals.Omnitech
 
             if (!result.Success && IsTokenExpired(result))
             {
-                _accessToken = null;
+                Properties.Settings.Default.AccessToken = null;
                 var retryLogin = Login();
                 if (!retryLogin.Success)
                     return TerminalResult.Fail("Yeni token əldə etmək uğursuz oldu", result);
@@ -153,7 +157,7 @@ namespace Barcode_Sales.Terminals.Omnitech
 
             if (!result.Success && IsTokenExpired(result))
             {
-                _accessToken = null;
+                Properties.Settings.Default.AccessToken = null;
                 var retryLogin = Login();
                 if (!retryLogin.Success)
                     return TerminalResult.Fail("Yeni token əldə etmək uğursuz oldu", result);
@@ -186,7 +190,7 @@ namespace Barcode_Sales.Terminals.Omnitech
 
             if (!result.Success && IsTokenExpired(result))
             {
-                _accessToken = null;
+                Properties.Settings.Default.AccessToken = null;
                 var retryLogin = Login();
                 if (!retryLogin.Success)
                     return TerminalResult.Fail("Yeni token əldə etmək uğursuz oldu", result);
@@ -227,7 +231,7 @@ namespace Barcode_Sales.Terminals.Omnitech
 
             if (!result.Success && IsTokenExpired(result))
             {
-                _accessToken = null;
+                Properties.Settings.Default.AccessToken = null;
                 var retryLogin = Login();
                 if (!retryLogin.Success)
                     return TerminalResult.Fail("Yeni token əldə etmək uğursuz oldu");
@@ -268,7 +272,7 @@ namespace Barcode_Sales.Terminals.Omnitech
 
             if (!result.Success && IsTokenExpired(result))
             {
-                _accessToken = null;
+                Properties.Settings.Default.AccessToken = null;
                 var retryLogin = Login();
                 if (!retryLogin.Success)
                     return TerminalResult.Fail("Yeni token əldə etmək uğursuz oldu");
@@ -343,7 +347,7 @@ namespace Barcode_Sales.Terminals.Omnitech
 
             if (!result.Success && IsTokenExpired(result))
             {
-                _accessToken = null;
+                Properties.Settings.Default.AccessToken = null;
                 var retryLogin = Login();
                 if (!retryLogin.Success)
                     return TerminalResult.Fail("Yeni token əldə etmək uğursuz oldu");
@@ -413,7 +417,7 @@ namespace Barcode_Sales.Terminals.Omnitech
 
             if (!result.Success && IsTokenExpired(result))
             {
-                _accessToken = null;
+                Properties.Settings.Default.AccessToken = null;
                 var retryLogin = Login();
                 if (!retryLogin.Success)
                     return TerminalResult.Fail("Yeni token əldə etmək uğursuz oldu");
@@ -527,7 +531,7 @@ namespace Barcode_Sales.Terminals.Omnitech
 
             if (!result.Success && IsTokenExpired(result))
             {
-                _accessToken = null;
+                Properties.Settings.Default.AccessToken = null;
                 var retryLogin = Login();
                 if (!retryLogin.Success)
                     return TerminalResult.Fail("Yeni token əldə etmək uğursuz oldu");

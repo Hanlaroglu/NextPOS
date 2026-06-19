@@ -217,22 +217,6 @@
     <Compile Include="Barcode..Sales.UI\fSearch.Designer.cs">
       <DependentUpon>fSearch.cs</DependentUpon>
     </Compile>
-    <Compile Include="Barcode..Sales.UI\fTesttt.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Barcode..Sales.UI\fTesttt.Designer.cs">
-      <DependentUpon>fTesttt.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Barcode..Sales.UI\Kassa\AzSmart.cs" />
-    <Compile Include="Barcode..Sales.UI\Kassa\DataPay.cs" />
-    <Compile Include="Barcode..Sales.UI\Kassa\fPOS.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Barcode..Sales.UI\Kassa\fPOS.Designer.cs">
-      <DependentUpon>fPOS.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Barcode..Sales.UI\Kassa\NBA.cs" />
-    <Compile Include="Barcode..Sales.UI\Kassa\Omnitech.cs" />
     <Compile Include="Barcode.Sales.Admin\fDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -602,8 +586,6 @@
     <Compile Include="NKA\Base\INkaBase.cs" />
     <Compile Include="NKA\DataPay.cs" />
     <Compile Include="NKA\DTOs\NkaDto.cs" />
-    <Compile Include="NKA\NBA.cs" />
-    <Compile Include="NKA\OneClick.cs" />
     <Compile Include="NKA\Sunmi.cs" />
     <Compile Include="NotificationHelpers\Dialogs.cs" />
     <Compile Include="NotificationHelpers\Messages.cs" />
@@ -814,12 +796,6 @@
     <EmbeddedResource Include="Barcode..Sales.UI\fSearch.resx">
       <DependentUpon>fSearch.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Barcode..Sales.UI\fTesttt.resx">
-      <DependentUpon>fTesttt.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Barcode..Sales.UI\Kassa\fPOS.resx">
-      <DependentUpon>fPOS.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Barcode.Sales.Admin\fDashboard.resx">
       <DependentUpon>fDashboard.cs</DependentUpon>
     </EmbeddedResource>
@@ -991,7 +967,6 @@
   <ItemGroup>
     <Content Include="bin\Debug\EntityFramework.dll" />
     <Content Include="bin\Debug\EntityFramework.SqlServer.dll" />
-    <None Include="Resources\Logo_1024.png" />
     <None Include="Resources\info.png.png" />
     <None Include="Resources\return-black.svg" />
     <None Include="Resources\return-white.svg" />

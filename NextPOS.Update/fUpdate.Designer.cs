@@ -51,7 +51,7 @@ namespace NextPOS.Update
             this.progressBarControl1.Location = new System.Drawing.Point(30, 188);
             this.progressBarControl1.Name = "progressBarControl1";
             this.progressBarControl1.Properties.AutoHeight = true;
-            this.progressBarControl1.Size = new System.Drawing.Size(369, 10);
+            this.progressBarControl1.Size = new System.Drawing.Size(369, 16);
             this.progressBarControl1.TabIndex = 15;
             // 
             // labelControl2
@@ -76,14 +76,13 @@ namespace NextPOS.Update
             // 
             // picLogo
             // 
-            this.picLogo.EditValue = ((object)(resources.GetObject("picLogo.EditValue")));
             this.picLogo.Location = new System.Drawing.Point(142, 0);
             this.picLogo.Name = "picLogo";
             this.picLogo.Properties.AllowFocused = false;
             this.picLogo.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
             this.picLogo.Properties.Appearance.Options.UseBackColor = true;
             this.picLogo.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.picLogo.Properties.NullText = " ";
+            this.picLogo.Properties.NullText = " Logo";
             this.picLogo.Properties.ShowMenu = false;
             this.picLogo.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Zoom;
             this.picLogo.Properties.ZoomAcceleration = 5D;

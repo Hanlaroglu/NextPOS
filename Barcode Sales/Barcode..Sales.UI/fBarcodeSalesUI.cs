@@ -1,5 +1,4 @@
-﻿using Barcode_Sales.Barcode.Sales.UI.Kassa;
-using Barcode_Sales.Helpers;
+﻿using Barcode_Sales.Helpers;
 using Barcode_Sales.UserControls;
 using Barcode_Sales.Validations;
 using NextPOS.UserControls;
@@ -769,8 +768,7 @@ namespace Barcode_Sales.Barcode.Sales.UI
 
         private void bKassa_Click(object sender, EventArgs e)
         {
-            fPOS f = new fPOS();
-            f.ShowDialog();
+         
         }
 
         private void ProductClick(object sender, EventArgs e)

@@ -835,17 +835,11 @@ C:\Users\PC-SUPPORT\Desktop\Khanpos\Barcode Sales\bin\Debug\DevExpress.XtraSched
 C:\Users\PC-SUPPORT\Desktop\Khanpos\Barcode Sales\bin\Debug\DevExpress.XtraScheduler.v24.1.Core.Desktop.dll
 C:\Users\PC-SUPPORT\Desktop\Khanpos\Barcode Sales\bin\Debug\DevExpress.SpellChecker.v24.1.Core.dll
 C:\Users\PC-SUPPORT\Desktop\Khanpos\Barcode Sales\bin\Debug\EnvDTE.dll
-C:\Users\PC-SUPPORT\Desktop\Khanpos\Barcode Sales\bin\Debug\Microsoft.VisualStudio.Shell.Interop.dll
-C:\Users\PC-SUPPORT\Desktop\Khanpos\Barcode Sales\bin\Debug\Microsoft.VisualStudio.Shell.Interop.8.0.dll
 C:\Users\PC-SUPPORT\Desktop\Khanpos\Barcode Sales\bin\Debug\DevExpress.Office.v24.1.Core.dll
 C:\Users\PC-SUPPORT\Desktop\Khanpos\Barcode Sales\bin\Debug\DevExpress.Images.v24.1.dll
 C:\Users\PC-SUPPORT\Desktop\Khanpos\Barcode Sales\bin\Debug\DevExpress.Xpo.v24.1.dll
 C:\Users\PC-SUPPORT\Desktop\Khanpos\Barcode Sales\bin\Debug\DevExpress.CodeParser.v24.1.dll
 C:\Users\PC-SUPPORT\Desktop\Khanpos\Barcode Sales\bin\Debug\stdole.dll
-C:\Users\PC-SUPPORT\Desktop\Khanpos\Barcode Sales\bin\Debug\Microsoft.VisualStudio.OLE.Interop.dll
-C:\Users\PC-SUPPORT\Desktop\Khanpos\Barcode Sales\bin\Debug\Microsoft.VisualStudio.TextManager.Interop.dll
-C:\Users\PC-SUPPORT\Desktop\Khanpos\Barcode Sales\bin\Debug\Microsoft.VisualStudio.TextManager.Interop.8.0.dll
-C:\Users\PC-SUPPORT\Desktop\Khanpos\Barcode Sales\bin\Debug\Microsoft.MSXML.dll
 C:\Users\PC-SUPPORT\Desktop\Khanpos\Barcode Sales\bin\Debug\Licence.pdb
 C:\Users\PC-SUPPORT\Desktop\Khanpos\Barcode Sales\bin\Debug\Licence.dll.config
 C:\Users\PC-SUPPORT\Desktop\Khanpos\Barcode Sales\bin\Debug\NextDBSetup.pdb
@@ -953,8 +947,6 @@ C:\Users\PC-SUPPORT\Desktop\Khanpos\Barcode Sales\obj\Debug\Barcode Sales.csproj
 C:\Users\PC-SUPPORT\Desktop\Khanpos\Barcode Sales\obj\Debug\Barcode_Sales.Barcode.Sales.UI.fBarcodeSalesUI.resources
 C:\Users\PC-SUPPORT\Desktop\Khanpos\Barcode Sales\obj\Debug\Barcode_Sales.Barcode.Sales.UI.fRelacementPage.resources
 C:\Users\PC-SUPPORT\Desktop\Khanpos\Barcode Sales\obj\Debug\Barcode_Sales.Barcode.Sales.UI.fSearch.resources
-C:\Users\PC-SUPPORT\Desktop\Khanpos\Barcode Sales\obj\Debug\Barcode_Sales.Barcode.Sales.UI.fTesttt.resources
-C:\Users\PC-SUPPORT\Desktop\Khanpos\Barcode Sales\obj\Debug\Barcode_Sales.Barcode.Sales.UI.Kassa.fPOS.resources
 C:\Users\PC-SUPPORT\Desktop\Khanpos\Barcode Sales\obj\Debug\Barcode_Sales.Barcode.Sales.Admin.fDashboard.resources
 C:\Users\PC-SUPPORT\Desktop\Khanpos\Barcode Sales\obj\Debug\Barcode_Sales.Forms.Components.controlFooterButton.resources
 C:\Users\PC-SUPPORT\Desktop\Khanpos\Barcode Sales\obj\Debug\Barcode_Sales.Forms.fAddCategory.resources
