@@ -497,6 +497,12 @@
     <Compile Include="Forms\fSupplierPay.Designer.cs">
       <DependentUpon>fSupplierPay.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\fTerminalRefundReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\fTerminalRefundReport.Designer.cs">
+      <DependentUpon>fTerminalRefundReport.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\fTerminalSaleReport.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -735,6 +741,7 @@
     <Compile Include="Terminals\Omnitech\Requests\LoginRequest.cs" />
     <Compile Include="Terminals\Omnitech\Requests\MoneyBackRequest.cs" />
     <Compile Include="Terminals\Omnitech\Requests\OpenShiftRequest.cs" />
+    <Compile Include="Terminals\Omnitech\Requests\ReceiptCopyRequest.cs" />
     <Compile Include="Terminals\Omnitech\Requests\RollbackRequest.cs" />
     <Compile Include="Terminals\Omnitech\Requests\SaleRequest.cs" />
     <Compile Include="Terminals\Omnitech\Requests\ShiftStatusRequest.cs" />
@@ -747,6 +754,7 @@
     <Compile Include="Terminals\Omnitech\Responses\LoginResponse.cs" />
     <Compile Include="Terminals\Omnitech\Responses\MoneyBackResponse.cs" />
     <Compile Include="Terminals\Omnitech\Responses\OpenShiftResponse.cs" />
+    <Compile Include="Terminals\Omnitech\Responses\ReceiptCopyResponse.cs" />
     <Compile Include="Terminals\Omnitech\Responses\SaleResponse.cs" />
     <Compile Include="Terminals\Omnitech\Responses\ShiftStatusResponse.cs" />
     <Compile Include="Terminals\Omnitech\Responses\WithdrawResponse.cs" />
@@ -912,6 +920,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\fSupplierPay.resx">
       <DependentUpon>fSupplierPay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\fTerminalRefundReport.resx">
+      <DependentUpon>fTerminalRefundReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\fTerminalSaleReport.resx">
       <DependentUpon>fTerminalSaleReport.cs</DependentUpon>

@@ -585,6 +585,42 @@ namespace Barcode_Sales.Terminals.Omnitech
             return TerminalResult.Fail("Geri qaytarma uğursuz oldu");
         }
 
+        public async Task<TerminalResult> ReceiptCopy(string fiscalId)
+        {
+            var ensure = RefreshToken();
+            if (!ensure.Success)
+                return ensure;
+
+            var data = new ReceiptCopyRequest
+            {
+                AccessToken = _accessToken,
+                FiscalId = fiscalId
+            };
+
+            var request = BaseRequest<ReceiptCopyRequest>.Create(data);
+            var result = TerminalHttpHelper.Post<BaseRequest<ReceiptCopyRequest>, ReceiptCopyResponse>(_ipAddress, request);
+
+            if (!result.Success && IsTokenExpired(result))
+            {
+                Properties.Settings.Default.AccessToken = null;
+                var retryLogin = Login();
+                if (!retryLogin.Success)
+                    return TerminalResult.Fail("Yeni token əldə etmək uğursuz oldu");
+
+                return await ReceiptCopy(fiscalId);
+            }
+
+            if (!result.Success)
+                return result;
+
+            var response = result.GetData<ReceiptCopyResponse>();
+
+            if (response.message == "Successful operation" || response.message == "success")
+                return TerminalResult.Ok($"Çek yenidən çap edildi");
+
+            return TerminalResult.Fail($"Çek yenidən çap edilərkən xəta yarandı\n{response.message}");
+        }
+
         public bool CreditSale()
         {
             throw new System.NotImplementedException();
@@ -604,5 +640,7 @@ namespace Barcode_Sales.Terminals.Omnitech
         {
             throw new System.NotImplementedException();
         }
+
+
     }
 }

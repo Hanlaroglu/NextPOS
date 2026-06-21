@@ -14,6 +14,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Linq;
 using System.Windows.Forms;
+using DevExpress.XtraLayout.Utils;
 using static Barcode_Sales.Helpers.Enums;
 
 namespace Barcode_Sales.Forms
@@ -62,14 +63,14 @@ namespace Barcode_Sales.Forms
             if (_type is PosReturnType.MoneyBack)
             {
                 bSubmit.Text = "Qaytar";
-                groupControl1.Text = $"#{_salesDataSummary.ReceiptNo} Nömrəli satış çekinin geri qaytarılması";
+                layoutControlGroup1.Text = $"#{_salesDataSummary.ReceiptNo} Nömrəli satış çekinin geri qaytarılması";
             }
             else
             {
                 bSubmit.Text = "Ləğv et";
-                groupControl1.Text = $"{_salesDataSummary.ReceiptNo} Nömrəli satış çekinin ləğv edilməsi";
+                layoutControlGroup1.Text = $"{_salesDataSummary.ReceiptNo} Nömrəli satış çekinin ləğv edilməsi";
                 gridSalesData.OptionsSelection.MultiSelect = false;
-                lCancelMessage.Visible = true;
+                layoutControlItem9.Visibility = LayoutVisibility.Always;
                 lCancelMessage.Text = "Çekdə olan bütün məhsullar <b><u><color=red>ləğv ediləcəkdir!</color></u></b>";
                 colReturnQuantity.Visible = false;
             }

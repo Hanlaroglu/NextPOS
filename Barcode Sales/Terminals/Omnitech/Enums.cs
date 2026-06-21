@@ -14,7 +14,8 @@
             XReport = 12,
             Sale = 1,
             MoneyBack = 100,
-            Rollback = 10
+            Rollback = 10,
+            ReceiptCopy = 11
         }
 
         public enum OperationType

@@ -26,6 +26,6 @@ namespace Barcode_Sales
         public string UnitName { get; set; }
         public Nullable<decimal> PurchasePrice { get; set; }
         public Nullable<decimal> Amount { get; set; }
-        public int ReturnQuantity { get; set; }
+        public decimal ReturnQuantity { get; set; }
     }
 }

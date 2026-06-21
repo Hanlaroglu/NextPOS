@@ -20,9 +20,10 @@ namespace Barcode_Sales.Forms
     {
         ISupplierOperation supplierOperation = new SupplierManager();
         IInvoiceRollbackOperation invoiceRollbackOperation = new InvoiceRollbackManager();
+        IProductOperation productOperation = new ProductManager();
         IInvoiceRollbackDetailOperation invoiceRollbackDetailOperation = new InvoiceRollbackDetailManager();
-        private List<view_InvoiceRollbackList> _dataListData = new List<view_InvoiceRollbackList>();
 
+        private List<view_InvoiceRollbackList> _dataListData = new List<view_InvoiceRollbackList>();
         public fInvoiceRollbackProduct()
         {
             InitializeComponent();
@@ -122,7 +123,7 @@ namespace Barcode_Sales.Forms
 
         private void bSave_Click(object sender, EventArgs e)
         {
-            if (bSave.Cursor == Cursors.No)
+             if (bSave.Cursor == Cursors.No)
                 return;
 
             gridView1.PostEditor();
@@ -189,9 +190,13 @@ namespace Barcode_Sales.Forms
                             Quantity = x.ReturnQuantity
                         }).ToList();
 
-                        await invoiceRollbackDetailOperation.Add(details);
-                        Clear();
-                        NotificationHelpers.Messages.SuccessMessage(this, $"{list.Count} məhsul uğurla qaytarıldı");
+                       var resultProduct = await invoiceRollbackDetailOperation.Add(details);
+                       if (resultProduct)
+                       {
+                           UpdateProducts(details);
+                           Clear();
+                           NotificationHelpers.Messages.SuccessMessage(this, $"{list.Count} məhsul uğurla qaytarıldı");
+                        }
                     }
                 }
             }
@@ -199,6 +204,19 @@ namespace Barcode_Sales.Forms
             {
                 NotificationHelpers.Messages.ErrorMessage(this, e.Message);
             }
+        }
+
+        private async void UpdateProducts(List<InvoiceRollbackDetail> items)
+        {
+            List<Products> products = new List<Products>();
+            foreach (var item in items)
+            {
+                var product = await productOperation.Get(x => x.Id == item.ProductId);
+                product.Quantity -= item.Quantity;
+                products.Add(product);
+            }
+
+            var result = await productOperation.Update(products, x => x.Quantity);
         }
 
         private void bReport_Click(object sender, EventArgs e)
@@ -213,28 +231,31 @@ namespace Barcode_Sales.Forms
                 var unitName = gridView1.GetRowCellValue(e.RowHandle, "UnitName")?.ToString();
 
                 if (unitName is "Kq")
-                    e.RepositoryItem = repositoryN3;
+                    e.RepositoryItem = repositoryF3;
                 else
-                    e.RepositoryItem = repositoryN0;
+                    e.RepositoryItem = repositoryF0;
             }
         }
 
-        RepositoryItemTextEdit repositoryN3;
-        RepositoryItemTextEdit repositoryN0;
+        RepositoryItemTextEdit repositoryF3;
+        RepositoryItemTextEdit repositoryF0;
         private void GridRepoAdd()
         {
-            repositoryN3 = new RepositoryItemTextEdit();
-            repositoryN3.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            repositoryN3.Mask.EditMask = "n3";
-            repositoryN3.Mask.UseMaskAsDisplayFormat = true;
+            repositoryF3 = new RepositoryItemSpinEdit();
+            ((RepositoryItemSpinEdit)repositoryF3).Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            ((RepositoryItemSpinEdit)repositoryF3).Mask.EditMask = "F3";
+            ((RepositoryItemSpinEdit)repositoryF3).Mask.UseMaskAsDisplayFormat = true;
+            ((RepositoryItemSpinEdit)repositoryF3).IsFloatValue = true;
+            ((RepositoryItemSpinEdit)repositoryF3).Increment = 0.001m;
 
-            repositoryN0 = new RepositoryItemTextEdit();
-            repositoryN0.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            repositoryN0.Mask.EditMask = "n0";
-            repositoryN0.Mask.UseMaskAsDisplayFormat = true;
+            repositoryF0 = new RepositoryItemSpinEdit();
+            ((RepositoryItemSpinEdit)repositoryF0).Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            ((RepositoryItemSpinEdit)repositoryF0).Mask.EditMask = "F0";
+            ((RepositoryItemSpinEdit)repositoryF0).Mask.UseMaskAsDisplayFormat = true;
+            ((RepositoryItemSpinEdit)repositoryF0).IsFloatValue = false;
 
-            gridControl1.RepositoryItems.Add(repositoryN3);
-            gridControl1.RepositoryItems.Add(repositoryN0);
+            gridControl1.RepositoryItems.Add(repositoryF3);
+            gridControl1.RepositoryItems.Add(repositoryF0);
         }
     }
 }

@@ -55,7 +55,6 @@
         <EntityTypeShape EntityType="KhanposDbModel.Category" Width="1.5" PointX="7.375" PointY="0.875" />
         <AssociationConnector Association="KhanposDbModel.FK_Products_Category" />
         <AssociationConnector Association="KhanposDbModel.FK_Invoices_Suppliers" />
-        <EntityTypeShape EntityType="KhanposDbModel.view_InvoiceRollbackList" Width="1.5" PointX="7.5" PointY="3.625" />
         <EntityTypeShape EntityType="KhanposDbModel.InvoiceRollback" Width="1.5" PointX="17.75" PointY="15.75" FillColor="255, 255, 128" />
         <AssociationConnector Association="KhanposDbModel.FK_InvoiceRollbackDetails_InvoiceRollbacks" />
         <AssociationConnector Association="KhanposDbModel.FK_InvoiceRollbacks_Invoices" />
@@ -79,6 +78,7 @@
         <AssociationConnector Association="KhanposDbModel.FK_PosBasket_PosBasket" />
         <AssociationConnector Association="KhanposDbModel.FK_PosBasket_Product" />
         <AssociationConnector Association="KhanposDbModel.FK_PosBasket_User" />
+        <EntityTypeShape EntityType="KhanposDbModel.view_InvoiceRollbackList" Width="1.5" PointX="7.375" PointY="3.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

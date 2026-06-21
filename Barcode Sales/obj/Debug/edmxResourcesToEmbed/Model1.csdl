@@ -123,7 +123,6 @@
       <End Role="Supplier" EntitySet="Suppliers" />
       <End Role="Invoice" EntitySet="Invoices" />
     </AssociationSet>
-    <EntitySet Name="view_InvoiceRollbackList" EntityType="KhanposDbModel.view_InvoiceRollbackList" />
     <EntitySet Name="InvoiceRollbacks" EntityType="KhanposDbModel.InvoiceRollback" />
     <AssociationSet Name="FK_InvoiceRollbackDetails_InvoiceRollbacks" Association="KhanposDbModel.FK_InvoiceRollbackDetails_InvoiceRollbacks">
       <End Role="InvoiceRollback" EntitySet="InvoiceRollbacks" />
@@ -201,6 +200,7 @@
       <End Role="User" EntitySet="Users" />
       <End Role="PosBasket" EntitySet="PosBaskets" />
     </AssociationSet>
+    <EntitySet Name="view_InvoiceRollbackList" EntityType="KhanposDbModel.view_InvoiceRollbackList" />
   </EntityContainer>
   <EntityType Name="CloseShiftReport">
     <Key>
@@ -883,29 +883,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityType Name="view_InvoiceRollbackList">
-    <Key>
-      <PropertyRef Name="WarehouseId" />
-      <PropertyRef Name="SupplierId" />
-      <PropertyRef Name="InvoiceId" />
-      <PropertyRef Name="InvoiceNo" />
-      <PropertyRef Name="InvoiceDate" />
-      <PropertyRef Name="ReturnQuantity" />
-    </Key>
-    <Property Name="WarehouseId" Type="Int32" Nullable="false" />
-    <Property Name="WarehouseName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="SupplierId" Type="Int32" Nullable="false" />
-    <Property Name="InvoiceId" Type="Int32" Nullable="false" />
-    <Property Name="InvoiceNo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="InvoiceDate" Type="DateTime" Nullable="false" Precision="0" />
-    <Property Name="ProductId" Type="Int32" />
-    <Property Name="ProductName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-    <Property Name="Barcode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="UnitName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="PurchasePrice" Type="Decimal" Precision="18" Scale="3" />
-    <Property Name="Amount" Type="Decimal" Precision="18" Scale="3" />
-    <Property Name="ReturnQuantity" Type="Int32" Nullable="false" />
-  </EntityType>
   <EntityType Name="InvoiceRollback">
     <Key>
       <PropertyRef Name="Id" />
@@ -1227,4 +1204,27 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <EntityType Name="view_InvoiceRollbackList">
+    <Key>
+      <PropertyRef Name="WarehouseId" />
+      <PropertyRef Name="SupplierId" />
+      <PropertyRef Name="InvoiceId" />
+      <PropertyRef Name="InvoiceNo" />
+      <PropertyRef Name="InvoiceDate" />
+      <PropertyRef Name="ReturnQuantity" />
+    </Key>
+    <Property Name="WarehouseId" Type="Int32" Nullable="false" />
+    <Property Name="WarehouseName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SupplierId" Type="Int32" Nullable="false" />
+    <Property Name="InvoiceId" Type="Int32" Nullable="false" />
+    <Property Name="InvoiceNo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="InvoiceDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="ProductId" Type="Int32" />
+    <Property Name="ProductName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Barcode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UnitName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PurchasePrice" Type="Decimal" Precision="18" Scale="3" />
+    <Property Name="Amount" Type="Decimal" Precision="18" Scale="3" />
+    <Property Name="ReturnQuantity" Type="Decimal" Nullable="false" Precision="18" Scale="3" />
+  </EntityType>
 </Schema>

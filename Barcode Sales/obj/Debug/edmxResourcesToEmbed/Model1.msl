@@ -355,25 +355,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="view_InvoiceRollbackList">
-      <EntityTypeMapping TypeName="KhanposDbModel.view_InvoiceRollbackList">
-        <MappingFragment StoreEntitySet="view_InvoiceRollbackList">
-          <ScalarProperty Name="ReturnQuantity" ColumnName="ReturnQuantity" />
-          <ScalarProperty Name="Amount" ColumnName="Amount" />
-          <ScalarProperty Name="PurchasePrice" ColumnName="PurchasePrice" />
-          <ScalarProperty Name="UnitName" ColumnName="UnitName" />
-          <ScalarProperty Name="Barcode" ColumnName="Barcode" />
-          <ScalarProperty Name="ProductName" ColumnName="ProductName" />
-          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
-          <ScalarProperty Name="InvoiceDate" ColumnName="InvoiceDate" />
-          <ScalarProperty Name="InvoiceNo" ColumnName="InvoiceNo" />
-          <ScalarProperty Name="InvoiceId" ColumnName="InvoiceId" />
-          <ScalarProperty Name="SupplierId" ColumnName="SupplierId" />
-          <ScalarProperty Name="WarehouseName" ColumnName="WarehouseName" />
-          <ScalarProperty Name="WarehouseId" ColumnName="WarehouseId" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="InvoiceRollbacks">
       <EntityTypeMapping TypeName="KhanposDbModel.InvoiceRollback">
         <MappingFragment StoreEntitySet="InvoiceRollbacks">
@@ -462,6 +443,25 @@
           <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
           <ScalarProperty Name="BasketName" ColumnName="BasketName" />
           <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="view_InvoiceRollbackList">
+      <EntityTypeMapping TypeName="KhanposDbModel.view_InvoiceRollbackList">
+        <MappingFragment StoreEntitySet="view_InvoiceRollbackList">
+          <ScalarProperty Name="ReturnQuantity" ColumnName="ReturnQuantity" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="PurchasePrice" ColumnName="PurchasePrice" />
+          <ScalarProperty Name="UnitName" ColumnName="UnitName" />
+          <ScalarProperty Name="Barcode" ColumnName="Barcode" />
+          <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <ScalarProperty Name="InvoiceDate" ColumnName="InvoiceDate" />
+          <ScalarProperty Name="InvoiceNo" ColumnName="InvoiceNo" />
+          <ScalarProperty Name="InvoiceId" ColumnName="InvoiceId" />
+          <ScalarProperty Name="SupplierId" ColumnName="SupplierId" />
+          <ScalarProperty Name="WarehouseName" ColumnName="WarehouseName" />
+          <ScalarProperty Name="WarehouseId" ColumnName="WarehouseId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

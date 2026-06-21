@@ -708,8 +708,6 @@ D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\obj\Deb
 D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\obj\Debug\Barcode_Sales.Barcode.Sales.UI.fBarcodeSalesUI.resources
 D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\obj\Debug\Barcode_Sales.Barcode.Sales.UI.fRelacementPage.resources
 D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\obj\Debug\Barcode_Sales.Barcode.Sales.UI.fSearch.resources
-D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\obj\Debug\Barcode_Sales.Barcode.Sales.UI.fTesttt.resources
-D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\obj\Debug\Barcode_Sales.Barcode.Sales.UI.Kassa.fPOS.resources
 D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\obj\Debug\Barcode_Sales.Barcode.Sales.Admin.fDashboard.resources
 D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\obj\Debug\Barcode_Sales.Forms.Components.controlFooterButton.resources
 D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\obj\Debug\Barcode_Sales.Forms.fAddCategory.resources
@@ -1002,3 +1000,4 @@ C:\Users\PC-SUPPORT\Desktop\Khanpos\Barcode Sales\obj\Debug\Khanpos.exe
 C:\Users\PC-SUPPORT\Desktop\Khanpos\Barcode Sales\obj\Debug\Khanpos.pdb
 D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\obj\Debug\Barcode_Sales.Forms.fAddUser.resources
 C:\Users\PC-SUPPORT\Desktop\Khanpos\Barcode Sales\obj\Debug\Barcode_Sales.Forms.fAddUser.resources
+D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\obj\Debug\Barcode_Sales.Forms.fTerminalRefundReport.resources

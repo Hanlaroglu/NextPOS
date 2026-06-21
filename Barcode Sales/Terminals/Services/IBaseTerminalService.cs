@@ -17,6 +17,7 @@ namespace Barcode_Sales.Terminals.Services
         Task<TerminalResult> Sale(PosSaleDto item);
         Task<TerminalResult> Rollback(PosRefundDto item);
         Task<TerminalResult> Refund(PosRefundDto item);
+        Task<TerminalResult> ReceiptCopy(string fiscalId);
         bool CreditSale();
         bool CreditPay();
         //Kredit satış qaytarmalarını və avans qaytarmalarını da əlavə et

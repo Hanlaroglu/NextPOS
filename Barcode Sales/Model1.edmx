@@ -442,7 +442,7 @@ warning 6002: The table/view 'KhanposDb.dbo.view_InvoiceRollbackList' does not h
           <Property Name="UnitName" Type="nvarchar" MaxLength="50" />
           <Property Name="PurchasePrice" Type="decimal" Precision="18" Scale="3" />
           <Property Name="Amount" Type="decimal" Precision="18" Scale="3" />
-          <Property Name="ReturnQuantity" Type="int" Nullable="false" />
+          <Property Name="ReturnQuantity" Type="decimal" Precision="18" Scale="3" Nullable="false" />
         </EntityType>
         <Association Name="FK_CustomerDebts_Customer">
           <End Role="Customers" Type="Self.Customers" Multiplicity="0..1" />
@@ -649,7 +649,9 @@ warning 6002: The table/view 'KhanposDb.dbo.view_InvoiceRollbackList' does not h
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_PosBasket_PosBasket">
-          <End Role="PosBaskets" Type="Self.PosBaskets" Multiplicity="1" />
+          <End Role="PosBaskets" Type="Self.PosBaskets" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="PosBasketItems" Type="Self.PosBasketItems" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="PosBaskets">
@@ -1293,7 +1295,6 @@ warning 6002: The table/view 'KhanposDb.dbo.view_InvoiceRollbackList' does not h
             <End Role="Supplier" EntitySet="Suppliers" />
             <End Role="Invoice" EntitySet="Invoices" />
           </AssociationSet>
-          <EntitySet Name="view_InvoiceRollbackList" EntityType="KhanposDbModel.view_InvoiceRollbackList" />
           <EntitySet Name="InvoiceRollbacks" EntityType="KhanposDbModel.InvoiceRollback" />
           <AssociationSet Name="FK_InvoiceRollbackDetails_InvoiceRollbacks" Association="KhanposDbModel.FK_InvoiceRollbackDetails_InvoiceRollbacks">
             <End Role="InvoiceRollback" EntitySet="InvoiceRollbacks" />
@@ -1371,6 +1372,7 @@ warning 6002: The table/view 'KhanposDb.dbo.view_InvoiceRollbackList' does not h
             <End Role="User" EntitySet="Users" />
             <End Role="PosBasket" EntitySet="PosBaskets" />
           </AssociationSet>
+          <EntitySet Name="view_InvoiceRollbackList" EntityType="KhanposDbModel.view_InvoiceRollbackList" />
           </EntityContainer>
         <EntityType Name="CloseShiftReport">
           <Key>
@@ -2053,29 +2055,6 @@ warning 6002: The table/view 'KhanposDb.dbo.view_InvoiceRollbackList' does not h
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="view_InvoiceRollbackList">
-          <Key>
-            <PropertyRef Name="WarehouseId" />
-            <PropertyRef Name="SupplierId" />
-            <PropertyRef Name="InvoiceId" />
-            <PropertyRef Name="InvoiceNo" />
-            <PropertyRef Name="InvoiceDate" />
-            <PropertyRef Name="ReturnQuantity" />
-          </Key>
-          <Property Name="WarehouseId" Type="Int32" Nullable="false" />
-          <Property Name="WarehouseName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="SupplierId" Type="Int32" Nullable="false" />
-          <Property Name="InvoiceId" Type="Int32" Nullable="false" />
-          <Property Name="InvoiceNo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="InvoiceDate" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="ProductId" Type="Int32" />
-          <Property Name="ProductName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="Barcode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="UnitName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="PurchasePrice" Type="Decimal" Precision="18" Scale="3" />
-          <Property Name="Amount" Type="Decimal" Precision="18" Scale="3" />
-          <Property Name="ReturnQuantity" Type="Int32" Nullable="false" />
-        </EntityType>
         <EntityType Name="InvoiceRollback">
           <Key>
             <PropertyRef Name="Id" />
@@ -2397,6 +2376,29 @@ warning 6002: The table/view 'KhanposDb.dbo.view_InvoiceRollbackList' does not h
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="view_InvoiceRollbackList">
+          <Key>
+            <PropertyRef Name="WarehouseId" />
+            <PropertyRef Name="SupplierId" />
+            <PropertyRef Name="InvoiceId" />
+            <PropertyRef Name="InvoiceNo" />
+            <PropertyRef Name="InvoiceDate" />
+            <PropertyRef Name="ReturnQuantity" />
+          </Key>
+          <Property Name="WarehouseId" Type="Int32" Nullable="false" />
+          <Property Name="WarehouseName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SupplierId" Type="Int32" Nullable="false" />
+          <Property Name="InvoiceId" Type="Int32" Nullable="false" />
+          <Property Name="InvoiceNo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="InvoiceDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="ProductId" Type="Int32" />
+          <Property Name="ProductName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Barcode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UnitName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PurchasePrice" Type="Decimal" Precision="18" Scale="3" />
+          <Property Name="Amount" Type="Decimal" Precision="18" Scale="3" />
+          <Property Name="ReturnQuantity" Type="Decimal" Nullable="false" Precision="18" Scale="3" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -2757,25 +2759,6 @@ warning 6002: The table/view 'KhanposDb.dbo.view_InvoiceRollbackList' does not h
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="view_InvoiceRollbackList">
-            <EntityTypeMapping TypeName="KhanposDbModel.view_InvoiceRollbackList">
-              <MappingFragment StoreEntitySet="view_InvoiceRollbackList">
-                <ScalarProperty Name="ReturnQuantity" ColumnName="ReturnQuantity" />
-                <ScalarProperty Name="Amount" ColumnName="Amount" />
-                <ScalarProperty Name="PurchasePrice" ColumnName="PurchasePrice" />
-                <ScalarProperty Name="UnitName" ColumnName="UnitName" />
-                <ScalarProperty Name="Barcode" ColumnName="Barcode" />
-                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
-                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
-                <ScalarProperty Name="InvoiceDate" ColumnName="InvoiceDate" />
-                <ScalarProperty Name="InvoiceNo" ColumnName="InvoiceNo" />
-                <ScalarProperty Name="InvoiceId" ColumnName="InvoiceId" />
-                <ScalarProperty Name="SupplierId" ColumnName="SupplierId" />
-                <ScalarProperty Name="WarehouseName" ColumnName="WarehouseName" />
-                <ScalarProperty Name="WarehouseId" ColumnName="WarehouseId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="InvoiceRollbacks">
             <EntityTypeMapping TypeName="KhanposDbModel.InvoiceRollback">
               <MappingFragment StoreEntitySet="InvoiceRollbacks">
@@ -2864,6 +2847,25 @@ warning 6002: The table/view 'KhanposDb.dbo.view_InvoiceRollbackList' does not h
                 <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
                 <ScalarProperty Name="BasketName" ColumnName="BasketName" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="view_InvoiceRollbackList">
+            <EntityTypeMapping TypeName="KhanposDbModel.view_InvoiceRollbackList">
+              <MappingFragment StoreEntitySet="view_InvoiceRollbackList">
+                <ScalarProperty Name="ReturnQuantity" ColumnName="ReturnQuantity" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="PurchasePrice" ColumnName="PurchasePrice" />
+                <ScalarProperty Name="UnitName" ColumnName="UnitName" />
+                <ScalarProperty Name="Barcode" ColumnName="Barcode" />
+                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="InvoiceDate" ColumnName="InvoiceDate" />
+                <ScalarProperty Name="InvoiceNo" ColumnName="InvoiceNo" />
+                <ScalarProperty Name="InvoiceId" ColumnName="InvoiceId" />
+                <ScalarProperty Name="SupplierId" ColumnName="SupplierId" />
+                <ScalarProperty Name="WarehouseName" ColumnName="WarehouseName" />
+                <ScalarProperty Name="WarehouseId" ColumnName="WarehouseId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

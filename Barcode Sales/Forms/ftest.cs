@@ -59,21 +59,7 @@ namespace Barcode_Sales.Forms
             tSearch.Properties.ValueMember = "Id";
         }
 
-        private async Task DashboardStockList()
-        {
-            var data = await productOperation.Where(x => x.IsDeleted == false)
-                                        .Select(x => new
-                                        {
-                                            Id = x.Id,
-                                            ProductName = x.ProductName,
-                                            Barcode = x.Barcode,
-                                            SalePrice = x.SalePrice,
-                                            Quantity = x.Quantity,
-                                        }).ToListAsync();
-
-            FormHelpers.ControlLoad(data, gridControlDashboardStock);
-        }
-
+      
         private void tSearch_EditValueChanged(object sender, EventArgs e)
         {
             try

@@ -38,12 +38,12 @@ namespace Barcode_Sales.Forms
                     if (_changeType.UnitName is "Ədəd")
                     {
                         tTotal.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
-                        tTotal.Properties.MaskSettings.Set("mask", "N0");
+                        tTotal.Properties.MaskSettings.Set("mask", "F0");
                     }
                     else
                     {
                         tTotal.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
-                        tTotal.Properties.MaskSettings.Set("mask", "N3");
+                        tTotal.Properties.MaskSettings.Set("mask", "F3");
                     }
                     chQuantity.Checked = true;
                     break;
@@ -66,8 +66,14 @@ namespace Barcode_Sales.Forms
         {
             string key = ((SimpleButton)sender).Text;
 
+            bool isIntegerOnly = _changeType.ChangeType == Enums.PosChangeType.Quantity
+                                 && _changeType.UnitName == "Ədəd";
+            int maxDecimals = isIntegerOnly ? 0
+                : (_changeType.ChangeType == Enums.PosChangeType.Quantity ? 3 : 2);
+
             if (key == "," || key == ".")
             {
+                if (maxDecimals == 0) return;
                 _enteringDecimals = true;
                 _decimalCount = 0;
                 ShowValue();
@@ -75,19 +81,15 @@ namespace Barcode_Sales.Forms
             }
 
             int digit = int.Parse(key);
-
             if (!_enteringDecimals)
-                _value = _value * 10 + digit;
-            else
             {
-                if (_decimalCount < 2)
-                {
-                    decimal factor = _decimalCount == 0 ? 0.1m : 0.01m;
-                    _value = Math.Floor(_value) +
-                             (_value - Math.Floor(_value)) +
-                             digit * factor;
-                    _decimalCount++;
-                }
+                _value = _value * 10 + digit;
+            }
+            else if (_decimalCount < maxDecimals)
+            {
+                decimal factor = (decimal)Math.Pow(10, -(_decimalCount + 1)); // 0.1, 0.01, 0.001...
+                _value = Math.Floor(_value) + (_value - Math.Floor(_value)) + digit * factor;
+                _decimalCount++;
             }
 
             ShowValue();
@@ -96,8 +98,15 @@ namespace Barcode_Sales.Forms
         private void ShowValue()
         {
             _updating = true;
-            tTotal.Text = _value.ToString("N2");
+
+            bool isIntegerOnly = _changeType.ChangeType == Enums.PosChangeType.Quantity
+                                 && _changeType.UnitName == "Ədəd";
+            string format = isIntegerOnly ? "F0"
+                : (_changeType.ChangeType == Enums.PosChangeType.Quantity ? "F3" : "F2");
+
+            tTotal.Text = _value.ToString(format);
             tTotal.SelectionStart = tTotal.Text.Length;
+
             _updating = false;
         }
 

@@ -1,12 +1,13 @@
 ﻿using Barcode_Sales.Helpers;
 using Barcode_Sales.Operations.Abstract;
 using Barcode_Sales.Operations.Concrete;
+using Barcode_Sales.Services.CacheServices;
+using Barcode_Sales.Terminals.Omnitech;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Barcode_Sales.Services.CacheServices;
 
 namespace Barcode_Sales.Forms
 {
@@ -22,13 +23,11 @@ namespace Barcode_Sales.Forms
             InitializeComponent();
         }
 
-        private void bReceiptCopy_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        private async void fTerminalSaleReport_Shown(object sender, EventArgs e)
         {
-            //todo Terminallara görə kassadan təkrar çap et
-        }
+            if (TerminalCacheService.Terminal is null)
+                await TerminalCacheService.RefreshTerminal();
 
-        private async void fTerminalSaleReport_Load(object sender, EventArgs e)
-        {
             dateStart.DateTime = DatetimeService.FirstDayOfCurrentMonth;
             dateEnd.DateTime = DatetimeService.CurrentDateTime;
             dateStart.Focus();
@@ -38,52 +37,75 @@ namespace Barcode_Sales.Forms
             gridControl1.LevelTree.Nodes.Add("SalesDataDetails", gridView2);
         }
 
+        private async void bReceiptCopy_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            var row = gridView1.GetFocusedRow() as SaleDataDto;
+            if (row is null) return;
+
+            if (TerminalCacheService.Terminal != null)
+            {
+                var terminal = (Helpers.Enums.Terminal)Enum.Parse(typeof(Helpers.Enums.Terminal), TerminalCacheService.Terminal.Name);
+                switch (terminal)
+                {
+                    case Helpers.Enums.Terminal.Caspos:
+                        break;
+                    case Helpers.Enums.Terminal.Omnitech:
+                        OmnnitechTerminal omnitech = new OmnnitechTerminal(TerminalCacheService.Terminal.IpAddress);
+
+                        var result = await omnitech.ReceiptCopy(row.LongFiscalId);
+                        if (result.Success)
+                        {
+                            NotificationHelpers.Messages.SuccessMessage(this, result.Message);
+                            DialogResult = DialogResult.OK;
+                        }
+                        else
+                            NotificationHelpers.Messages.ErrorMessage(this, result.Message);
+                        break;
+                    case Helpers.Enums.Terminal.AzSmart:
+                        break;
+                    case Helpers.Enums.Terminal.Nba:
+                        break;
+                    case Helpers.Enums.Terminal.DataPay:
+                        break;
+                    case Helpers.Enums.Terminal.OneClick:
+                        break;
+                }
+            }
+        }
+
         private async Task CashiersLoad()
         {
             var data = await userOperation.ToListAsync(x => x.IsDeleted == 0);
             FormHelpers.ControlLoad(data, lookCashier, "NameSurname");
         }
 
-        private void CheckedSearchType(object sender, EventArgs e)
-        {
-            if (chDate.Checked)
-            {
-                dateStart.Focus();
-                textEdit1.Visible = false;
-            }
-            else
-            {
-                textEdit1.Focus();
-                textEdit1.Visible = true;
-            }
-        }
-
         private void bSearch_Click(object sender, EventArgs e)
         {
             var data = new List<SaleDataDto>();
-            if (chDate.Checked)
-            {
-                data = posSaleOperation.Where(x => x.SaleDate >= dateStart.DateTime &&
-                                                   x.SaleDate <= dateEnd.DateTime)
-                    .Select(x => new SaleDataDto()
-                    {
-                        Id = x.Id,
-                        Cashier = x.User.NameSurname,
-                        CustomerName = x.Customer.NameSurname,
-                        SaleDate = x.SaleDate,
-                        SaleDatetime = x.SaleDatetime,
-                        ReceiptNo = x.ReceiptNo,
-                        ShortFiscalId = x.ShortFiscalId,
-                        BankRrn = x.BankRrn,
-                        PaymentType = x.Cash > 0 && x.Card == 0 ? "NAĞD"
-                                                                : x.Cash == 0 && x.Card > 0 ? "KART"
-                                                                : x.Cash > 0 && x.Card > 0 ? "NAĞD-KART"
-                                                                : string.Empty,
-                        Total = x.Total,
-                        Note = x.Note
-                    })
-                    .ToList();
-            }
+            data = posSaleOperation.Where(x => x.SaleDate >= dateStart.DateTime &&
+                                               x.SaleDate <= dateEnd.DateTime)
+                .Select(x => new SaleDataDto()
+                {
+                    Id = x.Id,
+                    Cashier = x.User.NameSurname,
+                    CustomerName = x.Customer.NameSurname,
+                    SaleDate = x.SaleDate,
+                    SaleDatetime = x.SaleDatetime,
+                    ReceiptNo = x.ReceiptNo,
+                    ShortFiscalId = x.ShortFiscalId,
+                    LongFiscalId = x.LongFiscalId,
+                    BankRrn = x.BankRrn,
+                    PaymentType = x.Cash > 0 && x.Card == 0 ? "NAĞD"
+                        : x.Cash == 0 && x.Card > 0 ? "KART"
+                        : x.Cash > 0 && x.Card > 0 ? "NAĞD-KART"
+                        : string.Empty,
+                    Total = x.Total,
+                    Note = x.Note
+                })
+                .OrderBy(x => x.Id)
+                .ToList();
+
+            /*
             else if (chFiscal.Checked)
             {
                 string fiscal = textEdit1.Text.TrimStart().Trim();
@@ -130,6 +152,7 @@ namespace Barcode_Sales.Forms
                     })
                     .ToList();
             }
+            */
             FormHelpers.ControlLoad(data, gridControl1);
         }
 
@@ -188,12 +211,6 @@ namespace Barcode_Sales.Forms
             public string Unit { get; set; }
             public string Tax { get; set; }
             public double Total { get; set; }
-        }
-
-        private void Search_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode is Keys.Enter)
-                bSearch.PerformClick();
         }
     }
 }

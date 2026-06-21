@@ -178,7 +178,6 @@ namespace Barcode_Sales.Forms
 
             int diff = (7 + (today.DayOfWeek - DayOfWeek.Monday)) % 7;
             DateTime weekFirstDay = today.AddDays(-diff);
-
             var list = await Task.Run(() =>
             {
                 return Enumerable.Range(0, 7)
@@ -187,12 +186,14 @@ namespace Barcode_Sales.Forms
                     var day = weekFirstDay.AddDays(i);
 
                     var name = (Enums.Week)(((int)day.DayOfWeek + 6) % 7);
-
+                    var totalGain = posSaleOperation?.Where(x => x.SaleDate == day)?.Sum(x => (decimal?)x.Total) ?? 0;
+                    string dayName = EnumExtensions.GetEnumDescription(name);
+                    
                     return new DashboardStatisticsDto
                     {
-                        Day = EnumExtensions.GetEnumDescription(name),
+                        Day = dayName,
                         Date = day,
-                        //TotalGain = posSaleOperation.Where(x => x.SaleDate == day).Sum(x => x.Total),
+                        TotalGain = totalGain,
                     };
                 })
                 .ToList();
@@ -1012,6 +1013,12 @@ namespace Barcode_Sales.Forms
             {
                 await GetUsers();
             };
+            f.Show();
+        }
+
+        private void accordionControlElement39_Click(object sender, EventArgs e)
+        {
+            fTerminalRefundReport f = new fTerminalRefundReport();
             f.Show();
         }
     }
