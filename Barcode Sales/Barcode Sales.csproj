@@ -317,6 +317,12 @@
     <Compile Include="Forms\fAddSupplierDebt.Designer.cs">
       <DependentUpon>fAddSupplierDebt.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\fAddTerminal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\fAddTerminal.Designer.cs">
+      <DependentUpon>fAddTerminal.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\fAddUser.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -830,6 +836,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\fAddSupplierDebt.resx">
       <DependentUpon>fAddSupplierDebt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\fAddTerminal.resx">
+      <DependentUpon>fAddTerminal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\fAddUser.resx">
       <DependentUpon>fAddUser.cs</DependentUpon>

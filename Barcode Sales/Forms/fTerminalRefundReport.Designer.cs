@@ -349,7 +349,7 @@
             this.gridColumn27.OptionsFilter.AllowAutoFilter = false;
             this.gridColumn27.OptionsFilter.AllowFilter = false;
             this.gridColumn27.Visible = true;
-            this.gridColumn27.VisibleIndex = 2;
+            this.gridColumn27.VisibleIndex = 3;
             this.gridColumn27.Width = 90;
             // 
             // gridColumn1
@@ -361,7 +361,7 @@
             this.gridColumn1.OptionsColumn.AllowFocus = false;
             this.gridColumn1.OptionsFilter.AllowFilter = false;
             this.gridColumn1.Visible = true;
-            this.gridColumn1.VisibleIndex = 3;
+            this.gridColumn1.VisibleIndex = 2;
             this.gridColumn1.Width = 95;
             // 
             // gridColumn29

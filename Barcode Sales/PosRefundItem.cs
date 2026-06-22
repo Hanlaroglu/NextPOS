@@ -9,9 +9,7 @@
 
 namespace Barcode_Sales
 {
-    using System;
-    using System.Collections.Generic;
-    
+
     public partial class PosRefundItem
     {
         public int Id { get; set; }

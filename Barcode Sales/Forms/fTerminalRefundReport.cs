@@ -14,15 +14,17 @@ namespace Barcode_Sales.Forms
         IPosRefundOperation posRefundOperation = new PosRefundManager();
         IPosRefundItemOperation posRefundItemOperation = new PosRefundItemManager();
 
+        RepositoryItemTextEdit repositoryN3;
+        RepositoryItemTextEdit repositoryN0;
+
         public fTerminalRefundReport()
         {
             InitializeComponent();
+            //GridRepoAdd();
         }
 
         private async void fTerminalRefundReport_Shown(object sender, EventArgs e)
         {
-            GridRepoAdd();
-
             if (TerminalCacheService.Terminal is null)
                 await TerminalCacheService.RefreshTerminal();
 
@@ -49,7 +51,7 @@ namespace Barcode_Sales.Forms
             var data = new List<RefundDataDto>();
             data = posRefundOperation.Where(x => x.OperationDate >= dateStart.DateTime &&
                                                x.OperationDate <= dateEnd.DateTime)
-                .Select(x => new RefundDataDto()
+                .Select(x => new RefundDataDto
                 {
                     Id = x.Id,
                     Cashier = x.User.NameSurname,
@@ -89,7 +91,7 @@ namespace Barcode_Sales.Forms
             if (data != null)
             {
                 var dataSource = posRefundItemOperation.Where(x => x.PosRefundId == data.Id)
-                    .Select(x => new RefundDetailDto()
+                    .Select(x => new RefundDetailDto
                     {
                         Id = x.Id,
                         PosRefundId = x.PosRefundId,
@@ -101,26 +103,24 @@ namespace Barcode_Sales.Forms
                         Quantity = x.Quantity,
                         SalePrice = x.SalePrice,
                         Discount = x.Discount,
-                        Total = (double)x.Quantity * (double)x.SalePrice,
+                        Total = x.Quantity * x.SalePrice,
                     })
                     .ToList();
                 e.ChildList = dataSource;
             }
         }
 
-        RepositoryItemTextEdit repositoryN3;
-        RepositoryItemTextEdit repositoryN0;
 
         private void GridRepoAdd()
         {
             repositoryN3 = new RepositoryItemTextEdit();
             repositoryN3.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            repositoryN3.Mask.EditMask = "F3";
+            repositoryN3.Mask.EditMask = "n3";
             repositoryN3.Mask.UseMaskAsDisplayFormat = true;
 
             repositoryN0 = new RepositoryItemTextEdit();
             repositoryN0.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            repositoryN0.Mask.EditMask = "F0";
+            repositoryN0.Mask.EditMask = "n0";
             repositoryN0.Mask.UseMaskAsDisplayFormat = true;
 
             gridControl2.RepositoryItems.Add(repositoryN3);
@@ -129,15 +129,15 @@ namespace Barcode_Sales.Forms
 
         private void gridView3_CustomRowCellEdit(object sender, DevExpress.XtraGrid.Views.Grid.CustomRowCellEditEventArgs e)
         {
-            if (e.Column.FieldName is "Quantity")
-            {
-                var unitName = gridView3.GetRowCellValue(e.RowHandle, "Unit")?.ToString();
+            //if (e.Column.FieldName == "Quantity")
+            //{
+            //    var unitName = gridView3.GetRowCellValue(e.RowHandle, "Unit")?.ToString();
 
-                if (unitName is "Kq")
-                    e.RepositoryItem = repositoryN3;
-                else
-                    e.RepositoryItem = repositoryN0;
-            }
+            //    if (unitName is "Kq")
+            //        e.RepositoryItem = repositoryN3;
+            //    else
+            //        e.RepositoryItem = repositoryN0;
+            //}
         }
 
         private class RefundDataDto : PosRefund
@@ -154,7 +154,7 @@ namespace Barcode_Sales.Forms
             public string Barcode { get; set; }
             public string Unit { get; set; }
             public string Tax { get; set; }
-            public double Total { get; set; }
+            public decimal Total { get; set; }
         }
     }
 }
