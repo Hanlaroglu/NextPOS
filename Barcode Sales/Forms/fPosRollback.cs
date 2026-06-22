@@ -1,15 +1,12 @@
-﻿using Barcode_Sales.DTOs;
+﻿using System;
+using System.Drawing;
+using System.Windows.Forms;
+using Barcode_Sales.DTOs;
 using Barcode_Sales.Helpers.Messages;
 using Barcode_Sales.Operations.Abstract;
 using Barcode_Sales.Operations.Concrete;
-using Barcode_Sales.Tools;
-using DevExpress.XtraEditors;
-using System;
-using System.Drawing;
-using System.Linq;
-using System.Windows.Forms;
 using Barcode_Sales.Services.CacheServices;
-using DevExpress.XtraGrid;
+using DevExpress.XtraEditors;
 
 namespace Barcode_Sales.Forms
 {

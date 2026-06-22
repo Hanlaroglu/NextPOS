@@ -64,7 +64,7 @@ namespace Barcode_Sales.Operations.Concrete
 
         public IQueryable<PosRefundItem> Where(Expression<Func<PosRefundItem, bool>> expression)
         {
-            throw new NotImplementedException();
+            return db.PosRefundItems.Where(expression);
         }
 
         public Task<List<PosRefundItem>> ToListAsync(Expression<Func<PosRefundItem, bool>> expression = null)

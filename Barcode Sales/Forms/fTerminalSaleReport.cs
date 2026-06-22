@@ -158,6 +158,8 @@ namespace Barcode_Sales.Forms
 
         private void gridView1_MasterRowGetChildList(object sender, DevExpress.XtraGrid.Views.Grid.MasterRowGetChildListEventArgs e)
         {
+            //gridView1.CollapseMasterRow(gridView1.FocusedRowHandle); //Gridi bağlayır
+            //gridView1.ExpandMasterRow(gridView1.FocusedRowHandle);
             var data = (SaleDataDto)gridView1.GetRow(e.RowHandle);
             if (data != null)
             {

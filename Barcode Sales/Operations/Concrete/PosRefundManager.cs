@@ -1,6 +1,7 @@
 ﻿using Barcode_Sales.Operations.Abstract;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
@@ -57,14 +58,14 @@ namespace Barcode_Sales.Operations.Concrete
             throw new NotImplementedException();
         }
 
-        public Task<PosRefund> Get(Expression<Func<PosRefund, bool>> expression)
+        public async Task<PosRefund> Get(Expression<Func<PosRefund, bool>> expression)
         {
-            throw new NotImplementedException();
+            return await db.PosRefunds.AsNoTracking().FirstOrDefaultAsync(expression);
         }
 
         public IQueryable<PosRefund> Where(Expression<Func<PosRefund, bool>> expression)
         {
-            throw new NotImplementedException();
+            return db.PosRefunds.Where(expression);
         }
 
         public Task<List<PosRefund>> ToListAsync(Expression<Func<PosRefund, bool>> expression = null)

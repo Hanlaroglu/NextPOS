@@ -73,6 +73,7 @@
             this.gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn10 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn11 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn23 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn13 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.bReceiptCopy = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.lookCashier = new DevExpress.XtraEditors.LookUpEdit();
@@ -87,7 +88,6 @@
             this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.gridColumn23 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
@@ -465,6 +465,13 @@
             this.gridColumn11.Name = "gridColumn11";
             this.gridColumn11.OptionsColumn.AllowEdit = false;
             // 
+            // gridColumn23
+            // 
+            this.gridColumn23.Caption = "LongFiscalId";
+            this.gridColumn23.FieldName = "LongFiscalId";
+            this.gridColumn23.Name = "gridColumn23";
+            this.gridColumn23.OptionsColumn.AllowEdit = false;
+            // 
             // gridColumn13
             // 
             this.gridColumn13.Caption = "gridColumn13";
@@ -540,7 +547,9 @@
             // 
             this.bSearch.AllowFocus = false;
             this.bSearch.Appearance.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Question;
+            this.bSearch.Appearance.Font = new System.Drawing.Font("Poppins", 11F);
             this.bSearch.Appearance.Options.UseBackColor = true;
+            this.bSearch.Appearance.Options.UseFont = true;
             this.bSearch.Location = new System.Drawing.Point(445, 5);
             this.bSearch.Name = "bSearch";
             this.bSearch.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
@@ -687,13 +696,6 @@
             this.layoutControlItem5.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem5.TextVisible = false;
-            // 
-            // gridColumn23
-            // 
-            this.gridColumn23.Caption = "LongFiscalId";
-            this.gridColumn23.FieldName = "LongFiscalId";
-            this.gridColumn23.Name = "gridColumn23";
-            this.gridColumn23.OptionsColumn.AllowEdit = false;
             // 
             // fTerminalSaleReport
             // 
