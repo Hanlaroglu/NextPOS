@@ -30,33 +30,38 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fDashboard));
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions21 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject81 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject82 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject83 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject84 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions22 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject85 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject86 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject87 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject88 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.XtraCharts.Legend legend3 = new DevExpress.XtraCharts.Legend();
-            DevExpress.XtraCharts.Series series9 = new DevExpress.XtraCharts.Series();
-            DevExpress.XtraCharts.PieSeriesLabel pieSeriesLabel3 = new DevExpress.XtraCharts.PieSeriesLabel();
-            DevExpress.XtraCharts.PieSeriesView pieSeriesView5 = new DevExpress.XtraCharts.PieSeriesView();
-            DevExpress.XtraCharts.ChartTitle chartTitle3 = new DevExpress.XtraCharts.ChartTitle();
-            DevExpress.XtraCharts.Series series10 = new DevExpress.XtraCharts.Series();
-            DevExpress.XtraCharts.PieSeriesView pieSeriesView6 = new DevExpress.XtraCharts.PieSeriesView();
-            DevExpress.XtraCharts.XYDiagram xyDiagram5 = new DevExpress.XtraCharts.XYDiagram();
-            DevExpress.XtraCharts.Series series11 = new DevExpress.XtraCharts.Series();
-            DevExpress.XtraCharts.SplineSeriesView splineSeriesView3 = new DevExpress.XtraCharts.SplineSeriesView();
-            DevExpress.XtraCharts.XYDiagram xyDiagram6 = new DevExpress.XtraCharts.XYDiagram();
-            DevExpress.XtraCharts.Series series12 = new DevExpress.XtraCharts.Series();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions23 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject89 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject90 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject91 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject92 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions30 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject117 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject118 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject119 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject120 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions31 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject121 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject122 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject123 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject124 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraCharts.Legend legend4 = new DevExpress.XtraCharts.Legend();
+            DevExpress.XtraCharts.Series series13 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.PieSeriesLabel pieSeriesLabel4 = new DevExpress.XtraCharts.PieSeriesLabel();
+            DevExpress.XtraCharts.PieSeriesView pieSeriesView7 = new DevExpress.XtraCharts.PieSeriesView();
+            DevExpress.XtraCharts.ChartTitle chartTitle4 = new DevExpress.XtraCharts.ChartTitle();
+            DevExpress.XtraCharts.Series series14 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.PieSeriesView pieSeriesView8 = new DevExpress.XtraCharts.PieSeriesView();
+            DevExpress.XtraCharts.XYDiagram xyDiagram7 = new DevExpress.XtraCharts.XYDiagram();
+            DevExpress.XtraCharts.Series series15 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.SplineSeriesView splineSeriesView4 = new DevExpress.XtraCharts.SplineSeriesView();
+            DevExpress.XtraCharts.XYDiagram xyDiagram8 = new DevExpress.XtraCharts.XYDiagram();
+            DevExpress.XtraCharts.Series series16 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions32 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject125 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject126 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject127 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject128 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions33 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject129 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject130 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject131 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject132 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions24 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject93 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject94 = new DevExpress.Utils.SerializableAppearanceObject();
@@ -67,36 +72,31 @@
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject58 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject59 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject60 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions4 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject13 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject14 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject15 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject16 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions25 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject97 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject98 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject99 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject100 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions26 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject101 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject102 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject103 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject104 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions27 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject105 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject106 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject107 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject108 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions28 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject109 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject110 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject111 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject112 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions29 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject113 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject114 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject115 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject116 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions34 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject133 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject134 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject135 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject136 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions35 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject137 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject138 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject139 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject140 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions36 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject141 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject142 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject143 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject144 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions37 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject145 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject146 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject147 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject148 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions38 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject149 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject150 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject151 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject152 = new DevExpress.Utils.SerializableAppearanceObject();
             this.fluentDesignFormContainer1 = new DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormContainer();
             this.accordionControl1 = new DevExpress.XtraBars.Navigation.AccordionControl();
             this.accordionControlElement1 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
@@ -130,6 +130,7 @@
             this.accordionControlElement17 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement18 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement34 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.accordionControlElement39 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement20 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement24 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement25 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
@@ -621,7 +622,23 @@
             this.bCustomerGroupRefresh = new DevExpress.XtraEditors.SimpleButton();
             this.bAddCustomerGroups = new DevExpress.XtraEditors.SimpleButton();
             this.popupMainMenu = new DevExpress.XtraBars.PopupMenu(this.components);
-            this.accordionControlElement39 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.pageTerminals = new DevExpress.XtraBars.Navigation.NavigationPage();
+            this.tabPane9 = new DevExpress.XtraBars.Navigation.TabPane();
+            this.tabNavigationPage5 = new DevExpress.XtraBars.Navigation.TabNavigationPage();
+            this.tablePanel46 = new DevExpress.Utils.Layout.TablePanel();
+            this.gridControlTerminals = new DevExpress.XtraGrid.GridControl();
+            this.gridTerminals = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumn115 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn116 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn117 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn118 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn121 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.bSettingTerminal = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+            this.panelControl27 = new DevExpress.XtraEditors.PanelControl();
+            this.tablePanel47 = new DevExpress.Utils.Layout.TablePanel();
+            this.bTerminalRefresh = new DevExpress.XtraEditors.SimpleButton();
+            this.bAddTerminal = new DevExpress.XtraEditors.SimpleButton();
+            this.gridColumn119 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.accordionControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fluentDesignFormControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.navigationMenu)).BeginInit();
@@ -819,24 +836,24 @@
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel24)).BeginInit();
             this.tablePanel24.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartTop5Product)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(legend3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(series9)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(pieSeriesLabel3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(pieSeriesView5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(legend4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series13)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(pieSeriesLabel4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(pieSeriesView7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartControl3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(series10)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(pieSeriesView6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series14)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(pieSeriesView8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabPane1)).BeginInit();
             this.tabPane1.SuspendLayout();
             this.tabWeek.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartControl1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(xyDiagram5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(series11)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(splineSeriesView3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(xyDiagram7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series15)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(splineSeriesView4)).BeginInit();
             this.tabMonth.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartControlMonth)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(xyDiagram6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(series12)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(xyDiagram8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series16)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl21)).BeginInit();
             this.panelControl21.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel25)).BeginInit();
@@ -974,6 +991,19 @@
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel45)).BeginInit();
             this.tablePanel45.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.popupMainMenu)).BeginInit();
+            this.pageTerminals.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tabPane9)).BeginInit();
+            this.tabPane9.SuspendLayout();
+            this.tabNavigationPage5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tablePanel46)).BeginInit();
+            this.tablePanel46.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControlTerminals)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridTerminals)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bSettingTerminal)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl27)).BeginInit();
+            this.panelControl27.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tablePanel47)).BeginInit();
+            this.tablePanel47.SuspendLayout();
             this.SuspendLayout();
             // 
             // fluentDesignFormContainer1
@@ -1406,6 +1436,13 @@
             this.accordionControlElement34.Text = "Kassa satış hesabatı";
             this.accordionControlElement34.Click += new System.EventHandler(this.accordionControlElement34_Click);
             // 
+            // accordionControlElement39
+            // 
+            this.accordionControlElement39.Name = "accordionControlElement39";
+            this.accordionControlElement39.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.accordionControlElement39.Text = "Kassa qaytarma hesabatı";
+            this.accordionControlElement39.Click += new System.EventHandler(this.accordionControlElement39_Click);
+            // 
             // accordionControlElement20
             // 
             this.accordionControlElement20.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
@@ -1460,7 +1497,7 @@
             // 
             this.accordionControlElement11.Name = "accordionControlElement11";
             this.accordionControlElement11.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.accordionControlElement11.Text = "Kassalar";
+            this.accordionControlElement11.Text = "E-Kassa";
             this.accordionControlElement11.Click += new System.EventHandler(this.accordionControlElement11_Click);
             // 
             // accordionControlElement35
@@ -1520,6 +1557,7 @@
             this.navigationMenu.Controls.Add(this.pageWarehouse);
             this.navigationMenu.Controls.Add(this.pageStore);
             this.navigationMenu.Controls.Add(this.pageCustomerGroups);
+            this.navigationMenu.Controls.Add(this.pageTerminals);
             this.navigationMenu.Dock = System.Windows.Forms.DockStyle.Fill;
             this.navigationMenu.Location = new System.Drawing.Point(260, 31);
             this.navigationMenu.LookAndFeel.SkinName = "WXI";
@@ -1540,7 +1578,8 @@
             this.pageUsers,
             this.pageRole,
             this.pageSettings,
-            this.pageUpdate});
+            this.pageUpdate,
+            this.pageTerminals});
             this.navigationMenu.SelectedPage = this.pageMain;
             this.navigationMenu.Size = new System.Drawing.Size(1215, 814);
             this.navigationMenu.TabIndex = 4;
@@ -1800,9 +1839,9 @@
             // bProductSettings
             // 
             this.bProductSettings.AutoHeight = false;
-            editorButtonImageOptions21.SvgImage = global::Barcode_Sales.Properties.Resources.dots_three_circle_vertical_light;
+            editorButtonImageOptions30.SvgImage = global::Barcode_Sales.Properties.Resources.dots_three_circle_vertical_light;
             this.bProductSettings.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions21, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject81, serializableAppearanceObject82, serializableAppearanceObject83, serializableAppearanceObject84, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions30, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject117, serializableAppearanceObject118, serializableAppearanceObject119, serializableAppearanceObject120, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.bProductSettings.Name = "bProductSettings";
             this.bProductSettings.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.bProductSettings.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.bProductSettings_ButtonClick);
@@ -2489,9 +2528,9 @@
             // bCategorySettings
             // 
             this.bCategorySettings.AutoHeight = false;
-            editorButtonImageOptions22.SvgImage = global::Barcode_Sales.Properties.Resources.dots_three_circle_vertical_light;
+            editorButtonImageOptions31.SvgImage = global::Barcode_Sales.Properties.Resources.dots_three_circle_vertical_light;
             this.bCategorySettings.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions22, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject85, serializableAppearanceObject86, serializableAppearanceObject87, serializableAppearanceObject88, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions31, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject121, serializableAppearanceObject122, serializableAppearanceObject123, serializableAppearanceObject124, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.bCategorySettings.Name = "bCategorySettings";
             this.bCategorySettings.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.bCategorySettings.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.bCategorySettings_ButtonClick);
@@ -2856,12 +2895,12 @@
             this.bRefreshUser.Dock = System.Windows.Forms.DockStyle.Fill;
             this.bRefreshUser.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bRefreshUser.ImageOptions.SvgImage")));
             this.bRefreshUser.ImageOptions.SvgImageSize = new System.Drawing.Size(24, 24);
-            this.bRefreshUser.Location = new System.Drawing.Point(1191, 2);
+            this.bRefreshUser.Location = new System.Drawing.Point(1123, 2);
             this.bRefreshUser.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.bRefreshUser.Name = "bRefreshUser";
             this.tablePanel39.SetRow(this.bRefreshUser, 0);
             this.bRefreshUser.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
-            this.bRefreshUser.Size = new System.Drawing.Size(14, 37);
+            this.bRefreshUser.Size = new System.Drawing.Size(82, 37);
             this.bRefreshUser.TabIndex = 10;
             this.bRefreshUser.TabStop = false;
             this.bRefreshUser.Text = "Yenilə";
@@ -2883,12 +2922,12 @@
             this.bAddUser.Dock = System.Windows.Forms.DockStyle.Fill;
             this.bAddUser.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bAddUser.ImageOptions.SvgImage")));
             this.bAddUser.ImageOptions.SvgImageSize = new System.Drawing.Size(24, 24);
-            this.bAddUser.Location = new System.Drawing.Point(1171, 2);
+            this.bAddUser.Location = new System.Drawing.Point(1020, 2);
             this.bAddUser.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.bAddUser.Name = "bAddUser";
             this.tablePanel39.SetRow(this.bAddUser, 0);
             this.bAddUser.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
-            this.bAddUser.Size = new System.Drawing.Size(14, 37);
+            this.bAddUser.Size = new System.Drawing.Size(97, 37);
             this.bAddUser.TabIndex = 9;
             this.bAddUser.TabStop = false;
             this.bAddUser.Text = "Əlavə et";
@@ -2975,7 +3014,7 @@
             // toggleProductMinus
             // 
             this.tablePanel28.SetColumn(this.toggleProductMinus, 1);
-            this.toggleProductMinus.Location = new System.Drawing.Point(23, 70);
+            this.toggleProductMinus.Location = new System.Drawing.Point(230, 70);
             this.toggleProductMinus.Name = "toggleProductMinus";
             this.toggleProductMinus.Properties.Appearance.Font = new System.Drawing.Font("Nunito", 10F);
             this.toggleProductMinus.Properties.Appearance.Options.UseFont = true;
@@ -2995,11 +3034,11 @@
             this.panelControl18.Controls.Add(this.labelControl29);
             this.panelControl18.Controls.Add(this.ProductLimit_UpDown);
             this.panelControl18.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl18.Location = new System.Drawing.Point(20, 33);
+            this.panelControl18.Location = new System.Drawing.Point(227, 33);
             this.panelControl18.Margin = new System.Windows.Forms.Padding(0);
             this.panelControl18.Name = "panelControl18";
             this.tablePanel28.SetRow(this.panelControl18, 1);
-            this.panelControl18.Size = new System.Drawing.Size(351, 33);
+            this.panelControl18.Size = new System.Drawing.Size(144, 33);
             this.panelControl18.TabIndex = 11;
             // 
             // labelControl29
@@ -3036,7 +3075,7 @@
             this.labelControl26.Name = "labelControl26";
             this.labelControl26.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
             this.tablePanel28.SetRow(this.labelControl26, 2);
-            this.labelControl26.Size = new System.Drawing.Size(14, 26);
+            this.labelControl26.Size = new System.Drawing.Size(221, 26);
             this.labelControl26.TabIndex = 10;
             this.labelControl26.Text = "Məhsul satışı mənfiyə getsin :";
             this.labelControl26.UseMnemonic = false;
@@ -3052,7 +3091,7 @@
             this.labelControl27.Name = "labelControl27";
             this.labelControl27.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
             this.tablePanel28.SetRow(this.labelControl27, 1);
-            this.labelControl27.Size = new System.Drawing.Size(14, 27);
+            this.labelControl27.Size = new System.Drawing.Size(221, 27);
             this.labelControl27.TabIndex = 10;
             this.labelControl27.Text = "Minimum məhsul miqdarı  :";
             this.labelControl27.UseMnemonic = false;
@@ -6298,35 +6337,35 @@
             this.chartTop5Product.EmptyChartText.DXFont = new DevExpress.Drawing.DXFont("Nunito", 12F);
             this.chartTop5Product.EmptyChartText.Text = "Məlumat yoxdur";
             this.chartTop5Product.Legend.Visibility = DevExpress.Utils.DefaultBoolean.False;
-            legend3.LegendID = 0;
-            legend3.Name = "Legend 1";
+            legend4.LegendID = 0;
+            legend4.Name = "Legend 1";
             this.chartTop5Product.Legends.AddRange(new DevExpress.XtraCharts.Legend[] {
-            legend3});
+            legend4});
             this.chartTop5Product.Location = new System.Drawing.Point(2, 488);
             this.chartTop5Product.Margin = new System.Windows.Forms.Padding(1, 3, 1, 3);
             this.chartTop5Product.Name = "chartTop5Product";
             this.tablePanel24.SetRow(this.chartTop5Product, 2);
-            pieSeriesLabel3.Border.Visibility = DevExpress.Utils.DefaultBoolean.False;
-            pieSeriesLabel3.DXFont = new DevExpress.Drawing.DXFont("Nunito", 8F);
-            pieSeriesLabel3.LineVisibility = DevExpress.Utils.DefaultBoolean.True;
-            pieSeriesLabel3.Shadow.Size = 1;
-            pieSeriesLabel3.Shadow.Visible = true;
-            series9.Label = pieSeriesLabel3;
-            series9.LabelsVisibility = DevExpress.Utils.DefaultBoolean.True;
-            series9.Name = "seriesTop5Product";
-            series9.SeriesID = 1;
-            series9.View = pieSeriesView5;
+            pieSeriesLabel4.Border.Visibility = DevExpress.Utils.DefaultBoolean.False;
+            pieSeriesLabel4.DXFont = new DevExpress.Drawing.DXFont("Nunito", 8F);
+            pieSeriesLabel4.LineVisibility = DevExpress.Utils.DefaultBoolean.True;
+            pieSeriesLabel4.Shadow.Size = 1;
+            pieSeriesLabel4.Shadow.Visible = true;
+            series13.Label = pieSeriesLabel4;
+            series13.LabelsVisibility = DevExpress.Utils.DefaultBoolean.True;
+            series13.Name = "seriesTop5Product";
+            series13.SeriesID = 1;
+            series13.View = pieSeriesView7;
             this.chartTop5Product.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
-        series9};
+        series13};
             this.chartTop5Product.Size = new System.Drawing.Size(331, 271);
             this.chartTop5Product.TabIndex = 22;
-            chartTitle3.DXFont = new DevExpress.Drawing.DXFont("Nunito", 10F);
-            chartTitle3.MaxLineCount = 2;
-            chartTitle3.Text = "";
-            chartTitle3.TitleID = 0;
-            chartTitle3.WordWrap = true;
+            chartTitle4.DXFont = new DevExpress.Drawing.DXFont("Nunito", 10F);
+            chartTitle4.MaxLineCount = 2;
+            chartTitle4.Text = "";
+            chartTitle4.TitleID = 0;
+            chartTitle4.WordWrap = true;
             this.chartTop5Product.Titles.AddRange(new DevExpress.XtraCharts.ChartTitle[] {
-            chartTitle3});
+            chartTitle4});
             // 
             // chartControl3
             // 
@@ -6338,11 +6377,11 @@
             this.chartControl3.Margin = new System.Windows.Forms.Padding(1, 3, 1, 3);
             this.chartControl3.Name = "chartControl3";
             this.tablePanel24.SetRow(this.chartControl3, 2);
-            series10.Name = "seriesCategory";
-            series10.SeriesID = 1;
-            series10.View = pieSeriesView6;
+            series14.Name = "seriesCategory";
+            series14.SeriesID = 1;
+            series14.View = pieSeriesView8;
             this.chartControl3.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
-        series10};
+        series14};
             this.chartControl3.Size = new System.Drawing.Size(545, 271);
             this.chartControl3.TabIndex = 23;
             // 
@@ -6394,9 +6433,9 @@
             // 
             // chartControl1
             // 
-            xyDiagram5.AxisX.VisibleInPanesSerializable = "-1";
-            xyDiagram5.AxisY.VisibleInPanesSerializable = "-1";
-            this.chartControl1.Diagram = xyDiagram5;
+            xyDiagram7.AxisX.VisibleInPanesSerializable = "-1";
+            xyDiagram7.AxisY.VisibleInPanesSerializable = "-1";
+            this.chartControl1.Diagram = xyDiagram7;
             this.chartControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.chartControl1.EmptyChartText.DXFont = new DevExpress.Drawing.DXFont("Nunito", 12F);
             this.chartControl1.EmptyChartText.Text = "Məlumat yoxdur";
@@ -6404,12 +6443,12 @@
             this.chartControl1.Location = new System.Drawing.Point(0, 0);
             this.chartControl1.Margin = new System.Windows.Forms.Padding(0);
             this.chartControl1.Name = "chartControl1";
-            series11.LabelsVisibility = DevExpress.Utils.DefaultBoolean.True;
-            series11.Name = "chartWeek";
-            series11.SeriesID = 0;
-            series11.View = splineSeriesView3;
+            series15.LabelsVisibility = DevExpress.Utils.DefaultBoolean.True;
+            series15.Name = "chartWeek";
+            series15.SeriesID = 0;
+            series15.View = splineSeriesView4;
             this.chartControl1.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
-        series11};
+        series15};
             this.chartControl1.Size = new System.Drawing.Size(1211, 342);
             this.chartControl1.TabIndex = 0;
             // 
@@ -6422,18 +6461,18 @@
             // 
             // chartControlMonth
             // 
-            xyDiagram6.AxisX.VisibleInPanesSerializable = "-1";
-            xyDiagram6.AxisY.VisibleInPanesSerializable = "-1";
-            this.chartControlMonth.Diagram = xyDiagram6;
+            xyDiagram8.AxisX.VisibleInPanesSerializable = "-1";
+            xyDiagram8.AxisY.VisibleInPanesSerializable = "-1";
+            this.chartControlMonth.Diagram = xyDiagram8;
             this.chartControlMonth.Dock = System.Windows.Forms.DockStyle.Fill;
             this.chartControlMonth.Legend.Visibility = DevExpress.Utils.DefaultBoolean.False;
             this.chartControlMonth.Location = new System.Drawing.Point(0, 0);
             this.chartControlMonth.Name = "chartControlMonth";
-            series12.LabelsVisibility = DevExpress.Utils.DefaultBoolean.True;
-            series12.Name = "chartWeek";
-            series12.SeriesID = 0;
+            series16.LabelsVisibility = DevExpress.Utils.DefaultBoolean.True;
+            series16.Name = "chartWeek";
+            series16.SeriesID = 0;
             this.chartControlMonth.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
-        series12};
+        series16};
             this.chartControlMonth.Size = new System.Drawing.Size(1211, 342);
             this.chartControlMonth.TabIndex = 1;
             // 
@@ -7005,7 +7044,7 @@
             // 
             this.tablePanel20.SetColumn(this.toogleAutoUpdate, 1);
             this.toogleAutoUpdate.Dock = System.Windows.Forms.DockStyle.Left;
-            this.toogleAutoUpdate.Location = new System.Drawing.Point(23, 69);
+            this.toogleAutoUpdate.Location = new System.Drawing.Point(153, 69);
             this.toogleAutoUpdate.Name = "toogleAutoUpdate";
             this.toogleAutoUpdate.Properties.Appearance.Font = new System.Drawing.Font("Nunito", 10F);
             this.toogleAutoUpdate.Properties.Appearance.Options.UseFont = true;
@@ -7030,7 +7069,7 @@
             this.labelControl22.Name = "labelControl22";
             this.labelControl22.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
             this.tablePanel20.SetRow(this.labelControl22, 2);
-            this.labelControl22.Size = new System.Drawing.Size(14, 26);
+            this.labelControl22.Size = new System.Drawing.Size(144, 26);
             this.labelControl22.TabIndex = 10;
             this.labelControl22.Text = "Açılışta yenilə   :";
             this.labelControl22.UseMnemonic = false;
@@ -7045,7 +7084,7 @@
             this.labelControl21.Name = "labelControl21";
             this.labelControl21.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
             this.tablePanel20.SetRow(this.labelControl21, 1);
-            this.labelControl21.Size = new System.Drawing.Size(14, 27);
+            this.labelControl21.Size = new System.Drawing.Size(144, 27);
             this.labelControl21.TabIndex = 10;
             this.labelControl21.Text = "Lisenziya açarı  :";
             this.labelControl21.UseMnemonic = false;
@@ -7060,7 +7099,7 @@
             this.labelControl20.Name = "labelControl20";
             this.labelControl20.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
             this.tablePanel20.SetRow(this.labelControl20, 0);
-            this.labelControl20.Size = new System.Drawing.Size(14, 27);
+            this.labelControl20.Size = new System.Drawing.Size(144, 27);
             this.labelControl20.TabIndex = 10;
             this.labelControl20.Text = "Versiya              :";
             this.labelControl20.UseMnemonic = false;
@@ -7071,11 +7110,11 @@
             this.lVersion.Appearance.Options.UseFont = true;
             this.tablePanel20.SetColumn(this.lVersion, 1);
             this.lVersion.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lVersion.Location = new System.Drawing.Point(23, 3);
+            this.lVersion.Location = new System.Drawing.Point(153, 3);
             this.lVersion.Name = "lVersion";
             this.lVersion.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
             this.tablePanel20.SetRow(this.lVersion, 0);
-            this.lVersion.Size = new System.Drawing.Size(777, 27);
+            this.lVersion.Size = new System.Drawing.Size(647, 27);
             this.lVersion.TabIndex = 10;
             this.lVersion.Text = "N/A";
             this.lVersion.UseMnemonic = false;
@@ -7086,11 +7125,11 @@
             this.lProductID.Appearance.Options.UseFont = true;
             this.tablePanel20.SetColumn(this.lProductID, 1);
             this.lProductID.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lProductID.Location = new System.Drawing.Point(23, 36);
+            this.lProductID.Location = new System.Drawing.Point(153, 36);
             this.lProductID.Name = "lProductID";
             this.lProductID.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
             this.tablePanel20.SetRow(this.lProductID, 1);
-            this.lProductID.Size = new System.Drawing.Size(777, 27);
+            this.lProductID.Size = new System.Drawing.Size(647, 27);
             this.lProductID.TabIndex = 10;
             this.lProductID.Text = "N/A";
             this.lProductID.UseMnemonic = false;
@@ -7298,9 +7337,9 @@
             // bSupplierSettings
             // 
             this.bSupplierSettings.AutoHeight = false;
-            editorButtonImageOptions23.SvgImage = global::Barcode_Sales.Properties.Resources.dots_three_circle_vertical_light;
+            editorButtonImageOptions32.SvgImage = global::Barcode_Sales.Properties.Resources.dots_three_circle_vertical_light;
             this.bSupplierSettings.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions23, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject89, serializableAppearanceObject90, serializableAppearanceObject91, serializableAppearanceObject92, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions32, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject125, serializableAppearanceObject126, serializableAppearanceObject127, serializableAppearanceObject128, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.bSupplierSettings.Name = "bSupplierSettings";
             this.bSupplierSettings.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.bSupplierSettings.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.bSupplierSettings_ButtonClick);
@@ -7524,17 +7563,17 @@
             this.dateEnd.Properties.Appearance.Font = new System.Drawing.Font("Poppins", 10F);
             this.dateEnd.Properties.Appearance.Options.UseFont = true;
             this.dateEnd.Properties.AutoHeight = false;
-            serializableAppearanceObject93.Font = new System.Drawing.Font("Nunito", 11F, System.Drawing.FontStyle.Bold);
-            serializableAppearanceObject93.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.DisabledText;
-            serializableAppearanceObject93.Options.UseFont = true;
-            serializableAppearanceObject93.Options.UseForeColor = true;
-            serializableAppearanceObject96.Font = new System.Drawing.Font("Nunito", 11F, System.Drawing.FontStyle.Bold);
-            serializableAppearanceObject96.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.DisabledText;
-            serializableAppearanceObject96.Options.UseFont = true;
-            serializableAppearanceObject96.Options.UseForeColor = true;
+            serializableAppearanceObject129.Font = new System.Drawing.Font("Nunito", 11F, System.Drawing.FontStyle.Bold);
+            serializableAppearanceObject129.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.DisabledText;
+            serializableAppearanceObject129.Options.UseFont = true;
+            serializableAppearanceObject129.Options.UseForeColor = true;
+            serializableAppearanceObject132.Font = new System.Drawing.Font("Nunito", 11F, System.Drawing.FontStyle.Bold);
+            serializableAppearanceObject132.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.DisabledText;
+            serializableAppearanceObject132.Options.UseFont = true;
+            serializableAppearanceObject132.Options.UseForeColor = true;
             this.dateEnd.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Tarixədək", -1, false, true, true, editorButtonImageOptions24, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject93, serializableAppearanceObject94, serializableAppearanceObject95, serializableAppearanceObject96, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Tarixədək", -1, false, true, true, editorButtonImageOptions33, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject129, serializableAppearanceObject130, serializableAppearanceObject131, serializableAppearanceObject132, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.dateEnd.Properties.CalendarTimeEditing = DevExpress.Utils.DefaultBoolean.False;
             this.dateEnd.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -7552,17 +7591,17 @@
             this.dateStart.Properties.Appearance.Font = new System.Drawing.Font("Poppins", 10F);
             this.dateStart.Properties.Appearance.Options.UseFont = true;
             this.dateStart.Properties.AutoHeight = false;
-            serializableAppearanceObject57.Font = new System.Drawing.Font("Nunito", 11F, System.Drawing.FontStyle.Bold);
-            serializableAppearanceObject57.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.DisabledText;
-            serializableAppearanceObject57.Options.UseFont = true;
-            serializableAppearanceObject57.Options.UseForeColor = true;
-            serializableAppearanceObject60.Font = new System.Drawing.Font("Nunito", 11F, System.Drawing.FontStyle.Bold);
-            serializableAppearanceObject60.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.DisabledText;
-            serializableAppearanceObject60.Options.UseFont = true;
-            serializableAppearanceObject60.Options.UseForeColor = true;
+            serializableAppearanceObject93.Font = new System.Drawing.Font("Nunito", 11F, System.Drawing.FontStyle.Bold);
+            serializableAppearanceObject93.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.DisabledText;
+            serializableAppearanceObject93.Options.UseFont = true;
+            serializableAppearanceObject93.Options.UseForeColor = true;
+            serializableAppearanceObject96.Font = new System.Drawing.Font("Nunito", 11F, System.Drawing.FontStyle.Bold);
+            serializableAppearanceObject96.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.DisabledText;
+            serializableAppearanceObject96.Options.UseFont = true;
+            serializableAppearanceObject96.Options.UseForeColor = true;
             this.dateStart.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Tarixindən", -1, false, true, true, editorButtonImageOptions15, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject57, serializableAppearanceObject58, serializableAppearanceObject59, serializableAppearanceObject60, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Tarixindən", -1, false, true, true, editorButtonImageOptions24, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject93, serializableAppearanceObject94, serializableAppearanceObject95, serializableAppearanceObject96, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.dateStart.Properties.CalendarTimeEditing = DevExpress.Utils.DefaultBoolean.False;
             this.dateStart.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -7704,7 +7743,7 @@
             // 
             this.repositoryItemButtonEdit2.AutoHeight = false;
             this.repositoryItemButtonEdit2.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Ödəniş et", -1, true, true, false, editorButtonImageOptions4, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject13, serializableAppearanceObject14, serializableAppearanceObject15, serializableAppearanceObject16, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Ödəniş et", -1, true, true, false, editorButtonImageOptions15, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject57, serializableAppearanceObject58, serializableAppearanceObject59, serializableAppearanceObject60, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.repositoryItemButtonEdit2.Name = "repositoryItemButtonEdit2";
             this.repositoryItemButtonEdit2.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             // 
@@ -7725,7 +7764,7 @@
             // 
             this.repositoryItemButtonEdit3.AutoHeight = false;
             this.repositoryItemButtonEdit3.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Ətraflı", -1, true, true, false, editorButtonImageOptions25, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject97, serializableAppearanceObject98, serializableAppearanceObject99, serializableAppearanceObject100, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Ətraflı", -1, true, true, false, editorButtonImageOptions34, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject133, serializableAppearanceObject134, serializableAppearanceObject135, serializableAppearanceObject136, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.repositoryItemButtonEdit3.Name = "repositoryItemButtonEdit3";
             // 
             // pageCustomers
@@ -8181,14 +8220,14 @@
             this.bRolePrint.Dock = System.Windows.Forms.DockStyle.Fill;
             this.bRolePrint.Enabled = false;
             this.bRolePrint.ImageOptions.SvgImageSize = new System.Drawing.Size(32, 32);
-            this.bRolePrint.Location = new System.Drawing.Point(80, 0);
+            this.bRolePrint.Location = new System.Drawing.Point(243, 0);
             this.bRolePrint.Margin = new System.Windows.Forms.Padding(0);
             this.bRolePrint.Name = "bRolePrint";
             this.bRolePrint.Padding = new System.Windows.Forms.Padding(3);
             this.bRolePrint.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
             this.tablePanel3.SetRow(this.bRolePrint, 0);
             this.bRolePrint.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
-            this.bRolePrint.Size = new System.Drawing.Size(20, 39);
+            this.bRolePrint.Size = new System.Drawing.Size(60, 39);
             this.bRolePrint.TabIndex = 7;
             this.bRolePrint.TabStop = false;
             this.bRolePrint.Text = "Çap et";
@@ -8210,14 +8249,14 @@
             this.tablePanel3.SetColumn(this.bRoleRefresh, 3);
             this.bRoleRefresh.Dock = System.Windows.Forms.DockStyle.Fill;
             this.bRoleRefresh.ImageOptions.SvgImageSize = new System.Drawing.Size(32, 32);
-            this.bRoleRefresh.Location = new System.Drawing.Point(60, 0);
+            this.bRoleRefresh.Location = new System.Drawing.Point(186, 0);
             this.bRoleRefresh.Margin = new System.Windows.Forms.Padding(0);
             this.bRoleRefresh.Name = "bRoleRefresh";
             this.bRoleRefresh.Padding = new System.Windows.Forms.Padding(3);
             this.bRoleRefresh.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
             this.tablePanel3.SetRow(this.bRoleRefresh, 0);
             this.bRoleRefresh.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
-            this.bRoleRefresh.Size = new System.Drawing.Size(20, 39);
+            this.bRoleRefresh.Size = new System.Drawing.Size(57, 39);
             this.bRoleRefresh.TabIndex = 8;
             this.bRoleRefresh.TabStop = false;
             this.bRoleRefresh.Text = "Yenilə";
@@ -8245,7 +8284,7 @@
             this.bRoleAdd.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
             this.tablePanel3.SetRow(this.bRoleAdd, 0);
             this.bRoleAdd.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
-            this.bRoleAdd.Size = new System.Drawing.Size(20, 39);
+            this.bRoleAdd.Size = new System.Drawing.Size(71, 39);
             this.bRoleAdd.TabIndex = 7;
             this.bRoleAdd.TabStop = false;
             this.bRoleAdd.Text = "Əlavə et";
@@ -8266,14 +8305,14 @@
             this.tablePanel3.SetColumn(this.bRoleEdit, 1);
             this.bRoleEdit.Dock = System.Windows.Forms.DockStyle.Fill;
             this.bRoleEdit.ImageOptions.SvgImageSize = new System.Drawing.Size(32, 32);
-            this.bRoleEdit.Location = new System.Drawing.Point(20, 0);
+            this.bRoleEdit.Location = new System.Drawing.Point(71, 0);
             this.bRoleEdit.Margin = new System.Windows.Forms.Padding(0);
             this.bRoleEdit.Name = "bRoleEdit";
             this.bRoleEdit.Padding = new System.Windows.Forms.Padding(3);
             this.bRoleEdit.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
             this.tablePanel3.SetRow(this.bRoleEdit, 0);
             this.bRoleEdit.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
-            this.bRoleEdit.Size = new System.Drawing.Size(20, 39);
+            this.bRoleEdit.Size = new System.Drawing.Size(83, 39);
             this.bRoleEdit.TabIndex = 7;
             this.bRoleEdit.TabStop = false;
             this.bRoleEdit.Text = "Düzəliş et";
@@ -8294,14 +8333,14 @@
             this.tablePanel3.SetColumn(this.bRoleRemove, 2);
             this.bRoleRemove.Dock = System.Windows.Forms.DockStyle.Fill;
             this.bRoleRemove.ImageOptions.SvgImageSize = new System.Drawing.Size(32, 32);
-            this.bRoleRemove.Location = new System.Drawing.Point(42, 0);
+            this.bRoleRemove.Location = new System.Drawing.Point(156, 0);
             this.bRoleRemove.Margin = new System.Windows.Forms.Padding(2, 0, 0, 0);
             this.bRoleRemove.Name = "bRoleRemove";
             this.bRoleRemove.Padding = new System.Windows.Forms.Padding(3);
             this.bRoleRemove.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
             this.tablePanel3.SetRow(this.bRoleRemove, 0);
             this.bRoleRemove.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
-            this.bRoleRemove.Size = new System.Drawing.Size(18, 39);
+            this.bRoleRemove.Size = new System.Drawing.Size(30, 39);
             this.bRoleRemove.TabIndex = 7;
             this.bRoleRemove.TabStop = false;
             this.bRoleRemove.Text = "Sil";
@@ -8513,14 +8552,14 @@
             // bPaySuppliersDebt
             // 
             this.bPaySuppliersDebt.AutoHeight = false;
-            serializableAppearanceObject101.Font = new System.Drawing.Font("Nunito", 12F, System.Drawing.FontStyle.Bold);
-            serializableAppearanceObject101.ForeColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Success;
-            serializableAppearanceObject101.Options.UseFont = true;
-            serializableAppearanceObject101.Options.UseForeColor = true;
-            serializableAppearanceObject101.Options.UseTextOptions = true;
-            serializableAppearanceObject101.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            serializableAppearanceObject137.Font = new System.Drawing.Font("Nunito", 12F, System.Drawing.FontStyle.Bold);
+            serializableAppearanceObject137.ForeColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Success;
+            serializableAppearanceObject137.Options.UseFont = true;
+            serializableAppearanceObject137.Options.UseForeColor = true;
+            serializableAppearanceObject137.Options.UseTextOptions = true;
+            serializableAppearanceObject137.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.bPaySuppliersDebt.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "ÖDƏNİŞ ET", -1, true, true, false, editorButtonImageOptions26, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject101, serializableAppearanceObject102, serializableAppearanceObject103, serializableAppearanceObject104, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "ÖDƏNİŞ ET", -1, true, true, false, editorButtonImageOptions35, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject137, serializableAppearanceObject138, serializableAppearanceObject139, serializableAppearanceObject140, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.bPaySuppliersDebt.Name = "bPaySuppliersDebt";
             this.bPaySuppliersDebt.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             // 
@@ -8905,14 +8944,14 @@
             // repositoryItemButtonEdit1
             // 
             this.repositoryItemButtonEdit1.AutoHeight = false;
-            serializableAppearanceObject105.Font = new System.Drawing.Font("Nunito", 12F, System.Drawing.FontStyle.Bold);
-            serializableAppearanceObject105.ForeColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Success;
-            serializableAppearanceObject105.Options.UseFont = true;
-            serializableAppearanceObject105.Options.UseForeColor = true;
-            serializableAppearanceObject105.Options.UseTextOptions = true;
-            serializableAppearanceObject105.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            serializableAppearanceObject141.Font = new System.Drawing.Font("Nunito", 12F, System.Drawing.FontStyle.Bold);
+            serializableAppearanceObject141.ForeColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Success;
+            serializableAppearanceObject141.Options.UseFont = true;
+            serializableAppearanceObject141.Options.UseForeColor = true;
+            serializableAppearanceObject141.Options.UseTextOptions = true;
+            serializableAppearanceObject141.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.repositoryItemButtonEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "ÖDƏNİŞ ET", -1, true, true, false, editorButtonImageOptions27, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject105, serializableAppearanceObject106, serializableAppearanceObject107, serializableAppearanceObject108, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "ÖDƏNİŞ ET", -1, true, true, false, editorButtonImageOptions36, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject141, serializableAppearanceObject142, serializableAppearanceObject143, serializableAppearanceObject144, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.repositoryItemButtonEdit1.Name = "repositoryItemButtonEdit1";
             this.repositoryItemButtonEdit1.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             // 
@@ -9217,9 +9256,9 @@
             // 
             // bWarehouseSettings
             // 
-            editorButtonImageOptions28.SvgImage = global::Barcode_Sales.Properties.Resources.dots_three_circle_vertical_light;
+            editorButtonImageOptions37.SvgImage = global::Barcode_Sales.Properties.Resources.dots_three_circle_vertical_light;
             this.bWarehouseSettings.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions28, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject109, serializableAppearanceObject110, serializableAppearanceObject111, serializableAppearanceObject112, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions37, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject145, serializableAppearanceObject146, serializableAppearanceObject147, serializableAppearanceObject148, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.bWarehouseSettings.Name = "bWarehouseSettings";
             this.bWarehouseSettings.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.bWarehouseSettings.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.bWarehouseSettings_ButtonClick);
@@ -9680,9 +9719,9 @@
             // 
             // bStoreSetting
             // 
-            editorButtonImageOptions29.SvgImage = global::Barcode_Sales.Properties.Resources.dots_three_circle_vertical_light;
+            editorButtonImageOptions38.SvgImage = global::Barcode_Sales.Properties.Resources.dots_three_circle_vertical_light;
             this.bStoreSetting.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions29, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject113, serializableAppearanceObject114, serializableAppearanceObject115, serializableAppearanceObject116, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions38, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject149, serializableAppearanceObject150, serializableAppearanceObject151, serializableAppearanceObject152, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.bStoreSetting.Name = "bStoreSetting";
             this.bStoreSetting.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.bStoreSetting.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.bStoreSetting_ButtonClick);
@@ -10050,12 +10089,287 @@
             this.popupMainMenu.Manager = this.barManager1;
             this.popupMainMenu.Name = "popupMainMenu";
             // 
-            // accordionControlElement39
+            // pageTerminals
             // 
-            this.accordionControlElement39.Name = "accordionControlElement39";
-            this.accordionControlElement39.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.accordionControlElement39.Text = "Kassa qaytarma hesabatı";
-            this.accordionControlElement39.Click += new System.EventHandler(this.accordionControlElement39_Click);
+            this.pageTerminals.Controls.Add(this.tabPane9);
+            this.pageTerminals.Name = "pageTerminals";
+            this.pageTerminals.Size = new System.Drawing.Size(1215, 814);
+            // 
+            // tabPane9
+            // 
+            this.tabPane9.AppearanceButton.Hovered.Font = new System.Drawing.Font("Nunito", 11F, System.Drawing.FontStyle.Bold);
+            this.tabPane9.AppearanceButton.Hovered.Options.UseFont = true;
+            this.tabPane9.AppearanceButton.Normal.Font = new System.Drawing.Font("Nunito", 11F, System.Drawing.FontStyle.Bold);
+            this.tabPane9.AppearanceButton.Normal.Options.UseFont = true;
+            this.tabPane9.AppearanceButton.Pressed.Font = new System.Drawing.Font("Nunito", 11F, System.Drawing.FontStyle.Bold);
+            this.tabPane9.AppearanceButton.Pressed.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
+            this.tabPane9.AppearanceButton.Pressed.Options.UseFont = true;
+            this.tabPane9.AppearanceButton.Pressed.Options.UseForeColor = true;
+            this.tabPane9.Controls.Add(this.tabNavigationPage5);
+            this.tabPane9.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabPane9.Location = new System.Drawing.Point(0, 0);
+            this.tabPane9.LookAndFeel.SkinName = "WXI";
+            this.tabPane9.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.tabPane9.Name = "tabPane9";
+            this.tabPane9.PageProperties.AppearanceCaption.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
+            this.tabPane9.PageProperties.AppearanceCaption.Font = new System.Drawing.Font("Nunito", 12F);
+            this.tabPane9.PageProperties.AppearanceCaption.Options.UseBorderColor = true;
+            this.tabPane9.PageProperties.AppearanceCaption.Options.UseFont = true;
+            this.tabPane9.Pages.AddRange(new DevExpress.XtraBars.Navigation.NavigationPageBase[] {
+            this.tabNavigationPage5});
+            this.tabPane9.RegularSize = new System.Drawing.Size(1215, 814);
+            this.tabPane9.SelectedPage = this.tabNavigationPage5;
+            this.tabPane9.Size = new System.Drawing.Size(1215, 814);
+            this.tabPane9.TabIndex = 25;
+            this.tabPane9.Text = "tabPane9";
+            // 
+            // tabNavigationPage5
+            // 
+            this.tabNavigationPage5.Caption = "Kassalar";
+            this.tabNavigationPage5.Controls.Add(this.tablePanel46);
+            this.tabNavigationPage5.Name = "tabNavigationPage5";
+            this.tabNavigationPage5.Size = new System.Drawing.Size(1215, 769);
+            // 
+            // tablePanel46
+            // 
+            this.tablePanel46.Columns.AddRange(new DevExpress.Utils.Layout.TablePanelColumn[] {
+            new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 5F)});
+            this.tablePanel46.Controls.Add(this.gridControlTerminals);
+            this.tablePanel46.Controls.Add(this.panelControl27);
+            this.tablePanel46.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tablePanel46.Location = new System.Drawing.Point(0, 0);
+            this.tablePanel46.Name = "tablePanel46";
+            this.tablePanel46.Padding = new System.Windows.Forms.Padding(1);
+            this.tablePanel46.Rows.AddRange(new DevExpress.Utils.Layout.TablePanelRow[] {
+            new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 45F),
+            new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 26F)});
+            this.tablePanel46.Size = new System.Drawing.Size(1215, 769);
+            this.tablePanel46.TabIndex = 9;
+            this.tablePanel46.UseSkinIndents = true;
+            // 
+            // gridControlTerminals
+            // 
+            this.gridControlTerminals.AllowRestoreSelectionAndFocusedRow = DevExpress.Utils.DefaultBoolean.False;
+            this.tablePanel46.SetColumn(this.gridControlTerminals, 0);
+            this.gridControlTerminals.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridControlTerminals.Location = new System.Drawing.Point(4, 49);
+            this.gridControlTerminals.MainView = this.gridTerminals;
+            this.gridControlTerminals.Name = "gridControlTerminals";
+            this.gridControlTerminals.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.bSettingTerminal});
+            this.tablePanel46.SetRow(this.gridControlTerminals, 1);
+            this.gridControlTerminals.Size = new System.Drawing.Size(1207, 716);
+            this.gridControlTerminals.TabIndex = 22;
+            this.gridControlTerminals.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridTerminals});
+            // 
+            // gridTerminals
+            // 
+            this.gridTerminals.Appearance.EvenRow.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.gridTerminals.Appearance.EvenRow.Options.UseBackColor = true;
+            this.gridTerminals.Appearance.HeaderPanel.Font = new System.Drawing.Font("Nunito", 11F, System.Drawing.FontStyle.Bold);
+            this.gridTerminals.Appearance.HeaderPanel.Options.UseFont = true;
+            this.gridTerminals.Appearance.OddRow.BackColor = System.Drawing.Color.White;
+            this.gridTerminals.Appearance.OddRow.Options.UseBackColor = true;
+            this.gridTerminals.Appearance.Row.Font = new System.Drawing.Font("Nunito", 10F);
+            this.gridTerminals.Appearance.Row.Options.UseFont = true;
+            this.gridTerminals.ColumnPanelRowHeight = 35;
+            this.gridTerminals.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumn115,
+            this.gridColumn116,
+            this.gridColumn117,
+            this.gridColumn118,
+            this.gridColumn119,
+            this.gridColumn121});
+            this.gridTerminals.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFullFocus;
+            this.gridTerminals.GridControl = this.gridControlTerminals;
+            this.gridTerminals.Name = "gridTerminals";
+            this.gridTerminals.OptionsMenu.EnableColumnMenu = false;
+            this.gridTerminals.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.gridTerminals.OptionsView.ColumnHeaderAutoHeight = DevExpress.Utils.DefaultBoolean.True;
+            this.gridTerminals.OptionsView.ShowIndicator = false;
+            this.gridTerminals.RowHeight = 35;
+            // 
+            // gridColumn115
+            // 
+            this.gridColumn115.Caption = "#";
+            this.gridColumn115.FieldName = "#";
+            this.gridColumn115.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.MiddleLeft;
+            this.gridColumn115.Name = "gridColumn115";
+            this.gridColumn115.OptionsColumn.AllowEdit = false;
+            this.gridColumn115.OptionsFilter.AllowAutoFilter = false;
+            this.gridColumn115.OptionsFilter.AllowFilter = false;
+            this.gridColumn115.Visible = true;
+            this.gridColumn115.VisibleIndex = 0;
+            this.gridColumn115.Width = 36;
+            // 
+            // gridColumn116
+            // 
+            this.gridColumn116.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn116.AppearanceHeader.TextOptions.Trimming = DevExpress.Utils.Trimming.EllipsisCharacter;
+            this.gridColumn116.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.gridColumn116.Caption = "E-Kassa";
+            this.gridColumn116.FieldName = "Username";
+            this.gridColumn116.Name = "gridColumn116";
+            this.gridColumn116.OptionsColumn.AllowEdit = false;
+            this.gridColumn116.Visible = true;
+            this.gridColumn116.VisibleIndex = 1;
+            this.gridColumn116.Width = 222;
+            // 
+            // gridColumn117
+            // 
+            this.gridColumn117.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn117.AppearanceHeader.TextOptions.Trimming = DevExpress.Utils.Trimming.EllipsisCharacter;
+            this.gridColumn117.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.gridColumn117.Caption = "IP";
+            this.gridColumn117.FieldName = "NameSurname";
+            this.gridColumn117.Name = "gridColumn117";
+            this.gridColumn117.OptionsColumn.AllowEdit = false;
+            this.gridColumn117.Visible = true;
+            this.gridColumn117.VisibleIndex = 2;
+            this.gridColumn117.Width = 253;
+            // 
+            // gridColumn118
+            // 
+            this.gridColumn118.Caption = "Bank";
+            this.gridColumn118.FieldName = "Role.RoleName";
+            this.gridColumn118.Name = "gridColumn118";
+            this.gridColumn118.OptionsColumn.AllowEdit = false;
+            this.gridColumn118.Visible = true;
+            this.gridColumn118.VisibleIndex = 3;
+            this.gridColumn118.Width = 156;
+            // 
+            // gridColumn121
+            // 
+            this.gridColumn121.AppearanceCell.Font = new System.Drawing.Font("Nunito", 10F, System.Drawing.FontStyle.Bold);
+            this.gridColumn121.AppearanceCell.Options.UseFont = true;
+            this.gridColumn121.AppearanceCell.Options.UseTextOptions = true;
+            this.gridColumn121.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn121.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn121.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn121.AppearanceHeader.TextOptions.Trimming = DevExpress.Utils.Trimming.EllipsisCharacter;
+            this.gridColumn121.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.gridColumn121.Caption = "Status";
+            this.gridColumn121.ColumnEdit = this.bSettingTerminal;
+            this.gridColumn121.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.MiddleLeft;
+            this.gridColumn121.MaxWidth = 50;
+            this.gridColumn121.MinWidth = 50;
+            this.gridColumn121.Name = "gridColumn121";
+            this.gridColumn121.OptionsColumn.ShowCaption = false;
+            this.gridColumn121.OptionsFilter.AllowAutoFilter = false;
+            this.gridColumn121.OptionsFilter.AllowFilter = false;
+            this.gridColumn121.Visible = true;
+            this.gridColumn121.VisibleIndex = 5;
+            this.gridColumn121.Width = 50;
+            // 
+            // bSettingTerminal
+            // 
+            this.bSettingTerminal.AutoHeight = false;
+            this.bSettingTerminal.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph)});
+            this.bSettingTerminal.Name = "bSettingTerminal";
+            this.bSettingTerminal.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+            // 
+            // panelControl27
+            // 
+            this.panelControl27.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.panelControl27.Appearance.Options.UseBackColor = true;
+            this.tablePanel46.SetColumn(this.panelControl27, 0);
+            this.panelControl27.Controls.Add(this.tablePanel47);
+            this.panelControl27.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelControl27.Location = new System.Drawing.Point(1, 1);
+            this.panelControl27.Margin = new System.Windows.Forms.Padding(0);
+            this.panelControl27.Name = "panelControl27";
+            this.tablePanel46.SetRow(this.panelControl27, 0);
+            this.panelControl27.Size = new System.Drawing.Size(1213, 45);
+            this.panelControl27.TabIndex = 8;
+            // 
+            // tablePanel47
+            // 
+            this.tablePanel47.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.tablePanel47.Appearance.Options.UseBackColor = true;
+            this.tablePanel47.Columns.AddRange(new DevExpress.Utils.Layout.TablePanelColumn[] {
+            new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 92.17F),
+            new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.AutoSize, 10.13F),
+            new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.AutoSize, 50F)});
+            this.tablePanel47.Controls.Add(this.bTerminalRefresh);
+            this.tablePanel47.Controls.Add(this.bAddTerminal);
+            this.tablePanel47.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tablePanel47.Location = new System.Drawing.Point(2, 2);
+            this.tablePanel47.Margin = new System.Windows.Forms.Padding(0);
+            this.tablePanel47.Name = "tablePanel47";
+            this.tablePanel47.Padding = new System.Windows.Forms.Padding(1);
+            this.tablePanel47.Rows.AddRange(new DevExpress.Utils.Layout.TablePanelRow[] {
+            new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 26F)});
+            this.tablePanel47.Size = new System.Drawing.Size(1209, 41);
+            this.tablePanel47.TabIndex = 0;
+            this.tablePanel47.UseSkinIndents = true;
+            // 
+            // bTerminalRefresh
+            // 
+            this.bTerminalRefresh.AllowFocus = false;
+            this.bTerminalRefresh.Appearance.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Question;
+            this.bTerminalRefresh.Appearance.Font = new System.Drawing.Font("Nunito", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bTerminalRefresh.Appearance.ForeColor = System.Drawing.Color.Black;
+            this.bTerminalRefresh.Appearance.Options.UseBackColor = true;
+            this.bTerminalRefresh.Appearance.Options.UseFont = true;
+            this.bTerminalRefresh.Appearance.Options.UseForeColor = true;
+            this.bTerminalRefresh.AppearanceHovered.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(131)))), ((int)(((byte)(131)))));
+            this.bTerminalRefresh.AppearanceHovered.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(131)))), ((int)(((byte)(131)))));
+            this.bTerminalRefresh.AppearanceHovered.Options.UseBackColor = true;
+            this.bTerminalRefresh.AutoSize = true;
+            this.tablePanel47.SetColumn(this.bTerminalRefresh, 2);
+            this.bTerminalRefresh.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.bTerminalRefresh.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton11.ImageOptions.SvgImage")));
+            this.bTerminalRefresh.ImageOptions.SvgImageSize = new System.Drawing.Size(24, 24);
+            this.bTerminalRefresh.Location = new System.Drawing.Point(1123, 2);
+            this.bTerminalRefresh.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
+            this.bTerminalRefresh.Name = "bTerminalRefresh";
+            this.tablePanel47.SetRow(this.bTerminalRefresh, 0);
+            this.bTerminalRefresh.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
+            this.bTerminalRefresh.Size = new System.Drawing.Size(82, 37);
+            this.bTerminalRefresh.TabIndex = 10;
+            this.bTerminalRefresh.TabStop = false;
+            this.bTerminalRefresh.Text = "Yenilə";
+            // 
+            // bAddTerminal
+            // 
+            this.bAddTerminal.AllowFocus = false;
+            this.bAddTerminal.Appearance.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Success;
+            this.bAddTerminal.Appearance.Font = new System.Drawing.Font("Nunito", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bAddTerminal.Appearance.ForeColor = System.Drawing.Color.Black;
+            this.bAddTerminal.Appearance.Options.UseBackColor = true;
+            this.bAddTerminal.Appearance.Options.UseFont = true;
+            this.bAddTerminal.Appearance.Options.UseForeColor = true;
+            this.bAddTerminal.AppearanceHovered.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(131)))), ((int)(((byte)(131)))));
+            this.bAddTerminal.AppearanceHovered.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(131)))), ((int)(((byte)(131)))));
+            this.bAddTerminal.AppearanceHovered.Options.UseBackColor = true;
+            this.bAddTerminal.AutoSize = true;
+            this.tablePanel47.SetColumn(this.bAddTerminal, 1);
+            this.bAddTerminal.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.bAddTerminal.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton14.ImageOptions.SvgImage")));
+            this.bAddTerminal.ImageOptions.SvgImageSize = new System.Drawing.Size(24, 24);
+            this.bAddTerminal.Location = new System.Drawing.Point(1020, 2);
+            this.bAddTerminal.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
+            this.bAddTerminal.Name = "bAddTerminal";
+            this.tablePanel47.SetRow(this.bAddTerminal, 0);
+            this.bAddTerminal.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
+            this.bAddTerminal.Size = new System.Drawing.Size(97, 37);
+            this.bAddTerminal.TabIndex = 9;
+            this.bAddTerminal.TabStop = false;
+            this.bAddTerminal.Text = "Əlavə et";
+            this.bAddTerminal.Click += new System.EventHandler(this.bAddTerminal_Click);
+            // 
+            // gridColumn119
+            // 
+            this.gridColumn119.Caption = "Status";
+            this.gridColumn119.Name = "gridColumn119";
+            this.gridColumn119.OptionsColumn.AllowEdit = false;
+            this.gridColumn119.OptionsColumn.AllowFocus = false;
+            this.gridColumn119.OptionsFilter.AllowAutoFilter = false;
+            this.gridColumn119.OptionsFilter.AllowFilter = false;
+            this.gridColumn119.Visible = true;
+            this.gridColumn119.VisibleIndex = 4;
             // 
             // fDashboard
             // 
@@ -10290,24 +10604,24 @@
             this.pageMain.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel24)).EndInit();
             this.tablePanel24.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(legend3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(pieSeriesLabel3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(pieSeriesView5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(series9)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(legend4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(pieSeriesLabel4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(pieSeriesView7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series13)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartTop5Product)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(pieSeriesView6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(series10)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(pieSeriesView8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series14)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartControl3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabPane1)).EndInit();
             this.tabPane1.ResumeLayout(false);
             this.tabWeek.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(xyDiagram5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(splineSeriesView3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(series11)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(xyDiagram7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(splineSeriesView4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series15)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartControl1)).EndInit();
             this.tabMonth.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(xyDiagram6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(series12)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(xyDiagram8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series16)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartControlMonth)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl21)).EndInit();
             this.panelControl21.ResumeLayout(false);
@@ -10464,6 +10778,20 @@
             this.tablePanel45.ResumeLayout(false);
             this.tablePanel45.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.popupMainMenu)).EndInit();
+            this.pageTerminals.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.tabPane9)).EndInit();
+            this.tabPane9.ResumeLayout(false);
+            this.tabNavigationPage5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.tablePanel46)).EndInit();
+            this.tablePanel46.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gridControlTerminals)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridTerminals)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bSettingTerminal)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl27)).EndInit();
+            this.panelControl27.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.tablePanel47)).EndInit();
+            this.tablePanel47.ResumeLayout(false);
+            this.tablePanel47.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -10998,5 +11326,22 @@
         private DevExpress.XtraBars.Navigation.TabNavigationPage tabPageRoles;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement38;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement39;
+        private DevExpress.XtraBars.Navigation.NavigationPage pageTerminals;
+        private DevExpress.XtraBars.Navigation.TabPane tabPane9;
+        private DevExpress.XtraBars.Navigation.TabNavigationPage tabNavigationPage5;
+        private DevExpress.Utils.Layout.TablePanel tablePanel46;
+        private DevExpress.XtraGrid.GridControl gridControlTerminals;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridTerminals;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn115;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn116;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn117;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn118;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn121;
+        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit bSettingTerminal;
+        private DevExpress.XtraEditors.PanelControl panelControl27;
+        private DevExpress.Utils.Layout.TablePanel tablePanel47;
+        private DevExpress.XtraEditors.SimpleButton bTerminalRefresh;
+        private DevExpress.XtraEditors.SimpleButton bAddTerminal;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn119;
     }
 }

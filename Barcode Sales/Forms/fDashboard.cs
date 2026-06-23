@@ -188,7 +188,7 @@ namespace Barcode_Sales.Forms
                     var name = (Enums.Week)(((int)day.DayOfWeek + 6) % 7);
                     var totalGain = posSaleOperation?.Where(x => x.SaleDate == day)?.Sum(x => (decimal?)x.Total) ?? 0;
                     string dayName = EnumExtensions.GetEnumDescription(name);
-                    
+
                     return new DashboardStatisticsDto
                     {
                         Day = dayName,
@@ -973,9 +973,10 @@ namespace Barcode_Sales.Forms
                 tablePanel24.Columns[3].Visible = true;
         }
 
-        private void accordionControlElement11_Click(object sender, EventArgs e)
+        private async void accordionControlElement11_Click(object sender, EventArgs e)
         {
-            FormHelpers.OpenForm<fKassalar>();
+            navigationMenu.SelectedPage = pageTerminals;
+            await GetTerminals();
         }
 
         private void accordionControlElement8_Click(object sender, EventArgs e)
@@ -1020,6 +1021,21 @@ namespace Barcode_Sales.Forms
         {
             fTerminalRefundReport f = new fTerminalRefundReport();
             f.Show();
+        }
+
+        private async Task GetTerminals()
+        {
+
+        }
+
+        private void bAddTerminal_Click(object sender, EventArgs e)
+        {
+            fAddTerminal terminal = new fAddTerminal();
+            terminal.FormClosed += async (s, x) =>
+            {
+                await GetTerminals();
+            };
+            terminal.Show();
         }
     }
 }

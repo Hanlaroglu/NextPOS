@@ -47,9 +47,7 @@ namespace Barcode_Sales.Forms
                 var terminal = (Helpers.Enums.Terminal)Enum.Parse(typeof(Helpers.Enums.Terminal), TerminalCacheService.Terminal.Name);
                 switch (terminal)
                 {
-                    case Helpers.Enums.Terminal.Caspos:
-                        break;
-                    case Helpers.Enums.Terminal.Omnitech:
+                    case Helpers.Enums.Terminal.OMNİTECH:
                         OmnnitechTerminal omnitech = new OmnnitechTerminal(TerminalCacheService.Terminal.IpAddress);
 
                         var result = await omnitech.ReceiptCopy(row.LongFiscalId);
@@ -60,14 +58,6 @@ namespace Barcode_Sales.Forms
                         }
                         else
                             NotificationHelpers.Messages.ErrorMessage(this, result.Message);
-                        break;
-                    case Helpers.Enums.Terminal.AzSmart:
-                        break;
-                    case Helpers.Enums.Terminal.Nba:
-                        break;
-                    case Helpers.Enums.Terminal.DataPay:
-                        break;
-                    case Helpers.Enums.Terminal.OneClick:
                         break;
                 }
             }

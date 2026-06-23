@@ -226,11 +226,7 @@ namespace Barcode_Sales.Forms
                 var kassa = (Helpers.Enums.Terminal)Enum.Parse(typeof(Helpers.Enums.Terminal), TerminalCacheService.Terminal.Name);
                 switch (kassa)
                 {
-                    case Helpers.Enums.Terminal.Caspos:
-                        if (NKA.Sunmi.Refund())
-                            DialogResult = DialogResult.OK;
-                        break;
-                    case Helpers.Enums.Terminal.Omnitech:
+                    case Helpers.Enums.Terminal.OMNİTECH:
                         OmnnitechTerminal omnitech = new OmnnitechTerminal(TerminalCacheService.Terminal.IpAddress);
                         var result = await omnitech.Refund(_posRefundDto);
 
@@ -244,16 +240,6 @@ namespace Barcode_Sales.Forms
                             NotificationHelpers.Messages.ErrorMessage(_form, result.Message);
                         DialogResult = DialogResult.OK;
                         break;
-                    case Helpers.Enums.Terminal.AzSmart:
-                        if (NKA.AzSmart.Refund(_refundData))
-                            DialogResult = DialogResult.OK;
-                        break;
-                    case Helpers.Enums.Terminal.Nba:
-                        break;
-                    case Helpers.Enums.Terminal.DataPay:
-                        break;
-                    case Helpers.Enums.Terminal.OneClick:
-                        break;
                 }
                 _items.Clear();
             }
@@ -266,13 +252,7 @@ namespace Barcode_Sales.Forms
                 var kassa = (Helpers.Enums.Terminal)Enum.Parse(typeof(Helpers.Enums.Terminal), TerminalCacheService.Terminal.Name);
                 switch (kassa)
                 {
-                    case Helpers.Enums.Terminal.Caspos:
-                        if (await NKA.Sunmi.Sale(null))
-                        {
-                            DialogResult = DialogResult.OK;
-                        }
-                        break;
-                    case Helpers.Enums.Terminal.Omnitech:
+                    case Helpers.Enums.Terminal.OMNİTECH:
                         OmnnitechTerminal omnitech = new OmnnitechTerminal(TerminalCacheService.Terminal.IpAddress);
                         var result = await omnitech.Rollback(_posRefundDto);
 
@@ -285,14 +265,6 @@ namespace Barcode_Sales.Forms
                         else
                             NotificationHelpers.Messages.ErrorMessage(_form, result.Message);
                         DialogResult = DialogResult.OK;
-                        break;
-                    case Helpers.Enums.Terminal.AzSmart:
-                        break;
-                    case Helpers.Enums.Terminal.Nba:
-                        break;
-                    case Helpers.Enums.Terminal.DataPay:
-                        break;
-                    case Helpers.Enums.Terminal.OneClick:
                         break;
                 }
             }

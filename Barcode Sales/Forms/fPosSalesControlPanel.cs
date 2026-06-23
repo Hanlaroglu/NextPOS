@@ -41,15 +41,7 @@ namespace Barcode_Sales.Forms
 
                     switch (terminal)
                     {
-                        case Enums.Terminal.Caspos:
-                            NKA.Sunmi.Deposit(new NKA.DTOs.NkaDto.DepositDto
-                            {
-                                IpAddress = TerminalCacheService.Terminal.IpAddress,
-                                Amount = _amount,
-                                Cashier = UserCacheService.User?.NameSurname,
-                            });
-                            break;
-                        case Enums.Terminal.Omnitech:
+                        case Enums.Terminal.OMNİTECH:
                             OmnnitechTerminal omnnitech = new OmnnitechTerminal(TerminalCacheService.Terminal.IpAddress);
 
                             var result = omnnitech.Deposit(_amount);
@@ -57,14 +49,6 @@ namespace Barcode_Sales.Forms
                                 NotificationHelpers.Messages.SuccessMessage(this, result.Message);
                             else
                                 NotificationHelpers.Messages.ErrorMessage(this, result.Message);
-                            break;
-                        case Enums.Terminal.AzSmart:
-                            break;
-                        case Enums.Terminal.Nba:
-                            break;
-                        case Enums.Terminal.DataPay:
-                            break;
-                        case Enums.Terminal.OneClick:
                             break;
                     }
                 }
@@ -85,15 +69,7 @@ namespace Barcode_Sales.Forms
 
                     switch (terminal)
                     {
-                        case Enums.Terminal.Caspos:
-                            NKA.Sunmi.Withdraw(new NKA.DTOs.NkaDto.DepositDto
-                            {
-                                IpAddress = TerminalCacheService.Terminal.IpAddress,
-                                Amount = _amount,
-                                Cashier = UserCacheService.User?.NameSurname,
-                            });
-                            break;
-                        case Enums.Terminal.Omnitech:
+                        case Enums.Terminal.OMNİTECH:
                             OmnnitechTerminal omnnitech = new OmnnitechTerminal(TerminalCacheService.Terminal.IpAddress);
 
                             var result = omnnitech.Withdraw(_amount);
@@ -101,14 +77,6 @@ namespace Barcode_Sales.Forms
                                 NotificationHelpers.Messages.SuccessMessage(this, result.Message);
                             else
                                 NotificationHelpers.Messages.ErrorMessage(this, result.Message);
-                            break;
-                        case Enums.Terminal.AzSmart:
-                            break;
-                        case Enums.Terminal.Nba:
-                            break;
-                        case Enums.Terminal.DataPay:
-                            break;
-                        case Enums.Terminal.OneClick:
                             break;
                     }
                 }
@@ -128,10 +96,7 @@ namespace Barcode_Sales.Forms
 
                 switch (terminal)
                 {
-                    case Enums.Terminal.Caspos:
-                        NKA.Sunmi.GetShiftStatus(item);
-                        break;
-                    case Enums.Terminal.Omnitech:
+                    case Enums.Terminal.OMNİTECH:
                         OmnnitechTerminal omnnitech = new OmnnitechTerminal(TerminalCacheService.Terminal.IpAddress);
 
                         var result = omnnitech.GetShiftStatus();
@@ -139,15 +104,6 @@ namespace Barcode_Sales.Forms
                             NotificationHelpers.Messages.InfoMessage(this, result.Message);
                         else
                             NotificationHelpers.Messages.ErrorMessage(this, result.Message);
-                        break;
-                    case Enums.Terminal.AzSmart:
-                        NKA.AzSmart.GetShiftStatus(item);
-                        break;
-                    case Enums.Terminal.Nba:
-                        break;
-                    case Enums.Terminal.DataPay:
-                        break;
-                    case Enums.Terminal.OneClick:
                         break;
                 }
             }
@@ -166,10 +122,7 @@ namespace Barcode_Sales.Forms
 
                 switch (terminal)
                 {
-                    case Enums.Terminal.Caspos:
-                        NKA.Sunmi.CloseShift(item);
-                        break;
-                    case Enums.Terminal.Omnitech:
+                    case Enums.Terminal.OMNİTECH:
                         OmnnitechTerminal omnnitech = new OmnnitechTerminal(TerminalCacheService.Terminal.IpAddress);
 
                         var result = omnnitech.CloseShift();
@@ -177,15 +130,6 @@ namespace Barcode_Sales.Forms
                             NotificationHelpers.Messages.SuccessMessage(this, result.Message);
                         else
                             NotificationHelpers.Messages.ErrorMessage(this, result.Message);
-                        break;
-                    case Enums.Terminal.AzSmart:
-                        NKA.AzSmart.CloseShift(item);
-                        break;
-                    case Enums.Terminal.Nba:
-                        break;
-                    case Enums.Terminal.DataPay:
-                        break;
-                    case Enums.Terminal.OneClick:
                         break;
                 }
             }
@@ -229,10 +173,7 @@ namespace Barcode_Sales.Forms
 
                 switch (terminal)
                 {
-                    case Enums.Terminal.Caspos:
-                       
-                        break;
-                    case Enums.Terminal.Omnitech:
+                    case Enums.Terminal.OMNİTECH:
                         OmnnitechTerminal omnnitech = new OmnnitechTerminal(TerminalCacheService.Terminal.IpAddress);
 
                         var result = omnnitech.XReport();
@@ -240,15 +181,6 @@ namespace Barcode_Sales.Forms
                             NotificationHelpers.Messages.SuccessMessage(this, result.Message);
                         else
                             NotificationHelpers.Messages.ErrorMessage(this, result.Message);
-                        break;
-                    case Enums.Terminal.AzSmart:
-                        NKA.AzSmart.CloseShift(item);
-                        break;
-                    case Enums.Terminal.Nba:
-                        break;
-                    case Enums.Terminal.DataPay:
-                        break;
-                    case Enums.Terminal.OneClick:
                         break;
                 }
             }

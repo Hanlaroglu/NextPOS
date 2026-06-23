@@ -148,22 +148,22 @@ namespace Barcode_Sales.Operations.Concrete
 
             switch (kassa)
             {
-                case Enums.Terminal.Caspos:
+                case Enums.Terminal.CASPOS:
                     terminal.IpAddress = $"http://{terminal.IpAddress}";
                     break;
-                case Enums.Terminal.Omnitech:
+                case Enums.Terminal.OMNİTECH:
                     terminal.IpAddress = $"http://{terminal.IpAddress}/v2";
                     break;
-                case Enums.Terminal.AzSmart:
+                case Enums.Terminal.AZSMART:
                     terminal.IpAddress = $"http://{terminal.IpAddress}";
                     break;
-                case Enums.Terminal.Nba:
+                case Enums.Terminal.NBA:
                     terminal.IpAddress = $"http://{terminal.IpAddress}/api/v1";
                     break;
-                case Enums.Terminal.DataPay:
+                case Enums.Terminal.DATAPAY:
                     terminal.IpAddress = $"http://{terminal.IpAddress}";
                     break;
-                case Enums.Terminal.OneClick:
+                case Enums.Terminal.ONECLICK:
                     terminal.IpAddress = $"http://{terminal.IpAddress}";
                     break;
             }

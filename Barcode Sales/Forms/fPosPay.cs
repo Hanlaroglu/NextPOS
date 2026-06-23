@@ -101,9 +101,9 @@ namespace Barcode_Sales.Forms
                 var terminal = (Helpers.Enums.Terminal)Enum.Parse(typeof(Helpers.Enums.Terminal), TerminalCacheService.Terminal.Name);
                 switch (terminal)
                 {
-                    case Helpers.Enums.Terminal.Caspos:
+                    case Helpers.Enums.Terminal.CASPOS:
                         break;
-                    case Helpers.Enums.Terminal.Omnitech:
+                    case Helpers.Enums.Terminal.OMNİTECH:
                         OmnnitechTerminal omnitech = new OmnnitechTerminal(TerminalCacheService.Terminal.IpAddress);
 
                         var result = await omnitech.Sale(_data);
@@ -117,15 +117,15 @@ namespace Barcode_Sales.Forms
                         else
                             NotificationHelpers.Messages.ErrorMessage(_form, result.Message);
                         break;
-                    case Helpers.Enums.Terminal.AzSmart:
+                    case Helpers.Enums.Terminal.AZSMART:
                         //if (NKA.AzSmart.Sale(_data))
                         //    DialogResult = DialogResult.OK;
                         break;
-                    case Helpers.Enums.Terminal.Nba:
+                    case Helpers.Enums.Terminal.NBA:
                         break;
-                    case Helpers.Enums.Terminal.DataPay:
+                    case Helpers.Enums.Terminal.DATAPAY:
                         break;
-                    case Helpers.Enums.Terminal.OneClick:
+                    case Helpers.Enums.Terminal.ONECLICK:
                         break;
                 }
             }
@@ -154,11 +154,11 @@ namespace Barcode_Sales.Forms
                 var kassa = (Helpers.Enums.Terminal)Enum.Parse(typeof(Helpers.Enums.Terminal), TerminalCacheService.Terminal.Name);
                 switch (kassa)
                 {
-                    case Helpers.Enums.Terminal.Caspos:
+                    case Helpers.Enums.Terminal.CASPOS:
                         //if (NKA.Sunmi.Sale(_data))
                         //    DialogResult = DialogResult.OK;
                         break;
-                    case Helpers.Enums.Terminal.Omnitech:
+                    case Helpers.Enums.Terminal.OMNİTECH:
                         OmnnitechTerminal omnitech = new OmnnitechTerminal(TerminalCacheService.Terminal.IpAddress);
 
                         var result = await omnitech.Sale(_data);
@@ -172,15 +172,15 @@ namespace Barcode_Sales.Forms
                         else
                             NotificationHelpers.Messages.ErrorMessage(_form, result.Message);
                         break;
-                    case Helpers.Enums.Terminal.AzSmart:
+                    case Helpers.Enums.Terminal.AZSMART:
                         //if (NKA.AzSmart.Sale(_data))
                         //    DialogResult = DialogResult.OK;
                         break;
-                    case Helpers.Enums.Terminal.Nba:
+                    case Helpers.Enums.Terminal.NBA:
                         break;
-                    case Helpers.Enums.Terminal.DataPay:
+                    case Helpers.Enums.Terminal.DATAPAY:
                         break;
-                    case Helpers.Enums.Terminal.OneClick:
+                    case Helpers.Enums.Terminal.ONECLICK:
                         break;
                 }
             }
@@ -210,9 +210,7 @@ namespace Barcode_Sales.Forms
                 var kassa = (Helpers.Enums.Terminal)Enum.Parse(typeof(Helpers.Enums.Terminal), TerminalCacheService.Terminal.Name);
                 switch (kassa)
                 {
-                    case Helpers.Enums.Terminal.Caspos:
-                        break;
-                    case Helpers.Enums.Terminal.Omnitech:
+                    case Helpers.Enums.Terminal.OMNİTECH:
                         OmnnitechTerminal omnitech = new OmnnitechTerminal(TerminalCacheService.Terminal.IpAddress);
 
                         var result = await omnitech.Sale(_data);
@@ -225,14 +223,6 @@ namespace Barcode_Sales.Forms
                         }
                         else
                             NotificationHelpers.Messages.ErrorMessage(_form, result.Message);
-                        break;
-                    case Helpers.Enums.Terminal.AzSmart:
-                        break;
-                    case Helpers.Enums.Terminal.Nba:
-                        break;
-                    case Helpers.Enums.Terminal.DataPay:
-                        break;
-                    case Helpers.Enums.Terminal.OneClick:
                         break;
                 }
             }

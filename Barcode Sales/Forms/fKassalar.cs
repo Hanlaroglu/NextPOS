@@ -114,7 +114,7 @@ namespace Barcode_Sales.Forms
 
             if (string.IsNullOrWhiteSpace(tPort.Text))
             {
-                NotificationHelpers.Messages.ErrorMessage(this, "Port nömrəsi daxil edilmədi");
+                NotificationHelpers.Messages.WarningMessage(this, "Port nömrəsi daxil edilmədi");
                 return;
             }
 

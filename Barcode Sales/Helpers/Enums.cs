@@ -68,13 +68,12 @@ namespace Barcode_Sales.Helpers
 
         public enum Terminal
         {
-            Caspos,
-            Omnitech,
-            AzSmart,
-            Nba,
-            DataPay,
-            OneClick,
-            XPrinter
+            CASPOS,
+            OMNİTECH,
+            AZSMART,
+            NBA,
+            DATAPAY,
+            ONECLICK,
         }
 
         public enum BankTerminal
