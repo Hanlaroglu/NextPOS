@@ -19,9 +19,11 @@ namespace Barcode_Sales
         public string IpAddress { get; set; }
         public string MerchantId { get; set; }
         public Nullable<int> StoreID { get; set; }
-        public Nullable<bool> Status { get; set; }
-        public Nullable<int> IsDeleted { get; set; }
         public Nullable<int> UserId { get; set; }
+        public string BankName { get; set; }
+        public string BankPort { get; set; }
+        public bool IsDeleted { get; set; }
+        public bool IsStatus { get; set; }
     
         public virtual Store Store { get; set; }
         public virtual User User { get; set; }

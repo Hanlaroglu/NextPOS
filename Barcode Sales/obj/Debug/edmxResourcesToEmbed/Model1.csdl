@@ -10,7 +10,6 @@
     <EntitySet Name="Stores" EntityType="KhanposDbModel.Store" />
     <EntitySet Name="TaxTypes" EntityType="KhanposDbModel.TaxType" />
     <EntitySet Name="TerminalIncomesAndExpenses" EntityType="KhanposDbModel.TerminalIncomesAndExpens" />
-    <EntitySet Name="Terminals" EntityType="KhanposDbModel.Terminal" />
     <EntitySet Name="UnitTypes" EntityType="KhanposDbModel.UnitType" />
     <EntitySet Name="Warehouses" EntityType="KhanposDbModel.Warehouse" />
     <AssociationSet Name="FK_CustomerPayments_CustomersDebts" Association="KhanposDbModel.FK_CustomerPayments_CustomersDebts">
@@ -20,10 +19,6 @@
     <AssociationSet Name="FK_Stores_Warehouses" Association="KhanposDbModel.FK_Stores_Warehouses">
       <End Role="Warehouse" EntitySet="Warehouses" />
       <End Role="Store" EntitySet="Stores" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Terminals_Stores" Association="KhanposDbModel.FK_Terminals_Stores">
-      <End Role="Store" EntitySet="Stores" />
-      <End Role="Terminal" EntitySet="Terminals" />
     </AssociationSet>
     <EntitySet Name="PosSaleItems" EntityType="KhanposDbModel.PosSaleItem" />
     <EntitySet Name="Products" EntityType="KhanposDbModel.Products" />
@@ -70,10 +65,6 @@
     <AssociationSet Name="FK_Users_Stores" Association="KhanposDbModel.FK_Users_Stores">
       <End Role="Store" EntitySet="Stores" />
       <End Role="User" EntitySet="Users" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Terminals_User" Association="KhanposDbModel.FK_Terminals_User">
-      <End Role="User" EntitySet="Users" />
-      <End Role="Terminal" EntitySet="Terminals" />
     </AssociationSet>
     <EntitySet Name="Roles" EntityType="KhanposDbModel.Role" />
     <AssociationSet Name="FK_Users_Roles" Association="KhanposDbModel.FK_Users_Roles">
@@ -201,6 +192,15 @@
       <End Role="PosBasket" EntitySet="PosBaskets" />
     </AssociationSet>
     <EntitySet Name="view_InvoiceRollbackList" EntityType="KhanposDbModel.view_InvoiceRollbackList" />
+    <EntitySet Name="Terminals" EntityType="KhanposDbModel.Terminal" />
+    <AssociationSet Name="FK_Terminals_Stores" Association="KhanposDbModel.FK_Terminals_Stores">
+      <End Role="Store" EntitySet="Stores" />
+      <End Role="Terminal" EntitySet="Terminals" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Terminals_User" Association="KhanposDbModel.FK_Terminals_User">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Terminal" EntitySet="Terminals" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="CloseShiftReport">
     <Key>
@@ -283,8 +283,8 @@
     <Property Name="Status" Type="Boolean" Nullable="false" />
     <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
     <NavigationProperty Name="Warehouse" Relationship="KhanposDbModel.FK_Stores_Warehouses" FromRole="Store" ToRole="Warehouse" />
-    <NavigationProperty Name="Terminals" Relationship="KhanposDbModel.FK_Terminals_Stores" FromRole="Store" ToRole="Terminal" />
     <NavigationProperty Name="Users" Relationship="KhanposDbModel.FK_Users_Stores" FromRole="Store" ToRole="User" />
+    <NavigationProperty Name="Terminals" Relationship="KhanposDbModel.FK_Terminals_Stores" FromRole="Store" ToRole="Terminal" />
   </EntityType>
   <EntityType Name="TaxType">
     <Key>
@@ -305,21 +305,6 @@
     <Property Name="Amount" Type="Double" />
     <Property Name="Date" Type="DateTime" Precision="0" />
     <Property Name="Time" Type="Time" Precision="7" />
-  </EntityType>
-  <EntityType Name="Terminal">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="IpAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="MerchantId" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-    <Property Name="StoreID" Type="Int32" />
-    <Property Name="Status" Type="Boolean" />
-    <Property Name="IsDeleted" Type="Int32" />
-    <Property Name="UserId" Type="Int32" />
-    <NavigationProperty Name="Store" Relationship="KhanposDbModel.FK_Terminals_Stores" FromRole="Terminal" ToRole="Store" />
-    <NavigationProperty Name="User" Relationship="KhanposDbModel.FK_Terminals_User" FromRole="Terminal" ToRole="User" />
   </EntityType>
   <EntityType Name="UnitType">
     <Key>
@@ -362,18 +347,6 @@
       </Principal>
       <Dependent Role="Store">
         <PropertyRef Name="WarehouseId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Terminals_Stores">
-    <End Type="KhanposDbModel.Store" Role="Store" Multiplicity="0..1" />
-    <End Type="KhanposDbModel.Terminal" Role="Terminal" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Store">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Terminal">
-        <PropertyRef Name="StoreID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -556,13 +529,13 @@
     <NavigationProperty Name="PosRefunds" Relationship="KhanposDbModel.FK_PosRefunds_Users" FromRole="User" ToRole="PosRefund" />
     <NavigationProperty Name="Products" Relationship="KhanposDbModel.FK_Products_Users" FromRole="User" ToRole="Products" />
     <NavigationProperty Name="Store" Relationship="KhanposDbModel.FK_Users_Stores" FromRole="User" ToRole="Store" />
-    <NavigationProperty Name="Terminals" Relationship="KhanposDbModel.FK_Terminals_User" FromRole="User" ToRole="Terminal" />
     <NavigationProperty Name="Role" Relationship="KhanposDbModel.FK_Users_Roles" FromRole="User" ToRole="Role" />
     <NavigationProperty Name="Invoices" Relationship="KhanposDbModel.FK_Invoices_Users" FromRole="User" ToRole="Invoice" />
     <NavigationProperty Name="InvoiceRollbacks" Relationship="KhanposDbModel.FK_InvoiceRollbacks_Users" FromRole="User" ToRole="InvoiceRollback" />
     <NavigationProperty Name="Customers" Relationship="KhanposDbModel.FK_Customers_Users" FromRole="User" ToRole="Customer" />
     <NavigationProperty Name="PosSales" Relationship="KhanposDbModel.FK_PosSales_User" FromRole="User" ToRole="PosSale" />
     <NavigationProperty Name="PosBaskets" Relationship="KhanposDbModel.FK_PosBasket_User" FromRole="User" ToRole="PosBasket" />
+    <NavigationProperty Name="Terminals" Relationship="KhanposDbModel.FK_Terminals_User" FromRole="User" ToRole="Terminal" />
   </EntityType>
   <Association Name="FK_CustomerGroups_Users">
     <End Type="KhanposDbModel.User" Role="User" Multiplicity="1" />
@@ -621,18 +594,6 @@
       </Principal>
       <Dependent Role="User">
         <PropertyRef Name="StoreId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Terminals_User">
-    <End Type="KhanposDbModel.User" Role="User" Multiplicity="0..1" />
-    <End Type="KhanposDbModel.Terminal" Role="Terminal" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="User">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Terminal">
-        <PropertyRef Name="UserId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -1227,4 +1188,45 @@
     <Property Name="Amount" Type="Decimal" Precision="18" Scale="3" />
     <Property Name="ReturnQuantity" Type="Decimal" Nullable="false" Precision="18" Scale="3" />
   </EntityType>
+  <EntityType Name="Terminal">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IpAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MerchantId" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="StoreID" Type="Int32" />
+    <Property Name="UserId" Type="Int32" />
+    <Property Name="BankName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BankPort" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+    <Property Name="IsStatus" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Store" Relationship="KhanposDbModel.FK_Terminals_Stores" FromRole="Terminal" ToRole="Store" />
+    <NavigationProperty Name="User" Relationship="KhanposDbModel.FK_Terminals_User" FromRole="Terminal" ToRole="User" />
+  </EntityType>
+  <Association Name="FK_Terminals_Stores">
+    <End Type="KhanposDbModel.Store" Role="Store" Multiplicity="0..1" />
+    <End Type="KhanposDbModel.Terminal" Role="Terminal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Store">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Terminal">
+        <PropertyRef Name="StoreID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Terminals_User">
+    <End Type="KhanposDbModel.User" Role="User" Multiplicity="0..1" />
+    <End Type="KhanposDbModel.Terminal" Role="Terminal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Terminal">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

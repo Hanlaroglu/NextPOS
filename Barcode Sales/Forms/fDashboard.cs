@@ -31,6 +31,7 @@ namespace Barcode_Sales.Forms
         ICustomerGroupOperation customerGroupOperation = new CustomerGroupManager();
         IPosSaleOperation posSaleOperation = new PosSaleManager();
         IUserOperation userOperation = new UserManager();
+        ITerminalOperation terminalOperation = new TerminalManager();
 
         private GridView _activeGridView;
         public fDashboard()
@@ -426,7 +427,7 @@ namespace Barcode_Sales.Forms
         private async Task StoreDataList()
         {
             var data = await storeOperation.Where(x => x.IsDeleted == false)
-                .Select(x => new StoresDto()
+                .Select(x => new StoresDto
                 {
                     Id = x.Id,
                     WarehouseName = x.Warehouse.Name,
@@ -1025,7 +1026,20 @@ namespace Barcode_Sales.Forms
 
         private async Task GetTerminals()
         {
-
+            var data = await terminalOperation
+                .Where(x => x.IsDeleted == false)
+                .Select(x => new TerminalDto
+                {
+                    Id = x.Id,
+                    Name = x.Name,
+                    IpAddress = x.IpAddress,
+                    BankName = x.BankName,
+                    BankPort = x.BankPort,
+                    IsStatus = x.IsStatus,
+                })
+                .OrderBy(x=> x.Id)
+                .ToListAsync();
+            FormHelpers.ControlLoad(data, gridControlTerminals);
         }
 
         private void bAddTerminal_Click(object sender, EventArgs e)
@@ -1036,6 +1050,11 @@ namespace Barcode_Sales.Forms
                 await GetTerminals();
             };
             terminal.Show();
+        }
+
+        private void gridTerminals_RowCellStyle(object sender, RowCellStyleEventArgs e)
+        {
+            GridViewStatusDisplayColor(gridColumn119, "Aktiv", "Deaktiv", e);
         }
     }
 }

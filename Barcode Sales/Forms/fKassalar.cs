@@ -100,8 +100,8 @@ namespace Barcode_Sales.Forms
                 Name = lookKassa.Text,
                 IpAddress = ipAdress,
                 MerchantId = tMerchantId.Text,
-                Status = true,
-                IsDeleted = 0,
+                IsStatus = true,
+                IsDeleted = false,
                 UserId = userId
             };
 
@@ -240,7 +240,7 @@ namespace Barcode_Sales.Forms
             {
                 int Id = Convert.ToInt32(gridView1.GetFocusedRowCellValue("Id").ToString());
                 var terminal = await terminalOperation.Get(x => x.Id == Id);
-                terminal.IsDeleted = terminal.Id;
+                terminal.IsDeleted = true;
 
                 await terminalOperation.Update(terminal, x => x.IsDeleted);
                 await TerminalsDataLoad();

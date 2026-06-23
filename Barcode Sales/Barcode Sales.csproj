@@ -261,6 +261,7 @@
     <Compile Include="DTOs\StockReportDto.cs" />
     <Compile Include="DTOs\StoresDto.cs" />
     <Compile Include="DTOs\SupplierDto.cs" />
+    <Compile Include="DTOs\TerminalDto.cs" />
     <Compile Include="DTOs\TopSellingProductDto.cs" />
     <Compile Include="DTOs\WarehousesDto.cs" />
     <Compile Include="Forms\Components\controlFooterButton.cs">

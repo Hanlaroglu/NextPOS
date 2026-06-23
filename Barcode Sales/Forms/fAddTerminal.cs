@@ -98,8 +98,9 @@ namespace Barcode_Sales.Forms
                 IpAddress = ipAdress,
                 MerchantId = tMerchantId.Text.TrimStart().Trim(),
                 StoreID = storeId,
-                Status = true,
+                IsStatus = true,
                 UserId = UserCacheService.User.Id,
+                IsDeleted = false
             };
 
             var validator = ValidationHelpers.ValidateMessage(terminal, new TerminalValidation(), this);
@@ -117,11 +118,21 @@ namespace Barcode_Sales.Forms
             if (result > 0)
             {
                 NotificationHelpers.Messages.SuccessMessage(this,"Terminal uğurla əlavə edildi");
-                Close();
+                Clear();
             }
         }
 
-
+        private void Clear()
+        {
+            lookStores.EditValue = null;
+            lookTerminals.EditValue = null;
+            lookBanks.EditValue = null;
+            lookUser.EditValue = null;
+            tIpAddress.Clear();
+            tTerminalPort.Clear();
+            tBankPort.Clear();
+            tMerchantId.Clear();
+        }
 
         private void lookTerminals_TextChanged(object sender, EventArgs e)
         {

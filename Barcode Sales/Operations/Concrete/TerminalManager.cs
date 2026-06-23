@@ -117,19 +117,14 @@ namespace Barcode_Sales.Operations.Concrete
         public async Task<List<Terminal>> ToListAsync(Expression<Func<Terminal, bool>> expression = null)
         {
             if (expression is null)
-                return await db.Terminals.AsNoTracking()
-                                         .Where(x => x.IsDeleted == 0)
-                                         .ToListAsync();
-            else
-                return await db.Terminals.AsNoTracking()
-                                         .Where(x => x.IsDeleted == 0)
-                                         .Where(expression)
-                                         .ToListAsync();
+                return await db.Terminals.AsNoTracking().Where(x => x.IsDeleted == false).ToListAsync();
+
+            return await db.Terminals.AsNoTracking().Where(expression).ToListAsync();
         }
 
         public async Task<Terminal> GetIpAddress()
         {
-            var terminal = await Get(x => x.UserId == UserCacheService.User.Id && x.IsDeleted == 0);
+            var terminal = await Get(x => x.UserId == UserCacheService.User.Id && x.IsDeleted == false);
             fPosSales _form = Application.OpenForms.OfType<fPosSales>().FirstOrDefault();
 
             if (terminal is null)
@@ -138,13 +133,13 @@ namespace Barcode_Sales.Operations.Concrete
                 return null;
             }
 
-            if (terminal.Status is false)
+            if (terminal.IsStatus is false)
             {
                 NotificationHelpers.Messages.WarningMessage(_form, "İstifadəçinin kassa statusu aktiv deyil");
                 return null;
             }
 
-           var kassa = (Enums.Terminal)Enum.Parse(typeof(Enums.Terminal), terminal.Name);
+            var kassa = (Enums.Terminal)Enum.Parse(typeof(Enums.Terminal), terminal.Name);
 
             switch (kassa)
             {
