@@ -49,6 +49,7 @@
             this.colTotals = new DevExpress.XtraGrid.Columns.GridColumn();
             this.chCustomerStatus = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             this.htmlContentControl2 = new DevExpress.XtraEditors.HtmlContentControl();
+            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tSearch.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchView)).BeginInit();
@@ -222,10 +223,10 @@
             // 
             // colBarkod
             // 
-            this.colBarkod.AppearanceCell.Font = new System.Drawing.Font("Comfortaa", 10F);
+            this.colBarkod.AppearanceCell.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.colBarkod.AppearanceCell.Options.UseFont = true;
             this.colBarkod.AppearanceHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.colBarkod.AppearanceHeader.Font = new System.Drawing.Font("Comfortaa SemiBold", 10F, System.Drawing.FontStyle.Bold);
+            this.colBarkod.AppearanceHeader.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
             this.colBarkod.AppearanceHeader.Options.UseBackColor = true;
             this.colBarkod.AppearanceHeader.Options.UseFont = true;
             this.colBarkod.AppearanceHeader.Options.UseTextOptions = true;
@@ -241,10 +242,10 @@
             // 
             // colPName
             // 
-            this.colPName.AppearanceCell.Font = new System.Drawing.Font("Comfortaa", 10F);
+            this.colPName.AppearanceCell.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.colPName.AppearanceCell.Options.UseFont = true;
             this.colPName.AppearanceHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.colPName.AppearanceHeader.Font = new System.Drawing.Font("Comfortaa SemiBold", 10F, System.Drawing.FontStyle.Bold);
+            this.colPName.AppearanceHeader.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
             this.colPName.AppearanceHeader.Options.UseBackColor = true;
             this.colPName.AppearanceHeader.Options.UseFont = true;
             this.colPName.AppearanceHeader.Options.UseTextOptions = true;
@@ -262,12 +263,12 @@
             // 
             // colMiqdar
             // 
-            this.colMiqdar.AppearanceCell.Font = new System.Drawing.Font("Comfortaa", 10F);
+            this.colMiqdar.AppearanceCell.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.colMiqdar.AppearanceCell.Options.UseFont = true;
             this.colMiqdar.AppearanceCell.Options.UseTextOptions = true;
             this.colMiqdar.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.colMiqdar.AppearanceHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.colMiqdar.AppearanceHeader.Font = new System.Drawing.Font("Comfortaa SemiBold", 10F, System.Drawing.FontStyle.Bold);
+            this.colMiqdar.AppearanceHeader.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
             this.colMiqdar.AppearanceHeader.Options.UseBackColor = true;
             this.colMiqdar.AppearanceHeader.Options.UseFont = true;
             this.colMiqdar.AppearanceHeader.Options.UseTextOptions = true;
@@ -285,12 +286,12 @@
             // 
             // colUnit
             // 
-            this.colUnit.AppearanceCell.Font = new System.Drawing.Font("Comfortaa", 10F);
+            this.colUnit.AppearanceCell.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.colUnit.AppearanceCell.Options.UseFont = true;
             this.colUnit.AppearanceCell.Options.UseTextOptions = true;
             this.colUnit.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.colUnit.AppearanceHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.colUnit.AppearanceHeader.Font = new System.Drawing.Font("Comfortaa SemiBold", 10F, System.Drawing.FontStyle.Bold);
+            this.colUnit.AppearanceHeader.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
             this.colUnit.AppearanceHeader.Options.UseBackColor = true;
             this.colUnit.AppearanceHeader.Options.UseFont = true;
             this.colUnit.AppearanceHeader.Options.UseTextOptions = true;
@@ -308,12 +309,12 @@
             // 
             // colSPrice
             // 
-            this.colSPrice.AppearanceCell.Font = new System.Drawing.Font("Comfortaa", 10F);
+            this.colSPrice.AppearanceCell.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.colSPrice.AppearanceCell.Options.UseFont = true;
             this.colSPrice.AppearanceCell.Options.UseTextOptions = true;
             this.colSPrice.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.colSPrice.AppearanceHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.colSPrice.AppearanceHeader.Font = new System.Drawing.Font("Comfortaa SemiBold", 10F, System.Drawing.FontStyle.Bold);
+            this.colSPrice.AppearanceHeader.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
             this.colSPrice.AppearanceHeader.Options.UseBackColor = true;
             this.colSPrice.AppearanceHeader.Options.UseFont = true;
             this.colSPrice.AppearanceHeader.Options.UseTextOptions = true;
@@ -333,12 +334,12 @@
             // 
             // colTotals
             // 
-            this.colTotals.AppearanceCell.Font = new System.Drawing.Font("Comfortaa", 10F);
+            this.colTotals.AppearanceCell.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.colTotals.AppearanceCell.Options.UseFont = true;
             this.colTotals.AppearanceCell.Options.UseTextOptions = true;
             this.colTotals.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.colTotals.AppearanceHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.colTotals.AppearanceHeader.Font = new System.Drawing.Font("Comfortaa SemiBold", 10F, System.Drawing.FontStyle.Bold);
+            this.colTotals.AppearanceHeader.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
             this.colTotals.AppearanceHeader.Options.UseBackColor = true;
             this.colTotals.AppearanceHeader.Options.UseFont = true;
             this.colTotals.AppearanceHeader.Options.UseTextOptions = true;
@@ -372,11 +373,27 @@
             this.htmlContentControl2.Size = new System.Drawing.Size(650, 130);
             this.htmlContentControl2.TabIndex = 22;
             // 
+            // labelControl2
+            // 
+            this.labelControl2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.labelControl2.Appearance.Font = new System.Drawing.Font("Aristotelica Display Trial DmBd", 32.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl2.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(132)))), ((int)(((byte)(255)))));
+            this.labelControl2.Appearance.Options.UseFont = true;
+            this.labelControl2.Appearance.Options.UseForeColor = true;
+            this.labelControl2.Location = new System.Drawing.Point(586, 342);
+            this.labelControl2.Name = "labelControl2";
+            this.labelControl2.Size = new System.Drawing.Size(161, 37);
+            this.labelControl2.TabIndex = 23;
+            this.labelControl2.Text = "Khanpos";
+            // 
             // ftest
             // 
+            this.Appearance.BackColor = System.Drawing.Color.White;
+            this.Appearance.Options.UseBackColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1395, 743);
+            this.Controls.Add(this.labelControl2);
             this.Controls.Add(this.htmlContentControl2);
             this.Controls.Add(this.gridControlBasket);
             this.Controls.Add(this.tSearch);
@@ -392,6 +409,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.chCustomerStatus)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.htmlContentControl2)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -415,5 +433,6 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit chCustomerStatus;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn6;
         private DevExpress.XtraEditors.HtmlContentControl htmlContentControl2;
+        private DevExpress.XtraEditors.LabelControl labelControl2;
     }
 }

@@ -19,6 +19,7 @@ namespace Barcode_Sales
         {
             this.Users = new HashSet<User>();
             this.Terminals = new HashSet<Terminal>();
+            this.Scales = new HashSet<Scale>();
         }
     
         public int Id { get; set; }
@@ -32,5 +33,7 @@ namespace Barcode_Sales
         public virtual ICollection<User> Users { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Terminal> Terminals { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Scale> Scales { get; set; }
     }
 }

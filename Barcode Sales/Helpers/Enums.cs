@@ -88,6 +88,14 @@ namespace Barcode_Sales.Helpers
             UniBank,
         }
 
+        public enum Scale
+        {
+            [Description("RONGTHA RLS 1100")]
+            RongthaRls1100,
+            [Description("MERC LB 1100")]
+            MercLB1100
+        }
+
         public enum PosChangeType
         {
             PriceChange,

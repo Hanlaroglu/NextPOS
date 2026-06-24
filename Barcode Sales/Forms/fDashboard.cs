@@ -32,6 +32,7 @@ namespace Barcode_Sales.Forms
         IPosSaleOperation posSaleOperation = new PosSaleManager();
         IUserOperation userOperation = new UserManager();
         ITerminalOperation terminalOperation = new TerminalManager();
+        IScaleOperation scaleOperation = new ScaleManager();
 
         private GridView _activeGridView;
         public fDashboard()
@@ -559,11 +560,16 @@ namespace Barcode_Sales.Forms
 
         private void bAddProduct_Click(object sender, EventArgs e)
         {
-            FormHelpers.OpenForm<fAddProduct>(Enums.Operation.Add, null);
+            fAddProduct f = new fAddProduct(Operation.Add, null);
+            f.FormClosed += (s, x) =>
+            {
+                GetProducts();
+            };
+            f.Show();
         }
 
         private List<ProductDto> _productList;
-        private async void ProductDataList()
+        private async void GetProducts()
         {
             _productList = await productOperation.Where(x => x.IsDeleted == false)
                                         .Select(x => new ProductDto()
@@ -587,7 +593,7 @@ namespace Barcode_Sales.Forms
 
         private void bProductRefresh_Click(object sender, EventArgs e)
         {
-            ProductDataList();
+            GetProducts();
         }
 
         private void bEditProduct_Click(object sender, EventArgs e)
@@ -630,7 +636,7 @@ namespace Barcode_Sales.Forms
             fAddProduct f = new fAddProduct(Enums.Operation.Edit, data);
             f.FormClosed += (s, x) =>
             {
-                ProductDataList();
+                GetProducts();
             };
             f.ShowDialog();
         }
@@ -881,7 +887,7 @@ namespace Barcode_Sales.Forms
         private void accordionControlElement7_Click(object sender, EventArgs e)
         {
             navigationMenu.SelectedPage = pageProduct;
-            ProductDataList();
+            GetProducts();
         }
 
         private async void accordionControlElement22_Click(object sender, EventArgs e)
@@ -1037,7 +1043,7 @@ namespace Barcode_Sales.Forms
                     BankPort = x.BankPort,
                     IsStatus = x.IsStatus,
                 })
-                .OrderBy(x=> x.Id)
+                .OrderBy(x => x.Id)
                 .ToListAsync();
             FormHelpers.ControlLoad(data, gridControlTerminals);
         }
@@ -1056,5 +1062,45 @@ namespace Barcode_Sales.Forms
         {
             GridViewStatusDisplayColor(gridColumn119, "Aktiv", "Deaktiv", e);
         }
+
+        #region [.. SCALES ..]
+
+        private async void accordionControlElement35_Click(object sender, EventArgs e)
+        {
+            navigationMenu.SelectedPage = pageScales;
+            await GetScales();
+        }
+
+        private async Task GetScales()
+        {
+            var data = await scaleOperation
+                .Where(x => x.IsDeleted == false)
+                .Select(x => new ScaleDto
+                {
+                    IsActive = x.IsActive,
+                })
+                .OrderBy(x => x.Id)
+                .ToListAsync();
+
+            FormHelpers.ControlLoad(data, gridControlScales);
+        }
+
+        private void bAddScale_Click(object sender, EventArgs e)
+        {
+            fAddScale f = new fAddScale();
+            f.FormClosed += async (s, x) =>
+            {
+                await GetScales();
+            };
+        }
+
+        private void gridScales_RowCellStyle(object sender, RowCellStyleEventArgs e)
+        {
+            GridViewStatusDisplayColor(gridColumn127, "Aktiv", "Deaktiv", e);
+        }
+
+        #endregion [.. SCALES ..]
+
+
     }
 }

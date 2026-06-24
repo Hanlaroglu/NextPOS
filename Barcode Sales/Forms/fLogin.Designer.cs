@@ -31,23 +31,26 @@ namespace Barcode_Sales.Forms
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fLogin));
             DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fLogin));
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions3 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject9 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject10 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject11 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject12 = new DevExpress.Utils.SerializableAppearanceObject();
             this.tablePanel1 = new DevExpress.Utils.Layout.TablePanel();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.tablePanel2 = new DevExpress.Utils.Layout.TablePanel();
+            this.hyperlinkLabelControl2 = new DevExpress.XtraEditors.HyperlinkLabelControl();
+            this.lVersion = new DevExpress.XtraEditors.LabelControl();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
+            this.hyperlinkLabelControl1 = new DevExpress.XtraEditors.HyperlinkLabelControl();
             this.bLogin = new DevExpress.XtraEditors.SimpleButton();
             this.chSaveMe = new DevExpress.XtraEditors.CheckEdit();
             this.tPassword = new DevExpress.XtraEditors.ButtonEdit();
@@ -55,12 +58,9 @@ namespace Barcode_Sales.Forms
             this.labelControl21 = new DevExpress.XtraEditors.LabelControl();
             this.tUsername = new DevExpress.XtraEditors.ButtonEdit();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
-            this.hyperlinkLabelControl1 = new DevExpress.XtraEditors.HyperlinkLabelControl();
-            this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
-            this.lVersion = new DevExpress.XtraEditors.LabelControl();
-            this.hyperlinkLabelControl2 = new DevExpress.XtraEditors.HyperlinkLabelControl();
+            this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel1)).BeginInit();
             this.tablePanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
@@ -122,6 +122,47 @@ namespace Barcode_Sales.Forms
             this.tablePanel2.Size = new System.Drawing.Size(624, 32);
             this.tablePanel2.TabIndex = 11;
             // 
+            // hyperlinkLabelControl2
+            // 
+            this.hyperlinkLabelControl2.Appearance.Font = new System.Drawing.Font("Nunito", 12F);
+            this.hyperlinkLabelControl2.Appearance.Options.UseFont = true;
+            this.hyperlinkLabelControl2.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.tablePanel2.SetColumn(this.hyperlinkLabelControl2, 0);
+            this.hyperlinkLabelControl2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.hyperlinkLabelControl2.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+            this.hyperlinkLabelControl2.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("hyperlinkLabelControl2.ImageOptions.SvgImage")));
+            this.hyperlinkLabelControl2.ImageOptions.SvgImageColorizationMode = DevExpress.Utils.SvgImageColorizationMode.None;
+            this.hyperlinkLabelControl2.ImageOptions.SvgImageSize = new System.Drawing.Size(24, 24);
+            this.hyperlinkLabelControl2.Location = new System.Drawing.Point(3, 3);
+            this.hyperlinkLabelControl2.Name = "hyperlinkLabelControl2";
+            this.tablePanel2.SetRow(this.hyperlinkLabelControl2, 0);
+            this.hyperlinkLabelControl2.Size = new System.Drawing.Size(306, 26);
+            this.hyperlinkLabelControl2.TabIndex = 12;
+            this.hyperlinkLabelControl2.Text = "+994702008816";
+            // 
+            // lVersion
+            // 
+            this.lVersion.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.lVersion.Appearance.Font = new System.Drawing.Font("Nunito", 12F);
+            this.lVersion.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(36)))));
+            this.lVersion.Appearance.Options.UseBackColor = true;
+            this.lVersion.Appearance.Options.UseFont = true;
+            this.lVersion.Appearance.Options.UseForeColor = true;
+            this.lVersion.Appearance.Options.UseTextOptions = true;
+            this.lVersion.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.lVersion.Appearance.TextOptions.Trimming = DevExpress.Utils.Trimming.EllipsisCharacter;
+            this.lVersion.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.lVersion.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.lVersion.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.tablePanel2.SetColumn(this.lVersion, 1);
+            this.lVersion.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lVersion.Location = new System.Drawing.Point(315, 3);
+            this.lVersion.Name = "lVersion";
+            this.tablePanel2.SetRow(this.lVersion, 0);
+            this.lVersion.Size = new System.Drawing.Size(306, 26);
+            this.lVersion.TabIndex = 7;
+            this.lVersion.Text = "V";
+            // 
             // labelControl3
             // 
             this.labelControl3.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -171,6 +212,17 @@ namespace Barcode_Sales.Forms
             this.panelControl3.Size = new System.Drawing.Size(425, 282);
             this.panelControl3.TabIndex = 0;
             // 
+            // hyperlinkLabelControl1
+            // 
+            this.hyperlinkLabelControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.hyperlinkLabelControl1.Appearance.Font = new System.Drawing.Font("Nunito", 12F);
+            this.hyperlinkLabelControl1.Appearance.Options.UseFont = true;
+            this.hyperlinkLabelControl1.Location = new System.Drawing.Point(297, 175);
+            this.hyperlinkLabelControl1.Name = "hyperlinkLabelControl1";
+            this.hyperlinkLabelControl1.Size = new System.Drawing.Size(121, 22);
+            this.hyperlinkLabelControl1.TabIndex = 12;
+            this.hyperlinkLabelControl1.Text = "Şifrəmi unutdum";
+            // 
             // bLogin
             // 
             this.bLogin.AllowFocus = false;
@@ -211,12 +263,12 @@ namespace Barcode_Sales.Forms
             this.tPassword.Properties.AllowFocused = false;
             this.tPassword.Properties.Appearance.Font = new System.Drawing.Font("Nunito", 14F);
             this.tPassword.Properties.Appearance.Options.UseFont = true;
-            editorButtonImageOptions1.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("editorButtonImageOptions1.SvgImage")));
-            editorButtonImageOptions1.SvgImageSize = new System.Drawing.Size(24, 24);
-            serializableAppearanceObject1.Font = new System.Drawing.Font("Nunito", 9F);
-            serializableAppearanceObject1.Options.UseFont = true;
+            editorButtonImageOptions2.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("editorButtonImageOptions2.SvgImage")));
+            editorButtonImageOptions2.SvgImageSize = new System.Drawing.Size(24, 24);
+            serializableAppearanceObject5.Font = new System.Drawing.Font("Nunito", 9F);
+            serializableAppearanceObject5.Options.UseFont = true;
             this.tPassword.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, true, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, true, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.tPassword.Properties.NullValuePrompt = "Şifrə";
             this.tPassword.Properties.UseSystemPasswordChar = true;
             this.tPassword.Size = new System.Drawing.Size(407, 40);
@@ -269,10 +321,10 @@ namespace Barcode_Sales.Forms
             this.tUsername.Properties.AllowFocused = false;
             this.tUsername.Properties.Appearance.Font = new System.Drawing.Font("Nunito", 14F);
             this.tUsername.Properties.Appearance.Options.UseFont = true;
-            editorButtonImageOptions2.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("editorButtonImageOptions2.SvgImage")));
-            editorButtonImageOptions2.SvgImageSize = new System.Drawing.Size(24, 24);
+            editorButtonImageOptions3.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("editorButtonImageOptions3.SvgImage")));
+            editorButtonImageOptions3.SvgImageSize = new System.Drawing.Size(24, 24);
             this.tUsername.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, true, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, true, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.tUsername.Properties.NullValuePrompt = "İstifadəçi adı";
             this.tUsername.Size = new System.Drawing.Size(407, 40);
             this.tUsername.TabIndex = 2;
@@ -297,29 +349,18 @@ namespace Barcode_Sales.Forms
             this.panelControl1.Size = new System.Drawing.Size(630, 760);
             this.panelControl1.TabIndex = 0;
             // 
-            // hyperlinkLabelControl1
+            // labelControl7
             // 
-            this.hyperlinkLabelControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.hyperlinkLabelControl1.Appearance.Font = new System.Drawing.Font("Nunito", 12F);
-            this.hyperlinkLabelControl1.Appearance.Options.UseFont = true;
-            this.hyperlinkLabelControl1.Location = new System.Drawing.Point(297, 175);
-            this.hyperlinkLabelControl1.Name = "hyperlinkLabelControl1";
-            this.hyperlinkLabelControl1.Size = new System.Drawing.Size(121, 22);
-            this.hyperlinkLabelControl1.TabIndex = 12;
-            this.hyperlinkLabelControl1.Text = "Şifrəmi unutdum";
-            // 
-            // labelControl5
-            // 
-            this.labelControl5.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.labelControl5.Appearance.Font = new System.Drawing.Font("Nunito Black", 32F);
-            this.labelControl5.Appearance.ForeColor = System.Drawing.Color.White;
-            this.labelControl5.Appearance.Options.UseFont = true;
-            this.labelControl5.Appearance.Options.UseForeColor = true;
-            this.labelControl5.Location = new System.Drawing.Point(204, 273);
-            this.labelControl5.Name = "labelControl5";
-            this.labelControl5.Size = new System.Drawing.Size(223, 59);
-            this.labelControl5.TabIndex = 9;
-            this.labelControl5.Text = "KHANPOS";
+            this.labelControl7.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.labelControl7.Appearance.Font = new System.Drawing.Font("Nunito", 16F, System.Drawing.FontStyle.Bold);
+            this.labelControl7.Appearance.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.labelControl7.Appearance.Options.UseFont = true;
+            this.labelControl7.Appearance.Options.UseForeColor = true;
+            this.labelControl7.Location = new System.Drawing.Point(204, 404);
+            this.labelControl7.Name = "labelControl7";
+            this.labelControl7.Size = new System.Drawing.Size(200, 29);
+            this.labelControl7.TabIndex = 9;
+            this.labelControl7.Text = "⚡      Sürətli interfeys";
             // 
             // labelControl6
             // 
@@ -334,68 +375,27 @@ namespace Barcode_Sales.Forms
             this.labelControl6.TabIndex = 9;
             this.labelControl6.Text = "Anbar və satış idarə etmə sistemi";
             // 
-            // labelControl7
+            // labelControl5
             // 
-            this.labelControl7.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.labelControl7.Appearance.Font = new System.Drawing.Font("Nunito", 16F, System.Drawing.FontStyle.Bold);
-            this.labelControl7.Appearance.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.labelControl7.Appearance.Options.UseFont = true;
-            this.labelControl7.Appearance.Options.UseForeColor = true;
-            this.labelControl7.Location = new System.Drawing.Point(204, 404);
-            this.labelControl7.Name = "labelControl7";
-            this.labelControl7.Size = new System.Drawing.Size(200, 29);
-            this.labelControl7.TabIndex = 9;
-            this.labelControl7.Text = "⚡      Sürətli interfeys";
+            this.labelControl5.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.labelControl5.Appearance.Font = new System.Drawing.Font("Aristotelica Display Trial DmBd", 58F);
+            this.labelControl5.Appearance.ForeColor = System.Drawing.Color.White;
+            this.labelControl5.Appearance.Options.UseFont = true;
+            this.labelControl5.Appearance.Options.UseForeColor = true;
+            this.labelControl5.Location = new System.Drawing.Point(165, 276);
+            this.labelControl5.Name = "labelControl5";
+            this.labelControl5.Size = new System.Drawing.Size(283, 65);
+            this.labelControl5.TabIndex = 9;
+            this.labelControl5.Text = "Khanpos";
             // 
-            // lVersion
-            // 
-            this.lVersion.Appearance.BackColor = System.Drawing.Color.Transparent;
-            this.lVersion.Appearance.Font = new System.Drawing.Font("Nunito", 12F);
-            this.lVersion.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(36)))));
-            this.lVersion.Appearance.Options.UseBackColor = true;
-            this.lVersion.Appearance.Options.UseFont = true;
-            this.lVersion.Appearance.Options.UseForeColor = true;
-            this.lVersion.Appearance.Options.UseTextOptions = true;
-            this.lVersion.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-            this.lVersion.Appearance.TextOptions.Trimming = DevExpress.Utils.Trimming.EllipsisCharacter;
-            this.lVersion.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.lVersion.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.lVersion.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.tablePanel2.SetColumn(this.lVersion, 1);
-            this.lVersion.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lVersion.Location = new System.Drawing.Point(315, 3);
-            this.lVersion.Name = "lVersion";
-            this.tablePanel2.SetRow(this.lVersion, 0);
-            this.lVersion.Size = new System.Drawing.Size(306, 26);
-            this.lVersion.TabIndex = 7;
-            this.lVersion.Text = "V";
-            // 
-            // hyperlinkLabelControl2
-            // 
-            this.hyperlinkLabelControl2.Appearance.Font = new System.Drawing.Font("Nunito", 12F);
-            this.hyperlinkLabelControl2.Appearance.Options.UseFont = true;
-            this.hyperlinkLabelControl2.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.tablePanel2.SetColumn(this.hyperlinkLabelControl2, 0);
-            this.hyperlinkLabelControl2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.hyperlinkLabelControl2.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.hyperlinkLabelControl2.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("hyperlinkLabelControl2.ImageOptions.SvgImage")));
-            this.hyperlinkLabelControl2.ImageOptions.SvgImageColorizationMode = DevExpress.Utils.SvgImageColorizationMode.None;
-            this.hyperlinkLabelControl2.ImageOptions.SvgImageSize = new System.Drawing.Size(24, 24);
-            this.hyperlinkLabelControl2.Location = new System.Drawing.Point(3, 3);
-            this.hyperlinkLabelControl2.Name = "hyperlinkLabelControl2";
-            this.tablePanel2.SetRow(this.hyperlinkLabelControl2, 0);
-            this.hyperlinkLabelControl2.Size = new System.Drawing.Size(306, 26);
-            this.hyperlinkLabelControl2.TabIndex = 12;
-            this.hyperlinkLabelControl2.Text = "+994702008816";
-            // 
-            // fLoginDemo
+            // fLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(1259, 760);
             this.Controls.Add(this.tablePanel1);
             this.KeyPreview = true;
-            this.Name = "fLoginDemo";
+            this.Name = "fLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "KhanPOS - GİRİŞ";
             this.Load += new System.EventHandler(this.fLoginDemo_Load);

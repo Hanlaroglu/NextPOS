@@ -57,5 +57,6 @@ namespace Barcode_Sales
         public virtual DbSet<PosBasket> PosBaskets { get; set; }
         public virtual DbSet<view_InvoiceRollbackList> view_InvoiceRollbackList { get; set; }
         public virtual DbSet<Terminal> Terminals { get; set; }
+        public virtual DbSet<Scale> Scales { get; set; }
     }
 }

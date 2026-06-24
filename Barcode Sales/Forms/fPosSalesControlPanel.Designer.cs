@@ -56,6 +56,7 @@
             this.bDevices.Appearance.Font = new System.Drawing.Font("Nunito", 12F, System.Drawing.FontStyle.Bold);
             this.bDevices.Appearance.Options.UseBackColor = true;
             this.bDevices.Appearance.Options.UseFont = true;
+            this.bDevices.Enabled = false;
             this.bDevices.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
             this.bDevices.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bDevices.ImageOptions.SvgImage")));
             this.bDevices.Location = new System.Drawing.Point(10, 30);
@@ -106,6 +107,7 @@
             this.bSupport.Appearance.Font = new System.Drawing.Font("Nunito", 12F, System.Drawing.FontStyle.Bold);
             this.bSupport.Appearance.Options.UseBackColor = true;
             this.bSupport.Appearance.Options.UseFont = true;
+            this.bSupport.Enabled = false;
             this.bSupport.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
             this.bSupport.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bSupport.ImageOptions.SvgImage")));
             this.bSupport.Location = new System.Drawing.Point(372, 30);
@@ -124,6 +126,7 @@
             this.bCashDrawerOpen.Appearance.Font = new System.Drawing.Font("Nunito", 12F, System.Drawing.FontStyle.Bold);
             this.bCashDrawerOpen.Appearance.Options.UseBackColor = true;
             this.bCashDrawerOpen.Appearance.Options.UseFont = true;
+            this.bCashDrawerOpen.Enabled = false;
             this.bCashDrawerOpen.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
             this.bCashDrawerOpen.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bCashDrawerOpen.ImageOptions.SvgImage")));
             this.bCashDrawerOpen.Location = new System.Drawing.Point(191, 30);
@@ -141,6 +144,7 @@
             this.bKassaEmeliyyatlari.Appearance.Font = new System.Drawing.Font("Nunito", 12F, System.Drawing.FontStyle.Bold);
             this.bKassaEmeliyyatlari.Appearance.Options.UseBackColor = true;
             this.bKassaEmeliyyatlari.Appearance.Options.UseFont = true;
+            this.bKassaEmeliyyatlari.Enabled = false;
             this.bKassaEmeliyyatlari.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
             this.bKassaEmeliyyatlari.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bKassaEmeliyyatlari.ImageOptions.SvgImage")));
             this.bKassaEmeliyyatlari.Location = new System.Drawing.Point(372, 100);
@@ -175,6 +179,7 @@
             this.bReport.Appearance.Font = new System.Drawing.Font("Nunito", 12F, System.Drawing.FontStyle.Bold);
             this.bReport.Appearance.Options.UseBackColor = true;
             this.bReport.Appearance.Options.UseFont = true;
+            this.bReport.Enabled = false;
             this.bReport.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
             this.bReport.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bReport.ImageOptions.SvgImage")));
             this.bReport.Location = new System.Drawing.Point(191, 100);

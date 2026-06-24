@@ -79,6 +79,9 @@
         <EntityTypeShape EntityType="KhanposDbModel.Terminal" Width="1.5" PointX="7.5" PointY="32.625" />
         <AssociationConnector Association="KhanposDbModel.FK_Terminals_Stores" />
         <AssociationConnector Association="KhanposDbModel.FK_Terminals_User" />
+        <EntityTypeShape EntityType="KhanposDbModel.Scale" Width="1.5" PointX="12.5" PointY="38.875" />
+        <AssociationConnector Association="KhanposDbModel.FK_Scales_Stores" />
+        <AssociationConnector Association="KhanposDbModel.FK_Scales_Users" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -299,6 +299,20 @@
           <Property Name="Admin" Type="bit" Nullable="false" />
           <Property Name="Cashier" Type="bit" Nullable="false" />
         </EntityType>
+        <EntityType Name="Scales">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StoreId" Type="int" Nullable="false" />
+          <Property Name="ModelName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="IpAddress" Type="nvarchar" MaxLength="50" />
+          <Property Name="FilePath" Type="nvarchar(max)" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="CreatedUserId" Type="int" Nullable="false" />
+        </EntityType>
         <EntityType Name="Stores">
           <Key>
             <PropertyRef Name="Id" />
@@ -386,8 +400,8 @@
           <Property Name="UserId" Type="int" />
           <Property Name="BankName" Type="nvarchar" MaxLength="50" />
           <Property Name="BankPort" Type="nvarchar" MaxLength="10" />
-          <Property Name="IsDeleted" Type="bit" Nullable="false" />
           <Property Name="IsStatus" Type="bit" Nullable="false" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="UnitTypes">
           <Key>
@@ -856,6 +870,30 @@ warning 6002: The table/view 'KhanposDb.dbo.view_InvoiceRollbackList' does not h
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Scales_Stores">
+          <End Role="Stores" Type="Self.Stores" Multiplicity="1" />
+          <End Role="Scales" Type="Self.Scales" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Stores">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Scales">
+              <PropertyRef Name="StoreId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Scales_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="Scales" Type="Self.Scales" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Scales">
+              <PropertyRef Name="CreatedUserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Stores_Warehouses">
           <End Role="Warehouses" Type="Self.Warehouses" Multiplicity="1" />
           <End Role="Stores" Type="Self.Stores" Multiplicity="*" />
@@ -974,6 +1012,7 @@ warning 6002: The table/view 'KhanposDb.dbo.view_InvoiceRollbackList' does not h
           <EntitySet Name="PosSales" EntityType="Self.PosSales" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Products" EntityType="Self.Products" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Scales" EntityType="Self.Scales" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Stores" EntityType="Self.Stores" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SupplierPayments" EntityType="Self.SupplierPayments" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Suppliers" EntityType="Self.Suppliers" Schema="dbo" store:Type="Tables" />
@@ -1136,6 +1175,14 @@ warning 6002: The table/view 'KhanposDb.dbo.view_InvoiceRollbackList' does not h
           <AssociationSet Name="FK_Products_Users" Association="Self.FK_Products_Users">
             <End Role="Users" EntitySet="Users" />
             <End Role="Products" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Scales_Stores" Association="Self.FK_Scales_Stores">
+            <End Role="Stores" EntitySet="Stores" />
+            <End Role="Scales" EntitySet="Scales" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Scales_Users" Association="Self.FK_Scales_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Scales" EntitySet="Scales" />
           </AssociationSet>
           <AssociationSet Name="FK_Stores_Warehouses" Association="Self.FK_Stores_Warehouses">
             <End Role="Warehouses" EntitySet="Warehouses" />
@@ -1375,6 +1422,15 @@ warning 6002: The table/view 'KhanposDb.dbo.view_InvoiceRollbackList' does not h
             <End Role="User" EntitySet="Users" />
             <End Role="Terminal" EntitySet="Terminals" />
           </AssociationSet>
+          <EntitySet Name="Scales" EntityType="KhanposDbModel.Scale" />
+          <AssociationSet Name="FK_Scales_Stores" Association="KhanposDbModel.FK_Scales_Stores">
+            <End Role="Store" EntitySet="Stores" />
+            <End Role="Scale" EntitySet="Scales" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Scales_Users" Association="KhanposDbModel.FK_Scales_Users">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Scale" EntitySet="Scales" />
+          </AssociationSet>
           </EntityContainer>
         <EntityType Name="CloseShiftReport">
           <Key>
@@ -1459,6 +1515,7 @@ warning 6002: The table/view 'KhanposDb.dbo.view_InvoiceRollbackList' does not h
           <NavigationProperty Name="Warehouse" Relationship="KhanposDbModel.FK_Stores_Warehouses" FromRole="Store" ToRole="Warehouse" />
           <NavigationProperty Name="Users" Relationship="KhanposDbModel.FK_Users_Stores" FromRole="Store" ToRole="User" />
           <NavigationProperty Name="Terminals" Relationship="KhanposDbModel.FK_Terminals_Stores" FromRole="Store" ToRole="Terminal" />
+          <NavigationProperty Name="Scales" Relationship="KhanposDbModel.FK_Scales_Stores" FromRole="Store" ToRole="Scale" />
         </EntityType>
         <EntityType Name="TaxType">
           <Key>
@@ -1710,6 +1767,7 @@ warning 6002: The table/view 'KhanposDb.dbo.view_InvoiceRollbackList' does not h
           <NavigationProperty Name="PosSales" Relationship="KhanposDbModel.FK_PosSales_User" FromRole="User" ToRole="PosSale" />
           <NavigationProperty Name="PosBaskets" Relationship="KhanposDbModel.FK_PosBasket_User" FromRole="User" ToRole="PosBasket" />
           <NavigationProperty Name="Terminals" Relationship="KhanposDbModel.FK_Terminals_User" FromRole="User" ToRole="Terminal" />
+          <NavigationProperty Name="Scales" Relationship="KhanposDbModel.FK_Scales_Users" FromRole="User" ToRole="Scale" />
         </EntityType>
         <Association Name="FK_CustomerGroups_Users">
           <End Type="KhanposDbModel.User" Role="User" Multiplicity="1" />
@@ -2403,6 +2461,46 @@ warning 6002: The table/view 'KhanposDb.dbo.view_InvoiceRollbackList' does not h
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Scale">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StoreId" Type="Int32" Nullable="false" />
+          <Property Name="ModelName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IpAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FilePath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedUserId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Store" Relationship="KhanposDbModel.FK_Scales_Stores" FromRole="Scale" ToRole="Store" />
+          <NavigationProperty Name="User" Relationship="KhanposDbModel.FK_Scales_Users" FromRole="Scale" ToRole="User" />
+        </EntityType>
+        <Association Name="FK_Scales_Stores">
+          <End Type="KhanposDbModel.Store" Role="Store" Multiplicity="1" />
+          <End Type="KhanposDbModel.Scale" Role="Scale" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Store">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Scale">
+              <PropertyRef Name="StoreId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Scales_Users">
+          <End Type="KhanposDbModel.User" Role="User" Multiplicity="1" />
+          <End Type="KhanposDbModel.Scale" Role="Scale" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Scale">
+              <PropertyRef Name="CreatedUserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -2871,6 +2969,21 @@ warning 6002: The table/view 'KhanposDb.dbo.view_InvoiceRollbackList' does not h
                 <ScalarProperty Name="MerchantId" ColumnName="MerchantId" />
                 <ScalarProperty Name="IpAddress" ColumnName="IpAddress" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Scales">
+            <EntityTypeMapping TypeName="KhanposDbModel.Scale">
+              <MappingFragment StoreEntitySet="Scales">
+                <ScalarProperty Name="CreatedUserId" ColumnName="CreatedUserId" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="FilePath" ColumnName="FilePath" />
+                <ScalarProperty Name="IpAddress" ColumnName="IpAddress" />
+                <ScalarProperty Name="ModelName" ColumnName="ModelName" />
+                <ScalarProperty Name="StoreId" ColumnName="StoreId" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
