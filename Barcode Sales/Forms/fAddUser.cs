@@ -27,6 +27,16 @@ namespace Barcode_Sales.Forms
         {
             await GetStores();
             await GetRoles();
+            await GetUser();
+        }
+
+        private async Task GetUser()
+        {
+            lookStores.EditValue = _user.StoreId;
+            lookStores.Enabled = false;
+            lookRole.EditValue = _user.RoleId;
+            tUsername.Text = _user.Username;
+            
         }
 
         private async Task GetStores()

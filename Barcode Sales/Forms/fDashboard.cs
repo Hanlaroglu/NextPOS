@@ -2,10 +2,8 @@
 using Barcode_Sales.Helpers;
 using Barcode_Sales.Operations.Abstract;
 using Barcode_Sales.Operations.Concrete;
-using DevExpress.XtraBars.ToolbarForm;
 using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Controls;
-using DevExpress.XtraGrid.Columns;
 using DevExpress.XtraGrid.Views.Grid;
 using System;
 using System.Collections.Generic;
@@ -84,6 +82,8 @@ namespace Barcode_Sales.Forms
                     CustomerEdit();
                 else if (navigationMenu.SelectedPage == pageCustomerGroups)
                     CustomerGroupEdit();
+                else if (navigationMenu.SelectedPage == pageTerminals)
+                    TerminalEdit();
             }
             catch (Exception ex)
             {
@@ -109,7 +109,8 @@ namespace Barcode_Sales.Forms
                     await CustomerDelete();
                 else if (navigationMenu.SelectedPage == pageCustomerGroups)
                     await CustomerGroupDelete();
-
+                else if (navigationMenu.SelectedPage == pageTerminals)
+                    await TerminalDelete();
             }
             catch (Exception ex)
             {
@@ -818,8 +819,6 @@ namespace Barcode_Sales.Forms
                 await CustomerDataListAsync();
                 NotificationHelpers.Messages.SuccessMessage(this, $"{data.NameSurname} müştərisi uğurla silindi");
             }
-
-
         }
 
         #region [.. CUSTOMERS GROUP ..]
@@ -1038,6 +1037,7 @@ namespace Barcode_Sales.Forms
                 {
                     Id = x.Id,
                     Name = x.Name,
+                    CashierName = x.User.NameSurname,
                     IpAddress = x.IpAddress,
                     BankName = x.BankName,
                     BankPort = x.BankPort,
@@ -1050,7 +1050,7 @@ namespace Barcode_Sales.Forms
 
         private void bAddTerminal_Click(object sender, EventArgs e)
         {
-            fAddTerminal terminal = new fAddTerminal();
+            fAddTerminal terminal = new fAddTerminal(Operation.Add);
             terminal.FormClosed += async (s, x) =>
             {
                 await GetTerminals();
@@ -1099,8 +1099,52 @@ namespace Barcode_Sales.Forms
             GridViewStatusDisplayColor(gridColumn127, "Aktiv", "Deaktiv", e);
         }
 
+
         #endregion [.. SCALES ..]
 
+        private void bSettingTerminal_ButtonClick(object sender, ButtonPressedEventArgs e)
+        {
+            PopupShow();
+        }
 
+        private void bScalesSettings_ButtonClick(object sender, ButtonPressedEventArgs e)
+        {
+            PopupShow();
+        }
+
+        private async void TerminalEdit()
+        {
+            var row = gridTerminals.GetFocusedRow() as TerminalDto;
+            if (row is null) return;
+
+            var data = await terminalOperation.Get(x => x.Id == row.Id);
+            if (data is null)
+                return;
+
+            fAddTerminal f = new fAddTerminal(Enums.Operation.Edit, data);
+            f.FormClosed += async (s, x) =>
+            {
+                await GetTerminals();
+            };
+            f.ShowDialog();
+        }
+
+        private async Task TerminalDelete()
+        {
+            var Id = gridTerminals.GetFocusedRowCellValue("Id");
+            if (Id == null) return;
+
+            var data = await terminalOperation.Get(x => x.Id == (int)Id);
+
+            var args = NotificationHelpers.Dialogs.DialogResultYesNo(
+                $"{data.IpAddress.Split(':')[0]} adresli {data.Name} kassasını silmək istədiyinizə əminsiniz ?", String.Empty);
+            var result = XtraMessageBox.Show(args);
+
+            if (result is DialogResult.Yes && await terminalOperation.Remove(data))
+            {
+                await GetTerminals();
+                NotificationHelpers.Messages.SuccessMessage(this, $"Kassa uğurla silindi");
+            }
+        }
     }
 }

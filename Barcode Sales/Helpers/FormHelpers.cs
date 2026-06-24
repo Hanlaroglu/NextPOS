@@ -202,8 +202,6 @@ namespace Barcode_Sales.Helpers
             }
         }
 
-       
-
         public static bool PingHostAsync(string host)
         {
             using (Ping ping = new Ping())

@@ -50,7 +50,7 @@ namespace Barcode_Sales.Operations.Concrete
 
         public async Task<Terminal> Get(Expression<Func<Terminal, bool>> expression)
         {
-            return await db.Terminals.FirstOrDefaultAsync(expression);
+            return await db.Terminals.AsNoTracking().FirstOrDefaultAsync(expression);
         }
 
         public async Task<bool> Update(Terminal item, params Expression<Func<Terminal, object>>[] updateProperties)
@@ -64,8 +64,9 @@ namespace Barcode_Sales.Operations.Concrete
 
                 return await db.SaveChangesAsync() > 0;
             }
-            catch
+            catch (Exception ex)
             {
+                throw ex;
                 return false;
             }
         }
@@ -103,10 +104,15 @@ namespace Barcode_Sales.Operations.Concrete
         {
             try
             {
-                db.Set<Terminal>().Remove(item);
+                item.IsDeleted = true;
+                db.Terminals.Attach(item);
+                db.Entry(item).Property(x => x.IsDeleted).IsModified = true;
                 return await db.SaveChangesAsync() > 0;
             }
-            catch { return false; }
+            catch
+            {
+                return false;
+            }
         }
 
         public IQueryable<Terminal> Where(Expression<Func<Terminal, bool>> expression)

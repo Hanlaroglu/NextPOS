@@ -16,6 +16,7 @@ using DevExpress.XtraLayout.Utils;
 using System.Net;
 using Barcode_Sales.Services.CacheServices;
 using Barcode_Sales.Validations;
+using static Barcode_Sales.Helpers.Enums;
 
 namespace Barcode_Sales.Forms
 {
@@ -24,9 +25,14 @@ namespace Barcode_Sales.Forms
         IStoreOperation storeOperation = new StoreManager();
         IUserOperation userOperation = new UserManager();
         ITerminalOperation terminalOperation = new TerminalManager();
-        public fAddTerminal()
+
+        private Enums.Operation _operation { get; }
+        private Terminal _terminal { get; set; }
+        public fAddTerminal(Enums.Operation operation, Terminal terminal = null)
         {
             InitializeComponent();
+            _operation = operation;
+            _terminal = terminal;
         }
 
         /* Fliallarıın əlavəsi - OK
@@ -43,11 +49,30 @@ namespace Barcode_Sales.Forms
             GetBankTerminals();
             await GetUsers();
             await GetStores();
+            GetTerminal();
         }
 
         private void bSave_Click(object sender, EventArgs e)
         {
-            Save();
+            if (_operation == Enums.Operation.Add)
+                Add();
+            else
+                Edit();
+        }
+
+        private void GetTerminal()
+        {
+            if (_terminal != null)
+            {
+                lookStores.EditValue = _terminal.StoreID;
+                lookUser.EditValue = _terminal.UserId;
+                lookTerminals.Text = _terminal.Name;
+                tIpAddress.Text = _terminal.IpAddress.Split(':')[0];
+                tTerminalPort.Text = _terminal.IpAddress.Split(':')[1];
+                tMerchantId.Text = _terminal.MerchantId;
+                lookBanks.Text = _terminal.BankName;
+                tBankPort.Text = _terminal.BankPort;
+            }
         }
 
         private void GetTerminals()
@@ -87,23 +112,25 @@ namespace Barcode_Sales.Forms
             FormHelpers.ControlLoad(data, lookStores);
         }
 
-        private async void Save()
+        private async void Add()
         {
             var ipAdress = $"{tIpAddress.Text.TrimStart().Trim()}:{tTerminalPort.Text.TrimStart().Trim()}";
             var storeId = Convert.ToInt32(lookStores.EditValue.ToString());
 
-            var terminal = new Terminal
+            _terminal = new Terminal
             {
                 Name = lookTerminals.Text,
                 IpAddress = ipAdress,
                 MerchantId = tMerchantId.Text.TrimStart().Trim(),
                 StoreID = storeId,
+                BankName = lookBanks.Text,
+                BankPort = tBankPort.Text.Trim(),
                 IsStatus = true,
                 UserId = UserCacheService.User.Id,
                 IsDeleted = false
             };
 
-            var validator = ValidationHelpers.ValidateMessage(terminal, new TerminalValidation(), this);
+            var validator = ValidationHelpers.ValidateMessage(_terminal, new TerminalValidation(), this);
 
             if (!validator.IsValid)
                 return;
@@ -114,12 +141,44 @@ namespace Barcode_Sales.Forms
                 return;
             }
 
-            var result = await terminalOperation.Add(terminal);
+            var result = await terminalOperation.Add(_terminal);
             if (result > 0)
             {
-                NotificationHelpers.Messages.SuccessMessage(this,"Terminal uğurla əlavə edildi");
+                NotificationHelpers.Messages.SuccessMessage(this, "Terminal uğurla əlavə edildi");
                 Clear();
             }
+        }
+
+        private async void Edit()
+        {
+            var ipAdress = $"{tIpAddress.Text.TrimStart().Trim()}:{tTerminalPort.Text.TrimStart().Trim()}";
+
+            _terminal.Name = lookTerminals.Text;
+            _terminal.IpAddress = ipAdress;
+            _terminal.MerchantId = tMerchantId.Text.Trim();
+            _terminal.BankName = lookBanks.Text;
+            _terminal.BankPort = tBankPort.Text.Trim();
+
+            var validator = ValidationHelpers.ValidateMessage(_terminal, new TerminalValidation(), this);
+
+            if (!validator.IsValid)
+                return;
+
+            if (string.IsNullOrWhiteSpace(tTerminalPort.Text))
+            {
+                NotificationHelpers.Messages.WarningMessage(this, "Port nömrəsi daxil edilmədi");
+                return;
+            }
+
+
+            await terminalOperation.Update(_terminal,
+                x => x.Name,
+                x => x.IpAddress,
+                x => x.MerchantId,
+                x => x.BankName,
+                x => x.BankPort);
+
+            Close();
         }
 
         private void Clear()
