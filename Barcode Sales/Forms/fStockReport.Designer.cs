@@ -101,7 +101,9 @@
             // gridView1
             // 
             this.gridView1.ActiveFilterEnabled = false;
+            this.gridView1.Appearance.FocusedRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(189)))), ((int)(((byte)(238)))));
             this.gridView1.Appearance.FocusedRow.Font = new System.Drawing.Font("Nunito", 10F);
+            this.gridView1.Appearance.FocusedRow.Options.UseBackColor = true;
             this.gridView1.Appearance.FocusedRow.Options.UseFont = true;
             this.gridView1.Appearance.GroupPanel.Font = new System.Drawing.Font("Nunito", 10F);
             this.gridView1.Appearance.GroupPanel.Options.UseFont = true;

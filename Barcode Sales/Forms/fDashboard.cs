@@ -82,8 +82,12 @@ namespace Barcode_Sales.Forms
                     CustomerEdit();
                 else if (navigationMenu.SelectedPage == pageCustomerGroups)
                     CustomerGroupEdit();
+                else if (navigationMenu.SelectedPage == pageUsers)
+                    UserEdit();
                 else if (navigationMenu.SelectedPage == pageTerminals)
                     TerminalEdit();
+                else if (navigationMenu.SelectedPage == pageScales)
+                    ScaleEdit();
             }
             catch (Exception ex)
             {
@@ -109,8 +113,12 @@ namespace Barcode_Sales.Forms
                     await CustomerDelete();
                 else if (navigationMenu.SelectedPage == pageCustomerGroups)
                     await CustomerGroupDelete();
+                else if (navigationMenu.SelectedPage == pageUsers)
+                    await UserDelete();
                 else if (navigationMenu.SelectedPage == pageTerminals)
                     await TerminalDelete();
+                else if (navigationMenu.SelectedPage == pageScales)
+                    await ScaleDelete();
             }
             catch (Exception ex)
             {
@@ -1000,9 +1008,11 @@ namespace Barcode_Sales.Forms
 
         }
 
+        #region [.. USERS ..]
+
+        //İstifadəçilər
         private async void accordionControlElement24_Click(object sender, EventArgs e)
         {
-            //İstifadəçilər
             navigationMenu.SelectedPage = pageUsers;
             await GetUsers();
         }
@@ -1022,6 +1032,48 @@ namespace Barcode_Sales.Forms
             };
             f.Show();
         }
+
+        private void bUserSettings_ButtonClick(object sender, ButtonPressedEventArgs e)
+        {
+            PopupShow();
+        }
+
+        private async void UserEdit()
+        {
+            var row = gridUsers.GetFocusedRow() as User;
+            if (row is null) return;
+
+            var data = await userOperation.Get(x => x.Id == row.Id);
+            if (data is null)
+                return;
+
+            fAddUser f = new fAddUser(Enums.Operation.Edit, data);
+            f.FormClosed += async (s, x) =>
+            {
+                await GetUsers();
+            };
+            f.ShowDialog();
+        }
+
+        private async Task UserDelete()
+        {
+            var row = gridUsers.GetFocusedRow() as User;
+            if (row is null) return;
+
+            var data = await userOperation.Get(x => x.Id == row.Id);
+
+            var args = NotificationHelpers.Dialogs.DialogResultYesNo(
+                $"{data.NameSurname} istifadəçisini silmək istədiyinizə əminsiniz ?", String.Empty);
+            var result = XtraMessageBox.Show(args);
+
+            if (result is DialogResult.Yes && await userOperation.Remove(data))
+            {
+                await GetUsers();
+                NotificationHelpers.Messages.SuccessMessage(this, "İstifadəçi uğurla silindi");
+            }
+        }
+
+        #endregion [.. USERS ..]
 
         private void accordionControlElement39_Click(object sender, EventArgs e)
         {
@@ -1077,6 +1129,10 @@ namespace Barcode_Sales.Forms
                 .Where(x => x.IsDeleted == false)
                 .Select(x => new ScaleDto
                 {
+                    Id = x.Id,
+                    ModelName = x.ModelName,
+                    IpAddress = x.IpAddress,
+                    StoreId = x.StoreId,
                     IsActive = x.IsActive,
                 })
                 .OrderBy(x => x.Id)
@@ -1087,11 +1143,12 @@ namespace Barcode_Sales.Forms
 
         private void bAddScale_Click(object sender, EventArgs e)
         {
-            fAddScale f = new fAddScale();
+            fAddScale f = new fAddScale(Operation.Add, null);
             f.FormClosed += async (s, x) =>
             {
                 await GetScales();
             };
+            f.ShowDialog();
         }
 
         private void gridScales_RowCellStyle(object sender, RowCellStyleEventArgs e)
@@ -1099,15 +1156,54 @@ namespace Barcode_Sales.Forms
             GridViewStatusDisplayColor(gridColumn127, "Aktiv", "Deaktiv", e);
         }
 
+        private async void bRefreshScale_Click(object sender, EventArgs e)
+        {
+            await GetScales();
+        }
 
-        #endregion [.. SCALES ..]
-
-        private void bSettingTerminal_ButtonClick(object sender, ButtonPressedEventArgs e)
+        private void bScalesSettings_ButtonClick(object sender, ButtonPressedEventArgs e)
         {
             PopupShow();
         }
 
-        private void bScalesSettings_ButtonClick(object sender, ButtonPressedEventArgs e)
+        private async void ScaleEdit()
+        {
+            var row = gridScales.GetFocusedRow() as ScaleDto;
+            if (row is null) return;
+
+            var data = await scaleOperation.Get(x => x.Id == row.Id);
+            if (data is null)
+                return;
+
+            fAddScale f = new fAddScale(Enums.Operation.Edit, data);
+            f.FormClosed += async (s, x) =>
+            {
+                await GetScales();
+            };
+            f.ShowDialog();
+        }
+
+        private async Task ScaleDelete()
+        {
+            var row = gridScales.GetFocusedRow() as ScaleDto;
+            if (row is null) return;
+
+            var data = await scaleOperation.Get(x => x.Id == (int)row.Id);
+
+            var args = NotificationHelpers.Dialogs.DialogResultYesNo(
+                $"{data.IpAddress} adresli {data.ModelName} tərəzisini silmək istədiyinizə əminsiniz ?", String.Empty);
+            var result = XtraMessageBox.Show(args);
+
+            if (result is DialogResult.Yes && await scaleOperation.Remove(data))
+            {
+                await GetScales();
+                NotificationHelpers.Messages.SuccessMessage(this, "Tərəzi uğurla silindi");
+            }
+        }
+
+        #endregion [.. SCALES ..]
+
+        private void bSettingTerminal_ButtonClick(object sender, ButtonPressedEventArgs e)
         {
             PopupShow();
         }
@@ -1131,10 +1227,10 @@ namespace Barcode_Sales.Forms
 
         private async Task TerminalDelete()
         {
-            var Id = gridTerminals.GetFocusedRowCellValue("Id");
-            if (Id == null) return;
+            var row = gridTerminals.GetFocusedRow() as TerminalDto;
+            if (row == null) return;
 
-            var data = await terminalOperation.Get(x => x.Id == (int)Id);
+            var data = await terminalOperation.Get(x => x.Id == row.Id);
 
             var args = NotificationHelpers.Dialogs.DialogResultYesNo(
                 $"{data.IpAddress.Split(':')[0]} adresli {data.Name} kassasını silmək istədiyinizə əminsiniz ?", String.Empty);
@@ -1143,7 +1239,7 @@ namespace Barcode_Sales.Forms
             if (result is DialogResult.Yes && await terminalOperation.Remove(data))
             {
                 await GetTerminals();
-                NotificationHelpers.Messages.SuccessMessage(this, $"Kassa uğurla silindi");
+                NotificationHelpers.Messages.SuccessMessage(this, "Kassa uğurla silindi");
             }
         }
     }

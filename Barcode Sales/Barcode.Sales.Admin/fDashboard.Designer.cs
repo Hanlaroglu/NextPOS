@@ -2140,7 +2140,6 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.bUsers.Name = "bUsers";
             this.bUsers.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.bUsers.Text = "İstifadəçilər";
-            this.bUsers.Click += new System.EventHandler(this.bUsers_Click);
             // 
             // bRoles
             // 
@@ -3070,7 +3069,6 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.chUserStatus.CheckBoxOptions.Style = DevExpress.XtraEditors.Controls.CheckBoxStyle.SvgToggle1;
             this.chUserStatus.CheckBoxOptions.SvgImageSize = new System.Drawing.Size(32, 32);
             this.chUserStatus.Name = "chUserStatus";
-            this.chUserStatus.CheckedChanged += new System.EventHandler(this.chUserStatus_CheckedChanged);
             // 
             // panelControl5
             // 
@@ -3162,7 +3160,6 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.bUserExport.TabIndex = 7;
             this.bUserExport.TabStop = false;
             this.bUserExport.Text = "Çap et";
-            this.bUserExport.Click += new System.EventHandler(this.bUserExport_Click);
             // 
             // bUserRefresh
             // 
@@ -3191,7 +3188,6 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.bUserRefresh.TabIndex = 8;
             this.bUserRefresh.TabStop = false;
             this.bUserRefresh.Text = "Yenilə";
-            this.bUserRefresh.Click += new System.EventHandler(this.bUserRefresh_Click);
             // 
             // bNewUser
             // 
@@ -3220,7 +3216,6 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.bNewUser.TabIndex = 7;
             this.bNewUser.TabStop = false;
             this.bNewUser.Text = "Əlavə et";
-            this.bNewUser.Click += new System.EventHandler(this.bNewUser_Click);
             // 
             // bEditUser
             // 
@@ -3249,7 +3244,6 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.bEditUser.TabIndex = 7;
             this.bEditUser.TabStop = false;
             this.bEditUser.Text = "Düzəliş et";
-            this.bEditUser.Click += new System.EventHandler(this.bEditUser_Click);
             // 
             // bDeleteUser
             // 
@@ -3278,7 +3272,6 @@ namespace Barcode_Sales.Barcode.Sales.Admin
             this.bDeleteUser.TabIndex = 7;
             this.bDeleteUser.TabStop = false;
             this.bDeleteUser.Text = "Sil";
-            this.bDeleteUser.Click += new System.EventHandler(this.bDeleteUser_Click);
             // 
             // pageSettings
             // 

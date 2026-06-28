@@ -55,8 +55,9 @@ namespace Barcode_Sales.Operations.Concrete
 
                 return await db.SaveChangesAsync() > 0;
             }
-            catch
+            catch (Exception ex)
             {
+                throw ex;
                 return false;
             }
         }
@@ -94,18 +95,20 @@ namespace Barcode_Sales.Operations.Concrete
         {
             try
             {
-                db.Set<User>().Remove(item);
-                return await db.SaveChangesAsync() > 0;
+                item.IsDeleted = true;
+                var result = await Update(item, x => x.IsDeleted);
+                return result;
             }
-            catch
+            catch (Exception ex)
             {
+                throw ex;
                 return false;
             }
         }
 
         public async Task<User> Get(Expression<Func<User, bool>> expression)
         {
-            return await db.Users.FirstOrDefaultAsync(expression);
+            return await db.Users.AsNoTracking().FirstOrDefaultAsync(expression);
         }
 
         public IQueryable<User> Where(Expression<Func<User, bool>> expression)
@@ -116,7 +119,7 @@ namespace Barcode_Sales.Operations.Concrete
         public async Task<List<User>> ToListAsync(Expression<Func<User, bool>> expression = null)
         {
             if (expression is null)
-                return await db.Users.AsNoTracking().ToListAsync();
+                return await db.Users.AsNoTracking().Where(x=> x.IsDeleted == false).ToListAsync();
             else
                 return await db.Users.AsNoTracking().Where(expression).ToListAsync();
         }

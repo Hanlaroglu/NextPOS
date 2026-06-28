@@ -18,16 +18,16 @@ namespace Barcode_Sales
         public User()
         {
             this.CustomerGroups = new HashSet<CustomerGroup>();
-            this.Logs = new HashSet<Log>();
-            this.PosRefunds = new HashSet<PosRefund>();
-            this.Products = new HashSet<Products>();
-            this.Invoices = new HashSet<Invoice>();
-            this.InvoiceRollbacks = new HashSet<InvoiceRollback>();
             this.Customers = new HashSet<Customer>();
-            this.PosSales = new HashSet<PosSale>();
+            this.InvoiceRollbacks = new HashSet<InvoiceRollback>();
+            this.Invoices = new HashSet<Invoice>();
+            this.Logs = new HashSet<Log>();
             this.PosBaskets = new HashSet<PosBasket>();
-            this.Terminals = new HashSet<Terminal>();
+            this.PosRefunds = new HashSet<PosRefund>();
+            this.PosSales = new HashSet<PosSale>();
+            this.Products = new HashSet<Products>();
             this.Scales = new HashSet<Scale>();
+            this.Terminals = new HashSet<Terminal>();
         }
     
         public int Id { get; set; }
@@ -40,31 +40,31 @@ namespace Barcode_Sales
         public int TerminalId { get; set; }
         public bool IsActive { get; set; }
         public int RoleId { get; set; }
-        public int IsDeleted { get; set; }
+        public bool IsDeleted { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CustomerGroup> CustomerGroups { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Log> Logs { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PosRefund> PosRefunds { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Products> Products { get; set; }
-        public virtual Store Store { get; set; }
-        public virtual Role Role { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Invoice> Invoices { get; set; }
+        public virtual ICollection<Customer> Customers { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<InvoiceRollback> InvoiceRollbacks { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Customer> Customers { get; set; }
+        public virtual ICollection<Invoice> Invoices { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PosSale> PosSales { get; set; }
+        public virtual ICollection<Log> Logs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PosBasket> PosBaskets { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Terminal> Terminals { get; set; }
+        public virtual ICollection<PosRefund> PosRefunds { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<PosSale> PosSales { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Products> Products { get; set; }
+        public virtual Role Role { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Scale> Scales { get; set; }
+        public virtual Store Store { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Terminal> Terminals { get; set; }
     }
 }

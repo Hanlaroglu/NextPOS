@@ -4,6 +4,7 @@ using Barcode_Sales.Operations.Concrete;
 using Barcode_Sales.Validations;
 using System;
 using System.Threading.Tasks;
+using DevExpress.XtraLayout.Utils;
 
 namespace Barcode_Sales.Forms
 {
@@ -35,8 +36,10 @@ namespace Barcode_Sales.Forms
             lookStores.EditValue = _user.StoreId;
             lookStores.Enabled = false;
             lookRole.EditValue = _user.RoleId;
+            tPassword.Text = _user.Password;
             tUsername.Text = _user.Username;
-            
+            tNameSurname.Text = _user.NameSurname;
+            layoutControlItem8.Visibility = LayoutVisibility.Never;
         }
 
         private async Task GetStores()
@@ -74,7 +77,7 @@ namespace Barcode_Sales.Forms
                 Phone = tPhone.Text.Trim(),
                 IsActive = chIsStatus.Checked,
                 RoleId = roleId,
-                IsDeleted = 0
+                IsDeleted = false
             };
 
             var exists = await userOperation.Get(x => x.Username == tUsername.Text.Trim());
@@ -98,7 +101,10 @@ namespace Barcode_Sales.Forms
 
         private async Task Edit()
         {
-            _user.Password = tPassword.Text.Trim();
+            var roleId = Convert.ToInt32(lookRole.EditValue.ToString());
+
+            _user.RoleId = roleId;
+            _user.Username = tUsername.Text.Trim();
             _user.NameSurname = tNameSurname.Text.Trim();
             _user.Email = tEmail.Text.Trim();
             _user.Phone = tPhone.Text.Trim();
@@ -109,7 +115,8 @@ namespace Barcode_Sales.Forms
                 return;
 
             var result = await userOperation.Update(_user,
-                x => x.Password,
+                x=> x.RoleId,
+                x=> x.Username,
                 x => x.NameSurname,
                 x => x.Email,
                 x => x.Phone,

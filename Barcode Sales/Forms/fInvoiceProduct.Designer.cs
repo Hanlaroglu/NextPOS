@@ -29,17 +29,22 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fInvoiceProduct));
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions8 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject29 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject30 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject31 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject32 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fInvoiceProduct));
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions10 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject37 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject38 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject39 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject40 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions3 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject9 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject10 = new DevExpress.Utils.SerializableAppearanceObject();
@@ -55,16 +60,11 @@
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject18 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject19 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject20 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions6 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject21 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject22 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject23 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject24 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions7 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject25 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject26 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject27 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject28 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions9 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject33 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject34 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject35 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject36 = new DevExpress.Utils.SerializableAppearanceObject();
             this.fluentDesignFormControl1 = new DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormControl();
             this.accordionControl1 = new DevExpress.XtraBars.Navigation.AccordionControl();
             this.bHelp = new DevExpress.XtraBars.Navigation.AccordionControlElement();
@@ -74,19 +74,8 @@
             this.bAddWarehouse = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.bAddSupplier = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.tablePanel1 = new DevExpress.Utils.Layout.TablePanel();
-            this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
-            this.separatorControl1 = new DevExpress.XtraEditors.SeparatorControl();
-            this.bSave = new DevExpress.XtraEditors.SimpleButton();
-            this.bReset = new DevExpress.XtraEditors.SimpleButton();
-            this.separatorControl2 = new DevExpress.XtraEditors.SeparatorControl();
-            this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
-            this.lookSuppliers = new DevExpress.XtraEditors.LookUpEdit();
-            this.tComment = new DevExpress.XtraEditors.MemoEdit();
-            this.tDate = new DevExpress.XtraEditors.ButtonEdit();
-            this.lookWarehouse = new DevExpress.XtraEditors.LookUpEdit();
-            this.tContractNo = new DevExpress.XtraEditors.ButtonEdit();
-            this.tablePanel2 = new DevExpress.Utils.Layout.TablePanel();
-            this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.layoutControl2 = new DevExpress.XtraLayout.LayoutControl();
+            this.tBarcodeSearch = new DevExpress.XtraEditors.ButtonEdit();
             this.lookProductName = new DevExpress.XtraEditors.SearchLookUpEdit();
             this.searchView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn15 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -94,8 +83,29 @@
             this.gridColumn17 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn18 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemButtonEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
-            this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
-            this.tBarcodeSearch = new DevExpress.XtraEditors.ButtonEdit();
+            this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.layoutControlGroup2 = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlGroup3 = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
+            this.separatorControl1 = new DevExpress.XtraEditors.SeparatorControl();
+            this.bSave = new DevExpress.XtraEditors.SimpleButton();
+            this.bReset = new DevExpress.XtraEditors.SimpleButton();
+            this.separatorControl2 = new DevExpress.XtraEditors.SeparatorControl();
+            this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.tComment = new DevExpress.XtraEditors.MemoEdit();
+            this.lookSuppliers = new DevExpress.XtraEditors.LookUpEdit();
+            this.lookWarehouse = new DevExpress.XtraEditors.LookUpEdit();
+            this.tDate = new DevExpress.XtraEditors.ButtonEdit();
+            this.tContractNo = new DevExpress.XtraEditors.ButtonEdit();
+            this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -126,27 +136,36 @@
             ((System.ComponentModel.ISupportInitialize)(this.accordionControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel1)).BeginInit();
             this.tablePanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControl2)).BeginInit();
+            this.layoutControl2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tBarcodeSearch.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lookProductName.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
             this.panelControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.separatorControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.separatorControl2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.lookSuppliers.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
+            this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tComment.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tDate.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lookSuppliers.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookWarehouse.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tDate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tContractNo.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tablePanel2)).BeginInit();
-            this.tablePanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
-            this.groupControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.lookProductName.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.searchView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
-            this.groupControl2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tBarcodeSearch.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bQuantity)).BeginInit();
@@ -251,9 +270,9 @@
             this.tablePanel1.Columns.AddRange(new DevExpress.Utils.Layout.TablePanelColumn[] {
             new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 17.25F),
             new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 42.75F)});
+            this.tablePanel1.Controls.Add(this.layoutControl2);
             this.tablePanel1.Controls.Add(this.panelControl2);
             this.tablePanel1.Controls.Add(this.panelControl1);
-            this.tablePanel1.Controls.Add(this.tablePanel2);
             this.tablePanel1.Controls.Add(this.gridControl1);
             this.tablePanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tablePanel1.Location = new System.Drawing.Point(49, 33);
@@ -264,6 +283,205 @@
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 26F)});
             this.tablePanel1.Size = new System.Drawing.Size(1186, 712);
             this.tablePanel1.TabIndex = 5;
+            // 
+            // layoutControl2
+            // 
+            this.tablePanel1.SetColumn(this.layoutControl2, 1);
+            this.layoutControl2.Controls.Add(this.tBarcodeSearch);
+            this.layoutControl2.Controls.Add(this.lookProductName);
+            this.layoutControl2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.layoutControl2.Location = new System.Drawing.Point(344, 3);
+            this.layoutControl2.Name = "layoutControl2";
+            this.layoutControl2.Root = this.layoutControlGroup1;
+            this.tablePanel1.SetRow(this.layoutControl2, 0);
+            this.layoutControl2.Size = new System.Drawing.Size(839, 82);
+            this.layoutControl2.TabIndex = 8;
+            this.layoutControl2.Text = "layoutControl2";
+            // 
+            // tBarcodeSearch
+            // 
+            this.tBarcodeSearch.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tBarcodeSearch.Location = new System.Drawing.Point(426, 31);
+            this.tBarcodeSearch.Name = "tBarcodeSearch";
+            this.tBarcodeSearch.Properties.AllowFocused = false;
+            this.tBarcodeSearch.Properties.Appearance.Font = new System.Drawing.Font("Nunito", 12F);
+            this.tBarcodeSearch.Properties.Appearance.Options.UseFont = true;
+            this.tBarcodeSearch.Properties.Appearance.Options.UseTextOptions = true;
+            this.tBarcodeSearch.Properties.Appearance.TextOptions.Trimming = DevExpress.Utils.Trimming.EllipsisCharacter;
+            serializableAppearanceObject29.Font = new System.Drawing.Font("Nunito", 12F, System.Drawing.FontStyle.Bold);
+            serializableAppearanceObject29.Options.UseFont = true;
+            serializableAppearanceObject32.Font = new System.Drawing.Font("Nunito", 12F, System.Drawing.FontStyle.Bold);
+            serializableAppearanceObject32.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.ControlText;
+            serializableAppearanceObject32.Options.UseFont = true;
+            serializableAppearanceObject32.Options.UseForeColor = true;
+            this.tBarcodeSearch.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Search),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Barkod : ", -1, false, false, true, editorButtonImageOptions8, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject29, serializableAppearanceObject30, serializableAppearanceObject31, serializableAppearanceObject32, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            this.tBarcodeSearch.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.tBarcodeSearch.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.tBarcodeSearch_Properties_ButtonClick);
+            this.tBarcodeSearch.Size = new System.Drawing.Size(409, 36);
+            this.tBarcodeSearch.StyleController = this.layoutControl2;
+            this.tBarcodeSearch.TabIndex = 10;
+            this.tBarcodeSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tBarcodeSearch_KeyDown);
+            // 
+            // lookProductName
+            // 
+            this.lookProductName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lookProductName.Location = new System.Drawing.Point(6, 33);
+            this.lookProductName.Name = "lookProductName";
+            this.lookProductName.Properties.AllowButtonNavigation = DevExpress.Utils.DefaultBoolean.False;
+            this.lookProductName.Properties.AllowFocused = false;
+            this.lookProductName.Properties.Appearance.Font = new System.Drawing.Font("Nunito", 12F);
+            this.lookProductName.Properties.Appearance.Options.UseFont = true;
+            this.lookProductName.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lookProductName.Properties.NullText = "";
+            this.lookProductName.Properties.PopupFindMode = DevExpress.XtraEditors.FindMode.Always;
+            this.lookProductName.Properties.PopupView = this.searchView;
+            this.lookProductName.Properties.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.repositoryItemButtonEdit1});
+            this.lookProductName.Properties.ShowClearButton = false;
+            this.lookProductName.Properties.ShowFooter = false;
+            this.lookProductName.Size = new System.Drawing.Size(404, 36);
+            this.lookProductName.StyleController = this.layoutControl2;
+            this.lookProductName.TabIndex = 20;
+            this.lookProductName.EditValueChanged += new System.EventHandler(this.lookProductName_EditValueChanged);
+            // 
+            // searchView
+            // 
+            this.searchView.Appearance.HeaderPanel.Font = new System.Drawing.Font("Nunito", 12F, System.Drawing.FontStyle.Bold);
+            this.searchView.Appearance.HeaderPanel.Options.UseFont = true;
+            this.searchView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumn15,
+            this.gridColumn16,
+            this.gridColumn17,
+            this.gridColumn18});
+            this.searchView.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.searchView.Name = "searchView";
+            this.searchView.OptionsMenu.EnableColumnMenu = false;
+            this.searchView.OptionsMenu.EnableFooterMenu = false;
+            this.searchView.OptionsMenu.EnableGroupPanelMenu = false;
+            this.searchView.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.searchView.OptionsView.ShowGroupPanel = false;
+            this.searchView.OptionsView.ShowIndicator = false;
+            // 
+            // gridColumn15
+            // 
+            this.gridColumn15.Caption = "Id";
+            this.gridColumn15.FieldName = "Id";
+            this.gridColumn15.MaxWidth = 25;
+            this.gridColumn15.MinWidth = 25;
+            this.gridColumn15.Name = "gridColumn15";
+            this.gridColumn15.OptionsColumn.AllowEdit = false;
+            this.gridColumn15.Width = 25;
+            // 
+            // gridColumn16
+            // 
+            this.gridColumn16.Caption = "Barkod";
+            this.gridColumn16.FieldName = "Barcode";
+            this.gridColumn16.Name = "gridColumn16";
+            this.gridColumn16.OptionsColumn.AllowEdit = false;
+            this.gridColumn16.Visible = true;
+            this.gridColumn16.VisibleIndex = 0;
+            this.gridColumn16.Width = 164;
+            // 
+            // gridColumn17
+            // 
+            this.gridColumn17.Caption = "Məhsul adı";
+            this.gridColumn17.FieldName = "ProductName";
+            this.gridColumn17.Name = "gridColumn17";
+            this.gridColumn17.OptionsColumn.AllowEdit = false;
+            this.gridColumn17.Visible = true;
+            this.gridColumn17.VisibleIndex = 1;
+            this.gridColumn17.Width = 563;
+            // 
+            // gridColumn18
+            // 
+            this.gridColumn18.AppearanceCell.Options.UseTextOptions = true;
+            this.gridColumn18.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.gridColumn18.AppearanceCell.TextOptions.Trimming = DevExpress.Utils.Trimming.EllipsisCharacter;
+            this.gridColumn18.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.gridColumn18.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn18.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.gridColumn18.AppearanceHeader.TextOptions.Trimming = DevExpress.Utils.Trimming.EllipsisCharacter;
+            this.gridColumn18.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.gridColumn18.Caption = "Satış qiyməti";
+            this.gridColumn18.DisplayFormat.FormatString = "C2";
+            this.gridColumn18.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.gridColumn18.FieldName = "SalePrice";
+            this.gridColumn18.MaxWidth = 130;
+            this.gridColumn18.MinWidth = 130;
+            this.gridColumn18.Name = "gridColumn18";
+            this.gridColumn18.OptionsColumn.AllowEdit = false;
+            this.gridColumn18.Visible = true;
+            this.gridColumn18.VisibleIndex = 2;
+            this.gridColumn18.Width = 130;
+            // 
+            // repositoryItemButtonEdit1
+            // 
+            this.repositoryItemButtonEdit1.AutoHeight = false;
+            this.repositoryItemButtonEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "sdfsd", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            this.repositoryItemButtonEdit1.Name = "repositoryItemButtonEdit1";
+            this.repositoryItemButtonEdit1.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            // 
+            // layoutControlGroup1
+            // 
+            this.layoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
+            this.layoutControlGroup1.GroupBordersVisible = false;
+            this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlGroup2,
+            this.layoutControlGroup3});
+            this.layoutControlGroup1.Name = "layoutControlGroup1";
+            this.layoutControlGroup1.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(839, 82);
+            this.layoutControlGroup1.TextVisible = false;
+            // 
+            // layoutControlGroup2
+            // 
+            this.layoutControlGroup2.AppearanceGroup.Font = new System.Drawing.Font("Nunito", 12F);
+            this.layoutControlGroup2.AppearanceGroup.Options.UseFont = true;
+            this.layoutControlGroup2.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlItem6});
+            this.layoutControlGroup2.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlGroup2.Name = "layoutControlGroup2";
+            this.layoutControlGroup2.Padding = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2);
+            this.layoutControlGroup2.Size = new System.Drawing.Size(419, 82);
+            this.layoutControlGroup2.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 3, 0, 0);
+            this.layoutControlGroup2.Text = "Məhsul adı ilə axtar";
+            // 
+            // layoutControlItem6
+            // 
+            this.layoutControlItem6.Control = this.lookProductName;
+            this.layoutControlItem6.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem6.Name = "layoutControlItem6";
+            this.layoutControlItem6.Size = new System.Drawing.Size(410, 49);
+            this.layoutControlItem6.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem6.TextVisible = false;
+            // 
+            // layoutControlGroup3
+            // 
+            this.layoutControlGroup3.AppearanceGroup.Font = new System.Drawing.Font("Nunito", 12F);
+            this.layoutControlGroup3.AppearanceGroup.Options.UseFont = true;
+            this.layoutControlGroup3.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlItem7});
+            this.layoutControlGroup3.Location = new System.Drawing.Point(419, 0);
+            this.layoutControlGroup3.Name = "layoutControlGroup3";
+            this.layoutControlGroup3.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
+            this.layoutControlGroup3.Size = new System.Drawing.Size(420, 82);
+            this.layoutControlGroup3.Spacing = new DevExpress.XtraLayout.Utils.Padding(3, 0, 0, 0);
+            this.layoutControlGroup3.Text = "Barkod ilə axtar";
+            // 
+            // layoutControlItem7
+            // 
+            this.layoutControlItem7.Control = this.tBarcodeSearch;
+            this.layoutControlItem7.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem7.Name = "layoutControlItem7";
+            this.layoutControlItem7.Size = new System.Drawing.Size(415, 53);
+            this.layoutControlItem7.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem7.TextVisible = false;
             // 
             // panelControl2
             // 
@@ -350,11 +568,7 @@
             // panelControl1
             // 
             this.tablePanel1.SetColumn(this.panelControl1, 0);
-            this.panelControl1.Controls.Add(this.lookSuppliers);
-            this.panelControl1.Controls.Add(this.tComment);
-            this.panelControl1.Controls.Add(this.tDate);
-            this.panelControl1.Controls.Add(this.lookWarehouse);
-            this.panelControl1.Controls.Add(this.tContractNo);
+            this.panelControl1.Controls.Add(this.layoutControl1);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl1.Location = new System.Drawing.Point(3, 3);
             this.panelControl1.Name = "panelControl1";
@@ -363,11 +577,40 @@
             this.panelControl1.Size = new System.Drawing.Size(335, 322);
             this.panelControl1.TabIndex = 6;
             // 
+            // layoutControl1
+            // 
+            this.layoutControl1.Controls.Add(this.tComment);
+            this.layoutControl1.Controls.Add(this.lookSuppliers);
+            this.layoutControl1.Controls.Add(this.lookWarehouse);
+            this.layoutControl1.Controls.Add(this.tDate);
+            this.layoutControl1.Controls.Add(this.tContractNo);
+            this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.layoutControl1.Location = new System.Drawing.Point(2, 2);
+            this.layoutControl1.Name = "layoutControl1";
+            this.layoutControl1.Root = this.Root;
+            this.layoutControl1.Size = new System.Drawing.Size(331, 318);
+            this.layoutControl1.TabIndex = 0;
+            this.layoutControl1.Text = "layoutControl1";
+            // 
+            // tComment
+            // 
+            this.tComment.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tComment.EditValue = "";
+            this.tComment.Location = new System.Drawing.Point(5, 173);
+            this.tComment.Name = "tComment";
+            this.tComment.Properties.Appearance.Font = new System.Drawing.Font("Nunito", 12F);
+            this.tComment.Properties.Appearance.Options.UseFont = true;
+            this.tComment.Properties.NullValuePrompt = "Qeyd";
+            this.tComment.Size = new System.Drawing.Size(321, 140);
+            this.tComment.StyleController = this.layoutControl1;
+            this.tComment.TabIndex = 7;
+            // 
             // lookSuppliers
             // 
             this.lookSuppliers.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.lookSuppliers.Location = new System.Drawing.Point(5, 129);
+            this.lookSuppliers.Location = new System.Drawing.Point(5, 131);
             this.lookSuppliers.Name = "lookSuppliers";
             this.lookSuppliers.Properties.AllowFocused = false;
             this.lookSuppliers.Properties.Appearance.Font = new System.Drawing.Font("Nunito", 12F);
@@ -375,61 +618,23 @@
             this.lookSuppliers.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Nunito", 12F);
             this.lookSuppliers.Properties.AppearanceDropDown.Options.UseFont = true;
             this.lookSuppliers.Properties.AutoHeight = false;
-            serializableAppearanceObject1.Font = new System.Drawing.Font("Nunito", 12F, System.Drawing.FontStyle.Bold);
-            serializableAppearanceObject1.Options.UseFont = true;
-            serializableAppearanceObject4.Font = new System.Drawing.Font("Nunito", 12F, System.Drawing.FontStyle.Bold);
-            serializableAppearanceObject4.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.ControlText;
-            serializableAppearanceObject4.Options.UseFont = true;
-            serializableAppearanceObject4.Options.UseForeColor = true;
+            serializableAppearanceObject37.Font = new System.Drawing.Font("Nunito", 12F, System.Drawing.FontStyle.Bold);
+            serializableAppearanceObject37.Options.UseFont = true;
+            serializableAppearanceObject40.Font = new System.Drawing.Font("Nunito", 12F, System.Drawing.FontStyle.Bold);
+            serializableAppearanceObject40.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.ControlText;
+            serializableAppearanceObject40.Options.UseFont = true;
+            serializableAppearanceObject40.Options.UseForeColor = true;
             this.lookSuppliers.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Təchizatçı :", -1, false, true, true, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
-            this.lookSuppliers.Properties.LookAndFeel.SkinName = "WXI";
-            this.lookSuppliers.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Təchizatçı :", -1, false, true, true, editorButtonImageOptions10, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject37, serializableAppearanceObject38, serializableAppearanceObject39, serializableAppearanceObject40, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.lookSuppliers.Properties.NullText = "";
             this.lookSuppliers.Properties.NullValuePrompt = "Təchizatçı seçimi";
             this.lookSuppliers.Properties.ShowFooter = false;
             this.lookSuppliers.Properties.ShowHeader = false;
             this.lookSuppliers.Properties.ShowLines = false;
-            this.lookSuppliers.Size = new System.Drawing.Size(325, 34);
+            this.lookSuppliers.Size = new System.Drawing.Size(321, 36);
+            this.lookSuppliers.StyleController = this.layoutControl1;
             this.lookSuppliers.TabIndex = 10;
-            // 
-            // tComment
-            // 
-            this.tComment.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tComment.EditValue = "";
-            this.tComment.Location = new System.Drawing.Point(5, 169);
-            this.tComment.Name = "tComment";
-            this.tComment.Properties.Appearance.Font = new System.Drawing.Font("Nunito", 12F);
-            this.tComment.Properties.Appearance.Options.UseFont = true;
-            this.tComment.Properties.NullValuePrompt = "Qeyd";
-            this.tComment.Size = new System.Drawing.Size(325, 146);
-            this.tComment.TabIndex = 7;
-            // 
-            // tDate
-            // 
-            this.tDate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tDate.EditValue = "<Null>";
-            this.tDate.Location = new System.Drawing.Point(5, 5);
-            this.tDate.Name = "tDate";
-            this.tDate.Properties.Appearance.Font = new System.Drawing.Font("Nunito", 12F);
-            this.tDate.Properties.Appearance.Options.UseFont = true;
-            serializableAppearanceObject5.Font = new System.Drawing.Font("Nunito", 12F, System.Drawing.FontStyle.Bold);
-            serializableAppearanceObject5.Options.UseFont = true;
-            serializableAppearanceObject8.Font = new System.Drawing.Font("Nunito", 12F, System.Drawing.FontStyle.Bold);
-            serializableAppearanceObject8.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.ControlText;
-            serializableAppearanceObject8.Options.UseFont = true;
-            serializableAppearanceObject8.Options.UseForeColor = true;
-            this.tDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Alış tarixi : ", -1, false, true, true, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
-            this.tDate.Properties.Mask.UseMaskAsDisplayFormat = true;
-            this.tDate.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.SimpleMaskManager));
-            this.tDate.Properties.MaskSettings.Set("mask", "99/99/0000");
-            this.tDate.Properties.MaxLength = 20;
-            this.tDate.Size = new System.Drawing.Size(325, 36);
-            this.tDate.TabIndex = 8;
             // 
             // lookWarehouse
             // 
@@ -452,15 +657,39 @@
             this.lookWarehouse.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo),
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Anbar :", -1, false, true, true, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
-            this.lookWarehouse.Properties.LookAndFeel.SkinName = "WXI";
-            this.lookWarehouse.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
             this.lookWarehouse.Properties.NullText = "";
             this.lookWarehouse.Properties.NullValuePrompt = "Anbar seçimi";
             this.lookWarehouse.Properties.ShowFooter = false;
             this.lookWarehouse.Properties.ShowHeader = false;
             this.lookWarehouse.Properties.ShowLines = false;
-            this.lookWarehouse.Size = new System.Drawing.Size(325, 34);
+            this.lookWarehouse.Size = new System.Drawing.Size(321, 36);
+            this.lookWarehouse.StyleController = this.layoutControl1;
             this.lookWarehouse.TabIndex = 10;
+            // 
+            // tDate
+            // 
+            this.tDate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tDate.EditValue = "<Null>";
+            this.tDate.Location = new System.Drawing.Point(5, 5);
+            this.tDate.Name = "tDate";
+            this.tDate.Properties.Appearance.Font = new System.Drawing.Font("Nunito", 12F);
+            this.tDate.Properties.Appearance.Options.UseFont = true;
+            serializableAppearanceObject13.Font = new System.Drawing.Font("Nunito", 12F, System.Drawing.FontStyle.Bold);
+            serializableAppearanceObject13.Options.UseFont = true;
+            serializableAppearanceObject16.Font = new System.Drawing.Font("Nunito", 12F, System.Drawing.FontStyle.Bold);
+            serializableAppearanceObject16.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.ControlText;
+            serializableAppearanceObject16.Options.UseFont = true;
+            serializableAppearanceObject16.Options.UseForeColor = true;
+            this.tDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Alış tarixi : ", -1, false, true, true, editorButtonImageOptions4, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject13, serializableAppearanceObject14, serializableAppearanceObject15, serializableAppearanceObject16, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            this.tDate.Properties.Mask.UseMaskAsDisplayFormat = true;
+            this.tDate.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.SimpleMaskManager));
+            this.tDate.Properties.MaskSettings.Set("mask", "99/99/0000");
+            this.tDate.Properties.MaxLength = 20;
+            this.tDate.Size = new System.Drawing.Size(321, 36);
+            this.tDate.StyleController = this.layoutControl1;
+            this.tDate.TabIndex = 8;
             // 
             // tContractNo
             // 
@@ -473,194 +702,77 @@
             this.tContractNo.Properties.Appearance.Options.UseFont = true;
             this.tContractNo.Properties.Appearance.Options.UseTextOptions = true;
             this.tContractNo.Properties.Appearance.TextOptions.Trimming = DevExpress.Utils.Trimming.EllipsisCharacter;
-            serializableAppearanceObject13.Font = new System.Drawing.Font("Nunito", 12F, System.Drawing.FontStyle.Bold);
-            serializableAppearanceObject13.Options.UseFont = true;
-            serializableAppearanceObject16.Font = new System.Drawing.Font("Nunito", 12F, System.Drawing.FontStyle.Bold);
-            serializableAppearanceObject16.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.ControlText;
-            serializableAppearanceObject16.Options.UseFont = true;
-            serializableAppearanceObject16.Options.UseForeColor = true;
+            serializableAppearanceObject17.Font = new System.Drawing.Font("Nunito", 12F, System.Drawing.FontStyle.Bold);
+            serializableAppearanceObject17.Options.UseFont = true;
+            serializableAppearanceObject20.Font = new System.Drawing.Font("Nunito", 12F, System.Drawing.FontStyle.Bold);
+            serializableAppearanceObject20.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.ControlText;
+            serializableAppearanceObject20.Options.UseFont = true;
+            serializableAppearanceObject20.Options.UseForeColor = true;
             this.tContractNo.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Faktura № : ", -1, false, true, true, editorButtonImageOptions4, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject13, serializableAppearanceObject14, serializableAppearanceObject15, serializableAppearanceObject16, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
-            this.tContractNo.Size = new System.Drawing.Size(325, 36);
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Faktura № : ", -1, false, true, true, editorButtonImageOptions5, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject17, serializableAppearanceObject18, serializableAppearanceObject19, serializableAppearanceObject20, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            this.tContractNo.Size = new System.Drawing.Size(321, 36);
+            this.tContractNo.StyleController = this.layoutControl1;
             this.tContractNo.TabIndex = 9;
             // 
-            // tablePanel2
+            // Root
             // 
-            this.tablePanel1.SetColumn(this.tablePanel2, 1);
-            this.tablePanel2.Columns.AddRange(new DevExpress.Utils.Layout.TablePanelColumn[] {
-            new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 30.02F),
-            new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 29.98F)});
-            this.tablePanel2.Controls.Add(this.groupControl1);
-            this.tablePanel2.Controls.Add(this.groupControl2);
-            this.tablePanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tablePanel2.Location = new System.Drawing.Point(344, 3);
-            this.tablePanel2.Name = "tablePanel2";
-            this.tablePanel1.SetRow(this.tablePanel2, 0);
-            this.tablePanel2.Rows.AddRange(new DevExpress.Utils.Layout.TablePanelRow[] {
-            new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 26F)});
-            this.tablePanel2.ShowGrid = DevExpress.Utils.DefaultBoolean.False;
-            this.tablePanel2.Size = new System.Drawing.Size(839, 82);
-            this.tablePanel2.TabIndex = 22;
+            this.Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
+            this.Root.GroupBordersVisible = false;
+            this.Root.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlItem1,
+            this.layoutControlItem2,
+            this.layoutControlItem3,
+            this.layoutControlItem4,
+            this.layoutControlItem5});
+            this.Root.Name = "Root";
+            this.Root.Padding = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2);
+            this.Root.Size = new System.Drawing.Size(331, 318);
+            this.Root.TextVisible = false;
             // 
-            // groupControl1
+            // layoutControlItem1
             // 
-            this.groupControl1.AppearanceCaption.Font = new System.Drawing.Font("Nunito", 12F);
-            this.groupControl1.AppearanceCaption.Options.UseFont = true;
-            this.tablePanel2.SetColumn(this.groupControl1, 0);
-            this.groupControl1.Controls.Add(this.lookProductName);
-            this.groupControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupControl1.Location = new System.Drawing.Point(0, 0);
-            this.groupControl1.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
-            this.groupControl1.Name = "groupControl1";
-            this.tablePanel2.SetRow(this.groupControl1, 0);
-            this.groupControl1.Size = new System.Drawing.Size(417, 82);
-            this.groupControl1.TabIndex = 21;
-            this.groupControl1.Text = "Məhsul adı ilə axtar";
+            this.layoutControlItem1.Control = this.tDate;
+            this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem1.Name = "layoutControlItem1";
+            this.layoutControlItem1.Size = new System.Drawing.Size(327, 42);
+            this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem1.TextVisible = false;
             // 
-            // lookProductName
+            // layoutControlItem2
             // 
-            this.lookProductName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lookProductName.Location = new System.Drawing.Point(7, 36);
-            this.lookProductName.Name = "lookProductName";
-            this.lookProductName.Properties.AllowButtonNavigation = DevExpress.Utils.DefaultBoolean.False;
-            this.lookProductName.Properties.AllowFocused = false;
-            this.lookProductName.Properties.Appearance.Font = new System.Drawing.Font("Nunito", 12F);
-            this.lookProductName.Properties.Appearance.Options.UseFont = true;
-            this.lookProductName.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.lookProductName.Properties.LookAndFeel.SkinName = "WXI";
-            this.lookProductName.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
-            this.lookProductName.Properties.NullText = "";
-            this.lookProductName.Properties.PopupBorderStyle = DevExpress.XtraEditors.Controls.PopupBorderStyles.NoBorder;
-            this.lookProductName.Properties.PopupFindMode = DevExpress.XtraEditors.FindMode.Always;
-            this.lookProductName.Properties.PopupView = this.searchView;
-            this.lookProductName.Properties.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.repositoryItemButtonEdit1});
-            this.lookProductName.Properties.ShowClearButton = false;
-            this.lookProductName.Properties.ShowFooter = false;
-            this.lookProductName.Size = new System.Drawing.Size(404, 36);
-            this.lookProductName.TabIndex = 20;
-            this.lookProductName.EditValueChanged += new System.EventHandler(this.lookProductName_EditValueChanged);
+            this.layoutControlItem2.Control = this.tContractNo;
+            this.layoutControlItem2.Location = new System.Drawing.Point(0, 42);
+            this.layoutControlItem2.Name = "layoutControlItem2";
+            this.layoutControlItem2.Size = new System.Drawing.Size(327, 42);
+            this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem2.TextVisible = false;
             // 
-            // searchView
+            // layoutControlItem3
             // 
-            this.searchView.Appearance.HeaderPanel.Font = new System.Drawing.Font("Nunito", 12F, System.Drawing.FontStyle.Bold);
-            this.searchView.Appearance.HeaderPanel.Options.UseFont = true;
-            this.searchView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.gridColumn15,
-            this.gridColumn16,
-            this.gridColumn17,
-            this.gridColumn18});
-            this.searchView.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
-            this.searchView.Name = "searchView";
-            this.searchView.OptionsMenu.EnableColumnMenu = false;
-            this.searchView.OptionsMenu.EnableFooterMenu = false;
-            this.searchView.OptionsMenu.EnableGroupPanelMenu = false;
-            this.searchView.OptionsSelection.EnableAppearanceFocusedCell = false;
-            this.searchView.OptionsView.ShowGroupPanel = false;
-            this.searchView.OptionsView.ShowIndicator = false;
+            this.layoutControlItem3.Control = this.lookWarehouse;
+            this.layoutControlItem3.Location = new System.Drawing.Point(0, 84);
+            this.layoutControlItem3.Name = "layoutControlItem3";
+            this.layoutControlItem3.Size = new System.Drawing.Size(327, 42);
+            this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem3.TextVisible = false;
             // 
-            // gridColumn15
+            // layoutControlItem4
             // 
-            this.gridColumn15.Caption = "Id";
-            this.gridColumn15.FieldName = "Id";
-            this.gridColumn15.MaxWidth = 25;
-            this.gridColumn15.MinWidth = 25;
-            this.gridColumn15.Name = "gridColumn15";
-            this.gridColumn15.OptionsColumn.AllowEdit = false;
-            this.gridColumn15.Width = 25;
+            this.layoutControlItem4.Control = this.lookSuppliers;
+            this.layoutControlItem4.Location = new System.Drawing.Point(0, 126);
+            this.layoutControlItem4.Name = "layoutControlItem4";
+            this.layoutControlItem4.Size = new System.Drawing.Size(327, 42);
+            this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem4.TextVisible = false;
             // 
-            // gridColumn16
+            // layoutControlItem5
             // 
-            this.gridColumn16.Caption = "Barkod";
-            this.gridColumn16.FieldName = "Barcode";
-            this.gridColumn16.Name = "gridColumn16";
-            this.gridColumn16.OptionsColumn.AllowEdit = false;
-            this.gridColumn16.Visible = true;
-            this.gridColumn16.VisibleIndex = 0;
-            this.gridColumn16.Width = 164;
-            // 
-            // gridColumn17
-            // 
-            this.gridColumn17.Caption = "Məhsul adı";
-            this.gridColumn17.FieldName = "ProductName";
-            this.gridColumn17.Name = "gridColumn17";
-            this.gridColumn17.OptionsColumn.AllowEdit = false;
-            this.gridColumn17.Visible = true;
-            this.gridColumn17.VisibleIndex = 1;
-            this.gridColumn17.Width = 563;
-            // 
-            // gridColumn18
-            // 
-            this.gridColumn18.AppearanceCell.Options.UseTextOptions = true;
-            this.gridColumn18.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-            this.gridColumn18.AppearanceCell.TextOptions.Trimming = DevExpress.Utils.Trimming.EllipsisCharacter;
-            this.gridColumn18.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.gridColumn18.AppearanceHeader.Options.UseTextOptions = true;
-            this.gridColumn18.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-            this.gridColumn18.AppearanceHeader.TextOptions.Trimming = DevExpress.Utils.Trimming.EllipsisCharacter;
-            this.gridColumn18.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.gridColumn18.Caption = "Satış qiyməti";
-            this.gridColumn18.DisplayFormat.FormatString = "C2";
-            this.gridColumn18.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.gridColumn18.FieldName = "SalePrice";
-            this.gridColumn18.MaxWidth = 130;
-            this.gridColumn18.MinWidth = 130;
-            this.gridColumn18.Name = "gridColumn18";
-            this.gridColumn18.OptionsColumn.AllowEdit = false;
-            this.gridColumn18.Visible = true;
-            this.gridColumn18.VisibleIndex = 2;
-            this.gridColumn18.Width = 130;
-            // 
-            // repositoryItemButtonEdit1
-            // 
-            this.repositoryItemButtonEdit1.AutoHeight = false;
-            this.repositoryItemButtonEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "sdfsd", -1, true, true, false, editorButtonImageOptions5, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject17, serializableAppearanceObject18, serializableAppearanceObject19, serializableAppearanceObject20, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
-            this.repositoryItemButtonEdit1.Name = "repositoryItemButtonEdit1";
-            this.repositoryItemButtonEdit1.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            // 
-            // groupControl2
-            // 
-            this.groupControl2.AppearanceCaption.Font = new System.Drawing.Font("Nunito", 12F);
-            this.groupControl2.AppearanceCaption.Options.UseFont = true;
-            this.tablePanel2.SetColumn(this.groupControl2, 1);
-            this.groupControl2.Controls.Add(this.tBarcodeSearch);
-            this.groupControl2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupControl2.Location = new System.Drawing.Point(423, 0);
-            this.groupControl2.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.groupControl2.Name = "groupControl2";
-            this.tablePanel2.SetRow(this.groupControl2, 0);
-            this.groupControl2.Size = new System.Drawing.Size(416, 82);
-            this.groupControl2.TabIndex = 21;
-            this.groupControl2.Text = "Barkod ilə axtar";
-            // 
-            // tBarcodeSearch
-            // 
-            this.tBarcodeSearch.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tBarcodeSearch.Location = new System.Drawing.Point(7, 36);
-            this.tBarcodeSearch.Name = "tBarcodeSearch";
-            this.tBarcodeSearch.Properties.AllowFocused = false;
-            this.tBarcodeSearch.Properties.Appearance.Font = new System.Drawing.Font("Nunito", 12F);
-            this.tBarcodeSearch.Properties.Appearance.Options.UseFont = true;
-            this.tBarcodeSearch.Properties.Appearance.Options.UseTextOptions = true;
-            this.tBarcodeSearch.Properties.Appearance.TextOptions.Trimming = DevExpress.Utils.Trimming.EllipsisCharacter;
-            serializableAppearanceObject21.Font = new System.Drawing.Font("Nunito", 12F, System.Drawing.FontStyle.Bold);
-            serializableAppearanceObject21.Options.UseFont = true;
-            serializableAppearanceObject24.Font = new System.Drawing.Font("Nunito", 12F, System.Drawing.FontStyle.Bold);
-            serializableAppearanceObject24.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.ControlText;
-            serializableAppearanceObject24.Options.UseFont = true;
-            serializableAppearanceObject24.Options.UseForeColor = true;
-            this.tBarcodeSearch.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Search),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Barkod : ", -1, false, false, true, editorButtonImageOptions6, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject21, serializableAppearanceObject22, serializableAppearanceObject23, serializableAppearanceObject24, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
-            this.tBarcodeSearch.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.tBarcodeSearch.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.tBarcodeSearch_Properties_ButtonClick);
-            this.tBarcodeSearch.Size = new System.Drawing.Size(404, 36);
-            this.tBarcodeSearch.TabIndex = 10;
-            this.tBarcodeSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tBarcodeSearch_KeyDown);
+            this.layoutControlItem5.Control = this.tComment;
+            this.layoutControlItem5.Location = new System.Drawing.Point(0, 168);
+            this.layoutControlItem5.Name = "layoutControlItem5";
+            this.layoutControlItem5.Size = new System.Drawing.Size(327, 146);
+            this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem5.TextVisible = false;
             // 
             // gridControl1
             // 
@@ -685,6 +797,8 @@
             // 
             // gridView1
             // 
+            this.gridView1.Appearance.EvenRow.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.gridView1.Appearance.EvenRow.Options.UseBackColor = true;
             this.gridView1.Appearance.HeaderPanel.Font = new System.Drawing.Font("Nunito", 10F, System.Drawing.FontStyle.Bold);
             this.gridView1.Appearance.HeaderPanel.Options.UseFont = true;
             this.gridView1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
@@ -1002,12 +1116,12 @@
             // 
             this.bDeleteRow.AllowFocused = false;
             this.bDeleteRow.AutoHeight = false;
-            serializableAppearanceObject25.Font = new System.Drawing.Font("Nunito", 11F, System.Drawing.FontStyle.Bold);
-            serializableAppearanceObject25.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.Critical;
-            serializableAppearanceObject25.Options.UseFont = true;
-            serializableAppearanceObject25.Options.UseForeColor = true;
+            serializableAppearanceObject33.Font = new System.Drawing.Font("Nunito", 11F, System.Drawing.FontStyle.Bold);
+            serializableAppearanceObject33.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.Critical;
+            serializableAppearanceObject33.Options.UseFont = true;
+            serializableAppearanceObject33.Options.UseForeColor = true;
             this.bDeleteRow.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "SİL", -1, true, true, false, editorButtonImageOptions7, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject25, serializableAppearanceObject26, serializableAppearanceObject27, serializableAppearanceObject28, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "SİL", -1, true, true, false, editorButtonImageOptions9, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject33, serializableAppearanceObject34, serializableAppearanceObject35, serializableAppearanceObject36, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.bDeleteRow.Name = "bDeleteRow";
             this.bDeleteRow.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.bDeleteRow.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.bDeleteRow_ButtonClick);
@@ -1095,27 +1209,36 @@
             ((System.ComponentModel.ISupportInitialize)(this.accordionControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel1)).EndInit();
             this.tablePanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControl2)).EndInit();
+            this.layoutControl2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.tBarcodeSearch.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lookProductName.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
             this.panelControl2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.separatorControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.separatorControl2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.lookSuppliers.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
+            this.layoutControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.tComment.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tDate.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lookSuppliers.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookWarehouse.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tDate.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tContractNo.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tablePanel2)).EndInit();
-            this.tablePanel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
-            this.groupControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.lookProductName.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.searchView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).EndInit();
-            this.groupControl2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.tBarcodeSearch.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bQuantity)).EndInit();
@@ -1161,15 +1284,12 @@
         private DevExpress.XtraEditors.LookUpEdit lookSuppliers;
         private DevExpress.XtraEditors.LookUpEdit lookWarehouse;
         private DevExpress.XtraEditors.ButtonEdit tDate;
-        private DevExpress.XtraEditors.GroupControl groupControl1;
         private DevExpress.XtraEditors.SearchLookUpEdit lookProductName;
         private DevExpress.XtraGrid.Views.Grid.GridView searchView;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn15;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn17;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn18;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit repositoryItemButtonEdit1;
-        private DevExpress.Utils.Layout.TablePanel tablePanel2;
-        private DevExpress.XtraEditors.GroupControl groupControl2;
         private DevExpress.XtraEditors.ButtonEdit tBarcodeSearch;
         private DevExpress.XtraEditors.SeparatorControl separatorControl2;
         private DevExpress.XtraEditors.SimpleButton bSave;
@@ -1187,5 +1307,18 @@
         private DevExpress.XtraBars.BarDockControl barDockControlRight;
         private DevExpress.XtraBars.BarButtonItem bMultiDelete;
         private DevExpress.XtraBars.PopupMenu popupMenu1;
+        private DevExpress.XtraLayout.LayoutControl layoutControl1;
+        private DevExpress.XtraLayout.LayoutControlGroup Root;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem4;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem5;
+        private DevExpress.XtraLayout.LayoutControl layoutControl2;
+        private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup1;
+        private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup2;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem6;
+        private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup3;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem7;
     }
 }

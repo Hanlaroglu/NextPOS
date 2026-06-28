@@ -65,7 +65,7 @@ namespace Barcode_Sales.Forms
 
         private async Task CashiersLoad()
         {
-            var data = await userOperation.ToListAsync(x => x.IsDeleted == 0);
+            var data = await userOperation.ToListAsync(x => x.IsDeleted == false);
             FormHelpers.ControlLoad(data, lookCashier, "NameSurname");
         }
 

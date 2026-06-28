@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="b5cf45043ef04e46bed5e42906862e99" Name="Diagram1" ZoomLevel="46">
+      <Diagram DiagramId="b5cf45043ef04e46bed5e42906862e99" Name="Diagram1" ZoomLevel="59">
         <EntityTypeShape EntityType="KhanposDbModel.CloseShiftReport" Width="1.5" PointX="0.75" PointY="5.75" />
         <EntityTypeShape EntityType="KhanposDbModel.CustomerGroup" Width="1.5" PointX="7.5" PointY="39.625" />
         <EntityTypeShape EntityType="KhanposDbModel.CustomerPayment" Width="1.5" PointX="17.25" PointY="35.625" />
@@ -28,14 +28,7 @@
         <AssociationConnector Association="KhanposDbModel.FK_PosRefunds_PosRefunds" />
         <AssociationConnector Association="KhanposDbModel.FK_PosRefunds_Products" />
         <AssociationConnector Association="KhanposDbModel.FK_PosSaleItems_Products" />
-        <EntityTypeShape EntityType="KhanposDbModel.User" Width="1.5" PointX="5.25" PointY="31.625" />
-        <AssociationConnector Association="KhanposDbModel.FK_CustomerGroups_Users" />
-        <AssociationConnector Association="KhanposDbModel.FK_Logs_Users" />
-        <AssociationConnector Association="KhanposDbModel.FK_PosRefunds_Users" />
-        <AssociationConnector Association="KhanposDbModel.FK_Products_Users" />
-        <AssociationConnector Association="KhanposDbModel.FK_Users_Stores" />
         <EntityTypeShape EntityType="KhanposDbModel.Role" Width="1.5" PointX="5.25" PointY="27.125" />
-        <AssociationConnector Association="KhanposDbModel.FK_Users_Roles" />
         <EntityTypeShape EntityType="KhanposDbModel.SupplierPayment" Width="1.5" PointX="4.75" PointY="0.75" />
         <EntityTypeShape EntityType="KhanposDbModel.Supplier" Width="1.5" PointX="0.625" PointY="0.75" />
         <EntityTypeShape EntityType="KhanposDbModel.SuppliersDebt" Width="1.5" PointX="2.625" PointY="0.75" />
@@ -47,7 +40,6 @@
         <EntityTypeShape EntityType="KhanposDbModel.Invoice" Width="1.5" PointX="15.5" PointY="15.75" FillColor="255, 255, 128" />
         <AssociationConnector Association="KhanposDbModel.FK_InvoiceDetails_Invoices" />
         <AssociationConnector Association="KhanposDbModel.FK_InvoiceDetails_Products" />
-        <AssociationConnector Association="KhanposDbModel.FK_Invoices_Users" />
         <AssociationConnector Association="KhanposDbModel.FK_Invoices_Warehouses" />
         <EntityTypeShape EntityType="KhanposDbModel.Category" Width="1.5" PointX="7.375" PointY="0.875" />
         <AssociationConnector Association="KhanposDbModel.FK_Products_Category" />
@@ -55,33 +47,41 @@
         <EntityTypeShape EntityType="KhanposDbModel.InvoiceRollback" Width="1.5" PointX="17.75" PointY="15.75" FillColor="255, 255, 128" />
         <AssociationConnector Association="KhanposDbModel.FK_InvoiceRollbackDetails_InvoiceRollbacks" />
         <AssociationConnector Association="KhanposDbModel.FK_InvoiceRollbacks_Invoices" />
-        <AssociationConnector Association="KhanposDbModel.FK_InvoiceRollbacks_Users" />
         <AssociationConnector Association="KhanposDbModel.FK_InvoiceRollbacks_Warehouses" />
         <AssociationConnector Association="KhanposDbModel.FK_InvoiceRollbackDetails_Products" />
         <EntityTypeShape EntityType="KhanposDbModel.Customer" Width="1.5" PointX="9.75" PointY="33.875" />
         <AssociationConnector Association="KhanposDbModel.FK_Customers_CustomerGroups" />
         <AssociationConnector Association="KhanposDbModel.FK_CustomerDebts_Customer" />
-        <AssociationConnector Association="KhanposDbModel.FK_Customers_Users" />
         <AssociationConnector Association="KhanposDbModel.FK_PosRefunds_Customers" />
         <EntityTypeShape EntityType="KhanposDbModel.PosSale" Width="1.5" PointX="14.75" PointY="29.625" FillColor="SeaGreen" />
         <AssociationConnector Association="KhanposDbModel.FK_PosSales_Customer" />
         <AssociationConnector Association="KhanposDbModel.FK_PosRefunds_PosSales" />
         <AssociationConnector Association="KhanposDbModel.FK_PosSaleItems_PosSales" />
-        <AssociationConnector Association="KhanposDbModel.FK_PosSales_User" />
         <AssociationConnector Association="KhanposDbModel.FK_PosRefundItems_PosSaleItems" />
         <EntityTypeShape EntityType="KhanposDbModel.PosBasketItem" Width="1.5" PointX="14.25" PointY="25.75" />
         <EntityTypeShape EntityType="KhanposDbModel.PosBasket" Width="1.5" PointX="12" PointY="34.625" />
         <AssociationConnector Association="KhanposDbModel.FK_PosBasket_Customer" />
         <AssociationConnector Association="KhanposDbModel.FK_PosBasket_PosBasket" />
         <AssociationConnector Association="KhanposDbModel.FK_PosBasket_Product" />
-        <AssociationConnector Association="KhanposDbModel.FK_PosBasket_User" />
         <EntityTypeShape EntityType="KhanposDbModel.view_InvoiceRollbackList" Width="1.5" PointX="7.375" PointY="3.75" />
         <EntityTypeShape EntityType="KhanposDbModel.Terminal" Width="1.5" PointX="7.5" PointY="32.625" />
         <AssociationConnector Association="KhanposDbModel.FK_Terminals_Stores" />
-        <AssociationConnector Association="KhanposDbModel.FK_Terminals_User" />
         <EntityTypeShape EntityType="KhanposDbModel.Scale" Width="1.5" PointX="12.5" PointY="38.875" />
         <AssociationConnector Association="KhanposDbModel.FK_Scales_Stores" />
+        <EntityTypeShape EntityType="KhanposDbModel.User" Width="1.5" PointX="7.5" PointY="20.5" />
+        <AssociationConnector Association="KhanposDbModel.FK_CustomerGroups_Users" />
+        <AssociationConnector Association="KhanposDbModel.FK_Customers_Users" />
+        <AssociationConnector Association="KhanposDbModel.FK_InvoiceRollbacks_Users" />
+        <AssociationConnector Association="KhanposDbModel.FK_Invoices_Users" />
+        <AssociationConnector Association="KhanposDbModel.FK_Logs_Users" />
+        <AssociationConnector Association="KhanposDbModel.FK_PosBasket_User" />
+        <AssociationConnector Association="KhanposDbModel.FK_PosRefunds_Users" />
+        <AssociationConnector Association="KhanposDbModel.FK_PosSales_User" />
+        <AssociationConnector Association="KhanposDbModel.FK_Products_Users" />
+        <AssociationConnector Association="KhanposDbModel.FK_Users_Roles" />
         <AssociationConnector Association="KhanposDbModel.FK_Scales_Users" />
+        <AssociationConnector Association="KhanposDbModel.FK_Users_Stores" />
+        <AssociationConnector Association="KhanposDbModel.FK_Terminals_User" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

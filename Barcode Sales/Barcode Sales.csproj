@@ -451,6 +451,12 @@
     <Compile Include="Forms\fPriceChange.Designer.cs">
       <DependentUpon>fPriceChange.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\fProductsReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\fProductsReport.Designer.cs">
+      <DependentUpon>fProductsReport.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\fRegistration.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -528,12 +534,6 @@
     </Compile>
     <Compile Include="Forms\ftest.Designer.cs">
       <DependentUpon>ftest.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\fUsers.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\fUsers.Designer.cs">
-      <DependentUpon>fUsers.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\fWarehouse.cs">
       <SubType>Form</SubType>
@@ -799,6 +799,7 @@
     <Compile Include="Validations\InvoiceValidation.cs" />
     <Compile Include="Validations\ProductValidation.cs" />
     <Compile Include="Validations\RoleValidation.cs" />
+    <Compile Include="Validations\ScaleValidation.cs" />
     <Compile Include="Validations\StoreValidation.cs" />
     <Compile Include="Validations\SupplierDebtValidation.cs" />
     <Compile Include="Validations\SupplierPaymentValidation.cs" />
@@ -916,6 +917,9 @@
     <EmbeddedResource Include="Forms\fPriceChange.resx">
       <DependentUpon>fPriceChange.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\fProductsReport.resx">
+      <DependentUpon>fProductsReport.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\fRegistration.resx">
       <DependentUpon>fRegistration.cs</DependentUpon>
     </EmbeddedResource>
@@ -954,9 +958,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ftest.resx">
       <DependentUpon>ftest.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\fUsers.resx">
-      <DependentUpon>fUsers.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\fSelectProduct.resx">
       <DependentUpon>fSelectProduct.cs</DependentUpon>

@@ -50,7 +50,6 @@ namespace Barcode_Sales
         public virtual ICollection<PosRefundItem> PosRefundItems { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PosSaleItem> PosSaleItems { get; set; }
-        public virtual User User { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<InvoiceDetail> InvoiceDetails { get; set; }
         public virtual Category Category { get; set; }
@@ -58,5 +57,6 @@ namespace Barcode_Sales
         public virtual ICollection<InvoiceRollbackDetail> InvoiceRollbackDetails { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PosBasketItem> PosBasketItems { get; set; }
+        public virtual User User { get; set; }
     }
 }
