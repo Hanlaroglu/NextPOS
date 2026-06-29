@@ -246,6 +246,7 @@
     </Compile>
     <Compile Include="DTOs\CategoryDto.cs" />
     <Compile Include="DTOs\CustomerDto.cs" />
+    <Compile Include="DTOs\DashboardSalePayTypeDto.cs" />
     <Compile Include="DTOs\DashboardStatisticsDto.cs" />
     <Compile Include="DTOs\DashboardUIDto.cs" />
     <Compile Include="DTOs\HotSaleProductDto.cs" />
@@ -348,6 +349,12 @@
     </Compile>
     <Compile Include="Forms\fBankSale.Designer.cs">
       <DependentUpon>fBankSale.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\fChartTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\fChartTest.Designer.cs">
+      <DependentUpon>fChartTest.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\fDashboard.cs">
       <SubType>Form</SubType>
@@ -865,6 +872,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\fBankSale.resx">
       <DependentUpon>fBankSale.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\fChartTest.resx">
+      <DependentUpon>fChartTest.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\fDashboard.resx">
       <DependentUpon>fDashboard.cs</DependentUpon>

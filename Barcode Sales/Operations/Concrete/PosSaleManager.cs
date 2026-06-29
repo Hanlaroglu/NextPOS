@@ -1,5 +1,7 @@
 ﻿using Barcode_Sales.DTOs;
 using Barcode_Sales.Operations.Abstract;
+using Barcode_Sales.Services.CacheServices;
+using DevExpress.XtraCharts;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -44,9 +46,33 @@ namespace Barcode_Sales.Operations.Concrete
             }
         }
 
-        public Task<DashboardUIDto.PaymentTypeTotal> CurrentPaymentTypeDataAsync()
+        public async Task<List<DashboardSalePayTypeDto>> CurrentPaymentTypeDataAsync()
         {
-            throw new NotImplementedException();
+            DateTime currentDate = DatetimeService.CurrentDateTime.Date;
+
+            var list = new List<DashboardSalePayTypeDto>();
+
+            using (KhanposDbEntities db = new KhanposDbEntities())
+            {
+                var result = await db.PosSales
+                    .Where(s => s.SaleDate == currentDate)
+                    .GroupBy(s => 1)
+                    .Select(g => new
+                    {
+                        Cash = g.Sum(s => s.Cash),
+                        Card = g.Sum(s => s.Card),
+                        Total = g.Sum(s => s.Total)
+                    })
+                    .FirstOrDefaultAsync();
+
+                if (result != null)
+                {
+                    list.Add(new DashboardSalePayTypeDto { PaymentName = "Nağd", Amount = result.Cash });
+                    list.Add(new DashboardSalePayTypeDto { PaymentName = "Kart", Amount = result.Card });
+                }
+
+                return list;
+            }
         }
 
         public Task<string> CurrentSalesCountAsync()

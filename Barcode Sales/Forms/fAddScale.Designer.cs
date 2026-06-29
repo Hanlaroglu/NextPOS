@@ -75,7 +75,7 @@
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panelControl1.Location = new System.Drawing.Point(0, 169);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(598, 42);
+            this.panelControl1.Size = new System.Drawing.Size(458, 42);
             this.panelControl1.TabIndex = 29;
             // 
             // bSave
@@ -93,7 +93,7 @@
             this.bSave.AppearanceHovered.Options.UseBackColor = true;
             this.bSave.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bSave.ImageOptions.SvgImage")));
             this.bSave.ImageOptions.SvgImageSize = new System.Drawing.Size(28, 28);
-            this.bSave.Location = new System.Drawing.Point(467, 5);
+            this.bSave.Location = new System.Drawing.Point(327, 5);
             this.bSave.LookAndFeel.SkinName = "WXI";
             this.bSave.LookAndFeel.UseDefaultLookAndFeel = false;
             this.bSave.Name = "bSave";
@@ -113,7 +113,7 @@
             this.layoutControl1.Location = new System.Drawing.Point(0, 0);
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.Root = this.Root;
-            this.layoutControl1.Size = new System.Drawing.Size(598, 169);
+            this.layoutControl1.Size = new System.Drawing.Size(458, 169);
             this.layoutControl1.TabIndex = 30;
             this.layoutControl1.Text = "layoutControl1";
             // 
@@ -133,7 +133,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Faylın yolu : ", -1, false, true, true, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.tFilePath.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.tFilePath.Properties.MaskSettings.Set("mask", "(999) 000-00-00");
-            this.tFilePath.Size = new System.Drawing.Size(580, 36);
+            this.tFilePath.Size = new System.Drawing.Size(440, 36);
             this.tFilePath.StyleController = this.layoutControl1;
             this.tFilePath.TabIndex = 5;
             // 
@@ -153,7 +153,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "IP : ", -1, false, true, true, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.tIpAddress.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.tIpAddress.Properties.MaskSettings.Set("mask", "(999) 000-00-00");
-            this.tIpAddress.Size = new System.Drawing.Size(580, 36);
+            this.tIpAddress.Size = new System.Drawing.Size(440, 36);
             this.tIpAddress.StyleController = this.layoutControl1;
             this.tIpAddress.TabIndex = 3;
             // 
@@ -188,7 +188,7 @@
             this.lookScales.Properties.NullValuePrompt = "Model seçimi";
             this.lookScales.Properties.ShowFooter = false;
             this.lookScales.Properties.ShowHeader = false;
-            this.lookScales.Size = new System.Drawing.Size(580, 36);
+            this.lookScales.Size = new System.Drawing.Size(440, 36);
             this.lookScales.StyleController = this.layoutControl1;
             this.lookScales.TabIndex = 2;
             // 
@@ -200,7 +200,7 @@
             this.layoutControlGroup1});
             this.Root.Name = "Root";
             this.Root.Padding = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2);
-            this.Root.Size = new System.Drawing.Size(598, 169);
+            this.Root.Size = new System.Drawing.Size(458, 169);
             this.Root.TextVisible = false;
             // 
             // layoutControlGroup1
@@ -214,7 +214,7 @@
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "layoutControlGroup1";
             this.layoutControlGroup1.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
-            this.layoutControlGroup1.Size = new System.Drawing.Size(594, 165);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(454, 165);
             this.layoutControlGroup1.Text = "Tərəzi məlumatları";
             // 
             // layoutControlItem1
@@ -222,7 +222,7 @@
             this.layoutControlItem1.Control = this.lookScales;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(586, 42);
+            this.layoutControlItem1.Size = new System.Drawing.Size(446, 42);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
@@ -231,7 +231,7 @@
             this.layoutControlItem2.Control = this.tIpAddress;
             this.layoutControlItem2.Location = new System.Drawing.Point(0, 42);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(586, 42);
+            this.layoutControlItem2.Size = new System.Drawing.Size(446, 42);
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
             // 
@@ -240,7 +240,7 @@
             this.layoutControlMerchantId.Control = this.tFilePath;
             this.layoutControlMerchantId.Location = new System.Drawing.Point(0, 84);
             this.layoutControlMerchantId.Name = "layoutControlMerchantId";
-            this.layoutControlMerchantId.Size = new System.Drawing.Size(586, 46);
+            this.layoutControlMerchantId.Size = new System.Drawing.Size(446, 46);
             this.layoutControlMerchantId.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlMerchantId.TextVisible = false;
             // 
@@ -248,7 +248,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(598, 211);
+            this.ClientSize = new System.Drawing.Size(458, 211);
             this.Controls.Add(this.layoutControl1);
             this.Controls.Add(this.panelControl1);
             this.Name = "fAddScale";

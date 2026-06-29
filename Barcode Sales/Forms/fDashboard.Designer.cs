@@ -45,13 +45,6 @@
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject10 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject11 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject12 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.XtraCharts.Legend legend1 = new DevExpress.XtraCharts.Legend();
-            DevExpress.XtraCharts.Series series1 = new DevExpress.XtraCharts.Series();
-            DevExpress.XtraCharts.PieSeriesLabel pieSeriesLabel1 = new DevExpress.XtraCharts.PieSeriesLabel();
-            DevExpress.XtraCharts.PieSeriesView pieSeriesView1 = new DevExpress.XtraCharts.PieSeriesView();
-            DevExpress.XtraCharts.ChartTitle chartTitle1 = new DevExpress.XtraCharts.ChartTitle();
-            DevExpress.XtraCharts.Series series2 = new DevExpress.XtraCharts.Series();
-            DevExpress.XtraCharts.PieSeriesView pieSeriesView2 = new DevExpress.XtraCharts.PieSeriesView();
             DevExpress.XtraCharts.XYDiagram xyDiagram1 = new DevExpress.XtraCharts.XYDiagram();
             DevExpress.XtraCharts.Series series3 = new DevExpress.XtraCharts.Series();
             DevExpress.XtraCharts.SplineSeriesView splineSeriesView1 = new DevExpress.XtraCharts.SplineSeriesView();
@@ -122,6 +115,11 @@
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject62 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject63 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject64 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraCharts.Series series2 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.DoughnutSeriesView doughnutSeriesView2 = new DevExpress.XtraCharts.DoughnutSeriesView();
+            DevExpress.XtraCharts.Series series1 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.DoughnutSeriesView doughnutSeriesView1 = new DevExpress.XtraCharts.DoughnutSeriesView();
+            DevExpress.XtraCharts.ChartTitle chartTitle1 = new DevExpress.XtraCharts.ChartTitle();
             this.fluentDesignFormContainer1 = new DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormContainer();
             this.accordionControl1 = new DevExpress.XtraBars.Navigation.AccordionControl();
             this.accordionControlElement1 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
@@ -438,8 +436,6 @@
             this.dateStart_ReturnProduct = new DevExpress.XtraEditors.DateEdit();
             this.pageMain = new DevExpress.XtraBars.Navigation.NavigationPage();
             this.tablePanel24 = new DevExpress.Utils.Layout.TablePanel();
-            this.chartTop5Product = new DevExpress.XtraCharts.ChartControl();
-            this.chartControl3 = new DevExpress.XtraCharts.ChartControl();
             this.tabPane1 = new DevExpress.XtraBars.Navigation.TabPane();
             this.tabWeek = new DevExpress.XtraBars.Navigation.TabNavigationPage();
             this.chartControl1 = new DevExpress.XtraCharts.ChartControl();
@@ -668,6 +664,8 @@
             this.bRefreshScale = new DevExpress.XtraEditors.SimpleButton();
             this.bAddScale = new DevExpress.XtraEditors.SimpleButton();
             this.popupMainMenu = new DevExpress.XtraBars.PopupMenu(this.components);
+            this.chartControl2 = new DevExpress.XtraCharts.ChartControl();
+            this.chartTop5Product = new DevExpress.XtraCharts.ChartControl();
             ((System.ComponentModel.ISupportInitialize)(this.accordionControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fluentDesignFormControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.navigationMenu)).BeginInit();
@@ -864,14 +862,6 @@
             this.pageMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel24)).BeginInit();
             this.tablePanel24.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chartTop5Product)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(legend1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(series1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(pieSeriesLabel1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(pieSeriesView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chartControl3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(series2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(pieSeriesView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabPane1)).BeginInit();
             this.tabPane1.SuspendLayout();
             this.tabWeek.SuspendLayout();
@@ -1037,6 +1027,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel49)).BeginInit();
             this.tablePanel49.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.popupMainMenu)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartControl2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(doughnutSeriesView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartTop5Product)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(doughnutSeriesView1)).BeginInit();
             this.SuspendLayout();
             // 
             // fluentDesignFormContainer1
@@ -6347,7 +6343,7 @@
             new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 100F),
             new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 64.36F)});
             this.tablePanel24.Controls.Add(this.chartTop5Product);
-            this.tablePanel24.Controls.Add(this.chartControl3);
+            this.tablePanel24.Controls.Add(this.chartControl2);
             this.tablePanel24.Controls.Add(this.tabPane1);
             this.tablePanel24.Controls.Add(this.panelControl21);
             this.tablePanel24.Controls.Add(this.panelControl22);
@@ -6360,66 +6356,10 @@
             this.tablePanel24.Rows.AddRange(new DevExpress.Utils.Layout.TablePanelRow[] {
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 95F),
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 389F),
-            new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 364F),
-            new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 51F, false)});
+            new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 364F)});
             this.tablePanel24.Size = new System.Drawing.Size(1215, 814);
             this.tablePanel24.TabIndex = 4;
             this.tablePanel24.UseSkinIndents = true;
-            // 
-            // chartTop5Product
-            // 
-            this.tablePanel24.SetColumn(this.chartTop5Product, 0);
-            this.chartTop5Product.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.chartTop5Product.EmptyChartText.DXFont = new DevExpress.Drawing.DXFont("Nunito", 12F);
-            this.chartTop5Product.EmptyChartText.Text = "Məlumat yoxdur";
-            this.chartTop5Product.Legend.Visibility = DevExpress.Utils.DefaultBoolean.False;
-            legend1.LegendID = 0;
-            legend1.Name = "Legend 1";
-            this.chartTop5Product.Legends.AddRange(new DevExpress.XtraCharts.Legend[] {
-            legend1});
-            this.chartTop5Product.Location = new System.Drawing.Point(2, 488);
-            this.chartTop5Product.Margin = new System.Windows.Forms.Padding(1, 3, 1, 3);
-            this.chartTop5Product.Name = "chartTop5Product";
-            this.tablePanel24.SetRow(this.chartTop5Product, 2);
-            pieSeriesLabel1.Border.Visibility = DevExpress.Utils.DefaultBoolean.False;
-            pieSeriesLabel1.DXFont = new DevExpress.Drawing.DXFont("Nunito", 8F);
-            pieSeriesLabel1.LineVisibility = DevExpress.Utils.DefaultBoolean.True;
-            pieSeriesLabel1.Shadow.Size = 1;
-            pieSeriesLabel1.Shadow.Visible = true;
-            series1.Label = pieSeriesLabel1;
-            series1.LabelsVisibility = DevExpress.Utils.DefaultBoolean.True;
-            series1.Name = "seriesTop5Product";
-            series1.SeriesID = 1;
-            series1.View = pieSeriesView1;
-            this.chartTop5Product.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
-        series1};
-            this.chartTop5Product.Size = new System.Drawing.Size(331, 271);
-            this.chartTop5Product.TabIndex = 22;
-            chartTitle1.DXFont = new DevExpress.Drawing.DXFont("Nunito", 10F);
-            chartTitle1.MaxLineCount = 2;
-            chartTitle1.Text = "";
-            chartTitle1.TitleID = 0;
-            chartTitle1.WordWrap = true;
-            this.chartTop5Product.Titles.AddRange(new DevExpress.XtraCharts.ChartTitle[] {
-            chartTitle1});
-            // 
-            // chartControl3
-            // 
-            this.tablePanel24.SetColumn(this.chartControl3, 2);
-            this.tablePanel24.SetColumnSpan(this.chartControl3, 2);
-            this.chartControl3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.chartControl3.Legend.Visibility = DevExpress.Utils.DefaultBoolean.False;
-            this.chartControl3.Location = new System.Drawing.Point(668, 488);
-            this.chartControl3.Margin = new System.Windows.Forms.Padding(1, 3, 1, 3);
-            this.chartControl3.Name = "chartControl3";
-            this.tablePanel24.SetRow(this.chartControl3, 2);
-            series2.Name = "seriesCategory";
-            series2.SeriesID = 1;
-            series2.View = pieSeriesView2;
-            this.chartControl3.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
-        series2};
-            this.chartControl3.Size = new System.Drawing.Size(545, 271);
-            this.chartControl3.TabIndex = 23;
             // 
             // tabPane1
             // 
@@ -10446,6 +10386,47 @@
             this.popupMainMenu.Manager = this.barManager1;
             this.popupMainMenu.Name = "popupMainMenu";
             // 
+            // chartControl2
+            // 
+            this.tablePanel24.SetColumn(this.chartControl2, 2);
+            this.tablePanel24.SetColumnSpan(this.chartControl2, 2);
+            this.chartControl2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.chartControl2.EmptyChartText.DXFont = new DevExpress.Drawing.DXFont("Nunito", 14F);
+            this.chartControl2.EmptyChartText.Text = "Məlumat yoxdur";
+            this.chartControl2.Location = new System.Drawing.Point(668, 486);
+            this.chartControl2.Margin = new System.Windows.Forms.Padding(1);
+            this.chartControl2.Name = "chartControl2";
+            this.tablePanel24.SetRow(this.chartControl2, 2);
+            series2.Name = "Series 1";
+            series2.SeriesID = 0;
+            series2.View = doughnutSeriesView2;
+            this.chartControl2.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
+        series2};
+            this.chartControl2.Size = new System.Drawing.Size(545, 326);
+            this.chartControl2.TabIndex = 23;
+            // 
+            // chartTop5Product
+            // 
+            this.tablePanel24.SetColumn(this.chartTop5Product, 0);
+            this.tablePanel24.SetColumnSpan(this.chartTop5Product, 2);
+            this.chartTop5Product.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.chartTop5Product.Location = new System.Drawing.Point(2, 486);
+            this.chartTop5Product.Margin = new System.Windows.Forms.Padding(1);
+            this.chartTop5Product.Name = "chartTop5Product";
+            this.tablePanel24.SetRow(this.chartTop5Product, 2);
+            series1.Name = "Series 1";
+            series1.SeriesID = 0;
+            series1.View = doughnutSeriesView1;
+            this.chartTop5Product.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
+        series1};
+            this.chartTop5Product.Size = new System.Drawing.Size(664, 326);
+            this.chartTop5Product.TabIndex = 24;
+            chartTitle1.MaxLineCount = 2;
+            chartTitle1.TitleID = 0;
+            chartTitle1.WordWrap = true;
+            this.chartTop5Product.Titles.AddRange(new DevExpress.XtraCharts.ChartTitle[] {
+            chartTitle1});
+            // 
             // fDashboard
             // 
             this.Appearance.BackColor = System.Drawing.Color.Transparent;
@@ -10469,7 +10450,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Admin panel";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.fDashboard_Load);
+            this.Shown += new System.EventHandler(this.fDashboard_Shown);
             this.Resize += new System.EventHandler(this.fDashboard_Resize);
             ((System.ComponentModel.ISupportInitialize)(this.accordionControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fluentDesignFormControl1)).EndInit();
@@ -10679,14 +10660,6 @@
             this.pageMain.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel24)).EndInit();
             this.tablePanel24.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(legend1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(pieSeriesLabel1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(pieSeriesView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(series1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chartTop5Product)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(pieSeriesView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(series2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chartControl3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabPane1)).EndInit();
             this.tabPane1.ResumeLayout(false);
             this.tabWeek.ResumeLayout(false);
@@ -10871,6 +10844,12 @@
             this.tablePanel49.ResumeLayout(false);
             this.tablePanel49.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.popupMainMenu)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(doughnutSeriesView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartControl2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(doughnutSeriesView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartTop5Product)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -11290,8 +11269,6 @@
         private DevExpress.XtraBars.Navigation.TabNavigationPage tabYear;
         private DevExpress.XtraCharts.ChartControl chartControl1;
         private DevExpress.XtraCharts.ChartControl chartControlMonth;
-        private DevExpress.XtraCharts.ChartControl chartControl3;
-        private DevExpress.XtraCharts.ChartControl chartTop5Product;
         private DevExpress.XtraBars.Navigation.AccordionControlSeparator accordionControlSeparator1;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement30;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement31;
@@ -11426,5 +11403,7 @@
         private DevExpress.XtraEditors.SimpleButton bRefreshScale;
         private DevExpress.XtraEditors.SimpleButton bAddScale;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn126;
+        private DevExpress.XtraCharts.ChartControl chartControl2;
+        private DevExpress.XtraCharts.ChartControl chartTop5Product;
     }
 }

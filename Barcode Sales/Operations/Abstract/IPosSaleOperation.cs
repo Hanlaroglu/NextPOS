@@ -1,7 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using Barcode_Sales.DTOs;
+using System.Collections.Generic;
 using System.Threading.Tasks;
-using Barcode_Sales.DTOs;
-using static Barcode_Sales.DTOs.DashboardUIDto;
 
 namespace Barcode_Sales.Operations.Abstract
 {
@@ -10,7 +9,7 @@ namespace Barcode_Sales.Operations.Abstract
         Task<int> CurrentSaleCount();
         Task<string> CurrentSalesDataAsync();
         Task<string> CurrentSalesCountAsync();
-        Task<PaymentTypeTotal> CurrentPaymentTypeDataAsync();
+        Task<List<DashboardSalePayTypeDto>> CurrentPaymentTypeDataAsync();
         Task<TopSellingProductDto> TopSellingProducts();
         Task<List<PosSaleSummaryDto>> PosSaleSummaryAsync(string filter);
     }
