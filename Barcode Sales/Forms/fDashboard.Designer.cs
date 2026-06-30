@@ -45,6 +45,11 @@
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject10 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject11 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject12 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraCharts.Series series1 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.DoughnutSeriesView doughnutSeriesView1 = new DevExpress.XtraCharts.DoughnutSeriesView();
+            DevExpress.XtraCharts.ChartTitle chartTitle1 = new DevExpress.XtraCharts.ChartTitle();
+            DevExpress.XtraCharts.Series series2 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.DoughnutSeriesView doughnutSeriesView2 = new DevExpress.XtraCharts.DoughnutSeriesView();
             DevExpress.XtraCharts.XYDiagram xyDiagram1 = new DevExpress.XtraCharts.XYDiagram();
             DevExpress.XtraCharts.Series series3 = new DevExpress.XtraCharts.Series();
             DevExpress.XtraCharts.SplineSeriesView splineSeriesView1 = new DevExpress.XtraCharts.SplineSeriesView();
@@ -115,11 +120,6 @@
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject62 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject63 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject64 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.XtraCharts.Series series2 = new DevExpress.XtraCharts.Series();
-            DevExpress.XtraCharts.DoughnutSeriesView doughnutSeriesView2 = new DevExpress.XtraCharts.DoughnutSeriesView();
-            DevExpress.XtraCharts.Series series1 = new DevExpress.XtraCharts.Series();
-            DevExpress.XtraCharts.DoughnutSeriesView doughnutSeriesView1 = new DevExpress.XtraCharts.DoughnutSeriesView();
-            DevExpress.XtraCharts.ChartTitle chartTitle1 = new DevExpress.XtraCharts.ChartTitle();
             this.fluentDesignFormContainer1 = new DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormContainer();
             this.accordionControl1 = new DevExpress.XtraBars.Navigation.AccordionControl();
             this.accordionControlElement1 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
@@ -436,6 +436,8 @@
             this.dateStart_ReturnProduct = new DevExpress.XtraEditors.DateEdit();
             this.pageMain = new DevExpress.XtraBars.Navigation.NavigationPage();
             this.tablePanel24 = new DevExpress.Utils.Layout.TablePanel();
+            this.chartTop5Product = new DevExpress.XtraCharts.ChartControl();
+            this.chartControl2 = new DevExpress.XtraCharts.ChartControl();
             this.tabPane1 = new DevExpress.XtraBars.Navigation.TabPane();
             this.tabWeek = new DevExpress.XtraBars.Navigation.TabNavigationPage();
             this.chartControl1 = new DevExpress.XtraCharts.ChartControl();
@@ -664,8 +666,6 @@
             this.bRefreshScale = new DevExpress.XtraEditors.SimpleButton();
             this.bAddScale = new DevExpress.XtraEditors.SimpleButton();
             this.popupMainMenu = new DevExpress.XtraBars.PopupMenu(this.components);
-            this.chartControl2 = new DevExpress.XtraCharts.ChartControl();
-            this.chartTop5Product = new DevExpress.XtraCharts.ChartControl();
             ((System.ComponentModel.ISupportInitialize)(this.accordionControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fluentDesignFormControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.navigationMenu)).BeginInit();
@@ -862,6 +862,12 @@
             this.pageMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel24)).BeginInit();
             this.tablePanel24.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chartTop5Product)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(doughnutSeriesView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartControl2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(doughnutSeriesView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabPane1)).BeginInit();
             this.tabPane1.SuspendLayout();
             this.tabWeek.SuspendLayout();
@@ -1027,12 +1033,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel49)).BeginInit();
             this.tablePanel49.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.popupMainMenu)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chartControl2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(series2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(doughnutSeriesView2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chartTop5Product)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(series1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(doughnutSeriesView1)).BeginInit();
             this.SuspendLayout();
             // 
             // fluentDesignFormContainer1
@@ -6361,6 +6361,47 @@
             this.tablePanel24.TabIndex = 4;
             this.tablePanel24.UseSkinIndents = true;
             // 
+            // chartTop5Product
+            // 
+            this.tablePanel24.SetColumn(this.chartTop5Product, 0);
+            this.tablePanel24.SetColumnSpan(this.chartTop5Product, 2);
+            this.chartTop5Product.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.chartTop5Product.Location = new System.Drawing.Point(2, 486);
+            this.chartTop5Product.Margin = new System.Windows.Forms.Padding(1);
+            this.chartTop5Product.Name = "chartTop5Product";
+            this.tablePanel24.SetRow(this.chartTop5Product, 2);
+            series1.Name = "Series 1";
+            series1.SeriesID = 0;
+            series1.View = doughnutSeriesView1;
+            this.chartTop5Product.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
+        series1};
+            this.chartTop5Product.Size = new System.Drawing.Size(664, 326);
+            this.chartTop5Product.TabIndex = 24;
+            chartTitle1.MaxLineCount = 2;
+            chartTitle1.TitleID = 0;
+            chartTitle1.WordWrap = true;
+            this.chartTop5Product.Titles.AddRange(new DevExpress.XtraCharts.ChartTitle[] {
+            chartTitle1});
+            // 
+            // chartControl2
+            // 
+            this.tablePanel24.SetColumn(this.chartControl2, 2);
+            this.tablePanel24.SetColumnSpan(this.chartControl2, 2);
+            this.chartControl2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.chartControl2.EmptyChartText.DXFont = new DevExpress.Drawing.DXFont("Nunito", 14F);
+            this.chartControl2.EmptyChartText.Text = "Məlumat yoxdur";
+            this.chartControl2.Location = new System.Drawing.Point(668, 486);
+            this.chartControl2.Margin = new System.Windows.Forms.Padding(1);
+            this.chartControl2.Name = "chartControl2";
+            this.tablePanel24.SetRow(this.chartControl2, 2);
+            series2.Name = "Series 1";
+            series2.SeriesID = 0;
+            series2.View = doughnutSeriesView2;
+            this.chartControl2.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
+        series2};
+            this.chartControl2.Size = new System.Drawing.Size(545, 326);
+            this.chartControl2.TabIndex = 23;
+            // 
             // tabPane1
             // 
             this.tabPane1.AppearanceButton.Hovered.Font = new System.Drawing.Font("Nunito", 11F, System.Drawing.FontStyle.Bold);
@@ -6433,7 +6474,7 @@
             this.tabMonth.Caption = "Aylıq";
             this.tabMonth.Controls.Add(this.chartControlMonth);
             this.tabMonth.Name = "tabMonth";
-            this.tabMonth.Size = new System.Drawing.Size(1211, 342);
+            this.tabMonth.Size = new System.Drawing.Size(1211, 387);
             // 
             // chartControlMonth
             // 
@@ -6449,14 +6490,15 @@
             series4.SeriesID = 0;
             this.chartControlMonth.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
         series4};
-            this.chartControlMonth.Size = new System.Drawing.Size(1211, 342);
+            this.chartControlMonth.Size = new System.Drawing.Size(1211, 387);
             this.chartControlMonth.TabIndex = 1;
             // 
             // tabYear
             // 
             this.tabYear.Caption = "İllik";
             this.tabYear.Name = "tabYear";
-            this.tabYear.Size = new System.Drawing.Size(993, 338);
+            this.tabYear.PageVisible = false;
+            this.tabYear.Size = new System.Drawing.Size(1211, 387);
             // 
             // panelControl21
             // 
@@ -10386,47 +10428,6 @@
             this.popupMainMenu.Manager = this.barManager1;
             this.popupMainMenu.Name = "popupMainMenu";
             // 
-            // chartControl2
-            // 
-            this.tablePanel24.SetColumn(this.chartControl2, 2);
-            this.tablePanel24.SetColumnSpan(this.chartControl2, 2);
-            this.chartControl2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.chartControl2.EmptyChartText.DXFont = new DevExpress.Drawing.DXFont("Nunito", 14F);
-            this.chartControl2.EmptyChartText.Text = "Məlumat yoxdur";
-            this.chartControl2.Location = new System.Drawing.Point(668, 486);
-            this.chartControl2.Margin = new System.Windows.Forms.Padding(1);
-            this.chartControl2.Name = "chartControl2";
-            this.tablePanel24.SetRow(this.chartControl2, 2);
-            series2.Name = "Series 1";
-            series2.SeriesID = 0;
-            series2.View = doughnutSeriesView2;
-            this.chartControl2.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
-        series2};
-            this.chartControl2.Size = new System.Drawing.Size(545, 326);
-            this.chartControl2.TabIndex = 23;
-            // 
-            // chartTop5Product
-            // 
-            this.tablePanel24.SetColumn(this.chartTop5Product, 0);
-            this.tablePanel24.SetColumnSpan(this.chartTop5Product, 2);
-            this.chartTop5Product.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.chartTop5Product.Location = new System.Drawing.Point(2, 486);
-            this.chartTop5Product.Margin = new System.Windows.Forms.Padding(1);
-            this.chartTop5Product.Name = "chartTop5Product";
-            this.tablePanel24.SetRow(this.chartTop5Product, 2);
-            series1.Name = "Series 1";
-            series1.SeriesID = 0;
-            series1.View = doughnutSeriesView1;
-            this.chartTop5Product.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
-        series1};
-            this.chartTop5Product.Size = new System.Drawing.Size(664, 326);
-            this.chartTop5Product.TabIndex = 24;
-            chartTitle1.MaxLineCount = 2;
-            chartTitle1.TitleID = 0;
-            chartTitle1.WordWrap = true;
-            this.chartTop5Product.Titles.AddRange(new DevExpress.XtraCharts.ChartTitle[] {
-            chartTitle1});
-            // 
             // fDashboard
             // 
             this.Appearance.BackColor = System.Drawing.Color.Transparent;
@@ -10444,6 +10445,7 @@
             this.Controls.Add(this.barDockControlTop);
             this.Controls.Add(this.fluentDesignFormControl1);
             this.FluentDesignFormControl = this.fluentDesignFormControl1;
+            this.KeyPreview = true;
             this.LookAndFeel.UseDefaultLookAndFeel = false;
             this.Name = "fDashboard";
             this.NavigationControl = this.accordionControl1;
@@ -10660,6 +10662,12 @@
             this.pageMain.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel24)).EndInit();
             this.tablePanel24.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(doughnutSeriesView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartTop5Product)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(doughnutSeriesView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartControl2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabPane1)).EndInit();
             this.tabPane1.ResumeLayout(false);
             this.tabWeek.ResumeLayout(false);
@@ -10844,12 +10852,6 @@
             this.tablePanel49.ResumeLayout(false);
             this.tablePanel49.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.popupMainMenu)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(doughnutSeriesView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(series2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chartControl2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(doughnutSeriesView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(series1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chartTop5Product)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -1,4 +1,12 @@
-﻿using Barcode_Sales.Helpers;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using Barcode_Sales.Helpers;
 using Barcode_Sales.Operations.Abstract;
 using Barcode_Sales.Operations.Concrete;
 using Barcode_Sales.Services.CacheServices;
@@ -7,14 +15,6 @@ using DevExpress.XtraBars.Navigation;
 using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Repository;
 using DevExpress.XtraGrid.Views.Grid.ViewInfo;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace Barcode_Sales.Forms
 {
@@ -35,6 +35,7 @@ namespace Barcode_Sales.Forms
         public fPosSales()
         {
             InitializeComponent();
+            KeyDownHelper.EnableFullScreenToggle(this);
             gridControlBasket.DataSource = dataList;
         }
 

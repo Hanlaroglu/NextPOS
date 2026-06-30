@@ -37,6 +37,7 @@ namespace Barcode_Sales.Forms
         public fDashboard()
         {
             InitializeComponent();
+            KeyDownHelper.EnableFullScreenToggle(this);
         }
 
         private async void fDashboard_Shown(object sender, EventArgs e)

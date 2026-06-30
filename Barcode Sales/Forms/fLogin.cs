@@ -4,6 +4,7 @@ using Barcode_Sales.Services.CacheServices;
 using Barcode_Sales.Validations;
 using System;
 using System.Windows.Forms;
+using Barcode_Sales.Helpers;
 
 namespace Barcode_Sales.Forms
 {
@@ -13,6 +14,7 @@ namespace Barcode_Sales.Forms
         public fLogin()
         {
             InitializeComponent();
+            KeyDownHelper.EnableFullScreenToggle(this);
         }
 
         private void fLoginDemo_Load(object sender, EventArgs e)

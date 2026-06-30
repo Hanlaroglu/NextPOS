@@ -747,7 +747,6 @@ C:\Users\PC-SUPPORT\Desktop\Khanpos\Barcode Sales\obj\Debug\Barcode_Sales.Forms.
 C:\Users\PC-SUPPORT\Desktop\Khanpos\Barcode Sales\obj\Debug\Barcode_Sales.Forms.fSupplierPay.resources
 C:\Users\PC-SUPPORT\Desktop\Khanpos\Barcode Sales\obj\Debug\Barcode_Sales.Forms.fTerminalSaleReport.resources
 C:\Users\PC-SUPPORT\Desktop\Khanpos\Barcode Sales\obj\Debug\Barcode_Sales.Forms.ftest.resources
-C:\Users\PC-SUPPORT\Desktop\Khanpos\Barcode Sales\obj\Debug\Barcode_Sales.Forms.fUsers.resources
 C:\Users\PC-SUPPORT\Desktop\Khanpos\Barcode Sales\obj\Debug\Barcode_Sales.Product.fSelectProduct.resources
 C:\Users\PC-SUPPORT\Desktop\Khanpos\Barcode Sales\obj\Debug\Barcode_Sales.Forms.fWarehouse.resources
 C:\Users\PC-SUPPORT\Desktop\Khanpos\Barcode Sales\obj\Debug\Barcode_Sales.Forms.ReportTest.resources
@@ -1006,3 +1005,6 @@ D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\obj\Deb
 D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\obj\Debug\Barcode .28D80BE3.Up2Date
 D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\obj\Debug\Khanpos.exe
 D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\obj\Debug\Khanpos.pdb
+C:\Users\PC-SUPPORT\Desktop\Khanpos\Barcode Sales\obj\Debug\Barcode_Sales.Forms.fAddScale.resources
+C:\Users\PC-SUPPORT\Desktop\Khanpos\Barcode Sales\obj\Debug\Barcode_Sales.Forms.fChartTest.resources
+C:\Users\PC-SUPPORT\Desktop\Khanpos\Barcode Sales\obj\Debug\Barcode_Sales.Forms.fProductsReport.resources

@@ -25,14 +25,25 @@ namespace Barcode_Sales.Forms
         private void fSelectCustomer_Shown(object sender, EventArgs e)
         {
             CustomerLoad();
-            layoutView1.OptionsCustomization.AllowFilter = false;
-            layoutView1.OptionsCustomization.AllowSort = false;
-            layoutView1.OptionsView.ShowHeaderPanel = false;
+            //layoutView1.OptionsCustomization.AllowFilter = false;
+            //layoutView1.OptionsCustomization.AllowSort = false;
+            //layoutView1.OptionsView.ShowHeaderPanel = false;
         }
 
-        private void layoutView1_CardClick(object sender, DevExpress.XtraGrid.Views.Layout.Events.CardClickEventArgs e)
+        private void tSearchCustomer_EditValueChanged(object sender, EventArgs e)
         {
-            var row = layoutView1.GetRow(e.RowHandle) as Customer;
+            if (!string.IsNullOrWhiteSpace(tSearchCustomer.Text))
+            {
+                //tSearchCustomer.Properties.Buttons[1].Visible = true;
+                tileView1.ActiveFilterString = $"Contains([NameSurname], '{tSearchCustomer.Text.Trim()}')";
+            }
+            else
+                tileView1.ActiveFilter.Clear();
+        }
+
+        private void tileView1_ItemClick(object sender, DevExpress.XtraGrid.Views.Tile.TileViewItemClickEventArgs e)
+        {
+            var row = tileView1.GetRow(e.Item.RowHandle) as Customer;
 
             if (row != null)
             {
@@ -43,24 +54,6 @@ namespace Barcode_Sales.Forms
                     this.Close();
                 }
             }
-
-            //var customer = layoutView1.GetFocusedRow() as Customer;
-            //MessageBox.Show(customer.NameSurname);
-
-
-
-
-        }
-
-        private void tSearchCustomer_EditValueChanged(object sender, EventArgs e)
-        {
-            if (!string.IsNullOrWhiteSpace(tSearchCustomer.Text))
-            {
-                //tSearchCustomer.Properties.Buttons[1].Visible = true;
-                layoutView1.ActiveFilterString = $"Contains([NameSurname], '{tSearchCustomer.Text.Trim()}')";
-            }
-            else
-                layoutView1.ActiveFilter.Clear();
         }
     }
 }

@@ -575,6 +575,7 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Helpers\FormHelpers.cs" />
+    <Compile Include="Helpers\KeyDownHelper.cs" />
     <Compile Include="Helpers\LocalJsonController.cs" />
     <Compile Include="Helpers\Messages\CommonMessageBox.cs" />
     <Compile Include="Helpers\Messages\CommonMessages.cs" />

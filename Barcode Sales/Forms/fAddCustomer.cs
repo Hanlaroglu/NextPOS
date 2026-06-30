@@ -66,12 +66,20 @@ namespace Barcode_Sales.Forms
 
         private async void Add()
         {
-            var gender = groupCustomer.Controls.OfType<CheckEdit>().FirstOrDefault(x => x.Checked);
+           // var gender = layoutControlGroup1.OfType<CheckEdit>().FirstOrDefault(x => x.Checked);
+
+           if (!ValidationHelpers.IsValidDate(tDateBirth.Text))
+           {
+               NotificationHelpers.Messages.WarningMessage(this, ValidationHelpers.DatetimeFormatError);
+               tDateBirth.Focus();
+               return;
+            }
+
             _customer = new Customer()
             {
                 NameSurname = tNameSurname.Text.Trim(),
                 DateBirth = tDateBirth.EditValue as DateTime?,
-                Gender = gender.Tag.ToString(),
+                Gender =" gender.Tag.ToString()",
                 CustomerGroupId = lookCustomerGroup.EditValue as int?,
                 Voen = tVoen.Text.Trim(),
                 Comment = tComment.Text.Trim(),
@@ -100,10 +108,10 @@ namespace Barcode_Sales.Forms
 
         private async Task Edit()
         {
-            var gender = groupCustomer.Controls.OfType<CheckEdit>().FirstOrDefault(x => x.Checked);
+           // var gender = groupCustomer.Controls.OfType<CheckEdit>().FirstOrDefault(x => x.Checked);
 
             _customer.DateBirth = tDateBirth.EditValue as DateTime?;
-            _customer.Gender = gender.Tag.ToString();
+            _customer.Gender = "gender.Tag.ToString()";
             _customer.CustomerGroupId = lookCustomerGroup.EditValue as int?;
             _customer.Voen = tVoen.Text.Trim();
             _customer.Comment = tComment.Text.Trim();
