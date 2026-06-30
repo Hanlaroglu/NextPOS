@@ -1,7 +1,9 @@
 ﻿using Barcode_Sales.DTOs;
 using Barcode_Sales.Operations.Abstract;
 using Barcode_Sales.Operations.Concrete;
+using Barcode_Sales.Services;
 using Barcode_Sales.Services.CacheServices;
+using Barcode_Sales.Services.Interfaces;
 using Barcode_Sales.Terminals.DTOs;
 using Barcode_Sales.Terminals.Omnitech.Models;
 using Barcode_Sales.Terminals.Omnitech.Requests;
@@ -17,8 +19,9 @@ namespace Barcode_Sales.Terminals.Omnitech
     {
         private string _accessToken => Properties.Settings.Default.AccessToken;
         private string _ipAddress { get; }
-        IPosSaleOperation posSaleOperation = new PosSaleManager();
-        IPosSaleItemOperation posSaleItemOperation = new PosSaleItemManager();
+
+        private readonly IPosSaleService _saleService;
+
         IPosRefundOperation posRefundOperation = new PosRefundManager();
         IPosRefundItemOperation posRefundItemOperation = new PosRefundItemManager();
 
@@ -38,6 +41,7 @@ namespace Barcode_Sales.Terminals.Omnitech
         public OmnnitechTerminal(string ipAddress)
         {
             _ipAddress = ipAddress;
+            _saleService = new PosSaleService();
         }
 
         public TerminalResult Login()
@@ -296,7 +300,7 @@ namespace Barcode_Sales.Terminals.Omnitech
             if (!ensure.Success)
                 return ensure;
 
-            var saleData = new Models.SaleData
+            var saleData = new SaleData
             {
                 Cashier = item.Cashier,
                 Sum = item.Total,
@@ -361,40 +365,20 @@ namespace Barcode_Sales.Terminals.Omnitech
             var response = result.GetData<SaleResponse>();
             if (response.IsSuccess)
             {
-                int SaleId = await posSaleOperation.Add(new PosSale
+                var resultTerminal = new TerminalSaleResultDto
                 {
-                    UserId = UserCacheService.User.Id,
+                    Success = true,
                     ReceiptNo = response.DocumentNumber,
                     LongFiscalId = response.LongId,
-                    ShortFiscalId = response.ShortId,
-                    BankRrn = string.IsNullOrWhiteSpace(item.Rrn) ? response.Rrn : item.Rrn,
-                    SaleDate = DatetimeService.CurrentDateTime,
-                    SaleDatetime = DatetimeService.CurrentDateTime,
-                    Total = item.Items.Sum(x => x.Total),
-                    Cash = item.Cash,
-                    Card = item.Card,
-                    IncomingSum = item.IncomingSum,
-                    Residue = item.IncomingSum - item.Cash,
-                    CustomerId = item.Customer?.Id,
-                    Note = item.Note,
-                });
+                    ShortFiscalId = response.ShortId
+                };
 
-                if (SaleId != -1)
-                {
-                    List<PosSaleItem> dataDetails = new List<PosSaleItem>();
+                int saleId = await _saleService.CompleteSaleAsync(item, resultTerminal);
 
-                    dataDetails.AddRange(item.Items.Select(x => new PosSaleItem
-                    {
-                        PosSaleId = SaleId,
-                        ProductId = x.Id,
-                        Quantity = x.Quantity,
-                        SalePrice = x.SalePrice,
-                        Discount = x.Discount
-                    }));
+                if (saleId == -1)
+                    return TerminalResult.Fail("Satış bazaya əlavə edilərkən xəta yarandı.");
 
-                    await posSaleItemOperation.Add(dataDetails);
-                }
-                return TerminalResult.Ok("Satış uğurla tamamlandı");
+                return TerminalResult.Ok("Satış uğurla tamamlandı.");
             }
 
             return TerminalResult.Fail("Satış uğursuz oldu");

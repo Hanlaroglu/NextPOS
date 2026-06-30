@@ -9,6 +9,11 @@ using Barcode_Sales.Operations.Concrete;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Threading.Tasks;
+using Barcode_Sales.Services.Interfaces;
+using Barcode_Sales.Services;
+using Barcode_Sales.Terminals;
+using DevExpress.Internal.WinApi.Windows.UI.Notifications;
+using static DevExpress.Utils.Drawing.Helpers.NativeMethods;
 
 namespace Barcode_Sales.Forms
 {
@@ -16,17 +21,20 @@ namespace Barcode_Sales.Forms
     {
         IProductOperation productOperation = new ProductManager();
 
+        private readonly IPosSaleService _saleService;
         private PosSaleDto _data;
+
         public fPosPay(PosSaleDto data)
         {
             InitializeComponent();
             _data = data;
-
+            _saleService = new PosSaleService();
         }
 
         private void fPosPay_Load(object sender, EventArgs e)
         {
             tTotal.Text = _data.Items.Sum(x => x.Sum).ToString("F2");
+            accordionControl1.SelectedElement = bCash;
             bCash_Click(sender, e);
             this.tCash_Paid.SelectAll();
             this.tCash_Paid.Focus();
@@ -50,12 +58,12 @@ namespace Barcode_Sales.Forms
 
         private void bAdvance_Click(object sender, EventArgs e)
         {
-            navigationFrame1.SelectedPage = pageAdvance;
+
         }
 
         private void bFree_Click(object sender, EventArgs e)
         {
-            navigationFrame1.SelectedPage = pageFree;
+
         }
 
         private void bCancel_Click(object sender, EventArgs e)
@@ -86,6 +94,8 @@ namespace Barcode_Sales.Forms
 
         private async void CashPaid()
         {
+            fPosSales _form = Application.OpenForms.OfType<fPosSales>().FirstOrDefault();
+
             if (TerminalCacheService.Terminal != null)
             {
                 _data.Cash = _data.Items.Sum(x => x.Sum);
@@ -98,16 +108,29 @@ namespace Barcode_Sales.Forms
                     return;
                 }
 
+                if (!chCashTaxPrint.Checked)
+                {
+                    int saleId = await _saleService.CompleteSaleAsync(_data, null);
+
+                    if (saleId == -1)
+                    {
+                        NotificationHelpers.Messages.ErrorMessage(this, "Satış bazaya əlavə edilərkən xəta yarandı.");
+                        return;
+                    }
+
+                    UpdateProducts(_data.Items);
+                    NotificationHelpers.Messages.SuccessMessage(_form, "Satış uğurla tamamlandı");
+                    DialogResult = DialogResult.OK;
+                    return;
+                }
+
                 var terminal = (Helpers.Enums.Terminal)Enum.Parse(typeof(Helpers.Enums.Terminal), TerminalCacheService.Terminal.Name);
                 switch (terminal)
                 {
-                    case Helpers.Enums.Terminal.CASPOS:
-                        break;
                     case Helpers.Enums.Terminal.OMNİTECH:
                         OmnnitechTerminal omnitech = new OmnnitechTerminal(TerminalCacheService.Terminal.IpAddress);
 
                         var result = await omnitech.Sale(_data);
-                        fPosSales _form = Application.OpenForms.OfType<fPosSales>().FirstOrDefault();
                         if (result.Success)
                         {
                             UpdateProducts(_data.Items);
@@ -116,16 +139,6 @@ namespace Barcode_Sales.Forms
                         }
                         else
                             NotificationHelpers.Messages.ErrorMessage(_form, result.Message);
-                        break;
-                    case Helpers.Enums.Terminal.AZSMART:
-                        //if (NKA.AzSmart.Sale(_data))
-                        //    DialogResult = DialogResult.OK;
-                        break;
-                    case Helpers.Enums.Terminal.NBA:
-                        break;
-                    case Helpers.Enums.Terminal.DATAPAY:
-                        break;
-                    case Helpers.Enums.Terminal.ONECLICK:
                         break;
                 }
             }

@@ -93,11 +93,14 @@ namespace Barcode_Sales.Operations.Concrete
         {
             try
             {
-                db.Set<CustomerGroup>().Remove(item);
-                return await db.SaveChangesAsync() > 0;
+                item.IsDeleted = true;
+                var result = await Update(item, x => x.IsDeleted);
+
+                return result;
             }
-            catch
+            catch (Exception ex)
             {
+                throw ex;
                 return false;
             }
         }

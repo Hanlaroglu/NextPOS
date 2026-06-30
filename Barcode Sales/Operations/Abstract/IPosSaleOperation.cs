@@ -1,4 +1,5 @@
 ﻿using Barcode_Sales.DTOs;
+using Barcode_Sales.Terminals.DTOs;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 

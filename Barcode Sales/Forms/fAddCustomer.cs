@@ -7,6 +7,7 @@ using System;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DevExpress.XtraLayout;
 
 namespace Barcode_Sales.Forms
 {
@@ -25,7 +26,7 @@ namespace Barcode_Sales.Forms
 
         private async void fAddCustomer_Load(object sender, EventArgs e)
         {
-           await CustomerGroupsLoad();
+            await CustomerGroupsLoad();
             switch (_operation)
             {
                 case Enums.Operation.Edit:
@@ -66,20 +67,25 @@ namespace Barcode_Sales.Forms
 
         private async void Add()
         {
-           // var gender = layoutControlGroup1.OfType<CheckEdit>().FirstOrDefault(x => x.Checked);
+            var gender = layoutControlGroup1.Items
+                .OfType<LayoutControlItem>()
+                .Select(x => x.Control)
+                .OfType<CheckEdit>()
+                .FirstOrDefault(x => x.Checked);
 
-           if (!ValidationHelpers.IsValidDate(tDateBirth.Text))
-           {
-               NotificationHelpers.Messages.WarningMessage(this, ValidationHelpers.DatetimeFormatError);
-               tDateBirth.Focus();
-               return;
-            }
 
-            _customer = new Customer()
+            //if (!ValidationHelpers.IsValidDate(tDateBirth.Text))
+            //{
+            //    NotificationHelpers.Messages.WarningMessage(this, ValidationHelpers.DatetimeFormatError);
+            //    tDateBirth.Focus();
+            //    return;
+            //}
+
+            _customer = new Customer
             {
                 NameSurname = tNameSurname.Text.Trim(),
                 DateBirth = tDateBirth.EditValue as DateTime?,
-                Gender =" gender.Tag.ToString()",
+                Gender = gender.Tag.ToString(),
                 CustomerGroupId = lookCustomerGroup.EditValue as int?,
                 Voen = tVoen.Text.Trim(),
                 Comment = tComment.Text.Trim(),
@@ -108,10 +114,15 @@ namespace Barcode_Sales.Forms
 
         private async Task Edit()
         {
-           // var gender = groupCustomer.Controls.OfType<CheckEdit>().FirstOrDefault(x => x.Checked);
+            var gender = layoutControlGroup1.Items
+                .OfType<LayoutControlItem>()
+                .Select(x => x.Control)
+                .OfType<CheckEdit>()
+                .FirstOrDefault(x => x.Checked);
+
 
             _customer.DateBirth = tDateBirth.EditValue as DateTime?;
-            _customer.Gender = "gender.Tag.ToString()";
+            _customer.Gender = gender.Tag.ToString();
             _customer.CustomerGroupId = lookCustomerGroup.EditValue as int?;
             _customer.Voen = tVoen.Text.Trim();
             _customer.Comment = tComment.Text.Trim();
@@ -124,7 +135,8 @@ namespace Barcode_Sales.Forms
             _customer.BankSwift = tBankSwift.Text.Trim();
 
             await customerOperation.Update(_customer,
-                x=> x.DateBirth,
+                x=> x.NameSurname,
+                x => x.DateBirth,
                 x => x.Gender,
                 x => x.Phone,
                 x => x.Email,

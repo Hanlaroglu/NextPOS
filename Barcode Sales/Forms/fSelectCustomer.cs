@@ -16,7 +16,7 @@ namespace Barcode_Sales.Forms
             _parentForm = parentForm;
         }
 
-        private async void CustomerLoad()
+        private async void GetCustomers()
         {
             var data = await customerOperation.ToListAsync(x => x.IsDeleted == false && x.Status == true);
             gridControlCustomers.DataSource = data;
@@ -24,17 +24,13 @@ namespace Barcode_Sales.Forms
 
         private void fSelectCustomer_Shown(object sender, EventArgs e)
         {
-            CustomerLoad();
-            //layoutView1.OptionsCustomization.AllowFilter = false;
-            //layoutView1.OptionsCustomization.AllowSort = false;
-            //layoutView1.OptionsView.ShowHeaderPanel = false;
+            GetCustomers();
         }
 
         private void tSearchCustomer_EditValueChanged(object sender, EventArgs e)
         {
             if (!string.IsNullOrWhiteSpace(tSearchCustomer.Text))
             {
-                //tSearchCustomer.Properties.Buttons[1].Visible = true;
                 tileView1.ActiveFilterString = $"Contains([NameSurname], '{tSearchCustomer.Text.Trim()}')";
             }
             else
@@ -54,6 +50,16 @@ namespace Barcode_Sales.Forms
                     this.Close();
                 }
             }
+        }
+
+        private void bAddCustomer_Click(object sender, EventArgs e)
+        {
+            fAddCustomer f = new fAddCustomer(Enums.Operation.Add);
+            f.FormClosed += (s, x) =>
+            {
+                GetCustomers();
+            };
+            f.ShowDialog();
         }
     }
 }

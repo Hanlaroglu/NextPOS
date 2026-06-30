@@ -57,6 +57,7 @@
             this.tablePanel1 = new DevExpress.Utils.Layout.TablePanel();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.tSearchCustomer = new DevExpress.XtraEditors.ButtonEdit();
+            this.bAddCustomer = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlCustomers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tileView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bProductDelete)).BeginInit();
@@ -168,7 +169,7 @@
             this.gridControlCustomers.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.bProductDelete});
             this.tablePanel1.SetRow(this.gridControlCustomers, 1);
-            this.gridControlCustomers.Size = new System.Drawing.Size(566, 573);
+            this.gridControlCustomers.Size = new System.Drawing.Size(566, 538);
             this.gridControlCustomers.TabIndex = 13;
             this.gridControlCustomers.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.tileView1});
@@ -268,6 +269,7 @@
             // 
             this.tablePanel1.Columns.AddRange(new DevExpress.Utils.Layout.TablePanelColumn[] {
             new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 55F)});
+            this.tablePanel1.Controls.Add(this.bAddCustomer);
             this.tablePanel1.Controls.Add(this.panelControl1);
             this.tablePanel1.Controls.Add(this.gridControlCustomers);
             this.tablePanel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -275,6 +277,7 @@
             this.tablePanel1.Name = "tablePanel1";
             this.tablePanel1.Rows.AddRange(new DevExpress.Utils.Layout.TablePanelRow[] {
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.AutoSize, 51F),
+            new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 540F),
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 26F)});
             this.tablePanel1.ShowGrid = DevExpress.Utils.DefaultBoolean.False;
             this.tablePanel1.Size = new System.Drawing.Size(568, 626);
@@ -306,6 +309,28 @@
             this.tSearchCustomer.Size = new System.Drawing.Size(552, 36);
             this.tSearchCustomer.TabIndex = 7;
             this.tSearchCustomer.EditValueChanged += new System.EventHandler(this.tSearchCustomer_EditValueChanged);
+            // 
+            // bAddCustomer
+            // 
+            this.bAddCustomer.AllowFocus = false;
+            this.bAddCustomer.Appearance.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Success;
+            this.bAddCustomer.Appearance.Font = new System.Drawing.Font("Poppins", 11F);
+            this.bAddCustomer.Appearance.Options.UseBackColor = true;
+            this.bAddCustomer.Appearance.Options.UseFont = true;
+            this.tablePanel1.SetColumn(this.bAddCustomer, 0);
+            this.bAddCustomer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.bAddCustomer.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+            this.bAddCustomer.ImageOptions.SvgImage = global::Barcode_Sales.Properties.Resources.add_svg;
+            this.bAddCustomer.ImageOptions.SvgImageSize = new System.Drawing.Size(24, 24);
+            this.bAddCustomer.Location = new System.Drawing.Point(0, 591);
+            this.bAddCustomer.Margin = new System.Windows.Forms.Padding(0);
+            this.bAddCustomer.Name = "bAddCustomer";
+            this.tablePanel1.SetRow(this.bAddCustomer, 2);
+            this.bAddCustomer.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
+            this.bAddCustomer.Size = new System.Drawing.Size(568, 35);
+            this.bAddCustomer.TabIndex = 15;
+            this.bAddCustomer.Text = "Yeni müştəri";
+            this.bAddCustomer.Click += new System.EventHandler(this.bAddCustomer_Click);
             // 
             // fSelectCustomer
             // 
@@ -346,5 +371,6 @@
         private DevExpress.XtraGrid.Columns.TileViewColumn layoutViewColumn1;
         private DevExpress.XtraGrid.Columns.TileViewColumn gridColumn5;
         private DevExpress.XtraGrid.Columns.TileViewColumn gridColumn3;
+        private DevExpress.XtraEditors.SimpleButton bAddCustomer;
     }
 }

@@ -42,6 +42,7 @@
             this.bRefund = new DevExpress.XtraEditors.SimpleButton();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
+            this.bAnydesk = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
@@ -110,6 +111,7 @@
             this.bSupport.Enabled = false;
             this.bSupport.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
             this.bSupport.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bSupport.ImageOptions.SvgImage")));
+            this.bSupport.ImageOptions.SvgImageSize = new System.Drawing.Size(32, 32);
             this.bSupport.Location = new System.Drawing.Point(372, 30);
             this.bSupport.Name = "bSupport";
             this.bSupport.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
@@ -269,6 +271,7 @@
             this.groupControl2.AppearanceCaption.Font = new System.Drawing.Font("Poppins", 11F);
             this.groupControl2.AppearanceCaption.Options.UseFont = true;
             this.groupControl2.Controls.Add(this.bDevices);
+            this.groupControl2.Controls.Add(this.bAnydesk);
             this.groupControl2.Controls.Add(this.bSupport);
             this.groupControl2.Controls.Add(this.bCashDrawerOpen);
             this.groupControl2.GroupStyle = DevExpress.Utils.GroupStyle.Light;
@@ -277,6 +280,23 @@
             this.groupControl2.Size = new System.Drawing.Size(736, 100);
             this.groupControl2.TabIndex = 2;
             this.groupControl2.Text = "Sazlamalar";
+            // 
+            // bAnydesk
+            // 
+            this.bAnydesk.AllowFocus = false;
+            this.bAnydesk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.bAnydesk.Appearance.Font = new System.Drawing.Font("Nunito", 12F, System.Drawing.FontStyle.Bold);
+            this.bAnydesk.Appearance.Options.UseFont = true;
+            this.bAnydesk.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
+            this.bAnydesk.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton1.ImageOptions.SvgImage")));
+            this.bAnydesk.ImageOptions.SvgImageSize = new System.Drawing.Size(32, 32);
+            this.bAnydesk.Location = new System.Drawing.Point(553, 30);
+            this.bAnydesk.Name = "bAnydesk";
+            this.bAnydesk.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
+            this.bAnydesk.Size = new System.Drawing.Size(175, 65);
+            this.bAnydesk.TabIndex = 0;
+            this.bAnydesk.Text = "Anydesk";
+            this.bAnydesk.Click += new System.EventHandler(this.bAnydesk_Click);
             // 
             // fPosSalesControlPanel
             // 
@@ -315,5 +335,6 @@
         private DevExpress.XtraEditors.SimpleButton bXReport;
         private DevExpress.XtraEditors.GroupControl groupControl1;
         private DevExpress.XtraEditors.GroupControl groupControl2;
+        private DevExpress.XtraEditors.SimpleButton bAnydesk;
     }
 }

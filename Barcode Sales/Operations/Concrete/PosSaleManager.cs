@@ -1,10 +1,14 @@
 ﻿using Barcode_Sales.DTOs;
 using Barcode_Sales.Operations.Abstract;
 using Barcode_Sales.Services.CacheServices;
+using Barcode_Sales.Terminals.DTOs;
 using DevExpress.XtraCharts;
+using DevExpress.XtraPrinting.Shape.Native;
+using Microsoft.Reporting.Map.WebForms.BingMaps;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Migrations.Model;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Linq.Expressions;

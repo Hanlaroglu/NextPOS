@@ -65,8 +65,9 @@ namespace Barcode_Sales.Operations.Concrete
 
                 return await db.SaveChangesAsync() > 0;
             }
-            catch
+            catch (Exception ex)
             {
+                throw ex;
                 return false;
             }
         }
@@ -117,7 +118,7 @@ namespace Barcode_Sales.Operations.Concrete
 
         public async Task<Customer> Get(Expression<Func<Customer, bool>> expression)
         {
-            return await db.Customers.FirstOrDefaultAsync(expression);
+            return await db.Customers.AsNoTracking().FirstOrDefaultAsync(expression);
         }
 
         public IQueryable<Customer> Where(Expression<Func<Customer, bool>> expression)

@@ -106,6 +106,7 @@
             this.bPay = new DevExpress.XtraEditors.SimpleButton();
             this.navigationFrame1 = new DevExpress.XtraBars.Navigation.NavigationFrame();
             this.pageCash = new DevExpress.XtraBars.Navigation.NavigationPage();
+            this.chCashTaxPrint = new DevExpress.XtraEditors.CheckEdit();
             this.tCash_Balance = new DevExpress.XtraEditors.ButtonEdit();
             this.tCash_Paid = new DevExpress.XtraEditors.ButtonEdit();
             this.pageCard = new DevExpress.XtraBars.Navigation.NavigationPage();
@@ -113,8 +114,6 @@
             this.tCashCard_Balance = new DevExpress.XtraEditors.ButtonEdit();
             this.tCashCard_Cash = new DevExpress.XtraEditors.ButtonEdit();
             this.tCashCard_Card = new DevExpress.XtraEditors.ButtonEdit();
-            this.pageAdvance = new DevExpress.XtraBars.Navigation.NavigationPage();
-            this.pageFree = new DevExpress.XtraBars.Navigation.NavigationPage();
             this.tTotal = new DevExpress.XtraEditors.ButtonEdit();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             ((System.ComponentModel.ISupportInitialize)(this.accordionControl1)).BeginInit();
@@ -125,6 +124,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.navigationFrame1)).BeginInit();
             this.navigationFrame1.SuspendLayout();
             this.pageCash.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chCashTaxPrint.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tCash_Balance.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tCash_Paid.Properties)).BeginInit();
             this.pageCashCard.SuspendLayout();
@@ -327,17 +327,13 @@
             this.navigationFrame1.Controls.Add(this.pageCash);
             this.navigationFrame1.Controls.Add(this.pageCard);
             this.navigationFrame1.Controls.Add(this.pageCashCard);
-            this.navigationFrame1.Controls.Add(this.pageAdvance);
-            this.navigationFrame1.Controls.Add(this.pageFree);
             this.navigationFrame1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.navigationFrame1.Location = new System.Drawing.Point(5, 57);
             this.navigationFrame1.Name = "navigationFrame1";
             this.navigationFrame1.Pages.AddRange(new DevExpress.XtraBars.Navigation.NavigationPageBase[] {
             this.pageCash,
             this.pageCard,
-            this.pageCashCard,
-            this.pageAdvance,
-            this.pageFree});
+            this.pageCashCard});
             this.tablePanel1.SetRow(this.navigationFrame1, 1);
             this.navigationFrame1.SelectedPage = this.pageCash;
             this.navigationFrame1.Size = new System.Drawing.Size(938, 583);
@@ -347,10 +343,26 @@
             // 
             // pageCash
             // 
+            this.pageCash.Controls.Add(this.chCashTaxPrint);
             this.pageCash.Controls.Add(this.tCash_Balance);
             this.pageCash.Controls.Add(this.tCash_Paid);
             this.pageCash.Name = "pageCash";
             this.pageCash.Size = new System.Drawing.Size(938, 583);
+            // 
+            // chCashTaxPrint
+            // 
+            this.chCashTaxPrint.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.chCashTaxPrint.Location = new System.Drawing.Point(2, 111);
+            this.chCashTaxPrint.Name = "chCashTaxPrint";
+            this.chCashTaxPrint.Properties.Appearance.Font = new System.Drawing.Font("Nunito", 14F);
+            this.chCashTaxPrint.Properties.Appearance.Options.UseFont = true;
+            this.chCashTaxPrint.Properties.Caption = "Vergi ilə çap";
+            this.chCashTaxPrint.Properties.CheckBoxOptions.Style = DevExpress.XtraEditors.Controls.CheckBoxStyle.SvgToggle1;
+            this.chCashTaxPrint.Properties.CheckBoxOptions.SvgImageSize = new System.Drawing.Size(40, 32);
+            this.chCashTaxPrint.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.chCashTaxPrint.Size = new System.Drawing.Size(935, 36);
+            this.chCashTaxPrint.TabIndex = 2;
             // 
             // tCash_Balance
             // 
@@ -507,18 +519,6 @@
             this.tCashCard_Card.TabIndex = 4;
             this.tCashCard_Card.EditValueChanged += new System.EventHandler(this.tCashCard_Card_EditValueChanged);
             // 
-            // pageAdvance
-            // 
-            this.pageAdvance.Caption = "pageAdvance";
-            this.pageAdvance.Name = "pageAdvance";
-            this.pageAdvance.Size = new System.Drawing.Size(938, 583);
-            // 
-            // pageFree
-            // 
-            this.pageFree.Caption = "pageFree";
-            this.pageFree.Name = "pageFree";
-            this.pageFree.Size = new System.Drawing.Size(938, 583);
-            // 
             // tTotal
             // 
             this.tTotal.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -593,6 +593,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.navigationFrame1)).EndInit();
             this.navigationFrame1.ResumeLayout(false);
             this.pageCash.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.chCashTaxPrint.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tCash_Balance.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tCash_Paid.Properties)).EndInit();
             this.pageCashCard.ResumeLayout(false);
@@ -626,8 +627,6 @@
         private DevExpress.XtraBars.Navigation.NavigationPage pageCash;
         private DevExpress.XtraBars.Navigation.NavigationPage pageCard;
         private DevExpress.XtraBars.Navigation.NavigationPage pageCashCard;
-        private DevExpress.XtraBars.Navigation.NavigationPage pageAdvance;
-        private DevExpress.XtraBars.Navigation.NavigationPage pageFree;
         private DevExpress.XtraEditors.ButtonEdit tCash_Balance;
         private DevExpress.XtraEditors.ButtonEdit tCash_Paid;
         private DevExpress.XtraEditors.SimpleButton bPay;
@@ -636,5 +635,6 @@
         private DevExpress.XtraEditors.ButtonEdit tCashCard_Card;
         private DevExpress.XtraEditors.ButtonEdit tCashCard_Cash;
         private DevExpress.XtraEditors.ButtonEdit tCashCard_Balance;
+        private DevExpress.XtraEditors.CheckEdit chCashTaxPrint;
     }
 }

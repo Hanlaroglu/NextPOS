@@ -185,5 +185,10 @@ namespace Barcode_Sales.Forms
                 }
             }
         }
+
+        private void bAnydesk_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

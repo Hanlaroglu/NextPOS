@@ -881,9 +881,8 @@ namespace Barcode_Sales.Forms
 
             var args = NotificationHelpers.Dialogs.DialogResultYesNo(
                 $"({row.Name}) qrupunu silmək istədiyinizə əminsiniz ?", String.Empty);
-            if (XtraMessageBox.Show(args) == DialogResult.Yes)
+            if (XtraMessageBox.Show(args) == DialogResult.Yes && await customerGroupOperation.Remove(row))
             {
-                await customerGroupOperation.Remove(row);
                 NotificationHelpers.Messages.SuccessMessage(this, $"{row.Name} qrupu uğurla silindi");
                 await CustomerGroupDataListAsync();
             }
