@@ -14,6 +14,7 @@ using Barcode_Sales.Services;
 using Barcode_Sales.Terminals;
 using DevExpress.Internal.WinApi.Windows.UI.Notifications;
 using static DevExpress.Utils.Drawing.Helpers.NativeMethods;
+using DevExpress.XtraLayout.Utils;
 
 namespace Barcode_Sales.Forms
 {
@@ -42,18 +43,28 @@ namespace Barcode_Sales.Forms
 
         private void bCash_Click(object sender, EventArgs e)
         {
-            navigationFrame1.SelectedPage = pageCash;
             tCash_Paid.Text = _data.Items.Sum(x => x.Sum).ToString("N2");
+            layoutItemBalance.Visibility = LayoutVisibility.Always;
+            layoutItemCashPaid.Visibility = LayoutVisibility.Always;
+            layoutItemCashCard_Card.Visibility = LayoutVisibility.Never;
+            layoutItemCashCard_Cash.Visibility = LayoutVisibility.Never;
         }
 
         private void bCard_Click(object sender, EventArgs e)
         {
-            navigationFrame1.SelectedPage = pageCard;
+            layoutItemBalance.Visibility = LayoutVisibility.Never;
+            layoutItemCashPaid.Visibility = LayoutVisibility.Never;
+            layoutItemCashCard_Card.Visibility = LayoutVisibility.Never;
+            layoutItemCashCard_Cash.Visibility = LayoutVisibility.Never;
         }
 
         private void bCashCard_Click(object sender, EventArgs e)
         {
-            navigationFrame1.SelectedPage = pageCashCard;
+            layoutItemCashCard_Card.Visibility = LayoutVisibility.Always;
+            layoutItemCashCard_Cash.Visibility = LayoutVisibility.Always;
+            layoutItemBalance.Visibility = LayoutVisibility.Always;
+
+            layoutItemCashPaid.Visibility = LayoutVisibility.Never;
         }
 
         private void bAdvance_Click(object sender, EventArgs e)
@@ -77,18 +88,18 @@ namespace Barcode_Sales.Forms
             decimal Total = Convert.ToDecimal(tTotal.Text);
             decimal balance = Paid - Total;
             if (balance > 0)
-                tCash_Balance.Text = balance.ToString("N2");
+                tBalance.Text = balance.ToString("N2");
             else
-                tCash_Balance.Text = 0.ToString("N2");
+                tBalance.Text = 0.ToString("N2");
         }
 
         private void bPay_Click(object sender, EventArgs e)
         {
-            if (navigationFrame1.SelectedPage == pageCash)
+            if (accordionControl1.SelectedElement == bCash)
                 CashPaid();
-            else if (navigationFrame1.SelectedPage == pageCard)
+            else if (accordionControl1.SelectedElement == bCard)
                 CardPaid();
-            else if (navigationFrame1.SelectedPage == pageCashCard)
+            else if (accordionControl1.SelectedElement == bCashCard)
                 CashCardPaid();
         }
 
@@ -241,14 +252,6 @@ namespace Barcode_Sales.Forms
             }
         }
 
-        private void navigationFrame1_SelectedPageChanged(object sender, DevExpress.XtraBars.Navigation.SelectedPageChangedEventArgs e)
-        {
-            if (e.Page == pageCash)
-            {
-                tCash_Paid.Focus();
-            }
-        }
-
         private void tCashCard_Card_EditValueChanged(object sender, EventArgs e)
         {
             double total = double.Parse(tTotal.Text);
@@ -289,7 +292,7 @@ namespace Barcode_Sales.Forms
         {
             if (e.KeyCode is Keys.Enter)
             {
-                if (navigationFrame1.SelectedPage == pageCash)
+                if (accordionControl1.SelectedElement == bCash)
                 {
                     CashPaid();
                 }

@@ -29,16 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fPosPay));
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions3 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject9 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject10 = new DevExpress.Utils.SerializableAppearanceObject();
@@ -49,6 +39,26 @@
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject14 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject15 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject16 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions9 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject33 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject34 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject35 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject36 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions10 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject37 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject38 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject39 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject40 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions5 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject17 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject18 = new DevExpress.Utils.SerializableAppearanceObject();
@@ -69,16 +79,6 @@
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject30 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject31 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject32 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions9 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject33 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject34 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject35 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject36 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions10 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject37 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject38 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject39 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject40 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions11 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject41 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject42 = new DevExpress.Utils.SerializableAppearanceObject();
@@ -100,40 +100,47 @@
             this.accordionControlSeparator4 = new DevExpress.XtraBars.Navigation.AccordionControlSeparator();
             this.bFree = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlSeparator2 = new DevExpress.XtraBars.Navigation.AccordionControlSeparator();
-            this.tablePanel1 = new DevExpress.Utils.Layout.TablePanel();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.bCancel = new DevExpress.XtraEditors.SimpleButton();
             this.bPay = new DevExpress.XtraEditors.SimpleButton();
-            this.navigationFrame1 = new DevExpress.XtraBars.Navigation.NavigationFrame();
-            this.pageCash = new DevExpress.XtraBars.Navigation.NavigationPage();
-            this.chCashTaxPrint = new DevExpress.XtraEditors.CheckEdit();
-            this.tCash_Balance = new DevExpress.XtraEditors.ButtonEdit();
+            this.tBalance = new DevExpress.XtraEditors.ButtonEdit();
             this.tCash_Paid = new DevExpress.XtraEditors.ButtonEdit();
-            this.pageCard = new DevExpress.XtraBars.Navigation.NavigationPage();
-            this.pageCashCard = new DevExpress.XtraBars.Navigation.NavigationPage();
             this.tCashCard_Balance = new DevExpress.XtraEditors.ButtonEdit();
             this.tCashCard_Cash = new DevExpress.XtraEditors.ButtonEdit();
             this.tCashCard_Card = new DevExpress.XtraEditors.ButtonEdit();
             this.tTotal = new DevExpress.XtraEditors.ButtonEdit();
-            this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.chCashTaxPrint = new DevExpress.XtraEditors.CheckEdit();
+            this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.layoutItemTaxPrint = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutItemCashPaid = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutItemBalance = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutItemCashCard_Card = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutItemCashCard_Cash = new DevExpress.XtraLayout.LayoutControlItem();
+            this.simpleSeparator1 = new DevExpress.XtraLayout.SimpleSeparator();
             ((System.ComponentModel.ISupportInitialize)(this.accordionControl1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tablePanel1)).BeginInit();
-            this.tablePanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
             this.panelControl2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.navigationFrame1)).BeginInit();
-            this.navigationFrame1.SuspendLayout();
-            this.pageCash.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chCashTaxPrint.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tCash_Balance.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tBalance.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tCash_Paid.Properties)).BeginInit();
-            this.pageCashCard.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tCashCard_Balance.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tCashCard_Cash.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tCashCard_Card.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tTotal.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
-            this.panelControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
+            this.layoutControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chCashTaxPrint.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutItemTaxPrint)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutItemCashPaid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutItemBalance)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutItemCashCard_Card)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutItemCashCard_Cash)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.simpleSeparator1)).BeginInit();
             this.SuspendLayout();
             // 
             // accordionControl1
@@ -232,36 +239,16 @@
             // 
             this.accordionControlSeparator2.Name = "accordionControlSeparator2";
             // 
-            // tablePanel1
-            // 
-            this.tablePanel1.Columns.AddRange(new DevExpress.Utils.Layout.TablePanelColumn[] {
-            new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 27.8F)});
-            this.tablePanel1.Controls.Add(this.panelControl2);
-            this.tablePanel1.Controls.Add(this.navigationFrame1);
-            this.tablePanel1.Controls.Add(this.tTotal);
-            this.tablePanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tablePanel1.Location = new System.Drawing.Point(2, 2);
-            this.tablePanel1.Name = "tablePanel1";
-            this.tablePanel1.Padding = new System.Windows.Forms.Padding(2);
-            this.tablePanel1.Rows.AddRange(new DevExpress.Utils.Layout.TablePanelRow[] {
-            new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.AutoSize, 47F),
-            new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 687F),
-            new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.AutoSize, 26F)});
-            this.tablePanel1.Size = new System.Drawing.Size(948, 697);
-            this.tablePanel1.TabIndex = 1;
-            this.tablePanel1.UseSkinIndents = true;
-            // 
             // panelControl2
             // 
-            this.tablePanel1.SetColumn(this.panelControl2, 0);
+            this.panelControl2.Controls.Add(this.tCashCard_Balance);
             this.panelControl2.Controls.Add(this.bCancel);
             this.panelControl2.Controls.Add(this.bPay);
-            this.panelControl2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl2.Location = new System.Drawing.Point(3, 644);
+            this.panelControl2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panelControl2.Location = new System.Drawing.Point(206, 651);
             this.panelControl2.Margin = new System.Windows.Forms.Padding(1);
             this.panelControl2.Name = "panelControl2";
-            this.tablePanel1.SetRow(this.panelControl2, 2);
-            this.panelControl2.Size = new System.Drawing.Size(942, 50);
+            this.panelControl2.Size = new System.Drawing.Size(952, 50);
             this.panelControl2.TabIndex = 3;
             // 
             // bCancel
@@ -308,7 +295,7 @@
             this.bPay.AppearanceHovered.Options.UseBackColor = true;
             this.bPay.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bPay.ImageOptions.SvgImage")));
             this.bPay.ImageOptions.SvgImageSize = new System.Drawing.Size(28, 28);
-            this.bPay.Location = new System.Drawing.Point(705, 4);
+            this.bPay.Location = new System.Drawing.Point(715, 4);
             this.bPay.LookAndFeel.SkinName = "WXI";
             this.bPay.LookAndFeel.UseDefaultLookAndFeel = false;
             this.bPay.Name = "bPay";
@@ -320,86 +307,43 @@
             this.bPay.Text = "ÖDƏNİŞ ET";
             this.bPay.Click += new System.EventHandler(this.bPay_Click);
             // 
-            // navigationFrame1
+            // tBalance
             // 
-            this.navigationFrame1.AllowTransitionAnimation = DevExpress.Utils.DefaultBoolean.False;
-            this.tablePanel1.SetColumn(this.navigationFrame1, 0);
-            this.navigationFrame1.Controls.Add(this.pageCash);
-            this.navigationFrame1.Controls.Add(this.pageCard);
-            this.navigationFrame1.Controls.Add(this.pageCashCard);
-            this.navigationFrame1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.navigationFrame1.Location = new System.Drawing.Point(5, 57);
-            this.navigationFrame1.Name = "navigationFrame1";
-            this.navigationFrame1.Pages.AddRange(new DevExpress.XtraBars.Navigation.NavigationPageBase[] {
-            this.pageCash,
-            this.pageCard,
-            this.pageCashCard});
-            this.tablePanel1.SetRow(this.navigationFrame1, 1);
-            this.navigationFrame1.SelectedPage = this.pageCash;
-            this.navigationFrame1.Size = new System.Drawing.Size(938, 583);
-            this.navigationFrame1.TabIndex = 2;
-            this.navigationFrame1.Text = "navigationFrame1";
-            this.navigationFrame1.SelectedPageChanged += new DevExpress.XtraBars.Navigation.SelectedPageChangedEventHandler(this.navigationFrame1_SelectedPageChanged);
-            // 
-            // pageCash
-            // 
-            this.pageCash.Controls.Add(this.chCashTaxPrint);
-            this.pageCash.Controls.Add(this.tCash_Balance);
-            this.pageCash.Controls.Add(this.tCash_Paid);
-            this.pageCash.Name = "pageCash";
-            this.pageCash.Size = new System.Drawing.Size(938, 583);
-            // 
-            // chCashTaxPrint
-            // 
-            this.chCashTaxPrint.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.tBalance.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.chCashTaxPrint.Location = new System.Drawing.Point(2, 111);
-            this.chCashTaxPrint.Name = "chCashTaxPrint";
-            this.chCashTaxPrint.Properties.Appearance.Font = new System.Drawing.Font("Nunito", 14F);
-            this.chCashTaxPrint.Properties.Appearance.Options.UseFont = true;
-            this.chCashTaxPrint.Properties.Caption = "Vergi ilə çap";
-            this.chCashTaxPrint.Properties.CheckBoxOptions.Style = DevExpress.XtraEditors.Controls.CheckBoxStyle.SvgToggle1;
-            this.chCashTaxPrint.Properties.CheckBoxOptions.SvgImageSize = new System.Drawing.Size(40, 32);
-            this.chCashTaxPrint.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Far;
-            this.chCashTaxPrint.Size = new System.Drawing.Size(935, 36);
-            this.chCashTaxPrint.TabIndex = 2;
-            // 
-            // tCash_Balance
-            // 
-            this.tCash_Balance.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tCash_Balance.EditValue = "0,00";
-            this.tCash_Balance.Location = new System.Drawing.Point(3, 57);
-            this.tCash_Balance.Name = "tCash_Balance";
-            this.tCash_Balance.Properties.AllowFocused = false;
-            this.tCash_Balance.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.tCash_Balance.Properties.Appearance.Font = new System.Drawing.Font("Nunito", 18F, System.Drawing.FontStyle.Bold);
-            this.tCash_Balance.Properties.Appearance.Options.UseBackColor = true;
-            this.tCash_Balance.Properties.Appearance.Options.UseFont = true;
-            this.tCash_Balance.Properties.Appearance.Options.UseTextOptions = true;
-            this.tCash_Balance.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-            serializableAppearanceObject1.Font = new System.Drawing.Font("Nunito", 16F, System.Drawing.FontStyle.Bold);
-            serializableAppearanceObject1.Options.UseFont = true;
-            serializableAppearanceObject4.Font = new System.Drawing.Font("Nunito", 16F, System.Drawing.FontStyle.Bold);
-            serializableAppearanceObject4.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.DisabledText;
-            serializableAppearanceObject4.Options.UseFont = true;
-            serializableAppearanceObject4.Options.UseForeColor = true;
-            serializableAppearanceObject5.Font = new System.Drawing.Font("Nunito", 16F, System.Drawing.FontStyle.Bold);
-            serializableAppearanceObject5.Options.UseFont = true;
-            this.tCash_Balance.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "QALIQ MƏBLƏĞ", -1, false, true, true, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "₼", -1, false, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
-            this.tCash_Balance.Properties.ReadOnly = true;
-            this.tCash_Balance.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.tCash_Balance.Size = new System.Drawing.Size(935, 48);
-            this.tCash_Balance.TabIndex = 1;
+            this.tBalance.EditValue = "0,00";
+            this.tBalance.Location = new System.Drawing.Point(3, 219);
+            this.tBalance.Name = "tBalance";
+            this.tBalance.Properties.AllowFocused = false;
+            this.tBalance.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.tBalance.Properties.Appearance.Font = new System.Drawing.Font("Nunito", 18F, System.Drawing.FontStyle.Bold);
+            this.tBalance.Properties.Appearance.Options.UseBackColor = true;
+            this.tBalance.Properties.Appearance.Options.UseFont = true;
+            this.tBalance.Properties.Appearance.Options.UseTextOptions = true;
+            this.tBalance.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+            serializableAppearanceObject9.Font = new System.Drawing.Font("Nunito", 16F, System.Drawing.FontStyle.Bold);
+            serializableAppearanceObject9.Options.UseFont = true;
+            serializableAppearanceObject12.Font = new System.Drawing.Font("Nunito", 16F, System.Drawing.FontStyle.Bold);
+            serializableAppearanceObject12.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.DisabledText;
+            serializableAppearanceObject12.Options.UseFont = true;
+            serializableAppearanceObject12.Options.UseForeColor = true;
+            serializableAppearanceObject13.Font = new System.Drawing.Font("Nunito", 16F, System.Drawing.FontStyle.Bold);
+            serializableAppearanceObject13.Options.UseFont = true;
+            this.tBalance.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "QALIQ MƏBLƏĞ", -1, false, true, true, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "", null, null, DevExpress.Utils.ToolTipAnchor.Default),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "₼", -1, false, true, false, editorButtonImageOptions4, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject13, serializableAppearanceObject14, serializableAppearanceObject15, serializableAppearanceObject16, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            this.tBalance.Properties.ReadOnly = true;
+            this.tBalance.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            this.tBalance.Size = new System.Drawing.Size(946, 48);
+            this.tBalance.StyleController = this.layoutControl1;
+            this.tBalance.TabIndex = 1;
             // 
             // tCash_Paid
             // 
             this.tCash_Paid.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tCash_Paid.EditValue = "0,00";
-            this.tCash_Paid.Location = new System.Drawing.Point(3, 3);
+            this.tCash_Paid.Location = new System.Drawing.Point(3, 57);
             this.tCash_Paid.Name = "tCash_Paid";
             this.tCash_Paid.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
             this.tCash_Paid.Properties.Appearance.Font = new System.Drawing.Font("Nunito", 18F, System.Drawing.FontStyle.Bold);
@@ -407,42 +351,28 @@
             this.tCash_Paid.Properties.Appearance.Options.UseFont = true;
             this.tCash_Paid.Properties.Appearance.Options.UseTextOptions = true;
             this.tCash_Paid.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-            serializableAppearanceObject9.Font = new System.Drawing.Font("Nunito", 16F, System.Drawing.FontStyle.Bold);
-            serializableAppearanceObject9.Options.UseFont = true;
-            serializableAppearanceObject13.Font = new System.Drawing.Font("Nunito", 16F, System.Drawing.FontStyle.Bold);
-            serializableAppearanceObject13.Options.UseFont = true;
+            serializableAppearanceObject33.Font = new System.Drawing.Font("Nunito", 16F, System.Drawing.FontStyle.Bold);
+            serializableAppearanceObject33.Options.UseFont = true;
+            serializableAppearanceObject37.Font = new System.Drawing.Font("Nunito", 16F, System.Drawing.FontStyle.Bold);
+            serializableAppearanceObject37.Options.UseFont = true;
             this.tCash_Paid.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "ÖDƏNİLƏN MƏBLƏĞ", -1, false, true, true, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "", null, null, DevExpress.Utils.ToolTipAnchor.Default),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "₼", -1, false, true, false, editorButtonImageOptions4, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject13, serializableAppearanceObject14, serializableAppearanceObject15, serializableAppearanceObject16, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "ÖDƏNİLƏN MƏBLƏĞ", -1, false, true, true, editorButtonImageOptions9, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject33, serializableAppearanceObject34, serializableAppearanceObject35, serializableAppearanceObject36, "", null, null, DevExpress.Utils.ToolTipAnchor.Default),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "₼", -1, false, true, false, editorButtonImageOptions10, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject37, serializableAppearanceObject38, serializableAppearanceObject39, serializableAppearanceObject40, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.tCash_Paid.Properties.Mask.EditMask = "N2";
             this.tCash_Paid.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.tCash_Paid.Properties.Mask.UseMaskAsDisplayFormat = true;
-            this.tCash_Paid.Size = new System.Drawing.Size(935, 48);
+            this.tCash_Paid.Size = new System.Drawing.Size(946, 48);
+            this.tCash_Paid.StyleController = this.layoutControl1;
             this.tCash_Paid.TabIndex = 0;
             this.tCash_Paid.EditValueChanged += new System.EventHandler(this.tCash_Paid_EditValueChanged);
             this.tCash_Paid.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tCash_Paid_KeyDown);
-            // 
-            // pageCard
-            // 
-            this.pageCard.Caption = "pageCard";
-            this.pageCard.Name = "pageCard";
-            this.pageCard.Size = new System.Drawing.Size(938, 583);
-            // 
-            // pageCashCard
-            // 
-            this.pageCashCard.Caption = "pageCashCard";
-            this.pageCashCard.Controls.Add(this.tCashCard_Balance);
-            this.pageCashCard.Controls.Add(this.tCashCard_Cash);
-            this.pageCashCard.Controls.Add(this.tCashCard_Card);
-            this.pageCashCard.Name = "pageCashCard";
-            this.pageCashCard.Size = new System.Drawing.Size(938, 583);
             // 
             // tCashCard_Balance
             // 
             this.tCashCard_Balance.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tCashCard_Balance.EditValue = "0,00";
-            this.tCashCard_Balance.Location = new System.Drawing.Point(3, 111);
+            this.tCashCard_Balance.Location = new System.Drawing.Point(347, 5);
             this.tCashCard_Balance.Name = "tCashCard_Balance";
             this.tCashCard_Balance.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
             this.tCashCard_Balance.Properties.Appearance.Font = new System.Drawing.Font("Nunito", 18F, System.Drawing.FontStyle.Bold);
@@ -450,18 +380,18 @@
             this.tCashCard_Balance.Properties.Appearance.Options.UseFont = true;
             this.tCashCard_Balance.Properties.Appearance.Options.UseTextOptions = true;
             this.tCashCard_Balance.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-            serializableAppearanceObject17.Font = new System.Drawing.Font("Nunito", 16F, System.Drawing.FontStyle.Bold);
-            serializableAppearanceObject17.Options.UseFont = true;
-            serializableAppearanceObject21.Font = new System.Drawing.Font("Nunito", 16F, System.Drawing.FontStyle.Bold);
-            serializableAppearanceObject21.Options.UseFont = true;
+            serializableAppearanceObject1.Font = new System.Drawing.Font("Nunito", 16F, System.Drawing.FontStyle.Bold);
+            serializableAppearanceObject1.Options.UseFont = true;
+            serializableAppearanceObject5.Font = new System.Drawing.Font("Nunito", 16F, System.Drawing.FontStyle.Bold);
+            serializableAppearanceObject5.Options.UseFont = true;
             this.tCashCard_Balance.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "QALIQ MƏBLƏĞ", -1, false, true, true, editorButtonImageOptions5, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject17, serializableAppearanceObject18, serializableAppearanceObject19, serializableAppearanceObject20, "", null, null, DevExpress.Utils.ToolTipAnchor.Default),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "₼", -1, false, true, false, editorButtonImageOptions6, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject21, serializableAppearanceObject22, serializableAppearanceObject23, serializableAppearanceObject24, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "QALIQ MƏBLƏĞ", -1, false, true, true, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "₼", -1, false, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.tCashCard_Balance.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.tCashCard_Balance.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
             this.tCashCard_Balance.Properties.MaskSettings.Set("mask", "N2");
             this.tCashCard_Balance.Properties.ReadOnly = true;
-            this.tCashCard_Balance.Size = new System.Drawing.Size(935, 48);
+            this.tCashCard_Balance.Size = new System.Drawing.Size(328, 48);
             this.tCashCard_Balance.TabIndex = 5;
             this.tCashCard_Balance.EditValueChanged += new System.EventHandler(this.tCashCard_Cash_EditValueChanged);
             // 
@@ -470,7 +400,7 @@
             this.tCashCard_Cash.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tCashCard_Cash.EditValue = "0,00";
-            this.tCashCard_Cash.Location = new System.Drawing.Point(3, 57);
+            this.tCashCard_Cash.Location = new System.Drawing.Point(3, 165);
             this.tCashCard_Cash.Name = "tCashCard_Cash";
             this.tCashCard_Cash.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
             this.tCashCard_Cash.Properties.Appearance.Font = new System.Drawing.Font("Nunito", 18F, System.Drawing.FontStyle.Bold);
@@ -478,17 +408,18 @@
             this.tCashCard_Cash.Properties.Appearance.Options.UseFont = true;
             this.tCashCard_Cash.Properties.Appearance.Options.UseTextOptions = true;
             this.tCashCard_Cash.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-            serializableAppearanceObject25.Font = new System.Drawing.Font("Nunito", 16F, System.Drawing.FontStyle.Bold);
-            serializableAppearanceObject25.Options.UseFont = true;
-            serializableAppearanceObject29.Font = new System.Drawing.Font("Nunito", 16F, System.Drawing.FontStyle.Bold);
-            serializableAppearanceObject29.Options.UseFont = true;
+            serializableAppearanceObject17.Font = new System.Drawing.Font("Nunito", 16F, System.Drawing.FontStyle.Bold);
+            serializableAppearanceObject17.Options.UseFont = true;
+            serializableAppearanceObject21.Font = new System.Drawing.Font("Nunito", 16F, System.Drawing.FontStyle.Bold);
+            serializableAppearanceObject21.Options.UseFont = true;
             this.tCashCard_Cash.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "NAĞD ÖDƏNİLƏN", -1, false, true, true, editorButtonImageOptions7, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject25, serializableAppearanceObject26, serializableAppearanceObject27, serializableAppearanceObject28, "", null, null, DevExpress.Utils.ToolTipAnchor.Default),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "₼", -1, false, true, false, editorButtonImageOptions8, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject29, serializableAppearanceObject30, serializableAppearanceObject31, serializableAppearanceObject32, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "NAĞD ÖDƏNİLƏN", -1, false, true, true, editorButtonImageOptions5, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject17, serializableAppearanceObject18, serializableAppearanceObject19, serializableAppearanceObject20, "", null, null, DevExpress.Utils.ToolTipAnchor.Default),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "₼", -1, false, true, false, editorButtonImageOptions6, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject21, serializableAppearanceObject22, serializableAppearanceObject23, serializableAppearanceObject24, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.tCashCard_Cash.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.tCashCard_Cash.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
             this.tCashCard_Cash.Properties.MaskSettings.Set("mask", "N2");
-            this.tCashCard_Cash.Size = new System.Drawing.Size(935, 48);
+            this.tCashCard_Cash.Size = new System.Drawing.Size(946, 48);
+            this.tCashCard_Cash.StyleController = this.layoutControl1;
             this.tCashCard_Cash.TabIndex = 5;
             this.tCashCard_Cash.EditValueChanged += new System.EventHandler(this.tCashCard_Cash_EditValueChanged);
             // 
@@ -497,7 +428,7 @@
             this.tCashCard_Card.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tCashCard_Card.EditValue = "0,00";
-            this.tCashCard_Card.Location = new System.Drawing.Point(3, 3);
+            this.tCashCard_Card.Location = new System.Drawing.Point(3, 111);
             this.tCashCard_Card.Name = "tCashCard_Card";
             this.tCashCard_Card.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
             this.tCashCard_Card.Properties.Appearance.Font = new System.Drawing.Font("Nunito", 18F, System.Drawing.FontStyle.Bold);
@@ -505,17 +436,18 @@
             this.tCashCard_Card.Properties.Appearance.Options.UseFont = true;
             this.tCashCard_Card.Properties.Appearance.Options.UseTextOptions = true;
             this.tCashCard_Card.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-            serializableAppearanceObject33.Font = new System.Drawing.Font("Nunito", 16F, System.Drawing.FontStyle.Bold);
-            serializableAppearanceObject33.Options.UseFont = true;
-            serializableAppearanceObject37.Font = new System.Drawing.Font("Nunito", 16F, System.Drawing.FontStyle.Bold);
-            serializableAppearanceObject37.Options.UseFont = true;
+            serializableAppearanceObject25.Font = new System.Drawing.Font("Nunito", 16F, System.Drawing.FontStyle.Bold);
+            serializableAppearanceObject25.Options.UseFont = true;
+            serializableAppearanceObject29.Font = new System.Drawing.Font("Nunito", 16F, System.Drawing.FontStyle.Bold);
+            serializableAppearanceObject29.Options.UseFont = true;
             this.tCashCard_Card.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "KART ÖDƏNİLƏN", -1, false, true, true, editorButtonImageOptions9, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject33, serializableAppearanceObject34, serializableAppearanceObject35, serializableAppearanceObject36, "", null, null, DevExpress.Utils.ToolTipAnchor.Default),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "₼", -1, false, true, false, editorButtonImageOptions10, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject37, serializableAppearanceObject38, serializableAppearanceObject39, serializableAppearanceObject40, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "KART ÖDƏNİLƏN", -1, false, true, true, editorButtonImageOptions7, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject25, serializableAppearanceObject26, serializableAppearanceObject27, serializableAppearanceObject28, "", null, null, DevExpress.Utils.ToolTipAnchor.Default),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "₼", -1, false, true, false, editorButtonImageOptions8, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject29, serializableAppearanceObject30, serializableAppearanceObject31, serializableAppearanceObject32, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.tCashCard_Card.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.tCashCard_Card.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
             this.tCashCard_Card.Properties.MaskSettings.Set("mask", "N2");
-            this.tCashCard_Card.Size = new System.Drawing.Size(935, 48);
+            this.tCashCard_Card.Size = new System.Drawing.Size(946, 48);
+            this.tCashCard_Card.StyleController = this.layoutControl1;
             this.tCashCard_Card.TabIndex = 4;
             this.tCashCard_Card.EditValueChanged += new System.EventHandler(this.tCashCard_Card_EditValueChanged);
             // 
@@ -523,9 +455,8 @@
             // 
             this.tTotal.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tablePanel1.SetColumn(this.tTotal, 0);
             this.tTotal.EditValue = "0,00";
-            this.tTotal.Location = new System.Drawing.Point(7, 4);
+            this.tTotal.Location = new System.Drawing.Point(3, 3);
             this.tTotal.Margin = new System.Windows.Forms.Padding(5, 2, 2, 2);
             this.tTotal.Name = "tTotal";
             this.tTotal.Properties.AllowFocused = false;
@@ -558,25 +489,137 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "₼", -1, false, true, false, editorButtonImageOptions12, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject45, serializableAppearanceObject46, serializableAppearanceObject47, serializableAppearanceObject48, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.tTotal.Properties.ReadOnly = true;
             this.tTotal.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.tablePanel1.SetRow(this.tTotal, 0);
-            this.tTotal.Size = new System.Drawing.Size(937, 48);
+            this.tTotal.Size = new System.Drawing.Size(946, 48);
+            this.tTotal.StyleController = this.layoutControl1;
             this.tTotal.TabIndex = 1;
             // 
-            // panelControl1
+            // layoutControl1
             // 
-            this.panelControl1.Controls.Add(this.tablePanel1);
-            this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl1.Location = new System.Drawing.Point(206, 0);
-            this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(952, 701);
-            this.panelControl1.TabIndex = 2;
+            this.layoutControl1.Controls.Add(this.tCashCard_Cash);
+            this.layoutControl1.Controls.Add(this.tBalance);
+            this.layoutControl1.Controls.Add(this.tCashCard_Card);
+            this.layoutControl1.Controls.Add(this.tCash_Paid);
+            this.layoutControl1.Controls.Add(this.tTotal);
+            this.layoutControl1.Controls.Add(this.chCashTaxPrint);
+            this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.layoutControl1.Location = new System.Drawing.Point(206, 0);
+            this.layoutControl1.Name = "layoutControl1";
+            this.layoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(1206, 392, 650, 400);
+            this.layoutControl1.Root = this.Root;
+            this.layoutControl1.Size = new System.Drawing.Size(952, 651);
+            this.layoutControl1.TabIndex = 4;
+            this.layoutControl1.Text = "layoutControl1";
+            // 
+            // chCashTaxPrint
+            // 
+            this.chCashTaxPrint.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.chCashTaxPrint.Location = new System.Drawing.Point(3, 274);
+            this.chCashTaxPrint.Name = "chCashTaxPrint";
+            this.chCashTaxPrint.Properties.Appearance.Font = new System.Drawing.Font("Poppins", 12F);
+            this.chCashTaxPrint.Properties.Appearance.Options.UseFont = true;
+            this.chCashTaxPrint.Properties.Caption = "Vergi ilə çap";
+            this.chCashTaxPrint.Properties.CheckBoxOptions.Style = DevExpress.XtraEditors.Controls.CheckBoxStyle.SvgToggle1;
+            this.chCashTaxPrint.Properties.CheckBoxOptions.SvgImageSize = new System.Drawing.Size(40, 32);
+            this.chCashTaxPrint.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.chCashTaxPrint.Size = new System.Drawing.Size(946, 36);
+            this.chCashTaxPrint.StyleController = this.layoutControl1;
+            this.chCashTaxPrint.TabIndex = 6;
+            // 
+            // Root
+            // 
+            this.Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
+            this.Root.GroupBordersVisible = false;
+            this.Root.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.emptySpaceItem1,
+            this.layoutItemTaxPrint,
+            this.layoutControlItem1,
+            this.layoutItemCashPaid,
+            this.layoutItemBalance,
+            this.layoutItemCashCard_Card,
+            this.layoutItemCashCard_Cash,
+            this.simpleSeparator1});
+            this.Root.Name = "Root";
+            this.Root.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
+            this.Root.Size = new System.Drawing.Size(952, 651);
+            this.Root.TextVisible = false;
+            // 
+            // emptySpaceItem1
+            // 
+            this.emptySpaceItem1.AllowHotTrack = false;
+            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 313);
+            this.emptySpaceItem1.Name = "emptySpaceItem1";
+            this.emptySpaceItem1.Size = new System.Drawing.Size(952, 338);
+            this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // layoutItemTaxPrint
+            // 
+            this.layoutItemTaxPrint.Control = this.chCashTaxPrint;
+            this.layoutItemTaxPrint.Location = new System.Drawing.Point(0, 271);
+            this.layoutItemTaxPrint.Name = "layoutItemTaxPrint";
+            this.layoutItemTaxPrint.Size = new System.Drawing.Size(952, 42);
+            this.layoutItemTaxPrint.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutItemTaxPrint.TextVisible = false;
+            // 
+            // layoutControlItem1
+            // 
+            this.layoutControlItem1.Control = this.tTotal;
+            this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem1.Name = "layoutControlItem1";
+            this.layoutControlItem1.Size = new System.Drawing.Size(952, 54);
+            this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem1.TextVisible = false;
+            // 
+            // layoutItemCashPaid
+            // 
+            this.layoutItemCashPaid.Control = this.tCash_Paid;
+            this.layoutItemCashPaid.Location = new System.Drawing.Point(0, 54);
+            this.layoutItemCashPaid.Name = "layoutItemCashPaid";
+            this.layoutItemCashPaid.Size = new System.Drawing.Size(952, 54);
+            this.layoutItemCashPaid.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutItemCashPaid.TextVisible = false;
+            // 
+            // layoutItemBalance
+            // 
+            this.layoutItemBalance.Control = this.tBalance;
+            this.layoutItemBalance.Location = new System.Drawing.Point(0, 216);
+            this.layoutItemBalance.Name = "layoutItemBalance";
+            this.layoutItemBalance.Size = new System.Drawing.Size(952, 54);
+            this.layoutItemBalance.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutItemBalance.TextVisible = false;
+            // 
+            // layoutItemCashCard_Card
+            // 
+            this.layoutItemCashCard_Card.Control = this.tCashCard_Card;
+            this.layoutItemCashCard_Card.Location = new System.Drawing.Point(0, 108);
+            this.layoutItemCashCard_Card.Name = "layoutItemCashCard_Card";
+            this.layoutItemCashCard_Card.Size = new System.Drawing.Size(952, 54);
+            this.layoutItemCashCard_Card.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutItemCashCard_Card.TextVisible = false;
+            // 
+            // layoutItemCashCard_Cash
+            // 
+            this.layoutItemCashCard_Cash.Control = this.tCashCard_Cash;
+            this.layoutItemCashCard_Cash.Location = new System.Drawing.Point(0, 162);
+            this.layoutItemCashCard_Cash.Name = "layoutItemCashCard_Cash";
+            this.layoutItemCashCard_Cash.Size = new System.Drawing.Size(952, 54);
+            this.layoutItemCashCard_Cash.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutItemCashCard_Cash.TextVisible = false;
+            // 
+            // simpleSeparator1
+            // 
+            this.simpleSeparator1.AllowHotTrack = false;
+            this.simpleSeparator1.Location = new System.Drawing.Point(0, 270);
+            this.simpleSeparator1.Name = "simpleSeparator1";
+            this.simpleSeparator1.Size = new System.Drawing.Size(952, 1);
             // 
             // fPosPay
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(1158, 701);
-            this.Controls.Add(this.panelControl1);
+            this.Controls.Add(this.layoutControl1);
+            this.Controls.Add(this.panelControl2);
             this.Controls.Add(this.accordionControl1);
             this.LookAndFeel.SkinName = "WXI";
             this.LookAndFeel.UseDefaultLookAndFeel = false;
@@ -586,23 +629,26 @@
             this.Load += new System.EventHandler(this.fPosPay_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.fPosPay_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.accordionControl1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tablePanel1)).EndInit();
-            this.tablePanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
             this.panelControl2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.navigationFrame1)).EndInit();
-            this.navigationFrame1.ResumeLayout(false);
-            this.pageCash.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.chCashTaxPrint.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tCash_Balance.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tBalance.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tCash_Paid.Properties)).EndInit();
-            this.pageCashCard.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.tCashCard_Balance.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tCashCard_Cash.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tCashCard_Card.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tTotal.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
-            this.panelControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
+            this.layoutControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.chCashTaxPrint.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutItemTaxPrint)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutItemCashPaid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutItemBalance)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutItemCashCard_Card)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutItemCashCard_Cash)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.simpleSeparator1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -620,14 +666,8 @@
         private DevExpress.XtraBars.Navigation.AccordionControlSeparator accordionControlSeparator5;
         private DevExpress.XtraBars.Navigation.AccordionControlSeparator accordionControlSeparator4;
         private DevExpress.XtraBars.Navigation.AccordionControlSeparator accordionControlSeparator2;
-        private DevExpress.Utils.Layout.TablePanel tablePanel1;
-        private DevExpress.XtraEditors.PanelControl panelControl1;
         private DevExpress.XtraEditors.ButtonEdit tTotal;
-        private DevExpress.XtraBars.Navigation.NavigationFrame navigationFrame1;
-        private DevExpress.XtraBars.Navigation.NavigationPage pageCash;
-        private DevExpress.XtraBars.Navigation.NavigationPage pageCard;
-        private DevExpress.XtraBars.Navigation.NavigationPage pageCashCard;
-        private DevExpress.XtraEditors.ButtonEdit tCash_Balance;
+        private DevExpress.XtraEditors.ButtonEdit tBalance;
         private DevExpress.XtraEditors.ButtonEdit tCash_Paid;
         private DevExpress.XtraEditors.SimpleButton bPay;
         private DevExpress.XtraEditors.PanelControl panelControl2;
@@ -635,6 +675,16 @@
         private DevExpress.XtraEditors.ButtonEdit tCashCard_Card;
         private DevExpress.XtraEditors.ButtonEdit tCashCard_Cash;
         private DevExpress.XtraEditors.ButtonEdit tCashCard_Balance;
+        private DevExpress.XtraLayout.LayoutControl layoutControl1;
         private DevExpress.XtraEditors.CheckEdit chCashTaxPrint;
+        private DevExpress.XtraLayout.LayoutControlGroup Root;
+        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
+        private DevExpress.XtraLayout.LayoutControlItem layoutItemTaxPrint;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
+        private DevExpress.XtraLayout.LayoutControlItem layoutItemCashPaid;
+        private DevExpress.XtraLayout.LayoutControlItem layoutItemBalance;
+        private DevExpress.XtraLayout.LayoutControlItem layoutItemCashCard_Card;
+        private DevExpress.XtraLayout.LayoutControlItem layoutItemCashCard_Cash;
+        private DevExpress.XtraLayout.SimpleSeparator simpleSeparator1;
     }
 }

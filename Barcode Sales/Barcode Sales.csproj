@@ -542,6 +542,12 @@
     <Compile Include="Forms\ftest.Designer.cs">
       <DependentUpon>ftest.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\fTestPay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\fTestPay.Designer.cs">
+      <DependentUpon>fTestPay.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\fWarehouse.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -969,6 +975,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\fSelectProduct.resx">
       <DependentUpon>fSelectProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\fTestPay.resx">
+      <DependentUpon>fTestPay.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\fWarehouse.resx">
       <DependentUpon>fWarehouse.cs</DependentUpon>
