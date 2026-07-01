@@ -1,20 +1,16 @@
-﻿using Barcode_Sales.Services.CacheServices;
+﻿using Barcode_Sales.Operations.Abstract;
+using Barcode_Sales.Operations.Concrete;
+using Barcode_Sales.Services;
+using Barcode_Sales.Services.CacheServices;
+using Barcode_Sales.Services.Interfaces;
 using Barcode_Sales.Terminals.DTOs;
 using Barcode_Sales.Terminals.Omnitech;
+using DevExpress.XtraLayout.Utils;
 using System;
-using System.Linq;
-using System.Windows.Forms;
-using Barcode_Sales.Operations.Abstract;
-using Barcode_Sales.Operations.Concrete;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Threading.Tasks;
-using Barcode_Sales.Services.Interfaces;
-using Barcode_Sales.Services;
-using Barcode_Sales.Terminals;
-using DevExpress.Internal.WinApi.Windows.UI.Notifications;
-using static DevExpress.Utils.Drawing.Helpers.NativeMethods;
-using DevExpress.XtraLayout.Utils;
+using System.Linq;
+using System.Windows.Forms;
 
 namespace Barcode_Sales.Forms
 {
@@ -63,8 +59,10 @@ namespace Barcode_Sales.Forms
             layoutItemCashCard_Card.Visibility = LayoutVisibility.Always;
             layoutItemCashCard_Cash.Visibility = LayoutVisibility.Always;
             layoutItemBalance.Visibility = LayoutVisibility.Always;
-
             layoutItemCashPaid.Visibility = LayoutVisibility.Never;
+
+            tCashCard_Card.EditValue = 0;
+            tCashCard_Cash.EditValue = 0;
         }
 
         private void bAdvance_Click(object sender, EventArgs e)
@@ -155,19 +153,6 @@ namespace Barcode_Sales.Forms
             }
         }
 
-        private async void UpdateProducts(BindingList<PosSaleItemDto> items)
-        {
-            List<Products> products = new List<Products>();
-            foreach (var item in items)
-            {
-                var product = await productOperation.Get(x => x.Id == item.Id);
-                product.Quantity -= item.Quantity;
-                products.Add(product);
-            }
-
-            var result = await productOperation.Update(products, x => x.Quantity);
-        }
-
         private async void CardPaid()
         {
             _data.Card = _data.Items.Sum(x => x.Sum);
@@ -178,10 +163,6 @@ namespace Barcode_Sales.Forms
                 var kassa = (Helpers.Enums.Terminal)Enum.Parse(typeof(Helpers.Enums.Terminal), TerminalCacheService.Terminal.Name);
                 switch (kassa)
                 {
-                    case Helpers.Enums.Terminal.CASPOS:
-                        //if (NKA.Sunmi.Sale(_data))
-                        //    DialogResult = DialogResult.OK;
-                        break;
                     case Helpers.Enums.Terminal.OMNİTECH:
                         OmnnitechTerminal omnitech = new OmnnitechTerminal(TerminalCacheService.Terminal.IpAddress);
 
@@ -195,16 +176,6 @@ namespace Barcode_Sales.Forms
                         }
                         else
                             NotificationHelpers.Messages.ErrorMessage(_form, result.Message);
-                        break;
-                    case Helpers.Enums.Terminal.AZSMART:
-                        //if (NKA.AzSmart.Sale(_data))
-                        //    DialogResult = DialogResult.OK;
-                        break;
-                    case Helpers.Enums.Terminal.NBA:
-                        break;
-                    case Helpers.Enums.Terminal.DATAPAY:
-                        break;
-                    case Helpers.Enums.Terminal.ONECLICK:
                         break;
                 }
             }
@@ -252,40 +223,51 @@ namespace Barcode_Sales.Forms
             }
         }
 
+        private async void UpdateProducts(BindingList<PosSaleItemDto> items)
+        {
+            List<Products> products = new List<Products>();
+
+            var itemsSnapshot = items.ToList();
+            foreach (var item in itemsSnapshot)
+            {
+                var product = await productOperation.Get(x => x.Id == item.Id);
+                product.Quantity -= item.Quantity;
+                products.Add(product);
+            }
+
+            var result = await productOperation.Update(products, x => x.Quantity);
+        }
+
         private void tCashCard_Card_EditValueChanged(object sender, EventArgs e)
         {
-            double total = double.Parse(tTotal.Text);
-            double card = double.Parse(tCashCard_Card.Text);
+            decimal total = decimal.Parse(tTotal.Text);
+            decimal card = decimal.Parse(tCashCard_Card.Text);
             if (card < total)
-            {
                 tCashCard_Cash.EditValue = total - card;
-            }
             else
-            {
                 tCashCard_Cash.EditValue = 0;
-            }
         }
 
         private void tCashCard_Cash_EditValueChanged(object sender, EventArgs e)
         {
-            double total = double.Parse(tTotal.Text);
-            double card = double.Parse(tCashCard_Card.Text);
-            double cash = double.Parse(tCashCard_Cash.Text);
+            decimal total = decimal.Parse(tTotal.Text);
+            decimal card = decimal.Parse(tCashCard_Card.Text);
+            decimal cash = decimal.Parse(tCashCard_Cash.Text);
 
-            double cashTotal = total - card;
+            decimal cashTotal = total - card;
             if (cashTotal < 0)
             {
                 NotificationHelpers.Messages.WarningMessage(this, "Kart məbləği yekun məbləğdən böyük olabilməz !", nameof(Helpers.Enums.MessageTitle.Xəbərdarlıq));
                 return;
             }
+
             if (cash >= cashTotal)
             {
-                tCashCard_Balance.EditValue = cash - cashTotal;
+                var value = cash - cashTotal;
+                tBalance.EditValue = value;
             }
             else
-            {
-                tCashCard_Balance.EditValue = 0.ToString();
-            }
+                tBalance.EditValue = 0.ToString("N2");
         }
 
         private void fPosPay_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
@@ -293,18 +275,14 @@ namespace Barcode_Sales.Forms
             if (e.KeyCode is Keys.Enter)
             {
                 if (accordionControl1.SelectedElement == bCash)
-                {
                     CashPaid();
-                }
             }
         }
 
         private void tCash_Paid_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode is Keys.Enter)
-            {
                 CashPaid();
-            }
         }
     }
 }
