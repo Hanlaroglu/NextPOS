@@ -45,16 +45,6 @@
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject10 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject11 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject12 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.XtraCharts.Series series1 = new DevExpress.XtraCharts.Series();
-            DevExpress.XtraCharts.DoughnutSeriesView doughnutSeriesView1 = new DevExpress.XtraCharts.DoughnutSeriesView();
-            DevExpress.XtraCharts.ChartTitle chartTitle1 = new DevExpress.XtraCharts.ChartTitle();
-            DevExpress.XtraCharts.Series series2 = new DevExpress.XtraCharts.Series();
-            DevExpress.XtraCharts.DoughnutSeriesView doughnutSeriesView2 = new DevExpress.XtraCharts.DoughnutSeriesView();
-            DevExpress.XtraCharts.XYDiagram xyDiagram1 = new DevExpress.XtraCharts.XYDiagram();
-            DevExpress.XtraCharts.Series series3 = new DevExpress.XtraCharts.Series();
-            DevExpress.XtraCharts.SplineSeriesView splineSeriesView1 = new DevExpress.XtraCharts.SplineSeriesView();
-            DevExpress.XtraCharts.XYDiagram xyDiagram2 = new DevExpress.XtraCharts.XYDiagram();
-            DevExpress.XtraCharts.Series series4 = new DevExpress.XtraCharts.Series();
             DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions4 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject13 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject14 = new DevExpress.Utils.SerializableAppearanceObject();
@@ -75,6 +65,16 @@
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject26 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject27 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject28 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraCharts.Series series1 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.DoughnutSeriesView doughnutSeriesView1 = new DevExpress.XtraCharts.DoughnutSeriesView();
+            DevExpress.XtraCharts.ChartTitle chartTitle1 = new DevExpress.XtraCharts.ChartTitle();
+            DevExpress.XtraCharts.Series series2 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.DoughnutSeriesView doughnutSeriesView2 = new DevExpress.XtraCharts.DoughnutSeriesView();
+            DevExpress.XtraCharts.XYDiagram xyDiagram1 = new DevExpress.XtraCharts.XYDiagram();
+            DevExpress.XtraCharts.Series series3 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.SplineSeriesView splineSeriesView1 = new DevExpress.XtraCharts.SplineSeriesView();
+            DevExpress.XtraCharts.XYDiagram xyDiagram2 = new DevExpress.XtraCharts.XYDiagram();
+            DevExpress.XtraCharts.Series series4 = new DevExpress.XtraCharts.Series();
             DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions8 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject29 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject30 = new DevExpress.Utils.SerializableAppearanceObject();
@@ -120,6 +120,26 @@
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject62 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject63 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject64 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions17 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject65 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject66 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject67 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject68 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions18 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject69 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject70 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject71 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject72 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions19 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject73 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject74 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject75 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject76 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions20 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject77 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject78 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject79 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject80 = new DevExpress.Utils.SerializableAppearanceObject();
             this.fluentDesignFormContainer1 = new DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormContainer();
             this.accordionControl1 = new DevExpress.XtraBars.Navigation.AccordionControl();
             this.accordionControlElement1 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
@@ -250,23 +270,110 @@
             this.bAddUser = new DevExpress.XtraEditors.SimpleButton();
             this.tabPageRoles = new DevExpress.XtraBars.Navigation.TabNavigationPage();
             this.pageSettings = new DevExpress.XtraBars.Navigation.NavigationPage();
-            this.TabControlSettings = new DevExpress.XtraTab.XtraTabControl();
-            this.tabPageSettings = new DevExpress.XtraTab.XtraTabPage();
-            this.tablePanel28 = new DevExpress.Utils.Layout.TablePanel();
-            this.toggleProductMinus = new DevExpress.XtraEditors.ToggleSwitch();
-            this.panelControl18 = new DevExpress.XtraEditors.PanelControl();
-            this.labelControl29 = new DevExpress.XtraEditors.LabelControl();
-            this.ProductLimit_UpDown = new System.Windows.Forms.NumericUpDown();
+            this.tabPaneSettings = new DevExpress.XtraBars.Navigation.TabPane();
+            this.tabDatabase = new DevExpress.XtraBars.Navigation.TabNavigationPage();
+            this.panelDatabase = new DevExpress.XtraEditors.PanelControl();
+            this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.labelControl15 = new DevExpress.XtraEditors.LabelControl();
+            this.chBackupAuto = new DevExpress.XtraEditors.CheckEdit();
+            this.spinBackupRemoveDay = new DevExpress.XtraEditors.SpinEdit();
+            this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl17 = new DevExpress.XtraEditors.LabelControl();
+            this.bDbDelete = new DevExpress.XtraEditors.SimpleButton();
+            this.labelControl16 = new DevExpress.XtraEditors.LabelControl();
+            this.bDbClear = new DevExpress.XtraEditors.SimpleButton();
+            this.labelControl18 = new DevExpress.XtraEditors.LabelControl();
+            this.bDbCacheDelete = new DevExpress.XtraEditors.SimpleButton();
+            this.lBackupHistory = new DevExpress.XtraEditors.LabelControl();
+            this.bBackupDownload = new DevExpress.XtraEditors.SimpleButton();
+            this.labelControl31 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl13 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl26 = new DevExpress.XtraEditors.LabelControl();
+            this.tBackupSendEmail = new DevExpress.XtraEditors.ButtonEdit();
+            this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem12 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem13 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem14 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem15 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem16 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem17 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem18 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem19 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem20 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem25 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.tabLog = new DevExpress.XtraBars.Navigation.TabNavigationPage();
+            this.layoutControl5 = new DevExpress.XtraLayout.LayoutControl();
+            this.bLogDelete = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButton11 = new DevExpress.XtraEditors.SimpleButton();
+            this.gridControlLogs = new DevExpress.XtraGrid.GridControl();
+            this.gridLogs = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumn50 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn51 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn125 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn129 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.bLogExport = new DevExpress.XtraEditors.SimpleButton();
+            this.dateEdit2 = new DevExpress.XtraEditors.DateEdit();
+            this.dateEdit1 = new DevExpress.XtraEditors.DateEdit();
+            this.layoutControlGroup4 = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem9 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem10 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem11 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem33 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem32 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.emptySpaceItem5 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.tabAllSettings = new DevExpress.XtraBars.Navigation.TabNavigationPage();
+            this.panelControl4 = new DevExpress.XtraEditors.PanelControl();
+            this.layoutControl4 = new DevExpress.XtraLayout.LayoutControl();
+            this.checkEdit2 = new DevExpress.XtraEditors.CheckEdit();
+            this.chHotSales = new DevExpress.XtraEditors.CheckEdit();
+            this.layoutControlGroup3 = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.layoutControlItem35 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.emptySpaceItem4 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.layoutControlItem36 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.tabKassa = new DevExpress.XtraBars.Navigation.TabNavigationPage();
+            this.panelControl18 = new DevExpress.XtraEditors.PanelControl();
+            this.layoutControl3 = new DevExpress.XtraLayout.LayoutControl();
             this.labelControl27 = new DevExpress.XtraEditors.LabelControl();
+            this.spinEdit1 = new DevExpress.XtraEditors.SpinEdit();
+            this.chRrn = new DevExpress.XtraEditors.CheckEdit();
+            this.chOtherPay = new DevExpress.XtraEditors.CheckEdit();
+            this.chTerminalPrintReceipt = new DevExpress.XtraEditors.CheckEdit();
+            this.chIsReceipt = new DevExpress.XtraEditors.CheckEdit();
+            this.chSendToKassa = new DevExpress.XtraEditors.CheckEdit();
+            this.chPosSalesMessage = new DevExpress.XtraEditors.CheckEdit();
+            this.layoutControlGroup2 = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.layoutControlItem26 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.emptySpaceItem3 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.layoutControlItem27 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem28 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem29 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem30 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem31 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem38 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem39 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.tabLicence = new DevExpress.XtraBars.Navigation.TabNavigationPage();
+            this.panelControl33 = new DevExpress.XtraEditors.PanelControl();
+            this.layoutControl2 = new DevExpress.XtraLayout.LayoutControl();
+            this.lExpireDate = new DevExpress.XtraEditors.LabelControl();
             this.labelControl28 = new DevExpress.XtraEditors.LabelControl();
-            this.tabPageKassalar = new DevExpress.XtraTab.XtraTabPage();
-            this.KassalarFooter = new NextPOS.UserControls.userSaveFooter();
-            this.groupControl3 = new DevExpress.XtraEditors.GroupControl();
-            this.chPrinter = new DevExpress.XtraEditors.CheckEdit();
-            this.tabPageBackup = new DevExpress.XtraTab.XtraTabPage();
-            this.tabPageArchive = new DevExpress.XtraTab.XtraTabPage();
-            this.tabExcel = new DevExpress.XtraTab.XtraTabPage();
+            this.lLicenceKey = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl33 = new DevExpress.XtraEditors.LabelControl();
+            this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.layoutControlItem21 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.layoutControlItem22 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem23 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem24 = new DevExpress.XtraLayout.LayoutControlItem();
             this.pageReport = new DevExpress.XtraBars.Navigation.NavigationPage();
             this.TabControlReport = new DevExpress.XtraTab.XtraTabControl();
             this.tableMehsulAlis = new DevExpress.XtraTab.XtraTabPage();
@@ -719,19 +826,96 @@
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel39)).BeginInit();
             this.tablePanel39.SuspendLayout();
             this.pageSettings.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.TabControlSettings)).BeginInit();
-            this.TabControlSettings.SuspendLayout();
-            this.tabPageSettings.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tablePanel28)).BeginInit();
-            this.tablePanel28.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.toggleProductMinus.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tabPaneSettings)).BeginInit();
+            this.tabPaneSettings.SuspendLayout();
+            this.tabDatabase.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelDatabase)).BeginInit();
+            this.panelDatabase.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
+            this.layoutControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chBackupAuto.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spinBackupRemoveDay.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tBackupSendEmail.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem12)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem13)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem14)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem15)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem16)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem17)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem18)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem19)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem20)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem25)).BeginInit();
+            this.tabLog.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControl5)).BeginInit();
+            this.layoutControl5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControlLogs)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridLogs)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEdit2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEdit2.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem11)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem33)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem32)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem5)).BeginInit();
+            this.tabAllSettings.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).BeginInit();
+            this.panelControl4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControl4)).BeginInit();
+            this.layoutControl4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEdit2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chHotSales.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem35)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem36)).BeginInit();
+            this.tabKassa.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl18)).BeginInit();
             this.panelControl18.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ProductLimit_UpDown)).BeginInit();
-            this.tabPageKassalar.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).BeginInit();
-            this.groupControl3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chPrinter.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControl3)).BeginInit();
+            this.layoutControl3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.spinEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chRrn.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chOtherPay.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chTerminalPrintReceipt.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chIsReceipt.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chSendToKassa.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chPosSalesMessage.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem26)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem27)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem28)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem29)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem30)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem31)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem38)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem39)).BeginInit();
+            this.tabLicence.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl33)).BeginInit();
+            this.panelControl33.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControl2)).BeginInit();
+            this.layoutControl2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem21)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem22)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem23)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem24)).BeginInit();
             this.pageReport.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TabControlReport)).BeginInit();
             this.TabControlReport.SuspendLayout();
@@ -1515,6 +1699,7 @@
             this.accordionControlElement27.Name = "accordionControlElement27";
             this.accordionControlElement27.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.accordionControlElement27.Text = "Ümumi";
+            this.accordionControlElement27.Click += new System.EventHandler(this.accordionControlElement27_Click);
             // 
             // accordionControlElement26
             // 
@@ -2973,255 +3158,1471 @@
             // 
             // pageSettings
             // 
-            this.pageSettings.Controls.Add(this.TabControlSettings);
+            this.pageSettings.Controls.Add(this.tabPaneSettings);
             this.pageSettings.Name = "pageSettings";
             this.pageSettings.Size = new System.Drawing.Size(1215, 814);
             // 
-            // TabControlSettings
+            // tabPaneSettings
             // 
-            this.TabControlSettings.Appearance.Font = new System.Drawing.Font("Nunito", 12F);
-            this.TabControlSettings.Appearance.Options.UseFont = true;
-            this.TabControlSettings.AppearancePage.Header.Font = new System.Drawing.Font("Nunito", 12F);
-            this.TabControlSettings.AppearancePage.Header.Options.UseFont = true;
-            this.TabControlSettings.AppearancePage.HeaderActive.Font = new System.Drawing.Font("Nunito", 12F, System.Drawing.FontStyle.Bold);
-            this.TabControlSettings.AppearancePage.HeaderActive.Options.UseFont = true;
-            this.TabControlSettings.AppearancePage.HeaderDisabled.Font = new System.Drawing.Font("Nunito", 12F);
-            this.TabControlSettings.AppearancePage.HeaderDisabled.Options.UseFont = true;
-            this.TabControlSettings.AppearancePage.HeaderHotTracked.Font = new System.Drawing.Font("Nunito", 12F);
-            this.TabControlSettings.AppearancePage.HeaderHotTracked.Options.UseFont = true;
-            this.TabControlSettings.AppearancePage.PageClient.Font = new System.Drawing.Font("Nunito", 12F);
-            this.TabControlSettings.AppearancePage.PageClient.Options.UseFont = true;
-            this.TabControlSettings.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TabControlSettings.Location = new System.Drawing.Point(0, 0);
-            this.TabControlSettings.Margin = new System.Windows.Forms.Padding(0);
-            this.TabControlSettings.Name = "TabControlSettings";
-            this.TabControlSettings.SelectedTabPage = this.tabPageSettings;
-            this.TabControlSettings.Size = new System.Drawing.Size(1215, 814);
-            this.TabControlSettings.TabIndex = 1;
-            this.TabControlSettings.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
-            this.tabPageSettings,
-            this.tabPageKassalar,
-            this.tabPageBackup,
-            this.tabPageArchive,
-            this.tabExcel});
+            this.tabPaneSettings.AllowTransitionAnimation = DevExpress.Utils.DefaultBoolean.False;
+            this.tabPaneSettings.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.tabPaneSettings.Appearance.Options.UseFont = true;
+            this.tabPaneSettings.AppearanceButton.Hovered.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.tabPaneSettings.AppearanceButton.Hovered.Options.UseFont = true;
+            this.tabPaneSettings.AppearanceButton.Normal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.tabPaneSettings.AppearanceButton.Normal.Options.UseFont = true;
+            this.tabPaneSettings.AppearanceButton.Pressed.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.tabPaneSettings.AppearanceButton.Pressed.Options.UseFont = true;
+            this.tabPaneSettings.Controls.Add(this.tabDatabase);
+            this.tabPaneSettings.Controls.Add(this.tabLog);
+            this.tabPaneSettings.Controls.Add(this.tabAllSettings);
+            this.tabPaneSettings.Controls.Add(this.tabKassa);
+            this.tabPaneSettings.Controls.Add(this.tabLicence);
+            this.tabPaneSettings.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabPaneSettings.Location = new System.Drawing.Point(0, 0);
+            this.tabPaneSettings.LookAndFeel.SkinName = "WXI";
+            this.tabPaneSettings.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.tabPaneSettings.Name = "tabPaneSettings";
+            this.tabPaneSettings.PageProperties.AppearanceCaption.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.tabPaneSettings.PageProperties.AppearanceCaption.Options.UseFont = true;
+            this.tabPaneSettings.Pages.AddRange(new DevExpress.XtraBars.Navigation.NavigationPageBase[] {
+            this.tabAllSettings,
+            this.tabKassa,
+            this.tabDatabase,
+            this.tabLicence,
+            this.tabLog});
+            this.tabPaneSettings.RegularSize = new System.Drawing.Size(1215, 814);
+            this.tabPaneSettings.SelectedPage = this.tabAllSettings;
+            this.tabPaneSettings.Size = new System.Drawing.Size(1215, 814);
+            this.tabPaneSettings.TabAlignment = DevExpress.XtraEditors.Alignment.Near;
+            this.tabPaneSettings.TabIndex = 9;
+            this.tabPaneSettings.Text = "Sazlamalar";
             // 
-            // tabPageSettings
+            // tabDatabase
             // 
-            this.tabPageSettings.Appearance.Header.Font = new System.Drawing.Font("Nunito", 12F);
-            this.tabPageSettings.Appearance.Header.Options.UseFont = true;
-            this.tabPageSettings.Appearance.HeaderActive.Font = new System.Drawing.Font("Nunito", 12F, System.Drawing.FontStyle.Bold);
-            this.tabPageSettings.Appearance.HeaderActive.Options.UseFont = true;
-            this.tabPageSettings.Appearance.HeaderDisabled.Font = new System.Drawing.Font("Nunito", 12F);
-            this.tabPageSettings.Appearance.HeaderDisabled.Options.UseFont = true;
-            this.tabPageSettings.Appearance.HeaderHotTracked.Font = new System.Drawing.Font("Nunito", 12F);
-            this.tabPageSettings.Appearance.HeaderHotTracked.Options.UseFont = true;
-            this.tabPageSettings.Appearance.PageClient.Font = new System.Drawing.Font("Nunito", 12F);
-            this.tabPageSettings.Appearance.PageClient.Options.UseFont = true;
-            this.tabPageSettings.Controls.Add(this.tablePanel28);
-            this.tabPageSettings.ImageOptions.SvgImageSize = new System.Drawing.Size(24, 24);
-            this.tabPageSettings.Name = "tabPageSettings";
-            this.tabPageSettings.Size = new System.Drawing.Size(1213, 780);
-            this.tabPageSettings.Text = "Ümumi sazlamalar";
-            this.tabPageSettings.Tooltip = "Paneldə göstəriləcək məhsularının minimum miqdarı qeyd edilməlidir";
+            this.tabDatabase.Caption = "Verilənlər bazası";
+            this.tabDatabase.Controls.Add(this.panelDatabase);
+            this.tabDatabase.Name = "tabDatabase";
+            this.tabDatabase.Size = new System.Drawing.Size(1215, 769);
             // 
-            // tablePanel28
+            // panelDatabase
             // 
-            this.tablePanel28.Columns.AddRange(new DevExpress.Utils.Layout.TablePanelColumn[] {
-            new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.AutoSize, 13.82F),
-            new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.AutoSize, 46.18F)});
-            this.tablePanel28.Controls.Add(this.toggleProductMinus);
-            this.tablePanel28.Controls.Add(this.panelControl18);
-            this.tablePanel28.Controls.Add(this.labelControl26);
-            this.tablePanel28.Controls.Add(this.labelControl27);
-            this.tablePanel28.Controls.Add(this.labelControl28);
-            this.tablePanel28.Location = new System.Drawing.Point(5, 3);
-            this.tablePanel28.Name = "tablePanel28";
-            this.tablePanel28.Rows.AddRange(new DevExpress.Utils.Layout.TablePanelRow[] {
-            new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 100F),
-            new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 100F),
-            new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 100F)});
-            this.tablePanel28.Size = new System.Drawing.Size(371, 98);
-            this.tablePanel28.TabIndex = 4;
+            this.panelDatabase.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            this.panelDatabase.Appearance.Options.UseBackColor = true;
+            this.panelDatabase.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.panelDatabase.Controls.Add(this.layoutControl1);
+            this.panelDatabase.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelDatabase.Location = new System.Drawing.Point(0, 0);
+            this.panelDatabase.LookAndFeel.SkinName = "WXI";
+            this.panelDatabase.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.panelDatabase.Margin = new System.Windows.Forms.Padding(1);
+            this.panelDatabase.Name = "panelDatabase";
+            this.panelDatabase.Size = new System.Drawing.Size(1215, 769);
+            this.panelDatabase.TabIndex = 1;
             // 
-            // toggleProductMinus
+            // layoutControl1
             // 
-            this.tablePanel28.SetColumn(this.toggleProductMinus, 1);
-            this.toggleProductMinus.Location = new System.Drawing.Point(23, 70);
-            this.toggleProductMinus.Name = "toggleProductMinus";
-            this.toggleProductMinus.Properties.Appearance.Font = new System.Drawing.Font("Nunito", 10F);
-            this.toggleProductMinus.Properties.Appearance.Options.UseFont = true;
-            this.toggleProductMinus.Properties.AutoWidth = true;
-            this.toggleProductMinus.Properties.OffText = "Xeyr";
-            this.toggleProductMinus.Properties.OnText = "Bəli";
-            this.toggleProductMinus.Properties.ShowText = false;
-            this.tablePanel28.SetRow(this.toggleProductMinus, 2);
-            this.toggleProductMinus.Size = new System.Drawing.Size(67, 23);
-            this.toggleProductMinus.TabIndex = 12;
-            this.toggleProductMinus.Visible = false;
+            this.layoutControl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.layoutControl1.Controls.Add(this.labelControl15);
+            this.layoutControl1.Controls.Add(this.chBackupAuto);
+            this.layoutControl1.Controls.Add(this.spinBackupRemoveDay);
+            this.layoutControl1.Controls.Add(this.labelControl6);
+            this.layoutControl1.Controls.Add(this.labelControl9);
+            this.layoutControl1.Controls.Add(this.labelControl17);
+            this.layoutControl1.Controls.Add(this.bDbDelete);
+            this.layoutControl1.Controls.Add(this.labelControl16);
+            this.layoutControl1.Controls.Add(this.bDbClear);
+            this.layoutControl1.Controls.Add(this.labelControl18);
+            this.layoutControl1.Controls.Add(this.bDbCacheDelete);
+            this.layoutControl1.Controls.Add(this.lBackupHistory);
+            this.layoutControl1.Controls.Add(this.bBackupDownload);
+            this.layoutControl1.Controls.Add(this.labelControl31);
+            this.layoutControl1.Controls.Add(this.labelControl13);
+            this.layoutControl1.Controls.Add(this.labelControl26);
+            this.layoutControl1.Controls.Add(this.tBackupSendEmail);
+            this.layoutControl1.Location = new System.Drawing.Point(8, 5);
+            this.layoutControl1.Name = "layoutControl1";
+            this.layoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(691, 404, 650, 400);
+            this.layoutControl1.Root = this.Root;
+            this.layoutControl1.Size = new System.Drawing.Size(1203, 491);
+            this.layoutControl1.TabIndex = 29;
+            this.layoutControl1.Text = "layoutControl1";
             // 
-            // panelControl18
+            // labelControl15
             // 
-            this.panelControl18.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.tablePanel28.SetColumn(this.panelControl18, 1);
-            this.panelControl18.Controls.Add(this.labelControl29);
-            this.panelControl18.Controls.Add(this.ProductLimit_UpDown);
-            this.panelControl18.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl18.Location = new System.Drawing.Point(20, 33);
-            this.panelControl18.Margin = new System.Windows.Forms.Padding(0);
-            this.panelControl18.Name = "panelControl18";
-            this.tablePanel28.SetRow(this.panelControl18, 1);
-            this.panelControl18.Size = new System.Drawing.Size(351, 33);
-            this.panelControl18.TabIndex = 11;
+            this.labelControl15.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelControl15.Appearance.Font = new System.Drawing.Font("Nunito", 14F, System.Drawing.FontStyle.Bold);
+            this.labelControl15.Appearance.Options.UseFont = true;
+            this.labelControl15.Appearance.Options.UseTextOptions = true;
+            this.labelControl15.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Top;
+            this.labelControl15.AutoEllipsis = true;
+            this.labelControl15.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Vertical;
+            this.labelControl15.LineLocation = DevExpress.XtraEditors.LineLocation.Bottom;
+            this.labelControl15.LineVisible = true;
+            this.labelControl15.Location = new System.Drawing.Point(6, 6);
+            this.labelControl15.Name = "labelControl15";
+            this.labelControl15.Size = new System.Drawing.Size(1191, 29);
+            this.labelControl15.StyleController = this.layoutControl1;
+            this.labelControl15.TabIndex = 0;
+            this.labelControl15.Text = "Ehtiyyat nüsxə";
             // 
-            // labelControl29
+            // chBackupAuto
             // 
-            this.labelControl29.Appearance.Font = new System.Drawing.Font("Nunito", 12F);
-            this.labelControl29.Appearance.Options.UseFont = true;
-            this.labelControl29.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.labelControl29.ImageOptions.SvgImageSize = new System.Drawing.Size(24, 24);
-            this.labelControl29.Location = new System.Drawing.Point(82, 4);
-            this.labelControl29.Name = "labelControl29";
-            this.labelControl29.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
-            this.labelControl29.Size = new System.Drawing.Size(6, 22);
-            this.labelControl29.TabIndex = 11;
-            this.labelControl29.ToolTip = "Panel səhifəsində məhsulun bitiminə az qalan miqdarı göstərir";
-            this.labelControl29.UseMnemonic = false;
+            this.chBackupAuto.Location = new System.Drawing.Point(6, 101);
+            this.chBackupAuto.Name = "chBackupAuto";
+            this.chBackupAuto.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 11F);
+            this.chBackupAuto.Properties.Appearance.Options.UseFont = true;
+            this.chBackupAuto.Properties.Caption = "Hər gün backup al";
+            this.chBackupAuto.Properties.CheckBoxOptions.Style = DevExpress.XtraEditors.Controls.CheckBoxStyle.SvgToggle1;
+            this.chBackupAuto.Properties.CheckBoxOptions.SvgImageSize = new System.Drawing.Size(32, 28);
+            this.chBackupAuto.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.chBackupAuto.Size = new System.Drawing.Size(1191, 32);
+            this.chBackupAuto.StyleController = this.layoutControl1;
+            this.chBackupAuto.TabIndex = 27;
             // 
-            // ProductLimit_UpDown
+            // spinBackupRemoveDay
             // 
-            this.ProductLimit_UpDown.Font = new System.Drawing.Font("Nunito", 12F);
-            this.ProductLimit_UpDown.Location = new System.Drawing.Point(6, 3);
-            this.ProductLimit_UpDown.Name = "ProductLimit_UpDown";
-            this.ProductLimit_UpDown.Size = new System.Drawing.Size(70, 29);
-            this.ProductLimit_UpDown.TabIndex = 6;
-            this.ProductLimit_UpDown.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.ProductLimit_UpDown.ThousandsSeparator = true;
+            this.spinBackupRemoveDay.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.spinBackupRemoveDay.Location = new System.Drawing.Point(1105, 139);
+            this.spinBackupRemoveDay.Name = "spinBackupRemoveDay";
+            this.spinBackupRemoveDay.Properties.AdvancedModeOptions.AllowCaretAnimation = DevExpress.Utils.DefaultBoolean.True;
+            this.spinBackupRemoveDay.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.spinBackupRemoveDay.Properties.EditValueChangedDelay = 1;
+            this.spinBackupRemoveDay.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Default;
+            this.spinBackupRemoveDay.Properties.IsFloatValue = false;
+            this.spinBackupRemoveDay.Properties.MaskSettings.Set("mask", "N0");
+            this.spinBackupRemoveDay.Properties.MaskSettings.Set("autoHideDecimalSeparator", true);
+            this.spinBackupRemoveDay.Properties.MaxLength = 3;
+            this.spinBackupRemoveDay.Properties.MaxValue = new decimal(new int[] {
+            120,
+            0,
+            0,
+            0});
+            this.spinBackupRemoveDay.Size = new System.Drawing.Size(92, 28);
+            this.spinBackupRemoveDay.StyleController = this.layoutControl1;
+            this.spinBackupRemoveDay.TabIndex = 30;
+            // 
+            // labelControl6
+            // 
+            this.labelControl6.Appearance.Font = new System.Drawing.Font("Verdana", 11F);
+            this.labelControl6.Appearance.Options.UseFont = true;
+            this.labelControl6.Location = new System.Drawing.Point(6, 139);
+            this.labelControl6.Name = "labelControl6";
+            this.labelControl6.Size = new System.Drawing.Size(1093, 30);
+            this.labelControl6.StyleController = this.layoutControl1;
+            this.labelControl6.TabIndex = 20;
+            this.labelControl6.Text = "Ehtiyyat nüsxənin saxlanma müddəti";
+            // 
+            // labelControl9
+            // 
+            this.labelControl9.Appearance.Font = new System.Drawing.Font("Verdana", 11F);
+            this.labelControl9.Appearance.Options.UseFont = true;
+            this.labelControl9.Location = new System.Drawing.Point(6, 318);
+            this.labelControl9.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
+            this.labelControl9.Name = "labelControl9";
+            this.labelControl9.Size = new System.Drawing.Size(996, 30);
+            this.labelControl9.StyleController = this.layoutControl1;
+            this.labelControl9.TabIndex = 20;
+            this.labelControl9.Text = "Verilənlər bazasını qalıcı olaraq sil";
+            this.labelControl9.Visible = false;
+            // 
+            // labelControl17
+            // 
+            this.labelControl17.Appearance.Font = new System.Drawing.Font("Verdana", 11F);
+            this.labelControl17.Appearance.Options.UseFont = true;
+            this.labelControl17.Location = new System.Drawing.Point(6, 282);
+            this.labelControl17.Name = "labelControl17";
+            this.labelControl17.Size = new System.Drawing.Size(996, 30);
+            this.labelControl17.StyleController = this.layoutControl1;
+            this.labelControl17.TabIndex = 20;
+            this.labelControl17.Text = "Verilənlər bazasını sıfırla (Anbar qalığı, satış, hesabatlar və s.)";
+            this.labelControl17.Visible = false;
+            // 
+            // bDbDelete
+            // 
+            this.bDbDelete.AllowFocus = false;
+            this.bDbDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.bDbDelete.Appearance.Font = new System.Drawing.Font("Verdana", 11F);
+            this.bDbDelete.Appearance.ForeColor = System.Drawing.Color.Black;
+            this.bDbDelete.Appearance.Options.UseFont = true;
+            this.bDbDelete.Appearance.Options.UseForeColor = true;
+            this.bDbDelete.AppearanceDisabled.ForeColor = System.Drawing.Color.White;
+            this.bDbDelete.AppearanceDisabled.Options.UseForeColor = true;
+            this.bDbDelete.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bDbDelete.ImageOptions.SvgImage")));
+            this.bDbDelete.ImageOptions.SvgImageSize = new System.Drawing.Size(24, 24);
+            this.bDbDelete.Location = new System.Drawing.Point(1008, 318);
+            this.bDbDelete.Name = "bDbDelete";
+            this.bDbDelete.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
+            this.bDbDelete.Size = new System.Drawing.Size(189, 30);
+            this.bDbDelete.StyleController = this.layoutControl1;
+            this.bDbDelete.TabIndex = 19;
+            this.bDbDelete.Text = "Bazanı sil";
+            this.bDbDelete.Visible = false;
+            // 
+            // labelControl16
+            // 
+            this.labelControl16.Appearance.Font = new System.Drawing.Font("Verdana", 11F);
+            this.labelControl16.Appearance.Options.UseFont = true;
+            this.labelControl16.Location = new System.Drawing.Point(6, 246);
+            this.labelControl16.Name = "labelControl16";
+            this.labelControl16.Size = new System.Drawing.Size(996, 30);
+            this.labelControl16.StyleController = this.layoutControl1;
+            this.labelControl16.TabIndex = 20;
+            this.labelControl16.Text = "Keş yaddaşını təmizlə";
+            this.labelControl16.Visible = false;
+            // 
+            // bDbClear
+            // 
+            this.bDbClear.AllowFocus = false;
+            this.bDbClear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.bDbClear.Appearance.Font = new System.Drawing.Font("Verdana", 11F);
+            this.bDbClear.Appearance.ForeColor = System.Drawing.Color.Black;
+            this.bDbClear.Appearance.Options.UseFont = true;
+            this.bDbClear.Appearance.Options.UseForeColor = true;
+            this.bDbClear.AppearanceDisabled.ForeColor = System.Drawing.Color.White;
+            this.bDbClear.AppearanceDisabled.Options.UseForeColor = true;
+            this.bDbClear.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bDbClear.ImageOptions.SvgImage")));
+            this.bDbClear.ImageOptions.SvgImageSize = new System.Drawing.Size(24, 24);
+            this.bDbClear.Location = new System.Drawing.Point(1008, 282);
+            this.bDbClear.Name = "bDbClear";
+            this.bDbClear.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
+            this.bDbClear.Size = new System.Drawing.Size(189, 30);
+            this.bDbClear.StyleController = this.layoutControl1;
+            this.bDbClear.TabIndex = 19;
+            this.bDbClear.Text = "Sıfırla";
+            this.bDbClear.Visible = false;
+            // 
+            // labelControl18
+            // 
+            this.labelControl18.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelControl18.Appearance.Font = new System.Drawing.Font("Nunito", 14F, System.Drawing.FontStyle.Bold);
+            this.labelControl18.Appearance.Options.UseFont = true;
+            this.labelControl18.Appearance.Options.UseTextOptions = true;
+            this.labelControl18.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Top;
+            this.labelControl18.AutoEllipsis = true;
+            this.labelControl18.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Vertical;
+            this.labelControl18.LineLocation = DevExpress.XtraEditors.LineLocation.Bottom;
+            this.labelControl18.LineVisible = true;
+            this.labelControl18.Location = new System.Drawing.Point(6, 211);
+            this.labelControl18.Name = "labelControl18";
+            this.labelControl18.Size = new System.Drawing.Size(1191, 29);
+            this.labelControl18.StyleController = this.layoutControl1;
+            this.labelControl18.TabIndex = 0;
+            this.labelControl18.Text = "Verilənlər bazasının idarə olunması\r\n";
+            this.labelControl18.Visible = false;
+            // 
+            // bDbCacheDelete
+            // 
+            this.bDbCacheDelete.AllowFocus = false;
+            this.bDbCacheDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.bDbCacheDelete.Appearance.Font = new System.Drawing.Font("Verdana", 11F);
+            this.bDbCacheDelete.Appearance.ForeColor = System.Drawing.Color.Black;
+            this.bDbCacheDelete.Appearance.Options.UseFont = true;
+            this.bDbCacheDelete.Appearance.Options.UseForeColor = true;
+            this.bDbCacheDelete.AppearanceDisabled.ForeColor = System.Drawing.Color.White;
+            this.bDbCacheDelete.AppearanceDisabled.Options.UseForeColor = true;
+            this.bDbCacheDelete.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bDbCacheDelete.ImageOptions.SvgImage")));
+            this.bDbCacheDelete.ImageOptions.SvgImageSize = new System.Drawing.Size(24, 24);
+            this.bDbCacheDelete.Location = new System.Drawing.Point(1008, 246);
+            this.bDbCacheDelete.Name = "bDbCacheDelete";
+            this.bDbCacheDelete.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
+            this.bDbCacheDelete.Size = new System.Drawing.Size(189, 30);
+            this.bDbCacheDelete.StyleController = this.layoutControl1;
+            this.bDbCacheDelete.TabIndex = 19;
+            this.bDbCacheDelete.Text = "Təmizlə";
+            this.bDbCacheDelete.Visible = false;
+            // 
+            // lBackupHistory
+            // 
+            this.lBackupHistory.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lBackupHistory.Appearance.Font = new System.Drawing.Font("Verdana", 11F);
+            this.lBackupHistory.Appearance.Options.UseFont = true;
+            this.lBackupHistory.Appearance.Options.UseTextOptions = true;
+            this.lBackupHistory.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.lBackupHistory.Appearance.TextOptions.Trimming = DevExpress.Utils.Trimming.EllipsisCharacter;
+            this.lBackupHistory.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.lBackupHistory.Location = new System.Drawing.Point(882, 77);
+            this.lBackupHistory.Name = "lBackupHistory";
+            this.lBackupHistory.Size = new System.Drawing.Size(315, 18);
+            this.lBackupHistory.StyleController = this.layoutControl1;
+            this.lBackupHistory.TabIndex = 20;
+            this.lBackupHistory.Text = "Yoxdur";
+            // 
+            // bBackupDownload
+            // 
+            this.bBackupDownload.AllowFocus = false;
+            this.bBackupDownload.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.bBackupDownload.Appearance.Font = new System.Drawing.Font("Verdana", 11F);
+            this.bBackupDownload.Appearance.ForeColor = System.Drawing.Color.Black;
+            this.bBackupDownload.Appearance.Options.UseFont = true;
+            this.bBackupDownload.Appearance.Options.UseForeColor = true;
+            this.bBackupDownload.AppearanceDisabled.ForeColor = System.Drawing.Color.White;
+            this.bBackupDownload.AppearanceDisabled.Options.UseForeColor = true;
+            this.bBackupDownload.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bBackupDownload.ImageOptions.SvgImage")));
+            this.bBackupDownload.ImageOptions.SvgImageSize = new System.Drawing.Size(24, 24);
+            this.bBackupDownload.Location = new System.Drawing.Point(1008, 41);
+            this.bBackupDownload.Name = "bBackupDownload";
+            this.bBackupDownload.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
+            this.bBackupDownload.Size = new System.Drawing.Size(189, 30);
+            this.bBackupDownload.StyleController = this.layoutControl1;
+            this.bBackupDownload.TabIndex = 19;
+            this.bBackupDownload.Text = "Nüsxə yarat";
+            // 
+            // labelControl31
+            // 
+            this.labelControl31.Appearance.Font = new System.Drawing.Font("Verdana", 11F);
+            this.labelControl31.Appearance.Options.UseFont = true;
+            this.labelControl31.Location = new System.Drawing.Point(6, 175);
+            this.labelControl31.Name = "labelControl31";
+            this.labelControl31.Size = new System.Drawing.Size(870, 30);
+            this.labelControl31.StyleController = this.layoutControl1;
+            this.labelControl31.TabIndex = 20;
+            this.labelControl31.Text = "Ehtiyyat nüsxə alındıqda kopyasını elektron poçt ünvanına göndər";
+            this.labelControl31.Visible = false;
+            // 
+            // labelControl13
+            // 
+            this.labelControl13.Appearance.Font = new System.Drawing.Font("Verdana", 11F);
+            this.labelControl13.Appearance.Options.UseFont = true;
+            this.labelControl13.Location = new System.Drawing.Point(6, 41);
+            this.labelControl13.Name = "labelControl13";
+            this.labelControl13.Size = new System.Drawing.Size(996, 30);
+            this.labelControl13.StyleController = this.layoutControl1;
+            this.labelControl13.TabIndex = 20;
+            this.labelControl13.Text = "Ehtiyyat nüsxəsi yarat";
             // 
             // labelControl26
             // 
-            this.labelControl26.Appearance.Font = new System.Drawing.Font("Nunito", 12F);
+            this.labelControl26.Appearance.Font = new System.Drawing.Font("Verdana", 11F);
             this.labelControl26.Appearance.Options.UseFont = true;
-            this.tablePanel28.SetColumn(this.labelControl26, 0);
-            this.labelControl26.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelControl26.Location = new System.Drawing.Point(3, 69);
+            this.labelControl26.Location = new System.Drawing.Point(6, 77);
             this.labelControl26.Name = "labelControl26";
-            this.labelControl26.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
-            this.tablePanel28.SetRow(this.labelControl26, 2);
-            this.labelControl26.Size = new System.Drawing.Size(14, 26);
-            this.labelControl26.TabIndex = 10;
-            this.labelControl26.Text = "Məhsul satışı mənfiyə getsin :";
-            this.labelControl26.UseMnemonic = false;
-            this.labelControl26.Visible = false;
+            this.labelControl26.Size = new System.Drawing.Size(870, 18);
+            this.labelControl26.StyleController = this.layoutControl1;
+            this.labelControl26.TabIndex = 20;
+            this.labelControl26.Text = "Son nüsxənin yaradılma tarixi";
+            // 
+            // tBackupSendEmail
+            // 
+            this.tBackupSendEmail.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.tBackupSendEmail.Location = new System.Drawing.Point(882, 175);
+            this.tBackupSendEmail.Name = "tBackupSendEmail";
+            this.tBackupSendEmail.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 10F);
+            this.tBackupSendEmail.Properties.Appearance.Options.UseFont = true;
+            editorButtonImageOptions4.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("editorButtonImageOptions4.SvgImage")));
+            editorButtonImageOptions5.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("editorButtonImageOptions5.SvgImage")));
+            this.tBackupSendEmail.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions4, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject13, serializableAppearanceObject14, serializableAppearanceObject15, serializableAppearanceObject16, "", "Edit", null, DevExpress.Utils.ToolTipAnchor.Default),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions5, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject17, serializableAppearanceObject18, serializableAppearanceObject19, serializableAppearanceObject20, "", "Save", null, DevExpress.Utils.ToolTipAnchor.Default)});
+            this.tBackupSendEmail.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.tBackupSendEmail_Properties_ButtonClick);
+            this.tBackupSendEmail.Size = new System.Drawing.Size(315, 30);
+            this.tBackupSendEmail.StyleController = this.layoutControl1;
+            this.tBackupSendEmail.TabIndex = 28;
+            this.tBackupSendEmail.TabStop = false;
+            // 
+            // Root
+            // 
+            this.Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
+            this.Root.GroupBordersVisible = false;
+            this.Root.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.emptySpaceItem1,
+            this.layoutControlItem1,
+            this.layoutControlItem2,
+            this.layoutControlItem3,
+            this.layoutControlItem4,
+            this.layoutControlItem6,
+            this.layoutControlItem7,
+            this.layoutControlItem12,
+            this.layoutControlItem13,
+            this.layoutControlItem14,
+            this.layoutControlItem15,
+            this.layoutControlItem16,
+            this.layoutControlItem17,
+            this.layoutControlItem18,
+            this.layoutControlItem19,
+            this.layoutControlItem20,
+            this.layoutControlItem5,
+            this.layoutControlItem25});
+            this.Root.Name = "Root";
+            this.Root.Padding = new DevExpress.XtraLayout.Utils.Padding(3, 3, 3, 3);
+            this.Root.Size = new System.Drawing.Size(1203, 491);
+            this.Root.TextVisible = false;
+            // 
+            // emptySpaceItem1
+            // 
+            this.emptySpaceItem1.AllowHotTrack = false;
+            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 348);
+            this.emptySpaceItem1.Name = "emptySpaceItem1";
+            this.emptySpaceItem1.Size = new System.Drawing.Size(1197, 137);
+            this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // layoutControlItem1
+            // 
+            this.layoutControlItem1.Control = this.bBackupDownload;
+            this.layoutControlItem1.Location = new System.Drawing.Point(1002, 35);
+            this.layoutControlItem1.MaxSize = new System.Drawing.Size(195, 36);
+            this.layoutControlItem1.MinSize = new System.Drawing.Size(195, 36);
+            this.layoutControlItem1.Name = "layoutControlItem1";
+            this.layoutControlItem1.Size = new System.Drawing.Size(195, 36);
+            this.layoutControlItem1.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.layoutControlItem1.Text = "Ehtiyyat nüsxəsi yarat";
+            this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem1.TextVisible = false;
+            // 
+            // layoutControlItem2
+            // 
+            this.layoutControlItem2.Control = this.labelControl13;
+            this.layoutControlItem2.Location = new System.Drawing.Point(0, 35);
+            this.layoutControlItem2.MinSize = new System.Drawing.Size(170, 24);
+            this.layoutControlItem2.Name = "layoutControlItem2";
+            this.layoutControlItem2.Size = new System.Drawing.Size(1002, 36);
+            this.layoutControlItem2.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem2.TextVisible = false;
+            // 
+            // layoutControlItem3
+            // 
+            this.layoutControlItem3.Control = this.labelControl26;
+            this.layoutControlItem3.Location = new System.Drawing.Point(0, 71);
+            this.layoutControlItem3.MinSize = new System.Drawing.Size(223, 24);
+            this.layoutControlItem3.Name = "layoutControlItem3";
+            this.layoutControlItem3.Size = new System.Drawing.Size(876, 24);
+            this.layoutControlItem3.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem3.TextVisible = false;
+            // 
+            // layoutControlItem4
+            // 
+            this.layoutControlItem4.Control = this.lBackupHistory;
+            this.layoutControlItem4.Location = new System.Drawing.Point(876, 71);
+            this.layoutControlItem4.MaxSize = new System.Drawing.Size(321, 24);
+            this.layoutControlItem4.MinSize = new System.Drawing.Size(321, 24);
+            this.layoutControlItem4.Name = "layoutControlItem4";
+            this.layoutControlItem4.Size = new System.Drawing.Size(321, 24);
+            this.layoutControlItem4.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem4.TextVisible = false;
+            // 
+            // layoutControlItem6
+            // 
+            this.layoutControlItem6.Control = this.tBackupSendEmail;
+            this.layoutControlItem6.Location = new System.Drawing.Point(876, 169);
+            this.layoutControlItem6.MaxSize = new System.Drawing.Size(321, 36);
+            this.layoutControlItem6.MinSize = new System.Drawing.Size(321, 36);
+            this.layoutControlItem6.Name = "layoutControlItem6";
+            this.layoutControlItem6.Size = new System.Drawing.Size(321, 36);
+            this.layoutControlItem6.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.layoutControlItem6.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem6.TextVisible = false;
+            this.layoutControlItem6.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+            // 
+            // layoutControlItem7
+            // 
+            this.layoutControlItem7.Control = this.labelControl31;
+            this.layoutControlItem7.Location = new System.Drawing.Point(0, 169);
+            this.layoutControlItem7.MinSize = new System.Drawing.Size(397, 24);
+            this.layoutControlItem7.Name = "layoutControlItem7";
+            this.layoutControlItem7.Size = new System.Drawing.Size(876, 36);
+            this.layoutControlItem7.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.layoutControlItem7.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem7.TextVisible = false;
+            this.layoutControlItem7.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+            // 
+            // layoutControlItem12
+            // 
+            this.layoutControlItem12.Control = this.labelControl18;
+            this.layoutControlItem12.Location = new System.Drawing.Point(0, 205);
+            this.layoutControlItem12.Name = "layoutControlItem12";
+            this.layoutControlItem12.Size = new System.Drawing.Size(1197, 35);
+            this.layoutControlItem12.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem12.TextVisible = false;
+            this.layoutControlItem12.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+            // 
+            // layoutControlItem13
+            // 
+            this.layoutControlItem13.Control = this.bDbCacheDelete;
+            this.layoutControlItem13.Location = new System.Drawing.Point(1002, 240);
+            this.layoutControlItem13.MaxSize = new System.Drawing.Size(195, 36);
+            this.layoutControlItem13.MinSize = new System.Drawing.Size(195, 36);
+            this.layoutControlItem13.Name = "layoutControlItem13";
+            this.layoutControlItem13.Size = new System.Drawing.Size(195, 36);
+            this.layoutControlItem13.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.layoutControlItem13.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem13.TextVisible = false;
+            this.layoutControlItem13.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+            // 
+            // layoutControlItem14
+            // 
+            this.layoutControlItem14.Control = this.labelControl16;
+            this.layoutControlItem14.Location = new System.Drawing.Point(0, 240);
+            this.layoutControlItem14.MinSize = new System.Drawing.Size(165, 24);
+            this.layoutControlItem14.Name = "layoutControlItem14";
+            this.layoutControlItem14.Size = new System.Drawing.Size(1002, 36);
+            this.layoutControlItem14.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.layoutControlItem14.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem14.TextVisible = false;
+            this.layoutControlItem14.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+            // 
+            // layoutControlItem15
+            // 
+            this.layoutControlItem15.Control = this.bDbClear;
+            this.layoutControlItem15.Location = new System.Drawing.Point(1002, 276);
+            this.layoutControlItem15.MaxSize = new System.Drawing.Size(195, 36);
+            this.layoutControlItem15.MinSize = new System.Drawing.Size(195, 36);
+            this.layoutControlItem15.Name = "layoutControlItem15";
+            this.layoutControlItem15.Size = new System.Drawing.Size(195, 36);
+            this.layoutControlItem15.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.layoutControlItem15.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem15.TextVisible = false;
+            this.layoutControlItem15.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+            // 
+            // layoutControlItem16
+            // 
+            this.layoutControlItem16.Control = this.labelControl17;
+            this.layoutControlItem16.Location = new System.Drawing.Point(0, 276);
+            this.layoutControlItem16.MinSize = new System.Drawing.Size(454, 24);
+            this.layoutControlItem16.Name = "layoutControlItem16";
+            this.layoutControlItem16.Size = new System.Drawing.Size(1002, 36);
+            this.layoutControlItem16.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.layoutControlItem16.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem16.TextVisible = false;
+            this.layoutControlItem16.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+            // 
+            // layoutControlItem17
+            // 
+            this.layoutControlItem17.Control = this.bDbDelete;
+            this.layoutControlItem17.Location = new System.Drawing.Point(1002, 312);
+            this.layoutControlItem17.MaxSize = new System.Drawing.Size(195, 36);
+            this.layoutControlItem17.MinSize = new System.Drawing.Size(195, 36);
+            this.layoutControlItem17.Name = "layoutControlItem17";
+            this.layoutControlItem17.Size = new System.Drawing.Size(195, 36);
+            this.layoutControlItem17.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.layoutControlItem17.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem17.TextVisible = false;
+            this.layoutControlItem17.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+            // 
+            // layoutControlItem18
+            // 
+            this.layoutControlItem18.Control = this.labelControl9;
+            this.layoutControlItem18.Location = new System.Drawing.Point(0, 312);
+            this.layoutControlItem18.MinSize = new System.Drawing.Size(247, 24);
+            this.layoutControlItem18.Name = "layoutControlItem18";
+            this.layoutControlItem18.Size = new System.Drawing.Size(1002, 36);
+            this.layoutControlItem18.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.layoutControlItem18.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem18.TextVisible = false;
+            this.layoutControlItem18.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+            // 
+            // layoutControlItem19
+            // 
+            this.layoutControlItem19.Control = this.spinBackupRemoveDay;
+            this.layoutControlItem19.Location = new System.Drawing.Point(1099, 133);
+            this.layoutControlItem19.MaxSize = new System.Drawing.Size(98, 36);
+            this.layoutControlItem19.MinSize = new System.Drawing.Size(98, 36);
+            this.layoutControlItem19.Name = "layoutControlItem19";
+            this.layoutControlItem19.Size = new System.Drawing.Size(98, 36);
+            this.layoutControlItem19.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.layoutControlItem19.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem19.TextVisible = false;
+            // 
+            // layoutControlItem20
+            // 
+            this.layoutControlItem20.Control = this.labelControl6;
+            this.layoutControlItem20.Location = new System.Drawing.Point(0, 133);
+            this.layoutControlItem20.MinSize = new System.Drawing.Size(277, 24);
+            this.layoutControlItem20.Name = "layoutControlItem20";
+            this.layoutControlItem20.Size = new System.Drawing.Size(1099, 36);
+            this.layoutControlItem20.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.layoutControlItem20.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem20.TextVisible = false;
+            // 
+            // layoutControlItem5
+            // 
+            this.layoutControlItem5.Control = this.chBackupAuto;
+            this.layoutControlItem5.Location = new System.Drawing.Point(0, 95);
+            this.layoutControlItem5.Name = "layoutControlItem5";
+            this.layoutControlItem5.Size = new System.Drawing.Size(1197, 38);
+            this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem5.TextVisible = false;
+            // 
+            // layoutControlItem25
+            // 
+            this.layoutControlItem25.Control = this.labelControl15;
+            this.layoutControlItem25.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem25.Name = "layoutControlItem25";
+            this.layoutControlItem25.Size = new System.Drawing.Size(1197, 35);
+            this.layoutControlItem25.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem25.TextVisible = false;
+            // 
+            // tabLog
+            // 
+            this.tabLog.Caption = "Arxiv";
+            this.tabLog.Controls.Add(this.layoutControl5);
+            this.tabLog.Name = "tabLog";
+            this.tabLog.Size = new System.Drawing.Size(1215, 769);
+            // 
+            // layoutControl5
+            // 
+            this.layoutControl5.Controls.Add(this.bLogDelete);
+            this.layoutControl5.Controls.Add(this.simpleButton11);
+            this.layoutControl5.Controls.Add(this.gridControlLogs);
+            this.layoutControl5.Controls.Add(this.bLogExport);
+            this.layoutControl5.Controls.Add(this.dateEdit2);
+            this.layoutControl5.Controls.Add(this.dateEdit1);
+            this.layoutControl5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.layoutControl5.Location = new System.Drawing.Point(0, 0);
+            this.layoutControl5.Name = "layoutControl5";
+            this.layoutControl5.Root = this.layoutControlGroup4;
+            this.layoutControl5.Size = new System.Drawing.Size(1215, 769);
+            this.layoutControl5.TabIndex = 1;
+            this.layoutControl5.Text = "layoutControl5";
+            // 
+            // bLogDelete
+            // 
+            this.bLogDelete.AllowFocus = false;
+            this.bLogDelete.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.bLogDelete.Appearance.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Danger;
+            this.bLogDelete.Appearance.Font = new System.Drawing.Font("Nunito", 10F, System.Drawing.FontStyle.Bold);
+            this.bLogDelete.Appearance.Options.UseBackColor = true;
+            this.bLogDelete.Appearance.Options.UseFont = true;
+            this.bLogDelete.Appearance.Options.UseTextOptions = true;
+            this.bLogDelete.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.bLogDelete.Appearance.TextOptions.Trimming = DevExpress.Utils.Trimming.EllipsisCharacter;
+            this.bLogDelete.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.bLogDelete.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bLogDelete.ImageOptions.SvgImage")));
+            this.bLogDelete.ImageOptions.SvgImageSize = new System.Drawing.Size(32, 32);
+            this.bLogDelete.Location = new System.Drawing.Point(965, 3);
+            this.bLogDelete.Name = "bLogDelete";
+            this.bLogDelete.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
+            this.bLogDelete.Size = new System.Drawing.Size(133, 38);
+            this.bLogDelete.StyleController = this.layoutControl5;
+            this.bLogDelete.TabIndex = 10;
+            this.bLogDelete.Text = "Arxivi təmizlə";
+            // 
+            // simpleButton11
+            // 
+            this.simpleButton11.AllowFocus = false;
+            this.simpleButton11.Appearance.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Question;
+            this.simpleButton11.Appearance.Font = new System.Drawing.Font("Poppins", 11F);
+            this.simpleButton11.Appearance.Options.UseBackColor = true;
+            this.simpleButton11.Appearance.Options.UseFont = true;
+            this.simpleButton11.Location = new System.Drawing.Point(351, 3);
+            this.simpleButton11.Name = "simpleButton11";
+            this.simpleButton11.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
+            this.simpleButton11.Size = new System.Drawing.Size(150, 38);
+            this.simpleButton11.StyleController = this.layoutControl5;
+            this.simpleButton11.TabIndex = 11;
+            this.simpleButton11.Text = "Axtar";
+            // 
+            // gridControlLogs
+            // 
+            this.gridControlLogs.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(1);
+            this.gridControlLogs.Location = new System.Drawing.Point(3, 47);
+            this.gridControlLogs.LookAndFeel.SkinName = "WXI";
+            this.gridControlLogs.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.gridControlLogs.MainView = this.gridLogs;
+            this.gridControlLogs.Margin = new System.Windows.Forms.Padding(2);
+            this.gridControlLogs.Name = "gridControlLogs";
+            this.gridControlLogs.Size = new System.Drawing.Size(1209, 719);
+            this.gridControlLogs.TabIndex = 18;
+            this.gridControlLogs.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridLogs});
+            // 
+            // gridLogs
+            // 
+            this.gridLogs.Appearance.EvenRow.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.gridLogs.Appearance.EvenRow.Options.UseBackColor = true;
+            this.gridLogs.Appearance.OddRow.BackColor = System.Drawing.Color.White;
+            this.gridLogs.Appearance.OddRow.Options.UseBackColor = true;
+            this.gridLogs.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumn50,
+            this.gridColumn51,
+            this.gridColumn125,
+            this.gridColumn129});
+            this.gridLogs.DetailHeight = 239;
+            this.gridLogs.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFullFocus;
+            this.gridLogs.GridControl = this.gridControlLogs;
+            this.gridLogs.Name = "gridLogs";
+            this.gridLogs.OptionsBehavior.Editable = false;
+            this.gridLogs.OptionsNavigation.AutoFocusNewRow = true;
+            this.gridLogs.OptionsView.ColumnHeaderAutoHeight = DevExpress.Utils.DefaultBoolean.True;
+            this.gridLogs.OptionsView.EnableAppearanceEvenRow = true;
+            this.gridLogs.OptionsView.EnableAppearanceOddRow = true;
+            this.gridLogs.OptionsView.RowAutoHeight = true;
+            this.gridLogs.OptionsView.ShowIndicator = false;
+            // 
+            // gridColumn50
+            // 
+            this.gridColumn50.Caption = "İstifadəçi";
+            this.gridColumn50.FieldName = "İstifadəçi";
+            this.gridColumn50.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
+            this.gridColumn50.MinWidth = 150;
+            this.gridColumn50.Name = "gridColumn50";
+            this.gridColumn50.Visible = true;
+            this.gridColumn50.VisibleIndex = 0;
+            this.gridColumn50.Width = 150;
+            // 
+            // gridColumn51
+            // 
+            this.gridColumn51.Caption = "Əməliyyat";
+            this.gridColumn51.FieldName = "Əməliyyat";
+            this.gridColumn51.Name = "gridColumn51";
+            this.gridColumn51.Visible = true;
+            this.gridColumn51.VisibleIndex = 1;
+            this.gridColumn51.Width = 783;
+            // 
+            // gridColumn125
+            // 
+            this.gridColumn125.Caption = "Tarix";
+            this.gridColumn125.DisplayFormat.FormatString = "d";
+            this.gridColumn125.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.gridColumn125.FieldName = "Tarix";
+            this.gridColumn125.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.MiddleLeft;
+            this.gridColumn125.MaxWidth = 100;
+            this.gridColumn125.MinWidth = 100;
+            this.gridColumn125.Name = "gridColumn125";
+            this.gridColumn125.Visible = true;
+            this.gridColumn125.VisibleIndex = 2;
+            this.gridColumn125.Width = 100;
+            // 
+            // gridColumn129
+            // 
+            this.gridColumn129.Caption = "Saat";
+            this.gridColumn129.FieldName = "Saat";
+            this.gridColumn129.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.MiddleLeft;
+            this.gridColumn129.MinWidth = 100;
+            this.gridColumn129.Name = "gridColumn129";
+            this.gridColumn129.Visible = true;
+            this.gridColumn129.VisibleIndex = 3;
+            this.gridColumn129.Width = 116;
+            // 
+            // bLogExport
+            // 
+            this.bLogExport.AllowFocus = false;
+            this.bLogExport.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.bLogExport.Appearance.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Success;
+            this.bLogExport.Appearance.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold);
+            this.bLogExport.Appearance.Options.UseBackColor = true;
+            this.bLogExport.Appearance.Options.UseFont = true;
+            this.bLogExport.Appearance.Options.UseTextOptions = true;
+            this.bLogExport.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.bLogExport.Appearance.TextOptions.Trimming = DevExpress.Utils.Trimming.EllipsisCharacter;
+            this.bLogExport.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.bLogExport.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bLogExport.ImageOptions.SvgImage")));
+            this.bLogExport.ImageOptions.SvgImageSize = new System.Drawing.Size(32, 32);
+            this.bLogExport.Location = new System.Drawing.Point(1104, 3);
+            this.bLogExport.Name = "bLogExport";
+            this.bLogExport.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
+            this.bLogExport.Size = new System.Drawing.Size(108, 38);
+            this.bLogExport.StyleController = this.layoutControl5;
+            this.bLogExport.TabIndex = 7;
+            this.bLogExport.Text = "Çap et";
+            // 
+            // dateEdit2
+            // 
+            this.dateEdit2.EditValue = null;
+            this.dateEdit2.Location = new System.Drawing.Point(180, 3);
+            this.dateEdit2.Name = "dateEdit2";
+            this.dateEdit2.Properties.AllowFocused = false;
+            this.dateEdit2.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
+            this.dateEdit2.Properties.Appearance.Font = new System.Drawing.Font("Nunito", 12F);
+            this.dateEdit2.Properties.Appearance.Options.UseFont = true;
+            serializableAppearanceObject21.Font = new System.Drawing.Font("Nunito", 11F, System.Drawing.FontStyle.Bold);
+            serializableAppearanceObject21.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.DisabledText;
+            serializableAppearanceObject21.Options.UseFont = true;
+            serializableAppearanceObject21.Options.UseForeColor = true;
+            serializableAppearanceObject24.Font = new System.Drawing.Font("Nunito", 11F, System.Drawing.FontStyle.Bold);
+            serializableAppearanceObject24.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.DisabledText;
+            serializableAppearanceObject24.Options.UseFont = true;
+            serializableAppearanceObject24.Options.UseForeColor = true;
+            this.dateEdit2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Tarixədək", -1, false, true, true, editorButtonImageOptions6, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject21, serializableAppearanceObject22, serializableAppearanceObject23, serializableAppearanceObject24, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            this.dateEdit2.Properties.CalendarTimeEditing = DevExpress.Utils.DefaultBoolean.False;
+            this.dateEdit2.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateEdit2.Properties.ShowToday = false;
+            this.dateEdit2.Size = new System.Drawing.Size(165, 36);
+            this.dateEdit2.StyleController = this.layoutControl5;
+            this.dateEdit2.TabIndex = 25;
+            // 
+            // dateEdit1
+            // 
+            this.dateEdit1.EditValue = null;
+            this.dateEdit1.Location = new System.Drawing.Point(3, 3);
+            this.dateEdit1.Name = "dateEdit1";
+            this.dateEdit1.Properties.AllowFocused = false;
+            this.dateEdit1.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
+            this.dateEdit1.Properties.Appearance.Font = new System.Drawing.Font("Nunito", 12F);
+            this.dateEdit1.Properties.Appearance.Options.UseFont = true;
+            serializableAppearanceObject25.Font = new System.Drawing.Font("Nunito", 11F, System.Drawing.FontStyle.Bold);
+            serializableAppearanceObject25.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.DisabledText;
+            serializableAppearanceObject25.Options.UseFont = true;
+            serializableAppearanceObject25.Options.UseForeColor = true;
+            serializableAppearanceObject28.Font = new System.Drawing.Font("Nunito", 11F, System.Drawing.FontStyle.Bold);
+            serializableAppearanceObject28.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.DisabledText;
+            serializableAppearanceObject28.Options.UseFont = true;
+            serializableAppearanceObject28.Options.UseForeColor = true;
+            this.dateEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Tarixindən", -1, false, true, true, editorButtonImageOptions7, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject25, serializableAppearanceObject26, serializableAppearanceObject27, serializableAppearanceObject28, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            this.dateEdit1.Properties.CalendarTimeEditing = DevExpress.Utils.DefaultBoolean.False;
+            this.dateEdit1.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateEdit1.Properties.ShowOk = DevExpress.Utils.DefaultBoolean.False;
+            this.dateEdit1.Properties.ShowToday = false;
+            this.dateEdit1.Size = new System.Drawing.Size(171, 36);
+            this.dateEdit1.StyleController = this.layoutControl5;
+            this.dateEdit1.TabIndex = 24;
+            // 
+            // layoutControlGroup4
+            // 
+            this.layoutControlGroup4.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
+            this.layoutControlGroup4.GroupBordersVisible = false;
+            this.layoutControlGroup4.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlItem8,
+            this.layoutControlItem9,
+            this.layoutControlItem10,
+            this.layoutControlItem11,
+            this.layoutControlItem33,
+            this.layoutControlItem32,
+            this.emptySpaceItem5});
+            this.layoutControlGroup4.Name = "layoutControlGroup4";
+            this.layoutControlGroup4.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
+            this.layoutControlGroup4.Size = new System.Drawing.Size(1215, 769);
+            this.layoutControlGroup4.TextVisible = false;
+            // 
+            // layoutControlItem8
+            // 
+            this.layoutControlItem8.Control = this.dateEdit1;
+            this.layoutControlItem8.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem8.MaxSize = new System.Drawing.Size(177, 0);
+            this.layoutControlItem8.MinSize = new System.Drawing.Size(177, 42);
+            this.layoutControlItem8.Name = "layoutControlItem8";
+            this.layoutControlItem8.Size = new System.Drawing.Size(177, 44);
+            this.layoutControlItem8.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.layoutControlItem8.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem8.TextVisible = false;
+            // 
+            // layoutControlItem9
+            // 
+            this.layoutControlItem9.Control = this.dateEdit2;
+            this.layoutControlItem9.Location = new System.Drawing.Point(177, 0);
+            this.layoutControlItem9.MaxSize = new System.Drawing.Size(171, 44);
+            this.layoutControlItem9.MinSize = new System.Drawing.Size(171, 44);
+            this.layoutControlItem9.Name = "layoutControlItem9";
+            this.layoutControlItem9.Size = new System.Drawing.Size(171, 44);
+            this.layoutControlItem9.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.layoutControlItem9.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem9.TextVisible = false;
+            // 
+            // layoutControlItem10
+            // 
+            this.layoutControlItem10.Control = this.simpleButton11;
+            this.layoutControlItem10.Location = new System.Drawing.Point(348, 0);
+            this.layoutControlItem10.MaxSize = new System.Drawing.Size(156, 44);
+            this.layoutControlItem10.MinSize = new System.Drawing.Size(156, 44);
+            this.layoutControlItem10.Name = "layoutControlItem10";
+            this.layoutControlItem10.Size = new System.Drawing.Size(156, 44);
+            this.layoutControlItem10.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.layoutControlItem10.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem10.TextVisible = false;
+            // 
+            // layoutControlItem11
+            // 
+            this.layoutControlItem11.Control = this.gridControlLogs;
+            this.layoutControlItem11.Location = new System.Drawing.Point(0, 44);
+            this.layoutControlItem11.Name = "layoutControlItem11";
+            this.layoutControlItem11.Size = new System.Drawing.Size(1215, 725);
+            this.layoutControlItem11.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem11.TextVisible = false;
+            // 
+            // layoutControlItem33
+            // 
+            this.layoutControlItem33.Control = this.bLogExport;
+            this.layoutControlItem33.Location = new System.Drawing.Point(1101, 0);
+            this.layoutControlItem33.MaxSize = new System.Drawing.Size(114, 44);
+            this.layoutControlItem33.MinSize = new System.Drawing.Size(114, 44);
+            this.layoutControlItem33.Name = "layoutControlItem33";
+            this.layoutControlItem33.Size = new System.Drawing.Size(114, 44);
+            this.layoutControlItem33.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.layoutControlItem33.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem33.TextVisible = false;
+            // 
+            // layoutControlItem32
+            // 
+            this.layoutControlItem32.Control = this.bLogDelete;
+            this.layoutControlItem32.Location = new System.Drawing.Point(962, 0);
+            this.layoutControlItem32.MaxSize = new System.Drawing.Size(139, 0);
+            this.layoutControlItem32.MinSize = new System.Drawing.Size(139, 1);
+            this.layoutControlItem32.Name = "layoutControlItem32";
+            this.layoutControlItem32.Size = new System.Drawing.Size(139, 44);
+            this.layoutControlItem32.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.layoutControlItem32.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem32.TextVisible = false;
+            // 
+            // emptySpaceItem5
+            // 
+            this.emptySpaceItem5.AllowHotTrack = false;
+            this.emptySpaceItem5.Location = new System.Drawing.Point(504, 0);
+            this.emptySpaceItem5.Name = "emptySpaceItem5";
+            this.emptySpaceItem5.Size = new System.Drawing.Size(458, 44);
+            this.emptySpaceItem5.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // tabAllSettings
+            // 
+            this.tabAllSettings.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.tabAllSettings.Appearance.Options.UseFont = true;
+            this.tabAllSettings.Caption = "Ümumi sazlamalar";
+            this.tabAllSettings.Controls.Add(this.panelControl4);
+            this.tabAllSettings.Name = "tabAllSettings";
+            this.tabAllSettings.Properties.AppearanceCaption.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.tabAllSettings.Properties.AppearanceCaption.Options.UseFont = true;
+            this.tabAllSettings.Size = new System.Drawing.Size(1215, 769);
+            // 
+            // panelControl4
+            // 
+            this.panelControl4.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            this.panelControl4.Appearance.Options.UseBackColor = true;
+            this.panelControl4.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.panelControl4.Controls.Add(this.layoutControl4);
+            this.panelControl4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelControl4.Location = new System.Drawing.Point(0, 0);
+            this.panelControl4.LookAndFeel.SkinName = "WXI";
+            this.panelControl4.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.panelControl4.Margin = new System.Windows.Forms.Padding(1);
+            this.panelControl4.Name = "panelControl4";
+            this.panelControl4.Size = new System.Drawing.Size(1215, 769);
+            this.panelControl4.TabIndex = 12;
+            // 
+            // layoutControl4
+            // 
+            this.layoutControl4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.layoutControl4.Controls.Add(this.checkEdit2);
+            this.layoutControl4.Controls.Add(this.chHotSales);
+            this.layoutControl4.Location = new System.Drawing.Point(8, 5);
+            this.layoutControl4.Name = "layoutControl4";
+            this.layoutControl4.Root = this.layoutControlGroup3;
+            this.layoutControl4.Size = new System.Drawing.Size(1203, 253);
+            this.layoutControl4.TabIndex = 24;
+            this.layoutControl4.Text = "layoutControl4";
+            // 
+            // checkEdit2
+            // 
+            this.checkEdit2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.checkEdit2.Location = new System.Drawing.Point(6, 6);
+            this.checkEdit2.Name = "checkEdit2";
+            this.checkEdit2.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 11F);
+            this.checkEdit2.Properties.Appearance.Options.UseFont = true;
+            this.checkEdit2.Properties.Caption = "Anbar qalığının mənfiyə doğru azalması";
+            this.checkEdit2.Properties.CheckBoxOptions.Style = DevExpress.XtraEditors.Controls.CheckBoxStyle.SvgToggle1;
+            this.checkEdit2.Properties.CheckBoxOptions.SvgImageSize = new System.Drawing.Size(32, 28);
+            this.checkEdit2.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.checkEdit2.Size = new System.Drawing.Size(1191, 32);
+            this.checkEdit2.StyleController = this.layoutControl4;
+            this.checkEdit2.TabIndex = 23;
+            // 
+            // chHotSales
+            // 
+            this.chHotSales.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.chHotSales.Location = new System.Drawing.Point(6, 44);
+            this.chHotSales.Name = "chHotSales";
+            this.chHotSales.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 11F);
+            this.chHotSales.Properties.Appearance.Options.UseFont = true;
+            this.chHotSales.Properties.Caption = "POS satış səhifəsində isti satışları göstər";
+            this.chHotSales.Properties.CheckBoxOptions.Style = DevExpress.XtraEditors.Controls.CheckBoxStyle.SvgToggle1;
+            this.chHotSales.Properties.CheckBoxOptions.SvgImageSize = new System.Drawing.Size(32, 28);
+            this.chHotSales.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.chHotSales.Size = new System.Drawing.Size(1191, 32);
+            this.chHotSales.StyleController = this.layoutControl4;
+            this.chHotSales.TabIndex = 23;
+            // 
+            // layoutControlGroup3
+            // 
+            this.layoutControlGroup3.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
+            this.layoutControlGroup3.GroupBordersVisible = false;
+            this.layoutControlGroup3.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlItem35,
+            this.emptySpaceItem4,
+            this.layoutControlItem36});
+            this.layoutControlGroup3.Name = "layoutControlGroup3";
+            this.layoutControlGroup3.Padding = new DevExpress.XtraLayout.Utils.Padding(3, 3, 3, 3);
+            this.layoutControlGroup3.Size = new System.Drawing.Size(1203, 253);
+            this.layoutControlGroup3.TextVisible = false;
+            // 
+            // layoutControlItem35
+            // 
+            this.layoutControlItem35.Control = this.chHotSales;
+            this.layoutControlItem35.Location = new System.Drawing.Point(0, 38);
+            this.layoutControlItem35.Name = "layoutControlItem35";
+            this.layoutControlItem35.Size = new System.Drawing.Size(1197, 38);
+            this.layoutControlItem35.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem35.TextVisible = false;
+            // 
+            // emptySpaceItem4
+            // 
+            this.emptySpaceItem4.AllowHotTrack = false;
+            this.emptySpaceItem4.Location = new System.Drawing.Point(0, 76);
+            this.emptySpaceItem4.Name = "emptySpaceItem4";
+            this.emptySpaceItem4.Size = new System.Drawing.Size(1197, 171);
+            this.emptySpaceItem4.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // layoutControlItem36
+            // 
+            this.layoutControlItem36.Control = this.checkEdit2;
+            this.layoutControlItem36.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem36.Name = "layoutControlItem36";
+            this.layoutControlItem36.Size = new System.Drawing.Size(1197, 38);
+            this.layoutControlItem36.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem36.TextVisible = false;
+            // 
+            // tabKassa
+            // 
+            this.tabKassa.Caption = "Kassa ayarları";
+            this.tabKassa.Controls.Add(this.panelControl18);
+            this.tabKassa.Name = "tabKassa";
+            this.tabKassa.Size = new System.Drawing.Size(1215, 769);
+            // 
+            // panelControl18
+            // 
+            this.panelControl18.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            this.panelControl18.Appearance.Options.UseBackColor = true;
+            this.panelControl18.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.panelControl18.Controls.Add(this.layoutControl3);
+            this.panelControl18.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelControl18.Location = new System.Drawing.Point(0, 0);
+            this.panelControl18.LookAndFeel.SkinName = "WXI";
+            this.panelControl18.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.panelControl18.Margin = new System.Windows.Forms.Padding(1);
+            this.panelControl18.Name = "panelControl18";
+            this.panelControl18.Size = new System.Drawing.Size(1215, 769);
+            this.panelControl18.TabIndex = 13;
+            // 
+            // layoutControl3
+            // 
+            this.layoutControl3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.layoutControl3.Controls.Add(this.labelControl27);
+            this.layoutControl3.Controls.Add(this.spinEdit1);
+            this.layoutControl3.Controls.Add(this.chRrn);
+            this.layoutControl3.Controls.Add(this.chOtherPay);
+            this.layoutControl3.Controls.Add(this.chTerminalPrintReceipt);
+            this.layoutControl3.Controls.Add(this.chIsReceipt);
+            this.layoutControl3.Controls.Add(this.chSendToKassa);
+            this.layoutControl3.Controls.Add(this.chPosSalesMessage);
+            this.layoutControl3.Location = new System.Drawing.Point(8, 5);
+            this.layoutControl3.Name = "layoutControl3";
+            this.layoutControl3.Root = this.layoutControlGroup2;
+            this.layoutControl3.Size = new System.Drawing.Size(1203, 415);
+            this.layoutControl3.TabIndex = 26;
+            this.layoutControl3.Text = "layoutControl3";
             // 
             // labelControl27
             // 
-            this.labelControl27.Appearance.Font = new System.Drawing.Font("Nunito", 12F);
+            this.labelControl27.Appearance.Font = new System.Drawing.Font("Verdana", 11F);
             this.labelControl27.Appearance.Options.UseFont = true;
-            this.tablePanel28.SetColumn(this.labelControl27, 0);
-            this.labelControl27.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelControl27.Location = new System.Drawing.Point(3, 36);
+            this.labelControl27.Location = new System.Drawing.Point(6, 234);
             this.labelControl27.Name = "labelControl27";
-            this.labelControl27.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
-            this.tablePanel28.SetRow(this.labelControl27, 1);
-            this.labelControl27.Size = new System.Drawing.Size(14, 27);
-            this.labelControl27.TabIndex = 10;
-            this.labelControl27.Text = "Minimum məhsul miqdarı  :";
-            this.labelControl27.UseMnemonic = false;
+            this.labelControl27.Size = new System.Drawing.Size(1011, 28);
+            this.labelControl27.StyleController = this.layoutControl3;
+            this.labelControl27.TabIndex = 27;
+            this.labelControl27.Text = "Bank terminalı gözləmə müddəti";
+            // 
+            // spinEdit1
+            // 
+            this.spinEdit1.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.spinEdit1.Location = new System.Drawing.Point(1023, 234);
+            this.spinEdit1.Name = "spinEdit1";
+            this.spinEdit1.Properties.AdvancedModeOptions.AllowCaretAnimation = DevExpress.Utils.DefaultBoolean.True;
+            this.spinEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.spinEdit1.Properties.EditValueChangedDelay = 1;
+            this.spinEdit1.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Default;
+            this.spinEdit1.Properties.IsFloatValue = false;
+            this.spinEdit1.Properties.MaskSettings.Set("mask", "N0");
+            this.spinEdit1.Properties.MaskSettings.Set("autoHideDecimalSeparator", true);
+            this.spinEdit1.Properties.MaxLength = 3;
+            this.spinEdit1.Properties.MaxValue = new decimal(new int[] {
+            120,
+            0,
+            0,
+            0});
+            this.spinEdit1.Size = new System.Drawing.Size(174, 28);
+            this.spinEdit1.StyleController = this.layoutControl3;
+            this.spinEdit1.TabIndex = 31;
+            // 
+            // chRrn
+            // 
+            this.chRrn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.chRrn.Location = new System.Drawing.Point(6, 196);
+            this.chRrn.Name = "chRrn";
+            this.chRrn.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 11F);
+            this.chRrn.Properties.Appearance.Options.UseFont = true;
+            this.chRrn.Properties.Caption = "RRN Modulu";
+            this.chRrn.Properties.CheckBoxOptions.Style = DevExpress.XtraEditors.Controls.CheckBoxStyle.SvgToggle1;
+            this.chRrn.Properties.CheckBoxOptions.SvgImageSize = new System.Drawing.Size(32, 28);
+            this.chRrn.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.chRrn.Size = new System.Drawing.Size(1191, 32);
+            this.chRrn.StyleController = this.layoutControl3;
+            this.chRrn.TabIndex = 25;
+            // 
+            // chOtherPay
+            // 
+            this.chOtherPay.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.chOtherPay.Location = new System.Drawing.Point(6, 158);
+            this.chOtherPay.Name = "chOtherPay";
+            this.chOtherPay.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 11F);
+            this.chOtherPay.Properties.Appearance.Options.UseFont = true;
+            this.chOtherPay.Properties.Caption = "Digər nağdsız ödənişlər";
+            this.chOtherPay.Properties.CheckBoxOptions.Style = DevExpress.XtraEditors.Controls.CheckBoxStyle.SvgToggle1;
+            this.chOtherPay.Properties.CheckBoxOptions.SvgImageSize = new System.Drawing.Size(32, 28);
+            this.chOtherPay.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.chOtherPay.Size = new System.Drawing.Size(1191, 32);
+            this.chOtherPay.StyleController = this.layoutControl3;
+            this.chOtherPay.TabIndex = 25;
+            this.chOtherPay.ToolTip = "Aktiv edildikdə pos satışı zamanı kart düyməsinə vurulduqda açılan pəncərədə digə" +
+    "r ödənişləri etmək üçün əlavə bir pəncərə açılacaq. Həmin pəncərədə Nağdsız ödən" +
+    "iş və Digər ödəniş olacaqdır. ";
+            // 
+            // chTerminalPrintReceipt
+            // 
+            this.chTerminalPrintReceipt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.chTerminalPrintReceipt.Location = new System.Drawing.Point(6, 120);
+            this.chTerminalPrintReceipt.Name = "chTerminalPrintReceipt";
+            this.chTerminalPrintReceipt.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 11F);
+            this.chTerminalPrintReceipt.Properties.Appearance.Options.UseFont = true;
+            this.chTerminalPrintReceipt.Properties.Caption = "Terminalda xəzinədar qəbzini çap et";
+            this.chTerminalPrintReceipt.Properties.CheckBoxOptions.Style = DevExpress.XtraEditors.Controls.CheckBoxStyle.SvgToggle1;
+            this.chTerminalPrintReceipt.Properties.CheckBoxOptions.SvgImageSize = new System.Drawing.Size(32, 28);
+            this.chTerminalPrintReceipt.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.chTerminalPrintReceipt.Size = new System.Drawing.Size(1191, 32);
+            this.chTerminalPrintReceipt.StyleController = this.layoutControl3;
+            this.chTerminalPrintReceipt.TabIndex = 25;
+            // 
+            // chIsReceipt
+            // 
+            this.chIsReceipt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.chIsReceipt.Enabled = false;
+            this.chIsReceipt.Location = new System.Drawing.Point(6, 82);
+            this.chIsReceipt.Name = "chIsReceipt";
+            this.chIsReceipt.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 11F);
+            this.chIsReceipt.Properties.Appearance.Options.UseFont = true;
+            this.chIsReceipt.Properties.Caption = "Yönləndirilən Xprinterdən çap et";
+            this.chIsReceipt.Properties.CheckBoxOptions.Style = DevExpress.XtraEditors.Controls.CheckBoxStyle.SvgToggle1;
+            this.chIsReceipt.Properties.CheckBoxOptions.SvgImageSize = new System.Drawing.Size(32, 28);
+            this.chIsReceipt.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.chIsReceipt.Size = new System.Drawing.Size(1191, 32);
+            this.chIsReceipt.StyleController = this.layoutControl3;
+            this.chIsReceipt.TabIndex = 25;
+            // 
+            // chSendToKassa
+            // 
+            this.chSendToKassa.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.chSendToKassa.Location = new System.Drawing.Point(6, 44);
+            this.chSendToKassa.Name = "chSendToKassa";
+            this.chSendToKassa.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 11F);
+            this.chSendToKassa.Properties.Appearance.Options.UseFont = true;
+            this.chSendToKassa.Properties.Caption = "Satışların Xprinter vəya kassaya yönləndirilməsi";
+            this.chSendToKassa.Properties.CheckBoxOptions.Style = DevExpress.XtraEditors.Controls.CheckBoxStyle.SvgToggle1;
+            this.chSendToKassa.Properties.CheckBoxOptions.SvgImageSize = new System.Drawing.Size(32, 28);
+            this.chSendToKassa.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.chSendToKassa.Size = new System.Drawing.Size(1191, 32);
+            this.chSendToKassa.StyleController = this.layoutControl3;
+            this.chSendToKassa.TabIndex = 25;
+            // 
+            // chPosSalesMessage
+            // 
+            this.chPosSalesMessage.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.chPosSalesMessage.Location = new System.Drawing.Point(6, 6);
+            this.chPosSalesMessage.Name = "chPosSalesMessage";
+            this.chPosSalesMessage.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 11F);
+            this.chPosSalesMessage.Properties.Appearance.Options.UseFont = true;
+            this.chPosSalesMessage.Properties.Caption = "Satış vəya qaytarmadan sonra təsdiqləndi mesajı göstərilsin";
+            this.chPosSalesMessage.Properties.CheckBoxOptions.Style = DevExpress.XtraEditors.Controls.CheckBoxStyle.SvgToggle1;
+            this.chPosSalesMessage.Properties.CheckBoxOptions.SvgImageSize = new System.Drawing.Size(32, 28);
+            this.chPosSalesMessage.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.chPosSalesMessage.Size = new System.Drawing.Size(1191, 32);
+            this.chPosSalesMessage.StyleController = this.layoutControl3;
+            this.chPosSalesMessage.TabIndex = 24;
+            // 
+            // layoutControlGroup2
+            // 
+            this.layoutControlGroup2.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
+            this.layoutControlGroup2.GroupBordersVisible = false;
+            this.layoutControlGroup2.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlItem26,
+            this.emptySpaceItem3,
+            this.layoutControlItem27,
+            this.layoutControlItem28,
+            this.layoutControlItem29,
+            this.layoutControlItem30,
+            this.layoutControlItem31,
+            this.layoutControlItem38,
+            this.layoutControlItem39});
+            this.layoutControlGroup2.Name = "layoutControlGroup2";
+            this.layoutControlGroup2.Padding = new DevExpress.XtraLayout.Utils.Padding(3, 3, 3, 3);
+            this.layoutControlGroup2.Size = new System.Drawing.Size(1203, 415);
+            this.layoutControlGroup2.TextVisible = false;
+            // 
+            // layoutControlItem26
+            // 
+            this.layoutControlItem26.Control = this.chPosSalesMessage;
+            this.layoutControlItem26.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem26.Name = "layoutControlItem26";
+            this.layoutControlItem26.Size = new System.Drawing.Size(1197, 38);
+            this.layoutControlItem26.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem26.TextVisible = false;
+            // 
+            // emptySpaceItem3
+            // 
+            this.emptySpaceItem3.AllowHotTrack = false;
+            this.emptySpaceItem3.Location = new System.Drawing.Point(0, 262);
+            this.emptySpaceItem3.Name = "emptySpaceItem3";
+            this.emptySpaceItem3.Size = new System.Drawing.Size(1197, 147);
+            this.emptySpaceItem3.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // layoutControlItem27
+            // 
+            this.layoutControlItem27.Control = this.chSendToKassa;
+            this.layoutControlItem27.Location = new System.Drawing.Point(0, 38);
+            this.layoutControlItem27.Name = "layoutControlItem27";
+            this.layoutControlItem27.Size = new System.Drawing.Size(1197, 38);
+            this.layoutControlItem27.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem27.TextVisible = false;
+            // 
+            // layoutControlItem28
+            // 
+            this.layoutControlItem28.Control = this.chIsReceipt;
+            this.layoutControlItem28.Location = new System.Drawing.Point(0, 76);
+            this.layoutControlItem28.Name = "layoutControlItem28";
+            this.layoutControlItem28.Size = new System.Drawing.Size(1197, 38);
+            this.layoutControlItem28.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem28.TextVisible = false;
+            // 
+            // layoutControlItem29
+            // 
+            this.layoutControlItem29.Control = this.chTerminalPrintReceipt;
+            this.layoutControlItem29.Location = new System.Drawing.Point(0, 114);
+            this.layoutControlItem29.Name = "layoutControlItem29";
+            this.layoutControlItem29.Size = new System.Drawing.Size(1197, 38);
+            this.layoutControlItem29.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem29.TextVisible = false;
+            // 
+            // layoutControlItem30
+            // 
+            this.layoutControlItem30.Control = this.chOtherPay;
+            this.layoutControlItem30.Location = new System.Drawing.Point(0, 152);
+            this.layoutControlItem30.Name = "layoutControlItem30";
+            this.layoutControlItem30.Size = new System.Drawing.Size(1197, 38);
+            this.layoutControlItem30.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem30.TextVisible = false;
+            // 
+            // layoutControlItem31
+            // 
+            this.layoutControlItem31.Control = this.chRrn;
+            this.layoutControlItem31.Location = new System.Drawing.Point(0, 190);
+            this.layoutControlItem31.Name = "layoutControlItem31";
+            this.layoutControlItem31.Size = new System.Drawing.Size(1197, 38);
+            this.layoutControlItem31.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem31.TextVisible = false;
+            // 
+            // layoutControlItem38
+            // 
+            this.layoutControlItem38.Control = this.spinEdit1;
+            this.layoutControlItem38.Location = new System.Drawing.Point(1017, 228);
+            this.layoutControlItem38.Name = "layoutControlItem38";
+            this.layoutControlItem38.Size = new System.Drawing.Size(180, 34);
+            this.layoutControlItem38.Text = "Bank terminalı gözləmə müddəti";
+            this.layoutControlItem38.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem38.TextVisible = false;
+            // 
+            // layoutControlItem39
+            // 
+            this.layoutControlItem39.Control = this.labelControl27;
+            this.layoutControlItem39.Location = new System.Drawing.Point(0, 228);
+            this.layoutControlItem39.MinSize = new System.Drawing.Size(277, 24);
+            this.layoutControlItem39.Name = "layoutControlItem39";
+            this.layoutControlItem39.Size = new System.Drawing.Size(1017, 34);
+            this.layoutControlItem39.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.layoutControlItem39.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem39.TextVisible = false;
+            // 
+            // tabLicence
+            // 
+            this.tabLicence.Caption = "Lisenziya";
+            this.tabLicence.Controls.Add(this.panelControl33);
+            this.tabLicence.Name = "tabLicence";
+            this.tabLicence.Size = new System.Drawing.Size(1215, 769);
+            // 
+            // panelControl33
+            // 
+            this.panelControl33.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            this.panelControl33.Appearance.Options.UseBackColor = true;
+            this.panelControl33.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.panelControl33.Controls.Add(this.layoutControl2);
+            this.panelControl33.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelControl33.Location = new System.Drawing.Point(0, 0);
+            this.panelControl33.LookAndFeel.SkinName = "WXI";
+            this.panelControl33.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.panelControl33.Margin = new System.Windows.Forms.Padding(1);
+            this.panelControl33.Name = "panelControl33";
+            this.panelControl33.Size = new System.Drawing.Size(1215, 769);
+            this.panelControl33.TabIndex = 14;
+            // 
+            // layoutControl2
+            // 
+            this.layoutControl2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.layoutControl2.Controls.Add(this.lExpireDate);
+            this.layoutControl2.Controls.Add(this.labelControl28);
+            this.layoutControl2.Controls.Add(this.lLicenceKey);
+            this.layoutControl2.Controls.Add(this.labelControl33);
+            this.layoutControl2.Location = new System.Drawing.Point(8, 5);
+            this.layoutControl2.Name = "layoutControl2";
+            this.layoutControl2.Root = this.layoutControlGroup1;
+            this.layoutControl2.Size = new System.Drawing.Size(1203, 120);
+            this.layoutControl2.TabIndex = 22;
+            this.layoutControl2.Text = "layoutControl2";
+            // 
+            // lExpireDate
+            // 
+            this.lExpireDate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lExpireDate.Appearance.Font = new System.Drawing.Font("Verdana", 11F);
+            this.lExpireDate.Appearance.Options.UseFont = true;
+            this.lExpireDate.Appearance.Options.UseTextOptions = true;
+            this.lExpireDate.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.lExpireDate.Appearance.TextOptions.Trimming = DevExpress.Utils.Trimming.EllipsisCharacter;
+            this.lExpireDate.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.lExpireDate.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Vertical;
+            this.lExpireDate.Location = new System.Drawing.Point(191, 30);
+            this.lExpireDate.Name = "lExpireDate";
+            this.lExpireDate.Size = new System.Drawing.Size(1006, 18);
+            this.lExpireDate.StyleController = this.layoutControl2;
+            this.lExpireDate.TabIndex = 21;
+            this.lExpireDate.Text = "-";
             // 
             // labelControl28
             // 
-            this.labelControl28.Appearance.Font = new System.Drawing.Font("Nunito", 14F, System.Drawing.FontStyle.Bold);
+            this.labelControl28.Appearance.Font = new System.Drawing.Font("Verdana", 11F);
             this.labelControl28.Appearance.Options.UseFont = true;
-            this.tablePanel28.SetColumn(this.labelControl28, 0);
-            this.tablePanel28.SetColumnSpan(this.labelControl28, 2);
-            this.labelControl28.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelControl28.Location = new System.Drawing.Point(3, 3);
+            this.labelControl28.Location = new System.Drawing.Point(6, 30);
             this.labelControl28.Name = "labelControl28";
-            this.labelControl28.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
-            this.tablePanel28.SetRow(this.labelControl28, 0);
-            this.labelControl28.Size = new System.Drawing.Size(365, 27);
-            this.labelControl28.TabIndex = 10;
-            this.labelControl28.Text = "Məhsullar";
-            this.labelControl28.UseMnemonic = false;
+            this.labelControl28.Size = new System.Drawing.Size(179, 18);
+            this.labelControl28.StyleController = this.layoutControl2;
+            this.labelControl28.TabIndex = 21;
+            this.labelControl28.Text = "Lisenziya bitmə müddəti";
             // 
-            // tabPageKassalar
+            // lLicenceKey
             // 
-            this.tabPageKassalar.Controls.Add(this.KassalarFooter);
-            this.tabPageKassalar.Controls.Add(this.groupControl3);
-            this.tabPageKassalar.Name = "tabPageKassalar";
-            this.tabPageKassalar.Size = new System.Drawing.Size(1213, 780);
-            this.tabPageKassalar.Text = "Kassalar";
-            // 
-            // KassalarFooter
-            // 
-            this.KassalarFooter.CancelVisible = true;
-            this.KassalarFooter.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.KassalarFooter.Location = new System.Drawing.Point(0, 727);
-            this.KassalarFooter.LookAndFeel.SkinName = "Office 2019 White";
-            this.KassalarFooter.LookAndFeel.UseDefaultLookAndFeel = false;
-            this.KassalarFooter.Name = "KassalarFooter";
-            this.KassalarFooter.SaveButtonImage = null;
-            this.KassalarFooter.SaveButtonText = "Yadda Saxla";
-            this.KassalarFooter.Size = new System.Drawing.Size(1213, 53);
-            this.KassalarFooter.TabIndex = 10;
-            this.KassalarFooter.Visible = false;
-            // 
-            // groupControl3
-            // 
-            this.groupControl3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.lLicenceKey.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupControl3.Appearance.BackColor = System.Drawing.Color.White;
-            this.groupControl3.Appearance.Options.UseBackColor = true;
-            this.groupControl3.AppearanceCaption.Font = new System.Drawing.Font("Nunito", 12F);
-            this.groupControl3.AppearanceCaption.Options.UseFont = true;
-            this.groupControl3.AppearanceCaption.Options.UseTextOptions = true;
-            this.groupControl3.AppearanceCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
-            this.groupControl3.Controls.Add(this.chPrinter);
-            this.groupControl3.GroupStyle = DevExpress.Utils.GroupStyle.Light;
-            this.groupControl3.Location = new System.Drawing.Point(5, 3);
-            this.groupControl3.LookAndFeel.SkinName = "Office 2019 White";
-            this.groupControl3.LookAndFeel.UseDefaultLookAndFeel = false;
-            this.groupControl3.Name = "groupControl3";
-            this.groupControl3.Size = new System.Drawing.Size(1162, 81);
-            this.groupControl3.TabIndex = 9;
-            this.groupControl3.Text = "X Printer";
+            this.lLicenceKey.Appearance.Font = new System.Drawing.Font("Verdana", 11F);
+            this.lLicenceKey.Appearance.Options.UseFont = true;
+            this.lLicenceKey.Appearance.Options.UseTextOptions = true;
+            this.lLicenceKey.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.lLicenceKey.Appearance.TextOptions.Trimming = DevExpress.Utils.Trimming.EllipsisCharacter;
+            this.lLicenceKey.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.lLicenceKey.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Vertical;
+            this.lLicenceKey.Location = new System.Drawing.Point(119, 6);
+            this.lLicenceKey.Name = "lLicenceKey";
+            this.lLicenceKey.Size = new System.Drawing.Size(1078, 18);
+            this.lLicenceKey.StyleController = this.layoutControl2;
+            this.lLicenceKey.TabIndex = 21;
+            this.lLicenceKey.Text = "Yoxdur";
             // 
-            // chPrinter
+            // labelControl33
             // 
-            this.chPrinter.Location = new System.Drawing.Point(5, 26);
-            this.chPrinter.Name = "chPrinter";
-            this.chPrinter.Properties.AllowFocused = false;
-            this.chPrinter.Properties.Appearance.Font = new System.Drawing.Font("Nunito", 14F);
-            this.chPrinter.Properties.Appearance.Options.UseFont = true;
-            this.chPrinter.Properties.Appearance.Options.UseTextOptions = true;
-            this.chPrinter.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
-            this.chPrinter.Properties.Appearance.TextOptions.Trimming = DevExpress.Utils.Trimming.EllipsisCharacter;
-            this.chPrinter.Properties.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.chPrinter.Properties.Caption = "Çap Statusu";
-            this.chPrinter.Properties.CheckBoxOptions.Style = DevExpress.XtraEditors.Controls.CheckBoxStyle.SvgCheckBox1;
-            this.chPrinter.Properties.CheckBoxOptions.SvgColorChecked = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(131)))), ((int)(((byte)(131)))));
-            this.chPrinter.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Far;
-            this.chPrinter.Size = new System.Drawing.Size(345, 30);
-            this.chPrinter.TabIndex = 13;
+            this.labelControl33.Appearance.Font = new System.Drawing.Font("Verdana", 11F);
+            this.labelControl33.Appearance.Options.UseFont = true;
+            this.labelControl33.Location = new System.Drawing.Point(6, 6);
+            this.labelControl33.Name = "labelControl33";
+            this.labelControl33.Size = new System.Drawing.Size(107, 18);
+            this.labelControl33.StyleController = this.layoutControl2;
+            this.labelControl33.TabIndex = 21;
+            this.labelControl33.Text = "Lisenziya açarı";
             // 
-            // tabPageBackup
+            // layoutControlGroup1
             // 
-            this.tabPageBackup.Name = "tabPageBackup";
-            this.tabPageBackup.Size = new System.Drawing.Size(1213, 780);
-            this.tabPageBackup.Text = "Backup";
+            this.layoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
+            this.layoutControlGroup1.GroupBordersVisible = false;
+            this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlItem21,
+            this.emptySpaceItem2,
+            this.layoutControlItem22,
+            this.layoutControlItem23,
+            this.layoutControlItem24});
+            this.layoutControlGroup1.Name = "layoutControlGroup1";
+            this.layoutControlGroup1.Padding = new DevExpress.XtraLayout.Utils.Padding(3, 3, 3, 3);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(1203, 120);
+            this.layoutControlGroup1.TextVisible = false;
             // 
-            // tabPageArchive
+            // layoutControlItem21
             // 
-            this.tabPageArchive.ImageOptions.SvgImageSize = new System.Drawing.Size(24, 24);
-            this.tabPageArchive.Name = "tabPageArchive";
-            this.tabPageArchive.Size = new System.Drawing.Size(1213, 780);
-            this.tabPageArchive.Text = "Arxiv";
+            this.layoutControlItem21.Control = this.labelControl33;
+            this.layoutControlItem21.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem21.Name = "layoutControlItem21";
+            this.layoutControlItem21.Size = new System.Drawing.Size(113, 24);
+            this.layoutControlItem21.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem21.TextVisible = false;
             // 
-            // tabExcel
+            // emptySpaceItem2
             // 
-            this.tabExcel.Name = "tabExcel";
-            this.tabExcel.Size = new System.Drawing.Size(1213, 780);
-            this.tabExcel.Text = "Excel import (admin)";
+            this.emptySpaceItem2.AllowHotTrack = false;
+            this.emptySpaceItem2.Location = new System.Drawing.Point(0, 48);
+            this.emptySpaceItem2.Name = "emptySpaceItem2";
+            this.emptySpaceItem2.Size = new System.Drawing.Size(1197, 66);
+            this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // layoutControlItem22
+            // 
+            this.layoutControlItem22.Control = this.lLicenceKey;
+            this.layoutControlItem22.Location = new System.Drawing.Point(113, 0);
+            this.layoutControlItem22.Name = "layoutControlItem22";
+            this.layoutControlItem22.Size = new System.Drawing.Size(1084, 24);
+            this.layoutControlItem22.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem22.TextVisible = false;
+            // 
+            // layoutControlItem23
+            // 
+            this.layoutControlItem23.Control = this.labelControl28;
+            this.layoutControlItem23.Location = new System.Drawing.Point(0, 24);
+            this.layoutControlItem23.Name = "layoutControlItem23";
+            this.layoutControlItem23.Size = new System.Drawing.Size(185, 24);
+            this.layoutControlItem23.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem23.TextVisible = false;
+            // 
+            // layoutControlItem24
+            // 
+            this.layoutControlItem24.Control = this.lExpireDate;
+            this.layoutControlItem24.Location = new System.Drawing.Point(185, 24);
+            this.layoutControlItem24.Name = "layoutControlItem24";
+            this.layoutControlItem24.Size = new System.Drawing.Size(1012, 24);
+            this.layoutControlItem24.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem24.TextVisible = false;
             // 
             // pageReport
             // 
@@ -7355,9 +8756,9 @@
             // bSupplierSettings
             // 
             this.bSupplierSettings.AutoHeight = false;
-            editorButtonImageOptions4.SvgImage = global::Barcode_Sales.Properties.Resources.dots_three_circle_vertical_light;
+            editorButtonImageOptions8.SvgImage = global::Barcode_Sales.Properties.Resources.dots_three_circle_vertical_light;
             this.bSupplierSettings.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions4, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject13, serializableAppearanceObject14, serializableAppearanceObject15, serializableAppearanceObject16, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions8, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject29, serializableAppearanceObject30, serializableAppearanceObject31, serializableAppearanceObject32, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.bSupplierSettings.Name = "bSupplierSettings";
             this.bSupplierSettings.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.bSupplierSettings.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.bSupplierSettings_ButtonClick);
@@ -7581,17 +8982,17 @@
             this.dateEnd.Properties.Appearance.Font = new System.Drawing.Font("Poppins", 10F);
             this.dateEnd.Properties.Appearance.Options.UseFont = true;
             this.dateEnd.Properties.AutoHeight = false;
-            serializableAppearanceObject17.Font = new System.Drawing.Font("Nunito", 11F, System.Drawing.FontStyle.Bold);
-            serializableAppearanceObject17.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.DisabledText;
-            serializableAppearanceObject17.Options.UseFont = true;
-            serializableAppearanceObject17.Options.UseForeColor = true;
-            serializableAppearanceObject20.Font = new System.Drawing.Font("Nunito", 11F, System.Drawing.FontStyle.Bold);
-            serializableAppearanceObject20.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.DisabledText;
-            serializableAppearanceObject20.Options.UseFont = true;
-            serializableAppearanceObject20.Options.UseForeColor = true;
+            serializableAppearanceObject33.Font = new System.Drawing.Font("Nunito", 11F, System.Drawing.FontStyle.Bold);
+            serializableAppearanceObject33.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.DisabledText;
+            serializableAppearanceObject33.Options.UseFont = true;
+            serializableAppearanceObject33.Options.UseForeColor = true;
+            serializableAppearanceObject36.Font = new System.Drawing.Font("Nunito", 11F, System.Drawing.FontStyle.Bold);
+            serializableAppearanceObject36.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.DisabledText;
+            serializableAppearanceObject36.Options.UseFont = true;
+            serializableAppearanceObject36.Options.UseForeColor = true;
             this.dateEnd.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Tarixədək", -1, false, true, true, editorButtonImageOptions5, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject17, serializableAppearanceObject18, serializableAppearanceObject19, serializableAppearanceObject20, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Tarixədək", -1, false, true, true, editorButtonImageOptions9, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject33, serializableAppearanceObject34, serializableAppearanceObject35, serializableAppearanceObject36, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.dateEnd.Properties.CalendarTimeEditing = DevExpress.Utils.DefaultBoolean.False;
             this.dateEnd.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -7609,17 +9010,17 @@
             this.dateStart.Properties.Appearance.Font = new System.Drawing.Font("Poppins", 10F);
             this.dateStart.Properties.Appearance.Options.UseFont = true;
             this.dateStart.Properties.AutoHeight = false;
-            serializableAppearanceObject21.Font = new System.Drawing.Font("Nunito", 11F, System.Drawing.FontStyle.Bold);
-            serializableAppearanceObject21.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.DisabledText;
-            serializableAppearanceObject21.Options.UseFont = true;
-            serializableAppearanceObject21.Options.UseForeColor = true;
-            serializableAppearanceObject24.Font = new System.Drawing.Font("Nunito", 11F, System.Drawing.FontStyle.Bold);
-            serializableAppearanceObject24.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.DisabledText;
-            serializableAppearanceObject24.Options.UseFont = true;
-            serializableAppearanceObject24.Options.UseForeColor = true;
+            serializableAppearanceObject37.Font = new System.Drawing.Font("Nunito", 11F, System.Drawing.FontStyle.Bold);
+            serializableAppearanceObject37.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.DisabledText;
+            serializableAppearanceObject37.Options.UseFont = true;
+            serializableAppearanceObject37.Options.UseForeColor = true;
+            serializableAppearanceObject40.Font = new System.Drawing.Font("Nunito", 11F, System.Drawing.FontStyle.Bold);
+            serializableAppearanceObject40.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.DisabledText;
+            serializableAppearanceObject40.Options.UseFont = true;
+            serializableAppearanceObject40.Options.UseForeColor = true;
             this.dateStart.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Tarixindən", -1, false, true, true, editorButtonImageOptions6, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject21, serializableAppearanceObject22, serializableAppearanceObject23, serializableAppearanceObject24, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Tarixindən", -1, false, true, true, editorButtonImageOptions10, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject37, serializableAppearanceObject38, serializableAppearanceObject39, serializableAppearanceObject40, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.dateStart.Properties.CalendarTimeEditing = DevExpress.Utils.DefaultBoolean.False;
             this.dateStart.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -7761,7 +9162,7 @@
             // 
             this.repositoryItemButtonEdit2.AutoHeight = false;
             this.repositoryItemButtonEdit2.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Ödəniş et", -1, true, true, false, editorButtonImageOptions7, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject25, serializableAppearanceObject26, serializableAppearanceObject27, serializableAppearanceObject28, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Ödəniş et", -1, true, true, false, editorButtonImageOptions11, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject41, serializableAppearanceObject42, serializableAppearanceObject43, serializableAppearanceObject44, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.repositoryItemButtonEdit2.Name = "repositoryItemButtonEdit2";
             this.repositoryItemButtonEdit2.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             // 
@@ -7782,7 +9183,7 @@
             // 
             this.repositoryItemButtonEdit3.AutoHeight = false;
             this.repositoryItemButtonEdit3.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Ətraflı", -1, true, true, false, editorButtonImageOptions8, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject29, serializableAppearanceObject30, serializableAppearanceObject31, serializableAppearanceObject32, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Ətraflı", -1, true, true, false, editorButtonImageOptions12, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject45, serializableAppearanceObject46, serializableAppearanceObject47, serializableAppearanceObject48, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.repositoryItemButtonEdit3.Name = "repositoryItemButtonEdit3";
             // 
             // pageCustomers
@@ -7997,9 +9398,9 @@
             // bCustomerSettings
             // 
             this.bCustomerSettings.AutoHeight = false;
-            editorButtonImageOptions9.SvgImage = global::Barcode_Sales.Properties.Resources.dots_three_circle_vertical_light;
+            editorButtonImageOptions13.SvgImage = global::Barcode_Sales.Properties.Resources.dots_three_circle_vertical_light;
             this.bCustomerSettings.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions9, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject33, serializableAppearanceObject34, serializableAppearanceObject35, serializableAppearanceObject36, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions13, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject49, serializableAppearanceObject50, serializableAppearanceObject51, serializableAppearanceObject52, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.bCustomerSettings.Name = "bCustomerSettings";
             this.bCustomerSettings.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.bCustomerSettings.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.bCustomerSettings_ButtonClick);
@@ -8301,14 +9702,14 @@
             // bPaySuppliersDebt
             // 
             this.bPaySuppliersDebt.AutoHeight = false;
-            serializableAppearanceObject37.Font = new System.Drawing.Font("Nunito", 12F, System.Drawing.FontStyle.Bold);
-            serializableAppearanceObject37.ForeColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Success;
-            serializableAppearanceObject37.Options.UseFont = true;
-            serializableAppearanceObject37.Options.UseForeColor = true;
-            serializableAppearanceObject37.Options.UseTextOptions = true;
-            serializableAppearanceObject37.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            serializableAppearanceObject53.Font = new System.Drawing.Font("Nunito", 12F, System.Drawing.FontStyle.Bold);
+            serializableAppearanceObject53.ForeColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Success;
+            serializableAppearanceObject53.Options.UseFont = true;
+            serializableAppearanceObject53.Options.UseForeColor = true;
+            serializableAppearanceObject53.Options.UseTextOptions = true;
+            serializableAppearanceObject53.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.bPaySuppliersDebt.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "ÖDƏNİŞ ET", -1, true, true, false, editorButtonImageOptions10, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject37, serializableAppearanceObject38, serializableAppearanceObject39, serializableAppearanceObject40, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "ÖDƏNİŞ ET", -1, true, true, false, editorButtonImageOptions14, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject53, serializableAppearanceObject54, serializableAppearanceObject55, serializableAppearanceObject56, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.bPaySuppliersDebt.Name = "bPaySuppliersDebt";
             this.bPaySuppliersDebt.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             // 
@@ -8693,14 +10094,14 @@
             // repositoryItemButtonEdit1
             // 
             this.repositoryItemButtonEdit1.AutoHeight = false;
-            serializableAppearanceObject41.Font = new System.Drawing.Font("Nunito", 12F, System.Drawing.FontStyle.Bold);
-            serializableAppearanceObject41.ForeColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Success;
-            serializableAppearanceObject41.Options.UseFont = true;
-            serializableAppearanceObject41.Options.UseForeColor = true;
-            serializableAppearanceObject41.Options.UseTextOptions = true;
-            serializableAppearanceObject41.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            serializableAppearanceObject57.Font = new System.Drawing.Font("Nunito", 12F, System.Drawing.FontStyle.Bold);
+            serializableAppearanceObject57.ForeColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Success;
+            serializableAppearanceObject57.Options.UseFont = true;
+            serializableAppearanceObject57.Options.UseForeColor = true;
+            serializableAppearanceObject57.Options.UseTextOptions = true;
+            serializableAppearanceObject57.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.repositoryItemButtonEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "ÖDƏNİŞ ET", -1, true, true, false, editorButtonImageOptions11, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject41, serializableAppearanceObject42, serializableAppearanceObject43, serializableAppearanceObject44, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "ÖDƏNİŞ ET", -1, true, true, false, editorButtonImageOptions15, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject57, serializableAppearanceObject58, serializableAppearanceObject59, serializableAppearanceObject60, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.repositoryItemButtonEdit1.Name = "repositoryItemButtonEdit1";
             this.repositoryItemButtonEdit1.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             // 
@@ -9005,9 +10406,9 @@
             // 
             // bWarehouseSettings
             // 
-            editorButtonImageOptions12.SvgImage = global::Barcode_Sales.Properties.Resources.dots_three_circle_vertical_light;
+            editorButtonImageOptions16.SvgImage = global::Barcode_Sales.Properties.Resources.dots_three_circle_vertical_light;
             this.bWarehouseSettings.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions12, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject45, serializableAppearanceObject46, serializableAppearanceObject47, serializableAppearanceObject48, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions16, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject61, serializableAppearanceObject62, serializableAppearanceObject63, serializableAppearanceObject64, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.bWarehouseSettings.Name = "bWarehouseSettings";
             this.bWarehouseSettings.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.bWarehouseSettings.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.bWarehouseSettings_ButtonClick);
@@ -9468,9 +10869,9 @@
             // 
             // bStoreSetting
             // 
-            editorButtonImageOptions13.SvgImage = global::Barcode_Sales.Properties.Resources.dots_three_circle_vertical_light;
+            editorButtonImageOptions17.SvgImage = global::Barcode_Sales.Properties.Resources.dots_three_circle_vertical_light;
             this.bStoreSetting.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions13, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject49, serializableAppearanceObject50, serializableAppearanceObject51, serializableAppearanceObject52, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions17, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject65, serializableAppearanceObject66, serializableAppearanceObject67, serializableAppearanceObject68, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.bStoreSetting.Name = "bStoreSetting";
             this.bStoreSetting.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.bStoreSetting.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.bStoreSetting_ButtonClick);
@@ -9734,9 +11135,9 @@
             // bCustomerGroupsSettings
             // 
             this.bCustomerGroupsSettings.AutoHeight = false;
-            editorButtonImageOptions14.SvgImage = global::Barcode_Sales.Properties.Resources.dots_three_circle_vertical_light;
+            editorButtonImageOptions18.SvgImage = global::Barcode_Sales.Properties.Resources.dots_three_circle_vertical_light;
             this.bCustomerGroupsSettings.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions14, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject53, serializableAppearanceObject54, serializableAppearanceObject55, serializableAppearanceObject56, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions18, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject69, serializableAppearanceObject70, serializableAppearanceObject71, serializableAppearanceObject72, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.bCustomerGroupsSettings.Name = "bCustomerGroupsSettings";
             this.bCustomerGroupsSettings.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.bCustomerGroupsSettings.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.bCustomerGroupsSettings_ButtonClick);
@@ -10046,9 +11447,9 @@
             // bSettingTerminal
             // 
             this.bSettingTerminal.AutoHeight = false;
-            editorButtonImageOptions15.SvgImage = global::Barcode_Sales.Properties.Resources.dots_three_circle_vertical_light;
+            editorButtonImageOptions19.SvgImage = global::Barcode_Sales.Properties.Resources.dots_three_circle_vertical_light;
             this.bSettingTerminal.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions15, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject57, serializableAppearanceObject58, serializableAppearanceObject59, serializableAppearanceObject60, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions19, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject73, serializableAppearanceObject74, serializableAppearanceObject75, serializableAppearanceObject76, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.bSettingTerminal.Name = "bSettingTerminal";
             this.bSettingTerminal.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.bSettingTerminal.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.bSettingTerminal_ButtonClick);
@@ -10322,9 +11723,9 @@
             // bScalesSettings
             // 
             this.bScalesSettings.AutoHeight = false;
-            editorButtonImageOptions16.SvgImage = global::Barcode_Sales.Properties.Resources.dots_three_circle_vertical_light;
+            editorButtonImageOptions20.SvgImage = global::Barcode_Sales.Properties.Resources.dots_three_circle_vertical_light;
             this.bScalesSettings.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions16, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject61, serializableAppearanceObject62, serializableAppearanceObject63, serializableAppearanceObject64, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions20, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject77, serializableAppearanceObject78, serializableAppearanceObject79, serializableAppearanceObject80, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.bScalesSettings.Name = "bScalesSettings";
             this.bScalesSettings.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.bScalesSettings.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.bScalesSettings_ButtonClick);
@@ -10511,21 +11912,96 @@
             this.tablePanel39.ResumeLayout(false);
             this.tablePanel39.PerformLayout();
             this.pageSettings.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.TabControlSettings)).EndInit();
-            this.TabControlSettings.ResumeLayout(false);
-            this.tabPageSettings.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.tablePanel28)).EndInit();
-            this.tablePanel28.ResumeLayout(false);
-            this.tablePanel28.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.toggleProductMinus.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tabPaneSettings)).EndInit();
+            this.tabPaneSettings.ResumeLayout(false);
+            this.tabDatabase.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.panelDatabase)).EndInit();
+            this.panelDatabase.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
+            this.layoutControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.chBackupAuto.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spinBackupRemoveDay.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tBackupSendEmail.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem12)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem13)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem14)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem15)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem16)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem17)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem18)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem19)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem20)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem25)).EndInit();
+            this.tabLog.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControl5)).EndInit();
+            this.layoutControl5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gridControlLogs)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridLogs)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEdit2.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEdit2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem11)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem33)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem32)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem5)).EndInit();
+            this.tabAllSettings.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).EndInit();
+            this.panelControl4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControl4)).EndInit();
+            this.layoutControl4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.checkEdit2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chHotSales.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem35)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem36)).EndInit();
+            this.tabKassa.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl18)).EndInit();
             this.panelControl18.ResumeLayout(false);
-            this.panelControl18.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ProductLimit_UpDown)).EndInit();
-            this.tabPageKassalar.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).EndInit();
-            this.groupControl3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.chPrinter.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControl3)).EndInit();
+            this.layoutControl3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.spinEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chRrn.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chOtherPay.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chTerminalPrintReceipt.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chIsReceipt.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chSendToKassa.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chPosSalesMessage.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem26)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem27)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem28)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem29)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem30)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem31)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem38)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem39)).EndInit();
+            this.tabLicence.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl33)).EndInit();
+            this.panelControl33.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControl2)).EndInit();
+            this.layoutControl2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem21)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem22)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem23)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem24)).EndInit();
             this.pageReport.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.TabControlReport)).EndInit();
             this.TabControlReport.ResumeLayout(false);
@@ -10866,23 +12342,6 @@
         private DevExpress.XtraBars.Navigation.NavigationPage pageProduct;
         private DevExpress.XtraBars.Navigation.NavigationPage pageUsers;
         private DevExpress.XtraBars.Navigation.NavigationPage pageSettings;
-        private DevExpress.XtraTab.XtraTabControl TabControlSettings;
-        private DevExpress.XtraTab.XtraTabPage tabPageSettings;
-        private DevExpress.Utils.Layout.TablePanel tablePanel28;
-        private DevExpress.XtraEditors.ToggleSwitch toggleProductMinus;
-        private DevExpress.XtraEditors.PanelControl panelControl18;
-        private DevExpress.XtraEditors.LabelControl labelControl29;
-        private System.Windows.Forms.NumericUpDown ProductLimit_UpDown;
-        private DevExpress.XtraEditors.LabelControl labelControl26;
-        private DevExpress.XtraEditors.LabelControl labelControl27;
-        private DevExpress.XtraEditors.LabelControl labelControl28;
-        private DevExpress.XtraTab.XtraTabPage tabPageKassalar;
-        private NextPOS.UserControls.userSaveFooter KassalarFooter;
-        private DevExpress.XtraEditors.GroupControl groupControl3;
-        public DevExpress.XtraEditors.CheckEdit chPrinter;
-        private DevExpress.XtraTab.XtraTabPage tabPageBackup;
-        private DevExpress.XtraTab.XtraTabPage tabPageArchive;
-        private DevExpress.XtraTab.XtraTabPage tabExcel;
         private DevExpress.XtraBars.Navigation.NavigationPage pageReport;
         private DevExpress.XtraTab.XtraTabControl TabControlReport;
         private DevExpress.XtraTab.XtraTabPage tableMehsulAlis;
@@ -11407,5 +12866,109 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn126;
         private DevExpress.XtraCharts.ChartControl chartControl2;
         private DevExpress.XtraCharts.ChartControl chartTop5Product;
+        private DevExpress.XtraBars.Navigation.TabPane tabPaneSettings;
+        private DevExpress.XtraBars.Navigation.TabNavigationPage tabDatabase;
+        private DevExpress.XtraEditors.PanelControl panelDatabase;
+        private DevExpress.XtraLayout.LayoutControl layoutControl1;
+        private DevExpress.XtraEditors.LabelControl labelControl15;
+        private DevExpress.XtraEditors.CheckEdit chBackupAuto;
+        private DevExpress.XtraEditors.SpinEdit spinBackupRemoveDay;
+        private DevExpress.XtraEditors.LabelControl labelControl6;
+        private DevExpress.XtraEditors.LabelControl labelControl9;
+        private DevExpress.XtraEditors.LabelControl labelControl17;
+        private DevExpress.XtraEditors.SimpleButton bDbDelete;
+        private DevExpress.XtraEditors.LabelControl labelControl16;
+        private DevExpress.XtraEditors.SimpleButton bDbClear;
+        private DevExpress.XtraEditors.LabelControl labelControl18;
+        private DevExpress.XtraEditors.SimpleButton bDbCacheDelete;
+        private DevExpress.XtraEditors.LabelControl lBackupHistory;
+        private DevExpress.XtraEditors.SimpleButton bBackupDownload;
+        private DevExpress.XtraEditors.LabelControl labelControl31;
+        private DevExpress.XtraEditors.LabelControl labelControl13;
+        private DevExpress.XtraEditors.LabelControl labelControl26;
+        private DevExpress.XtraEditors.ButtonEdit tBackupSendEmail;
+        private DevExpress.XtraLayout.LayoutControlGroup Root;
+        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem4;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem6;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem7;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem12;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem13;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem14;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem15;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem16;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem17;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem18;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem19;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem20;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem5;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem25;
+        private DevExpress.XtraBars.Navigation.TabNavigationPage tabLog;
+        private DevExpress.XtraEditors.SimpleButton bLogDelete;
+        private DevExpress.XtraEditors.SimpleButton bLogExport;
+        private DevExpress.XtraGrid.GridControl gridControlLogs;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridLogs;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn50;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn51;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn125;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn129;
+        private DevExpress.XtraBars.Navigation.TabNavigationPage tabAllSettings;
+        private DevExpress.XtraEditors.PanelControl panelControl4;
+        private DevExpress.XtraLayout.LayoutControl layoutControl4;
+        private DevExpress.XtraEditors.CheckEdit checkEdit2;
+        private DevExpress.XtraEditors.CheckEdit chHotSales;
+        private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup3;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem35;
+        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem4;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem36;
+        private DevExpress.XtraBars.Navigation.TabNavigationPage tabKassa;
+        private DevExpress.XtraEditors.PanelControl panelControl18;
+        private DevExpress.XtraLayout.LayoutControl layoutControl3;
+        private DevExpress.XtraEditors.LabelControl labelControl27;
+        private DevExpress.XtraEditors.SpinEdit spinEdit1;
+        private DevExpress.XtraEditors.CheckEdit chRrn;
+        private DevExpress.XtraEditors.CheckEdit chOtherPay;
+        private DevExpress.XtraEditors.CheckEdit chTerminalPrintReceipt;
+        private DevExpress.XtraEditors.CheckEdit chIsReceipt;
+        private DevExpress.XtraEditors.CheckEdit chSendToKassa;
+        private DevExpress.XtraEditors.CheckEdit chPosSalesMessage;
+        private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup2;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem26;
+        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem3;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem27;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem28;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem29;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem30;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem31;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem38;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem39;
+        private DevExpress.XtraBars.Navigation.TabNavigationPage tabLicence;
+        private DevExpress.XtraEditors.PanelControl panelControl33;
+        private DevExpress.XtraLayout.LayoutControl layoutControl2;
+        private DevExpress.XtraEditors.LabelControl lExpireDate;
+        private DevExpress.XtraEditors.LabelControl labelControl28;
+        private DevExpress.XtraEditors.LabelControl lLicenceKey;
+        private DevExpress.XtraEditors.LabelControl labelControl33;
+        private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup1;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem21;
+        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem2;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem22;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem23;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem24;
+        private DevExpress.XtraLayout.LayoutControl layoutControl5;
+        private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup4;
+        private DevExpress.XtraEditors.DateEdit dateEdit1;
+        private DevExpress.XtraEditors.DateEdit dateEdit2;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem8;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem9;
+        private DevExpress.XtraEditors.SimpleButton simpleButton11;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem10;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem11;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem33;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem32;
+        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem5;
     }
 }

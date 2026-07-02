@@ -1264,5 +1264,20 @@ namespace Barcode_Sales.Forms
                 NotificationHelpers.Messages.SuccessMessage(this, "Kassa uğurla silindi");
             }
         }
+
+        private void lookCloudReport_Properties_ButtonClick(object sender, ButtonPressedEventArgs e)
+        {
+
+        }
+
+        private void tBackupSendEmail_Properties_ButtonClick(object sender, ButtonPressedEventArgs e)
+        {
+
+        }
+
+        private void accordionControlElement27_Click(object sender, EventArgs e)
+        {
+            navigationMenu.SelectedPage = pageSettings;
+        }
     }
 }
