@@ -1,8 +1,10 @@
 ﻿using Barcode_Sales.Services.CacheServices;
 using Barcode_Sales.Terminals.Omnitech;
 using DevExpress.Internal.WinApi.Windows.UI.Notifications;
+using DevExpress.XtraEditors;
 using System;
 using System.Windows.Forms;
+using Barcode_Sales.Services;
 using static Barcode_Sales.Helpers.Enums;
 using Enums = Barcode_Sales.Helpers.Enums;
 
@@ -107,7 +109,7 @@ namespace Barcode_Sales.Forms
                         break;
                 }
             }
-         }
+        }
 
         private void bCloseShift_Click(object sender, EventArgs e)
         {
@@ -188,7 +190,8 @@ namespace Barcode_Sales.Forms
 
         private void bAnydesk_Click(object sender, EventArgs e)
         {
-
+            if (!AnyDeskLauncherService.TryLaunch(out string error))
+                NotificationHelpers.Messages.ErrorMessage(this, error);
         }
     }
 }

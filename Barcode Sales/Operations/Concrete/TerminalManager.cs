@@ -145,9 +145,9 @@ namespace Barcode_Sales.Operations.Concrete
                 return null;
             }
 
-            var kassa = (Enums.Terminal)Enum.Parse(typeof(Enums.Terminal), terminal.Name);
+            var terminalType = (Enums.Terminal)Enum.Parse(typeof(Enums.Terminal), terminal.Name);
 
-            switch (kassa)
+            switch (terminalType)
             {
                 case Enums.Terminal.CASPOS:
                     terminal.IpAddress = $"http://{terminal.IpAddress}";

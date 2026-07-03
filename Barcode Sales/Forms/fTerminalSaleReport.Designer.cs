@@ -310,7 +310,9 @@
             this.gridColumn13});
             this.gridView1.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFullFocus;
             this.gridView1.GridControl = this.gridControl1;
+            this.gridView1.GroupPanelText = "Qruplaşdırmaq üçün sütun başlıqlarını buraya sürükləyin";
             this.gridView1.Name = "gridView1";
+            this.gridView1.OptionsDetail.AllowOnlyOneMasterRowExpanded = true;
             this.gridView1.OptionsDetail.ShowDetailTabs = false;
             this.gridView1.OptionsEditForm.PopupEditFormWidth = 1067;
             this.gridView1.OptionsEditForm.ShowOnDoubleClick = DevExpress.Utils.DefaultBoolean.True;
