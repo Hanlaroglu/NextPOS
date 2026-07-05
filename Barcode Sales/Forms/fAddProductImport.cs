@@ -1,5 +1,4 @@
-﻿using Barcode_Sales.Services;
-using DevExpress.XtraGrid;
+﻿using Barcode_Sales.DTOs;
 using ExcelDataReader;
 using System;
 using System.Collections.Generic;
@@ -13,9 +12,10 @@ namespace Barcode_Sales.Forms
 {
     public partial class fAddProductImport : DevExpress.XtraEditors.XtraForm
     {
-        private readonly ExcelService _excelService = new ExcelService();
         private DataTable _currentTable;
-        private string _currentFilePath;
+        private DataSet _workbook;
+        List<ProductInvoiceImportDto> _invoices = new List<ProductInvoiceImportDto>();
+
         public fAddProductImport()
         {
             InitializeComponent();
@@ -31,28 +31,44 @@ namespace Barcode_Sales.Forms
         {
             using (OpenFileDialog openFileDialog = new OpenFileDialog()
             {
+                Title = "Excel seçimi",
                 Filter = "Excell 97-2003 Workbook|.xls|Excell Workbook|*.xlsx",
                 FilterIndex = 2,
             })
             {
-                Cursor.Current = Cursors.WaitCursor;
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
-                    _currentFilePath = openFileDialog.FileName;
-                    tFilePath.Text = _currentFilePath;
+                    tFilePath.Text = openFileDialog.FileName;
 
-                    var sheetNames = _excelService.GetSheetNames(_currentFilePath);
+                    _workbook = LoadWorkbook(openFileDialog.FileName);
 
-                    if (sheetNames.Any())
+                    if (_workbook != null)
                     {
-                        lookSheet.Enabled = true;
+                        var sheets = _workbook.Tables
+                            .Cast<DataTable>()
+                            .Select(t => t.TableName)
+                            .ToList();
 
-                        lookSheet.Properties.DataSource = sheetNames;
-                        lookSheet.Properties.DropDownRows = sheetNames.Count > 7 ? 7 : sheetNames.Count;
+                        lookSheet.Enabled = true;
+                        lookSheet.Properties.DataSource = sheets;
+                        lookSheet.Properties.DropDownRows = sheets.Count > 7 ? 7 : sheets.Count;
                     }
                 }
             }
             Cursor.Current = Cursors.Default;
+        }
+
+        public DataSet LoadWorkbook(string filePath)
+        {
+            using (var stream = new FileStream(filePath, FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+            using (var reader = ExcelReaderFactory.CreateReader(stream))
+                return reader.AsDataSet(new ExcelDataSetConfiguration
+                {
+                    ConfigureDataTable = _ => new ExcelDataTableConfiguration
+                    {
+                        UseHeaderRow = true
+                    }
+                });
         }
 
         private void tFilePath_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
@@ -66,17 +82,63 @@ namespace Barcode_Sales.Forms
 
         private void lookSheet_EditValueChanged(object sender, EventArgs e)
         {
-            if (lookSheet.EditValue == null) return;
+            string selectedSheet = lookSheet.EditValue?.ToString();
+            if (!string.IsNullOrEmpty(selectedSheet))
+            {
+                DataTable data = _workbook.Tables[selectedSheet];
+                if (data != null)
+                {
+                    _invoices.Clear();
+                    _invoices = MapDataTableToList(data);
 
-            string selectedSheet = lookSheet.EditValue.ToString();
+                    gridControlImport.DataSource = _invoices;
+                    gridImport.OptionsView.ShowColumnHeaders = true;
+                    gridImport.BestFitColumns();
+                }
+            }
+        }
 
-            _currentTable = _excelService.GetSheetData(_currentFilePath, selectedSheet);
+        private List<ProductInvoiceImportDto> MapDataTableToList(DataTable dt)
+        {
+            var list = new List<ProductInvoiceImportDto>();
 
-            gridControlImport.DataSource = _currentTable;
+            foreach (DataRow row in dt.Rows)
+            {
+                list.Add(new ProductInvoiceImportDto
+                {
+                    Type = row["Məhsul tipi"]?.ToString(),
+                    WarehouseName = row["Anbar adı"]?.ToString(),
+                    SupplierName = row["Təchizatçı adı"]?.ToString(),
+                    InvoiceDate = GetDate(row, "Faktura tarixi"),
+                    InvoiceNo = row["Faktura nömrəsi"].ToString(),
+                    CategoryName = row["Kateqoriya adı"]?.ToString(),
+                    ProductName = row["Məhsul adı"]?.ToString(),
+                    ProductCode = row["Məhsul kodu"].ToString(),
+                    Barcode = row["Barkod"]?.ToString(),
+                    Quantity = GetDecimal(row, "Miqdar"),
+                    PurchasePrice = GetDecimal(row, "Alış qiyməti"),
+                    SalePrice = GetDecimal(row, "Satış qiyməti"),
+                    UnitName = row["Vahid"]?.ToString(),
+                    TaxName = row["Vergi dərəcəsi"]?.ToString(),
+                    IsStatus = row["Məhsul statusu"].ToString(),
+                });
+            }
 
+            return list;
+        }
 
-            gridImport.OptionsView.ShowColumnHeaders = true;
-            gridImport.BestFitColumns();
+        private static decimal GetDecimal(DataRow row, string col, decimal def = 0)
+        {
+            return row.Table.Columns.Contains(col) && row[col] != DBNull.Value
+                ? Convert.ToDecimal(row[col])
+                : def;
+        }
+
+        private static DateTime? GetDate(DataRow row, string col, DateTime? def = null)
+        {
+            return row.Table.Columns.Contains(col) && row[col] != DBNull.Value
+                ? Convert.ToDateTime(row[col])
+                : def;
         }
 
         private void gridImport_CustomDrawEmptyForeground(object sender, DevExpress.XtraGrid.Views.Base.CustomDrawEventArgs e)
@@ -89,19 +151,92 @@ namespace Barcode_Sales.Forms
 
             drawFormat.Alignment = drawFormat.LineAlignment = StringAlignment.Center;
 
-            e.Graphics.DrawString("Məlumat tapılmadı", e.Appearance.Font, SystemBrushes.ControlDark, 
+            e.Graphics.DrawString("Məlumat tapılmadı", e.Appearance.Font, SystemBrushes.ControlDark,
                 new RectangleF(e.Bounds.X, e.Bounds.Y, e.Bounds.Width, e.Bounds.Height), drawFormat);
             gridImport.OptionsView.ShowColumnHeaders = false;
         }
 
-        private void InsertDbProducts()
-        {
-
-        }
-
         private void bImport_Click(object sender, EventArgs e)
         {
+            InsertDbProducts();
+        }
 
+        private Dictionary<string, Warehouse> warehouseCache;
+        private Dictionary<string, Supplier> supplierCache;
+        private Dictionary<string, Category> categoryCache;
+        private Dictionary<(string productName, string barcode), Products> productCache;
+        private Dictionary<string, UnitType> unitTypeCache;
+        private Dictionary<string, TaxType> taxTypeCache;
+
+        private void InsertDbProducts()
+        {
+            using (var db = new KhanposDbEntities())
+            using (var transaction = db.Database.BeginTransaction())
+            {
+                try
+                {
+                    var warehouses = db.Warehouses.ToList();
+                    var suppliers = db.Suppliers.ToList();
+                    var categories = db.Categories.Where(x => x.IsDeleted == false).ToList();
+                    var products = db.Products.ToList();
+                    var unitTypes = db.UnitTypes.ToList();
+                    var taxTypes = db.TaxTypes.ToList();
+
+                    warehouseCache = warehouses.ToDictionary(x => x.Name, x => x);
+                    supplierCache = suppliers.ToDictionary(x => x.SupplierName, x => x);
+                    categoryCache = categories.ToDictionary(x => x.CategoryName, x => x);
+                    productCache = products.ToDictionary(x => (x.ProductName, x.Barcode), x => x);
+                    unitTypeCache = unitTypes.ToDictionary(x => x.Name, x => x);
+                    taxTypeCache = taxTypes.ToDictionary(x => x.Name, x => x);
+
+                    List<Supplier> supplierList = new List<Supplier>();
+                    List<Category> categoryList = new List<Category>();
+                    List<Products> productList = new List<Products>();
+
+                    foreach (var row in _invoices)
+                    {
+                        if (!warehouseCache.TryGetValue(row.WarehouseName, out var warehouse))
+                        {
+                            transaction.Rollback();
+                            NotificationHelpers.Messages.ErrorMessage(this, $"Anbar tapılmadı\nAnbar adı:{row.WarehouseName}");
+                            return;
+                        }
+
+                        if (!supplierCache.TryGetValue(row.SupplierName, out var supplier))
+                        {
+                            transaction.Rollback();
+                            NotificationHelpers.Messages.ErrorMessage(this, $"Təchizatçı tapılmadı\nTəchizatçı adı: {row.SupplierName}");
+                            return;
+                        }
+
+                        if (!categoryCache.TryGetValue(row.CategoryName, out var category))
+                        {
+                            transaction.Rollback();
+                            NotificationHelpers.Messages.ErrorMessage(this, $"Kateqoriya tapılmadı\nKateqoriya adı: {row.CategoryName}");
+                            return;
+                        }
+
+                        if (!unitTypeCache.TryGetValue(row.UnitName, out var unitType))
+                        {
+                            transaction.Rollback();
+                            NotificationHelpers.Messages.ErrorMessage(this, $"Vahid növü tapılmadı\nVahidin adı: {row.UnitName}");
+                            return;
+                        }
+
+                        if (!taxTypeCache.TryGetValue(row.TaxName, out var taxType))
+                        {
+                            transaction.Rollback();
+                            NotificationHelpers.Messages.ErrorMessage(this, $"Vergi növü tapılmadı\nVergi növünün adı: {row.TaxName}");
+                            return;
+                        }
+                    }
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e);
+                    throw;
+                }
+            }
         }
     }
 }

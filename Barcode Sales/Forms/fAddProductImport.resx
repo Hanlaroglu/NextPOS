@@ -147,7 +147,7 @@
         MzJWMTY4YTIwLDIwLDAsMCwwLDIwLDIwLDEyLDEyLDAsMCwwLDQtMjMuMzJaIiAvPg0KPC9zdmc+Cw==
 </value>
   </data>
-  <data name="editorButtonImageOptions1.SvgImage" type="DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v24.1" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="editorButtonImageOptions3.SvgImage" type="DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v24.1" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAEAAAD/////AQAAAAAAAAAMAgAAAFlEZXZFeHByZXNzLkRhdGEudjI0LjEsIFZlcnNpb249MjQuMS4z
         LjAsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49Yjg4ZDE3NTRkNzAwZTQ5YQUBAAAAHURl
@@ -159,6 +159,22 @@
         MC4xLDkwLjEsMCwwLDEsMTI4LDIxOFpNMTM4LDg0YTEwLDEwLDAsMSwxLTEwLTEwQTEwLDEwLDAsMCwx
         LDEzOCw4NFptMCw0NGExMCwxMCwwLDEsMS0xMC0xMEExMCwxMCwwLDAsMSwxMzgsMTI4Wm0wLDQ0YTEw
         LDEwLDAsMSwxLTEwLTEwQTEwLDEwLDAsMCwxLDEzOCwxNzJaIiAvPg0KPC9zdmc+Cw==
+</value>
+  </data>
+  <data name="bSelectFile.ImageOptions.SvgImage" type="DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v24.1" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        AAEAAAD/////AQAAAAAAAAAMAgAAAFlEZXZFeHByZXNzLkRhdGEudjI0LjEsIFZlcnNpb249MjQuMS4z
+        LjAsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49Yjg4ZDE3NTRkNzAwZTQ5YQUBAAAAHURl
+        dkV4cHJlc3MuVXRpbHMuU3ZnLlN2Z0ltYWdlAQAAAAREYXRhBwICAAAACQMAAAAPAwAAAOwBAAAC77u/
+        PD94bWwgdmVyc2lvbj0nMS4wJyBlbmNvZGluZz0nVVRGLTgnPz4NCjxzdmcgd2lkdGg9IjMycHgiIGhl
+        aWdodD0iMzJweCIgdmlld0JveD0iMCAwIDI1NiAyNTYiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8y
+        MDAwL3N2ZyIgZmlsbD0iI2ZmZmZmZiI+DQogIDxwYXRoIGQ9Ik0yMTMuNjYsODIuMzRsLTU2LTU2QTgs
+        OCwwLDAsMCwxNTIsMjRINTZBMTYsMTYsMCwwLDAsNDAsNDBWMjE2YTE2LDE2LDAsMCwwLDE2LDE2SDIw
+        MGExNiwxNiwwLDAsMCwxNi0xNlY4OEE4LDgsMCwwLDAsMjEzLjY2LDgyLjM0Wk0xNjAsNTEuMzEsMTg4
+        LjY5LDgwSDE2MFpNMjAwLDIxNkg1NlY0MGg4OFY4OGE4LDgsMCwwLDAsOCw4aDQ4VjIxNlptLTQ1LjU0
+        LTQ4Ljg1YTM2LjA1LDM2LjA1LDAsMSwwLTExLjMxLDExLjMxbDExLjE5LDExLjJhOCw4LDAsMCwwLDEx
+        LjMyLTExLjMyWk0xMDQsMTQ4YTIwLDIwLDAsMSwxLDIwLDIwQTIwLDIwLDAsMCwxLDEwNCwxNDhaIiAv
+        Pg0KPC9zdmc+Cw==
 </value>
   </data>
   <data name="bShowProducts.ImageOptions.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
@@ -182,22 +198,6 @@
         2qYnY4cnEev4fIfvwQfKEFpfgUEWRJBzOxk23kS/HLNZBa1z/ehufQQj2vvHCyy93jxPb4V89BjkKG/1
         IbaWe7kx3qV2bxJWMIae7B/hznJjPZ1+fPF2/H522+UCKswNhOfx78b0fkD7Wcbt38Oe6EANc/8td3m6
         ZDrk+QqcZ1F0ZSWjjutWt70mKOG/ock5CXdwHDO//wGAPwFfXg4UOLj2pgAAAABJRU5ErkJggg==
-</value>
-  </data>
-  <data name="bSelectFile.ImageOptions.SvgImage" type="DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v24.1" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        AAEAAAD/////AQAAAAAAAAAMAgAAAFlEZXZFeHByZXNzLkRhdGEudjI0LjEsIFZlcnNpb249MjQuMS4z
-        LjAsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49Yjg4ZDE3NTRkNzAwZTQ5YQUBAAAAHURl
-        dkV4cHJlc3MuVXRpbHMuU3ZnLlN2Z0ltYWdlAQAAAAREYXRhBwICAAAACQMAAAAPAwAAAOwBAAAC77u/
-        PD94bWwgdmVyc2lvbj0nMS4wJyBlbmNvZGluZz0nVVRGLTgnPz4NCjxzdmcgd2lkdGg9IjMycHgiIGhl
-        aWdodD0iMzJweCIgdmlld0JveD0iMCAwIDI1NiAyNTYiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8y
-        MDAwL3N2ZyIgZmlsbD0iI2ZmZmZmZiI+DQogIDxwYXRoIGQ9Ik0yMTMuNjYsODIuMzRsLTU2LTU2QTgs
-        OCwwLDAsMCwxNTIsMjRINTZBMTYsMTYsMCwwLDAsNDAsNDBWMjE2YTE2LDE2LDAsMCwwLDE2LDE2SDIw
-        MGExNiwxNiwwLDAsMCwxNi0xNlY4OEE4LDgsMCwwLDAsMjEzLjY2LDgyLjM0Wk0xNjAsNTEuMzEsMTg4
-        LjY5LDgwSDE2MFpNMjAwLDIxNkg1NlY0MGg4OFY4OGE4LDgsMCwwLDAsOCw4aDQ4VjIxNlptLTQ1LjU0
-        LTQ4Ljg1YTM2LjA1LDM2LjA1LDAsMSwwLTExLjMxLDExLjMxbDExLjE5LDExLjJhOCw4LDAsMCwwLDEx
-        LjMyLTExLjMyWk0xMDQsMTQ4YTIwLDIwLDAsMSwxLDIwLDIwQTIwLDIwLDAsMCwxLDEwNCwxNDhaIiAv
-        Pg0KPC9zdmc+Cw==
 </value>
   </data>
   <metadata name="xtraOpenFileDialog1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">

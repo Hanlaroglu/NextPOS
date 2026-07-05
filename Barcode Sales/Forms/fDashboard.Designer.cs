@@ -1330,6 +1330,7 @@
             this.accordionControlElement36.Name = "accordionControlElement36";
             this.accordionControlElement36.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.accordionControlElement36.Text = "Excel ilə əlavə";
+            this.accordionControlElement36.Click += new System.EventHandler(this.accordionControlElement36_Click);
             // 
             // accordionControlElement6
             // 

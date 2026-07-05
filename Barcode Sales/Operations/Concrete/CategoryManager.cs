@@ -12,7 +12,6 @@ namespace Barcode_Sales.Operations.Concrete
     public class CategoryManager : ICategoryOperation
     {
         KhanposDbEntities db = new KhanposDbEntities();
-        private IProductOperation productOperation { get; set; }
 
         public async Task<int> Add(Category item)
         {

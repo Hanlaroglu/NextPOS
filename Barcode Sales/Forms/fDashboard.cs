@@ -33,7 +33,7 @@ namespace Barcode_Sales.Forms
         ITerminalOperation terminalOperation = new TerminalManager();
         IScaleOperation scaleOperation = new ScaleManager();
 
-        private GridView _activeGridView;
+        private GridView _activeGridView { get; set; }
         public fDashboard()
         {
             InitializeComponent();
@@ -108,7 +108,7 @@ namespace Barcode_Sales.Forms
                     StoreDelete();
                 else if (navigationMenu.SelectedPage == pageSupplier)
                     SupplierDelete();
-                else if (navigationMenu.SelectedPage == pageProduct)
+                else if (navigationMenu.SelectedPage == pageProduct && tabPane3.SelectedPage == tabProducts)
                     ProductDelete();
                 else if (navigationMenu.SelectedPage == pageProduct && tabPane3.SelectedPage == tabCategory)
                     await CategoryDelete();
@@ -133,7 +133,7 @@ namespace Barcode_Sales.Forms
         {
             if (tabPane3.SelectedPage == tabCategory)
             {
-                await CategoryDataListAsync();
+                await GetCategories();
             }
         }
 
@@ -709,11 +709,11 @@ namespace Barcode_Sales.Forms
         {
             FormHelpers.OpenForm<fAddCategory>(async () =>
             {
-                await CategoryDataListAsync();
+                await GetCategories();
             }, Operation.Add, null);
         }
 
-        private async Task CategoryDataListAsync()
+        private async Task GetCategories()
         {
             var data = await categoryOperation.CategoriesList();
             ControlLoad(data, gridControlCategory);
@@ -741,7 +741,7 @@ namespace Barcode_Sales.Forms
             fAddCategory f = new fAddCategory(Enums.Operation.Edit, data);
             f.FormClosed += async (s, x) =>
             {
-                await CategoryDataListAsync();
+                await GetCategories();
             };
             f.ShowDialog();
         }
@@ -751,19 +751,44 @@ namespace Barcode_Sales.Forms
             var row = gridCategory.GetFocusedRow() as CategoryDto;
             if (row is null) return;
 
+            bool categoryIsDelete = false;
+
             var data = await categoryOperation.Get(x => x.Id == row.Id);
 
-            var args = NotificationHelpers.Dialogs.DialogResultYesNo(
-                $"({data.CategoryName}) kateqoriyasını silmək istədiyinizə əminsiniz ?", String.Empty);
+            if (row.ProductsCount > 0)
+            {
+                var productResult = NotificationHelpers.Dialogs.DialogResultYesNo(
+                    $"Kateqoriyanın tərkibində {row.ProductsCount} məhsul var. Həmin məhsulları da silmək istədiyinizə əminsinizmi ?", String.Empty);
 
-            var dialog = XtraMessageBox.Show(args);
+                var productDialog = XtraMessageBox.Show(productResult);
+                if (productDialog is DialogResult.Yes)
+                {
+                    var products = await productOperation.ToListAsync(x => x.CategoryId == row.Id && x.IsDeleted == false);
+                    products.ForEach(x => x.IsDeleted = true);
 
-            if (dialog is DialogResult.Yes)
+                    var deleteProduct = await productOperation.Update(products, x => x.IsDeleted);
+                    if (deleteProduct)
+                        categoryIsDelete = true;
+                }
+            }
+            else
+            {
+                var args = NotificationHelpers.Dialogs.DialogResultYesNo(
+                    $"({data.CategoryName}) kateqoriyasını silmək istədiyinizə əminsiniz ?", String.Empty);
+
+                var dialog = XtraMessageBox.Show(args);
+                if (dialog is DialogResult.Yes)
+                    categoryIsDelete = true;
+            }
+
+
+
+            if (categoryIsDelete)
             {
                 var result = await categoryOperation.Remove(data);
                 if (result)
                 {
-                    await CategoryDataListAsync();
+                    await GetCategories();
                     NotificationHelpers.Messages.SuccessMessage(this, $"{data.CategoryName} kateqoriyası uğurla silindi");
                 }
             }
@@ -1263,6 +1288,12 @@ namespace Barcode_Sales.Forms
                 await GetTerminals();
                 NotificationHelpers.Messages.SuccessMessage(this, "Kassa uğurla silindi");
             }
+        }
+
+        private void accordionControlElement36_Click(object sender, EventArgs e)
+        {
+            fAddProductImport f = new fAddProductImport();
+            f.ShowDialog();
         }
     }
 }

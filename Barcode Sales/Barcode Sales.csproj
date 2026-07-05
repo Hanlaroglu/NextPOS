@@ -259,6 +259,7 @@
     <Compile Include="DTOs\PosSaleSummaryDto.cs" />
     <Compile Include="DTOs\ProductDto.cs" />
     <Compile Include="DTOs\ProductInvoiceDto.cs" />
+    <Compile Include="DTOs\ProductInvoiceImportDto.cs" />
     <Compile Include="DTOs\ScaleDto.cs" />
     <Compile Include="DTOs\StockReportDto.cs" />
     <Compile Include="DTOs\StoresDto.cs" />
@@ -725,7 +726,6 @@
     <Compile Include="Services\CacheServices\DatetimeService.cs" />
     <Compile Include="Services\CacheServices\TerminalCacheService.cs" />
     <Compile Include="Services\CacheServices\UserCacheService.cs" />
-    <Compile Include="Services\ExcelService.cs" />
     <Compile Include="Services\Interfaces\IPosSaleService.cs" />
     <Compile Include="Services\PosSaleService.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />
