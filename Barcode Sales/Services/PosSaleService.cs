@@ -42,16 +42,16 @@ namespace Barcode_Sales.Services
             if (saleId == -1)
                 return -1;
 
-            sale.Items
-                .Select(x => new PosSaleItem
-                {
-                    PosSaleId = saleId,
-                    ProductId = x.Id,
-                    Quantity = x.Quantity,
-                    SalePrice = x.SalePrice,
-                    Discount = x.Discount
-                })
-                .ToList();
+           var items = sale.Items.Select(x => new PosSaleItem
+            {
+                PosSaleId = saleId,
+                ProductId = x.Id,
+                Quantity = x.Quantity,
+                SalePrice = x.SalePrice,
+                Discount = x.Discount
+            }).ToList();
+
+            var itemResult = await saleItemOperation.Add(items);
 
             return saleId;
         }

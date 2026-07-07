@@ -1700,7 +1700,6 @@
             this.accordionControlElement27.Name = "accordionControlElement27";
             this.accordionControlElement27.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.accordionControlElement27.Text = "Ümumi";
-            this.accordionControlElement27.Click += new System.EventHandler(this.accordionControlElement27_Click);
             // 
             // accordionControlElement26
             // 
@@ -3523,7 +3522,6 @@
             this.tBackupSendEmail.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions4, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject13, serializableAppearanceObject14, serializableAppearanceObject15, serializableAppearanceObject16, "", "Edit", null, DevExpress.Utils.ToolTipAnchor.Default),
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions5, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject17, serializableAppearanceObject18, serializableAppearanceObject19, serializableAppearanceObject20, "", "Save", null, DevExpress.Utils.ToolTipAnchor.Default)});
-            this.tBackupSendEmail.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.tBackupSendEmail_Properties_ButtonClick);
             this.tBackupSendEmail.Size = new System.Drawing.Size(315, 30);
             this.tBackupSendEmail.StyleController = this.layoutControl1;
             this.tBackupSendEmail.TabIndex = 28;

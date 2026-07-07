@@ -13,6 +13,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraLayout.Utils;
 using static Barcode_Sales.Helpers.Enums;
@@ -259,7 +260,7 @@ namespace Barcode_Sales.Forms
                         fPosSales _form = Application.OpenForms.OfType<fPosSales>().FirstOrDefault();
                         if (result.Success)
                         {
-                            UpdateProducts(_posRefundDto.Items);
+                           await UpdateProducts(_posRefundDto.Items);
                             NotificationHelpers.Messages.SuccessMessage(_form, result.Message);
                         }
                         else
@@ -270,10 +271,11 @@ namespace Barcode_Sales.Forms
             }
         }
 
-        private async void UpdateProducts(BindingList<PosSaleItemDto> items)
+        private async Task UpdateProducts(BindingList<PosSaleItemDto> items)
         {
+            List<PosSaleItemDto> list = items.ToList();
             List<Products> products = new List<Products>();
-            foreach (var item in items)
+            foreach (var item in list)
             {
                 var product = await productOperation.Get(x => x.Id == item.ProductId);
                 product.Quantity += item.RefundQuantity;
