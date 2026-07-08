@@ -119,6 +119,21 @@ namespace Barcode_Sales.Helpers
             Service
         }
 
+        public enum PrinterConnectionType
+        {
+            USB = 1,
+            Network,
+            COM,
+            Windows
+        }
+
+        public enum PrinterType
+        {
+            Receipt = 1,
+            Barcode,
+            Invoice
+        }
+
         public enum Week
         {
             [Description("Bazar Ertəsi")]

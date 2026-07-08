@@ -1072,7 +1072,7 @@ namespace Barcode_Sales.Forms
 
         private void bAddUser_Click(object sender, EventArgs e)
         {
-            fAddUser f = new fAddUser(Operation.Add);
+            fAddUser f = new fAddUser(Operation.Add, null);
             f.FormClosed += async (s, x) =>
             {
                 await GetUsers();
@@ -1294,6 +1294,11 @@ namespace Barcode_Sales.Forms
         {
             fAddProductImport f = new fAddProductImport();
             f.ShowDialog();
+        }
+
+        private void accordionControlElement40_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

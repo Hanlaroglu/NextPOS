@@ -4,6 +4,7 @@ using Barcode_Sales.Operations.Concrete;
 using Barcode_Sales.Validations;
 using System;
 using System.Threading.Tasks;
+using Barcode_Sales.Services.CacheServices;
 using DevExpress.XtraLayout.Utils;
 
 namespace Barcode_Sales.Forms
@@ -33,13 +34,16 @@ namespace Barcode_Sales.Forms
 
         private async Task GetUser()
         {
-            lookStores.EditValue = _user.StoreId;
+            lookStores.EditValue = UserCacheService.User.StoreId;
             lookStores.Enabled = false;
-            lookRole.EditValue = _user.RoleId;
-            tPassword.Text = _user.Password;
-            tUsername.Text = _user.Username;
-            tNameSurname.Text = _user.NameSurname;
-            layoutControlItem8.Visibility = LayoutVisibility.Never;
+            if (_user != null)
+            {
+                lookRole.EditValue = _user.RoleId;
+                tPassword.Text = _user.Password;
+                tUsername.Text = _user.Username;
+                tNameSurname.Text = _user.NameSurname;
+                layoutControlItem8.Visibility = LayoutVisibility.Never;
+            }
         }
 
         private async Task GetStores()
