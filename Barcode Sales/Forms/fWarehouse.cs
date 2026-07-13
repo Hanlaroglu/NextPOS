@@ -58,7 +58,7 @@ namespace Barcode_Sales.Forms
             {
                 Name = tName.Text.Trim(),
                 Status = chStatus.Checked,
-                IsDeleted = 0
+                IsDeleted = false
             };
 
             var validator = ValidationHelpers.ValidateMessage(_warehouses, new WarehouseValidation(), this);

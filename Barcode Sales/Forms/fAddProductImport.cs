@@ -1,12 +1,15 @@
 ﻿using Barcode_Sales.DTOs;
+using DevExpress.XtraEditors;
 using ExcelDataReader;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
+using Barcode_Sales.Services.CacheServices;
 
 namespace Barcode_Sales.Forms
 {
@@ -29,7 +32,7 @@ namespace Barcode_Sales.Forms
 
         private void bSelectFile_Click(object sender, EventArgs e)
         {
-            using (OpenFileDialog openFileDialog = new OpenFileDialog()
+            using (OpenFileDialog openFileDialog = new OpenFileDialog
             {
                 Title = "Excel seçimi",
                 Filter = "Excell 97-2003 Workbook|.xls|Excell Workbook|*.xlsx",
@@ -189,6 +192,7 @@ namespace Barcode_Sales.Forms
                     unitTypeCache = unitTypes.ToDictionary(x => x.Name, x => x);
                     taxTypeCache = taxTypes.ToDictionary(x => x.Name, x => x);
 
+                    List<Warehouse> warehouseList = new List<Warehouse>();
                     List<Supplier> supplierList = new List<Supplier>();
                     List<Category> categoryList = new List<Category>();
                     List<Products> productList = new List<Products>();
@@ -197,15 +201,30 @@ namespace Barcode_Sales.Forms
                     {
                         if (!warehouseCache.TryGetValue(row.WarehouseName, out var warehouse))
                         {
-                            transaction.Rollback();
-                            NotificationHelpers.Messages.ErrorMessage(this, $"Anbar tapılmadı\nAnbar adı:{row.WarehouseName}");
-                            return;
+                            var dialog =
+                                NotificationHelpers.Dialogs.DialogResultYesNo($"{row.WarehouseName} Anbarı yoxdur. Yenisi yaradılsınmı ?");
+
+                            var result = XtraMessageBox.Show(dialog);
+
+                            if (result is DialogResult.Yes)
+                            {
+                                warehouse = AddWarehouse(row.WarehouseName);
+                            }
+                            else
+                            {
+                                transaction.Rollback();
+                                NotificationHelpers.Messages.ErrorMessage(this, $"Anbar tapılmadı\nAnbar adı:{row.WarehouseName}");
+                                return;
+                            }
                         }
 
                         if (!supplierCache.TryGetValue(row.SupplierName, out var supplier))
                         {
+                            //Dialog ilə soruş
+                            supplier = AddSupplier(row.SupplierName);
                             transaction.Rollback();
                             NotificationHelpers.Messages.ErrorMessage(this, $"Təchizatçı tapılmadı\nTəchizatçı adı: {row.SupplierName}");
+
                             return;
                         }
 
@@ -213,6 +232,8 @@ namespace Barcode_Sales.Forms
                         {
                             transaction.Rollback();
                             NotificationHelpers.Messages.ErrorMessage(this, $"Kateqoriya tapılmadı\nKateqoriya adı: {row.CategoryName}");
+                            //Dialog ilə soruş
+                            category = AddCategory(row.CategoryName);
                             return;
                         }
 
@@ -235,6 +256,80 @@ namespace Barcode_Sales.Forms
                 {
                     Console.WriteLine(e);
                     throw;
+                }
+            }
+        }
+
+        private Warehouse AddWarehouse(string warehouseName)
+        {
+            var warehouse = new Warehouse
+            {
+                Name = warehouseName,
+                IsDeleted = false,
+                Status = true
+            };
+
+            return warehouse;
+        }
+
+        private Supplier AddSupplier(string supplierName)
+        {
+            var supplier = new Supplier
+            {
+                SupplierName = supplierName,
+                Debt = 0,
+                Status = true,
+                IsDeleted = false
+            };
+
+            return supplier;
+        }
+
+        private Category AddCategory(string categoryName)
+        {
+            var category = new Category
+            {
+                CategoryName = categoryName,
+                Status = true,
+                IsDeleted = false
+            };
+
+            return category;
+        }
+
+        private void bDownloadTemplate_Click(object sender, EventArgs e)
+        {
+            string sourcePath = Path.Combine(Application.StartupPath, "Documents", "Invoices_Demo.xlsx");
+            if (!File.Exists(sourcePath))
+            {
+                NotificationHelpers.Messages.ErrorMessage(this, "Excel faylı tapılmadı");
+                return;
+            }
+
+            using (SaveFileDialog saveFile = new SaveFileDialog())
+            {
+                saveFile.FileName = $"Invoices_{DatetimeService.CurrentDateString}.xlsx";
+                saveFile.Filter = "Excel Files (*.xlsx)|*.xlsx";
+                saveFile.Title = "Sənədi yüklə";
+                if (saveFile.ShowDialog() is DialogResult.OK)
+                {
+                    try
+                    {
+                        File.Copy(sourcePath, saveFile.FileName, true);
+                        Process.Start(new ProcessStartInfo
+                        {
+                            FileName = saveFile.FileName,
+                            UseShellExecute = true
+                        });
+                    }
+                    catch (IOException)
+                    {
+                        NotificationHelpers.Messages.WarningMessage(this, "Seçilmiş Excel faylı hazırda açıqdır. Zəhmət olmasa faylı bağlayıb yenidən cəhd edin.");
+                    }
+                    catch (Exception ex)
+                    {
+                        NotificationHelpers.Messages.ErrorMessage(this, $"Xəta.\n {ex.Message}");
+                    }
                 }
             }
         }

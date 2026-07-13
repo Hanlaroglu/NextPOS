@@ -427,8 +427,8 @@
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name" Type="nvarchar" MaxLength="50" />
-    <Property Name="IsDeleted" Type="int" />
     <Property Name="Status" Type="bit" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
   </EntityType>
   <!--Errors Found During Generation:
 warning 6002: The table/view 'KhanposDb.dbo.view_InvoiceRollbackList' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->

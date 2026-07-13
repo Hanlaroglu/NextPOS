@@ -61,7 +61,7 @@ namespace Barcode_Sales.Forms
 
         private async void WarehouseLoad()
         {
-            var data = await warehouseOperation.ToListAsync(x => x.IsDeleted == 0);
+            var data = await warehouseOperation.ToListAsync(x => x.IsDeleted == false);
             FormHelpers.ControlLoad(data, lookWarehouse);
         }
 

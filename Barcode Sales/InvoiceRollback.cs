@@ -33,7 +33,7 @@ namespace Barcode_Sales
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<InvoiceRollbackDetail> InvoiceRollbackDetails { get; set; }
         public virtual Invoice Invoice { get; set; }
-        public virtual Warehouse Warehouse { get; set; }
         public virtual User User { get; set; }
+        public virtual Warehouse Warehouse { get; set; }
     }
 }

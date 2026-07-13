@@ -94,7 +94,7 @@ namespace Barcode_Sales.Operations.Concrete
         {
             try
             {
-                item.IsDeleted = item.Id;
+                item.IsDeleted = true;
                 var result = await Update(item, x => x.IsDeleted);
 
                 return result;
@@ -120,11 +120,11 @@ namespace Barcode_Sales.Operations.Concrete
         {
             if (expression is null)
                 return await db.Warehouses.AsNoTracking()
-                    .Where(x => x.IsDeleted == 0)
+                    .Where(x => x.IsDeleted == false)
                     .ToListAsync();
             else
                 return await db.Warehouses.AsNoTracking()
-                    .Where(x => x.IsDeleted == 0)
+                    .Where(x => x.IsDeleted == false)
                     .Where(expression)
                     .ToListAsync();
         }

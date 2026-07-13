@@ -309,6 +309,12 @@
     <Compile Include="Forms\fAddProductImport.Designer.cs">
       <DependentUpon>fAddProductImport.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\fAddProductImportSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\fAddProductImportSettings.Designer.cs">
+      <DependentUpon>fAddProductImportSettings.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\fAddRole.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1009,6 +1015,9 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Model1.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <None Include="bin\Debug\Documents\Invoices_Demo.xlsx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="Model1.edmx.diagram">
       <DependentUpon>Model1.edmx</DependentUpon>
     </None>

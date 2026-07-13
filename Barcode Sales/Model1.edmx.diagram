@@ -15,9 +15,7 @@
         <EntityTypeShape EntityType="KhanposDbModel.TaxType" Width="1.5" PointX="8.25" PointY="27.5" />
         <EntityTypeShape EntityType="KhanposDbModel.TerminalIncomesAndExpens" Width="1.5" PointX="0.75" PointY="8.75" />
         <EntityTypeShape EntityType="KhanposDbModel.UnitType" Width="1.5" PointX="8.25" PointY="30.25" />
-        <EntityTypeShape EntityType="KhanposDbModel.Warehouse" Width="1.5" PointX="0.75" PointY="17.625" />
         <AssociationConnector Association="KhanposDbModel.FK_CustomerPayments_CustomersDebts" />
-        <AssociationConnector Association="KhanposDbModel.FK_Stores_Warehouses" />
         <EntityTypeShape EntityType="KhanposDbModel.PosSaleItem" Width="1.5" PointX="16.75" PointY="29.625" FillColor="SeaGreen" />
         <EntityTypeShape EntityType="KhanposDbModel.Products" Width="1.5" PointX="10.5" PointY="23" />
         <AssociationConnector Association="KhanposDbModel.FK_Products_TaxType" />
@@ -40,14 +38,12 @@
         <EntityTypeShape EntityType="KhanposDbModel.Invoice" Width="1.5" PointX="15.5" PointY="15.75" FillColor="255, 255, 128" />
         <AssociationConnector Association="KhanposDbModel.FK_InvoiceDetails_Invoices" />
         <AssociationConnector Association="KhanposDbModel.FK_InvoiceDetails_Products" />
-        <AssociationConnector Association="KhanposDbModel.FK_Invoices_Warehouses" />
         <EntityTypeShape EntityType="KhanposDbModel.Category" Width="1.5" PointX="7.375" PointY="0.875" />
         <AssociationConnector Association="KhanposDbModel.FK_Products_Category" />
         <AssociationConnector Association="KhanposDbModel.FK_Invoices_Suppliers" />
         <EntityTypeShape EntityType="KhanposDbModel.InvoiceRollback" Width="1.5" PointX="17.75" PointY="15.75" FillColor="255, 255, 128" />
         <AssociationConnector Association="KhanposDbModel.FK_InvoiceRollbackDetails_InvoiceRollbacks" />
         <AssociationConnector Association="KhanposDbModel.FK_InvoiceRollbacks_Invoices" />
-        <AssociationConnector Association="KhanposDbModel.FK_InvoiceRollbacks_Warehouses" />
         <AssociationConnector Association="KhanposDbModel.FK_InvoiceRollbackDetails_Products" />
         <EntityTypeShape EntityType="KhanposDbModel.Customer" Width="1.5" PointX="9.75" PointY="33.875" />
         <AssociationConnector Association="KhanposDbModel.FK_Customers_CustomerGroups" />
@@ -82,6 +78,10 @@
         <AssociationConnector Association="KhanposDbModel.FK_Scales_Users" />
         <AssociationConnector Association="KhanposDbModel.FK_Users_Stores" />
         <AssociationConnector Association="KhanposDbModel.FK_Terminals_User" />
+        <EntityTypeShape EntityType="KhanposDbModel.Warehouse" Width="1.5" PointX="0.75" PointY="11.875" />
+        <AssociationConnector Association="KhanposDbModel.FK_InvoiceRollbacks_Warehouses" />
+        <AssociationConnector Association="KhanposDbModel.FK_Invoices_Warehouses" />
+        <AssociationConnector Association="KhanposDbModel.FK_Stores_Warehouses" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

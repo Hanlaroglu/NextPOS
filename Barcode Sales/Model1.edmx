@@ -432,8 +432,8 @@
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="50" />
-          <Property Name="IsDeleted" Type="int" />
           <Property Name="Status" Type="bit" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'KhanposDb.dbo.view_InvoiceRollbackList' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -1232,14 +1232,9 @@ warning 6002: The table/view 'KhanposDb.dbo.view_InvoiceRollbackList' does not h
           <EntitySet Name="TaxTypes" EntityType="KhanposDbModel.TaxType" />
           <EntitySet Name="TerminalIncomesAndExpenses" EntityType="KhanposDbModel.TerminalIncomesAndExpens" />
           <EntitySet Name="UnitTypes" EntityType="KhanposDbModel.UnitType" />
-          <EntitySet Name="Warehouses" EntityType="KhanposDbModel.Warehouse" />
           <AssociationSet Name="FK_CustomerPayments_CustomersDebts" Association="KhanposDbModel.FK_CustomerPayments_CustomersDebts">
             <End Role="CustomersDebt" EntitySet="CustomersDebts" />
             <End Role="CustomerPayment" EntitySet="CustomerPayments" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Stores_Warehouses" Association="KhanposDbModel.FK_Stores_Warehouses">
-            <End Role="Warehouse" EntitySet="Warehouses" />
-            <End Role="Store" EntitySet="Stores" />
           </AssociationSet>
           <EntitySet Name="PosSaleItems" EntityType="KhanposDbModel.PosSaleItem" />
           <EntitySet Name="Products" EntityType="KhanposDbModel.Products" />
@@ -1293,10 +1288,6 @@ warning 6002: The table/view 'KhanposDb.dbo.view_InvoiceRollbackList' does not h
             <End Role="Products" EntitySet="Products" />
             <End Role="InvoiceDetail" EntitySet="InvoiceDetails" />
           </AssociationSet>
-          <AssociationSet Name="FK_Invoices_Warehouses" Association="KhanposDbModel.FK_Invoices_Warehouses">
-            <End Role="Warehouse" EntitySet="Warehouses" />
-            <End Role="Invoice" EntitySet="Invoices" />
-          </AssociationSet>
           <EntitySet Name="Categories" EntityType="KhanposDbModel.Category" />
           <AssociationSet Name="FK_Products_Category" Association="KhanposDbModel.FK_Products_Category">
             <End Role="Category" EntitySet="Categories" />
@@ -1313,10 +1304,6 @@ warning 6002: The table/view 'KhanposDb.dbo.view_InvoiceRollbackList' does not h
           </AssociationSet>
           <AssociationSet Name="FK_InvoiceRollbacks_Invoices" Association="KhanposDbModel.FK_InvoiceRollbacks_Invoices">
             <End Role="Invoice" EntitySet="Invoices" />
-            <End Role="InvoiceRollback" EntitySet="InvoiceRollbacks" />
-          </AssociationSet>
-          <AssociationSet Name="FK_InvoiceRollbacks_Warehouses" Association="KhanposDbModel.FK_InvoiceRollbacks_Warehouses">
-            <End Role="Warehouse" EntitySet="Warehouses" />
             <End Role="InvoiceRollback" EntitySet="InvoiceRollbacks" />
           </AssociationSet>
           <AssociationSet Name="FK_InvoiceRollbackDetails_Products" Association="KhanposDbModel.FK_InvoiceRollbackDetails_Products">
@@ -1431,6 +1418,19 @@ warning 6002: The table/view 'KhanposDb.dbo.view_InvoiceRollbackList' does not h
             <End Role="User" EntitySet="Users" />
             <End Role="Terminal" EntitySet="Terminals" />
           </AssociationSet>
+          <EntitySet Name="Warehouses" EntityType="KhanposDbModel.Warehouse" />
+          <AssociationSet Name="FK_InvoiceRollbacks_Warehouses" Association="KhanposDbModel.FK_InvoiceRollbacks_Warehouses">
+            <End Role="Warehouse" EntitySet="Warehouses" />
+            <End Role="InvoiceRollback" EntitySet="InvoiceRollbacks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Invoices_Warehouses" Association="KhanposDbModel.FK_Invoices_Warehouses">
+            <End Role="Warehouse" EntitySet="Warehouses" />
+            <End Role="Invoice" EntitySet="Invoices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Stores_Warehouses" Association="KhanposDbModel.FK_Stores_Warehouses">
+            <End Role="Warehouse" EntitySet="Warehouses" />
+            <End Role="Store" EntitySet="Stores" />
+          </AssociationSet>
           </EntityContainer>
         <EntityType Name="CloseShiftReport">
           <Key>
@@ -1512,10 +1512,10 @@ warning 6002: The table/view 'KhanposDb.dbo.view_InvoiceRollbackList' does not h
           <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Status" Type="Boolean" Nullable="false" />
           <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="Warehouse" Relationship="KhanposDbModel.FK_Stores_Warehouses" FromRole="Store" ToRole="Warehouse" />
           <NavigationProperty Name="Terminals" Relationship="KhanposDbModel.FK_Terminals_Stores" FromRole="Store" ToRole="Terminal" />
           <NavigationProperty Name="Scales" Relationship="KhanposDbModel.FK_Scales_Stores" FromRole="Store" ToRole="Scale" />
           <NavigationProperty Name="Users" Relationship="KhanposDbModel.FK_Users_Stores" FromRole="Store" ToRole="User" />
+          <NavigationProperty Name="Warehouse" Relationship="KhanposDbModel.FK_Stores_Warehouses" FromRole="Store" ToRole="Warehouse" />
         </EntityType>
         <EntityType Name="TaxType">
           <Key>
@@ -1545,18 +1545,6 @@ warning 6002: The table/view 'KhanposDb.dbo.view_InvoiceRollbackList' does not h
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Products" Relationship="KhanposDbModel.FK_Products_UnitType" FromRole="UnitType" ToRole="Products" />
         </EntityType>
-        <EntityType Name="Warehouse">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="IsDeleted" Type="Int32" />
-          <Property Name="Status" Type="Boolean" />
-          <NavigationProperty Name="Stores" Relationship="KhanposDbModel.FK_Stores_Warehouses" FromRole="Warehouse" ToRole="Store" />
-          <NavigationProperty Name="Invoices" Relationship="KhanposDbModel.FK_Invoices_Warehouses" FromRole="Warehouse" ToRole="Invoice" />
-          <NavigationProperty Name="InvoiceRollbacks" Relationship="KhanposDbModel.FK_InvoiceRollbacks_Warehouses" FromRole="Warehouse" ToRole="InvoiceRollback" />
-        </EntityType>
         <Association Name="FK_CustomerPayments_CustomersDebts">
           <End Type="KhanposDbModel.CustomersDebt" Role="CustomersDebt" Multiplicity="0..1" />
           <End Type="KhanposDbModel.CustomerPayment" Role="CustomerPayment" Multiplicity="*" />
@@ -1566,18 +1554,6 @@ warning 6002: The table/view 'KhanposDb.dbo.view_InvoiceRollbackList' does not h
             </Principal>
             <Dependent Role="CustomerPayment">
               <PropertyRef Name="CustomerDebtId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Stores_Warehouses">
-          <End Type="KhanposDbModel.Warehouse" Role="Warehouse" Multiplicity="1" />
-          <End Type="KhanposDbModel.Store" Role="Store" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Warehouse">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Store">
-              <PropertyRef Name="WarehouseId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1888,10 +1864,10 @@ warning 6002: The table/view 'KhanposDb.dbo.view_InvoiceRollbackList' does not h
           <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="InvoiceDetails" Relationship="KhanposDbModel.FK_InvoiceDetails_Invoices" FromRole="Invoice" ToRole="InvoiceDetail" />
-          <NavigationProperty Name="Warehouse" Relationship="KhanposDbModel.FK_Invoices_Warehouses" FromRole="Invoice" ToRole="Warehouse" />
           <NavigationProperty Name="Supplier" Relationship="KhanposDbModel.FK_Invoices_Suppliers" FromRole="Invoice" ToRole="Supplier" />
           <NavigationProperty Name="InvoiceRollbacks" Relationship="KhanposDbModel.FK_InvoiceRollbacks_Invoices" FromRole="Invoice" ToRole="InvoiceRollback" />
           <NavigationProperty Name="User" Relationship="KhanposDbModel.FK_Invoices_Users" FromRole="Invoice" ToRole="User" />
+          <NavigationProperty Name="Warehouse" Relationship="KhanposDbModel.FK_Invoices_Warehouses" FromRole="Invoice" ToRole="Warehouse" />
         </EntityType>
         <Association Name="FK_InvoiceDetails_Invoices">
           <End Type="KhanposDbModel.Invoice" Role="Invoice" Multiplicity="1" />
@@ -1914,18 +1890,6 @@ warning 6002: The table/view 'KhanposDb.dbo.view_InvoiceRollbackList' does not h
             </Principal>
             <Dependent Role="InvoiceDetail">
               <PropertyRef Name="ProductId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Invoices_Warehouses">
-          <End Type="KhanposDbModel.Warehouse" Role="Warehouse" Multiplicity="1" />
-          <End Type="KhanposDbModel.Invoice" Role="Invoice" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Warehouse">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Invoice">
-              <PropertyRef Name="WarehouseId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1978,8 +1942,8 @@ warning 6002: The table/view 'KhanposDb.dbo.view_InvoiceRollbackList' does not h
           <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="InvoiceRollbackDetails" Relationship="KhanposDbModel.FK_InvoiceRollbackDetails_InvoiceRollbacks" FromRole="InvoiceRollback" ToRole="InvoiceRollbackDetail" />
           <NavigationProperty Name="Invoice" Relationship="KhanposDbModel.FK_InvoiceRollbacks_Invoices" FromRole="InvoiceRollback" ToRole="Invoice" />
-          <NavigationProperty Name="Warehouse" Relationship="KhanposDbModel.FK_InvoiceRollbacks_Warehouses" FromRole="InvoiceRollback" ToRole="Warehouse" />
           <NavigationProperty Name="User" Relationship="KhanposDbModel.FK_InvoiceRollbacks_Users" FromRole="InvoiceRollback" ToRole="User" />
+          <NavigationProperty Name="Warehouse" Relationship="KhanposDbModel.FK_InvoiceRollbacks_Warehouses" FromRole="InvoiceRollback" ToRole="Warehouse" />
         </EntityType>
         <Association Name="FK_InvoiceRollbackDetails_InvoiceRollbacks">
           <End Type="KhanposDbModel.InvoiceRollback" Role="InvoiceRollback" Multiplicity="1" />
@@ -2002,18 +1966,6 @@ warning 6002: The table/view 'KhanposDb.dbo.view_InvoiceRollbackList' does not h
             </Principal>
             <Dependent Role="InvoiceRollback">
               <PropertyRef Name="InvoiceId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_InvoiceRollbacks_Warehouses">
-          <End Type="KhanposDbModel.Warehouse" Role="Warehouse" Multiplicity="1" />
-          <End Type="KhanposDbModel.InvoiceRollback" Role="InvoiceRollback" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Warehouse">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="InvoiceRollback">
-              <PropertyRef Name="WarehouseId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -2501,6 +2453,54 @@ warning 6002: The table/view 'KhanposDb.dbo.view_InvoiceRollbackList' does not h
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Warehouse">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="Boolean" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="InvoiceRollbacks" Relationship="KhanposDbModel.FK_InvoiceRollbacks_Warehouses" FromRole="Warehouse" ToRole="InvoiceRollback" />
+          <NavigationProperty Name="Invoices" Relationship="KhanposDbModel.FK_Invoices_Warehouses" FromRole="Warehouse" ToRole="Invoice" />
+          <NavigationProperty Name="Stores" Relationship="KhanposDbModel.FK_Stores_Warehouses" FromRole="Warehouse" ToRole="Store" />
+        </EntityType>
+        <Association Name="FK_InvoiceRollbacks_Warehouses">
+          <End Type="KhanposDbModel.Warehouse" Role="Warehouse" Multiplicity="1" />
+          <End Type="KhanposDbModel.InvoiceRollback" Role="InvoiceRollback" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Warehouse">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="InvoiceRollback">
+              <PropertyRef Name="WarehouseId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Invoices_Warehouses">
+          <End Type="KhanposDbModel.Warehouse" Role="Warehouse" Multiplicity="1" />
+          <End Type="KhanposDbModel.Invoice" Role="Invoice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Warehouse">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Invoice">
+              <PropertyRef Name="WarehouseId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Stores_Warehouses">
+          <End Type="KhanposDbModel.Warehouse" Role="Warehouse" Multiplicity="1" />
+          <End Type="KhanposDbModel.Store" Role="Store" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Warehouse">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Store">
+              <PropertyRef Name="WarehouseId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -2612,16 +2612,6 @@ warning 6002: The table/view 'KhanposDb.dbo.view_InvoiceRollbackList' does not h
           <EntitySetMapping Name="UnitTypes">
             <EntityTypeMapping TypeName="KhanposDbModel.UnitType">
               <MappingFragment StoreEntitySet="UnitTypes">
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Warehouses">
-            <EntityTypeMapping TypeName="KhanposDbModel.Warehouse">
-              <MappingFragment StoreEntitySet="Warehouses">
-                <ScalarProperty Name="Status" ColumnName="Status" />
-                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
@@ -2984,6 +2974,16 @@ warning 6002: The table/view 'KhanposDb.dbo.view_InvoiceRollbackList' does not h
                 <ScalarProperty Name="Password" ColumnName="Password" />
                 <ScalarProperty Name="Username" ColumnName="Username" />
                 <ScalarProperty Name="StoreId" ColumnName="StoreId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Warehouses">
+            <EntityTypeMapping TypeName="KhanposDbModel.Warehouse">
+              <MappingFragment StoreEntitySet="Warehouses">
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

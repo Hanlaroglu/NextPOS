@@ -375,7 +375,7 @@ namespace Barcode_Sales.Forms
 
         private async Task WarehouseDataList()
         {
-            var data = await warehouseOperation.Where(x => x.IsDeleted == 0)
+            var data = await warehouseOperation.Where(x => x.IsDeleted == false)
                 .Select(x => new WarehousesDto
                 {
                     Id = x.Id,
