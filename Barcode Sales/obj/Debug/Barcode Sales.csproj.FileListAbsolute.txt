@@ -1008,3 +1008,4 @@ C:\Users\PC-SUPPORT\Desktop\Khanpos\Barcode Sales\obj\Debug\Barcode_Sales.Forms.
 C:\Users\PC-SUPPORT\Desktop\Khanpos\Barcode Sales\obj\Debug\Barcode_Sales.Forms.fProductsReport.resources
 C:\Users\PC-SUPPORT\Desktop\Khanpos\Barcode Sales\obj\Debug\Barcode_Sales.Forms.fTestPay.resources
 D:\Hasan\PROJECTS\NextPOS.Barcode_12112024\NextPOS.Barcode\Barcode Sales\obj\Debug\Barcode_Sales.Forms.fTestPay.resources
+C:\Users\PC-SUPPORT\Desktop\Khanpos\Barcode Sales\obj\Debug\Barcode_Sales.Forms.fAddPrinter.resources

@@ -733,6 +733,7 @@
     <Compile Include="Services\CacheServices\DatetimeService.cs" />
     <Compile Include="Services\CacheServices\TerminalCacheService.cs" />
     <Compile Include="Services\CacheServices\UserCacheService.cs" />
+    <Compile Include="Services\IdempotencyService.cs" />
     <Compile Include="Services\Interfaces\IPosSaleService.cs" />
     <Compile Include="Services\PosSaleService.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />

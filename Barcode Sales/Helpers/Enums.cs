@@ -134,6 +134,11 @@ namespace Barcode_Sales.Helpers
             Invoice
         }
 
+        public enum IdempotencyOperation
+        {
+            PosSale = 1,
+        }
+
         public enum Week
         {
             [Description("Bazar Ertəsi")]
