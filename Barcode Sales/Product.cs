@@ -12,16 +12,16 @@ namespace Barcode_Sales
     using System;
     using System.Collections.Generic;
     
-    public partial class Products
+    public partial class Product
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Products()
+        public Product()
         {
-            this.PosRefundItems = new HashSet<PosRefundItem>();
-            this.PosSaleItems = new HashSet<PosSaleItem>();
             this.InvoiceDetails = new HashSet<InvoiceDetail>();
             this.InvoiceRollbackDetails = new HashSet<InvoiceRollbackDetail>();
             this.PosBasketItems = new HashSet<PosBasketItem>();
+            this.PosRefundItems = new HashSet<PosRefundItem>();
+            this.PosSaleItems = new HashSet<PosSaleItem>();
         }
     
         public int Id { get; set; }
@@ -44,19 +44,19 @@ namespace Barcode_Sales
         public bool CanApplyDiscount { get; set; }
         public bool CanHotSaleProduct { get; set; }
     
-        public virtual TaxType TaxTypes { get; set; }
-        public virtual UnitType UnitTypes { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PosRefundItem> PosRefundItems { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PosSaleItem> PosSaleItems { get; set; }
+        public virtual Category Category { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<InvoiceDetail> InvoiceDetails { get; set; }
-        public virtual Category Category { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<InvoiceRollbackDetail> InvoiceRollbackDetails { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PosBasketItem> PosBasketItems { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<PosRefundItem> PosRefundItems { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<PosSaleItem> PosSaleItems { get; set; }
+        public virtual TaxType TaxType { get; set; }
+        public virtual UnitType UnitType { get; set; }
         public virtual User User { get; set; }
     }
 }

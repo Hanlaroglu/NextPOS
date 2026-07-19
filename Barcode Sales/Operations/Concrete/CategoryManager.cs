@@ -127,9 +127,14 @@ namespace Barcode_Sales.Operations.Concrete
 
         public async Task<List<CategoryDto>> CategoriesList()
         {
-            const string query = @"SELECT c.Id,c.CategoryName,c.[Status], c.IsDeleted, COUNT(p.Id) AS ProductsCount FROM Categories c
-LEFT JOIN Products p ON p.CategoryId = c.Id
-WHERE c.IsDeleted = 0 AND p.IsDeleted = 0
+            const string query = @"SELECT c.Id,
+  c.CategoryName,
+  c.[Status],
+  c.IsDeleted,
+  COUNT(p.Id) AS ProductsCount
+  FROM Categories c
+LEFT JOIN Products p ON p.CategoryId = c.Id  AND p.IsDeleted = 0
+WHERE c.IsDeleted = 0
 GROUP BY c.Id,c.CategoryName,c.[Status],c.IsDeleted";
 
             var data = await db.Database.SqlQuery<CategoryDto>(query).ToListAsync();

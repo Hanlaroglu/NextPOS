@@ -25,9 +25,9 @@ namespace Barcode_Sales
             this.PosBaskets = new HashSet<PosBasket>();
             this.PosRefunds = new HashSet<PosRefund>();
             this.PosSales = new HashSet<PosSale>();
-            this.Products = new HashSet<Products>();
             this.Scales = new HashSet<Scale>();
             this.Terminals = new HashSet<Terminal>();
+            this.Products = new HashSet<Product>();
         }
     
         public int Id { get; set; }
@@ -58,13 +58,13 @@ namespace Barcode_Sales
         public virtual ICollection<PosRefund> PosRefunds { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PosSale> PosSales { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Products> Products { get; set; }
         public virtual Role Role { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Scale> Scales { get; set; }
         public virtual Store Store { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Terminal> Terminals { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Product> Products { get; set; }
     }
 }

@@ -225,7 +225,7 @@ namespace Barcode_Sales.Forms
 
         private async void UpdateProducts(BindingList<PosSaleItemDto> items)
         {
-            List<Products> products = new List<Products>();
+            List<Product> products = new List<Product>();
 
             var itemsSnapshot = items.ToList();
             foreach (var item in itemsSnapshot)

@@ -30,16 +30,16 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fAddProductImport));
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions3 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject9 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject10 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject11 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject12 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions4 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject13 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject14 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject15 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject16 = new DevExpress.Utils.SerializableAppearanceObject();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.bImport = new DevExpress.XtraEditors.SimpleButton();
             this.bDownloadTemplate = new DevExpress.XtraEditors.LabelControl();
@@ -60,14 +60,13 @@
             this.gridColumn11 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn12 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn13 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn15 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.columnDelete = new DevExpress.XtraGrid.Columns.GridColumn();
             this.bDelete = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.tFilePath = new DevExpress.XtraEditors.ButtonEdit();
             this.lookSheet = new DevExpress.XtraEditors.LookUpEdit();
             this.bSelectFile = new DevExpress.XtraEditors.SimpleButton();
-            this.bShowProducts = new DevExpress.XtraEditors.LabelControl();
+            this.bSetting = new DevExpress.XtraEditors.LabelControl();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -135,7 +134,7 @@
             this.bDownloadTemplate.Appearance.Options.UseFont = true;
             this.bDownloadTemplate.Cursor = System.Windows.Forms.Cursors.Hand;
             this.bDownloadTemplate.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.bDownloadTemplate.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("labelControl1.ImageOptions.Image")));
+            this.bDownloadTemplate.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bDownloadTemplate.ImageOptions.Image")));
             this.bDownloadTemplate.Location = new System.Drawing.Point(12, 14);
             this.bDownloadTemplate.Name = "bDownloadTemplate";
             this.bDownloadTemplate.Size = new System.Drawing.Size(125, 28);
@@ -214,7 +213,6 @@
             this.gridColumn11,
             this.gridColumn12,
             this.gridColumn13,
-            this.gridColumn15,
             this.columnDelete});
             this.gridImport.DetailHeight = 50;
             this.gridImport.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFullFocus;
@@ -378,16 +376,6 @@
             this.gridColumn13.Visible = true;
             this.gridColumn13.VisibleIndex = 13;
             // 
-            // gridColumn15
-            // 
-            this.gridColumn15.Caption = "Məhsul statusu";
-            this.gridColumn15.FieldName = "IsStatus";
-            this.gridColumn15.Name = "gridColumn15";
-            this.gridColumn15.OptionsColumn.AllowEdit = false;
-            this.gridColumn15.OptionsColumn.AllowFocus = false;
-            this.gridColumn15.Visible = true;
-            this.gridColumn15.VisibleIndex = 14;
-            // 
             // columnDelete
             // 
             this.columnDelete.ColumnEdit = this.bDelete;
@@ -398,14 +386,14 @@
             this.columnDelete.OptionsColumn.AllowFocus = false;
             this.columnDelete.OptionsColumn.ShowCaption = false;
             this.columnDelete.Visible = true;
-            this.columnDelete.VisibleIndex = 15;
+            this.columnDelete.VisibleIndex = 14;
             this.columnDelete.Width = 50;
             // 
             // bDelete
             // 
-            editorButtonImageOptions1.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("editorButtonImageOptions1.SvgImage")));
+            editorButtonImageOptions3.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("editorButtonImageOptions3.SvgImage")));
             this.bDelete.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.bDelete.Name = "bDelete";
             this.bDelete.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             // 
@@ -415,7 +403,7 @@
             this.layoutControl1.Controls.Add(this.tFilePath);
             this.layoutControl1.Controls.Add(this.lookSheet);
             this.layoutControl1.Controls.Add(this.bSelectFile);
-            this.layoutControl1.Controls.Add(this.bShowProducts);
+            this.layoutControl1.Controls.Add(this.bSetting);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl1.Location = new System.Drawing.Point(0, 0);
             this.layoutControl1.Name = "layoutControl1";
@@ -431,12 +419,12 @@
             this.tFilePath.Name = "tFilePath";
             this.tFilePath.Properties.Appearance.Font = new System.Drawing.Font("Nunito", 12F);
             this.tFilePath.Properties.Appearance.Options.UseFont = true;
-            serializableAppearanceObject5.Font = new System.Drawing.Font("Nunito", 12F, System.Drawing.FontStyle.Bold);
-            serializableAppearanceObject5.ForeColor = System.Drawing.Color.Red;
-            serializableAppearanceObject5.Options.UseFont = true;
-            serializableAppearanceObject5.Options.UseForeColor = true;
+            serializableAppearanceObject13.Font = new System.Drawing.Font("Nunito", 12F, System.Drawing.FontStyle.Bold);
+            serializableAppearanceObject13.ForeColor = System.Drawing.Color.Red;
+            serializableAppearanceObject13.Options.UseFont = true;
+            serializableAppearanceObject13.Options.UseForeColor = true;
             this.tFilePath.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete, "", -1, true, false, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete, "", -1, true, false, false, editorButtonImageOptions4, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject13, serializableAppearanceObject14, serializableAppearanceObject15, serializableAppearanceObject16, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.tFilePath.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.tFilePath_Properties_ButtonClick);
             this.tFilePath.Size = new System.Drawing.Size(475, 36);
             this.tFilePath.StyleController = this.layoutControl1;
@@ -487,20 +475,20 @@
             this.bSelectFile.Text = "Faylı seç";
             this.bSelectFile.Click += new System.EventHandler(this.bSelectFile_Click);
             // 
-            // bShowProducts
+            // bSetting
             // 
-            this.bShowProducts.Appearance.Font = new System.Drawing.Font("Nunito", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
-            this.bShowProducts.Appearance.Options.UseFont = true;
-            this.bShowProducts.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bShowProducts.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.bShowProducts.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bShowProducts.ImageOptions.Image")));
-            this.bShowProducts.Location = new System.Drawing.Point(334, 45);
-            this.bShowProducts.Name = "bShowProducts";
-            this.bShowProducts.Size = new System.Drawing.Size(368, 36);
-            this.bShowProducts.StyleController = this.layoutControl1;
-            this.bShowProducts.TabIndex = 12;
-            this.bShowProducts.Text = "Məhsullara bax";
-            this.bShowProducts.Visible = false;
+            this.bSetting.Appearance.Font = new System.Drawing.Font("Nunito", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
+            this.bSetting.Appearance.Options.UseFont = true;
+            this.bSetting.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.bSetting.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+            this.bSetting.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bSetting.ImageOptions.Image")));
+            this.bSetting.Location = new System.Drawing.Point(334, 45);
+            this.bSetting.Name = "bSetting";
+            this.bSetting.Size = new System.Drawing.Size(368, 36);
+            this.bSetting.StyleController = this.layoutControl1;
+            this.bSetting.TabIndex = 12;
+            this.bSetting.Text = "Excel ayarları";
+            this.bSetting.Visible = false;
             // 
             // Root
             // 
@@ -549,7 +537,7 @@
             // 
             // layoutControlItem3
             // 
-            this.layoutControlItem3.Control = this.bShowProducts;
+            this.layoutControlItem3.Control = this.bSetting;
             this.layoutControlItem3.Location = new System.Drawing.Point(331, 42);
             this.layoutControlItem3.MaxSize = new System.Drawing.Size(0, 42);
             this.layoutControlItem3.MinSize = new System.Drawing.Size(150, 42);
@@ -558,6 +546,7 @@
             this.layoutControlItem3.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem3.TextVisible = false;
+            this.layoutControlItem3.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
             // 
             // layoutControlItem4
             // 
@@ -663,7 +652,7 @@
         private DevExpress.XtraEditors.PanelControl panelControl1;
         private DevExpress.XtraEditors.LookUpEdit lookSheet;
         private DevExpress.XtraEditors.SimpleButton bSelectFile;
-        private DevExpress.XtraEditors.LabelControl bShowProducts;
+        private DevExpress.XtraEditors.LabelControl bSetting;
         private DevExpress.XtraEditors.XtraOpenFileDialog xtraOpenFileDialog1;
         private DevExpress.XtraEditors.ButtonEdit tFilePath;
         private DevExpress.XtraGrid.GridControl gridControlImport;
@@ -682,7 +671,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn11;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn12;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn13;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn15;
         private DevExpress.XtraGrid.Columns.GridColumn columnDelete;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit bDelete;
         private DevExpress.XtraLayout.LayoutControl layoutControl1;

@@ -123,31 +123,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Products">
-      <EntityTypeMapping TypeName="KhanposDbModel.Products">
-        <MappingFragment StoreEntitySet="Products">
-          <ScalarProperty Name="CanHotSaleProduct" ColumnName="CanHotSaleProduct" />
-          <ScalarProperty Name="CanApplyDiscount" ColumnName="CanApplyDiscount" />
-          <ScalarProperty Name="CanSellWithoutStock" ColumnName="CanSellWithoutStock" />
-          <ScalarProperty Name="CanEditSalePrice" ColumnName="CanEditSalePrice" />
-          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
-          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
-          <ScalarProperty Name="CreatedUserId" ColumnName="CreatedUserId" />
-          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
-          <ScalarProperty Name="TaxId" ColumnName="TaxId" />
-          <ScalarProperty Name="UnitId" ColumnName="UnitId" />
-          <ScalarProperty Name="SalePrice" ColumnName="SalePrice" />
-          <ScalarProperty Name="PurchasePrice" ColumnName="PurchasePrice" />
-          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
-          <ScalarProperty Name="Barcode" ColumnName="Barcode" />
-          <ScalarProperty Name="ProductCode" ColumnName="ProductCode" />
-          <ScalarProperty Name="ProductName" ColumnName="ProductName" />
-          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
-          <ScalarProperty Name="Type" ColumnName="Type" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Companies">
       <EntityTypeMapping TypeName="KhanposDbModel.Company">
         <MappingFragment StoreEntitySet="Companies">
@@ -478,6 +453,31 @@
           <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
           <ScalarProperty Name="Status" ColumnName="Status" />
           <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Products">
+      <EntityTypeMapping TypeName="KhanposDbModel.Product">
+        <MappingFragment StoreEntitySet="Products">
+          <ScalarProperty Name="CanHotSaleProduct" ColumnName="CanHotSaleProduct" />
+          <ScalarProperty Name="CanApplyDiscount" ColumnName="CanApplyDiscount" />
+          <ScalarProperty Name="CanSellWithoutStock" ColumnName="CanSellWithoutStock" />
+          <ScalarProperty Name="CanEditSalePrice" ColumnName="CanEditSalePrice" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedUserId" ColumnName="CreatedUserId" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="TaxId" ColumnName="TaxId" />
+          <ScalarProperty Name="UnitId" ColumnName="UnitId" />
+          <ScalarProperty Name="SalePrice" ColumnName="SalePrice" />
+          <ScalarProperty Name="PurchasePrice" ColumnName="PurchasePrice" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="Barcode" ColumnName="Barcode" />
+          <ScalarProperty Name="ProductCode" ColumnName="ProductCode" />
+          <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>

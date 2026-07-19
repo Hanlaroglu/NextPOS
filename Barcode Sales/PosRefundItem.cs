@@ -23,7 +23,7 @@ namespace Barcode_Sales
         public decimal Discount { get; set; }
     
         public virtual PosRefund PosRefund { get; set; }
-        public virtual Products Product { get; set; }
         public virtual PosSaleItem PosSaleItem { get; set; }
+        public virtual Product Product { get; set; }
     }
 }

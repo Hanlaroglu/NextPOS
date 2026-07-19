@@ -2,7 +2,7 @@
 
 namespace Barcode_Sales.Validations
 {
-    public class ProductValidation : AbstractValidator<Products>
+    public class ProductValidation : AbstractValidator<Product>
     {
         public ProductValidation()
         {

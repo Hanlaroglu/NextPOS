@@ -12,13 +12,18 @@ namespace Barcode_Sales.Operations.Concrete
 {
     public class ProductManager : IProductOperation
     {
-        KhanposDbEntities db = new KhanposDbEntities();
+        KhanposDbEntities db;
 
-        public async Task<int> Add(Products item)
+        public ProductManager(KhanposDbEntities _db = null)
+        {
+            db = _db ?? new KhanposDbEntities();
+        }
+
+        public async Task<int> Add(Product item)
         {
             try
             {
-                db.Set<Products>().Add(item);
+                db.Set<Product>().Add(item);
                 await db.SaveChangesAsync();
                 return item.Id;
             }
@@ -29,7 +34,7 @@ namespace Barcode_Sales.Operations.Concrete
             }
         }
 
-        public async Task<bool> Add(List<Products> items)
+        public async Task<bool> Add(List<Product> items)
         {
             if (items == null || items.Count == 0)
                 return false;
@@ -37,7 +42,7 @@ namespace Barcode_Sales.Operations.Concrete
 
             try
             {
-                db.Set<Products>().AddRange(items);
+                db.Set<Product>().AddRange(items);
                 return await db.SaveChangesAsync() > 0;
             }
             catch
@@ -46,11 +51,13 @@ namespace Barcode_Sales.Operations.Concrete
             }
         }
 
-        public async Task<bool> Update(Products item, params Expression<Func<Products, object>>[] updateProperties)
+        public async Task<bool> Update(Product item, params Expression<Func<Product, object>>[] updateProperties)
         {
             try
             {
-                db.Set<Products>().Attach(item);
+                var entry = db.Entry(item);
+                if (entry.State == EntityState.Detached)
+                    db.Set<Product>().Attach(item);
 
                 foreach (var property in updateProperties)
                     db.Entry(item).Property(property).IsModified = true;
@@ -64,32 +71,29 @@ namespace Barcode_Sales.Operations.Concrete
             }
         }
 
-        public async Task<bool> Update(List<Products> items, params Expression<Func<Products, object>>[] updateProperties)
+        public async Task<bool> Update(List<Product> items, params Expression<Func<Product, object>>[] updateProperties)
         {
             if (items == null || items.Count == 0)
                 return false;
 
-            using (var transaction = db.Database.BeginTransaction())
+            try
             {
-                try
+                foreach (var entity in items)
                 {
-                    foreach (var entity in items)
-                    {
-                        db.Set<Products>().Attach(entity);
+                    var entry = db.Entry(entity);
+                    if (entry.State == EntityState.Detached)
+                        db.Set<Product>().Attach(entity);
 
-                        foreach (var property in updateProperties)
-                            db.Entry(entity).Property(property).IsModified = true;
-                    }
+                    foreach (var property in updateProperties)
+                        db.Entry(entity).Property(property).IsModified = true;
+                }
 
-                    await db.SaveChangesAsync();
-                    transaction.Commit();
-                    return true;
-                }
-                catch
-                {
-                    transaction.Rollback();
-                    return false;
-                }
+                await db.SaveChangesAsync();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
             }
         }
 
@@ -106,17 +110,17 @@ namespace Barcode_Sales.Operations.Concrete
         //    }
         //}
 
-        public async Task<Products> Get(Expression<Func<Products, bool>> expression)
+        public async Task<Product> Get(Expression<Func<Product, bool>> expression)
         {
-            return await db.Products.AsNoTracking().FirstOrDefaultAsync(expression);
+            return await db.Products.FirstOrDefaultAsync(expression);
         }
 
-        public IQueryable<Products> Where(Expression<Func<Products, bool>> expression)
+        public IQueryable<Product> Where(Expression<Func<Product, bool>> expression)
         {
             return db.Products.Where(expression);
         }
 
-        public async Task<bool> Remove(Products item)
+        public async Task<bool> Remove(Product item)
         {
             var product = await db.Products.FirstOrDefaultAsync(x => x.Id == item.Id);
             if (product == null) return false;
@@ -125,7 +129,7 @@ namespace Barcode_Sales.Operations.Concrete
             return await db.SaveChangesAsync() > 0;
         }
 
-        public async Task<List<Products>> ToListAsync(Expression<Func<Products, bool>> expression = null)
+        public async Task<List<Product>> ToListAsync(Expression<Func<Product, bool>> expression = null)
         {
             if (expression is null)
                 return await db.Products.AsNoTracking().ToListAsync();

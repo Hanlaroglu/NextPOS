@@ -681,12 +681,6 @@
     <Compile Include="Operations\Concrete\PosSaleItemManager.cs" />
     <Compile Include="Operations\Concrete\PosSaleManager.cs" />
     <Compile Include="Operations\Concrete\ProductManager.cs" />
-    <Compile Include="Forms\fSelectProduct.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\fSelectProduct.Designer.cs">
-      <DependentUpon>fSelectProduct.cs</DependentUpon>
-    </Compile>
     <Compile Include="Operations\Concrete\RoleManager.cs" />
     <Compile Include="Operations\Concrete\ScaleManager.cs" />
     <Compile Include="Operations\Concrete\StoreManager.cs" />
@@ -719,7 +713,7 @@
     <Compile Include="PosSaleItem.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Products.cs">
+    <Compile Include="Product.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
@@ -873,6 +867,9 @@
     <EmbeddedResource Include="Forms\fAddProductImport.resx">
       <DependentUpon>fAddProductImport.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\fAddProductImportSettings.resx">
+      <DependentUpon>fAddProductImportSettings.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\fAddScale.resx">
       <DependentUpon>fAddScale.cs</DependentUpon>
     </EmbeddedResource>
@@ -989,9 +986,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ftest.resx">
       <DependentUpon>ftest.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\fSelectProduct.resx">
-      <DependentUpon>fSelectProduct.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\fTestPay.resx">
       <DependentUpon>fTestPay.cs</DependentUpon>

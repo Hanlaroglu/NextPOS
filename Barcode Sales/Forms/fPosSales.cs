@@ -28,7 +28,7 @@ namespace Barcode_Sales.Forms
         IPosBasketItemOperation posBasketItemOperation = new PosBasketItemManager();
 
         private BindingList<PosSaleItemDto> dataList = new BindingList<PosSaleItemDto>();
-        private List<Products> _productsList = new List<Products>();
+        private List<Product> _productsList = new List<Product>();
 
         short rowNo = 1;
 
@@ -39,7 +39,7 @@ namespace Barcode_Sales.Forms
             gridControlBasket.DataSource = dataList;
         }
 
-        private class ProductSearchData : Products
+        private class ProductSearchData : Product
         {
             public int Id { get; set; }
             public string ProductName { get; set; }

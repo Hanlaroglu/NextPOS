@@ -83,7 +83,7 @@ namespace Barcode_Sales.Forms
                     PurchasePrice = x.PurchasePrice,
                     Barcode = x.Barcode,
                     Stock = x.Quantity,
-                    UnitName = x.UnitTypes.Name
+                    UnitName = x.UnitType.Name
                 }).ToListAsync();
 
             lookProductName.Properties.DataSource = data;
@@ -145,7 +145,7 @@ namespace Barcode_Sales.Forms
 
                     if (await invoiceDetailOperation.Add(details))
                     {
-                        List<Products> products = new List<Products>();
+                        List<Product> products = new List<Product>();
 
                         foreach (var item in details)
                         {
@@ -229,7 +229,7 @@ namespace Barcode_Sales.Forms
                             PurchasePrice = data.PurchasePrice,
                             SalePrice = data.SalePrice,
                             Stock = data.Quantity,
-                            UnitName = data.UnitTypes.Name
+                            UnitName = data.UnitType.Name
                         });
                     }
                 }

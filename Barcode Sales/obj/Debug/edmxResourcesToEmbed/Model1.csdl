@@ -16,29 +16,12 @@
       <End Role="CustomerPayment" EntitySet="CustomerPayments" />
     </AssociationSet>
     <EntitySet Name="PosSaleItems" EntityType="KhanposDbModel.PosSaleItem" />
-    <EntitySet Name="Products" EntityType="KhanposDbModel.Products" />
-    <AssociationSet Name="FK_Products_TaxType" Association="KhanposDbModel.FK_Products_TaxType">
-      <End Role="TaxType" EntitySet="TaxTypes" />
-      <End Role="Products" EntitySet="Products" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Products_UnitType" Association="KhanposDbModel.FK_Products_UnitType">
-      <End Role="UnitType" EntitySet="UnitTypes" />
-      <End Role="Products" EntitySet="Products" />
-    </AssociationSet>
     <EntitySet Name="Companies" EntityType="KhanposDbModel.Company" />
     <EntitySet Name="PosRefundItems" EntityType="KhanposDbModel.PosRefundItem" />
     <EntitySet Name="PosRefunds" EntityType="KhanposDbModel.PosRefund" />
     <AssociationSet Name="FK_PosRefunds_PosRefunds" Association="KhanposDbModel.FK_PosRefunds_PosRefunds">
       <End Role="PosRefund" EntitySet="PosRefunds" />
       <End Role="PosRefundItem" EntitySet="PosRefundItems" />
-    </AssociationSet>
-    <AssociationSet Name="FK_PosRefunds_Products" Association="KhanposDbModel.FK_PosRefunds_Products">
-      <End Role="Products" EntitySet="Products" />
-      <End Role="PosRefundItem" EntitySet="PosRefundItems" />
-    </AssociationSet>
-    <AssociationSet Name="FK_PosSaleItems_Products" Association="KhanposDbModel.FK_PosSaleItems_Products">
-      <End Role="Products" EntitySet="Products" />
-      <End Role="PosSaleItem" EntitySet="PosSaleItems" />
     </AssociationSet>
     <EntitySet Name="Roles" EntityType="KhanposDbModel.Role" />
     <EntitySet Name="SupplierPayments" EntityType="KhanposDbModel.SupplierPayment" />
@@ -63,15 +46,7 @@
       <End Role="Invoice" EntitySet="Invoices" />
       <End Role="InvoiceDetail" EntitySet="InvoiceDetails" />
     </AssociationSet>
-    <AssociationSet Name="FK_InvoiceDetails_Products" Association="KhanposDbModel.FK_InvoiceDetails_Products">
-      <End Role="Products" EntitySet="Products" />
-      <End Role="InvoiceDetail" EntitySet="InvoiceDetails" />
-    </AssociationSet>
     <EntitySet Name="Categories" EntityType="KhanposDbModel.Category" />
-    <AssociationSet Name="FK_Products_Category" Association="KhanposDbModel.FK_Products_Category">
-      <End Role="Category" EntitySet="Categories" />
-      <End Role="Products" EntitySet="Products" />
-    </AssociationSet>
     <AssociationSet Name="FK_Invoices_Suppliers" Association="KhanposDbModel.FK_Invoices_Suppliers">
       <End Role="Supplier" EntitySet="Suppliers" />
       <End Role="Invoice" EntitySet="Invoices" />
@@ -84,10 +59,6 @@
     <AssociationSet Name="FK_InvoiceRollbacks_Invoices" Association="KhanposDbModel.FK_InvoiceRollbacks_Invoices">
       <End Role="Invoice" EntitySet="Invoices" />
       <End Role="InvoiceRollback" EntitySet="InvoiceRollbacks" />
-    </AssociationSet>
-    <AssociationSet Name="FK_InvoiceRollbackDetails_Products" Association="KhanposDbModel.FK_InvoiceRollbackDetails_Products">
-      <End Role="Products" EntitySet="Products" />
-      <End Role="InvoiceRollbackDetail" EntitySet="InvoiceRollbackDetails" />
     </AssociationSet>
     <EntitySet Name="Customers" EntityType="KhanposDbModel.Customer" />
     <AssociationSet Name="FK_Customers_CustomerGroups" Association="KhanposDbModel.FK_Customers_CustomerGroups">
@@ -127,10 +98,6 @@
     </AssociationSet>
     <AssociationSet Name="FK_PosBasket_PosBasket" Association="KhanposDbModel.FK_PosBasket_PosBasket">
       <End Role="PosBasket" EntitySet="PosBaskets" />
-      <End Role="PosBasketItem" EntitySet="PosBasketItems" />
-    </AssociationSet>
-    <AssociationSet Name="FK_PosBasket_Product" Association="KhanposDbModel.FK_PosBasket_Product">
-      <End Role="Products" EntitySet="Products" />
       <End Role="PosBasketItem" EntitySet="PosBasketItems" />
     </AssociationSet>
     <EntitySet Name="view_InvoiceRollbackList" EntityType="KhanposDbModel.view_InvoiceRollbackList" />
@@ -177,10 +144,6 @@
       <End Role="User" EntitySet="Users" />
       <End Role="PosSale" EntitySet="PosSales" />
     </AssociationSet>
-    <AssociationSet Name="FK_Products_Users" Association="KhanposDbModel.FK_Products_Users">
-      <End Role="User" EntitySet="Users" />
-      <End Role="Products" EntitySet="Products" />
-    </AssociationSet>
     <AssociationSet Name="FK_Users_Roles" Association="KhanposDbModel.FK_Users_Roles">
       <End Role="Role" EntitySet="Roles" />
       <End Role="User" EntitySet="Users" />
@@ -209,6 +172,43 @@
     <AssociationSet Name="FK_Stores_Warehouses" Association="KhanposDbModel.FK_Stores_Warehouses">
       <End Role="Warehouse" EntitySet="Warehouses" />
       <End Role="Store" EntitySet="Stores" />
+    </AssociationSet>
+    <EntitySet Name="Products" EntityType="KhanposDbModel.Product" />
+    <AssociationSet Name="FK_Products_Category" Association="KhanposDbModel.FK_Products_Category">
+      <End Role="Category" EntitySet="Categories" />
+      <End Role="Product" EntitySet="Products" />
+    </AssociationSet>
+    <AssociationSet Name="FK_InvoiceDetails_Products" Association="KhanposDbModel.FK_InvoiceDetails_Products">
+      <End Role="Product" EntitySet="Products" />
+      <End Role="InvoiceDetail" EntitySet="InvoiceDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_InvoiceRollbackDetails_Products" Association="KhanposDbModel.FK_InvoiceRollbackDetails_Products">
+      <End Role="Product" EntitySet="Products" />
+      <End Role="InvoiceRollbackDetail" EntitySet="InvoiceRollbackDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PosBasket_Product" Association="KhanposDbModel.FK_PosBasket_Product">
+      <End Role="Product" EntitySet="Products" />
+      <End Role="PosBasketItem" EntitySet="PosBasketItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PosRefundItems_Products" Association="KhanposDbModel.FK_PosRefundItems_Products">
+      <End Role="Product" EntitySet="Products" />
+      <End Role="PosRefundItem" EntitySet="PosRefundItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PosSaleItems_Products" Association="KhanposDbModel.FK_PosSaleItems_Products">
+      <End Role="Product" EntitySet="Products" />
+      <End Role="PosSaleItem" EntitySet="PosSaleItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Products_TaxType" Association="KhanposDbModel.FK_Products_TaxType">
+      <End Role="TaxType" EntitySet="TaxTypes" />
+      <End Role="Product" EntitySet="Products" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Products_UnitType" Association="KhanposDbModel.FK_Products_UnitType">
+      <End Role="UnitType" EntitySet="UnitTypes" />
+      <End Role="Product" EntitySet="Products" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Products_Users" Association="KhanposDbModel.FK_Products_Users">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Product" EntitySet="Products" />
     </AssociationSet>
   </EntityContainer>
   <EntityType Name="CloseShiftReport">
@@ -302,8 +302,8 @@
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" />
     <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="Products" Relationship="KhanposDbModel.FK_Products_TaxType" FromRole="TaxType" ToRole="Products" />
     <Property Name="VatPercent" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+    <NavigationProperty Name="Products" Relationship="KhanposDbModel.FK_Products_TaxType" FromRole="TaxType" ToRole="Product" />
   </EntityType>
   <EntityType Name="TerminalIncomesAndExpens">
     <Key>
@@ -322,7 +322,7 @@
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" />
     <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="Products" Relationship="KhanposDbModel.FK_Products_UnitType" FromRole="UnitType" ToRole="Products" />
+    <NavigationProperty Name="Products" Relationship="KhanposDbModel.FK_Products_UnitType" FromRole="UnitType" ToRole="Product" />
   </EntityType>
   <Association Name="FK_CustomerPayments_CustomersDebts">
     <End Type="KhanposDbModel.CustomersDebt" Role="CustomersDebt" Multiplicity="0..1" />
@@ -346,67 +346,10 @@
     <Property Name="Quantity" Type="Decimal" Nullable="false" Precision="18" Scale="3" />
     <Property Name="SalePrice" Type="Decimal" Nullable="false" Precision="18" Scale="3" />
     <Property Name="Discount" Type="Decimal" Nullable="false" Precision="18" Scale="3" />
-    <NavigationProperty Name="Product" Relationship="KhanposDbModel.FK_PosSaleItems_Products" FromRole="PosSaleItem" ToRole="Products" />
     <NavigationProperty Name="PosSale" Relationship="KhanposDbModel.FK_PosSaleItems_PosSales" FromRole="PosSaleItem" ToRole="PosSale" />
     <NavigationProperty Name="PosRefundItems" Relationship="KhanposDbModel.FK_PosRefundItems_PosSaleItems" FromRole="PosSaleItem" ToRole="PosRefundItem" />
+    <NavigationProperty Name="Product" Relationship="KhanposDbModel.FK_PosSaleItems_Products" FromRole="PosSaleItem" ToRole="Product" />
   </EntityType>
-  <EntityType Name="Products">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Type" Type="Byte" Nullable="false" />
-    <Property Name="CategoryId" Type="Int32" Nullable="false" />
-    <Property Name="ProductName" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
-    <Property Name="ProductCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="Barcode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="Quantity" Type="Decimal" Nullable="false" Precision="18" Scale="3" />
-    <Property Name="PurchasePrice" Type="Decimal" Nullable="false" Precision="18" Scale="3" />
-    <Property Name="SalePrice" Type="Decimal" Nullable="false" Precision="18" Scale="3" />
-    <Property Name="UnitId" Type="Int32" Nullable="false" />
-    <Property Name="TaxId" Type="Int32" Nullable="false" />
-    <Property Name="IsActive" Type="Boolean" Nullable="false" />
-    <Property Name="CreatedUserId" Type="Int32" Nullable="false" />
-    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
-    <NavigationProperty Name="TaxTypes" Relationship="KhanposDbModel.FK_Products_TaxType" FromRole="Products" ToRole="TaxType" />
-    <NavigationProperty Name="UnitTypes" Relationship="KhanposDbModel.FK_Products_UnitType" FromRole="Products" ToRole="UnitType" />
-    <NavigationProperty Name="PosRefundItems" Relationship="KhanposDbModel.FK_PosRefunds_Products" FromRole="Products" ToRole="PosRefundItem" />
-    <NavigationProperty Name="PosSaleItems" Relationship="KhanposDbModel.FK_PosSaleItems_Products" FromRole="Products" ToRole="PosSaleItem" />
-    <NavigationProperty Name="InvoiceDetails" Relationship="KhanposDbModel.FK_InvoiceDetails_Products" FromRole="Products" ToRole="InvoiceDetail" />
-    <NavigationProperty Name="Category" Relationship="KhanposDbModel.FK_Products_Category" FromRole="Products" ToRole="Category" />
-    <Property Name="CanEditSalePrice" Type="Boolean" Nullable="false" />
-    <Property Name="CanSellWithoutStock" Type="Boolean" Nullable="false" />
-    <Property Name="CanApplyDiscount" Type="Boolean" Nullable="false" />
-    <NavigationProperty Name="InvoiceRollbackDetails" Relationship="KhanposDbModel.FK_InvoiceRollbackDetails_Products" FromRole="Products" ToRole="InvoiceRollbackDetail" />
-    <Property Name="CanHotSaleProduct" Type="Boolean" Nullable="false" />
-    <NavigationProperty Name="PosBasketItems" Relationship="KhanposDbModel.FK_PosBasket_Product" FromRole="Products" ToRole="PosBasketItem" />
-    <NavigationProperty Name="User" Relationship="KhanposDbModel.FK_Products_Users" FromRole="Products" ToRole="User" />
-  </EntityType>
-  <Association Name="FK_Products_TaxType">
-    <End Type="KhanposDbModel.TaxType" Role="TaxType" Multiplicity="1" />
-    <End Type="KhanposDbModel.Products" Role="Products" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="TaxType">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Products">
-        <PropertyRef Name="TaxId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Products_UnitType">
-    <End Type="KhanposDbModel.UnitType" Role="UnitType" Multiplicity="1" />
-    <End Type="KhanposDbModel.Products" Role="Products" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="UnitType">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Products">
-        <PropertyRef Name="UnitId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <EntityType Name="Company">
     <Key>
       <PropertyRef Name="Id" />
@@ -432,8 +375,8 @@
     <Property Name="SalePrice" Type="Decimal" Nullable="false" Precision="18" Scale="3" />
     <Property Name="Discount" Type="Decimal" Nullable="false" Precision="18" Scale="3" />
     <NavigationProperty Name="PosRefund" Relationship="KhanposDbModel.FK_PosRefunds_PosRefunds" FromRole="PosRefundItem" ToRole="PosRefund" />
-    <NavigationProperty Name="Product" Relationship="KhanposDbModel.FK_PosRefunds_Products" FromRole="PosRefundItem" ToRole="Products" />
     <NavigationProperty Name="PosSaleItem" Relationship="KhanposDbModel.FK_PosRefundItems_PosSaleItems" FromRole="PosRefundItem" ToRole="PosSaleItem" />
+    <NavigationProperty Name="Product" Relationship="KhanposDbModel.FK_PosRefundItems_Products" FromRole="PosRefundItem" ToRole="Product" />
   </EntityType>
   <EntityType Name="PosRefund">
     <Key>
@@ -468,30 +411,6 @@
       </Principal>
       <Dependent Role="PosRefundItem">
         <PropertyRef Name="PosRefundId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_PosRefunds_Products">
-    <End Type="KhanposDbModel.Products" Role="Products" Multiplicity="1" />
-    <End Type="KhanposDbModel.PosRefundItem" Role="PosRefundItem" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Products">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="PosRefundItem">
-        <PropertyRef Name="ProductId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_PosSaleItems_Products">
-    <End Type="KhanposDbModel.Products" Role="Products" Multiplicity="1" />
-    <End Type="KhanposDbModel.PosSaleItem" Role="PosSaleItem" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Products">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="PosSaleItem">
-        <PropertyRef Name="ProductId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -615,7 +534,7 @@
     <Property Name="TotalPurchasePrice" Type="Decimal" Nullable="false" Precision="18" Scale="3" />
     <Property Name="SalePrice" Type="Decimal" Nullable="false" Precision="18" Scale="3" />
     <NavigationProperty Name="Invoice" Relationship="KhanposDbModel.FK_InvoiceDetails_Invoices" FromRole="InvoiceDetail" ToRole="Invoice" />
-    <NavigationProperty Name="Product" Relationship="KhanposDbModel.FK_InvoiceDetails_Products" FromRole="InvoiceDetail" ToRole="Products" />
+    <NavigationProperty Name="Product" Relationship="KhanposDbModel.FK_InvoiceDetails_Products" FromRole="InvoiceDetail" ToRole="Product" />
   </EntityType>
   <EntityType Name="InvoiceRollbackDetail">
     <Key>
@@ -626,7 +545,7 @@
     <Property Name="ProductId" Type="Int32" Nullable="false" />
     <Property Name="Quantity" Type="Decimal" Nullable="false" Precision="18" Scale="3" />
     <NavigationProperty Name="InvoiceRollback" Relationship="KhanposDbModel.FK_InvoiceRollbackDetails_InvoiceRollbacks" FromRole="InvoiceRollbackDetail" ToRole="InvoiceRollback" />
-    <NavigationProperty Name="Product" Relationship="KhanposDbModel.FK_InvoiceRollbackDetails_Products" FromRole="InvoiceRollbackDetail" ToRole="Products" />
+    <NavigationProperty Name="Product" Relationship="KhanposDbModel.FK_InvoiceRollbackDetails_Products" FromRole="InvoiceRollbackDetail" ToRole="Product" />
   </EntityType>
   <EntityType Name="Invoice">
     <Key>
@@ -660,18 +579,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_InvoiceDetails_Products">
-    <End Type="KhanposDbModel.Products" Role="Products" Multiplicity="1" />
-    <End Type="KhanposDbModel.InvoiceDetail" Role="InvoiceDetail" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Products">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="InvoiceDetail">
-        <PropertyRef Name="ProductId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <EntityType Name="Category">
     <Key>
       <PropertyRef Name="Id" />
@@ -680,20 +587,8 @@
     <Property Name="CategoryName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="Status" Type="Boolean" Nullable="false" />
     <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
-    <NavigationProperty Name="Products" Relationship="KhanposDbModel.FK_Products_Category" FromRole="Category" ToRole="Products" />
+    <NavigationProperty Name="Products" Relationship="KhanposDbModel.FK_Products_Category" FromRole="Category" ToRole="Product" />
   </EntityType>
-  <Association Name="FK_Products_Category">
-    <End Type="KhanposDbModel.Category" Role="Category" Multiplicity="1" />
-    <End Type="KhanposDbModel.Products" Role="Products" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Category">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Products">
-        <PropertyRef Name="CategoryId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_Invoices_Suppliers">
     <End Type="KhanposDbModel.Supplier" Role="Supplier" Multiplicity="1" />
     <End Type="KhanposDbModel.Invoice" Role="Invoice" Multiplicity="*" />
@@ -745,18 +640,6 @@
       </Principal>
       <Dependent Role="InvoiceRollback">
         <PropertyRef Name="InvoiceId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_InvoiceRollbackDetails_Products">
-    <End Type="KhanposDbModel.Products" Role="Products" Multiplicity="1" />
-    <End Type="KhanposDbModel.InvoiceRollbackDetail" Role="InvoiceRollbackDetail" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Products">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="InvoiceRollbackDetail">
-        <PropertyRef Name="ProductId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -915,8 +798,8 @@
     <Property Name="SalePrice" Type="Decimal" Nullable="false" Precision="18" Scale="3" />
     <Property Name="DiscountAmount" Type="Decimal" Nullable="false" Precision="18" Scale="3" />
     <NavigationProperty Name="PosBasket" Relationship="KhanposDbModel.FK_PosBasket_PosBasket" FromRole="PosBasketItem" ToRole="PosBasket" />
-    <NavigationProperty Name="Product" Relationship="KhanposDbModel.FK_PosBasket_Product" FromRole="PosBasketItem" ToRole="Products" />
     <Property Name="TotalAmount" Type="Decimal" Nullable="false" Precision="18" Scale="3" />
+    <NavigationProperty Name="Product" Relationship="KhanposDbModel.FK_PosBasket_Product" FromRole="PosBasketItem" ToRole="Product" />
   </EntityType>
   <EntityType Name="PosBasket">
     <Key>
@@ -952,18 +835,6 @@
       </Principal>
       <Dependent Role="PosBasketItem">
         <PropertyRef Name="PosBasketId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_PosBasket_Product">
-    <End Type="KhanposDbModel.Products" Role="Products" Multiplicity="1" />
-    <End Type="KhanposDbModel.PosBasketItem" Role="PosBasketItem" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Products">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="PosBasketItem">
-        <PropertyRef Name="ProductId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -1070,11 +941,11 @@
     <NavigationProperty Name="PosBaskets" Relationship="KhanposDbModel.FK_PosBasket_User" FromRole="User" ToRole="PosBasket" />
     <NavigationProperty Name="PosRefunds" Relationship="KhanposDbModel.FK_PosRefunds_Users" FromRole="User" ToRole="PosRefund" />
     <NavigationProperty Name="PosSales" Relationship="KhanposDbModel.FK_PosSales_User" FromRole="User" ToRole="PosSale" />
-    <NavigationProperty Name="Products" Relationship="KhanposDbModel.FK_Products_Users" FromRole="User" ToRole="Products" />
     <NavigationProperty Name="Role" Relationship="KhanposDbModel.FK_Users_Roles" FromRole="User" ToRole="Role" />
     <NavigationProperty Name="Scales" Relationship="KhanposDbModel.FK_Scales_Users" FromRole="User" ToRole="Scale" />
     <NavigationProperty Name="Store" Relationship="KhanposDbModel.FK_Users_Stores" FromRole="User" ToRole="Store" />
     <NavigationProperty Name="Terminals" Relationship="KhanposDbModel.FK_Terminals_User" FromRole="User" ToRole="Terminal" />
+    <NavigationProperty Name="Products" Relationship="KhanposDbModel.FK_Products_Users" FromRole="User" ToRole="Product" />
   </EntityType>
   <Association Name="FK_CustomerGroups_Users">
     <End Type="KhanposDbModel.User" Role="User" Multiplicity="1" />
@@ -1172,18 +1043,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Products_Users">
-    <End Type="KhanposDbModel.User" Role="User" Multiplicity="1" />
-    <End Type="KhanposDbModel.Products" Role="Products" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="User">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Products">
-        <PropertyRef Name="CreatedUserId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_Users_Roles">
     <End Type="KhanposDbModel.Role" Role="Role" Multiplicity="1" />
     <End Type="KhanposDbModel.User" Role="User" Multiplicity="*" />
@@ -1277,6 +1136,147 @@
       </Principal>
       <Dependent Role="Store">
         <PropertyRef Name="WarehouseId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Type" Type="Byte" Nullable="false" />
+    <Property Name="CategoryId" Type="Int32" Nullable="false" />
+    <Property Name="ProductName" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="ProductCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Barcode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Quantity" Type="Decimal" Nullable="false" Precision="18" Scale="3" />
+    <Property Name="PurchasePrice" Type="Decimal" Nullable="false" Precision="18" Scale="3" />
+    <Property Name="SalePrice" Type="Decimal" Nullable="false" Precision="18" Scale="3" />
+    <Property Name="UnitId" Type="Int32" Nullable="false" />
+    <Property Name="TaxId" Type="Int32" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="CreatedUserId" Type="Int32" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+    <Property Name="CanEditSalePrice" Type="Boolean" Nullable="false" />
+    <Property Name="CanSellWithoutStock" Type="Boolean" Nullable="false" />
+    <Property Name="CanApplyDiscount" Type="Boolean" Nullable="false" />
+    <Property Name="CanHotSaleProduct" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Category" Relationship="KhanposDbModel.FK_Products_Category" FromRole="Product" ToRole="Category" />
+    <NavigationProperty Name="InvoiceDetails" Relationship="KhanposDbModel.FK_InvoiceDetails_Products" FromRole="Product" ToRole="InvoiceDetail" />
+    <NavigationProperty Name="InvoiceRollbackDetails" Relationship="KhanposDbModel.FK_InvoiceRollbackDetails_Products" FromRole="Product" ToRole="InvoiceRollbackDetail" />
+    <NavigationProperty Name="PosBasketItems" Relationship="KhanposDbModel.FK_PosBasket_Product" FromRole="Product" ToRole="PosBasketItem" />
+    <NavigationProperty Name="PosRefundItems" Relationship="KhanposDbModel.FK_PosRefundItems_Products" FromRole="Product" ToRole="PosRefundItem" />
+    <NavigationProperty Name="PosSaleItems" Relationship="KhanposDbModel.FK_PosSaleItems_Products" FromRole="Product" ToRole="PosSaleItem" />
+    <NavigationProperty Name="TaxType" Relationship="KhanposDbModel.FK_Products_TaxType" FromRole="Product" ToRole="TaxType" />
+    <NavigationProperty Name="UnitType" Relationship="KhanposDbModel.FK_Products_UnitType" FromRole="Product" ToRole="UnitType" />
+    <NavigationProperty Name="User" Relationship="KhanposDbModel.FK_Products_Users" FromRole="Product" ToRole="User" />
+  </EntityType>
+  <Association Name="FK_Products_Category">
+    <End Type="KhanposDbModel.Category" Role="Category" Multiplicity="1" />
+    <End Type="KhanposDbModel.Product" Role="Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="CategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_InvoiceDetails_Products">
+    <End Type="KhanposDbModel.Product" Role="Product" Multiplicity="1" />
+    <End Type="KhanposDbModel.InvoiceDetail" Role="InvoiceDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="InvoiceDetail">
+        <PropertyRef Name="ProductId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_InvoiceRollbackDetails_Products">
+    <End Type="KhanposDbModel.Product" Role="Product" Multiplicity="1" />
+    <End Type="KhanposDbModel.InvoiceRollbackDetail" Role="InvoiceRollbackDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="InvoiceRollbackDetail">
+        <PropertyRef Name="ProductId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PosBasket_Product">
+    <End Type="KhanposDbModel.Product" Role="Product" Multiplicity="1" />
+    <End Type="KhanposDbModel.PosBasketItem" Role="PosBasketItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PosBasketItem">
+        <PropertyRef Name="ProductId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PosRefundItems_Products">
+    <End Type="KhanposDbModel.Product" Role="Product" Multiplicity="1" />
+    <End Type="KhanposDbModel.PosRefundItem" Role="PosRefundItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PosRefundItem">
+        <PropertyRef Name="ProductId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PosSaleItems_Products">
+    <End Type="KhanposDbModel.Product" Role="Product" Multiplicity="1" />
+    <End Type="KhanposDbModel.PosSaleItem" Role="PosSaleItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PosSaleItem">
+        <PropertyRef Name="ProductId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Products_TaxType">
+    <End Type="KhanposDbModel.TaxType" Role="TaxType" Multiplicity="1" />
+    <End Type="KhanposDbModel.Product" Role="Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TaxType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="TaxId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Products_UnitType">
+    <End Type="KhanposDbModel.UnitType" Role="UnitType" Multiplicity="1" />
+    <End Type="KhanposDbModel.Product" Role="Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UnitType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="UnitId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Products_Users">
+    <End Type="KhanposDbModel.User" Role="User" Multiplicity="1" />
+    <End Type="KhanposDbModel.Product" Role="Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="CreatedUserId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

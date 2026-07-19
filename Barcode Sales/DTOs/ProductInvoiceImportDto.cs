@@ -18,6 +18,5 @@ namespace Barcode_Sales.DTOs
         public decimal SalePrice { get; set; }
         public string UnitName { get; set; }
         public string TaxName { get; set; }
-        public string IsStatus { get; set; }
     }
 }

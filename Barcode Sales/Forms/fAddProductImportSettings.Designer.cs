@@ -28,9 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.SuspendLayout();
+            // 
+            // fAddProductImportSettings
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(829, 728);
+            this.Name = "fAddProductImportSettings";
             this.Text = "fAddProductImportSettings";
+            this.ResumeLayout(false);
+
         }
 
         #endregion

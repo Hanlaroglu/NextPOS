@@ -41,7 +41,7 @@ namespace Barcode_Sales.Forms
                     ProductName = x.Product.ProductName,
                     Barcode = x.Product.Barcode,
                     Quantity = x.Amount,
-                    UnitName = x.Product.UnitTypes.Name,
+                    UnitName = x.Product.UnitType.Name,
                     PurchasePrice = x.PurchasePrice,
                     SalePrice = x.SalePrice
                 })

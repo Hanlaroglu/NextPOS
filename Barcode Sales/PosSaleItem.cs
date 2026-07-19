@@ -27,9 +27,9 @@ namespace Barcode_Sales
         public decimal SalePrice { get; set; }
         public decimal Discount { get; set; }
     
-        public virtual Products Product { get; set; }
         public virtual PosSale PosSale { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PosRefundItem> PosRefundItems { get; set; }
+        public virtual Product Product { get; set; }
     }
 }

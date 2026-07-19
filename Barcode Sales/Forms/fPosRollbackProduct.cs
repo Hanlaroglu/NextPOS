@@ -274,7 +274,7 @@ namespace Barcode_Sales.Forms
         private async Task UpdateProducts(BindingList<PosSaleItemDto> items)
         {
             List<PosSaleItemDto> list = items.ToList();
-            List<Products> products = new List<Products>();
+            List<Product> products = new List<Product>();
             foreach (var item in list)
             {
                 var product = await productOperation.Get(x => x.Id == item.ProductId);

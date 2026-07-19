@@ -31,7 +31,7 @@ namespace Barcode_Sales.Forms
                     CategoryName = x.Category.CategoryName,
                     ProductName = x.ProductName,
                     Barcode = x.Barcode,
-                    UnitName = x.UnitTypes.Name,
+                    UnitName = x.UnitType.Name,
                     SalePrice = x.SalePrice
                 })
                 .ToListAsync();

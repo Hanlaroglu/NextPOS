@@ -1,6 +1,6 @@
 ﻿namespace Barcode_Sales.DTOs
 {
-    public class ProductDto : Products
+    public class ProductDto : Product
     {
         public string CategoryName { get; set; }
         public string TaxName { get; set; }

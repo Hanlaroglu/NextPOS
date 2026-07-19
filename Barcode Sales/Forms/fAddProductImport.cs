@@ -9,16 +9,22 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
+using Barcode_Sales.Operations.Abstract;
+using Barcode_Sales.Operations.Concrete;
 using Barcode_Sales.Services.CacheServices;
+using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace Barcode_Sales.Forms
 {
     public partial class fAddProductImport : DevExpress.XtraEditors.XtraForm
     {
+
+
         private DataTable _currentTable;
         private DataSet _workbook;
         List<ProductInvoiceImportDto> _invoices = new List<ProductInvoiceImportDto>();
-
+        DataTableCollection tableCollection;
         public fAddProductImport()
         {
             InitializeComponent();
@@ -42,7 +48,6 @@ namespace Barcode_Sales.Forms
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
                     tFilePath.Text = openFileDialog.FileName;
-
                     _workbook = LoadWorkbook(openFileDialog.FileName);
 
                     if (_workbook != null)
@@ -61,7 +66,7 @@ namespace Barcode_Sales.Forms
             Cursor.Current = Cursors.Default;
         }
 
-        public DataSet LoadWorkbook(string filePath)
+        private DataSet LoadWorkbook(string filePath)
         {
             using (var stream = new FileStream(filePath, FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
             using (var reader = ExcelReaderFactory.CreateReader(stream))
@@ -78,7 +83,7 @@ namespace Barcode_Sales.Forms
         {
             tFilePath.Clear();
             lookSheet.Enabled = false;
-            bShowProducts.Visible = false;
+            bSetting.Visible = false;
             tFilePath.Properties.Buttons[0].Visible = false;
             lookSheet.Properties.DataSource = null;
         }
@@ -122,8 +127,7 @@ namespace Barcode_Sales.Forms
                     PurchasePrice = GetDecimal(row, "Alış qiyməti"),
                     SalePrice = GetDecimal(row, "Satış qiyməti"),
                     UnitName = row["Vahid"]?.ToString(),
-                    TaxName = row["Vergi dərəcəsi"]?.ToString(),
-                    IsStatus = row["Məhsul statusu"].ToString(),
+                    TaxName = row["Vergi dərəcəsi"]?.ToString()
                 });
             }
 
@@ -167,11 +171,11 @@ namespace Barcode_Sales.Forms
         private Dictionary<string, Warehouse> warehouseCache;
         private Dictionary<string, Supplier> supplierCache;
         private Dictionary<string, Category> categoryCache;
-        private Dictionary<(string productName, string barcode), Products> productCache;
+        private Dictionary<(string productName, string barcode), Product> productCache;
         private Dictionary<string, UnitType> unitTypeCache;
         private Dictionary<string, TaxType> taxTypeCache;
 
-        private void InsertDbProducts()
+        private async void InsertDbProducts()
         {
             using (var db = new KhanposDbEntities())
             using (var transaction = db.Database.BeginTransaction())
@@ -184,73 +188,127 @@ namespace Barcode_Sales.Forms
                     var products = db.Products.ToList();
                     var unitTypes = db.UnitTypes.ToList();
                     var taxTypes = db.TaxTypes.ToList();
+                    var existingInvoices = db.Invoices.ToList();
 
-                    warehouseCache = warehouses.ToDictionary(x => x.Name, x => x);
-                    supplierCache = suppliers.ToDictionary(x => x.SupplierName, x => x);
-                    categoryCache = categories.ToDictionary(x => x.CategoryName, x => x);
-                    productCache = products.ToDictionary(x => (x.ProductName, x.Barcode), x => x);
-                    unitTypeCache = unitTypes.ToDictionary(x => x.Name, x => x);
-                    taxTypeCache = taxTypes.ToDictionary(x => x.Name, x => x);
+                    warehouseCache = warehouses.ToDictionary(x => x.Name.ToLower(), x => x);
+                    supplierCache = suppliers.ToDictionary(x => x.SupplierName.ToLower(), x => x);
+                    categoryCache = categories.ToDictionary(x => x.CategoryName.ToLower(), x => x);
+                    productCache = products.ToDictionary(x => (x.ProductName.ToLower(), x.Barcode), x => x);
+                    unitTypeCache = unitTypes.ToDictionary(x => x.Name.ToLower(), x => x);
+                    taxTypeCache = taxTypes.ToDictionary(x => x.Name.ToLower(), x => x);
 
-                    List<Warehouse> warehouseList = new List<Warehouse>();
-                    List<Supplier> supplierList = new List<Supplier>();
-                    List<Category> categoryList = new List<Category>();
-                    List<Products> productList = new List<Products>();
+                    var invoiceCache = existingInvoices
+                        .Where(x => !string.IsNullOrEmpty(x.InvoiceNo))
+                        .GroupBy(x => x.InvoiceNo.ToLower())
+                        .ToDictionary(g => g.Key, g => g.First());
 
+                    List<Invoice> invoiceList = new List<Invoice>();
+                    List<InvoiceDetail> invoiceDetailList = new List<InvoiceDetail>();
+
+                    string invoiceNo = null;
                     foreach (var row in _invoices)
                     {
-                        if (!warehouseCache.TryGetValue(row.WarehouseName, out var warehouse))
+                        if (!warehouseCache.TryGetValue(row.WarehouseName.ToLower(), out var warehouse))
                         {
-                            var dialog =
-                                NotificationHelpers.Dialogs.DialogResultYesNo($"{row.WarehouseName} Anbarı yoxdur. Yenisi yaradılsınmı ?");
+                            warehouse = await AddWarehouse(row.WarehouseName);
 
-                            var result = XtraMessageBox.Show(dialog);
+                            //var dialog = NotificationHelpers.Dialogs.DialogResultYesNo($"{row.WarehouseName} Anbarı yoxdur. Yenisi yaradılsınmı ?");
 
-                            if (result is DialogResult.Yes)
-                            {
-                                warehouse = AddWarehouse(row.WarehouseName);
-                            }
-                            else
-                            {
-                                transaction.Rollback();
-                                NotificationHelpers.Messages.ErrorMessage(this, $"Anbar tapılmadı\nAnbar adı:{row.WarehouseName}");
-                                return;
-                            }
+                            //var result = XtraMessageBox.Show(dialog);
+
+                            //if (result is DialogResult.Yes)
+                            //    warehouse = await AddWarehouse(row.WarehouseName);
+                            //else
+                            //{
+                            //    transaction.Rollback();
+                            //    NotificationHelpers.Messages.ErrorMessage(this, $"Anbar tapılmadı\nAnbar adı:{row.WarehouseName}");
+                            //    return;
+                            //}
                         }
 
-                        if (!supplierCache.TryGetValue(row.SupplierName, out var supplier))
+                        if (!supplierCache.TryGetValue(row.SupplierName.ToLower(), out var supplier))
                         {
-                            //Dialog ilə soruş
-                            supplier = AddSupplier(row.SupplierName);
-                            transaction.Rollback();
-                            NotificationHelpers.Messages.ErrorMessage(this, $"Təchizatçı tapılmadı\nTəchizatçı adı: {row.SupplierName}");
+                            supplier = await AddSupplier(row.SupplierName);
+                            //transaction.Rollback();
+                            //NotificationHelpers.Messages.ErrorMessage(this, $"Təchizatçı tapılmadı\nTəchizatçı adı: {row.SupplierName}");
 
-                            return;
+                            //return;
                         }
 
-                        if (!categoryCache.TryGetValue(row.CategoryName, out var category))
+                        if (!categoryCache.TryGetValue(row.CategoryName.ToLower(), out var category))
                         {
-                            transaction.Rollback();
-                            NotificationHelpers.Messages.ErrorMessage(this, $"Kateqoriya tapılmadı\nKateqoriya adı: {row.CategoryName}");
-                            //Dialog ilə soruş
-                            category = AddCategory(row.CategoryName);
-                            return;
+                            category = await AddCategory(row.CategoryName);
+
+                            //transaction.Rollback();
+                            //NotificationHelpers.Messages.ErrorMessage(this, $"Kateqoriya tapılmadı\nKateqoriya adı: {row.CategoryName}");
+                            //return;
                         }
 
-                        if (!unitTypeCache.TryGetValue(row.UnitName, out var unitType))
+                        if (!unitTypeCache.TryGetValue(row.UnitName.ToLower(), out var unitType))
                         {
                             transaction.Rollback();
                             NotificationHelpers.Messages.ErrorMessage(this, $"Vahid növü tapılmadı\nVahidin adı: {row.UnitName}");
                             return;
                         }
 
-                        if (!taxTypeCache.TryGetValue(row.TaxName, out var taxType))
+                        if (!taxTypeCache.TryGetValue(row.TaxName.ToLower(), out var taxType))
                         {
                             transaction.Rollback();
                             NotificationHelpers.Messages.ErrorMessage(this, $"Vergi növü tapılmadı\nVergi növünün adı: {row.TaxName}");
                             return;
                         }
+
+                        if (!productCache.TryGetValue((row.ProductName.ToLower(), row.Barcode), out var product))
+                        {
+                            product = await AddProduct(category.Id, row.ProductName, row.ProductCode, row.Barcode, row.PurchasePrice,
+                                 row.SalePrice, unitType.Id, taxType.Id);
+                        }
+
+                        if (!invoiceCache.TryGetValue(row.InvoiceNo.ToLower(), out var invoice))
+                        {
+                            invoice = new Invoice
+                            {
+                                InvoiceNo = row.InvoiceNo,
+                                InvoiceDate = row.InvoiceDate.Value,
+                                SupplierId = supplier.Id,
+                                WarehouseId = warehouse.Id,
+                                TotalPurchasePrice = 0,
+                                UserId = UserCacheService.User.Id,
+                                CreatedDate = DatetimeService.CurrentDateTime,
+                                IsDeleted = false,
+                            };
+
+                            db.Invoices.Add(invoice);
+                            db.SaveChanges(); // invoice.Id-ni almaq üçün lazımdır (əgər Identity-dirsə)
+
+                            invoiceCache[row.InvoiceNo.ToLower()] = invoice;
+                            invoiceList.Add(invoice);
+                        }
+
+                        var invoiceDetail = new InvoiceDetail
+                        {
+                            InvoiceId = invoice.Id,
+                            ProductId = product.Id,
+                            Amount = row.Quantity,
+                            PurchasePrice = row.PurchasePrice,
+                            Discount = 0,
+                            TotalPurchasePrice = row.Quantity * row.PurchasePrice,
+                            SalePrice = row.SalePrice,
+                        };
+
+                        invoice.TotalPurchasePrice += row.PurchasePrice * row.Quantity;
+
+                        invoiceDetailList.Add(invoiceDetail);
                     }
+
+                    db.InvoiceDetails.AddRange(invoiceDetailList);
+                    if (await db.SaveChangesAsync() > 0)
+                        await UpdateProducts(db, invoiceDetailList);
+
+                    NotificationHelpers.Messages.SuccessMessage(this,"Məhsullar uğurla əlavə edildi");
+                    gridControlImport.DataSource = null;
+                    lookSheet.SelectedText = null;
+                    transaction.Commit();
                 }
                 catch (Exception e)
                 {
@@ -260,41 +318,124 @@ namespace Barcode_Sales.Forms
             }
         }
 
-        private Warehouse AddWarehouse(string warehouseName)
+        private async Task<Warehouse> AddWarehouse(string name)
         {
+            IWarehouseOperation warehouseOperation = new WarehouseManager();
             var warehouse = new Warehouse
             {
-                Name = warehouseName,
+                Name = name,
                 IsDeleted = false,
                 Status = true
             };
 
-            return warehouse;
+            var result = await warehouseOperation.Add(warehouse);
+            if (result > 0)
+            {
+                warehouseCache[name.ToLower()] = warehouse; // cache-i yenilə!
+                return warehouse;
+            }
+
+            return null;
         }
 
-        private Supplier AddSupplier(string supplierName)
+        private async Task<Supplier> AddSupplier(string name)
         {
+            ISupplierOperation supplierOperation = new SupplierManager();
+
             var supplier = new Supplier
             {
-                SupplierName = supplierName,
+                SupplierName = name,
                 Debt = 0,
                 Status = true,
                 IsDeleted = false
             };
 
-            return supplier;
+            var result = await supplierOperation.Add(supplier);
+            if (result > 0)
+            {
+                supplierCache[name.ToLower()] = supplier;
+                return supplier;
+            }
+
+            return null;
         }
 
-        private Category AddCategory(string categoryName)
+        private async Task<Category> AddCategory(string name)
         {
+            ICategoryOperation categoryOperation = new CategoryManager();
             var category = new Category
             {
-                CategoryName = categoryName,
+                CategoryName = name,
                 Status = true,
                 IsDeleted = false
             };
 
-            return category;
+            var result = await categoryOperation.Add(category);
+            if (result > 0)
+            {
+                categoryCache[name.ToLower()] = category;
+                return category;
+            }
+            return null;
+        }
+
+        private async Task UpdateProducts(KhanposDbEntities context, List<InvoiceDetail> details)
+        {
+            IProductOperation productOperation = new ProductManager(context);
+
+            List<Product> products = new List<Product>();
+
+            foreach (var item in details)
+            {
+                if (item.Product is null)
+                    item.Product = await productOperation.Get(x => x.Id == item.ProductId);
+
+                item.Product.Quantity += item.Amount;
+                item.Product.PurchasePrice = item.PurchasePrice;
+                item.Product.SalePrice = item.SalePrice;
+                products.Add(item.Product);
+            }
+
+            await productOperation.Update(products,
+                 x => x.Quantity,
+                 x => x.PurchasePrice,
+                 x => x.SalePrice);
+        }
+
+        private async Task<Product> AddProduct(int categoryId, string productName, string productCode, string barcode, decimal purchasePrice, decimal salePrice,
+            int unitId, int taxId)
+        {
+            IProductOperation productOperation = new ProductManager();
+            var product = new Product
+            {
+                Type = 1,
+                CategoryId = categoryId,
+                ProductName = productName,
+                ProductCode = productCode,
+                Barcode = barcode,
+                Quantity = 0,
+                PurchasePrice = purchasePrice,
+                SalePrice = salePrice,
+                UnitId = unitId,
+                TaxId = taxId,
+                IsActive = true,
+                CreatedUserId = UserCacheService.User.Id,
+                CreatedDate = DatetimeService.CurrentDateTime,
+                IsDeleted = false,
+                CanEditSalePrice = true,
+                CanSellWithoutStock = true,
+                CanApplyDiscount = true,
+                CanHotSaleProduct = true
+            };
+
+            var result = await productOperation.Add(product);
+            if (result > 0)
+            {
+                productCache[(productName, barcode)] = product;
+                return product;
+            }
+
+            return null;
         }
 
         private void bDownloadTemplate_Click(object sender, EventArgs e)

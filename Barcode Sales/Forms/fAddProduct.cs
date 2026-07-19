@@ -1,16 +1,15 @@
 ﻿using Barcode_Sales.DTOs;
 using Barcode_Sales.Helpers;
-using Barcode_Sales.Helpers.Messages;
 using Barcode_Sales.Operations.Abstract;
 using Barcode_Sales.Operations.Concrete;
 using Barcode_Sales.Services.CacheServices;
 using Barcode_Sales.Validations;
+using DevExpress.XtraEditors;
 using System;
 using System.ComponentModel;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using DevExpress.XtraEditors;
 
 namespace Barcode_Sales.Forms
 {
@@ -23,12 +22,12 @@ namespace Barcode_Sales.Forms
 
 
         private Enums.Operation _operation { get; }
-        private Products _product { get; set; }
+        private Product _product { get; set; }
         private string _barcode { get; set; }
 
         private BindingList<ProductInvoiceDto> dataList = new BindingList<ProductInvoiceDto>();
 
-        public fAddProduct(Enums.Operation operation, Products product = null)
+        public fAddProduct(Enums.Operation operation, Product product = null)
         {
             InitializeComponent();
             _operation = operation;
@@ -95,7 +94,7 @@ namespace Barcode_Sales.Forms
 
         private async void Add()
         {
-            _product = new Products();
+            _product = new Product();
             _product.Type = (byte)Enums.ProductType.Product;
             _product.ProductName = tProductName.Text.Trim();
             _product.CategoryId = lookCategory.EditValue == null ? 0 : (int)lookCategory.EditValue;

@@ -267,7 +267,7 @@ namespace Barcode_Sales.Barcode.Sales.UI
             public double Total { get; set; }
         }
 
-        void ProductsAddGrid(Products _product, double _amount)
+        void ProductsAddGrid(Product _product, double _amount)
         {
             short rowNo = 1;
             try
@@ -323,7 +323,7 @@ namespace Barcode_Sales.Barcode.Sales.UI
         }
 
 
-        private void UrunGetirListeye(Products urun, string barkod, double miktar)
+        private void UrunGetirListeye(Product urun, string barkod, double miktar)
         {
             try
             {

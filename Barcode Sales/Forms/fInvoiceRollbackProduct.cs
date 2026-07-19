@@ -208,7 +208,7 @@ namespace Barcode_Sales.Forms
 
         private async void UpdateProducts(List<InvoiceRollbackDetail> items)
         {
-            List<Products> products = new List<Products>();
+            List<Product> products = new List<Product>();
             foreach (var item in items)
             {
                 var product = await productOperation.Get(x => x.Id == item.ProductId);

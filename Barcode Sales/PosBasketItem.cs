@@ -24,6 +24,6 @@ namespace Barcode_Sales
         public decimal TotalAmount { get; set; }
     
         public virtual PosBasket PosBasket { get; set; }
-        public virtual Products Product { get; set; }
+        public virtual Product Product { get; set; }
     }
 }

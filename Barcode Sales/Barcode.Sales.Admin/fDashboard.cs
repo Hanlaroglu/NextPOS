@@ -157,7 +157,7 @@ namespace Barcode_Sales.Barcode.Sales.Admin
                 return;
             }
             var edit = (CheckEdit)sender;
-            var product = (Products)gridProducts.GetFocusedRow();
+            var product = (Product)gridProducts.GetFocusedRow();
             product.IsActive = (bool)edit.EditValue;
             //todo status codunu yaz
             //productOperation.StatusUpdate(products, (bool)edit.EditValue);
