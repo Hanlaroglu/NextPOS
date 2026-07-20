@@ -5,6 +5,7 @@ using DevExpress.XtraEditors;
 using System;
 using System.Windows.Forms;
 using Barcode_Sales.Services;
+using Barcode_Sales.Terminals.Caspos;
 using static Barcode_Sales.Helpers.Enums;
 using Enums = Barcode_Sales.Helpers.Enums;
 
@@ -98,6 +99,15 @@ namespace Barcode_Sales.Forms
 
                 switch (terminal)
                 {
+                    case Enums.Terminal.CASPOS:
+                        CasposTerminal caspos = new CasposTerminal(TerminalCacheService.Terminal.IpAddress);
+
+                        var casposResult = caspos.GetShiftStatus();
+                        if (casposResult.Success)
+                            NotificationHelpers.Messages.InfoMessage(this, casposResult.Message);
+                        else
+                            NotificationHelpers.Messages.ErrorMessage(this, casposResult.Message);
+                        break;
                     case Enums.Terminal.OMNİTECH:
                         OmnnitechTerminal omnnitech = new OmnnitechTerminal(TerminalCacheService.Terminal.IpAddress);
 
